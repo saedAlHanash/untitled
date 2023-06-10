@@ -18,29 +18,13 @@ packages:
     source: hosted
     version: "2.1.2"
   agora_rtc_engine:
-    dependency: transitive
-    description:
-      name: agora_rtc_engine
-      sha256: f860c2fe418e877ed12e6c4e7150a990d8e627f36be74b33b5265f68a42ab088
-      url: "https://pub.dev"
-    source: hosted
-    version: "6.1.1+1"
-  agora_rtm:
-    dependency: transitive
-    description:
-      name: agora_rtm
-      sha256: "89e1ff47a2dc6fdd231ecdb6d457c848a5778c1ad3513f29e5aa37bb319e6b1f"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.5.4"
-  agora_uikit:
     dependency: "direct main"
     description:
-      name: agora_uikit
-      sha256: "5fcc6cc5a5d7f5973a0cfc1db918b35c6941b67127388a75cff9d99c2a593087"
+      name: agora_rtc_engine
+      sha256: f4ed954e859d7de0d036e17f2657f748813d1184d71de6d14cbabe43d49cfb6b
       url: "https://pub.dev"
     source: hosted
-    version: "1.3.3"
+    version: "6.2.0"
   archive:
     dependency: transitive
     description:
@@ -604,10 +588,10 @@ packages:
     dependency: transitive
     description:
       name: iris_method_channel
-      sha256: "5bd4f6ca1573744232bed153d30473ec6607cdc5e7ba9a45eaa9ae427cd7cc7d"
+      sha256: dce2527839b46d1d0f0573b5ae1425e23a111afb280245ea1500f16a11957ad4
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.0-rc.5"
+    version: "1.1.0"
   js:
     dependency: transitive
     description:
@@ -785,7 +769,7 @@ packages:
     source: hosted
     version: "4.2.3"
   permission_handler:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: permission_handler
       sha256: "1b6b3e73f0bcbc856548bbdfb1c33084a401c4f143e220629a9055233d76c331"

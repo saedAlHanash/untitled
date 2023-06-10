@@ -1,14 +1,9 @@
-import 'package:agora_uikit/agora_uikit.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:logger/logger.dart';
 
-import '../../Utils/storage_controller.dart';
-import '../Trainee Screens/HomeScreen/home_screen.dart';
 import 'dart:async';
 
 import 'package:agora_rtc_engine/agora_rtc_engine.dart';
 import 'package:flutter/material.dart';
+
 import 'package:permission_handler/permission_handler.dart';
 
 // class Video extends StatefulWidget {

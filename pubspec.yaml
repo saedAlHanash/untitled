@@ -43,7 +43,9 @@ dependencies:
   readmore: ^2.2.0
   flutter_native_splash: ^2.2.5
   google_sign_in:
-  agora_uikit: ^1.3.3
+  agora_rtc_engine: ^6.2.0
+  # permission handler
+  permission_handler:
   flutter_app_badger:
   firebase_auth:
   get: ^4.6.5
