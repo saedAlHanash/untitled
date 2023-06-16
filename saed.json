@@ -1,0 +1,198 @@
+{
+  "data": [
+    {
+      "id": "24",
+      "image": "storage/app/public/trainersImages/4GfGCIYQ1SrdlcQ6bsv6jI6PKRsAS5fEMuRjvAcv.png",
+      "name": "Mariam khaled",
+      "bio": "Certified coach and personal trainer 7 years experience in sports programs the winner of golden medal of national sports program competition",
+      "introduction_video": null,
+      "number_of_plans": "1",
+      "number_of_private_hours": 0,
+      "number_of_subscribers": 22,
+      "specialties": [
+        {
+          "id": "3",
+          "type": "Body weight",
+          "type_id": "3",
+          "plan_id": "44"
+        }
+      ],
+      "private_session_price": 1000,
+      "appointment": null
+    },
+    {
+      "id": "25",
+      "image": "storage/app/public/trainersImages/zWi19yVgczXN30RFjemZ3yPAHGXLL8QaEb0xLmIF.png",
+      "name": "Nisreen Khory",
+      "bio": "Lebanese Yoga Trainer and has 10 years experience in home yoga and other related sports relaxation techniques and meditation",
+      "introduction_video": null,
+      "number_of_plans": "3",
+      "number_of_private_hours": 0,
+      "number_of_subscribers": 4,
+      "specialties": [
+        {
+          "id": "16",
+          "type": "yoga",
+          "type_id": "16",
+          "plan_id": "41"
+        }
+      ],
+      "private_session_price": 1000,
+      "appointment": null
+    },
+    {
+      "id": "26",
+      "image": "storage/app/public/trainersImages/NJMWUKTkEPMagUXhM4DlJTE0IOXozYVDk3Hiba86.png",
+      "name": "Rita Kamar",
+      "bio": "One of the most important Lebanese international coaches",
+      "introduction_video": null,
+      "number_of_plans": "2",
+      "number_of_private_hours": 151,
+      "number_of_subscribers": 5,
+      "specialties": [
+        {
+          "id": "2",
+          "type": "HIIT training",
+          "type_id": "2",
+          "plan_id": "42"
+        },
+        {
+          "id": "17",
+          "type": "Zumba",
+          "type_id": "17",
+          "plan_id": "72"
+        }
+      ],
+      "private_session_price": 1,
+      "appointment": {
+        "id": 2152,
+        "status": "started",
+        "video_call_token": "006861acc6b86cb46089cc592a00bde6328IADOxS5H2vI/sHt8T7CTJ1Ave5j4s8ZNdnDnVsOXU0xG8Yp+KioTFn8HEACVWQEAibQEZAEAAQCddANk",
+        "time": null
+      }
+    },
+    {
+      "id": "28",
+      "image": "storage/app/public/trainersImages/7V0vp8OTfHBgHrrClBw16THFmvzptMnzOJTvlK7P.png",
+      "name": "Abd Elazim Fargally",
+      "bio": "Egyptian Coach and Personal Trainer specialized in strength training and body building programs",
+      "introduction_video": null,
+      "number_of_plans": "2",
+      "number_of_private_hours": 18,
+      "number_of_subscribers": 10,
+      "specialties": [
+        {
+          "id": "1",
+          "type": "Weightlifting",
+          "type_id": "1",
+          "plan_id": "45"
+        }
+      ],
+      "private_session_price": 1,
+      "appointment": {
+        "id": 6080,
+        "status": "started",
+        "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IABy181D7ob673Mnu9waK8PGiOgX1c7lyRDn9IOLnwS4HIp+KioAAAAAEAA/1gAAaDF5ZAEAAQB78Xdk",
+        "time": null
+      }
+    },
+    {
+      "id": "29",
+      "image": "storage/app/public/trainersImages/GBwT0GB2f4VosuLrfdxPzRGPv86ldn2kpmqAu01c.png",
+      "name": "Doha Dergham",
+      "bio": "Coach and Personal Trainer called the queen of home workout",
+      "introduction_video": null,
+      "number_of_plans": "1",
+      "number_of_private_hours": 14,
+      "number_of_subscribers": 16,
+      "specialties": [
+        {
+          "id": "3",
+          "type": "Body weight",
+          "type_id": "3",
+          "plan_id": "43"
+        }
+      ],
+      "private_session_price": 1000,
+      "appointment": {
+        "id": 5906,
+        "status": "started",
+        "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IAAqbl2PJeqEkgy1Acp7Z3oPMqclq/7txNUtYwxS+96iL4p+Kio43zc1EADgzAAANDRzZAEAAQBI9HFk",
+        "time": null
+      }
+    },
+    {
+      "id": "30",
+      "image": "storage/app/public/trainersImages/76ojdOJPB99Y2qIssenI6Lhc3st46EUHea0pfn98.png",
+      "name": "Rashad Kazaz",
+      "bio": "Syrian Coach specialized in weightlifting, body building and weight loss  programs",
+      "introduction_video": null,
+      "number_of_plans": "1",
+      "number_of_private_hours": 7,
+      "number_of_subscribers": 2,
+      "specialties": [
+        {
+          "id": "1",
+          "type": "Weightlifting",
+          "type_id": "1",
+          "plan_id": "46"
+        }
+      ],
+      "private_session_price": 1000,
+      "appointment": null
+    },
+    {
+      "id": "31",
+      "image": "storage/app/public/trainersImages/plzYOgjKEk3UL61WNeFTn9axvvrFBzUY2F4w7uON.jpg",
+      "name": "Ismail Lagdashi",
+      "bio": "Coach Ismail specialized in Kickboxing sports and body building",
+      "introduction_video": null,
+      "number_of_plans": "1",
+      "number_of_private_hours": 29,
+      "number_of_subscribers": 0,
+      "specialties": [
+        {
+          "id": "10",
+          "type": "Body building",
+          "type_id": "10",
+          "plan_id": "68"
+        }
+      ],
+      "private_session_price": 1000,
+      "appointment": {
+        "id": 2301,
+        "status": "started",
+        "video_call_token": "006861acc6b86cb46089cc592a00bde6328IACs9ldGLpuKpmx2689eiQAHxISIjeb4RQIB8j9KzXFqwIp+KirC9BWpEADt9gAAdiwKZAEAAQCK7Ahk",
+        "time": null
+      }
+    },
+    {
+      "id": "46",
+      "image": "storage/app/public/trainersImages/sDk8M04rVpHM5jQpRE9zqnSwUoqbLyxB8jl6g9bN.jpg",
+      "name": "kholoud elsayed",
+      "bio": "Coach and Personal Trainer",
+      "introduction_video": null,
+      "number_of_plans": "0",
+      "number_of_private_hours": 7,
+      "number_of_subscribers": 0,
+      "specialties": [],
+      "private_session_price": 100,
+      "appointment": null
+    },
+    {
+      "id": "47",
+      "image": "storage/app/public/trainersImages/DDQrygaX220iAHXTolwikPOYjtkuQWVuxtBp9JgE.png",
+      "name": "Ahmed Maher",
+      "bio": "Coach and Personal Trainer",
+      "introduction_video": null,
+      "number_of_plans": "0",
+      "number_of_private_hours": 6,
+      "number_of_subscribers": 0,
+      "specialties": [],
+      "private_session_price": 1,
+      "appointment": null
+    }
+  ],
+  "number_of_pages": 1,
+  "number_of_results": 9
+}

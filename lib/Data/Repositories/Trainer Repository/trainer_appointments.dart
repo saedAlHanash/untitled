@@ -37,10 +37,10 @@ class TrainerAppointmentsRepository {
   }
 
   Future<dynamic> coachMakeVideoCall() async {
-    Options options = Utils.getOptions(withToken: true, all: true);
-    ApiResult result = await Methods.get(
-        url: "http://api.fitnessstorm.org/mobile/user/myAppointmentWithTrainer",
-        options: options);
+    final options = Utils.getOptions(withToken: true, all: true);
+    final result =
+        await Methods.get(url: TRAINEEURLS.bookedAppointments, options: options);
+
     if (result.type == ApiResultType.success) {
       if (result.data.isEmpty) {
         return [];
@@ -53,8 +53,8 @@ class TrainerAppointmentsRepository {
 
   Future<dynamic> traineeMakeVideoCall() async {
     Options options = Utils.getOptions(withToken: true, all: true);
-    ApiResult result = await Methods.get(
-        url: TRAINEEURLS.bookedAppointments, options: options);
+    ApiResult result =
+        await Methods.get(url: TRAINEEURLS.bookedAppointments, options: options);
     if (result.type == ApiResultType.success) {
       if (result.data.isEmpty) {
         return {};

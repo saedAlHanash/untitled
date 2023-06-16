@@ -1,8 +1,9 @@
-
 import 'dart:async';
 
 import 'package:agora_rtc_engine/agora_rtc_engine.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import 'package:permission_handler/permission_handler.dart';
 
@@ -119,6 +120,7 @@ import 'package:permission_handler/permission_handler.dart';
 class Video1 extends StatefulWidget {
   const Video1({Key? key, required this.tempToken}) : super(key: key);
   final String tempToken;
+
   @override
   State<Video1> createState() => _Video1State();
 }
@@ -164,7 +166,6 @@ class _Video1State extends State<Video1> {
     await _engine.initialize(const RtcEngineContext(
       appId: 'd3e3ad9bf2a846beb551b003979a2142',
       channelProfile: ChannelProfileType.channelProfileLiveBroadcasting,
-
     ));
 
     _engine.registerEventHandler(eventHandler);
@@ -193,7 +194,9 @@ class _Video1State extends State<Video1> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Agora Video Call'),
+        backgroundColor: Get.theme.primaryColor,
+        title: Text('private_sessions'.tr),
+        centerTitle: true,
       ),
       body: Stack(
         children: [

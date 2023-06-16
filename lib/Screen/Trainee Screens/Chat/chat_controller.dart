@@ -21,7 +21,9 @@ class ChatController extends GetxController {
   }
 
   getChats() async {
-    chats.addAll(await _chatRepository.getAllPreviousChats());
+    if (chats.isEmpty) {
+      chats.addAll(await _chatRepository.getAllPreviousChats());
+    }
     return chats;
   }
 

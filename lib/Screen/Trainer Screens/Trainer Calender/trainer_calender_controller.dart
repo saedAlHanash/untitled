@@ -126,9 +126,7 @@ class TrainerCalenderController extends GetxController {
   }
 
   traineeMakeVideoCall() async {
-    DateTime now = DateTime.now();
-    TrainerAppointmentsRepository trainerAppointmentsRepository =
-        TrainerAppointmentsRepository();
+    final trainerAppointmentsRepository = TrainerAppointmentsRepository();
 
     var scheduledCallTimes = await trainerAppointmentsRepository.coachMakeVideoCall();
     if (scheduledCallTimes.length == 0) {
@@ -152,8 +150,6 @@ class TrainerCalenderController extends GetxController {
       //     break;
       //   }
       return data;
-
-      return null;
     }
   }
 
@@ -163,8 +159,12 @@ class TrainerCalenderController extends GetxController {
         TrainerAppointmentsRepository();
     List scheduledCallTimes = await trainerAppointmentsRepository.coachMakeVideoCall();
     if (scheduledCallTimes.isEmpty) return false;
-    String lastTime = scheduledCallTimes.firstWhereOrNull(
-        (element) => element['trainer']['name'] == trainerName)['end_time'];
+
+    String lastTime = (scheduledCallTimes.firstWhereOrNull((element) {
+          return element['trainer']['name'] == trainerName;
+        }) ??
+        {})['end_time'];
+
     if (DateTime.parse(lastTime).day <= now.day &&
         (DateTime.parse(lastTime).hour + 1) >= (now.hour)) {
       return true;

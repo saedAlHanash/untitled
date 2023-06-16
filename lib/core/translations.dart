@@ -298,7 +298,7 @@ class LocaleString extends Translations {
           'needBookPrivateSession':
               'You need to book an appointment to have a private session with the coach',
           'Your_subscription_to_plan':
-              'Your subscription to plan will be canceled',
+              'Your subscription will be canceled with plan',
           "subscription_finished":
               "Your subscription to Fitness Sotrm has ended, kindly renew it to continue where you have stopped.Subscribe Cancel",
           'will_be_canceled': 'will be canceled',
@@ -692,7 +692,7 @@ The application Policies may be changed or updated occasionally to meet the requ
               'هل أنهيت تمارينك اليوم؟ اختر "نعم" ليتم حفظ تقدمك في السجل.',
           'i\'ll_come_back_later': 'سأنهيها لاحقاّ',
           'set_x': 'مجموعة *',
-          'Your_subscription_to_plan': 'سيتم إلغاء اشتراكك في هذه خطة',
+          'Your_subscription_to_plan': 'سيتم إلغاء اشتراكك في خطة',
           'trainers': 'متدربين',
           'let\'s_go': 'لنبدأ',
           'you_can_do_it_this_set': 'انطلق لأنك تستطيع',

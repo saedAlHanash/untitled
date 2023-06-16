@@ -27,18 +27,22 @@ abstract class Methods {
         options: options,
         queryParameters: queryParameters,
       );
+
       if (response.statusCode == 500) {
         log("testtttt");
         print(response.data);
         return ApiResult.failureFromJson(response.data);
       }
+
       print('response : ${response.data}');
+
       if (response.statusCode == 200 || response.statusCode == 201) {
         return ApiResult.successFromJson(response.data);
       } else {
         return ApiResult.failureFromJson(response.data,
             statusCode: response.statusCode);
       }
+
     } catch (e) {
       LogService().e(e.toString());
       return ApiResult.failure(NetworkExceptions.getErrorMessage(e));

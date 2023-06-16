@@ -52,7 +52,8 @@ abstract class TRAINEEURLS {
   static const String getBookmarkPlan =
       '${Constants.userBaseUrl}/plans/bookmarked';
   static const String getMyPayment = '${Constants.userBaseUrl}/myPayments';
-  static const String getMyPaymentPrivateSession = '${Constants.userBaseUrl}/myAppointmentWithTrainer';
+  static const String getMyPaymentPrivateSession = '${Constants
+      .userBaseUrl}/myAppointmentWithTrainer';
   static const String allChats = '${Constants.userBaseUrl}/chats';
   static const String allNotifications =
       '${Constants.userBaseUrl}/notifications';

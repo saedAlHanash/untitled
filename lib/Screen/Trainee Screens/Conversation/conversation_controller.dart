@@ -77,9 +77,7 @@ class ConversationController extends GetxController {
 
   onSendMessage({String? channelId}) async {
     if (channelId != null) {
-      messageController.text = "test subscription";
       if (messageController.text.isEmpty) return;
-      log('isNotEmpty');
 
       String message = messageController.text;
       messageController.text = '';

@@ -16,8 +16,7 @@ class ChatAndVideoButtonWidget extends StatefulWidget {
   String trainerName;
 
   @override
-  State<ChatAndVideoButtonWidget> createState() =>
-      _ChatAndVideoButtonWidgetState();
+  State<ChatAndVideoButtonWidget> createState() => _ChatAndVideoButtonWidgetState();
 }
 
 class _ChatAndVideoButtonWidgetState extends State<ChatAndVideoButtonWidget> {
@@ -35,22 +34,27 @@ class _ChatAndVideoButtonWidgetState extends State<ChatAndVideoButtonWidget> {
               // Utils.showAlertDialog(onContinueButtonPressed, message)
               Utils.showAlertDialog(() {
                 Get.back();
-              }, "make_chat");
+              }, "لا تتوفر المحادثة مع المدرب في هذا الوقت");
             } else {
               Utils.openLoadingDialog();
               List<Chat> chats = await Get.put(ChatController()).getChats();
-              var chat = chats.firstWhere(
-                  (element) => element.trainer!.name == widget.trainerName);
+              var chat = chats
+                  .firstWhere((element) => element.trainer!.name == widget.trainerName);
 
               String channelId = chat.channelId!;
               try {
                 await Get.put(ConversationController())
                     .onSendMessage(channelId: channelId);
-                Get.toNamed(
-                  AppRoutes.conversationScreen,
-                  arguments: [widget.trainerName, channelId],
-                );
                 Utils.closeDialog();
+                Future.delayed(
+                  const Duration(seconds: 1),
+                  () {
+                    Get.toNamed(
+                      AppRoutes.conversationScreen,
+                      arguments: [widget.trainerName, channelId],
+                    );
+                  },
+                );
               } catch (e) {
                 Utils.closeDialog();
                 Utils.openSnackBar(title: e.toString());
@@ -73,8 +77,7 @@ class _ChatAndVideoButtonWidgetState extends State<ChatAndVideoButtonWidget> {
         const SizedBox(width: 10),
         GestureDetector(
           onTap: () async {
-            var data = await Get.put(TrainerCalenderController())
-                .traineeMakeVideoCall();
+            var data = await Get.put(TrainerCalenderController()).traineeMakeVideoCall();
             if (data != null) {
               // ignore: use_build_context_synchronously
               Navigator.push(

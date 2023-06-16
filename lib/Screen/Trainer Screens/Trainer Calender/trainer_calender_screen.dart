@@ -53,12 +53,10 @@ class TrainerCalenderSceen extends GetView<TrainerCalenderController> {
                             )
                           : controller.calenders.isNotEmpty
                               ? Column(
-                                  children: controller.calenders.keys
-                                      .toList()
-                                      .map((element) {
+                                  children:
+                                      controller.calenders.keys.toList().map((element) {
                                     return Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
                                         Padding(
                                           padding: EdgeInsets.only(
@@ -77,8 +75,7 @@ class TrainerCalenderSceen extends GetView<TrainerCalenderController> {
                                                 element,
                                                 style: const TextStyle(
                                                     color: Colors.grey,
-                                                    fontWeight:
-                                                        FontWeight.w600),
+                                                    fontWeight: FontWeight.w600),
                                               ),
                                             ],
                                           ),
@@ -90,11 +87,9 @@ class TrainerCalenderSceen extends GetView<TrainerCalenderController> {
                                               top: 15.0,
                                               bottom: 15.0),
                                           child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            children: controller
-                                                .calenders[element]!
-                                                .map((e) {
+                                            crossAxisAlignment: CrossAxisAlignment.center,
+                                            children:
+                                                controller.calenders[element]!.map((e) {
                                               int d;
                                               return DateOfSession(
                                                   nameOfCustomer: e.user!.name!,
@@ -109,8 +104,7 @@ class TrainerCalenderSceen extends GetView<TrainerCalenderController> {
                                   }).toList(),
                                 )
                               : Center(
-                                  child: Text(
-                                      'there_are_no_appointments_this_week'.tr),
+                                  child: Text('there_are_no_appointments_this_week'.tr),
                                 )
                       : Center(
                           child: Text('there_are_no_appointments_this_week'.tr),
@@ -144,11 +138,9 @@ class DateOfSession extends GetView<TrainerCalenderController> {
         int hourSchedule = DateTime.parse(date).hour;
         if (hourNow >= hourSchedule && hourNow <= (hourSchedule + 1)) {
           Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (_) => Video1(
-                        tempToken: token,
-                      )));
+            context,
+            MaterialPageRoute(builder: (_) => Video1(tempToken: token)),
+          );
         } else {
           showDialog(
               context: context,
@@ -177,8 +169,7 @@ class DateOfSession extends GetView<TrainerCalenderController> {
         child: Row(
           children: [
             Text(DateFormat('h:mm a').format(DateTime.parse(date)),
-                style:
-                    const TextStyle(fontSize: 11, fontWeight: FontWeight.w600)),
+                style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w600)),
             const SizedBox(width: 7),
             // if (("${DateTime.now().hour}:${DateTime.now().minute}") == date)
             //   Container(
@@ -190,8 +181,7 @@ class DateOfSession extends GetView<TrainerCalenderController> {
             Text('Session_with'.tr, style: const TextStyle(fontSize: 11)),
             const SizedBox(width: 5),
             Text(nameOfCustomer,
-                style:
-                    const TextStyle(fontSize: 11, fontWeight: FontWeight.w600)),
+                style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w600)),
             const SizedBox(width: 7),
             Icon(
               Icons.video_call,

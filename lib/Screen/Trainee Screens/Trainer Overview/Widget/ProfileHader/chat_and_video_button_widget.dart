@@ -9,16 +9,18 @@ class ChatAndVideoButtonWidget extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Container(
-          height: Get.height / 27,
-          width: Get.width / 12.5,
-          // padding: EdgeInsets.all(2),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(5),
-            color: Get.theme.colorScheme.secondary,
-          ),
-          child: Image.asset(
-            'asset/Images/chat3.png',
+        GestureDetector(
+          child: Container(
+            height: Get.height / 27,
+            width: Get.width / 12.5,
+            // padding: EdgeInsets.all(2),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(5),
+              color: Get.theme.colorScheme.secondary,
+            ),
+            child: Image.asset(
+              'asset/Images/chat3.png',
+            ),
           ),
         ),
         const SizedBox(),
