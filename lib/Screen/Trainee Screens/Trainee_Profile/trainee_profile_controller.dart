@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fitness_storm/Data/Api/api_result.dart';
 import 'package:fitness_storm/Data/Repositories/auth_repository.dart';
 import 'package:fitness_storm/Data/Repositories/trainee_repository.dart';
@@ -71,10 +72,8 @@ class TraineeProfileController extends GetxController {
   editProfile() async {
     isLoading = true;
     Utils.openLoadingDialog();
-    userProfile.fitnessSurvey!.preferredWorkoutLocationId =
-        HelperClass.workoutLocation;
-    ApiResult result =
-        await _traineeRepository.editProfile(userProfile.toJson());
+    userProfile.fitnessSurvey!.preferredWorkoutLocationId = HelperClass.workoutLocation;
+    ApiResult result = await _traineeRepository.editProfile(userProfile.toJson());
     if (result.type == ApiResultType.success) {
       await getUserProfile();
       Utils.closeDialog();
@@ -92,8 +91,7 @@ class TraineeProfileController extends GetxController {
       Get.back();
       Utils.openLoadingDialog();
       isLoading = true;
-      ApiResult result =
-          await _traineeRepository.changePassword(newPassword.text);
+      ApiResult result = await _traineeRepository.changePassword(newPassword.text);
       if (result.type == ApiResultType.success) {
         Utils.closeDialog();
         Utils.openSnackBar(title: 'Password_changed'.tr);
@@ -148,12 +146,15 @@ class TraineeProfileController extends GetxController {
 
   logoutDependingOnTheLoginMethod() async {
     GetStorage getStorage = GetStorage();
-    String methodLogin =
-        await getStorage.read(Constants.methodTakeAuthentication);
+    String methodLogin = await getStorage.read(Constants.methodTakeAuthentication);
+    StorageController().listUsers.clear();
+
     switch (methodLogin) {
       case 'google':
         {
           await logoutGoogle();
+          await FirebaseAuth.instance.signOut();
+          StorageController().firebaseUser = null;
           break;
         }
 
@@ -163,7 +164,9 @@ class TraineeProfileController extends GetxController {
         }
       default:
         {
-          logout();
+          await logout();
+          await FirebaseAuth.instance.signOut();
+          StorageController().firebaseUser = null;
           break;
         }
     }
@@ -182,7 +185,6 @@ class TraineeProfileController extends GetxController {
   }
 
   onContactUsClick() {
-    Get.toNamed(AppRoutes.conversationScreen,
-        arguments: ['customer_service'.tr, "-1"]);
+    Get.toNamed(AppRoutes.conversationScreen, arguments: ['customer_service'.tr, "-1"]);
   }
 }

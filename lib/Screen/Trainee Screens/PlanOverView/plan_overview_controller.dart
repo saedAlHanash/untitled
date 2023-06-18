@@ -79,8 +79,7 @@ class PlanOverviewController extends GetxController {
 
   subscribeToPlan() async {
     Utils.openLoadingDialog();
-    var response =
-        await _traineeRepository.subscribePlan(planId: planOverview.id!);
+    var response = await _traineeRepository.subscribePlan(planId: planOverview.id!);
     if (response.type == ApiResultType.success) {
       Utils.closeDialog();
       GetStorage getStorage = GetStorage();
@@ -126,13 +125,15 @@ class PlanOverviewController extends GetxController {
 
   startTraining(int index) async {
     Utils.openLoadingDialog();
-    ApiResult apiResult =
-        await _exerciseRepository.startDay(planWorkouts[index].id!);
+    ApiResult apiResult = await _exerciseRepository.startDay(planWorkouts[index].id!);
 
+    print(apiResult.data);
     if ((StorageController().userType == 'trainer') ||
-        apiResult.type == ApiResultType.success) {
+        apiResult.type == ApiResultType.success ||
+        apiResult.statusCode == 402) {
       Get.back();
       Get.delete<UserTrainingController>();
+
       if (HelperClass.webView != null) {
         if (defaultTargetPlatform == TargetPlatform.android) {
           await HelperClass.webView?.loadUrl(
@@ -174,19 +175,18 @@ class PlanOverviewController extends GetxController {
         GetStorage getStorage = GetStorage();
         String? prevPlan = getStorage.read('currentPlan');
         if (prevPlan != null) {
-          Utils.showAlertDialog(subscribeToPlan,
-              '''${'Your_subscription_to_plan'.tr} $prevPlan''');
+          Utils.showAlertDialog(
+              subscribeToPlan, '''${'Your_subscription_to_plan'.tr} $prevPlan''');
         } else {
-          Utils.showAlertDialog(() {}, apiResult.message!,
-              textContinue: 'okay'.tr);
+          Utils.showAlertDialog(() {}, apiResult.message!, textContinue: 'okay'.tr);
         }
       } else if (apiResult.statusCode == 451) {
         Utils.showAlertDialog(() {
           Get.toNamed(AppRoutes.subscriptionScreen);
         }, '''subscription_finished'''.tr, textContinue: 'subscribe'.tr);
       } else if (apiResult.statusCode == 402) {
-        Utils.showAlertDialog(() {}, "finished_this_day".tr,
-            textContinue: 'okay'.tr);
+        //TODO: saed see mahmood form server to fix it
+        Utils.showAlertDialog(() {}, "finished_this_day".tr, textContinue: 'okay'.tr);
       }
     }
   }

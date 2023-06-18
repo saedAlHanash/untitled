@@ -30,7 +30,7 @@ class TrainerOverviewScreen extends GetView<TrainerOverviewController> {
                   children: [
                     TrainerProfileHeader(
                       imageUrl: controller.trainer.profilePic!,
-                      trainerName: controller.trainer.name!,
+                      trainer: controller.trainer,
                     ),
                     TrainerBioWidget(
                       trainerBio: controller.trainer.bio!,

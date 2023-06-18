@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../../Model/trainer.dart';
 import 'chat_and_video_button_widget.dart';
 
 class TrainerProfileInfowidget extends StatelessWidget {
-  final String trainerName;
+  final Trainer trainer;
 
   const TrainerProfileInfowidget({
     super.key,
-    required this.trainerName,
+    required this.trainer,
   });
 
   @override
@@ -21,7 +22,7 @@ class TrainerProfileInfowidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            trainerName,
+            trainer.name??'',
             style: const TextStyle(
               color: Color(0xFF565C63),
               fontWeight: FontWeight.bold,
@@ -29,7 +30,7 @@ class TrainerProfileInfowidget extends StatelessWidget {
             ),
           ),
           ChatAndVideoButtonWidget(
-            trainerName: trainerName,
+            trainer: trainer,
           )
         ],
       ),

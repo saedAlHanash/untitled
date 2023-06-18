@@ -44,9 +44,9 @@ class WorkoutScreenController extends GetxController {
 
   startTraining(int index) async {
     Utils.openLoadingDialog();
-    ApiResult apiResult =
-        await _exerciseRepository.startDay(workouts[index].id!);
-    if (apiResult.type == ApiResultType.success) {
+    ApiResult apiResult = await _exerciseRepository.startDay(workouts[index].id!);
+    if (apiResult.type == ApiResultType.success || apiResult.statusCode == 402) {
+
       Get.back();
       Get.back();
       Get.delete<UserTrainingController>();
@@ -59,6 +59,7 @@ class WorkoutScreenController extends GetxController {
         workouts[index].type!,
         workouts[index].count,
         workouts[index].break_after_set,
+        apiResult.statusCode == 402
       ]);
     } else {
       Get.back();

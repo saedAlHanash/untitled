@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../Model/trainer.dart';
 import '../../../../Trainer Screens/Trainer Overview/Widget/ProfileHader/chat_and_video_button_widget.dart';
 
 class TrainerProfileInfowidget extends StatelessWidget {
-  final String trainerName;
+  final Trainer trainer;
 
-  const TrainerProfileInfowidget({super.key, required this.trainerName});
+  const TrainerProfileInfowidget({super.key, required this.trainer});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class TrainerProfileInfowidget extends StatelessWidget {
               const SizedBox(width: 7),
               FittedBox(
                 child: Text(
-                  trainerName,
+                  trainer.name??'',
                   style: const TextStyle(
                     color: Color(0xFF565C63),
                     fontWeight: FontWeight.bold,
@@ -32,7 +33,7 @@ class TrainerProfileInfowidget extends StatelessWidget {
           Row(
             children: [
               const SizedBox(width: 7),
-              ChatAndVideoButtonWidget(trainerName: trainerName),
+              ChatAndVideoButtonWidget(trainer: trainer),
             ],
           ),
           // SizedBox(height: Get.height / 6)

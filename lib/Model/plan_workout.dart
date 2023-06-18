@@ -11,6 +11,7 @@ class WorkoutModel {
   int? count;
   int? break_after_set;
 
+
   List<Exercises>? exercises;
 
   WorkoutModel({
@@ -23,6 +24,7 @@ class WorkoutModel {
     required this.type,
     required this.exercises,
     required this.count,
+
     required this.break_after_set,
   });
 

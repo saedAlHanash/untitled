@@ -21,61 +21,63 @@ class UserTrainingScreen extends GetView<UserTrainingController> {
   @override
   Widget build(BuildContext context) {
     return Obx(() => WillPopScope(
-          onWillPop: () async {
-            bool shouldNavigateBack = await showDialog(
-              context: context,
-              builder: (BuildContext context) {
-                return AlertDialog(
-                  backgroundColor: Colors.white,
-                  title: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      // Text(
-                      //   'warning'.tr,
-                      //   style:
-                      //       const TextStyle(color: Colors.black, fontSize: 16),
-                      // ),
-                      IconButton(
-                          onPressed: () => Navigator.pop(context, false),
-                          icon: Icon(
-                            Icons.close,
-                            color: Get.theme.primaryColor,
-                          )),
-                    ],
-                  ),
-                  content: Text(
-                    'Did_you_finish_your_training'.tr,
-                    textDirection: TextDirection.ltr,
-                    textAlign: TextAlign.justify,
-                    style: const TextStyle(),
-                  ),
-                  actions: <Widget>[
-                    TextButton(
-                      onPressed: () async {
-                        try {
-                          await controller.completeDay();
-                          Navigator.pop(context);
-                          // Navigator.pop(context);
-                          // Navigator.pop(context);
-                        } catch (e) {}
+          onWillPop: controller.complete
+              ? null
+              : () async {
+                  bool shouldNavigateBack = await showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        backgroundColor: Colors.white,
+                        title: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            // Text(
+                            //   'warning'.tr,
+                            //   style:
+                            //       const TextStyle(color: Colors.black, fontSize: 16),
+                            // ),
+                            IconButton(
+                                onPressed: () => Navigator.pop(context, false),
+                                icon: Icon(
+                                  Icons.close,
+                                  color: Get.theme.primaryColor,
+                                )),
+                          ],
+                        ),
+                        content: Text(
+                          'Did_you_finish_your_training'.tr,
+                          textDirection: TextDirection.ltr,
+                          textAlign: TextAlign.justify,
+                          style: const TextStyle(),
+                        ),
+                        actions: <Widget>[
+                          TextButton(
+                            onPressed: () async {
+                              try {
+                                await controller.completeDay();
+                                Navigator.pop(context);
+                                // Navigator.pop(context);
+                                // Navigator.pop(context);
+                              } catch (e) {}
 
-                        // Get.back();
-                      },
-                      child: Text(
-                        'Done'.tr,
-                      ),
-                    ),
-                    TextButton(
-                      onPressed: () => Navigator.pop(context, true),
-                      child: Text("i\'ll_come_back_later".tr),
-                    ),
-                  ],
-                );
-              },
-            );
+                              // Get.back();
+                            },
+                            child: Text(
+                              'Done'.tr,
+                            ),
+                          ),
+                          TextButton(
+                            onPressed: () => Navigator.pop(context, true),
+                            child: Text("i\'ll_come_back_later".tr),
+                          ),
+                        ],
+                      );
+                    },
+                  );
 
-            return shouldNavigateBack;
-          },
+                  return shouldNavigateBack;
+                },
           child: Scaffold(
             appBar: AppBar(
               // leading: IconButton(
@@ -88,39 +90,32 @@ class UserTrainingScreen extends GetView<UserTrainingController> {
                 ? const Center(child: CircularProgressIndicator())
                 : Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: (controller.type == "Zumba" ||
-                            controller.type == 'zumba')
-                        ? MainAxisAlignment.center
-                        : MainAxisAlignment.start,
+                    mainAxisAlignment:
+                        (controller.type == "Zumba" || controller.type == 'zumba')
+                            ? MainAxisAlignment.center
+                            : MainAxisAlignment.start,
                     // mainAxisSize: MainAxisSize.min,
                     children: [
-                        (controller.type == "Zumba" ||
-                                controller.type == 'zumba')
+                        (controller.type == "Zumba" || controller.type == 'zumba')
                             ? Align(
                                 alignment: Alignment.center,
                                 child: controller.accessToken == ''
                                     ? Container(
                                         height: 50,
                                         width: 50,
-                                        child:
-                                            const CircularProgressIndicator())
+                                        child: const CircularProgressIndicator())
                                     : Column(
                                         children: [
                                           controller.progress < 1.0
                                               ? Container(
-                                                  padding: const EdgeInsets.all(
-                                                      10.0),
-                                                  child: controller.progress <
-                                                          1.0
+                                                  padding: const EdgeInsets.all(10.0),
+                                                  child: controller.progress < 1.0
                                                       ? LinearProgressIndicator(
-                                                          value: controller
-                                                              .progress)
+                                                          value: controller.progress)
                                                       : const SizedBox.shrink())
                                               : const SizedBox.shrink(),
                                           SizedBox(
-                                            height: MediaQuery.of(context)
-                                                    .size
-                                                    .height *
+                                            height: MediaQuery.of(context).size.height *
                                                 0.283,
                                             child: InAppWebView(
                                               initialUrlRequest: URLRequest(
@@ -129,8 +124,7 @@ class UserTrainingScreen extends GetView<UserTrainingController> {
                                                   headers: {
                                                     'Authorization':
                                                         'Basic ${base64Encode(utf8.encode('9353127f0c5d3848970ed83590f3989b7d4aeabf:lsL75LeVC88hMQALy4KlRbaR0srz72eq9RqDJQuAbopBD1rxhQK5XxLM0KDCniZZ3QDC2iuatIk+kNstylUffDxbVm/sUNxhPg7E02OY8nT82I6uOjRObMiMdD9jsGBw'))}',
-                                                    'Content-Type':
-                                                        'application/json',
+                                                    'Content-Type': 'application/json',
                                                     'Accept':
                                                         "application/vnd.vimeo.*+json;version=3.4",
                                                   }),
@@ -139,19 +133,15 @@ class UserTrainingScreen extends GetView<UserTrainingController> {
                                               },
                                               onLoadStop: (controller1, url) {},
                                               onProgressChanged:
-                                                  (InAppWebViewController
-                                                          controller21,
+                                                  (InAppWebViewController controller21,
                                                       int progress) {
-                                                controller.progress =
-                                                    progress / 100;
+                                                controller.progress = progress / 100;
                                               },
                                               onReceivedServerTrustAuthRequest:
-                                                  (controller,
-                                                      challenge) async {
+                                                  (controller, challenge) async {
                                                 return ServerTrustAuthResponse(
-                                                    action:
-                                                        ServerTrustAuthResponseAction
-                                                            .PROCEED);
+                                                    action: ServerTrustAuthResponseAction
+                                                        .PROCEED);
                                               },
                                             ),
                                           ),
@@ -159,8 +149,7 @@ class UserTrainingScreen extends GetView<UserTrainingController> {
                                       ),
                               )
                             : Container(
-                                height:
-                                    MediaQuery.of(context).size.height * 0.283,
+                                height: MediaQuery.of(context).size.height * 0.283,
                                 child: Center(
                                   child: controller.accessToken == ''
                                       ? const CircularProgressIndicator()
@@ -171,8 +160,7 @@ class UserTrainingScreen extends GetView<UserTrainingController> {
                                               headers: {
                                                 'Authorization':
                                                     'Basic ${base64Encode(utf8.encode('9353127f0c5d3848970ed83590f3989b7d4aeabf:lsL75LeVC88hMQALy4KlRbaR0srz72eq9RqDJQuAbopBD1rxhQK5XxLM0KDCniZZ3QDC2iuatIk+kNstylUffDxbVm/sUNxhPg7E02OY8nT82I6uOjRObMiMdD9jsGBw'))}',
-                                                'Content-Type':
-                                                    'application/json',
+                                                'Content-Type': 'application/json',
                                                 'Accept':
                                                     "application/vnd.vimeo.*+json;version=3.4",
                                               }),
@@ -183,26 +171,21 @@ class UserTrainingScreen extends GetView<UserTrainingController> {
                                           onReceivedServerTrustAuthRequest:
                                               (controller, challenge) async {
                                             return ServerTrustAuthResponse(
-                                                action:
-                                                    ServerTrustAuthResponseAction
-                                                        .PROCEED);
+                                                action: ServerTrustAuthResponseAction
+                                                    .PROCEED);
                                           },
-                                          initialOptions:
-                                              InAppWebViewGroupOptions(
+                                          initialOptions: InAppWebViewGroupOptions(
                                             android: AndroidInAppWebViewOptions(
                                               useHybridComposition: true,
                                             ),
                                             ios: IOSInAppWebViewOptions(
                                               allowsInlineMediaPlayback: true,
-                                              allowsAirPlayForMediaPlayback:
-                                                  false,
+                                              allowsAirPlayForMediaPlayback: false,
                                               scrollsToTop: false,
                                             ),
                                           ),
-                                          onEnterFullscreen:
-                                              (controller) async {
-                                            await SystemChrome
-                                                .setPreferredOrientations([
+                                          onEnterFullscreen: (controller) async {
+                                            await SystemChrome.setPreferredOrientations([
                                               DeviceOrientation.landscapeRight,
                                               DeviceOrientation.landscapeLeft,
                                             ]);
@@ -210,20 +193,17 @@ class UserTrainingScreen extends GetView<UserTrainingController> {
                                         ),
                                 ),
                               ),
-                        (controller.type == "Zumba" ||
-                                controller.type == 'zumba')
+                        (controller.type == "Zumba" || controller.type == 'zumba')
                             ? const SizedBox.shrink()
                             : CurrentExerciseWidget(
                                 color: Colors.white,
                                 title: controller.currentExercise.name!,
-                                isSecondsBased:
-                                    controller.currentExercise.secondsBased!,
+                                isSecondsBased: controller.currentExercise.secondsBased!,
                                 reps: controller.currentExercise.repetitions!,
                                 set: controller.currentExercise.setCount!,
                                 notes: controller.currentExercise.notes!,
                               ),
-                        (controller.type == "Zumba" ||
-                                controller.type == 'zumba')
+                        (controller.type == "Zumba" || controller.type == 'zumba')
                             ? const SizedBox.shrink()
                             : ExerciseListView(),
                         (StorageController().userType == 'trainer')
@@ -232,8 +212,7 @@ class UserTrainingScreen extends GetView<UserTrainingController> {
                                 height: Get.height / 8,
                               ),
                       ]),
-            floatingActionButtonLocation:
-                FloatingActionButtonLocation.centerDocked,
+            floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
             floatingActionButton: controller.type == "Zumba" ||
                     controller.type == 'zumba' ||
                     (StorageController().userType == 'trainer')
@@ -250,10 +229,8 @@ class UserTrainingScreen extends GetView<UserTrainingController> {
                               )
                             : Obx(
                                 () => SlidWidget(
-                                  repetationNumber: controller
-                                      .currentExercise
-                                      .repetitions![controller.currentSet - 1]
-                                      .count!,
+                                  repetationNumber: controller.currentExercise
+                                      .repetitions![controller.currentSet - 1].count!,
                                   setNumber: controller.currentSet,
                                 ),
                               ),

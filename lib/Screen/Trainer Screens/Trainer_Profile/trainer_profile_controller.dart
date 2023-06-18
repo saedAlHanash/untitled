@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fitness_storm/Data/Api/api_result.dart';
 import 'package:fitness_storm/Data/Repositories/Trainer%20Repository/trainer_auth_repository.dart';
 import 'package:fitness_storm/Model/trainer.dart';
@@ -27,11 +28,13 @@ class TrainerProfileController extends GetxController {
 
   logout() async {
     Utils.openLoadingDialog();
-    StorageController storageController = StorageController();
+    final storageController = StorageController();
     var res = await _trainerAuthRepository.trainerLogout();
     if (res.type == ApiResultType.success) {
       storageController.token = '';
       storageController.rememberToken = '';
+      await FirebaseAuth.instance.signOut();
+      StorageController().firebaseUser = null;
       Get.back();
       // Utils.openSnackBar(title: 'Logout Success');
       Get.offAllNamed(AppRoutes.signIn);
@@ -43,6 +46,8 @@ class TrainerProfileController extends GetxController {
         // Utils.openSnackBar(title: 'Logout Success');
         Get.offAllNamed(AppRoutes.signIn);
       }
+      await FirebaseAuth.instance.signOut();
+      StorageController().firebaseUser = null;
       Get.back();
       Utils.openSnackBar(message: res.message!);
     }
@@ -50,7 +55,7 @@ class TrainerProfileController extends GetxController {
 
   getTrainerProfile() async {
     isLoading = true;
-    ApiResult result = await _trainerAuthRepository.getTrainerProfile();
+    final result = await _trainerAuthRepository.getTrainerProfile();
     if (result.type == ApiResultType.success) {
       trainerProfile = Trainer.fromJson(result.data);
     } else {

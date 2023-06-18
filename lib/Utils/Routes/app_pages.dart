@@ -203,8 +203,7 @@ class AppPages {
           binding: MyPaymentBinding()),
       GetPage(
           name: AppRoutes.chatScreen,
-          page: () => const ChatScreen(),
-          binding: ChatBining()),
+          page: () => const ChatScreen(),),
       GetPage(
           name: AppRoutes.conversationScreen,
           page: () => const ConversationScreen(),

@@ -36,24 +36,25 @@ dependencies:
   dio: 
   flutter_holo_date_picker: ^1.0.3
   badges:
-  intl: ^0.17.0
+  intl:
   bottom_picker: ^1.8.0
-  pod_player: ^0.0.5
+  pod_player: ^0.1.5
   flutter_inappwebview:
   readmore: ^2.2.0
   flutter_native_splash: ^2.2.5
   google_sign_in:
-  agora_rtc_engine: ^6.2.0
+#  agora_rtc_engine: ^6.2.0
   # permission handler
   permission_handler:
   flutter_app_badger:
-  firebase_auth:
+  firebase_auth: ^4.6.3
   get: ^4.6.5
   get_storage: ^2.0.3
   logger: ^1.1.0
   pull_to_refresh: ^2.0.0
   awesome_icons: ^1.1.0
   pinput: ^2.2.31
+  screen_protector: ^1.2.0
   lottie: ^1.4.1
   scroll_snap_list: ^0.9.1
   font_awesome_flutter: ^10.1.0
@@ -61,9 +62,9 @@ dependencies:
   url_launcher: ^6.1.5
   percent_indicator: ^4.2.2
   adaptive_scrollbar: ^2.1.2
-  firebase_messaging: ^14.0.2
-  firebase_core: ^2.1.0
-  flutter_local_notifications: ^14.1.0
+  firebase_messaging: ^14.6.3
+  firebase_core: ^2.14.0
+  flutter_local_notifications: ^14.0.0
   cached_network_image: ^3.2.2
   quiver: ^3.1.0
   webview_flutter: 3.0.4
@@ -71,6 +72,18 @@ dependencies:
   table_calendar:
   shared_preferences: ^2.1.0
   audio_service:
+  faker: ^2.1.0
+  file_picker:
+  firebase_storage: ^11.2.3
+  flutter_chat_types: ^3.6.1
+  cloud_firestore: ^4.8.1
+  flutter_chat_ui: ^1.6.8
+  flutter_firebase_chat_core: ^1.6.7
+  image_picker:
+  mime: ^1.0.4
+  collection: ^1.17.1
+  open_filex: ^4.3.2
+  path_provider:
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -1,19 +1,18 @@
-import 'package:fitness_storm/Model/chat.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/Chat/chat_controller.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/Conversation/conversation_controller.dart';
+import 'package:fitness_storm/Screen/chat/chat.dart';
+import 'package:fitness_storm/Screen/chat/util.dart';
 import 'package:fitness_storm/Utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../../Utils/Routes/app_pages.dart';
+import '../../../../../Model/trainer.dart';
 import '../../../../video/video.dart';
 import '../../../Trainer Calender/trainer_calender_controller.dart';
 
 // ignore: must_be_immutable
 class ChatAndVideoButtonWidget extends StatefulWidget {
-  ChatAndVideoButtonWidget({super.key, required this.trainerName});
+  ChatAndVideoButtonWidget({super.key, required this.trainer});
 
-  String trainerName;
+  Trainer trainer;
 
   @override
   State<ChatAndVideoButtonWidget> createState() => _ChatAndVideoButtonWidgetState();
@@ -25,10 +24,23 @@ class _ChatAndVideoButtonWidgetState extends State<ChatAndVideoButtonWidget> {
     return Row(
       // mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        GestureDetector(
+        InkWell(
           onTap: () async {
+            final openRoom = await getRoomByUser(widget.trainer.id.toString());
+            if (!mounted || openRoom == null) return;
+
+            Navigator.push(context, MaterialPageRoute(
+              builder: (context) {
+                return ChatPage(
+                  room: openRoom,
+                  name: widget.trainer.name ?? '',
+                );
+              },
+            ));
+
+            return;
             bool check = await Get.put(TrainerCalenderController())
-                .chatIsAvailable(widget.trainerName);
+                .chatIsAvailable(widget.trainer.name ?? '');
 
             if (!check) {
               // Utils.showAlertDialog(onContinueButtonPressed, message)
@@ -36,29 +48,29 @@ class _ChatAndVideoButtonWidgetState extends State<ChatAndVideoButtonWidget> {
                 Get.back();
               }, "لا تتوفر المحادثة مع المدرب في هذا الوقت");
             } else {
-              Utils.openLoadingDialog();
-              List<Chat> chats = await Get.put(ChatController()).getChats();
-              var chat = chats
-                  .firstWhere((element) => element.trainer!.name == widget.trainerName);
-
-              String channelId = chat.channelId!;
-              try {
-                await Get.put(ConversationController())
-                    .onSendMessage(channelId: channelId);
-                Utils.closeDialog();
-                Future.delayed(
-                  const Duration(seconds: 1),
-                  () {
-                    Get.toNamed(
-                      AppRoutes.conversationScreen,
-                      arguments: [widget.trainerName, channelId],
-                    );
-                  },
-                );
-              } catch (e) {
-                Utils.closeDialog();
-                Utils.openSnackBar(title: e.toString());
-              }
+              // Utils.openLoadingDialog();
+              // List<Chat> chats = await Get.put(ChatController()).getChats();
+              // var chat = chats
+              //     .firstWhere((element) => element.trainer!.name == widget.trainerName);
+              //
+              // String channelId = chat.channelId!;
+              // try {
+              //   await Get.put(ConversationController())
+              //       .onSendMessage(channelId: channelId);
+              //   Utils.closeDialog();
+              //   Future.delayed(
+              //     const Duration(seconds: 1),
+              //     () {
+              //       Get.toNamed(
+              //         AppRoutes.conversationScreen,
+              //         arguments: [widget.trainerName, channelId],
+              //       );
+              //     },
+              //   );
+              // } catch (e) {
+              //   Utils.closeDialog();
+              //   Utils.openSnackBar(title: e.toString());
+              // }
             }
           },
           child: Container(
@@ -75,7 +87,7 @@ class _ChatAndVideoButtonWidgetState extends State<ChatAndVideoButtonWidget> {
           ),
         ),
         const SizedBox(width: 10),
-        GestureDetector(
+        InkWell(
           onTap: () async {
             var data = await Get.put(TrainerCalenderController()).traineeMakeVideoCall();
             if (data != null) {

@@ -112,9 +112,7 @@ class Utils {
             Text(
               isTrainer ? 'SEARCH_IN_TRAINER'.tr : 'SEARCH_IN_WORKOUT_PLANS'.tr,
               style: const TextStyle(
-                  color: Color(0xFFA8A5A5),
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold),
+                  color: Color(0xFFA8A5A5), fontSize: 16, fontWeight: FontWeight.bold),
             ),
             Container(
               height: Get.height / 21,
@@ -124,8 +122,7 @@ class Utils {
                 controller: searchTerm,
                 decoration: InputDecoration(
                   hintText: "What_are_you_searching_for?".tr,
-                  hintStyle:
-                      const TextStyle(fontSize: 12, color: Color(0xFFD1D1D1)),
+                  hintStyle: const TextStyle(fontSize: 12, color: Color(0xFFD1D1D1)),
                   suffixIcon: GestureDetector(
                     onTap: () => onTap(),
                     child: Container(
@@ -134,8 +131,7 @@ class Utils {
                       padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
                           color: Get.theme.primaryColor,
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(500))),
+                          borderRadius: const BorderRadius.all(Radius.circular(500))),
                       child: SvgPicture.asset(
                         'asset/Images/search_bar.svg',
                         color: Colors.white,
@@ -154,8 +150,7 @@ class Utils {
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
-                    borderSide:
-                        BorderSide(color: Get.theme.primaryColor, width: 2.0),
+                    borderSide: BorderSide(color: Get.theme.primaryColor, width: 2.0),
                   ),
                 ),
               ),
@@ -190,7 +185,7 @@ class Utils {
     bool withRefreshToken = false,
     String customToken = '',
   }) {
-    Options options = Options(headers: {'lang': Get.locale!.languageCode});
+    Options options = Options(headers: {'lang': Get.locale?.languageCode ?? 'en'});
 
     /* if (contentType || all) {
        options.contentType = 'application/x-www-form-urlencoded';
@@ -208,7 +203,7 @@ class Utils {
             ? "Bearer $customToken"
             : "Bearer ${StorageController().token}",
         "timeZone": DateTime.now().timeZoneName,
-        'lang': Get.locale!.languageCode,
+        'lang': Get.locale?.languageCode??'en',
       });
     }
     if (withRefreshToken) {
@@ -216,7 +211,7 @@ class Utils {
       log(StorageController().rememberToken);
       options.headers!.addAll({
         "authorization": "Bearer ${StorageController().rememberToken}",
-        'lang': Get.locale!.languageCode,
+        'lang': Get.locale?.languageCode??'en',
       });
     }
     // if (customToken.isNotEmpty) {

@@ -11,18 +11,17 @@ import '../../../../Data/Repositories/auth_repository.dart';
 import '../../../../Utils/Routes/app_pages.dart';
 import '../../../../Utils/storage_controller.dart';
 import '../../../../Utils/utils.dart';
+import '../../../Utils/dependency_injection.dart';
 
 class SigninController extends GetxController {
   final RxBool isScure = true.obs;
   final RxString message = ''.obs;
 
   final AuthRepository _authRepository = AuthRepository();
-  final Rx<TextEditingController> _emailController =
-      TextEditingController().obs;
+  final Rx<TextEditingController> _emailController = TextEditingController().obs;
 
   final RxBool _isTrainer = false.obs;
-  final Rx<TextEditingController> _passowrdController =
-      TextEditingController().obs;
+  final Rx<TextEditingController> _passowrdController = TextEditingController().obs;
 
   final StorageController _storageController = StorageController();
   final TrainerAuthRepository _trainerAuthRepository = TrainerAuthRepository();
@@ -83,6 +82,7 @@ class SigninController extends GetxController {
         _storageController.userType = isTrainer ? 'trainer' : 'trainee';
         _storageController.methodTakeAuthentication = '';
 
+        getProfile();
         //Todo should un comment this
         // final token = await getToken();
         // log('FFFCCCMMM $token');
@@ -104,10 +104,9 @@ class SigninController extends GetxController {
   sign_in_google() async {
     Utils.openLoadingDialog();
     try {
-      final GoogleSignInAccount? googleAccount = await GoogleSignIn().signIn();
-      final GoogleSignInAuthentication googleAuthentication =
-          await googleAccount!.authentication;
-      final credential = await GoogleAuthProvider.credential(
+      final googleAccount = await GoogleSignIn().signIn();
+      final googleAuthentication = await googleAccount!.authentication;
+      final credential = GoogleAuthProvider.credential(
           accessToken: googleAuthentication.accessToken,
           idToken: googleAuthentication.idToken);
       bool check = true;
@@ -133,6 +132,7 @@ class SigninController extends GetxController {
           final token = await getToken();
           log('FFFCCCMMM $token');
           await storeFcm(token);
+          getProfile();
           Get.back();
           // Utils.openSnackBar(title: 'Login Success', textColor: Colors.white);
           if (isTrainer) {

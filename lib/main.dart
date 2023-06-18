@@ -1,11 +1,10 @@
 import 'dart:io';
 
-import 'package:firebase_core/firebase_core.dart';
 import 'package:fitness_storm/Utils/themes.dart';
 import 'package:fitness_storm/helper/lang_helper.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
 
 import './../core/translations.dart';
@@ -13,18 +12,12 @@ import 'Screen/Splash/splash_binding.dart';
 import 'Utils/Routes/app_pages.dart';
 import 'Utils/dependency_injection.dart';
 
-
-final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-    FlutterLocalNotificationsPlugin();
-
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // await Firebase.initializeApp();
   Get.put(LanguagesController());
+
   await DependencyInjection.init();
-  
-  
+
 
   if (Platform.isAndroid) {
     await AndroidInAppWebViewController.setWebContentsDebuggingEnabled(true);
@@ -38,14 +31,18 @@ void main() async {
       AndroidServiceWorkerController serviceWorkerController =
           AndroidServiceWorkerController.instance();
 
-      await serviceWorkerController
-          .setServiceWorkerClient(AndroidServiceWorkerClient(
+      await serviceWorkerController.setServiceWorkerClient(AndroidServiceWorkerClient(
         shouldInterceptRequest: (request) async {
           return null;
         },
       ));
     }
   }
+
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
 
   runApp(
     GetMaterialApp(

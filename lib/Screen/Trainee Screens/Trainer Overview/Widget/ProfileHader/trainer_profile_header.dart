@@ -2,17 +2,18 @@ import 'package:fitness_storm/Utils/Constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../../Model/trainer.dart';
 import 'trainer_profile_image_widget.dart';
 import 'trainer_profile_info_widget.dart';
 
 class TrainerProfileHeader extends StatelessWidget {
   final String imageUrl;
-  final String trainerName;
+  final Trainer trainer;
 
   const TrainerProfileHeader({
     super.key,
     required this.imageUrl,
-    required this.trainerName,
+    required this.trainer,
   });
 
   @override
@@ -24,7 +25,7 @@ class TrainerProfileHeader extends StatelessWidget {
         children: [
           TrainerProfileImageWidget(imageUrl: Constants.imageUrl + imageUrl),
           TrainerProfileInfowidget(
-            trainerName: trainerName,
+            trainer: trainer,
           ),
         ],
       ),

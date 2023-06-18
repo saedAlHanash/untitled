@@ -1,8 +1,10 @@
 import 'dart:developer';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:fitness_storm/Data/Repositories/auth_repository.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Main%20Home/Widget/trainer_navigation_bar_controller.dart';
+import 'package:fitness_storm/main.dart';
 import 'package:get/get.dart';
 
 import '../../../Data/Api/api_result.dart';
@@ -11,11 +13,9 @@ import '../../../Utils/storage_controller.dart';
 StorageController storageController = StorageController();
 
 class TrainerMainHomeController extends GetxController {
-  TrainerAppNavigationBarController navController =
-      TrainerAppNavigationBarController();
+  TrainerAppNavigationBarController navController = TrainerAppNavigationBarController();
 
   final AuthRepository _authRepository = AuthRepository();
-
   String? token;
 
   @override

@@ -21,16 +21,15 @@ class HomeScreen extends GetView<HomeScreenController> {
     return Obx(
       () => controller.isLoading.value
           ? SizedBox(
-              height: Get.height,
-              child: const Center(child: CircularProgressIndicator()))
+              height: Get.height, child: const Center(child: CircularProgressIndicator()))
           : RefreshIndicator(
               onRefresh: () async {
                 controller.isLoading.value = true;
                 await controller.fillContinueTrainingPlans();
                 GetStorage getStorage = GetStorage();
                 if (controller.continueTrainingPlans.isNotEmpty) {
-                  await getStorage.write('currentPlan',
-                      controller.continueTrainingPlans.value[0].name);
+                  await getStorage.write(
+                      'currentPlan', controller.continueTrainingPlans.value[0].name);
                 }
                 Get.back();
                 controller.trendingPlans.value =
@@ -75,8 +74,7 @@ class CustomSearchDelegate extends SearchDelegate {
 
   @override
   Widget? buildLeading(BuildContext context) => IconButton(
-      onPressed: () => close(context, null),
-      icon: const Icon(Icons.arrow_back));
+      onPressed: () => close(context, null), icon: const Icon(Icons.arrow_back));
 
   @override
   Widget buildResults(BuildContext context) {

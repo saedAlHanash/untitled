@@ -8,8 +8,7 @@ import '../../../Widgets/plan_time_freqency.dart';
 import '../../../Widgets/see_all_list_item.dart';
 import 'Widget/ProfileHader/trainer_profile_header.dart';
 
-class TrainerTrainerOverviewScreen
-    extends GetView<TrainerTrainerOverviewController> {
+class TrainerTrainerOverviewScreen extends GetView<TrainerTrainerOverviewController> {
   const TrainerTrainerOverviewScreen({super.key});
 
   @override
@@ -29,17 +28,15 @@ class TrainerTrainerOverviewScreen
                   children: [
                     TrainerProfileHeader(
                       imageUrl: controller.trainer.profilePic!,
-                      trainerName: controller.trainer.name!,
+                      trainer: controller.trainer,
                     ),
                     TrainerBioWidget(
                       trainerBio: controller.trainer.bio!,
                       privateSessionPrice:
                           controller.trainer.privateSessionPrice!.toString(),
                       numberOfPlans: controller.trainer.numberOfPlans!,
-                      numberOfPrivateHours:
-                          controller.trainer.numberOfPrivateHours!,
-                      numberOfSubscribers:
-                          controller.trainer.numberOfSubscribers!,
+                      numberOfPrivateHours: controller.trainer.numberOfPrivateHours!,
+                      numberOfSubscribers: controller.trainer.numberOfSubscribers!,
                     ),
                     SizedBox(
                       height: 100,
@@ -57,8 +54,7 @@ class TrainerTrainerOverviewScreen
                               child: Text(
                                 'plans_by_this_trainer'.tr,
                                 style: TextStyle(
-                                    color: Get.theme.primaryColor,
-                                    fontSize: 20),
+                                    color: Get.theme.primaryColor, fontSize: 20),
                               ),
                             ),
                           ),
@@ -80,8 +76,7 @@ class TrainerTrainerOverviewScreen
                           isPressed: controller.addPlanToFavorite,
                           index: index,
                           subTitle: PlanTimeFrequency(
-                            totalWeeks:
-                                controller.trainerPlans[index].totalWeeks!,
+                            totalWeeks: controller.trainerPlans[index].totalWeeks!,
                             workoutFrequency:
                                 controller.trainerPlans[index].workoutFrequency,
                             color: Colors.grey,

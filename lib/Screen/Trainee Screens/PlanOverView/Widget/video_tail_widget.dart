@@ -15,18 +15,17 @@ class VideoTailWidget extends GetWidget<PlanOverviewController> {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Text(
-            '${controller.planOverview.workoutFrequency} ' + 'days/week'.tr,
+            '${controller.planOverview.workoutFrequency} ${'days/week'.tr}',
             style: const TextStyle(
               color: Colors.white,
               fontSize: 12,
             ),
           ),
           Text(
-            '${controller.planOverview.totalWeeks}' +
-                (controller.planOverview.totalWeeks! > 1 &&
+            '${controller.planOverview.totalWeeks}${controller.planOverview.totalWeeks! > 1 &&
                         controller.planOverview.totalWeeks! < 10
-                    ? ' ' + 'weeks'.tr
-                    : ' ' + 'week'.tr),
+                    ? ' ${'weeks'.tr}'
+                    : ' ${'week'.tr}'}',
             style: const TextStyle(
               color: Colors.white,
               fontSize: 12,

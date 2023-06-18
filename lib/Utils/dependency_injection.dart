@@ -4,11 +4,13 @@ import 'dart:io';
 // import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:fitness_storm/Data/Repositories/plan_repository.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Main%20Home/main_home_controller.dart';
 import 'package:fitness_storm/Utils/storage_controller.dart';
+import 'package:fitness_storm/Utils/utils.dart';
 import 'package:fitness_storm/helper/cache_helper.dart';
 import 'package:fitness_storm/helper/lang_helper.dart';
 import 'package:flutter/material.dart';
@@ -17,25 +19,36 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
+import '../Data/Api/api_result.dart';
+import '../Data/Api/methods.dart';
+import '../Data/Api/urls.dart';
+import '../Model/trainer.dart';
+import '../Screen/chat/util.dart';
 import 'Constants/constants.dart';
 import 'Constants/enums.dart';
 import 'app_controller.dart';
 
-
-
 class DependencyInjection {
   static Future<void> init() async {
-     // WidgetsFlutterBinding.ensureInitialized();
+    // WidgetsFlutterBinding.ensureInitialized();
     // await initFirebaseMessaging();
 
+    await Note.initialize();
+
     await CacheHelper.init();
-    // await requestPermission();
+
     await initDio();
 
     Get.put(AppController(), permanent: true);
     initRepositories();
 
     await initGetStorage();
+
+    await initFirebaseMessaging();
+
+    await initFirebaseChat();
+
+    await requestPermission();
   }
 }
 
@@ -78,10 +91,8 @@ Future<void> initDio() async {
     },
   );
   Dio dio = Dio(baseOptions);
-  (dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
-      (client) {
-    client.badCertificateCallback =
-        (X509Certificate cert, String host, int port) {
+  (dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate = (client) {
+    client.badCertificateCallback = (X509Certificate cert, String host, int port) {
       return true;
     };
     return null;
@@ -90,134 +101,72 @@ Future<void> initDio() async {
   return;
 }
 
+const channel = AndroidNotificationChannel(
+  'fitness_notification_channel',
+  'fitness notification channel',
+  playSound: true,
+  sound: RawResourceAndroidNotificationSound('notification'),
+  enableLights: true,
+  importance: Importance.high,
+);
 
+final flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
+
+@pragma('vm:entry-point')
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   await Firebase.initializeApp();
-  log('Background Message Jsut Showed Up: ${message.messageId}');
+  final notification = message.notification;
+
+  String title = '';
+  String body = '';
+
+  if (notification != null) {
+    title = notification.title ?? '';
+    body = notification.body ?? '';
+  } else {
+    title = message.data['title'] ?? '';
+    body = message.data['body'] ?? '';
+  }
+
+  Note.showBigTextNotification(title: title, body: body);
 }
 
 initFirebaseMessaging() async {
-  FirebaseMessaging.instance.subscribeToTopic(Constants.topicUserNotification);
-  FirebaseMessaging.instance
-      .subscribeToTopic(Constants.topicTrainerNotification);
-  var androidInitialize =
-       const AndroidInitializationSettings('');
-  var iOSInitialize = const DarwinInitializationSettings();
-  var initializationsSettings =  InitializationSettings(
-      android: androidInitialize, iOS: iOSInitialize);
-  AndroidNotificationChannel channel = const AndroidNotificationChannel(
-    'fitness_notification_channel',
-    'fitness notification channel',
-    playSound: true,
-    sound: RawResourceAndroidNotificationSound('notification'),
-    enableLights: true,
-    importance: Importance.high,
-  );
-  final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-      FlutterLocalNotificationsPlugin();
   await Firebase.initializeApp();
+
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
-  await flutterLocalNotificationsPlugin
-      .resolvePlatformSpecificImplementation<
-          AndroidFlutterLocalNotificationsPlugin>()
-      ?.createNotificationChannel(channel);
 
-  FirebaseMessaging.onBackgroundMessage((RemoteMessage message) async {
-    RemoteNotification notification = message.notification!;
-    AndroidNotification android = message.notification!.android!;
-
-    if (notification != null && android != null) {
-      FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-          FlutterLocalNotificationsPlugin();
-
-      await flutterLocalNotificationsPlugin.show(
-        notification.hashCode,
-        notification.title,
-        notification.body,
-        NotificationDetails(
-          android: AndroidNotificationDetails(
-            channel.id,
-            channel.name,
-            color: Get.theme.primaryColor,
-            playSound: true,
-            importance: Importance.max,
-            priority: Priority.max,
-            icon: '@mipmap/launcher_icon.png',
-            ticker: 'ticker',
-          ),
-        ),
-      );
-    }
-  });
+  FirebaseMessaging.instance.subscribeToTopic(Constants.topicUserNotification);
+  FirebaseMessaging.instance.subscribeToTopic(Constants.topicTrainerNotification);
 
   FirebaseMessaging.onMessage.listen((RemoteMessage message) async {
-    bool isSupportedFlutterAppBadger =
-        await FlutterAppBadger.isAppBadgeSupported();
-    if (isSupportedFlutterAppBadger) {
-      if(!Get.isRegistered<MainHomeController>()){
-        Get.put(MainHomeController());
-      }
-      await Get.find<MainHomeController>().getAllNotifications();
-      if (Get.find<MainHomeController>().numberOfNotification != 0) {
-        FlutterAppBadger.updateBadgeCount(1);
-      } else {
-        FlutterAppBadger.removeBadge();
-      }
+    // var isSupportedFlutterAppBadger = await FlutterAppBadger.isAppBadgeSupported();
+    //
+    // if (isSupportedFlutterAppBadger) {
+    //   if (!Get.isRegistered<MainHomeController>()) {
+    //     Get.put(MainHomeController());
+    //   }
+    //   await Get.find<MainHomeController>().getAllNotifications();
+    //   if (Get.find<MainHomeController>().numberOfNotification != 0) {
+    //     FlutterAppBadger.updateBadgeCount(1);
+    //   } else {
+    //     FlutterAppBadger.removeBadge();
+    //   }
+    // }
+    final notification = message.notification;
 
+    String title = '';
+    String body = '';
+
+    if (notification != null) {
+      title = notification.title ?? '';
+      body = notification.body ?? '';
+    } else {
+      title = message.data['title'] ?? '';
+      body = message.data['body'] ?? '';
     }
-    RemoteNotification notification = message.notification!;
-    AndroidNotification android = message.notification!.android!;
-    if (notification != null && android != null) {
-      FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-          FlutterLocalNotificationsPlugin();
-      flutterLocalNotificationsPlugin.show(
-        notification.hashCode,
-        notification.title,
-        notification.body,
-        NotificationDetails(
-          android: AndroidNotificationDetails(
-            channel.id,
-            channel.name,
-            color: Get.theme.primaryColor,
-            playSound: true,
-            importance: Importance.max,
-            priority: Priority.max,
-            icon: '@mipmap/launcher_icon.png',
-            ticker: 'ticker',
-          ),
-        ),
-      );
-    }
-  });
 
-  await FirebaseMessaging.instance.setForegroundNotificationPresentationOptions(
-    alert: true,
-    badge: true,
-    sound: true,
-  );
-  // FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-  //   RemoteNotification notification = message.notification!;
-  //   AndroidNotification android = message.notification!.android!;
-  //   flutterLocalNotificationsPlugin.show(
-  //     notification.hashCode,
-  //     notification.title,
-  //     notification.body,
-  //     NotificationDetails(
-  //       android: AndroidNotificationDetails(channel.id, channel.name,
-  //           color: Colors.blue,
-  //           playSound: true,
-  //           importance: Importance.high,
-  //           priority: Priority.high,
-  //           icon: '@mipmap/launcher_icon'),
-  //     ),
-  //   );
-  // });
-
-  var scheduledNotificationDateTime = DateTime.now().add(const Duration(seconds: 1));
-
-  flutterLocalNotificationsPlugin.initialize(initializationsSettings);
-  FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
-    log('you open notification');
+    Note.showBigTextNotification(title: title, body: body);
   });
 }
 
@@ -239,5 +188,82 @@ requestPermission() async {
     log('User Granted Provisional Permission');
   } else {
     log('User Declined Or Has Not Accepted Permission');
+  }
+}
+
+Future<void> initFirebaseChat() async {
+  FirebaseAuth.instance.authStateChanges().listen((User? user) {
+    if (user == null) {
+      getProfile();
+      return;
+    }
+    StorageController().firebaseUser = user;
+  });
+}
+
+Future<void> getProfile() async {
+  if (StorageController().token.isEmpty) return;
+
+  if (StorageController().firebaseUser != null) return;
+
+  final result = await Methods.get(
+    url: StorageController().userType == 'trainer'
+        ? TRAINERURLS.trainerPorile
+        : TRAINEEURLS.getUserProfile,
+    options: Utils.getOptions(accept: true, withToken: true),
+  );
+
+  if (result.type == ApiResultType.success) {
+    final profile = Trainer.fromJson(result.data);
+
+    try {
+      if (await isChatUserFound(profile.id ?? '')) {
+        loginChatUser(profile);
+        return;
+      } else {
+        createChatUser(profile);
+      }
+    } on Exception catch (e) {
+      print(e);
+    }
+  } else {
+    print('error');
+  }
+}
+
+class Note {
+  static Future initialize() async {
+    var androidInitialize = const AndroidInitializationSettings('mipmap/launcher_icon');
+    var iOSInitialize = const DarwinInitializationSettings();
+    var initializationsSettings =
+        InitializationSettings(android: androidInitialize, iOS: iOSInitialize);
+    await flutterLocalNotificationsPlugin.initialize(initializationsSettings);
+  }
+
+  static Future showBigTextNotification({
+    var id = 0,
+    required String title,
+    required String body,
+    var payload,
+  }) async {
+    // var vibrationPattern = Int64List(2);
+    // vibrationPattern[0] = 1000;
+    // vibrationPattern[1] = 1000;
+
+    const androidPlatformChannelSpecifics = AndroidNotificationDetails(
+      'Afak',
+      'Afak App',
+      playSound: true,
+      importance: Importance.defaultImportance,
+      priority: Priority.high,
+    );
+
+    var not = const NotificationDetails(
+      android: androidPlatformChannelSpecifics,
+      iOS: DarwinNotificationDetails(),
+    );
+
+    await flutterLocalNotificationsPlugin.show(
+        (DateTime.now().millisecondsSinceEpoch ~/ 1000), title, body, not);
   }
 }

@@ -10,6 +10,8 @@ import 'package:pod_player/pod_player.dart';
 
 import '../../../Data/Repositories/get_url_video.dart';
 
+import 'package:screen_protector/screen_protector.dart';
+
 class UserTrainingController extends GetxController {
   late int break_for_set = 0;
   late int count = 0;
@@ -21,6 +23,7 @@ class UserTrainingController extends GetxController {
   late double totalTimeToSetOrBreak = 0;
   late String type = "zumba";
   late String workoutId;
+  bool complete = false;
 
   final Rx<String> _accessToken = ''.obs;
   final RxList<bool> _completedExercises = <bool>[].obs;
@@ -45,6 +48,17 @@ class UserTrainingController extends GetxController {
   }
 
   @override
+  void dispose() {
+    // For iOS only.
+    _removeListenerPreventScreenshot();
+
+    // For iOS and Android
+    _preventScreenshotOff();
+    super.dispose();
+  }
+
+
+  @override
   Future<void> onInit() async {
     print(Get.arguments[4].runtimeType);
     dayNumber = Get.arguments[0];
@@ -55,6 +69,7 @@ class UserTrainingController extends GetxController {
     type = Get.arguments[5];
     count = Get.arguments[6];
     break_for_set = Get.arguments[7];
+    complete = Get.arguments[8];
 
     isLoading = true;
     exercises = await _exerciseRepository.getExercise(workoutId);
@@ -65,6 +80,15 @@ class UserTrainingController extends GetxController {
     currentExercise = exercises[currentIndex];
     initVideoPlayerController();
     isLoading = false;
+
+    // For iOS only.
+    _addListenerPreventScreenshot();
+
+    // For iOS and Android
+    _preventScreenshotOn();
+
+    _checkScreenRecording();
+
     super.onInit();
   }
 
@@ -170,8 +194,7 @@ class UserTrainingController extends GetxController {
                   currentIndex = 0;
 
                   currentExercise = exercises[currentIndex];
-                  completedExercises =
-                      List.generate(exercises.length, (index) => false);
+                  completedExercises = List.generate(exercises.length, (index) => false);
                   isRest = false;
                   // startNextExercise();
                 });
@@ -203,8 +226,7 @@ class UserTrainingController extends GetxController {
                 _currentIndex.refresh();
                 currentIndex = 0;
                 currentExercise = exercises[currentIndex];
-                completedExercises =
-                    List.generate(exercises.length, (index) => false);
+                completedExercises = List.generate(exercises.length, (index) => false);
                 isRest = false;
                 // startNextExercise();
               });
@@ -272,13 +294,11 @@ class UserTrainingController extends GetxController {
         if (!completedExercises[currentIndex]) {
           currentExercise = exercises[currentIndex];
         } else {
-          currentIndex =
-              completedExercises.indexWhere((element) => element == false);
+          currentIndex = completedExercises.indexWhere((element) => element == false);
           currentExercise = exercises[currentIndex];
         }
       } else {
-        currentIndex =
-            completedExercises.indexWhere((element) => element == false);
+        currentIndex = completedExercises.indexWhere((element) => element == false);
         if (currentIndex != -1) {
           currentExercise = exercises[currentIndex];
         }
@@ -305,13 +325,11 @@ class UserTrainingController extends GetxController {
         if (!completedExercises[currentIndex]) {
           currentExercise = exercises[currentIndex];
         } else {
-          currentIndex =
-              completedExercises.indexWhere((element) => element == false);
+          currentIndex = completedExercises.indexWhere((element) => element == false);
           currentExercise = exercises[currentIndex];
         }
       } else {
-        currentIndex =
-            completedExercises.indexWhere((element) => element == false);
+        currentIndex = completedExercises.indexWhere((element) => element == false);
         currentExercise = exercises[currentIndex];
       }
       currentSet = 1;
@@ -394,4 +412,28 @@ class UserTrainingController extends GetxController {
       _trainingSets.add(0);
     }
   }
+}
+
+void _checkScreenRecording() async {
+  final isRecording = await ScreenProtector.isRecording();
+
+  if (isRecording) {}
+}
+
+void _preventScreenshotOn() async => await ScreenProtector.preventScreenshotOn();
+
+void _preventScreenshotOff() async => await ScreenProtector.preventScreenshotOff();
+
+void _addListenerPreventScreenshot() async {
+  ScreenProtector.addListener(() {
+    // Screenshot
+    debugPrint('Screenshot:');
+  }, (isCaptured) {
+    // Screen Record
+    debugPrint('Screen Record:');
+  });
+}
+
+void _removeListenerPreventScreenshot() async {
+  ScreenProtector.removeListener();
 }

@@ -1,12 +1,21 @@
 // ignore_for_file: non_constant_identifier_names
 
+import 'package:firebase_auth/firebase_auth.dart' as firebase;
+import 'package:flutter_chat_types/src/user.dart';
 import 'package:get_storage/get_storage.dart';
-
+import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
+import '../Screen/chat/my_room_object.dart';
 import 'Constants/constants.dart';
 import 'Constants/enums.dart';
 
 class StorageController {
   static StorageController? _instance;
+
+  List<types.User> listUsers = [];
+
+  List<types.Room> listRooms = [];
+
+  var myRoomObject = MyRoomObject();
 
   factory StorageController() => _instance ??= StorageController._();
 
@@ -55,10 +64,11 @@ class StorageController {
 
   String get userType => _userType.val;
 
+  firebase.User? firebaseUser;
+
   set rememberToken(String val) => _remember_token.val = val;
 
-  set methodTakeAuthentication(String val) =>
-      _methodTakeAuthentication.val = val;
+  set methodTakeAuthentication(String val) => _methodTakeAuthentication.val = val;
 
   set token(String val) => _token.val = val;
 
