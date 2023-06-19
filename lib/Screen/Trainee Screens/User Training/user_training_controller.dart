@@ -46,7 +46,6 @@ class UserTrainingController extends GetxController {
   void onClose() async {
     await ScreenProtector.protectDataLeakageOff();
 
-    print('++++++++++++++++++++++++++++++++++++');
 
     try {
       videoController.dispose();
