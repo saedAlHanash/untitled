@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:collection/collection.dart';
 import 'package:fitness_storm/Data/Repositories/Trainer%20Repository/trainer_appointments.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Calender/appointments.dart';
 import 'package:fitness_storm/Utils/utils.dart';
@@ -125,53 +126,63 @@ class TrainerCalenderController extends GetxController {
     currentMonthDays = daysInMonth(year, index - 1);
   }
 
-  traineeMakeVideoCall() async {
+  Future<AppointmentModel?> traineeMakeVideoCall() async {
     final trainerAppointmentsRepository = TrainerAppointmentsRepository();
 
     var scheduledCallTimes = await trainerAppointmentsRepository.coachMakeVideoCall();
-    if (scheduledCallTimes.length == 0) {
-      Utils.showAlertDialog(() {
-        Get.toNamed(AppRoutes.bookPrivateSession, arguments: [
-          Get.find<TrainerOverviewController>().trainer.name,
-          Get.find<TrainerOverviewController>().trainer.profilePic,
-          Get.find<TrainerOverviewController>().trainer.id
-        ]);
-      }, '''needBookPrivateSession'''.tr, textContinue: 'Book'.tr);
+
+    if (scheduledCallTimes.isEmpty) {
+      return null;
     } else {
-      var data = null;
-      data = scheduledCallTimes[0]['video_call_token'];
-      // for (var x in scheduledCallTimes) {
-      //
-      //   if (DateTime.parse(x['start_time']).hour == (now.hour+1)) {
-      //     data = x['video_call_token'];
-      //     print('////////////////////');
-      //     print(x);
-      //
-      //     break;
-      //   }
-      return data;
+      var list = <AppointmentModel>[];
+
+      //get my trainer session
+      for (var e in scheduledCallTimes) {
+        if (e.trainer.id.toString() == Get.find<TrainerOverviewController>().trainer.id) {
+          list.add(e);
+        }
+      }
+
+      list.sort((a, b) => a.startTime.compareTo(b.startTime));
+
+      for (var e in list) {
+        //endTime is before now
+        if (e.endTime.compareTo(DateTime.now()) < 0) {
+          continue;
+        } else {
+          if (DateTime.now().isAfter(e.startTime) && DateTime.now().isBefore(e.endTime)) {
+            //now is between startTime and endTime
+            return e;
+          } else {
+            //now not is between startTime and endTime
+            continue;
+          }
+        }
+      }
+
+      return AppointmentModel.fromJson({});
     }
   }
 
-  chatIsAvailable(String trainerName) async {
-    DateTime now = DateTime.now();
-    TrainerAppointmentsRepository trainerAppointmentsRepository =
-        TrainerAppointmentsRepository();
-    List scheduledCallTimes = await trainerAppointmentsRepository.coachMakeVideoCall();
-    if (scheduledCallTimes.isEmpty) return false;
-
-    String lastTime = (scheduledCallTimes.firstWhereOrNull((element) {
-          return element['trainer']['name'] == trainerName;
-        }) ??
-        {})['end_time'];
-
-    if (DateTime.parse(lastTime).day <= now.day &&
-        (DateTime.parse(lastTime).hour + 1) >= (now.hour)) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+  // chatIsAvailable(String trainerName) async {
+  //   DateTime now = DateTime.now();
+  //   TrainerAppointmentsRepository trainerAppointmentsRepository =
+  //       TrainerAppointmentsRepository();
+  //   List scheduledCallTimes = await trainerAppointmentsRepository.coachMakeVideoCall();
+  //   if (scheduledCallTimes.isEmpty) return false;
+  //
+  //   String lastTime = (scheduledCallTimes.firstWhereOrNull((element) {
+  //         return element['trainer']['name'] == trainerName;
+  //       }) ??
+  //       {})['end_time'];
+  //
+  //   if (DateTime.parse(lastTime).day <= now.day &&
+  //       (DateTime.parse(lastTime).hour + 1) >= (now.hour)) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
 
   getPreviousWeek() async {
     if (currentWeekStartDay == 1) {

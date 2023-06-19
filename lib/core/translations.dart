@@ -15,8 +15,7 @@ class LocaleString extends Translations {
           'private_session_prog': 'Private Session',
           'subscription_payment': 'subscription payment',
           'forget_password': 'Forget Password',
-          'pls_enter_email':
-              'Please Enter Your Email To Receive Activation Code',
+          'pls_enter_email': 'Please Enter Your Email To Receive Activation Code',
           'email': 'Email',
           'reset_password': 'Reset Password',
           'set_new_pass': 'Set the new password to this account',
@@ -149,8 +148,7 @@ class LocaleString extends Translations {
           'current_plan': 'Current Plan',
           'plan': 'PLAN',
           'cancel_subscription': 'Cancel Subscription',
-          'take_a_plan_made_customized_for_you!':
-              'Take a Plan made customized for you!',
+          'take_a_plan_made_customized_for_you!': 'Take a Plan made customized for you!',
           'private_coatching': 'PRIVATE COACHING',
           'month': 'Month',
           'welcome': 'WELCOME',
@@ -197,8 +195,7 @@ class LocaleString extends Translations {
           'st_set': 'st set',
           'repeat_this_exercise': 'Repeat this Exercise',
           'slide_to_start_the_next_set': 'Slide to start the next Set',
-          'slide_to_start_the_timer_for_this_set':
-              'Slide to start the timer for this Set',
+          'slide_to_start_the_timer_for_this_set': 'Slide to start simer',
           'no_current_plan': 'No Current Plan',
           'our_trainer': 'Our Trainers',
           'private_sessions': 'Private Sessions',
@@ -209,8 +206,7 @@ class LocaleString extends Translations {
           'trainers': 'TRAINERS',
           'there_are_no_TRAINERS':
               'There are no TRAINERS in your search results, you can check our trainers and use FILTERS to find what you are looking for',
-          'there_are_no_appointments_this_week':
-              'There are no appointments this week',
+          'there_are_no_appointments_this_week': 'There are no appointments this week',
           'It\'s_not_time_for_the_call_yet': 'It\'s not time for the call yet',
           'okay': 'okay',
           'start_session': 'Start session',
@@ -270,8 +266,7 @@ class LocaleString extends Translations {
           'weight': 'Weight',
           'times': ' times',
           'time': ' time',
-          'workout_location_field_is_require':
-              'Workout Location Field is Require',
+          'workout_location_field_is_require': 'Workout Location Field is Require',
           'in_kg': 'in Kg',
           'hight': 'Hight',
           'Okay': 'Okay',
@@ -297,18 +292,15 @@ class LocaleString extends Translations {
           'finished_this_day': "User already finished this day",
           'needBookPrivateSession':
               'You need to book an appointment to have a private session with the coach',
-          'Your_subscription_to_plan':
-              'Your subscription will be canceled with plan',
+          'Your_subscription_to_plan': 'Your subscription will be canceled with plan',
           "subscription_finished":
               "Your subscription to Fitness Sotrm has ended, kindly renew it to continue where you have stopped.Subscribe Cancel",
           'will_be_canceled': 'will be canceled',
           'What_is_Fitness_Storm?': 'What is Fitness Storm?',
           'It_is_a_dynamic_application_in_both_Arabic':
               '\nIt is a dynamic application in both Arabic and English languages that gives you a chance to train with world class trainers through HD step-by-step instructional videos.\n',
-          'Can_I_contact_the_coach_directly?':
-              'Can I contact the coach directly?',
-          'No,_this_option_is_not_available_yet':
-              'No, this option is not available yet.',
+          'Can_I_contact_the_coach_directly?': 'Can I contact the coach directly?',
+          'No,_this_option_is_not_available_yet': 'No, this option is not available yet.',
           'Can_I_Subscribe_if_I_live_outside_Saudi_Arabia?':
               'Can I Subscribe if I live outside Saudi Arabia?',
           'Sure_you_can_subscribe_from_anywhere_in_the_globe':
@@ -317,8 +309,7 @@ class LocaleString extends Translations {
               'What plans do you offer to subscribe?',
           'We_offer_3_basic_plans':
               ' We offer 3 basic plans: ✔	Plan for 3 months ✔	Plan for 6 months ✔	Plan for 12 months ✔	one to one session with coach or dietician (private classes) ',
-          'Are_there_exercises_for_beginners?':
-              'Are there exercises for beginners?',
+          'Are_there_exercises_for_beginners?': 'Are there exercises for beginners?',
           "make_chat":
               'You should be subscribed with this coach in particular to have a conversation',
           'Yes_sure_Based_on_your_personal':
@@ -328,8 +319,7 @@ class LocaleString extends Translations {
           'Yes_they_can': 'Yes, they can.',
           'Can_I_try_your_programs_before_subscribing?':
               'Can I try your programs before subscribing?',
-          'Yes,_sure_there_is_7_days_free_trial':
-              "Yes, sure there is 7 days free trial",
+          'Yes,_sure_there_is_7_days_free_trial': "Yes, sure there is 7 days free trial",
           'How_can_I_subscribe_and_pay?': 'How can I subscribe and pay?',
           'You_can_subscribe_and_pay':
               'You can subscribe and pay online through available payment options available through the application.',
@@ -381,7 +371,6 @@ class LocaleString extends Translations {
           'Send_timeoutin_connection_withAPIserver':
               'Send timeout in connection with API server',
           'Unable_to_process_thedata': 'Unable to process the data',
-          'Unexpected_error_occurred': 'Unexpected error occurred',
           'Not_acceptable': 'Not acceptable',
           'Done': 'Done',
           'Confirm_Password': 'Confirm Password',
@@ -430,12 +419,12 @@ The application Policies may be changed or updated occasionally to meet the requ
                      ''',
           'like-this-Session-?': 'Did you like this Session ? ',
           'like-this-workout-plan-?': 'Did you like this workout plan ? ',
-          'Session-with-coach-Ammar Al-Natour':
-              'Session with coach Ammar Al-Natour',
+          'Session-with-coach-Ammar Al-Natour': 'Session with coach Ammar Al-Natour',
           'session': 'session',
           'Lateral-Roeeet-Medial-Lateral':
               'Shoulder Medial Lateral Roeeet Medial Lateral',
           'Day-4': 'Day 4 ',
+          'already_play': 'This day was already finished',
         },
         //ARABIC LANGUAGE
         'ar': {
@@ -446,7 +435,6 @@ The application Policies may be changed or updated occasionally to meet the requ
           "Most_Popular": 'الأكثر شيوعاً',
           'minute': 'دقيقة',
           'plan_prog': 'برنامج',
-          'plan_prog': 'برنامج',
           'times': 'مرات',
           'time': 'مرة',
           'seconds': ' ثواني',
@@ -456,8 +444,7 @@ The application Policies may be changed or updated occasionally to meet the requ
           'like-this-workout-plan-?': 'هل أعجبتك هذا البرنامج؟ ',
           'Session-with-coach-Ammar Al-Natour': 'جلسة مع المدرب عمار الناطور',
           'session': 'جلسة',
-          'Lateral-Roeeet-Medial-Lateral':
-              'الكتف الإنسي الجانبي رويت الإنسي الجانبي',
+          'Lateral-Roeeet-Medial-Lateral': 'الكتف الإنسي الجانبي رويت الإنسي الجانبي',
           'Day-4': 'اليوم 4 ',
           'privacy_policy_message': '''
                 
@@ -512,13 +499,10 @@ The application Policies may be changed or updated occasionally to meet the requ
           'private_sessions': 'التدريب الشخصي',
           'subscription_payment': 'ادفع للاشتراك',
           'forget_password': 'نسيت كلمة السر؟',
-          'pls_enter_email':
-              'يرجى إدخال البريد الإلكتروني لاستقبال رمز التفعيل',
+          'pls_enter_email': 'يرجى إدخال البريد الإلكتروني لاستقبال رمز التفعيل',
           'email': 'البريد الإلكتروني',
-          "make_chat":
-              'يجب أن تكون مشتركًا مع هذا المدرب على وجه الخصوص لإجراء محادثة',
-          'needBookPrivateSession':
-              'يجب عليك حجز موعد للحصول على جلسة خاصة مع المدرب',
+          "make_chat": 'يجب أن تكون مشتركًا مع هذا المدرب على وجه الخصوص لإجراء محادثة',
+          'needBookPrivateSession': 'يجب عليك حجز موعد للحصول على جلسة خاصة مع المدرب',
           'reset_password': ' إعادة تعيين كلمة السر',
           'set_new_pass': 'تعيين كلمة سر جديدة للحساب',
           'password': 'كلمة السر',
@@ -545,8 +529,7 @@ The application Policies may be changed or updated occasionally to meet the requ
               "لقد انتهى اشتراكك في Fitness Storm ، يرجى تجديده للمتابعة من حيث توقفت",
           'fitness_survey': 'إحصائية بدنية',
           'will_be_canceled': 'سيتم إلغاء',
-          'take_this_survey':
-              'الرجاء تعبئة المعلومات للحصول على اقتراحات مناسبة لكم',
+          'take_this_survey': 'الرجاء تعبئة المعلومات للحصول على اقتراحات مناسبة لكم',
           'how_often_do_you_exercise?': 'كم مرة تدرب عادةً ؟',
           'you_Prefer_to_workout_in': 'تفضل التدرب في',
           'gym': 'النادي',
@@ -647,8 +630,7 @@ The application Policies may be changed or updated occasionally to meet the requ
           'customer_services': 'خدمة الزبائن',
           'subscription_plans': 'خطط الاشتراك',
           'warning': 'تحذير',
-          'it_is_advisable':
-              'من المستحسن إلغاء أي اشتراك موجود قبل بدء اشتراك جديد',
+          'it_is_advisable': 'من المستحسن إلغاء أي اشتراك موجود قبل بدء اشتراك جديد',
           'current_plan': 'البرنامج الحالية',
           'plan': 'البرنامج',
           'cancel_subscription': 'إلغاء الاشتراك',
@@ -685,7 +667,6 @@ The application Policies may be changed or updated occasionally to meet the requ
           'sar/hour': 'ريال سعودي لكل ساعة',
           'start_private_session': 'ابدأ تدريبك الخاص',
           'sets': 'طقوم',
-          'reps': 'ممثلين',
           'trending_plan': 'البرامج الأكثر رواجاً',
           'FITNESS LEVEL': 'مستوى لياقتك',
           'Did_you_finish_your_training':
@@ -703,7 +684,7 @@ The application Policies may be changed or updated occasionally to meet the requ
           'st_set': 'st set',
           'repeat_this_exercise': 'أعد هذا التمرين',
           'slide_to_start_the_next_set': 'اسحب للبدء بالتمرين التالي',
-          'slide_to_start_the_timer_for_this_set': 'اسحب لليسار لبدء المؤقت',
+          'slide_to_start_the_timer_for_this_set': 'اسحب لبدء المؤقت',
           'no_current_plan': 'لا يوجد خطّة حالية',
           'our_trainer': 'مدربيننا',
           'plans': 'البرامج',
@@ -836,10 +817,8 @@ Fitness Storm هو تطبيق ديناميكي يتيح للمستخدمين ا�
           'What_is_Fitness_Storm?': 'ما هو FitnessStorm ؟',
           'It_is_a_dynamic_application_in_both_Arabic':
               'إنه تطبيق ديناميكي باللغتين العربية والإنجليزية يمنحك فرصة للتدريب مع مدربين عالميين من خلال مقاطع فيديو تعليمية عالية الدقة خطوة بخطوة.',
-          'Can_I_contact_the_coach_directly?':
-              'هل يمكنني الاتصال بالمدرب مباشرة ؟',
-          'No,_this_option_is_not_available_yet':
-              'لا، هذا الخيار غير متاح بعد.',
+          'Can_I_contact_the_coach_directly?': 'هل يمكنني الاتصال بالمدرب مباشرة ؟',
+          'No,_this_option_is_not_available_yet': 'لا، هذا الخيار غير متاح بعد.',
           'Can_I_Subscribe_if_I_live_outside_Saudi_Arabia?':
               'هل يمكنني الاشتراك إذا كنت أعيش خارج المملكة العربية السعودية ؟',
           'Sure_you_can_subscribe_from_anywhere_in_the_globe':
@@ -893,7 +872,6 @@ Fitness Storm هو تطبيق ديناميكي يتيح للمستخدمين ا�
           'Method_Allowed': 'الطريقة المسموح بها',
           'Bad_request': 'طلب خاطئ',
           'Unauthorised_request': 'طللب غير مصرّح به',
-          'Unexpected_error_occurred': 'ظهر خطأ مفاجئ',
           'Connection_request_timeout': 'خطأ في الاتصال',
           'No_internet_connection': 'لا يوجد اتصال بالانترنت',
           'Error_due_to_a_conflict': 'خطأ نتيجة تضارب في الخادم',
@@ -903,6 +881,7 @@ Fitness Storm هو تطبيق ديناميكي يتيح للمستخدمين ا�
           'Not_acceptable': 'غير مقبول',
           'Done': 'نعم',
           'Confirm_Password': 'Confirm Password	تأكيد كلمة المرور',
+          'already_play': 'تم الانتهاء من هذا اليوم',
         }
       };
 }

@@ -84,6 +84,7 @@ dependencies:
   collection: ^1.17.1
   open_filex: ^4.3.2
   path_provider:
+  shimmer_animation: ^2.1.0+1
 dev_dependencies:
   flutter_test:
     sdk: flutter

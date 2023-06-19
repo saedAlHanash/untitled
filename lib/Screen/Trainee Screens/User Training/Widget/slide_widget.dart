@@ -22,12 +22,13 @@ class SlidWidget extends GetWidget<UserTrainingController> {
         color: Get.theme.colorScheme.secondary,
         child: Dismissible(
           key: UniqueKey(),
-          onDismissed: (_) => controller
-              .startRestTimer(controller.currentExercise.secondsBased!),
+
+          onDismissed: (direction) {
+            controller.startRestTimer(controller.currentExercise.secondsBased!);
+          },
+
           //controller.isRest = true,
-          direction: isEnglish
-              ? DismissDirection.startToEnd
-              : DismissDirection.endToStart,
+          direction: DismissDirection.horizontal,
           child: Container(
             color: Get.theme.colorScheme.secondary,
             child: Column(
@@ -41,17 +42,14 @@ class SlidWidget extends GetWidget<UserTrainingController> {
                       textAlign: TextAlign.center,
                       '${'set'.tr} ${controller.currentSet}',
                       style: const TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white),
+                          fontSize: 15, fontWeight: FontWeight.bold, color: Colors.white),
                     ),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
                           'repeat_this_exercise'.tr,
-                          style: const TextStyle(
-                              fontSize: 14, color: Colors.white),
+                          style: const TextStyle(fontSize: 14, color: Colors.white),
                         ),
                         Text(
                           _getRepeatText(),
@@ -66,12 +64,10 @@ class SlidWidget extends GetWidget<UserTrainingController> {
                 ),
                 !controller.currentExercise.secondsBased!
                     ? Text('slide_to_start_the_next_set'.tr,
-                        style:
-                            const TextStyle(fontSize: 14, color: Colors.white))
+                        style: const TextStyle(fontSize: 14, color: Colors.white))
                     : Text('slide_to_start_the_timer_for_this_set'.tr,
                         maxLines: 3,
-                        style:
-                            const TextStyle(fontSize: 14, color: Colors.white))
+                        style: const TextStyle(fontSize: 14, color: Colors.white))
               ],
             ),
           ),

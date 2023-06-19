@@ -22,7 +22,7 @@ class TrainerProfileInfowidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            trainer.name??'',
+            trainer.name ?? '',
             style: const TextStyle(
               color: Color(0xFF565C63),
               fontWeight: FontWeight.bold,

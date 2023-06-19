@@ -25,6 +25,7 @@ abstract class ApiResult<T> {
       DefaultResponse<T>(
         data: json['data'] ?? json,
         message: json["message"],
+
         numberOfPages: json['number_of_pages'] ?? 0,
         numberOfResults: json['number_of_results'] ?? 0,
         status: json['statusCode'],

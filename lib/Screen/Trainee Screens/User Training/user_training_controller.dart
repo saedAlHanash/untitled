@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:fitness_storm/Data/Api/api_result.dart';
 import 'package:fitness_storm/Data/Repositories/exercise_repository.dart';
@@ -42,21 +43,17 @@ class UserTrainingController extends GetxController {
   final Rx<String> _videoId = ''.obs;
 
   @override
-  void onClose() {
-    videoController.dispose();
+  void onClose() async {
+    await ScreenProtector.protectDataLeakageOff();
+
+    print('++++++++++++++++++++++++++++++++++++');
+
+    try {
+      videoController.dispose();
+    } on Exception {}
+
     super.onClose();
   }
-
-  @override
-  void dispose() {
-    // For iOS only.
-    _removeListenerPreventScreenshot();
-
-    // For iOS and Android
-    _preventScreenshotOff();
-    super.dispose();
-  }
-
 
   @override
   Future<void> onInit() async {
@@ -81,13 +78,7 @@ class UserTrainingController extends GetxController {
     initVideoPlayerController();
     isLoading = false;
 
-    // For iOS only.
-    _addListenerPreventScreenshot();
-
-    // For iOS and Android
-    _preventScreenshotOn();
-
-    _checkScreenRecording();
+    _protectDataLeakageOn();
 
     super.onInit();
   }
@@ -414,26 +405,10 @@ class UserTrainingController extends GetxController {
   }
 }
 
-void _checkScreenRecording() async {
-  final isRecording = await ScreenProtector.isRecording();
-
-  if (isRecording) {}
-}
-
-void _preventScreenshotOn() async => await ScreenProtector.preventScreenshotOn();
-
-void _preventScreenshotOff() async => await ScreenProtector.preventScreenshotOff();
-
-void _addListenerPreventScreenshot() async {
-  ScreenProtector.addListener(() {
-    // Screenshot
-    debugPrint('Screenshot:');
-  }, (isCaptured) {
-    // Screen Record
-    debugPrint('Screen Record:');
-  });
-}
-
-void _removeListenerPreventScreenshot() async {
-  ScreenProtector.removeListener();
+void _protectDataLeakageOn() async {
+  if (Platform.isIOS) {
+    await ScreenProtector.protectDataLeakageWithColor(Colors.white);
+  } else if (Platform.isAndroid) {
+    await ScreenProtector.protectDataLeakageOn();
+  }
 }
