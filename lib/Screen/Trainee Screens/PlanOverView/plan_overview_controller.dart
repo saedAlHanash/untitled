@@ -168,6 +168,7 @@ class PlanOverviewController extends GetxController {
         planWorkouts[index].type!,
         planWorkouts[index].count,
         planWorkouts[index].break_after_set,
+        apiResult.statusCode == 402
       ]);
     } else {
       Utils.closeDialog();

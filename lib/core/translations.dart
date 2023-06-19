@@ -703,7 +703,7 @@ The application Policies may be changed or updated occasionally to meet the requ
           'st_set': 'st set',
           'repeat_this_exercise': 'أعد هذا التمرين',
           'slide_to_start_the_next_set': 'اسحب للبدء بالتمرين التالي',
-          'slide_to_start_the_timer_for_this_set': 'اسحب لليمين لبدء المؤقت',
+          'slide_to_start_the_timer_for_this_set': 'اسحب لليسار لبدء المؤقت',
           'no_current_plan': 'لا يوجد خطّة حالية',
           'our_trainer': 'مدربيننا',
           'plans': 'البرامج',
