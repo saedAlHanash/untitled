@@ -221,7 +221,8 @@ class _ChatPageState extends State<ChatPage> {
   }
 
   @override
-  Widget build(BuildContext context) => Scaffold(
+  Widget build(BuildContext context) {
+    return Scaffold(
         appBar: AppBar(
           systemOverlayStyle: SystemUiOverlayStyle.light,
           title: Text(widget.name),
@@ -244,10 +245,7 @@ class _ChatPageState extends State<ChatPage> {
                 onMessageTap: _handleMessageTap,
                 onPreviewDataFetched: _handlePreviewDataFetched,
                 onSendPressed: _handleSendPressed,
-                theme: const DarkChatTheme(
-                  messageBorderRadius: 5.0,
-                  seenIcon: Icon(Icons.check),
-                ),
+                theme: const DarkChatTheme(),
                 user: types.User(
                   id: FirebaseChatCore.instance.firebaseUser?.uid ?? '',
                 ),
@@ -256,4 +254,5 @@ class _ChatPageState extends State<ChatPage> {
           },
         ),
       );
+  }
 }

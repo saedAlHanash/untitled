@@ -27,8 +27,7 @@ class PlanOverviewScreen extends GetView<PlanOverviewController> {
             leading: IconButton(
                 icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
                 onPressed: () => Get.back()),
-            title: Text(
-                controller.isLoading ? '' : controller.planOverview.name!,
+            title: Text(controller.isLoading ? '' : controller.planOverview.name!,
                 style: const TextStyle(fontWeight: FontWeight.bold))),
         body: controller.isLoading
             ? const Center(child: CircularProgressIndicator())
@@ -38,15 +37,12 @@ class PlanOverviewScreen extends GetView<PlanOverviewController> {
                     Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        VimoePlayer(
-                            videoId:
-                                controller.planOverview.introductionVideo!),
+                        VimoePlayer(videoId: controller.planOverview.introductionVideo!),
 
                         const VideoTailWidget(),
                         Padding(
                           padding: EdgeInsets.symmetric(
-                              horizontal:
-                                  MediaQuery.of(context).size.width / 20),
+                              horizontal: MediaQuery.of(context).size.width / 20),
                           child: Column(
                             children: [
                               const SizedBox(height: 30),
@@ -58,8 +54,7 @@ class PlanOverviewScreen extends GetView<PlanOverviewController> {
                               Text(
                                 controller.planOverview.trainer!.name!,
                                 style: TextStyle(
-                                    color: Get.theme.colorScheme.secondary,
-                                    fontSize: 14),
+                                    color: Get.theme.colorScheme.secondary, fontSize: 14),
                               ),
                               SizedBox(
                                 width: Get.width,
@@ -72,20 +67,15 @@ class PlanOverviewScreen extends GetView<PlanOverviewController> {
                                     Row(
                                         children: controller
                                             .planOverview.trainingLocation!
-                                            .map((e) =>
-                                                CustomChip(text: e.type!))
+                                            .map((e) => CustomChip(text: e.type!))
                                             .toList()),
                                     Row(
-                                        children: controller
-                                            .planOverview.trainingLevel!
-                                            .map((e) =>
-                                                CustomChip(text: e.type!))
+                                        children: controller.planOverview.trainingLevel!
+                                            .map((e) => CustomChip(text: e.type!))
                                             .toList()),
                                     Row(
-                                        children: controller
-                                            .planOverview.trainingType!
-                                            .map((e) =>
-                                                CustomChip(text: e.type!))
+                                        children: controller.planOverview.trainingType!
+                                            .map((e) => CustomChip(text: e.type!))
                                             .toList()),
                                   ],
                                 ),
@@ -94,8 +84,7 @@ class PlanOverviewScreen extends GetView<PlanOverviewController> {
                               ReadMoreTextWidget(
                                   text: controller.planOverview.description!),
                               const SizedBox(height: 30),
-                              TrainerProfile(
-                                  controller.planOverview.trainer!.name!,
+                              TrainerProfile(controller.planOverview.trainer!.name!,
                                   controller.planOverview.trainer!.profilePic!),
                               const SizedBox(height: 30),
                               TrainerBio(controller.planOverview.trainer!.bio!),
@@ -113,19 +102,19 @@ class PlanOverviewScreen extends GetView<PlanOverviewController> {
                           itemCount: controller.planWorkouts.length,
                           itemBuilder: (context, index) {
                             return GestureDetector(
-                              onTap: () => controller.planWorkouts[index].name!
-                                          .toLowerCase() !=
-                                      'Rest day'.toLowerCase()
-                                  ? controller.startTraining(index)
-                                  : () {},
+                              onTap: () {
+                                controller.planWorkouts[index].name!.toLowerCase() !=
+                                        'Rest day'.toLowerCase()
+                                    ? controller.startTraining(index)
+                                    : () {};
+                              },
                               child: DayWidget(
                                 key: controller.keys[index],
                                 imageUrl: controller.planWorkouts[index].image!,
                                 dayNumber: controller.planWorkouts[index].name!,
-                                totalMinutes: controller
-                                    .planWorkouts[index].totalMinutes!,
-                                exercises:
-                                    controller.planWorkouts[index].exercises!,
+                                totalMinutes:
+                                    controller.planWorkouts[index].totalMinutes!,
+                                exercises: controller.planWorkouts[index].exercises!,
                                 type: controller.planWorkouts[index].type!,
 
                                 // type:controller.planWorkouts[index].type!

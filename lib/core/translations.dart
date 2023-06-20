@@ -258,7 +258,7 @@ class LocaleString extends Translations {
           'enter_password': 'Enter Password',
           'enter_your_name': 'Enter Your Name',
           'weight_field_is_require': 'Weight Field is Require',
-          'hight_field_is_require': 'Hight Field is Require',
+          'hight_field_is_require': 'Height Field is Require',
           'how_many_you_training_field_is_require':
               'How many You training Field is Require',
           'training_level_field_is_require': 'Training Level Field is Require',
@@ -268,7 +268,7 @@ class LocaleString extends Translations {
           'time': ' time',
           'workout_location_field_is_require': 'Workout Location Field is Require',
           'in_kg': 'in Kg',
-          'hight': 'Hight',
+          'hight': 'Height',
           'Okay': 'Okay',
           'the_weeks': 'The Weeks',
           'in_cm': 'in Cm',

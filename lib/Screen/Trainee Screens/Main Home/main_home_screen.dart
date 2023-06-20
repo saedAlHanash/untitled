@@ -57,15 +57,12 @@ class MainHomeScreen extends GetView<MainHomeController> {
                         color: Get.theme.scaffoldBackgroundColor,
                       )),
                   Stack(
-                    alignment:
-                        isEnglish ? Alignment.topRight : Alignment.topLeft,
+                    alignment: isEnglish ? Alignment.topRight : Alignment.topLeft,
                     children: [
                       IconButton(
-                          onPressed: () => Get.toNamed(
-                                  AppRoutes.notificationScreen,
+                          onPressed: () => Get.toNamed(AppRoutes.notificationScreen,
                                   arguments: [false])!
-                              .then((value) =>
-                                  controller.numberOfNotification = 0),
+                              .then((value) => controller.numberOfNotification = 0),
                           icon: const Icon(
                             Icons.notifications,
                             size: 30,
@@ -84,8 +81,7 @@ class MainHomeScreen extends GetView<MainHomeController> {
                               child: Text(
                                 controller.numberOfNotification > 9
                                     ? "+9"
-                                    : controller.numberOfNotification
-                                        .toString(),
+                                    : controller.numberOfNotification.toString(),
                                 style: const TextStyle(
                                   color: Colors.white,
                                   fontSize: 8,
