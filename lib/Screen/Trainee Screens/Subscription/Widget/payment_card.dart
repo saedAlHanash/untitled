@@ -2,40 +2,42 @@ import 'package:fitness_storm/Widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class PaymentCardWidget extends StatelessWidget {
-  final String id;
-  final String type;
-  final double price;
-  final Function onTapFunction;
+import '../../../../Model/subscription_model.dart';
 
+class PaymentCardWidget extends StatelessWidget {
   const PaymentCardWidget({
     super.key,
-    required this.id,
-    required this.type,
-    required this.price,
+    required this.plan,
     required this.onTapFunction,
   });
+
+  final SubscriptionsPlans plan;
+  final Function onTapFunction;
 
   @override
   Widget build(BuildContext context) {
     return Card(
       elevation: 20,
       child: Column(children: [
-        SizedBox(height: Get.height / 25),
+        SizedBox(height: Get.height / 20),
         Text(
-          '${getType()} ' + 'plan'.tr,
+          '${plan.duration} / $getType',
           style: const TextStyle(
             color: Color(0xFF565C63),
-            fontSize: 14,
+            fontSize: 16,
           ),
         ),
         Text(
-          '$price\$',
+          '${plan.priceAfterDiscount}\$',
           style: const TextStyle(
-              color: Color(0xFF565C63),
-              fontSize: 20,
-              fontWeight: FontWeight.bold),
+              color: Color(0xFF565C63), fontSize: 20, fontWeight: FontWeight.bold),
         ),
+        if (plan.price != plan.priceAfterDiscount)
+          Text(
+            '${'renewal_price'.tr}:${plan.price}\$',
+            style: const TextStyle(color: Color(0xFF565C63), fontSize: 13),
+          ),
+        const Spacer(),
         CustomButton(
           onTapFunction: () {
             onTapFunction();
@@ -49,13 +51,13 @@ class PaymentCardWidget extends StatelessWidget {
     );
   }
 
-  String getType() {
-    if (type == 'day') {
-      return 'DAILY';
-    } else if (type == 'month') {
-      return 'MONTHLY';
+  String get getType {
+    if (plan.type == 'day') {
+      return 'DAY${plan.duration > 1 ? 's' : ''}';
+    } else if (plan.type == 'month') {
+      return 'MONTH${plan.duration > 1 ? 's' : ''}';
     } else {
-      return 'YEARLY';
+      return 'YEAR${plan.duration > 1 ? 's' : ''}';
     }
   }
 }

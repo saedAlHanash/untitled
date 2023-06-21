@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.chiteam.fitnessStorm">
+    package="com.chi.fitnessStorm">
+
     <!-- com.example.fitness_storm -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -13,6 +14,7 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <!-- The Agora SDK requires Bluetooth permissions in case users are using Bluetooth devices.-->
     <uses-permission android:name="android.permission.BLUETOOTH" />
+
     <queries>
         <provider android:authorities="com.facebook.katana.provider.PlatformProvider" />
     </queries>
@@ -54,7 +56,7 @@
 
         </activity>
         <!--        <service-->
-        <!--            android:name="com.chiteam.fitnessStorm.MyFirebaseMessagingService"-->
+        <!--            android:name="com.chi.fitnessStorm.MyFirebaseMessagingService"-->
         <!--            android:exported="false">-->
         <!--            <intent-filter>-->
         <!--                <action android:name="com.google.firebase.MESSAGING_EVENT" />-->

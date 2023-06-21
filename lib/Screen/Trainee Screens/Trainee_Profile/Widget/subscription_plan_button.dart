@@ -20,8 +20,7 @@ class SubscriptionPlanButton extends GetWidget<TraineeProfileController> {
               MaterialStateProperty.all<Color>(Get.theme.colorScheme.primary),
           elevation: MaterialStateProperty.all(10),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-              RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(18.0))),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0))),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,

@@ -19,6 +19,7 @@ import 'package:get_storage/get_storage.dart';
 
 import '../../../Utils/Routes/app_pages.dart';
 import '../../../Utils/storage_controller.dart';
+import '../../chat/util.dart';
 
 class PlanOverviewController extends GetxController {
   late String id;
@@ -81,6 +82,7 @@ class PlanOverviewController extends GetxController {
     Utils.openLoadingDialog();
     var response = await _traineeRepository.subscribePlan(planId: planOverview.id!);
     if (response.type == ApiResultType.success) {
+      getRoomByUser(planOverview.trainer?.id);
       Utils.closeDialog();
       GetStorage getStorage = GetStorage();
       await getStorage.write('currentPlan', planOverview.name);

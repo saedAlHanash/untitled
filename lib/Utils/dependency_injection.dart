@@ -24,6 +24,7 @@ import '../Data/Api/methods.dart';
 import '../Data/Api/urls.dart';
 import '../Model/trainer.dart';
 import '../Screen/chat/util.dart';
+import '../firebase_options.dart';
 import 'Constants/constants.dart';
 import 'Constants/enums.dart';
 import 'app_controller.dart';
@@ -132,7 +133,9 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 }
 
 initFirebaseMessaging() async {
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 
@@ -193,11 +196,12 @@ requestPermission() async {
 
 Future<void> initFirebaseChat() async {
   FirebaseAuth.instance.authStateChanges().listen((User? user) {
+    StorageController().firebaseUser = user;
     if (user == null) {
       getProfile();
       return;
     }
-    StorageController().firebaseUser = user;
+
   });
 }
 

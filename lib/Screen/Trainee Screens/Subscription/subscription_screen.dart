@@ -1,3 +1,4 @@
+import 'package:fitness_storm/Screen/Trainee%20Screens/HomeScreen/home_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Subscription/Widget/payment_card.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Subscription/Widget/success_subscribed.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Subscription/Widget/without_subscribed.dart';
@@ -12,7 +13,7 @@ import '../PlanOverView/plan_overview_controller.dart';
 import 'Widget/current_payment_card.dart';
 
 class SubscriptionScreen extends GetView<SubscruptionController> {
-  SubscriptionScreen({super.key});
+  const SubscriptionScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +65,7 @@ class SubscriptionScreen extends GetView<SubscruptionController> {
                         GridView.builder(
                           physics: const NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
-                          itemCount: controller.subscriptions.subscriptionsPlans!.length,
+                          itemCount: controller.subscriptions.subscriptions.length,
                           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
                             crossAxisSpacing: Get.width / 19.7,
@@ -72,32 +73,22 @@ class SubscriptionScreen extends GetView<SubscruptionController> {
                             mainAxisSpacing: Get.height / 40.6,
                           ),
                           itemBuilder: (context, index) {
-                            if (controller.subscriptions.subscriptionsPlans![index]
-                                .currentSubscription!) {
-                              return CurrentPaymentCardWidegt(
-                                id: controller
-                                    .subscriptions.subscriptionsPlans![index].id!,
-                                price: controller
-                                    .subscriptions.subscriptionsPlans![index].price!,
-                                type: controller
-                                    .subscriptions.subscriptionsPlans![index].type!,
-                                voidCallBack: () {},
+                            if (controller
+                                .subscriptions.subscriptions[index].currentSubscription) {
+                              return CurrentPaymentCardWidget(
+                                plan: controller.subscriptions.subscriptions[index],
                               );
                             }
                             return PaymentCardWidget(
-                              id: controller.subscriptions.subscriptionsPlans![index].id!,
-                              price: controller
-                                  .subscriptions.subscriptionsPlans![index].price!,
-                              type: controller
-                                  .subscriptions.subscriptionsPlans![index].type!,
+                              plan: controller.subscriptions.subscriptions[index],
                               onTapFunction: () async {
                                 if (!controller.isSubscribe) {
                                   String uri = await controller.makePayment(
-                                      amount: controller.subscriptions
-                                          .subscriptionsPlans![index].price!,
+                                      amount: controller
+                                          .subscriptions.subscriptions[index].price,
                                       currency: 'USD',
                                       subscriptionId: controller
-                                          .subscriptions.subscriptionsPlans![index].id!);
+                                          .subscriptions.subscriptions[index].id);
                                   if (uri != "" && context.mounted) {
                                     Navigator.push(
                                       currentContext,
@@ -121,15 +112,21 @@ class SubscriptionScreen extends GetView<SubscruptionController> {
                                           Get.find<PlanOverviewController>().isActivated =
                                               true;
                                         }
-                                        controller
-                                            .subscriptions
-                                            .subscriptionsPlans![index]
+                                        controller.subscriptions.subscriptions[index]
                                             .currentSubscription = true;
                                       } else {
-                                        Utils.openSnackBar(
-                                          title: 'not_successfully_subscription'.tr,
-                                          message: "not_complete_process_payment".tr,
-                                        );
+                                        Navigator.pushAndRemoveUntil(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) {
+                                                return const HomeScreen();
+                                              },
+                                            ),
+                                            (route) => false);
+                                        // Utils.openSnackBar(
+                                        //   title: 'not_successfully_subscription'.tr,
+                                        //   message: "not_complete_process_payment".tr,
+                                        // );
                                       }
                                     });
                                     // kholoud.elsayed@hotmail.com

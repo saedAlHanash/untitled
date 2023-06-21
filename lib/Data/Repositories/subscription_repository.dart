@@ -18,11 +18,11 @@ class SubscriptionRepository {
       ApiResult result =
           await Methods.get(url: TRAINEEURLS.getMyPayment, options: option);
       if (result.type == ApiResultType.success) {
-        result.data.forEach((payment) =>
-            traineeNextPayments.add(TraineeNextPayment.fromJson(payment)));
+        result.data.forEach(
+            (payment) => traineeNextPayments.add(TraineeNextPayment.fromJson(payment)));
       }
       result =
-      await Methods.get(url: TRAINEEURLS.getMyPaymentPrivateSession, options: option);
+          await Methods.get(url: TRAINEEURLS.getMyPaymentPrivateSession, options: option);
       if (result.type == ApiResultType.success) {
         result.data.forEach((payment) =>
             traineeNextPayments.add(PaymentPrivateSession.fromJson(payment)));
@@ -37,17 +37,15 @@ class SubscriptionRepository {
   Future<SubscriptionsModel> subscribePaymentPlan() async {
     Options option = Utils.getOptions(withToken: true, all: true);
     try {
-      ApiResult result = await Methods.get(
-          url: TRAINEEURLS.subscribePaymentPlan, options: option);
-      if (result.type == ApiResultType.success) {
-        SubscriptionsModel subscriptionsModel =
-            SubscriptionsModel.fromJson(result.data);
-        return subscriptionsModel;
+      final result =
+          await Methods.getJson(url: TRAINEEURLS.subscribePaymentPlan, options: option);
+      if (result!.statusCode == 200) {
+        return SubscriptionsResponse.fromJson(result.data).data;
       }
     } catch (error) {
       log(error.toString());
     }
-    return SubscriptionsModel();
+    return SubscriptionsModel.fromJson({});
   }
 
   Future<dynamic> createNewSubscription({

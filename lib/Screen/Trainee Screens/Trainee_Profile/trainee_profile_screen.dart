@@ -25,10 +25,10 @@ class TraineeProfileScreen extends GetView<TraineeProfileController> {
                 child: CircularProgressIndicator(color: Get.theme.primaryColor))
             : Padding(
                 padding: EdgeInsets.symmetric(horizontal: Get.width / 12.5),
-                child: SingleChildScrollView(
+                child: const SingleChildScrollView(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
-                    children: const [
+                    children: [
                       TraineeProfileHeader(),
                       SubscriptionPlanButton(),
                       TraineeProfileBody(),

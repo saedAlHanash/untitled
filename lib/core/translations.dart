@@ -425,6 +425,7 @@ The application Policies may be changed or updated occasionally to meet the requ
               'Shoulder Medial Lateral Roeeet Medial Lateral',
           'Day-4': 'Day 4 ',
           'already_play': 'This day was already finished',
+          'renewal_price': 'Renewal Price',
         },
         //ARABIC LANGUAGE
         'ar': {
@@ -882,6 +883,7 @@ Fitness Storm هو تطبيق ديناميكي يتيح للمستخدمين ا�
           'Done': 'نعم',
           'Confirm_Password': 'Confirm Password	تأكيد كلمة المرور',
           'already_play': 'تم الانتهاء من هذا اليوم',
+          'renewal_price': 'سعر التجديد',
         }
       };
 }

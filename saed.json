@@ -1,207 +1,58 @@
 {
   "data": [
     {
-      "id": 6682,
-      "start_time": "2023-06-14 17:00:00",
-      "end_time": "2023-06-14 18:00:00",
-      "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IAAY3gFS+UK9BaIcF5WBjiTSfJAEbQEkPYkRMlsTNAGFCIp+KioAAAAAEAB4LQAAfieLZAEAAQCS54lk",
-      "status": "started",
-      "price": null,
-      "trainer": {
-        "id": 26,
-        "name": "Rita Kamar"
+      "user": {
+        "id": "135",
+        "name": "israa"
+      },
+      "channel_id": "LSgfvXSI",
+      "last_message": {
+        "id": 157,
+        "message": "ot evet a number",
+        "sender_type": "trainer",
+        "created_at": "2023-05-26T20:57:47.000000Z"
       }
     },
     {
-      "id": 6681,
-      "start_time": "2023-06-14 15:00:00",
-      "end_time": "2023-06-14 16:00:00",
-      "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IABkvFZosb11ZXTF+8q7yLuQP2VG9HwouHQ6fAHmE55kjYp+KioAAAAAEACLQAEAWAuLZAEAAQBsy4lk",
-      "status": "started",
-      "price": null,
-      "trainer": {
-        "id": 26,
-        "name": "Rita Kamar"
+      "user": {
+        "id": "185",
+        "name": "dassd"
+      },
+      "channel_id": "ydsMdgSU",
+      "last_message": null
+    },
+    {
+      "user": {
+        "id": "66",
+        "name": "name"
+      },
+      "channel_id": "cPWemVwv",
+      "last_message": null
+    },
+    {
+      "user": {
+        "id": "215",
+        "name": "Ammar fin"
+      },
+      "channel_id": "zb82hszU",
+      "last_message": {
+        "id": 141,
+        "message": "margaba",
+        "sender_type": "user",
+        "created_at": "2023-04-22T13:16:21.000000Z"
       }
     },
     {
-      "id": 6526,
-      "start_time": "2023-06-10 16:00:00",
-      "end_time": "2023-06-10 17:00:00",
-      "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IADHoLR01QV1ryfVAG+AEG4Bs2QNF5P41hMD9aRgRKmjIIp+KioAAAAAEAAYZgEAZNOFZAEAAQB4k4Rk",
-      "status": "started",
-      "price": null,
-      "trainer": {
-        "id": 28,
-        "name": "Abd Elazim Fargally"
-      }
-    },
-    {
-      "id": 6507,
-      "start_time": "2023-06-10 13:00:00",
-      "end_time": "2023-06-10 14:00:00",
-      "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IAAQ8NIhfBStxivt5Kphna2m7IKhql8slij3ngo1Of/x6Yp+KioAAAAAEADJhQEANKmFZAEAAQBIaYRk",
-      "status": "started",
-      "price": null,
-      "trainer": {
-        "id": 26,
-        "name": "Rita Kamar"
-      }
-    },
-    {
-      "id": 6505,
-      "start_time": "2023-06-10 11:00:00",
-      "end_time": "2023-06-10 12:00:00",
-      "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IADWnYd5Ao08OzXIMvAMi9K0JA/EF80Zmh8FrtOf4Ky504p+KioAAAAAEACgPwAATo2FZAEAAQBiTYRk",
-      "status": "started",
-      "price": null,
-      "trainer": {
-        "id": 26,
-        "name": "Rita Kamar"
-      }
-    },
-    {
-      "id": 6359,
-      "start_time": "2023-06-09 23:00:00",
-      "end_time": "2023-06-10 00:00:00",
-      "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IAA7TtXVtkrC9jvuHE6O3QkvBpH/0NTKf9qwFpcxX7JnkYp+KioAAAAAEADsFQAAWuSEZAEAAQBupINk",
-      "status": "started",
-      "price": null,
-      "trainer": {
-        "id": 26,
-        "name": "Rita Kamar"
-      }
-    },
-    {
-      "id": 6215,
-      "start_time": "2023-06-08 11:30:00",
-      "end_time": "2023-06-08 12:30:00",
-      "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IABnCr41kfPNPjjCas8PPe2yUhmdq1gIqHSL48tdTEgpJIp+KioAAAAAEADqJgAAGvGCZAEAAQAusYFk",
-      "status": "started",
-      "price": null,
-      "trainer": {
-        "id": 28,
-        "name": "Abd Elazim Fargally"
-      }
-    },
-    {
-      "id": 6117,
-      "start_time": "2023-06-07 18:00:00",
-      "end_time": "2023-06-07 19:00:00",
-      "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IACIUICTw0sa2cyhYnQ5LKEfXvUmMrwn3hi8ABOh3f5zLYp+KioAAAAAEAD4ggAACvuBZAEAAQAeu4Bk",
-      "status": "started",
-      "price": null,
-      "trainer": {
-        "id": 28,
-        "name": "Abd Elazim Fargally"
-      }
-    },
-    {
-      "id": 6115,
-      "start_time": "2023-06-07 16:00:00",
-      "end_time": "2023-06-07 17:00:00",
-      "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IAARg3RoRmGivcaMXzL+dRY3hempbpTGfKRIrMhdudep3Yp+KioAAAAAEADhaAEA5d6BZAEAAQD5noBk",
-      "status": "started",
-      "price": null,
-      "trainer": {
-        "id": 28,
-        "name": "Abd Elazim Fargally"
-      }
-    },
-    {
-      "id": 5922,
-      "start_time": "2023-05-27 14:11:00",
-      "end_time": "2023-05-27 15:11:00",
-      "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IAAqbl2PJeqEkgy1Acp7Z3oPMqclq/7txNUtYwxS+96iL4p+Kio43zc1EADgzAAANDRzZAEAAQBI9HFk",
-      "status": "started",
-      "price": null,
-      "trainer": {
-        "id": 29,
-        "name": "Doha Dergham"
-      }
-    },
-    {
-      "id": 5921,
-      "start_time": "2023-05-27 14:00:00",
-      "end_time": "2023-05-27 15:00:00",
-      "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IAB3UAc8L4GvuYOMdB7g6xeAhiNgef3O/ch6GBYDEUVo3Yp+KioAAAAAEABVGwEARUJzZAEAAQBZAnJk",
-      "status": "started",
-      "price": null,
-      "trainer": {
-        "id": 29,
-        "name": "Doha Dergham"
-      }
-    },
-    {
-      "id": 5906,
-      "start_time": "2023-05-27 13:00:00",
-      "end_time": "2023-05-27 14:00:00",
-      "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IAAqbl2PJeqEkgy1Acp7Z3oPMqclq/7txNUtYwxS+96iL4p+Kio43zc1EADgzAAANDRzZAEAAQBI9HFk",
-      "status": "started",
-      "price": null,
-      "trainer": {
-        "id": 29,
-        "name": "Doha Dergham"
-      }
-    },
-    {
-      "id": 5887,
-      "start_time": "2023-05-27 11:00:00",
-      "end_time": "2023-05-27 12:00:00",
-      "video_call_token": "006861acc6b86cb46089cc592a00bde6328IAAqWXQQbaDMJGIB94mY7gd7bGWUNa5dnd/hUJulCoidLIp+Kio43zc1EADBugAAThhzZAEAAQBi2HFk",
-      "status": "started",
-      "price": null,
-      "trainer": {
-        "id": 26,
-        "name": "Rita Kamar"
-      }
-    },
-    {
-      "id": 5750,
-      "start_time": "2023-05-07 20:30:00",
-      "end_time": "2023-05-07 21:30:00",
-      "video_call_token": "006861acc6b86cb46089cc592a00bde6328IABECZvKj1OoYFe0pg2q4EB0XbTMx4LCEU2J3+oSsYCBC4p+Kio43zc1EAAt4wAAqj9ZZAEAAQC+/1dk",
-      "status": "started",
-      "price": null,
-      "trainer": {
-        "id": 26,
-        "name": "Rita Kamar"
-      }
-    },
-    {
-      "id": 5612,
-      "start_time": "2023-05-07 19:00:00",
-      "end_time": "2023-05-07 20:00:00",
-      "video_call_token": "006861acc6b86cb46089cc592a00bde6328IACWnfgLbAHsXksM8TFzjPBQt1lagF72l/pnb5fd4kEhsIp+Kio43zc1EAB3lQAAlCpZZAEAAQCo6ldk",
-      "status": "started",
-      "price": null,
-      "trainer": {
-        "id": 26,
-        "name": "Rita Kamar"
-      }
-    },
-    {
-      "id": 4805,
-      "start_time": "2023-05-07 14:00:00",
-      "end_time": "2023-05-07 15:00:00",
-      "video_call_token": "006861acc6b86cb46089cc592a00bde6328IAB6HcBLLgsA2+6bEJc+3YkGsi+AyByqk4CpYs4IMpPf6op+Kio43zc1EAB7NQEARORYZAEAAQBYpFdk",
-      "status": "started",
-      "price": null,
-      "trainer": {
-        "id": 26,
-        "name": "Rita Kamar"
-      }
-    },
-    {
-      "id": 3891,
-      "start_time": "2023-05-03 18:00:00",
-      "end_time": "2023-05-03 19:00:00",
-      "video_call_token": "006861acc6b86cb46089cc592a00bde6328IADSGQ/I/ydJe3hDLat52CZ0rbPrlN+JVJkJJqLQA7hX6Yp+Kio43zc1EAA7oQAAhdZTZAEAAQCZllJk",
-      "status": "started",
-      "price": null,
-      "trainer": {
-        "id": 26,
-        "name": "Rita Kamar"
+      "user": {
+        "id": "245",
+        "name": "Kholoud tested it profile"
+      },
+      "channel_id": "yLuBr3Xx",
+      "last_message": {
+        "id": 224,
+        "message": "سعيد",
+        "sender_type": "user",
+        "created_at": "2023-06-16T16:10:46.000000Z"
       }
     }
   ]

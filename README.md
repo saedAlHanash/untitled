@@ -16,6 +16,6 @@ For help getting started with Flutter development, view the
 samples, guidance on mobile development, and a full API reference.
 
 ## Don't forget
-- [ ] change bundle id com.chiteam.fitnessStorm
+- [ ] change bundle id com.chi.fitnessStorm
 - [ ] change json firbase depending on new bundle id
 - [ ] un comment firebase statement 

@@ -9,6 +9,8 @@ import 'package:fitness_storm/Utils/storage_controller.dart';
 import 'package:fitness_storm/Utils/utils.dart';
 import 'package:get/get.dart';
 
+import '../../chat/util.dart';
+
 class TrainerProfileController extends GetxController {
   final RxBool _isLoading = false.obs;
 
@@ -33,8 +35,8 @@ class TrainerProfileController extends GetxController {
     if (res.type == ApiResultType.success) {
       storageController.token = '';
       storageController.rememberToken = '';
-      await FirebaseAuth.instance.signOut();
-      StorageController().firebaseUser = null;
+      await logoutChatUser();
+      ;
       Get.back();
       // Utils.openSnackBar(title: 'Logout Success');
       Get.offAllNamed(AppRoutes.signIn);
@@ -46,8 +48,8 @@ class TrainerProfileController extends GetxController {
         // Utils.openSnackBar(title: 'Logout Success');
         Get.offAllNamed(AppRoutes.signIn);
       }
-      await FirebaseAuth.instance.signOut();
-      StorageController().firebaseUser = null;
+      await logoutChatUser();
+      ;
       Get.back();
       Utils.openSnackBar(message: res.message!);
     }

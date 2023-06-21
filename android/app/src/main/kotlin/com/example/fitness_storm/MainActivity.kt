@@ -1,4 +1,4 @@
-package com.chiteam.fitnessStorm
+package com.chi.fitnessStorm
 
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.android.FlutterFragmentActivity

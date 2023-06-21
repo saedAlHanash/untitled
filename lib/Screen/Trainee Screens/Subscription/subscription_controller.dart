@@ -13,7 +13,7 @@ import '../../../Utils/utils.dart';
 class SubscruptionController extends GetxController {
   final RxBool _isLoading = false.obs;
   final RxBool _isBuy = false.obs;
-  final Rx<SubscriptionsModel> _subscriptionsModel = SubscriptionsModel().obs;
+  final Rx<SubscriptionsModel> _subscriptionsModel = SubscriptionsModel.fromJson({}).obs;
   final TraineeRepository _traineeRepository = TraineeRepository();
   late UserProfile userProfile;
   late Rx<bool> _isSubscribe = false.obs;
@@ -69,12 +69,14 @@ class SubscruptionController extends GetxController {
   getSubscribtionPaymentPlan() async {
     isLoading = true;
     subscriptions = await _subscriptionRepository.subscribePaymentPlan();
-    for (var element in subscriptions.subscriptionsPlans!.toList()) {
-      if (element.currentSubscription!) {
+
+    for (var element in subscriptions.subscriptions.toList()) {
+      if (element.currentSubscription) {
         _isSubscribe = true.obs;
         break;
       }
     }
+
     getUserProfile();
     isLoading = false;
   }
@@ -103,7 +105,7 @@ class SubscruptionController extends GetxController {
   }
 
   Future<String> makePayment({
-    required double amount,
+    required num amount,
     required String currency,
     required String subscriptionId,
   }) async {

@@ -175,7 +175,7 @@ class AppPages {
           binding: NewPasswordBinding()),
       GetPage(
           name: AppRoutes.subscriptionScreen,
-          page: () => SubscriptionScreen(),
+          page: () => const SubscriptionScreen(),
           binding: SubscriptionBinding()),
       GetPage(
           name: AppRoutes.notificationScreen,

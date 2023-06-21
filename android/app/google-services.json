@@ -7,20 +7,12 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:644714333877:android:e19c2cd1b3e2445fb820fc",
+        "mobilesdk_app_id": "1:644714333877:android:569d4dcdd048a372b820fc",
         "android_client_info": {
-          "package_name": "com.chiteam.fitnessStorm"
+          "package_name": "com.chi.fitnessStorm"
         }
       },
       "oauth_client": [
-        {
-          "client_id": "644714333877-nqplk4lhr9ong10qrehksta0qpkfeel7.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.chiteam.fitnessStorm",
-            "certificate_hash": "d5c282e43439bcdddb2d60deb2c9cf844ff5f4a2"
-          }
-        },
         {
           "client_id": "644714333877-1bqnqk8h7omigcg7n930aft0m62i60jo.apps.googleusercontent.com",
           "client_type": 3
@@ -39,10 +31,10 @@
               "client_type": 3
             },
             {
-              "client_id": "644714333877-l7tc3rh4a101c6aplubh2qgm1ph3mpr8.apps.googleusercontent.com",
+              "client_id": "644714333877-6jd09h6n6djp1tkuh9sv7jn5on6dde7b.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.chiteam.fitnessStorm"
+                "bundle_id": "com.afaq.afaqAlnourAcademy"
               }
             }
           ]

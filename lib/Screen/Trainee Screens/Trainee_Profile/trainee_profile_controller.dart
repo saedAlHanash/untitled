@@ -14,6 +14,8 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
+import '../../chat/util.dart';
+
 class TraineeProfileController extends GetxController {
   final TraineeRepository _traineeRepository = TraineeRepository();
   final AuthRepository _authRepository = AuthRepository();
@@ -153,8 +155,8 @@ class TraineeProfileController extends GetxController {
       case 'google':
         {
           await logoutGoogle();
-          await FirebaseAuth.instance.signOut();
-          StorageController().firebaseUser = null;
+          await logoutChatUser();
+
           break;
         }
 
@@ -165,8 +167,7 @@ class TraineeProfileController extends GetxController {
       default:
         {
           await logout();
-          await FirebaseAuth.instance.signOut();
-          StorageController().firebaseUser = null;
+          await logoutChatUser();
           break;
         }
     }

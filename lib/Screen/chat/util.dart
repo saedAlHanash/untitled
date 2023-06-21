@@ -60,7 +60,9 @@ Future<String> test() async {
   return '';
 }
 
-Future<types.Room?> getRoomByUser(String id) async {
+Future<types.Room?> getRoomByUser(String? id) async {
+  if (id == null) return null;
+
   final rooms = await getChatRooms();
   for (var e in rooms) {
     for (var e1 in e.users) {
@@ -69,9 +71,12 @@ Future<types.Room?> getRoomByUser(String id) async {
       }
     }
   }
+
   for (var e in await getChatUsers()) {
     if (e.firstName == id) {
-      return await FirebaseChatCore.instance.createRoom(e);
+      var newRoom = await FirebaseChatCore.instance.createRoom(e);
+      StorageController().listRooms.add(newRoom);
+      return newRoom;
     }
   }
   return null;
@@ -110,6 +115,7 @@ Future<void> createChatUser(Trainer profile) async {
         firstName: profile.id,
         id: credential.user!.uid,
         lastName: profile.name,
+        metadata: {'fcm': await FirebaseMessaging.instance.getToken()},
       ),
     );
   } on Exception catch (e) {
@@ -134,11 +140,26 @@ Future<void> loginChatUser(Trainer profile) async {
   );
 }
 
+Future<void> logoutChatUser() async {
+  if (StorageController().firebaseUser != null) {
+    await FirebaseFirestore.instance
+        .collection('users')
+        .doc(StorageController().firebaseUser?.uid)
+        .update(
+      {
+        'metadata': {'fcm': ''},
+      },
+    );
+  }
+
+  await FirebaseAuth.instance.signOut();
+}
+
 var dio = Dio();
 
 Future<void> sendNotificationMessage(
     MyRoomObject myRoomObject, ChatNotification message) async {
-  if (!myRoomObject.needToSendNotification) return;
+  if (!myRoomObject.needToSendNotification || myRoomObject.fcmToken.isEmpty) return;
 
   if (message.body.length > 100) {
     message.body = message.body.substring(0, 99);
