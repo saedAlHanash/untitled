@@ -426,6 +426,10 @@ The application Policies may be changed or updated occasionally to meet the requ
           'Day-4': 'Day 4 ',
           'already_play': 'This day was already finished',
           'renewal_price': 'Renewal Price',
+          'are_you_sure': 'Are you sure?',
+          'cancel_renewal': 'Your subscription will NOT be renewed, you will be able to continue your fitness storm until your current subscription ends.',
+          'warning_renewal': 'Your subscription will be renewed with the new chosen bundle on',
+          'warning_delete_account': 'Your account will be deleted with all your data, progress, and cancel any ongoing subscription.',
         },
         //ARABIC LANGUAGE
         'ar': {
@@ -884,6 +888,11 @@ Fitness Storm هو تطبيق ديناميكي يتيح للمستخدمين ا�
           'Confirm_Password': 'Confirm Password	تأكيد كلمة المرور',
           'already_play': 'تم الانتهاء من هذا اليوم',
           'renewal_price': 'سعر التجديد',
+          'are_you_sure': 'هل أنت متأكد؟',
+          'cancel_renewal':
+              'لن يتم تجديد اشتراكك، لكن بإمكانك الاستفادة وإكمال تمارينك حتى انتهاء دورة اشتراكك الحالية.',
+          'warning_renewal': 'سيتم تجديد اشتراكك بالباقة الجديدة المختارة بتاريخ',
+          'warning_delete_account': 'حذف الحساب سيؤدي لحذف كامل بياناتك وتقدمك، وإلغاء أي اشتراك جاري.',
         }
       };
 }

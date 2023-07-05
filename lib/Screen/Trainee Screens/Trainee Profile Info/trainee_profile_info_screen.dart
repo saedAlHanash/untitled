@@ -54,7 +54,7 @@ class TraineeProfileInfoScreen extends GetWidget<TraineeProfileController> {
                     height: 40,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12)),
-                    color: Colors.grey[300],
+                    color: Colors.red,
                     onPressed: () async {
                       await controller.deleteAccount();
                     },
@@ -62,7 +62,7 @@ class TraineeProfileInfoScreen extends GetWidget<TraineeProfileController> {
                       child: Text(
                         'delete_account'.tr,
                         style:
-                            const TextStyle(color: Colors.white, fontSize: 10),
+                            const TextStyle(color: Colors.white, fontSize: 14),
                       ),
                     ),
                   ),

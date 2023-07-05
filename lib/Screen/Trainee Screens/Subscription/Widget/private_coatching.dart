@@ -47,7 +47,7 @@ class PrivateCoatching extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Text(
-                  "$price\$",
+                  "$price SAR",
                   style: const TextStyle(
                       color: Color(0xFF565C63),
                       fontWeight: FontWeight.bold,

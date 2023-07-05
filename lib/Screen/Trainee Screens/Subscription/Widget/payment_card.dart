@@ -28,13 +28,13 @@ class PaymentCardWidget extends StatelessWidget {
           ),
         ),
         Text(
-          '${plan.priceAfterDiscount}\$',
+          '${plan.priceAfterDiscount} SAR',
           style: const TextStyle(
               color: Color(0xFF565C63), fontSize: 20, fontWeight: FontWeight.bold),
         ),
         if (plan.price != plan.priceAfterDiscount)
           Text(
-            '${'renewal_price'.tr}:${plan.price}\$',
+            '${'renewal_price'.tr}:${plan.price} SAR',
             style: const TextStyle(color: Color(0xFF565C63), fontSize: 13),
           ),
         const Spacer(),

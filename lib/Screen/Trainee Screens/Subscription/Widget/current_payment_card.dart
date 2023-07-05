@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../Model/subscription_model.dart';
+import '../../../../Utils/utils.dart';
 import '../subscription_controller.dart';
 
 class CurrentPaymentCardWidget extends StatelessWidget {
@@ -42,23 +43,28 @@ class CurrentPaymentCardWidget extends StatelessWidget {
             ),
           ),
           Text(
-            '${plan.priceAfterDiscount}\$',
+            '${plan.priceAfterDiscount} SAR',
             style: const TextStyle(
                 color: Color(0xFF565C63), fontSize: 20, fontWeight: FontWeight.bold),
           ),
           if (plan.price != plan.priceAfterDiscount)
-          Text(
-            '${'renewal_price'.tr}:${plan.price}\$',
-            style: const TextStyle(color: Color(0xFF565C63), fontSize: 13),
-          ),
+            Text(
+              '${'renewal_price'.tr}:${plan.price} SAR',
+              style: const TextStyle(color: Color(0xFF565C63), fontSize: 13),
+            ),
           const Spacer(),
           Container(
             margin: const EdgeInsets.all(6),
             child: ElevatedButton(
               onPressed: () {
-                Get.find<SubscruptionController>().cancelSubscribtion();
-                Get.find<SubscruptionController>().changeIsSubscrip();
-                Get.find<SubscruptionController>().getSubscribtionPaymentPlan();
+                Utils.showAlertDialog(
+                  () {
+                    Get.find<SubscruptionController>().cancelSubscribtion();
+                    Get.find<SubscruptionController>().changeIsSubscrip();
+                    Get.find<SubscruptionController>().getSubscribtionPaymentPlan();
+                  },
+                  'cancel_renewal'.tr,
+                );
               },
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all<Color>(

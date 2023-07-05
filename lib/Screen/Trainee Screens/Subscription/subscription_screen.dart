@@ -89,7 +89,7 @@ class SubscriptionScreen extends GetView<SubscruptionController> {
                                       currency: 'USD',
                                       subscriptionId: controller
                                           .subscriptions.subscriptions[index].id);
-                                  if (uri != "" && context.mounted) {
+                                  if (uri != "" ) {
                                     Navigator.push(
                                       currentContext,
                                       MaterialPageRoute(
