@@ -4,24 +4,14 @@
     <!-- com.example.fitness_storm -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <!-- The Agora SDK requires Bluetooth permissions in case users are using Bluetooth devices.-->
-    <uses-permission android:name="android.permission.BLUETOOTH" />
 
     <queries>
         <provider android:authorities="com.facebook.katana.provider.PlatformProvider" />
     </queries>
-    <!-- TODO facebook -->
-    <!-- <uses-permission android:name="com.google.android.gms.permission.APP_ID" tools:node="remove"/> -->
 
-    <!-- <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />     -->
     <application
         android:name="${applicationName}"
         android:allowBackup="false"
