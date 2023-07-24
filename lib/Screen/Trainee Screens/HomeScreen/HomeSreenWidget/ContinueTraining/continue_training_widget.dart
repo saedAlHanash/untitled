@@ -29,8 +29,7 @@ class ContinueTrainingWidget extends GetView<HomeScreenController> {
     );
   }
 
-  Widget _buildContinueTrainingPlanList(context,
-      {required List<SubscribedPlan> plans}) {
+  Widget _buildContinueTrainingPlanList(context, {required List<SubscribedPlan> plans}) {
     return plans.isNotEmpty
         ? SizedBox(
             width: double.infinity,
@@ -39,16 +38,21 @@ class ContinueTrainingWidget extends GetView<HomeScreenController> {
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
               itemCount: plans.length,
-              itemBuilder: (context1, index) {
-                return GestureDetector(
-                  onTap: () => Get.toNamed(AppRoutes.planOverview,
-                      arguments: plans[index].id),
+              itemBuilder: (_, i) {
+                final item = plans[i];
+                return InkWell(
+                  onTap: () {
+                    Get.toNamed(
+                      AppRoutes.planOverview,
+                      arguments: item.id,
+                    );
+                  },
                   child: ContinueTrainingItem(
-                    planImageUrl: plans[index].image!,
-                    planName: plans[index].name!,
-                    planProgress: plans[index].userProgress!,
-                    nextDayNumber: _getNextDay(plans[index].days!),
-                    // trainerName: plans[index].trainer!.name!,
+                    planImageUrl: item.image!,
+                    planName: item.name!,
+                    planProgress: item.userProgress!,
+                    nextDayNumber: _getNextDay(plans[i].days!),
+                    // trainerName:item.trainer!.name!,
                   ),
                 );
               },
@@ -70,8 +74,10 @@ class ContinueTrainingWidget extends GetView<HomeScreenController> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        _buildContinueTrainingPlanHeader(context,
-            plans: controller.continueTrainingPlans),
+        _buildContinueTrainingPlanHeader(
+          context,
+          plans: controller.continueTrainingPlans,
+        ),
         _buildContinueTrainingPlanList(
           context,
           plans: controller.continueTrainingPlans.isNotEmpty

@@ -14,7 +14,7 @@ class TrainerWalletScreen extends GetView<TrainerWalletController> {
       () => controller.isLoading
           ? SizedBox(
               height: Get.height / 1.2,
-              child: const Center(child: CircularProgressIndicator()))
+              child: const Center(child: CircularProgressIndicator.adaptive()))
           : controller.sessions.isNotEmpty
               ? Padding(
                   padding: const EdgeInsets.only(top: 30, bottom: 30),

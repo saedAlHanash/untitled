@@ -45,7 +45,7 @@ class SubscriptionScreen extends GetView<SubscruptionController> {
           ),
           child: controller.isLoading
               ? const Center(
-                  child: CircularProgressIndicator(),
+                  child: CircularProgressIndicator.adaptive(),
                 )
               : SingleChildScrollView(
                   child: Container(

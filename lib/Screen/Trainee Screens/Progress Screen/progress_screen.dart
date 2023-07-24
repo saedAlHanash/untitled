@@ -12,7 +12,7 @@ class ProgressScreen extends GetView<ProgressScreenController> {
       () => controller.isLoading
           ? SizedBox(
               height: Get.height,
-              child: const Center(child: CircularProgressIndicator()))
+              child: const Center(child: CircularProgressIndicator.adaptive()))
           : SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,

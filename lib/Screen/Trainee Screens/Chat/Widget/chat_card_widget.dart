@@ -47,7 +47,7 @@ class ChatCardWidget extends GetWidget<ChatController> {
                 fadeInDuration: const Duration(seconds: 1),
                 fit: BoxFit.cover,
                 placeholder: (context, url) =>
-                    const CircularProgressIndicator(),
+                    const CircularProgressIndicator.adaptive(),
                 errorWidget: (context, url, error) =>
                     Image.asset('asset/Images/user.png', fit: BoxFit.fill),
               ),

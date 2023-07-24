@@ -12,7 +12,7 @@ class WorkoutScreen extends GetView<WorkoutScreenController> {
   Widget build(BuildContext context) {
     return Obx(
       () => controller.isLoading
-          ? const Center(child: CircularProgressIndicator())
+          ? const Center(child: CircularProgressIndicator.adaptive())
           : controller.workouts.isNotEmpty
               ? Column(children: [
                   const DayBar(),

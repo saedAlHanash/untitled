@@ -34,7 +34,7 @@ class TraineeProfileHeader extends GetWidget<TraineeProfileController> {
                   ? ""
                   : controller.userProfile.image.toString(),
               fadeInDuration: const Duration(seconds: 1),
-              placeholder: (context, url) => const CircularProgressIndicator(),
+              placeholder: (context, url) => const CircularProgressIndicator.adaptive(),
               errorWidget: (context, url, error) =>
                   Image.asset('asset/Images/user.png', fit: BoxFit.fill),
             ),

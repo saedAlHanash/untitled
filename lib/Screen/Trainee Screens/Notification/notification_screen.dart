@@ -24,7 +24,7 @@ class NotificationScreen extends GetView<NotificationController> {
               const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
         body: controller.isLoading
-            ? Center(child: CircularProgressIndicator())
+            ? Center(child: CircularProgressIndicator.adaptive())
             : SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,

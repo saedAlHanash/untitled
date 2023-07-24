@@ -11,7 +11,7 @@ class TrendingPlansScreen extends GetView<TrendingPlanController> {
 
   Widget _buildTrendsPlansList(List<Plan> plans) {
     return controller.isLoading
-        ? const Center(child: CircularProgressIndicator())
+        ? const Center(child: CircularProgressIndicator.adaptive())
         : ListView.builder(
             shrinkWrap: true,
             itemCount: plans.length,

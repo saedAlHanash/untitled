@@ -11,7 +11,7 @@ class FilterResultScreen extends GetView<FilterResultController> {
     return Obx(
       () => Scaffold(
         body: controller.isLoading
-            ? const Center(child: CircularProgressIndicator())
+            ? const Center(child: CircularProgressIndicator.adaptive())
             : ListView.builder(
                 itemCount: controller.plansOverviews.length,
                 itemBuilder: (context, index) {

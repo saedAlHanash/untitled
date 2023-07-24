@@ -35,7 +35,7 @@ class PageWidget extends GetWidget<TrainingController> {
             children: [
               //todo
               // new VimeoVideoPlayer(url: 'https://vimeo.com/${videoId}'),
-              new VimoePlayer(videoId: videoId),
+              new VimeoPlayer(videoId: videoId),
               SizedBox(height: Get.height / 10),
               Column(children: buildItemsWidget()),
             ],

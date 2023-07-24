@@ -41,7 +41,7 @@ class YourTrainersScreen extends GetView<YourTrainerController> {
 
   Widget _buildYourTrainerList(List<Trainer> trainers) {
     return controller.isLoading
-        ? const Center(child: CircularProgressIndicator())
+        ? const Center(child: CircularProgressIndicator.adaptive())
         : SmartRefresher(
             controller: controller.refreshController.value,
             enablePullUp: true,

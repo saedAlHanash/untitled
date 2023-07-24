@@ -21,7 +21,7 @@ class HomeScreen extends GetView<HomeScreenController> {
     return Obx(
       () => controller.isLoading.value
           ? SizedBox(
-              height: Get.height, child: const Center(child: CircularProgressIndicator()))
+              height: Get.height, child: const Center(child: CircularProgressIndicator.adaptive()))
           : RefreshIndicator(
               onRefresh: () async {
                 controller.isLoading.value = true;
@@ -45,7 +45,7 @@ class HomeScreen extends GetView<HomeScreenController> {
                   children: [
                     // SizedBox(height: 100),
                     controller.continueTrainingPlans.isEmpty
-                        ? SizedBox.shrink()
+                        ? const SizedBox.shrink()
                         : const ContinueTrainingWidget(),
                     const TrendingPlanWidget(),
                     const FeaturedPlanWidget(),
@@ -83,7 +83,7 @@ class CustomSearchDelegate extends SearchDelegate {
       future: planRepository.searchPlans(query),
       builder: (context, AsyncSnapshot snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator.adaptive());
         } else {
           return ListView.builder(
             itemCount: snapshot.data.length,

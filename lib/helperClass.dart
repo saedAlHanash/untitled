@@ -1,8 +1,7 @@
-import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
 class HelperClass {
   static bool successfullySubscription = false;
-  static InAppWebViewController? webView;
+
   static bool isTrainerGloabl = false;
 
 

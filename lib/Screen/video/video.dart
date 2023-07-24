@@ -17,116 +17,7 @@ import 'package:agora_rtc_engine/agora_rtc_engine.dart';
 //     return const Placeholder();
 //   }
 // }
-//
-// class Video extends StatefulWidget {
-//   const Video({
-//     Key? key,
-//     required this.tempToken,
-//     required this.channel,
-//   }) : super(key: key);
-//   final String tempToken;
-//   final String channel;
-//
-//   @override
-//   State<Video> createState() => _VideoState();
-// }
-//
-// class _VideoState extends State<Video> {
-//   final AgoraClient client = AgoraClient(
-//     agoraConnectionData: AgoraConnectionData(
-//       appId: 'dc5750785c314609940e5a458a210d47',
-//       tempToken: saedToken,
-//       channelName: saedChannel,
-//
-//       uid: int.parse(uid),
-//       rtmUid: rtmUid,
-//     ),
-//     agoraRtmChannelEventHandler: AgoraRtmChannelEventHandler(
-//       onMemberJoined: (member) {},
-//
-//     ),
-//   );
-//
-//   endCall() async {
-//     await client.engine.leaveChannel();
-//   }
-//
-//   @override
-//   void dispose() {
-//     client.engine.leaveChannel();
-//     super.dispose();
-//   }
-//
-//   @override
-//   void initState() {
-//     super.initState();
-//     final StorageController _storageController = StorageController();
-//     Logger().wtf(saedToken);
-//     // if (_storageController.userType == 'trainee') {
-//     // } else {
-//     //   client = AgoraClient(
-//     //     agoraConnectionData: AgoraConnectionData(
-//     //       appId: 'dc5750785c314609940e5a458a210d47',
-//     //       channelName: saedChannel,
-//     //
-//     //       // rtmUid: '246',
-//     //       tempToken: saedToken,
-//     //
-//     //       // tempToken:
-//     //       //     '007eJxTYOh4POfe64Of/lp5tjmvtlym/Pm26uo9Eos79/LuTo+O2P9LgSHFONU4McUyKc0o0cLELCk1ydTUMMnAwNjS3DLRyNDEaJd7QUpDICOD8FsHZkYGCATx2RnSckpLSlKLGBgAsWQjMw==',
-//     //       // appId: "d3e3ad9bf2a846beb551b003979a2142",
-//     //       // channelName: "flutter",
-//     //       // tempToken: "007eJxTYPhqpnSBxej8LU3hOmUXdsucEO9Gv8PFtxdnsXX3atp9WarAkGKcapyYYpmUZpRoYWKWlJpkamqYZGBgbGlumWhkaGJUcS88pSGQkUFTP5qJkQECQXx2hrSc0pKS1CIGBgDk+B3l"
-//     //       // tempToken: widget.tempToken,
-//     //       // "007eJxTYKhhVFrk23zXnqv6QPzBjeEPIv/eOsSzQW5tdfDP7/cqc6MUGFKMU40TUyyT0owSLUzMklKTTE0NkwwMjC3NLRONDE2M+FbbpzQEMjIoxVQyMTJAIIjPzpCWU1pSklrEwAAA5nsg0A==" // tempToken: widget.tempToken,
-//     //     ),
-//     //   );
-//     // }
-//
-//     initAgora();
-//   }
-//
-//   void initAgora() async {
-//     await client.initialize();
-//   }
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         backgroundColor: Get.theme.primaryColor,
-//         title: Text('private_sessions'.tr),
-//         centerTitle: true,
-//       ),
-//       body: SafeArea(
-//         child: Stack(
-//           children: [
-//             AgoraVideoViewer(
-//               client: client,
-//               layoutType: Layout.floating,
-//               enableHostControls: true, // Add this to enable host controls
-//             ),
-//             AgoraVideoButtons(
-//               disconnectButtonChild: RawMaterialButton(
-//                 onPressed: () async {
-//                   await endCall();
-//                   Get.back();
-//                 },
-//                 shape: const CircleBorder(),
-//                 elevation: 2.0,
-//                 fillColor: Colors.redAccent,
-//                 padding: const EdgeInsets.all(15.0),
-//                 child: const Icon(Icons.call_end, color: Colors.white, size: 35),
-//               ),
-//               client: client,
-//               addScreenSharing: false, // Add this to enable screen sharing
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
+
 
 class Video1 extends StatefulWidget {
   const Video1({Key? key, required this.tempToken}) : super(key: key);
@@ -225,7 +116,7 @@ class _Video1State extends State<Video1> {
                           canvas: const VideoCanvas(uid: 0),
                         ),
                       )
-                    : const CircularProgressIndicator(),
+                    : const CircularProgressIndicator.adaptive(),
               ),
             ),
           ),

@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "644714333877-hs4gvjria97frfqn3giqnu0agv508i3g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.chi.fitnessStorm",
+            "certificate_hash": "b9623ebc4bb3f108392bacde3d149e763fbd7152"
+          }
+        },
+        {
           "client_id": "644714333877-1bqnqk8h7omigcg7n930aft0m62i60jo.apps.googleusercontent.com",
           "client_type": 3
         }

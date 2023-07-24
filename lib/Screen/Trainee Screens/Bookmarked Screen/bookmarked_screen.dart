@@ -33,7 +33,7 @@ class BookmarkedScreen extends GetView<BookmarkedScreenController> {
 
   Widget _buildBookmarkPlansList(List<Plan> plans) {
     return controller.isLoading
-        ? const Center(child: CircularProgressIndicator())
+        ? const Center(child: CircularProgressIndicator.adaptive())
         : ListView.builder(
             shrinkWrap: true,
             itemCount: plans.length,

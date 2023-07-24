@@ -85,7 +85,7 @@ class DateSheet extends GetWidget<BookPrivateSessionController> {
             ),
             controller.isLoading
                 ? const Expanded(
-                    child: Center(child: CircularProgressIndicator()))
+                    child: Center(child: CircularProgressIndicator.adaptive()))
                 : Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: controller.generateDaysWidget(currentContext),
@@ -147,7 +147,7 @@ class DateSheet extends GetWidget<BookPrivateSessionController> {
 //   Widget build(BuildContext context) {
 //     return Obx(
 //       () => controller.isLoading
-//           ? Center(child: CircularProgressIndicator())
+//           ? Center(child: CircularProgressIndicator.adaptive())
 //           : Container(
 //               child:
 //               // Column(

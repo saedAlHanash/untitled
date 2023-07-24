@@ -12,7 +12,7 @@ class FeaturedPlanList extends GetWidget<FeaturedPlanController> {
   Widget build(BuildContext context) {
     return Obx(
       () => controller.isLoading
-          ? Center(child: CircularProgressIndicator())
+          ? Center(child: CircularProgressIndicator.adaptive())
           : SmartRefresher(
               controller: controller.refreshController.value,
               enablePullUp: true,

@@ -58,7 +58,7 @@ class Utils {
             alignment: Alignment.center,
             height: 100,
             width: 100,
-            child: const CircularProgressIndicator()),
+            child: const CircularProgressIndicator.adaptive()),
         barrierDismissible: false);
   }
 

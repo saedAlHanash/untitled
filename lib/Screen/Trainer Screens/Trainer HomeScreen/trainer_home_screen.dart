@@ -19,7 +19,7 @@ class TrainerHomeScreen extends GetView<TrainerHomeScreenController> {
       () => controller.isLoading.value
           ? SizedBox(
               height: Get.height,
-              child: const Center(child: CircularProgressIndicator()))
+              child: const Center(child: CircularProgressIndicator.adaptive()))
           : SingleChildScrollView(
               child: Column(
                 children: controller.trainerPlans.map((plan) {
@@ -66,7 +66,7 @@ class CustomSearchDelegate extends SearchDelegate {
       future: planRepository.searchPlans(query),
       builder: (context, AsyncSnapshot snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator.adaptive());
         } else {
           log(snapshot.data.toString());
           return ListView.builder(

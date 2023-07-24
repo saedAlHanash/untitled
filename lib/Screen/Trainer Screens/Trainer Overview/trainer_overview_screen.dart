@@ -22,7 +22,7 @@ class TrainerTrainerOverviewScreen extends GetView<TrainerTrainerOverviewControl
           ),
         ),
         body: controller.isLoading
-            ? const Center(child: CircularProgressIndicator())
+            ? const Center(child: CircularProgressIndicator.adaptive())
             : SingleChildScrollView(
                 child: Column(
                   children: [
@@ -95,7 +95,7 @@ class TrainerTrainerOverviewScreen extends GetView<TrainerTrainerOverviewControl
   Obx(
       () => Scaffold(
         body: controller.isLoading
-            ? const Center(child: CircularProgressIndicator())
+            ? const Center(child: CircularProgressIndicator.adaptive())
             : NotificationListener<UserScrollNotification>(
                 onNotification: (notification) {
                   final ScrollDirection direction = notification.direction;

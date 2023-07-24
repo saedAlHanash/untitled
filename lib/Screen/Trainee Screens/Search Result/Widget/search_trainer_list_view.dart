@@ -17,7 +17,7 @@ class SearchTrainerListView extends GetWidget<SearchResultController> {
     return Obx(
       () => Expanded(
         child: controller.isLoadingTrainer
-            ? const Center(child: CircularProgressIndicator())
+            ? const Center(child: CircularProgressIndicator.adaptive())
             : controller.trainers.isEmpty
                 ? const EmptySearchResult()
                 : SmartRefresher(

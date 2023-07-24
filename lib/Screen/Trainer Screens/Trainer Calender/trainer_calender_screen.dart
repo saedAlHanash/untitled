@@ -12,7 +12,7 @@ class TrainerCalenderSceen extends GetView<TrainerCalenderController> {
   Widget build(BuildContext context) {
     bool isEnglish = Get.locale?.languageCode == 'en';
     return Obx(() => controller.isLoading
-        ? const Center(child: CircularProgressIndicator())
+        ? const Center(child: CircularProgressIndicator.adaptive())
         : SingleChildScrollView(
             child: Column(
               children: [
@@ -49,7 +49,7 @@ class TrainerCalenderSceen extends GetView<TrainerCalenderController> {
                   () => controller.haveDataCalender
                       ? controller.isLoading
                           ? const Center(
-                              child: CircularProgressIndicator(),
+                              child: CircularProgressIndicator.adaptive(),
                             )
                           : controller.calenders.isNotEmpty
                               ? Column(

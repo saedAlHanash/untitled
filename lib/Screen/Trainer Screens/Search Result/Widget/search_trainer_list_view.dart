@@ -18,7 +18,7 @@ class TrainerSearchTrainerListView
     return Obx(
       () => Expanded(
         child: controller.isLoadingTrainer
-            ? const Center(child: CircularProgressIndicator())
+            ? const Center(child: CircularProgressIndicator.adaptive())
             : controller.trainers.isEmpty
                 ? const TrainerEmptySearchResult()
                 : SmartRefresher(

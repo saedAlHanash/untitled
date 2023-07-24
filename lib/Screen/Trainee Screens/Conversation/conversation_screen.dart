@@ -23,7 +23,7 @@ class ConversationScreen extends GetView<ConversationController> {
                 const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           body: controller.isLoading
-              ? const Center(child: CircularProgressIndicator())
+              ? const Center(child: CircularProgressIndicator.adaptive())
               : RefreshIndicator(
                   color: Colors.white,
                   onRefresh: () async {

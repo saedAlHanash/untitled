@@ -113,12 +113,11 @@ class SignupController extends GetxController {
 
   sign_in_google() async {
     Utils.openLoadingDialog();
-    final GoogleSignInAccount? googleAccount = await GoogleSignIn().signIn();
+    final  googleAccount = await GoogleSignIn().signIn();
 
-    final GoogleSignInAuthentication googleAuthentication =
-        await googleAccount!.authentication;
+    final  googleAuthentication = await googleAccount!.authentication;
 
-    final credential = await GoogleAuthProvider.credential(
+    final credential =  GoogleAuthProvider.credential(
         accessToken: googleAuthentication.accessToken,
         idToken: googleAuthentication.idToken);
     bool check = true;
@@ -178,3 +177,5 @@ class SignupController extends GetxController {
     await GoogleSignIn().signOut();
   }
 }
+
+//keytool -list -v -alias key0 -keystore fitness_sotrm

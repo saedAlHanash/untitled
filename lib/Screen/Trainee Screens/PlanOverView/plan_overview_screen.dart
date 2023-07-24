@@ -16,7 +16,7 @@ import '../../../Widgets/vimeo_player.dart';
 import 'Widget/trainer_profile.dart';
 
 class PlanOverviewScreen extends GetView<PlanOverviewController> {
-  PlanOverviewScreen({Key? key}) : super(key: key);
+  const PlanOverviewScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,101 +30,96 @@ class PlanOverviewScreen extends GetView<PlanOverviewController> {
             title: Text(controller.isLoading ? '' : controller.planOverview.name!,
                 style: const TextStyle(fontWeight: FontWeight.bold))),
         body: controller.isLoading
-            ? const Center(child: CircularProgressIndicator())
+            ? const Center(child: CircularProgressIndicator.adaptive())
             : SingleChildScrollView(
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        VimoePlayer(videoId: controller.planOverview.introductionVideo!),
-
-                        const VideoTailWidget(),
-                        Padding(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: MediaQuery.of(context).size.width / 20),
-                          child: Column(
-                            children: [
-                              const SizedBox(height: 30),
-                              Text(
-                                controller.planOverview.name!,
-                                style: const TextStyle(
-                                    color: Color(0xFF565C63), fontSize: 26),
-                              ),
-                              Text(
-                                controller.planOverview.trainer!.name!,
-                                style: TextStyle(
-                                    color: Get.theme.colorScheme.secondary, fontSize: 14),
-                              ),
-                              SizedBox(
-                                width: Get.width,
-                                height: Get.height / 20,
-                                child: ListView(
-                                  shrinkWrap: true,
-                                  scrollDirection: Axis.horizontal,
-                                  // mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Row(
-                                        children: controller
-                                            .planOverview.trainingLocation!
-                                            .map((e) => CustomChip(text: e.type!))
-                                            .toList()),
-                                    Row(
-                                        children: controller.planOverview.trainingLevel!
-                                            .map((e) => CustomChip(text: e.type!))
-                                            .toList()),
-                                    Row(
-                                        children: controller.planOverview.trainingType!
-                                            .map((e) => CustomChip(text: e.type!))
-                                            .toList()),
-                                  ],
-                                ),
-                              ),
-                              const SizedBox(height: 30),
-                              ReadMoreTextWidget(
-                                  text: controller.planOverview.description!),
-                              const SizedBox(height: 30),
-                              TrainerProfile(controller.planOverview.trainer!.name!,
-                                  controller.planOverview.trainer!.profilePic!),
-                              const SizedBox(height: 30),
-                              TrainerBio(controller.planOverview.trainer!.bio!),
-                            ],
+                    VimeoPlayer(
+                      videoId: controller.planOverview.introductionVideo!,
+                      onInitController: (videoController) {
+                        controller.videoController = videoController;
+                      },
+                    ),
+                    const VideoTailWidget(),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: MediaQuery.of(context).size.width / 20),
+                      child: Column(
+                        children: [
+                          const SizedBox(height: 30),
+                          Text(
+                            controller.planOverview.name!,
+                            style:
+                                const TextStyle(color: Color(0xFF565C63), fontSize: 26),
                           ),
-                        ),
-                        const DayBar(),
-                        SizedBox(height: Get.height / 25),
-                        // ScrollablePositionedList.builder(
-                        ListView.builder(
-                          key: UniqueKey(),
-                          // itemScrollController: controller.scrollController,
-                          controller: ScrollController(),
-                          shrinkWrap: true,
-                          itemCount: controller.planWorkouts.length,
-                          itemBuilder: (context, index) {
-                            return GestureDetector(
-                              onTap: () {
-                                controller.planWorkouts[index].name!.toLowerCase() !=
-                                        'Rest day'.toLowerCase()
-                                    ? controller.startTraining(index)
-                                    : () {};
-                              },
-                              child: DayWidget(
-                                key: controller.keys[index],
-                                imageUrl: controller.planWorkouts[index].image!,
-                                dayNumber: controller.planWorkouts[index].name!,
-                                totalMinutes:
-                                    controller.planWorkouts[index].totalMinutes!,
-                                exercises: controller.planWorkouts[index].exercises!,
-                                type: controller.planWorkouts[index].type!,
-
-                                // type:controller.planWorkouts[index].type!
-                              ),
-                            );
+                          Text(
+                            controller.planOverview.trainer!.name!,
+                            style: TextStyle(
+                                color: Get.theme.colorScheme.secondary, fontSize: 14),
+                          ),
+                          SizedBox(
+                            width: Get.width,
+                            height: Get.height / 20,
+                            child: ListView(
+                              shrinkWrap: true,
+                              scrollDirection: Axis.horizontal,
+                              // mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Row(
+                                    children: controller.planOverview.trainingLocation!
+                                        .map((e) => CustomChip(text: e.type!))
+                                        .toList()),
+                                Row(
+                                    children: controller.planOverview.trainingLevel!
+                                        .map((e) => CustomChip(text: e.type!))
+                                        .toList()),
+                                Row(
+                                    children: controller.planOverview.trainingType!
+                                        .map((e) => CustomChip(text: e.type!))
+                                        .toList()),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(height: 30),
+                          ReadMoreTextWidget(text: controller.planOverview.description!),
+                          const SizedBox(height: 30),
+                          TrainerProfile(controller.planOverview.trainer!.name!,
+                              controller.planOverview.trainer!.profilePic!),
+                          const SizedBox(height: 30),
+                          TrainerBio(controller.planOverview.trainer!.bio!),
+                        ],
+                      ),
+                    ),
+                    const DayBar(),
+                    SizedBox(height: Get.height / 25),
+                    ListView.builder(
+                      key: UniqueKey(),
+                      controller: ScrollController(),
+                      shrinkWrap: true,
+                      itemCount: controller.planWorkouts.length,
+                      itemBuilder: (_, i) {
+                        return GestureDetector(
+                          onTap: () {
+                            controller.videoController?.pause();
+                            controller.planWorkouts[i].name!.toLowerCase() !=
+                                    'Rest day'.toLowerCase()
+                                ? controller.startTraining(i)
+                                : () {};
                           },
-                        ),
-                      ],
-                    )
-                    // }),
+                          child: DayWidget(
+                            key: controller.keys[i],
+                            imageUrl: controller.planWorkouts[i].image!,
+                            dayNumber: controller.planWorkouts[i].name!,
+                            totalMinutes: controller.planWorkouts[i].totalMinutes!,
+                            exercises: controller.planWorkouts[i].exercises!,
+                            type: controller.planWorkouts[i].type!,
+
+                            // type:controller.planWorkouts[i].type!
+                          ),
+                        );
+                      },
+                    ),
                   ],
                 ),
               ),

@@ -1,24 +1,17 @@
-import 'dart:convert';
-
 import 'package:fitness_storm/Screen/Trainee%20Screens/User%20Training/Widget/current_exercise_widget.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/User%20Training/Widget/exercises_listview.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/User%20Training/Widget/rest_widget.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/User%20Training/user_training_controller.dart';
+import 'package:fitness_storm/Widgets/vimeo_player.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:get/get.dart';
-
-import '../../../Utils/storage_controller.dart';
-import '../../../Utils/themes.dart';
-import 'Widget/slide_widget.dart';
 import 'package:shimmer_animation/shimmer_animation.dart';
 
-class UserTrainingScreen extends GetView<UserTrainingController> {
-  UserTrainingScreen({super.key});
+import '../../../Utils/storage_controller.dart';
+import 'Widget/slide_widget.dart';
 
-  double progress = 0;
-  InAppWebViewController? webView;
+class UserTrainingScreen extends GetView<UserTrainingController> {
+  const UserTrainingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,11 +27,6 @@ class UserTrainingScreen extends GetView<UserTrainingController> {
                         title: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            // Text(
-                            //   'warning'.tr,
-                            //   style:
-                            //       const TextStyle(color: Colors.black, fontSize: 16),
-                            // ),
                             IconButton(
                                 onPressed: () => Navigator.pop(context, false),
                                 icon: Icon(
@@ -81,15 +69,9 @@ class UserTrainingScreen extends GetView<UserTrainingController> {
                   return shouldNavigateBack;
                 },
           child: Scaffold(
-            appBar: AppBar(
-              // leading: IconButton(
-              //   icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
-              //   onPressed: () => Get.back(),
-              // ),
-              title: Text(controller.nameWorkout),
-            ),
+            appBar: AppBar(title: Text(controller.nameWorkout)),
             body: controller.isLoading
-                ? const Center(child: CircularProgressIndicator())
+                ? const Center(child: CircularProgressIndicator.adaptive())
                 : Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment:
@@ -102,10 +84,10 @@ class UserTrainingScreen extends GetView<UserTrainingController> {
                           ? Align(
                               alignment: Alignment.center,
                               child: controller.accessToken == ''
-                                  ? Container(
+                                  ? const SizedBox(
                                       height: 50,
                                       width: 50,
-                                      child: const CircularProgressIndicator())
+                                      child: CircularProgressIndicator.adaptive())
                                   : Column(
                                       children: [
                                         controller.progress < 1.0
@@ -119,80 +101,20 @@ class UserTrainingScreen extends GetView<UserTrainingController> {
                                         SizedBox(
                                           height:
                                               MediaQuery.of(context).size.height * 0.283,
-                                          child: InAppWebView(
-                                            initialUrlRequest: URLRequest(
-                                                url: Uri.parse(
-                                                    'https://player.vimeo.com/video/${controller.currentExercise.video!}'),
-                                                headers: {
-                                                  'Authorization':
-                                                      'Basic ${base64Encode(utf8.encode('9353127f0c5d3848970ed83590f3989b7d4aeabf:lsL75LeVC88hMQALy4KlRbaR0srz72eq9RqDJQuAbopBD1rxhQK5XxLM0KDCniZZ3QDC2iuatIk+kNstylUffDxbVm/sUNxhPg7E02OY8nT82I6uOjRObMiMdD9jsGBw'))}',
-                                                  'Content-Type': 'application/json',
-                                                  'Accept':
-                                                      "application/vnd.vimeo.*+json;version=3.4",
-                                                }),
-                                            onWebViewCreated: (controller1) {
-                                              webView = controller1;
-                                            },
-                                            onLoadStop: (controller1, url) {},
-                                            onProgressChanged:
-                                                (InAppWebViewController controller21,
-                                                    int progress) {
-                                              controller.progress = progress / 100;
-                                            },
-                                            onReceivedServerTrustAuthRequest:
-                                                (controller, challenge) async {
-                                              return ServerTrustAuthResponse(
-                                                  action: ServerTrustAuthResponseAction
-                                                      .PROCEED);
-                                            },
-                                          ),
+                                          child: VimeoPlayer(
+                                              videoId: controller.currentExercise.video!),
                                         ),
                                       ],
                                     ),
                             )
-                          : Container(
+                          : SizedBox(
                               height: MediaQuery.of(context).size.height * 0.283,
                               child: Center(
                                 child: controller.accessToken == ''
-                                    ? const CircularProgressIndicator()
-                                    : InAppWebView(
-                                        initialUrlRequest: URLRequest(
-                                            url: Uri.parse(
-                                                'https://player.vimeo.com/video/${controller.currentExercise.video!}?autoplay=1&loop=1&muted=0&allow=autoplay;fullscreen'),
-                                            headers: {
-                                              'Authorization':
-                                                  'Basic ${base64Encode(utf8.encode('9353127f0c5d3848970ed83590f3989b7d4aeabf:lsL75LeVC88hMQALy4KlRbaR0srz72eq9RqDJQuAbopBD1rxhQK5XxLM0KDCniZZ3QDC2iuatIk+kNstylUffDxbVm/sUNxhPg7E02OY8nT82I6uOjRObMiMdD9jsGBw'))}',
-                                              'Content-Type': 'application/json',
-                                              'Accept':
-                                                  "application/vnd.vimeo.*+json;version=3.4",
-                                            }),
-                                        onWebViewCreated: (controller1) {
-                                          webView = controller1;
-                                        },
-                                        onLoadStop: (controller1, url) {},
-                                        onReceivedServerTrustAuthRequest:
-                                            (controller, challenge) async {
-                                          return ServerTrustAuthResponse(
-                                              action:
-                                                  ServerTrustAuthResponseAction.PROCEED);
-                                        },
-                                        initialOptions: InAppWebViewGroupOptions(
-                                          android: AndroidInAppWebViewOptions(
-                                            useHybridComposition: true,
-                                          ),
-                                          ios: IOSInAppWebViewOptions(
-                                            allowsInlineMediaPlayback: true,
-                                            allowsAirPlayForMediaPlayback: false,
-                                            scrollsToTop: false,
-                                          ),
-                                        ),
-                                        onEnterFullscreen: (controller) async {
-                                          await SystemChrome.setPreferredOrientations([
-                                            DeviceOrientation.landscapeRight,
-                                            DeviceOrientation.landscapeLeft,
-                                          ]);
-                                        },
-                                      ),
+                                    ? const CircularProgressIndicator.adaptive()
+                                    : VimeoPlayer(
+                                        videoId: controller.currentExercise.video!,
+                                        isPrivet: true),
                               ),
                             ),
                       (controller.type == "Zumba" || controller.type == 'zumba')

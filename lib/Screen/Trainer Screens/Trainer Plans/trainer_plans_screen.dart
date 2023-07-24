@@ -21,7 +21,7 @@ class TrainerPlansScreen extends GetView<TrainerHomeScreenController> {
           ),
         ),
         body: controller.isLoading.value
-            ? Center(child: CircularProgressIndicator())
+            ? Center(child: CircularProgressIndicator.adaptive())
             : ListView.builder(
                 shrinkWrap: true,
                 itemCount: controller.trainerPlans.length,

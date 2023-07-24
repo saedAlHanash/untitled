@@ -20,7 +20,7 @@ class TrainerProfileOverviewScreen
         ),
       ),
       body: controller.isLoading
-          ? const Center(child: CircularProgressIndicator())
+          ? const Center(child: CircularProgressIndicator.adaptive())
           : SingleChildScrollView(
               child: Column(
                 children: [

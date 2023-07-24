@@ -183,3 +183,4 @@ class SigninController extends GetxController {
     log(result.type.toString());
   }
 }
+//keytool -list -v -alias androiddebugkey -keystore %USERPROFILE%\.android\debug.keystore

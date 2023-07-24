@@ -36,7 +36,7 @@ class MyPaymentScreen extends GetView<MyPaymentController> {
           // ),
         ),
         body: controller.isLoading
-            ? const Center(child: CircularProgressIndicator())
+            ? const Center(child: CircularProgressIndicator.adaptive())
             : controller.traineeNextPayment.isNotEmpty
                 ? SingleChildScrollView(
                     child: Column(

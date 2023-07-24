@@ -19,7 +19,7 @@ class DayOverviewScreen extends GetView<DayOverviewController> {
                 children: [
                   //todo
                   // new VimeoVideoPlayer(url: 'https://vimeo.com/${controller.videoPreview}'),
-                  new VimoePlayer(videoId: controller.videoPreview),
+                  new VimeoPlayer(videoId: controller.videoPreview),
                   Padding(
                     padding: const EdgeInsets.all(20),
                     child: Column(

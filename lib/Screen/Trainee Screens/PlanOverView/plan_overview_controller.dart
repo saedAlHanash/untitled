@@ -13,9 +13,10 @@ import 'package:fitness_storm/Utils/utils.dart';
 import 'package:fitness_storm/helperClass.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:pod_player/pod_player.dart';
 
 import '../../../Utils/Routes/app_pages.dart';
 import '../../../Utils/storage_controller.dart';
@@ -37,6 +38,7 @@ class PlanOverviewController extends GetxController {
   final TraineeRepository _traineeRepository = TraineeRepository();
   final WorkoutRepository _workoutRepository = WorkoutRepository();
 
+   PodPlayerController? videoController;
   @override
   Future<void> onInit() async {
     super.onInit();
@@ -50,7 +52,7 @@ class PlanOverviewController extends GetxController {
     isLoading = true;
     planOverview = await _planRepository.getPlanOverview(id);
     planWorkouts.value = await _workoutRepository.getPlanWorkout(id);
-    keys = List.generate(planWorkouts.length, (index) => GlobalKey());
+    keys = List.generate(planWorkouts.length, (i) => GlobalKey());
     isActivated = planOverview.isActivated;
     isLoading = false;
   }
@@ -125,51 +127,25 @@ class PlanOverviewController extends GetxController {
     }
   }
 
-  startTraining(int index) async {
+  startTraining(int i) async {
     Utils.openLoadingDialog();
-    ApiResult apiResult = await _exerciseRepository.startDay(planWorkouts[index].id!);
+    final apiResult = await _exerciseRepository.startDay(planWorkouts[i].id!);
 
-    print(apiResult.data);
     if ((StorageController().userType == 'trainer') ||
         apiResult.type == ApiResultType.success ||
         apiResult.statusCode == 402) {
       Get.back();
       Get.delete<UserTrainingController>();
 
-      if (HelperClass.webView != null) {
-        if (defaultTargetPlatform == TargetPlatform.android) {
-          await HelperClass.webView?.loadUrl(
-              urlRequest: URLRequest(
-                  url: Uri.parse(
-                      'https://player.vimeo.com/video/${planOverview.introductionVideo!}'),
-                  headers: {
-                'Authorization':
-                    'Basic ${base64Encode(utf8.encode('9353127f0c5d3848970ed83590f3989b7d4aeabf:lsL75LeVC88hMQALy4KlRbaR0srz72eq9RqDJQuAbopBD1rxhQK5XxLM0KDCniZZ3QDC2iuatIk+kNstylUffDxbVm/sUNxhPg7E02OY8nT82I6uOjRObMiMdD9jsGBw'))}',
-                'Content-Type': 'application/json',
-                'Accept': "application/vnd.vimeo.*+json;version=3.4",
-              }));
-        } else if (defaultTargetPlatform == TargetPlatform.iOS) {
-          await HelperClass.webView?.loadUrl(
-              urlRequest: URLRequest(
-                  url: Uri.parse(
-                      'https://player.vimeo.com/video/${planOverview.introductionVideo!}'),
-                  headers: {
-                'Authorization':
-                    'Basic ${base64Encode(utf8.encode('9353127f0c5d3848970ed83590f3989b7d4aeabf:lsL75LeVC88hMQALy4KlRbaR0srz72eq9RqDJQuAbopBD1rxhQK5XxLM0KDCniZZ3QDC2iuatIk+kNstylUffDxbVm/sUNxhPg7E02OY8nT82I6uOjRObMiMdD9jsGBw'))}',
-                'Content-Type': 'application/json',
-                'Accept': "application/vnd.vimeo.*+json;version=3.4",
-              }));
-        }
-      }
       Get.toNamed(AppRoutes.userTraining, arguments: [
-        index + 1,
-        planWorkouts[index].name,
-        planWorkouts[index].workoutId,
-        planWorkouts[index].id!,
-        (planWorkouts[index].type == 'Loop All'),
-        planWorkouts[index].type!,
-        planWorkouts[index].count,
-        planWorkouts[index].break_after_set,
+        i + 1,
+        planWorkouts[i].name,
+        planWorkouts[i].workoutId,
+        planWorkouts[i].id!,
+        (planWorkouts[i].type == 'Loop All'),
+        planWorkouts[i].type!,
+        planWorkouts[i].count,
+        planWorkouts[i].break_after_set,
         apiResult.statusCode == 402
       ]);
     } else {

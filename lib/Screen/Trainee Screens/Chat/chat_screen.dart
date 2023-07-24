@@ -31,7 +31,7 @@ class ChatScreen extends StatelessWidget {
           future: getChatRooms(),
           builder: (context, AsyncSnapshot<List<Room>?> snapshot) {
             if (!snapshot.hasData) {
-              return const Center(child: CircularProgressIndicator());
+              return const Center(child: CircularProgressIndicator.adaptive());
             }
             return RefreshIndicator(
               color: Colors.white,

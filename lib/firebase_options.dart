@@ -63,7 +63,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '644714333877',
     projectId: 'fitness-strom-1',
     storageBucket: 'fitness-strom-1.appspot.com',
-    androidClientId: '644714333877-nqplk4lhr9ong10qrehksta0qpkfeel7.apps.googleusercontent.com',
+    androidClientId: '644714333877-hs4gvjria97frfqn3giqnu0agv508i3g.apps.googleusercontent.com',
     iosClientId: '644714333877-l7tc3rh4a101c6aplubh2qgm1ph3mpr8.apps.googleusercontent.com',
     iosBundleId: 'com.chiteam.fitnessStorm',
   );
