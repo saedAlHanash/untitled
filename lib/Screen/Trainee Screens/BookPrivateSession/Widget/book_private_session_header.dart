@@ -53,12 +53,12 @@ class BookPrivateSessionHeader extends GetWidget<BookPrivateSessionController> {
           SizedBox(height: Get.height / 25),
           Text(
             'what_will_you_get_in_this_private_session?'.tr,
-            style: TextStyle(
+            style: const TextStyle(
                 fontSize: 14, color: Colors.white, fontWeight: FontWeight.bold),
           ),
           Text(
             "${controller.trainerName} " + 'will_provide_personalized'.tr,
-            style: TextStyle(color: Colors.white, fontSize: 14),
+            style: const TextStyle(color: Colors.white, fontSize: 14),
             textAlign: TextAlign.justify,
           ),
         ],

@@ -223,7 +223,7 @@ class FeaturedPlanController extends GetxController {
   void toggleSortFilter(int index) {
     for (int i = 0; i < sortFilterControllers.length; i++) {
       if (i == index) {
-        log('sdsds');
+       //log('sdsds');
 
         sortFilterControllers[index] = !sortFilterControllers[index];
         if (sortFilterControllers[index]) {
@@ -241,7 +241,7 @@ class FeaturedPlanController extends GetxController {
   Future<void> sort() async {
     selectedIndex = 2;
     Get.back();
-    log('sort');
+   //log('sort');
     isLoading = true;
     await getSortResultPlans();
     isLoading = false;
@@ -250,7 +250,7 @@ class FeaturedPlanController extends GetxController {
   Future<void> filter() async {
     selectedIndex = 1;
     Get.back();
-    log('filter');
+   //log('filter');
     result();
     isLoading = true;
     await getFilterResultPlans();
@@ -260,7 +260,7 @@ class FeaturedPlanController extends GetxController {
   Future<void> search() async {
     selectedIndex = 0;
     Get.back();
-    log('search');
+   //log('search');
     isLoading = true;
     await getSearchResultPlans();
     isLoading = false;
@@ -270,7 +270,7 @@ class FeaturedPlanController extends GetxController {
     pageNumber = 1;
     List<Plan> result = await _planRepository.getFeaturedgPlan(pageNumber,
         queryParameter: {'name': searchTerm.text});
-    log('congrats $result');
+   //log('congrats $result');
     plans = <Plan>[].obs;
     for (var element in result) {
       plans.add(element);
@@ -283,7 +283,7 @@ class FeaturedPlanController extends GetxController {
     pageNumber = 1;
     for (int i = 0; i < sortFilterControllers.length; i++) {
       if (sortFilterControllers[i]) {
-        log('true ${sortFilterTypes[i]}');
+       //log('true ${sortFilterTypes[i]}');
         if (sortFilterTypes[i].isEmpty) {
           result = await _planRepository
               .getFeaturedgPlan(pageNumber, queryParameter: {});
@@ -293,7 +293,7 @@ class FeaturedPlanController extends GetxController {
         }
       }
     }
-    log('congrats $result');
+   //log('congrats $result');
     plans = <Plan>[].obs;
     for (var element in result) {
       plans.add(element);
@@ -304,10 +304,10 @@ class FeaturedPlanController extends GetxController {
   getFilterResultPlans() async {
     List<Plan> result = [];
     pageNumber = 1;
-    log(data.toString());
+   //log(data.toString());
     result = await _planRepository.getFeaturedgPlan(pageNumber,
         queryParameter: data);
-    log('congrats $result');
+   //log('congrats $result');
     plans = <Plan>[].obs;
     for (var element in result) {
       plans.add(element);
@@ -408,7 +408,7 @@ class FeaturedPlanController extends GetxController {
     if (trainingLevel.isNotEmpty) {
       data['training_level[0]'] = trainingLevel;
     }
-    log(data.toString());
+   //log(data.toString());
   }
 
   onLoading() async {
@@ -426,7 +426,7 @@ class FeaturedPlanController extends GetxController {
   }
 
   addPlanToFavorite(int index) async {
-    log(index.toString());
+   //log(index.toString());
     final temp = plans[index];
     temp.isBookMarked = !temp.isBookMarked!;
     plans.removeAt(index);

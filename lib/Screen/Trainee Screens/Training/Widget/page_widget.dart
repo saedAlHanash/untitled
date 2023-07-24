@@ -72,10 +72,10 @@ class PageWidget extends GetWidget<TrainingController> {
 
   List<Widget> buildItemsWidget() {
     List<Widget> exercises = [];
-    log('lengyjhhj ${reps.length}');
+   //log('lengyjhhj ${reps.length}');
     // controller.currentChecks = List.filled(reps.length, false, growable: true);
     for (int i = 0; i < reps.length; i++) {
-      log('resps$reps  index $i');
+     //log('resps$reps  index $i');
 
       exercises.add(ExerciseItem(
         sets: i,

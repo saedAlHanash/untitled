@@ -31,15 +31,15 @@ class Appointment {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['startAt'] = this.startAt;
-    data['endAt'] = this.endAt;
-    data['summary'] = this.summary;
-    data['timeZoneStartAt'] = this.timeZoneStartAt;
-    data['color'] = this.color;
-    data['video_call_token'] = this.videoCallToken;
-    if (this.user != null) {
-      data['user'] = this.user!.toJson();
+    data['id'] = id;
+    data['startAt'] = startAt;
+    data['endAt'] = endAt;
+    data['summary'] = summary;
+    data['timeZoneStartAt'] = timeZoneStartAt;
+    data['color'] = color;
+    data['video_call_token'] = videoCallToken;
+    if (user != null) {
+      data['user'] = user!.toJson();
     }
     return data;
   }
@@ -58,8 +58,8 @@ class User {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['name'] = this.name;
+    data['id'] = id;
+    data['name'] = name;
     return data;
   }
 }

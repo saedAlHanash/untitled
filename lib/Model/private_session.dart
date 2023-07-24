@@ -45,7 +45,7 @@ class Wallet {
     balance = json['balance'];
     file = json['file'];
     time = date;
-    log(time!);
+   //log(time!);
   }
 
   Map<String, dynamic> toJson() {

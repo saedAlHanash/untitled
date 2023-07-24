@@ -23,7 +23,7 @@ class ChatRepository {
       url = TRAINEEURLS.allChats;
     }
     ApiResult response = await Methods.get(url: url, options: option);
-    log(response.data.toString());
+   //log(response.data.toString());
     if (response.type == ApiResultType.success) {
       response.data.forEach((element) {
         exercise.add(Chat.fromJson(element));

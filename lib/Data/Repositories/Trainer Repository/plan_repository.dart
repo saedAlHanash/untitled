@@ -10,7 +10,7 @@ import 'package:fitness_storm/Utils/utils.dart';
 class TrainerPlanRepository {
   Future<List<Plan>> getTrendingPlan(
       Map<String, dynamic>? queryParameter) async {
-    log(queryParameter.toString());
+   //log(queryParameter.toString());
     Options option = Utils.getOptions(withToken: true, all: true);
     try {
       ApiResult result = await Methods.get(
@@ -18,7 +18,7 @@ class TrainerPlanRepository {
           options: option,
           data: queryParameter);
       if (result.type == ApiResultType.success) {
-        log(result.data.toString());
+       //log(result.data.toString());
         List<Plan> plans = [];
         for (var element in result.data) {
           plans.add(Plan.fromJson(element));

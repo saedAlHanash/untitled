@@ -24,9 +24,9 @@ class NotificationController extends GetxController {
     await resetAllNotification(isTrainer);
     await getAllNotification(isTrainer);
 
-    print(isLoading);
+   //   print(isLoading);
     isLoading = false;
-    print(isLoading);
+   //   print(isLoading);
   }
 
   Future<void> resetAllNotification(bool isTrainer) =>

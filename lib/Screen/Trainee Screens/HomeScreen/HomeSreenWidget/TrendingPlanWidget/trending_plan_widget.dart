@@ -50,7 +50,7 @@ class TrendingPlanWidget extends GetView<HomeScreenController> {
 
   @override
   Widget build(BuildContext context) {
-    log(controller.trendingPlans.toString());
+   //log(controller.trendingPlans.toString());
     return Column(
       children: [
         Platform.isIOS ? SizedBox(height: 5) : SizedBox.shrink(),

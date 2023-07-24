@@ -2,6 +2,8 @@ import 'package:fitness_storm/Utils/Constants/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
+import '../../../../core/images/image_multi_type.dart';
+
 class SearchResult extends StatelessWidget {
   const SearchResult(
       {Key? key,
@@ -18,7 +20,7 @@ class SearchResult extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Image.network(Constants.imageUrl + imageUrl),
+        ImageMultiType(url:Constants.imageUrl + imageUrl),
         Positioned(
             bottom: Get.height / 35,
             left: Get.width / 20,

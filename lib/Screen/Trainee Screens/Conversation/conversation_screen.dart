@@ -19,8 +19,7 @@ class ConversationScreen extends GetView<ConversationController> {
               onPressed: () => Get.back(),
             ),
             title: Text(controller.trainerName),
-            titleTextStyle:
-                const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            titleTextStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           body: controller.isLoading
               ? const Center(child: CircularProgressIndicator.adaptive())
@@ -29,10 +28,12 @@ class ConversationScreen extends GetView<ConversationController> {
                   onRefresh: () async {
                     controller.getAllConversation();
                   },
-                  child: Column(children: const [
-                    Expanded(child: ConversationList()),
-                    ConversationTextFeild()
-                  ]),
+                  child: const Column(
+                    children: [
+                      Expanded(child: ConversationList()),
+                      ConversationTextFeild()
+                    ],
+                  ),
                 ),
         ),
       ),

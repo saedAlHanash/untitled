@@ -113,7 +113,7 @@ class TrainerTrainerOverviewScreen extends GetView<TrainerTrainerOverviewControl
                       children: [
                         SizedBox(
                           height: Get.height,
-                          child: Image.network(
+                          child: ImageMultiType(url:
                             Constants.imageUrl + controller.trainer.profilePic!,
                             fit: BoxFit.cover,
                           ),

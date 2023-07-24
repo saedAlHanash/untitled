@@ -30,12 +30,12 @@ class TrainerMainHomeController extends GetxController {
 
   getToken() async {
     token = await FirebaseMessaging.instance.getToken();
-    log('\x1B[32mUser Token $token');
+   //log('\x1B[32mUser Token $token');
     storageController.fcm = token;
   }
 
   storeFcm(String token) async {
     ApiResult result = await _authRepository.saveFCM(token);
-    log(result.type.toString());
+   //log(result.type.toString());
   }
 }

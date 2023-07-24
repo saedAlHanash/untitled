@@ -42,7 +42,7 @@ dependencies:
   readmore: ^2.2.0
   flutter_native_splash: ^2.2.5
   google_sign_in:
-  agora_rtc_engine: ^6.2.0
+#  agora_rtc_engine: ^6.2.0
   # permission handler
   permission_handler:
   flutter_app_badger:
@@ -66,6 +66,7 @@ dependencies:
   flutter_local_notifications: ^14.0.0
   cached_network_image: ^3.2.2
   quiver: ^3.1.0
+#  flutter_screenutil:
   webview_flutter: 3.0.4
   sliding_up_panel:
   table_calendar:

@@ -67,7 +67,7 @@ class TrainerProfileController extends GetxController {
   }
 
   onMyPlansButtonPressed() {
-    log('message');
+   //log('message');
     Get.toNamed(AppRoutes.trainerPlans);
   }
 

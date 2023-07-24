@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../Utils/Constants/constants.dart';
@@ -15,7 +16,7 @@ class TrainerProfileImage extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(100),
         image: DecorationImage(
-          image: NetworkImage('${Constants.imageUrl}/$trainerImageUrl'),
+          image:CachedNetworkImageProvider('${Constants.imageUrl}/$trainerImageUrl'),
           fit: BoxFit.fill,
         ),
         border: Border.all(

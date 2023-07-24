@@ -68,7 +68,7 @@ class CustomSearchDelegate extends SearchDelegate {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(child: CircularProgressIndicator.adaptive());
         } else {
-          log(snapshot.data.toString());
+         //log(snapshot.data.toString());
           return ListView.builder(
             itemCount: snapshot.data.length,
             itemBuilder: (context, index) {
@@ -90,8 +90,8 @@ class CustomSearchDelegate extends SearchDelegate {
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    log('qqqqqqqqqqqqqqqqqqqq');
-    log(query.toString());
+   //log('qqqqqqqqqqqqqqqqqqqq');
+   //log(query.toString());
     return Container();
   }
 }

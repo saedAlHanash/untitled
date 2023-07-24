@@ -4,6 +4,8 @@ import 'package:fitness_storm/Utils/Constants/custome_app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../../core/images/image_multi_type.dart';
+
 class ContinueTrainingItem extends GetView<HomeScreenController> {
   // final String trainerName;
 
@@ -65,7 +67,7 @@ class ContinueTrainingItem extends GetView<HomeScreenController> {
           padding: const EdgeInsets.only(top: 8.0),
           child: SizedBox(
             width: MediaQuery.of(Get.context!).size.width,
-            child: Image.network(
+            child: ImageMultiType(url:
               Constants.imageUrl + planImageUrl,
               fit: BoxFit.fitWidth,
             ),

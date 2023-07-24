@@ -74,7 +74,7 @@ class _MyCustomeWebPageState extends State<MyCustomeWebPage> {
             controller.complete(webViewController);
           },
           onProgress: (int progress) {
-            print('WebView is loading (progress : $progress%)');
+           //   print('WebView is loading (progress : $progress%)');
           },
           javascriptChannels: <JavascriptChannel>{
             _toasterJavascriptChannel(context),
@@ -90,13 +90,13 @@ class _MyCustomeWebPageState extends State<MyCustomeWebPage> {
             return NavigationDecision.navigate;
           },
           onPageStarted: (String url) {
-            print('Page started loading: $url');
+           //   print('Page started loading: $url');
           },
           onPageFinished: (String url) {
             if (url == 'https://fitnessstorm.org/success.html') {
               Navigator.pop(context, true);
             }
-            print('Page finished loading: $url');
+           //   print('Page finished loading: $url');
           },
           gestureNavigationEnabled: true,
           backgroundColor: const Color(0x00000000),

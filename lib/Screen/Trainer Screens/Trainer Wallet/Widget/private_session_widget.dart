@@ -12,11 +12,11 @@ class PrivateSessionWidget extends GetWidget<TrainerWalletController> {
 
   @override
   Widget build(BuildContext context) {
-    log(controller.sessions[0].time.toString());
+   //log(controller.sessions[0].time.toString());
     return Container(
       width: Get.width,
       height: Get.height / 8,
-      margin: EdgeInsets.symmetric(vertical: 10),
+      margin: const EdgeInsets.symmetric(vertical: 10),
       decoration: BoxDecoration(
           border: Border(
               top: BorderSide(
@@ -25,37 +25,37 @@ class PrivateSessionWidget extends GetWidget<TrainerWalletController> {
                 : Get.theme.primaryColor,
             width: 2,
           )),
-          color: Color(0xFFF5F5F5)),
+          color: const Color(0xFFF5F5F5)),
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
         Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             privateSession.type == 'income'
                 ? Text('income'.tr + ' : ${privateSession.price} ' + 'sar'.tr,
-                    style: TextStyle(color: Color(0xFFA0A0A0), fontSize: 16))
+                    style: const TextStyle(color: Color(0xFFA0A0A0), fontSize: 16))
                 : Text('Payment: ${privateSession.price} ' + 'sar'.tr,
-                    style: TextStyle(color: Color(0xFFA0A0A0), fontSize: 16)),
+                    style: const TextStyle(color: Color(0xFFA0A0A0), fontSize: 16)),
             Text('balance'.tr + ' : ${privateSession.balance} ' + 'sar'.tr,
-                style: TextStyle(color: Color(0xFFA0A0A0), fontSize: 16)),
+                style: const TextStyle(color: Color(0xFFA0A0A0), fontSize: 16)),
           ],
         ),
-        SizedBox.shrink(),
+        const SizedBox.shrink(),
         Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             privateSession.type == 'income'
-                ? SizedBox()
+                ? const SizedBox()
                 : TextButton(
                     onPressed: () =>
                         controller.downlaodImage(privateSession.file!),
+                    style: const ButtonStyle(
+                        padding: MaterialStatePropertyAll(EdgeInsets.zero)),
                     child: Text('download_invoice'.tr,
                         style: TextStyle(
                             color: Get.theme.primaryColor, fontSize: 14)),
-                    style: ButtonStyle(
-                        padding: MaterialStatePropertyAll(EdgeInsets.zero)),
                   ),
             Text('${privateSession.time}',
-                style: TextStyle(color: Color(0xFFA0A0A0), fontSize: 14))
+                style: const TextStyle(color: Color(0xFFA0A0A0), fontSize: 14))
           ],
         )
       ]),

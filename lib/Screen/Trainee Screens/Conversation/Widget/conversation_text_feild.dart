@@ -30,15 +30,14 @@ class ConversationTextFeild extends GetWidget<ConversationController> {
               decoration: BoxDecoration(
                   color: Get.theme.primaryColor,
                   borderRadius: const BorderRadius.all(Radius.circular(500))),
-              child: GestureDetector(
-                onTap: () => controller.onSendMessage(),
-                child: SvgPicture.asset(
-                  'asset/Images/send.svg',
-                  color: Colors.white,
-                  alignment: Alignment.center,
-                  fit: BoxFit.scaleDown,
-                ),
-              ),
+              child: controller.isLoadingSend
+                  ? const CircularProgressIndicator.adaptive()
+                  : SvgPicture.asset(
+                      'asset/Images/send.svg',
+                      color: Colors.white,
+                      alignment: Alignment.center,
+                      fit: BoxFit.scaleDown,
+                    ),
             ),
           ),
           border: OutlineInputBorder(

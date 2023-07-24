@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:fitness_storm/Data/Api/api_result.dart';
+import 'package:fitness_storm/Data/Api/methods.dart';
 import 'package:fitness_storm/Data/Repositories/trainer_repository.dart';
 import 'package:fitness_storm/Model/available_time.dart';
 import 'package:fitness_storm/Model/book_appointment.dart';
@@ -33,9 +34,9 @@ class BookPrivateSessionController extends GetxController {
   final Rx<BookAppointment> bookedDate = BookAppointment().obs;
   Map<String, dynamic>? paymentIntentData;
 
-  Rx<DateTime> _focusedDay = DateTime.now().obs;
-  Rx<DateTime> _selectedDay = DateTime.now().obs;
-  final Rx<Map<String, List<AvailableTime>>>? _availableDate =
+  final Rx<DateTime> _focusedDay = DateTime.now().obs;
+  final Rx<DateTime> _selectedDay = DateTime.now().obs;
+  final Rx<Map<String, List<AvailableTime>>> _availableDate =
       Rx<Map<String, List<AvailableTime>>>({});
 
   List months = [
@@ -57,7 +58,7 @@ class BookPrivateSessionController extends GetxController {
 
   DateTime get selectedDay => _selectedDay.value;
 
-  Map<String, List<AvailableTime>> get availableDate => _availableDate!.value;
+  Map<String, List<AvailableTime>> get availableDate => _availableDate.value;
 
   String get currentMonth => _currentMonth.value;
 
@@ -81,7 +82,7 @@ class BookPrivateSessionController extends GetxController {
 
   set selectedDay(value) => _selectedDay.value = value;
 
-  set availableDate(value) => _availableDate!.value = value;
+  set availableDate(value) => _availableDate.value = value;
 
   set currentMonth(value) => _currentMonth.value = value;
 
@@ -113,10 +114,6 @@ class BookPrivateSessionController extends GetxController {
     trainerId = Get.arguments[2];
     getStartMonth();
     await getTrainerAvailableTimes();
-    if (availableDate.isEmpty) {
-      print('object');
-    }
-    // listOfDayEvents(dateTime)
     isLoading = false;
   }
 
@@ -162,7 +159,7 @@ class BookPrivateSessionController extends GetxController {
   }
 
   getNextWeek() async {
-    log('current Month days $currentMonthDays');
+    //log('current Month days $currentMonthDays');
     if (currentWeekEndDay == currentMonthDays) {
       _getNextMonth();
       currentWeekStartDay = 1;
@@ -180,12 +177,22 @@ class BookPrivateSessionController extends GetxController {
   }
 
   getPreviousWeek() async {
+    final now = DateTime.now();
+    final date = DateTime(
+      year,
+      months.indexOf(currentMonth) + 1,
+      currentWeekStartDay -7,
+      now.hour,
+      now.minute,
+    );
+
+    if(now.isAfter(date))return;
+
     if (currentWeekStartDay == 1) {
       _getPreviousMonth();
       currentWeekEndDay = currentMonthDays;
       currentWeekStartDay = currentWeekEndDay - 7;
     } else if (currentWeekStartDay - 7 < 1) {
-      log('heeeer');
       currentWeekEndDay = currentWeekStartDay;
       currentWeekStartDay = 1;
     } else {
@@ -198,17 +205,14 @@ class BookPrivateSessionController extends GetxController {
   }
 
   getTrainerAvailableTimes() async {
-    result = await _trainerRepository.getTrainerAvailableTimes(
-        trainerId.toString(),
-        year,
-        months.indexOf(currentMonth) + 1,
-        currentWeekStartDay,
-        currentWeekEndDay);
-    DateFormat format = DateFormat('yyyy-MM-dd');
+    result = await _trainerRepository.getTrainerAvailableTimes(trainerId.toString(), year,
+        months.indexOf(currentMonth) + 1, currentWeekStartDay, currentWeekEndDay);
+
+    final format = DateFormat('yyyy-MM-dd');
+
     for (var element1 in result.values.toList()) {
       for (var element2 in element1) {
-        if (availableDate[
-                format.format(DateTime.parse(element2['start_time']))] ==
+        if (availableDate[format.format(DateTime.parse(element2['start_time']))] ==
             null) {
           availableDate[format.format(DateTime.parse(element2['start_time']))] =
               <AvailableTime>[];
@@ -222,7 +226,7 @@ class BookPrivateSessionController extends GetxController {
 
   _getNextMonth() {
     int index = months.indexOf(currentMonth);
-    log('$currentMonth Index id $index');
+
     if (index == months.length - 1) {
       index = -1;
     }
@@ -232,7 +236,7 @@ class BookPrivateSessionController extends GetxController {
 
   _getPreviousMonth() {
     int index = months.indexOf(currentMonth);
-    log('$currentMonth Index is $index');
+
     if (index == 0) {
       index == 12;
     }
@@ -253,8 +257,7 @@ class BookPrivateSessionController extends GetxController {
               SizedBox(
                 width: 60,
                 child: Text(
-                    "${currentWeekStartDay + widgets.length} " +
-                        _customizeText(element),
+                    "${currentWeekStartDay + widgets.length} " + _customizeText(element),
                     style: TextStyle(
                         color: Get.theme.primaryColor,
                         fontWeight: FontWeight.bold,
@@ -267,8 +270,8 @@ class BookPrivateSessionController extends GetxController {
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
-                    children: _generateAvailableTimes(element,
-                        currentContext: currentContext),
+                    children:
+                        _generateAvailableTimes(element, currentContext: currentContext),
                   ),
                 ),
               ),
@@ -304,16 +307,14 @@ class BookPrivateSessionController extends GetxController {
 
     String formatedMoth = DateFormat('MM').format(tempDate);
 
-    return '$formattedDate ' +
-        _customizeText(months[int.parse(formatedMoth) - 1]);
+    return '$formattedDate ' + _customizeText(months[int.parse(formatedMoth) - 1]);
   }
 
   bookingDate(String id, String startTime, {currentContext}) async {
-    log('message');
+    //log('message');
     Utils.openLoadingDialog();
     bookedDate.value = BookAppointment(id: id, time: startTime);
-    ApiResult uri =
-        await _trainerRepository.bookPrivateSession(bookedDate.value.id!, "");
+    ApiResult uri = await _trainerRepository.bookPrivateSession(bookedDate.value.id!, "");
     Utils.closeDialog();
     if (uri.data != null) {
       if (!Get.isRegistered<SubscruptionController>()) {
@@ -331,54 +332,76 @@ class BookPrivateSessionController extends GetxController {
     } else {
       Utils.openSnackBar(title: uri.message!);
     }
-    log(bookedDate.value.time!);
+    //log(bookedDate.value.time!);
   }
 
   _generateAvailableTimes(String currentDay, {currentContext}) {
     List<Widget> widgets = [];
     if (result[currentDay] == null || result[currentDay].isEmpty) {
-      widgets.add(Text('No_available_sessions'.tr,
-          style: const TextStyle(color: Color(0xFFA0A0A0), fontSize: 14)));
+      widgets.add(
+        Text(
+          'No_available_sessions'.tr,
+          style: const TextStyle(color: Color(0xFFA0A0A0), fontSize: 14),
+        ),
+      );
     } else {
-      result[currentDay].forEach((element) {
+      final s = result[currentDay];
+      loggerObject.i(s);
+      s.forEach((element) {
         if (element['start_time'] != null) {
-          DateTime tempDate =
+          final tempStart =
               DateFormat("yyyy-MM-dd hh:mm:ss").parse(element['start_time']);
-          String formattedDate = DateFormat('hh:mm').format(tempDate);
+          final tempEnd = DateFormat("yyyy-MM-dd hh:mm:ss").parse(element['end_time']);
+          final startTime = DateFormat('hh:mm a').format(tempStart);
+          final endTime = DateFormat('hh:mm a').format(tempEnd);
+
           widgets.add(
-            GestureDetector(
-                onTap: () async {
-                  Utils.openLoadingDialog();
-                  bookedDate.value = BookAppointment(
-                      id: element['id'], time: element['start_time']);
-                  ApiResult uri = await _trainerRepository.bookPrivateSession(
-                      bookedDate.value.id!, "");
-                  Utils.closeDialog();
-                  if (uri.data != null) {
-                    if (!Get.isRegistered<SubscruptionController>()) {
-                      Get.lazyPut(() => SubscruptionController());
-                    }
-                    Navigator.push(
-                      currentContext,
-                      MaterialPageRoute(
-                        builder: (context) => MyCustomeWebPage(
-                          urlWebPage: uri.data['url'],
-                          subscruptionController:
-                              Get.find<SubscruptionController>(),
-                        ),
-                      ),
-                    );
-                  } else {
-                    Utils.openSnackBar(title: uri.message!);
+            InkWell(
+              onTap: () async {
+                Utils.openLoadingDialog();
+                bookedDate.value =
+                    BookAppointment(id: element['id'], time: element['start_time']);
+                ApiResult uri =
+                    await _trainerRepository.bookPrivateSession(bookedDate.value.id!, "");
+                Utils.closeDialog();
+                if (uri.data != null) {
+                  if (!Get.isRegistered<SubscruptionController>()) {
+                    Get.lazyPut(() => SubscruptionController());
                   }
-                  log(bookedDate.value.time!);
-                },
-                child: bookedDate.value.time == element['start_time']
-                    ? _selectedTimeWidget(formattedDate)
-                    : _unselectedTimeWidget(
-                        formattedDate) //Text(formattedDate, style: const TextStyle(color: Color(0xFFA0A0A0), fontSize: 14)),
-                ),
+                  Navigator.push(
+                    currentContext,
+                    MaterialPageRoute(
+                      builder: (context) => MyCustomeWebPage(
+                        urlWebPage: uri.data['url'],
+                        subscruptionController: Get.find<SubscruptionController>(),
+                      ),
+                    ),
+                  );
+                } else {
+                  Utils.openSnackBar(title: uri.message!);
+                }
+                //log(bookedDate.value.time!);
+              },
+              child: Builder(builder: (context) {
+                return Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5.0),
+                    color: Theme.of(context).primaryColor.withOpacity(0.1),
+                  ),
+                  padding: const EdgeInsets.all(5.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(startTime, style: const TextStyle(fontSize: 12)),
+                      const Text(' -> ', style: TextStyle(fontSize: 12)),
+                      Text(endTime, style: const TextStyle(fontSize: 12)),
+                    ],
+                  ),
+                );
+              }), //Text(formattedDate, style: const TextStyle(color: Color(0xFFA0A0A0), fontSize: 14)),
+            ),
           );
+
           widgets.add(const SizedBox(width: 30));
         }
       });
@@ -393,11 +416,10 @@ class BookPrivateSessionController extends GetxController {
   _selectedTimeWidget(String formattedDate) {
     return Container(
       decoration: BoxDecoration(
-          color: Get.theme.primaryColor,
-          borderRadius: BorderRadius.circular(10)),
+          color: Get.theme.primaryColor, borderRadius: BorderRadius.circular(10)),
       padding: const EdgeInsets.all(5),
-      child: Text(formattedDate,
-          style: const TextStyle(color: Colors.white, fontSize: 14)),
+      child:
+          Text(formattedDate, style: const TextStyle(color: Colors.white, fontSize: 14)),
     );
   }
 
@@ -410,8 +432,8 @@ class BookPrivateSessionController extends GetxController {
   createPaymentIntent(String amount, String currency) async {
     BaseOptions options = BaseOptions(
       receiveDataWhenStatusError: true,
-      connectTimeout: Duration(seconds: 60 * 1000), // 60 seconds
-      receiveTimeout: Duration(seconds: 60 * 1000), // 60 seconds
+      connectTimeout: const Duration(seconds: 60 * 1000), // 60 seconds
+      receiveTimeout: const Duration(seconds: 60 * 1000), // 60 seconds
     );
     Dio dio = Dio(options);
     try {
@@ -429,12 +451,10 @@ class BookPrivateSessionController extends GetxController {
         'https://api.stripe.com/v1/payment_intents',
         data: body,
       );
-      log(response.data.toString());
-      log(response.data.runtimeType.toString());
+
       return response.data;
-      // return jsonDecode(response.body);
     } catch (err) {
-      log('err charging user: ${err.toString()}');
+      //log('err charging user: ${err.toString()}');
     }
   }
 }

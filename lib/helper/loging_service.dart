@@ -1,12 +1,12 @@
 import 'package:logger/logger.dart';
 
 class LogService {
-  Logger log = Logger();
+
   static const _debug = true;
 
   void d(String message) {
     if (_debug) {
-      log.d(message);
+
     } else {
       return;
     }
@@ -14,7 +14,7 @@ class LogService {
 
   void e(String message) {
     if (_debug) {
-      log.e(message);
+
     } else {
       return;
     }
@@ -22,7 +22,7 @@ class LogService {
 
   void i(String message) {
     if (_debug) {
-      log.i(message);
+
     } else {
       return;
     }
@@ -30,7 +30,7 @@ class LogService {
 
   void l(Level level, String message) {
     if (_debug) {
-      log.log(level, message);
+
     } else {
       return;
     }
@@ -38,7 +38,7 @@ class LogService {
 
   void v(String message) {
     if (_debug) {
-      log.v(message);
+
     } else {
       return;
     }
@@ -53,7 +53,6 @@ class LogService {
 
   void wtf(String message) {
     if (_debug) {
-      log.wtf(message);
     } else {
       return;
     }

@@ -10,18 +10,18 @@ class CustomeVideoController extends GetxController {
 
   @override
   Future<void> onInit() async {
-    print("initial");
+   //   print("initial");
     await authenticateWithVimeo();
-    print("end auth");
+   //   print("end auth");
     super.onInit();
   }
 
   Future<void> authenticateWithVimeo() async {
-    print("in authentication function");
+   //   print("in authentication function");
     accessToken = await GetUrlVideo().authrizationWithVimeo();
-    print("get access token");
+   //   print("get access token");
     update();
-    print("update");
+   //   print("update");
   }
 
   changeIsLoading() {

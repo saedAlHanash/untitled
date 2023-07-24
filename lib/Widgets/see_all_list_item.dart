@@ -8,6 +8,7 @@ import 'package:get/get.dart';
 
 import '../Model/plan.dart';
 import '../Utils/Routes/app_pages.dart';
+import '../core/images/image_multi_type.dart';
 import 'custom_chip.dart';
 import 'trainer_profile_image.dart';
 
@@ -67,7 +68,7 @@ class SeeAllListItem extends StatelessWidget {
           padding: EdgeInsets.only(top: 3),
           // height: MediaQuery.of(Get.context!).size.height / 3,
           width: MediaQuery.of(Get.context!).size.width,
-          child: Image.network(Constants.imageUrl + imageUrl,
+          child: ImageMultiType(url:Constants.imageUrl + imageUrl,
               fit: BoxFit.fitWidth),
         ),
         isBookmarked == null

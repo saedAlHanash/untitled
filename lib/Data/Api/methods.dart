@@ -5,10 +5,27 @@ import 'dart:developer';
 import 'package:dio/dio.dart';
 import 'package:dio/dio.dart' as dio;
 import 'package:get/get.dart';
+import 'package:logger/logger.dart';
 
 import '../../helper/loging_service.dart';
 import 'api_result.dart';
 import 'handling_errors.dart';
+
+var loggerObject = Logger(
+  printer: PrettyPrinter(
+    methodCount: 0,
+    // number of method calls to be displayed
+    errorMethodCount: 0,
+    // number of method calls if stacktrace is provided
+    lineLength: 300,
+    // width of the output
+    colors: true,
+    // Colorful log messages
+    printEmojis: false,
+    // Print an emoji for each log message
+    printTime: false,
+  ),
+);
 
 abstract class Methods {
   static final _dio = Get.find<Dio>();
@@ -29,12 +46,12 @@ abstract class Methods {
       );
 
       if (response.statusCode == 500) {
-        log("testtttt");
-        print(response.data);
+       //log("testtttt");
+       //   print(response.data);
         return ApiResult.failureFromJson(response.data);
       }
 
-      print('response : ${response.data}');
+     //   print('response : ${response.data}');
 
       if (response.statusCode == 200 || response.statusCode == 201) {
         return ApiResult.successFromJson(response.data);
@@ -54,8 +71,10 @@ abstract class Methods {
     bool? isNotification,
   }) async {
     try {
-      var response = await _dio.get(url, options: options, queryParameters: data);
-      print('response $url: ${response.data}');
+      loggerObject.v(url);
+      var response = await _dio.get(url,
+          options: options,
+          queryParameters: data);
       if (response.statusCode == 200) {
         if (response.data == '' || response.data is String || response.data.isEmpty) {
           response.data = {};
@@ -87,7 +106,7 @@ abstract class Methods {
       {required String url, required Options options, data}) async {
     try {
       var response = await _dio.put(url, options: options, data: data);
-      print('response ${url.split('').last}: ${response.data}');
+     //   print('response ${url.split('').last}: ${response.data}');
       if (response.statusCode == 200) {
         return ApiResult.successFromJson(response.data);
       } else {
@@ -104,7 +123,7 @@ abstract class Methods {
     LogService().wtf(url);
     try {
       var response = await _dio.delete(url, options: options, data: data);
-      print('response ${url.split('').last}: ${response.data}');
+     //   print('response ${url.split('').last}: ${response.data}');
       if (response.statusCode == 200) {
         return ApiResult.successFromJson(response.data);
       } else {
@@ -119,14 +138,14 @@ abstract class Methods {
   static Future<void> download({required String url, required String dir}) async {
     LogService().wtf(url);
     LogService().wtf(dir);
-    print(url);
-    print(dir);
+   //   print(url);
+   //   print(dir);
     // dir = dir[1];
     try {
-      print('uuuuuuuuuuuuu $url');
-      print('ddddddddddddd $dir');
+     //   print('uuuuuuuuuuuuu $url');
+     //   print('ddddddddddddd $dir');
       await _dio.download(url, dir, onReceiveProgress: (rec, total) {
-        print("Rec: $rec , Total: $total");
+       //   print("Rec: $rec , Total: $total");
       });
     } catch (e) {
       LogService().e(e.toString());

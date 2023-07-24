@@ -25,7 +25,7 @@ class _VimeoPlayerState extends State<VimeoPlayer> {
 
   @override
   void initState() {
-    print('vid: ${widget.videoId}');
+   //   print('vid: ${widget.videoId}');
     controller = PodPlayerController(
       playVideoFrom: PlayVideoFrom.vimeo(
         widget.videoId,
@@ -57,9 +57,8 @@ class _VimeoPlayerState extends State<VimeoPlayer> {
         videoTitle: Row(
           children: [
             Image.asset(
-              Assets.imagesLogoLight,
+              Assets.imagesFs2,
               height: 40.0,
-              width: 40.0,
             ),
             const Spacer(),
           ],

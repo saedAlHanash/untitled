@@ -42,7 +42,7 @@ class SplashController extends GetxController {
           }
         }
       } catch (e) {
-        log(e.toString());
+       //log(e.toString());
       }
     });
   }

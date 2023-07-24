@@ -117,7 +117,7 @@ class SubscruptionController extends GetxController {
     } catch (e, s) {
       Utils.openSnackBar(title: 'failure'.tr, message: 'An_error_occurred'.tr);
       isLoading = false;
-      log('exception:$e$s');
+     //log('exception:$e$s');
     }
     return "";
   }
@@ -128,7 +128,7 @@ class SubscruptionController extends GetxController {
         subscriptionId: subscriptionId,
       );
     } catch (err) {
-      log('err charging user: ${err.toString()}');
+     //log('err charging user: ${err.toString()}');
     }
   }
 
@@ -136,7 +136,7 @@ class SubscruptionController extends GetxController {
     try {
       return await _subscriptionRepository.cancelSubscription();
     } catch (err) {
-      log('err charging user: ${err.toString()}');
+     //log('err charging user: ${err.toString()}');
     }
   }
 

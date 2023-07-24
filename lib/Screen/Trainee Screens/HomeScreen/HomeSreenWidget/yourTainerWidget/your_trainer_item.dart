@@ -2,6 +2,8 @@ import 'package:fitness_storm/Utils/Constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../../core/images/image_multi_type.dart';
+
 class YourTrainersItem extends GetWidget {
   const YourTrainersItem({
     Key? key,
@@ -45,7 +47,7 @@ class YourTrainersItem extends GetWidget {
   Widget _buildTrainerImage({required String planImageUrl}) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(15),
-      child: Image.network(
+      child: ImageMultiType(url:
         Constants.imageUrl + planImageUrl,
         width: MediaQuery.of(Get.context!).size.width / 2,
         height: MediaQuery.of(Get.context!).size.width / 1.7,

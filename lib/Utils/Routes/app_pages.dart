@@ -99,7 +99,7 @@ class AppPages {
           binding: MainHomeBinding()),
       GetPage(
           name: AppRoutes.planOverview,
-          page: () => PlanOverviewScreen(),
+          page: () => const PlanOverviewScreen(),
           binding: PlanOverviewBinding()),
       GetPage(
           name: AppRoutes.continueTrainingPlanScreen,
@@ -143,7 +143,7 @@ class AppPages {
           binding: TrainingBinding()),
       GetPage(
           name: AppRoutes.userTraining,
-          page: () => UserTrainingScreen(),
+          page: () => const UserTrainingScreen(),
           binding: UserTrainingBinding()),
       GetPage(
           name: AppRoutes.loadingStartTrainginScreen,
@@ -163,7 +163,7 @@ class AppPages {
           binding: TrainerOverviewBinding()),
       GetPage(
           name: AppRoutes.traienrPlanOverview,
-          page: () => TrainerTrainerOverviewScreen(),
+          page: () => const TrainerTrainerOverviewScreen(),
           binding: TrainerTrainerOverviewBinding()),
       GetPage(
           name: AppRoutes.forgetPassword,
@@ -234,7 +234,7 @@ class AppPages {
           binding: TrainerSearchResultBinding()),
       GetPage(
           name: AppRoutes.trainerTrainerOverviewScreen,
-          page: () => TrainerTrainerOverviewScreen(),
+          page: () => const TrainerTrainerOverviewScreen(),
           binding: TrainerTrainerOverviewBinding()),
       GetPage(
         name: AppRoutes.aboutAs,

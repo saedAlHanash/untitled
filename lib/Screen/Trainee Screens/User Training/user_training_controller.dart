@@ -56,7 +56,6 @@ class UserTrainingController extends GetxController {
 
   @override
   Future<void> onInit() async {
-    print(Get.arguments[4].runtimeType);
     dayNumber = Get.arguments[0];
     nameWorkout = Get.arguments[1];
     workoutId = Get.arguments[2];
@@ -69,7 +68,6 @@ class UserTrainingController extends GetxController {
 
     isLoading = true;
     exercises = await _exerciseRepository.getExercise(workoutId);
-    print(exercises);
     completedExercises = List.generate(exercises.length, (index) => false);
     _initSetsList();
     currentIndex = 0;
@@ -349,9 +347,7 @@ class UserTrainingController extends GetxController {
   }
 
   Future<void> authenticateWithVimeo() async {
-    print("in authentication function");
     accessToken = await GetUrlVideo().authrizationWithVimeo();
-    print("update");
   }
 
   void startNextExercise() {
@@ -386,7 +382,6 @@ class UserTrainingController extends GetxController {
   completeDay() async {
     Utils.openLoadingDialog();
     ApiResult apiResult = await _exerciseRepository.completeDay(dayId);
-    print(apiResult.data);
     if (apiResult.type == ApiResultType.success) {
       Get.back();
       Get.back();

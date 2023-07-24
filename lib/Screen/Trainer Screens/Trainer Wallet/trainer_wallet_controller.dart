@@ -14,6 +14,7 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import '../../../Data/Api/methods.dart';
 import '../../../Data/Api/urls.dart';
 import '../../../Model/chat.dart';
+import '../../../core/images/image_multi_type.dart';
 
 class TrainerWalletController extends GetxController {
   RxList<Wallet> sessions = <Wallet>[].obs;
@@ -66,7 +67,7 @@ class TrainerWalletController extends GetxController {
       // var size = await ImageDownloader.findByteSize(imageId);
       // var mimeType = await ImageDownloader.findMimeType(imageId);
     } on PlatformException catch (error) {
-      log(error.toString());
+      
     }
   }
 

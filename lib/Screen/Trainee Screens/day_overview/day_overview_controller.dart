@@ -31,7 +31,7 @@ class DayOverviewController extends GetxController {
 
     exercises.value = await _exerciseRepository.getExercise(workoutId);
     // for (var element in exercises) {
-    //   // print(element.repetitions);
+    //   ////   print(element.repetitions);
     // }
     isLoading.value = false;
   }

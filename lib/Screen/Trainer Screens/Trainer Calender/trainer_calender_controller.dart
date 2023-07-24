@@ -10,6 +10,7 @@ import 'package:quiver/time.dart';
 
 import '../../../Utils/Routes/app_pages.dart';
 import '../../Trainee Screens/Trainer Overview/trainer_overview_controller.dart';
+import '../../chat/util.dart';
 
 class TrainerCalenderController extends GetxController {
   RxList<Appointment> appointments = <Appointment>[].obs;
@@ -108,7 +109,7 @@ class TrainerCalenderController extends GetxController {
 
   _getNextMonth() {
     int index = months.indexOf(currentMonth);
-    log('$currentMonth Index id $index');
+   //log('$currentMonth Index id $index');
     if (index == months.length - 1) {
       index = -1;
     }
@@ -118,7 +119,7 @@ class TrainerCalenderController extends GetxController {
 
   _getPreviousMonth() {
     int index = months.indexOf(currentMonth);
-    log('$currentMonth Index is $index');
+   //log('$currentMonth Index is $index');
     if (index == 0) {
       index == 12;
     }
@@ -141,6 +142,10 @@ class TrainerCalenderController extends GetxController {
         if (e.trainer.id.toString() == Get.find<TrainerOverviewController>().trainer.id) {
           list.add(e);
         }
+      }
+
+      if (list.isNotEmpty) {
+      await  getRoomByUser(list.first.trainer.id.toString());
       }
 
       list.sort((a, b) => a.startTime.compareTo(b.startTime));
@@ -202,7 +207,7 @@ class TrainerCalenderController extends GetxController {
   }
 
   getNextWeek() async {
-    log('current Month days $currentMonthDays');
+   //log('current Month days $currentMonthDays');
     if (currentWeekEndDay == currentMonthDays) {
       _getNextMonth();
       currentWeekStartDay = 1;

@@ -43,7 +43,7 @@ class CustomDrawer extends StatelessWidget {
               // await authRepository.logout();
               StorageController().token = '';
               StorageController().rememberToken = '';
-              // print(object)
+              ////   print(object)
               Get.back();
               Get.offAllNamed(AppRoutes.signIn);
             },

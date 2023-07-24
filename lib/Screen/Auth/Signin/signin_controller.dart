@@ -37,7 +37,7 @@ class SigninController extends GetxController {
 
   @override
   void onInit() {
-    log('you are in trainee');
+   //log('you are in trainee');
     super.onInit();
   }
 
@@ -85,7 +85,7 @@ class SigninController extends GetxController {
         getProfile();
         //Todo should un comment this
         // final token = await getToken();
-        // log('FFFCCCMMM $token');
+        ////log('FFFCCCMMM $token');
         // await storeFcm(token);
         Get.back();
         // Utils.openSnackBar(title: 'Login Success', textColor: Colors.white);
@@ -122,7 +122,7 @@ class SigninController extends GetxController {
         res = await _authRepository.traineeTakeAuthenticationByGoogleAccount(
             x.user!.email!, x.user!.displayName!, x.user!.uid);
         // }
-        print(res);
+       //   print(res);
         if (res.type == ApiResultType.success) {
           _storageController.token = res.data['access_token'];
           _storageController.rememberToken = res.data['refresh_token'];
@@ -130,7 +130,7 @@ class SigninController extends GetxController {
           _storageController.userType = isTrainer ? 'trainer' : 'trainee';
           _storageController.methodTakeAuthentication = 'google';
           final token = await getToken();
-          log('FFFCCCMMM $token');
+         //log('FFFCCCMMM $token');
           await storeFcm(token);
           getProfile();
           Get.back();
@@ -160,7 +160,7 @@ class SigninController extends GetxController {
       }
     } catch (e) {
       Utils.closeDialog();
-      print(e);
+     //   print(e);
     }
   }
 
@@ -173,14 +173,14 @@ class SigninController extends GetxController {
     // StorageController storageController = StorageController();
     String? token = '';
     // token = await FirebaseMessaging.instance.getToken();
-    log('\x1B[32mUser Token $token');
+   //log('\x1B[32mUser Token $token');
     // storageController.fcm = token;
     return token;
   }
 
   storeFcm(String token) async {
     ApiResult result = await _authRepository.saveFCM(token);
-    log(result.type.toString());
+   //log(result.type.toString());
   }
 }
 //keytool -list -v -alias androiddebugkey -keystore %USERPROFILE%\.android\debug.keystore

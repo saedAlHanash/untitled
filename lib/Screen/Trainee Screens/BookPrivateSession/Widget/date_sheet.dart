@@ -26,8 +26,7 @@ class DateSheet extends GetWidget<BookPrivateSessionController> {
                   horizontal: MediaQuery.of(context).size.width * 0.3),
               child: Container(
                 decoration: BoxDecoration(
-                    color: Colors.grey,
-                    borderRadius: BorderRadius.circular(12)),
+                    color: Colors.grey, borderRadius: BorderRadius.circular(12)),
                 height: 5,
                 width: double.infinity,
               ),
@@ -43,10 +42,8 @@ class DateSheet extends GetWidget<BookPrivateSessionController> {
                 IconButton(
                     onPressed: () => controller.getPreviousWeek(),
                     icon: Get.locale?.languageCode == 'en'
-                        ? Icon(Icons.arrow_back_ios_new,
-                            color: Get.theme.primaryColor)
-                        : Icon(Icons.arrow_back_ios,
-                            color: Get.theme.primaryColor)),
+                        ? Icon(Icons.arrow_back_ios_new, color: Get.theme.primaryColor)
+                        : Icon(Icons.arrow_back_ios, color: Get.theme.primaryColor)),
                 Padding(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 5,
@@ -77,8 +74,7 @@ class DateSheet extends GetWidget<BookPrivateSessionController> {
                 IconButton(
                     onPressed: () => controller.getNextWeek(),
                     icon: Get.locale?.languageCode == 'en'
-                        ? Icon(Icons.arrow_forward_ios,
-                            color: Get.theme.primaryColor)
+                        ? Icon(Icons.arrow_forward_ios, color: Get.theme.primaryColor)
                         : Icon(Icons.arrow_forward_ios_outlined,
                             color: Get.theme.primaryColor)),
               ],

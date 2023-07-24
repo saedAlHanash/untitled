@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart' as firebase;
 import 'package:flutter_chat_types/src/user.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
+import 'package:logger/logger.dart';
 import '../Screen/chat/my_room_object.dart';
 import 'Constants/constants.dart';
 import 'Constants/enums.dart';
@@ -34,7 +35,9 @@ class StorageController {
   final _methodTakeAuthentication =
       ReadWriteValue(Constants.methodTakeAuthentication, '');
 
-  String get token => _token.val;
+  String get token {
+    return _token.val;
+  }
 
   String get loginOrSignUpWithAnyMethod => _methodTakeAuthentication.val;
 

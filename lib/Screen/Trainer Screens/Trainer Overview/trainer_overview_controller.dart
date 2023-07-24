@@ -43,7 +43,7 @@ class TrainerTrainerOverviewController extends GetxController {
   }
 
   addPlanToFavorite(int index) async {
-    log(index.toString());
+   //log(index.toString());
     final temp = _trainerPlans[index];
     temp.isBookMarked = !temp.isBookMarked!;
     _trainerPlans.removeAt(index);

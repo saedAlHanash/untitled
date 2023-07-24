@@ -1,8 +1,10 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fitness_storm/Utils/Constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../../Widgets/plan_time_freqency.dart';
+import '../../../../../core/images/image_multi_type.dart';
 
 class FeaturedPlanItem extends GetWidget {
   final String planImageUrl;
@@ -60,7 +62,7 @@ class FeaturedPlanItem extends GetWidget {
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(15),
-          child: Image.network(Constants.imageUrl + planImageUrl,
+          child: ImageMultiType(url:Constants.imageUrl + planImageUrl,
               fit: BoxFit.cover),
         ),
       ),
@@ -167,7 +169,7 @@ class FeaturedPlanItem extends GetWidget {
       child: Center(
         child: CircleAvatar(
           backgroundColor: Colors.grey,
-          backgroundImage: NetworkImage(Constants.imageUrl + trainerImageUrl),
+          backgroundImage: CachedNetworkImageProvider(Constants.imageUrl + trainerImageUrl),
           radius: Get.width / 10,
         ),
       ),

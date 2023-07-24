@@ -48,7 +48,7 @@ class PlanOverviewController extends GetxController {
     id = Get.arguments;
     // }
 
-    log('plan overview id ${id}');
+   //log('plan overview id ${id}');
     isLoading = true;
     planOverview = await _planRepository.getPlanOverview(id);
     planWorkouts.value = await _workoutRepository.getPlanWorkout(id);

@@ -43,8 +43,8 @@ class PaymentPrivateSession {
 }
 
 class Trainer {
-  Null? id;
-  Null? name;
+  Null id;
+  Null name;
 
   Trainer({this.id, this.name});
 

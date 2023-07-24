@@ -13,18 +13,22 @@ class ConversationController extends GetxController {
   late String trainerName;
   late String channelId;
   late String message;
-  TextEditingController messageController = TextEditingController();
+  final messageController = TextEditingController();
   final RxList<Conversation> _conversations = <Conversation>[].obs;
   final RxBool _isLoaing = false.obs;
+  final RxBool _isLoaingSend = false.obs;
   int _pageNumber = 1;
 
   List<Conversation> get conversation => _conversations;
 
   bool get isLoading => _isLoaing.value;
 
+  bool get isLoadingSend => _isLoaingSend.value;
+
   set conversation(value) => _conversations.value = value;
 
   set isLoading(value) => _isLoaing.value = value;
+  set isLoadingSend(value) => _isLoaingSend.value = value;
 
   final ChatRepository _chatRepository = ChatRepository();
 
@@ -44,13 +48,13 @@ class ConversationController extends GetxController {
         try {
           chats = await Get.find<ChatController>().getChats();
         } catch (e) {
-          print("object");
+         //   print("object");
         }
       } else {
         try {
           chats = await Get.put(ChatController()).getChats() ?? [];
         } catch (e) {
-          print("object");
+         //   print("object");
         }
       }
 
@@ -60,11 +64,8 @@ class ConversationController extends GetxController {
     }
     await getAllConversation();
 
-    isLoading = true;
-    // conversation = conversation.reversed.toList();
-    isLoading = false;
     if (message != '') {
-      messageController = TextEditingController(text: message);
+      messageController.text =  message;
       onSendMessage();
     }
   }
@@ -76,6 +77,9 @@ class ConversationController extends GetxController {
   }
 
   onSendMessage({String? channelId}) async {
+
+    isLoadingSend = true;
+
     if (channelId != null) {
       if (messageController.text.isEmpty) return;
 
@@ -93,7 +97,7 @@ class ConversationController extends GetxController {
       }
     } else {
       if (messageController.text.isEmpty) return;
-      log('isNotEmpty');
+     //log('isNotEmpty');
 
       String message = messageController.text;
       messageController.text = '';
@@ -105,11 +109,12 @@ class ConversationController extends GetxController {
         messageController.text = '';
         _conversations.refresh();
       } else {
-        log(res.type.toString());
-        log(res.message.toString());
+       //log(res.type.toString());
+       //log(res.message.toString());
         Utils.openSnackBar(title: res.message!);
       }
     }
+    isLoadingSend = false;
   }
 }
 

@@ -171,7 +171,7 @@ class YourTrainerController extends GetxController {
   void toggleSortFilter(int index) {
     for (int i = 0; i < sortFilterControllers.length; i++) {
       if (i == index) {
-        log('sdsds');
+       //log('sdsds');
 
         sortFilterControllers[index] = !sortFilterControllers[index];
         if (sortFilterControllers[index]) {
@@ -216,7 +216,7 @@ class YourTrainerController extends GetxController {
   Future<void> sort() async {
     selectedIndex = 2;
     Get.back();
-    log('sort');
+   //log('sort');
     isLoading = true;
     await getSortResultPlans();
     isLoading = false;
@@ -225,7 +225,7 @@ class YourTrainerController extends GetxController {
   Future<void> filter() async {
     selectedIndex = 1;
     Get.back();
-    log('filter');
+   //log('filter');
     result();
     isLoading = true;
     await getFilterResultPlans();
@@ -235,7 +235,7 @@ class YourTrainerController extends GetxController {
   Future<void> search() async {
     selectedIndex = 0;
     Get.back();
-    log('search');
+   //log('search');
     isLoading = true;
     await getSearchResultTrainer();
     isLoading = false;
@@ -246,7 +246,7 @@ class YourTrainerController extends GetxController {
     ApiResult result = await _trainerRepository
         .getSearchTrainer(pageNumber.value, {'name': searchTerm.text});
     if (result.type == ApiResultType.success) {
-      log('congrats $result');
+     //log('congrats $result');
       trainers = <Trainer>[].obs;
       for (var element in result.data) {
         trainers.add(Trainer.fromJson(element));
@@ -260,7 +260,7 @@ class YourTrainerController extends GetxController {
     ApiResult? apiResult;
     for (int i = 0; i < sortFilterControllers.length; i++) {
       if (sortFilterControllers[i]) {
-        log('true ${sortFilterTypes[i]}');
+       //log('true ${sortFilterTypes[i]}');
         if (sortFilterTypes[i].isEmpty) {
           data = {};
         } else {
@@ -270,20 +270,20 @@ class YourTrainerController extends GetxController {
             await _trainerRepository.getSearchTrainer(pageNumber.value, data);
       }
     }
-    log('congrats ${apiResult!.data}');
+   //log('congrats ${apiResult!.data}');
     trainers = <Trainer>[].obs;
-    for (var element in apiResult.data) {
+    for (var element in apiResult!.data) {
       trainers.add(Trainer.fromJson(element));
     }
   }
 
   getFilterResultPlans() async {
     pageNumber.value = 1;
-    log(data.toString());
+   //log(data.toString());
     ApiResult apiResult =
         await _trainerRepository.getSearchTrainer(pageNumber.value, data);
     if (apiResult.type == ApiResultType.success) {
-      log('congrats ${apiResult.data}');
+     //log('congrats ${apiResult.data}');
       trainers = <Trainer>[].obs;
       for (var element in apiResult.data) {
         trainers.add(Trainer.fromJson(element));
@@ -385,6 +385,6 @@ class YourTrainerController extends GetxController {
     if (trainingLevel.isNotEmpty) {
       data['training_level[0]'] = trainingLevel;
     }
-    log(data.toString());
+   //log(data.toString());
   }
 }

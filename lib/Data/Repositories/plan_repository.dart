@@ -75,18 +75,18 @@ class PlanRepository {
       } else {
         Utils.openSnackBar(message: result.message!);
         return [];
-        throw result.message!;
+
       }
     } catch (error) {
       Utils.openSnackBar(message: error.toString());
       return [];
-      // throw error;
+
     }
   }
 
   Future<List<Plan>> getTrendingPlan(
       Map<String, dynamic>? queryParameter) async {
-    log(queryParameter.toString());
+   //log(queryParameter.toString());
     Options option = Utils.getOptions(withToken: true, all: true);
     try {
       ApiResult result = await Methods.get(
@@ -94,7 +94,7 @@ class PlanRepository {
           options: option,
           data: queryParameter);
       if (result.type == ApiResultType.success) {
-        log(result.data.toString());
+       //log(result.data.toString());
         List<Plan> plans = [];
         for (var element in result.data) {
           plans.add(Plan.fromJson(element));
@@ -190,8 +190,8 @@ class PlanRepository {
 // Future<> getPlanExercise(String id) async {
 //   Options option = Utils.getOptions(all: true);
 
-//   log('sssssssssssssssssssssss');
-//   // log(result.data);
+//  //log('sssssssssssssssssssssss');
+//   ////log(result.data);
 //   ApiResult result = await Methods.get(
 //       url: '${URLS.getExerciesByWorkoutId}$id/exercises', options: option);
 //   if (result.type == ApiResultType.success) {

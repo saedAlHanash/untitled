@@ -4,6 +4,7 @@ import 'package:fitness_storm/Data/Api/api_result.dart';
 import 'package:fitness_storm/Data/Repositories/plan_repository.dart';
 import 'package:fitness_storm/Data/Repositories/trainer_repository.dart';
 import 'package:get/get.dart';
+import 'package:logger/logger.dart';
 
 import '../../../Model/plan.dart';
 import '../../../Model/trainer.dart';
@@ -43,7 +44,7 @@ class TrainerOverviewController extends GetxController {
   set isVisible(value) => _isvisible.value = value;
 
   addPlanToFavorite(int index) async {
-    log(index.toString());
+   //log(index.toString());
     final temp = _trainerPlans[index];
     temp.isBookMarked = !temp.isBookMarked!;
     _trainerPlans.removeAt(index);

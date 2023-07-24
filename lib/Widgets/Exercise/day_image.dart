@@ -2,6 +2,8 @@ import 'package:fitness_storm/Utils/Constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../core/images/image_multi_type.dart';
+
 class DayImage extends StatelessWidget {
   final String imageUrl;
   final String dayNumber;
@@ -44,7 +46,7 @@ class DayImage extends StatelessWidget {
           child: SizedBox(
             height: numberOfExercises < 3 ? Get.height / 6 : Get.height / 3.7,
             width: Get.width / 2.9,
-            child: Image.network(
+            child: ImageMultiType(url:
               Constants.imageUrl + imageUrl,
               fit: BoxFit.cover,
             ),

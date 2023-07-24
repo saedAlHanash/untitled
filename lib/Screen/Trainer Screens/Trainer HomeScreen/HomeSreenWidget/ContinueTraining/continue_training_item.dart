@@ -3,6 +3,8 @@ import 'package:fitness_storm/Utils/Constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../../core/images/image_multi_type.dart';
+
 class ContinueTrainingItem extends GetView<HomeScreenController> {
   final String planImageUrl;
   final String planName;
@@ -75,7 +77,7 @@ class ContinueTrainingItem extends GetView<HomeScreenController> {
           child: SizedBox(
             height: MediaQuery.of(Get.context!).size.height / 5,
             width: MediaQuery.of(Get.context!).size.width / 2.5,
-            child: Image.network(Constants.imageUrl + planImageUrl,
+            child: ImageMultiType(url:Constants.imageUrl + planImageUrl,
                 fit: BoxFit.cover),
           ),
         ),

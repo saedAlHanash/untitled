@@ -71,7 +71,7 @@ class TrainingController extends GetxController {
   }
 
   onChangeChecks(bool? value, int index) {
-    log(value.toString());
+   //log(value.toString());
     if (index == 0) {
       currentChecks[index] = true;
       return;
@@ -81,7 +81,7 @@ class TrainingController extends GetxController {
   }
 
   changePage(int sets) async {
-    log('changes');
+   //log('changes');
     // int cnt = currentChecks.where((item) => item == true).length;
     int cnt = 0;
     for (int i = 0; i < sets; i++) {
@@ -89,7 +89,7 @@ class TrainingController extends GetxController {
     }
     if (cnt == sets) {
       if (currentIndex + 1 == exercises.length) {
-        log('ssssssss');
+       //log('ssssssss');
         Utils.openLoadingDialog();
         ApiResult apiResult = await _exerciseRepository.completeDay(dayId);
         if (apiResult.type == ApiResultType.success) {
@@ -105,9 +105,6 @@ class TrainingController extends GetxController {
       } else {
         scrollController.animateTo((currentIndex + 1) * Get.width,
             duration: const Duration(milliseconds: 1), curve: Curves.easeInOut);
-        log(List.filled(exercises[currentIndex + 1].setCount!, false,
-                growable: true)
-            .toString());
         currentChecks = List.filled(
             exercises[currentIndex + 1].setCount!, false,
             growable: true);

@@ -20,7 +20,7 @@ class ExerciseRepository {
       url = '${TRAINEEURLS.getExerciesByWorkoutId}$id/exercises';
     }
     ApiResult response = await Methods.get(url: url, options: option);
-    log(response.data.toString());
+   //log(response.data.toString());
     response.data.forEach((element) {
       exercise.add(Exercises.fromJson(element));
     });

@@ -128,7 +128,7 @@ class SearchResultController extends GetxController {
   }
 
   onSortPlan() async {
-    log('plannnnnnnnnnnnnnn');
+   //log('plannnnnnnnnnnnnnn');
     isPlanSort = !isPlanSort;
     plansPageNumber = 1;
     Map<String, dynamic> queryParameters;
@@ -182,7 +182,7 @@ class SearchResultController extends GetxController {
       return tempTrainers;
     }
     throw (e) {
-      log(e.toString());
+     //log(e.toString());
     };
   }
 
@@ -197,7 +197,7 @@ class SearchResultController extends GetxController {
       return tempPlans;
     }
     throw (e) {
-      log(e.toString());
+     //log(e.toString());
     };
   }
 
@@ -247,7 +247,7 @@ class SearchResultController extends GetxController {
   }
 
   addPlanToFavorite(int index) async {
-    log(index.toString());
+   //log(index.toString());
     final temp = plans[index];
     temp.isBookMarked = !temp.isBookMarked!;
     _plans.removeAt(index);

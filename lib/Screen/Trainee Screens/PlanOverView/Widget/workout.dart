@@ -1,7 +1,10 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fitness_storm/Utils/Constants/constants.dart';
 import 'package:fitness_storm/Utils/Routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../../Trainer Screens/Trainer Overview/Widget/ProfileHader/trainer_profile_image_widget.dart';
 
 class Workout extends StatelessWidget {
   final String dayId;
@@ -65,7 +68,7 @@ class Workout extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(20)),
         image: DecorationImage(
-          image: NetworkImage(Constants.imageUrl + imagePath),
+          image:CachedNetworkImageProvider(Constants.imageUrl + imagePath),
           fit: BoxFit.cover,
         ),
       ),

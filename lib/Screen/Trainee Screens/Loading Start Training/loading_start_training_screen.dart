@@ -11,7 +11,7 @@ class LoadingStartTrainginScreen
 
   @override
   Widget build(BuildContext context) {
-    log(controller.title);
+   //log(controller.title);
     return Scaffold(
         body: Center(child: Lottie.asset('asset/Images/start1.json')));
   }

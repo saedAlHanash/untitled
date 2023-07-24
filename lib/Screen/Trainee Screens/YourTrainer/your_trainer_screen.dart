@@ -70,18 +70,18 @@ class YourTrainersScreen extends GetView<YourTrainerController> {
             child: ListView.builder(
               shrinkWrap: true,
               itemCount: controller.trainers.length,
-              itemBuilder: (context, index) {
+              itemBuilder: (context, i) {
                 return GestureDetector(
                   onTap: () => Get.toNamed(AppRoutes.traienrOverview,
-                      arguments: controller.trainers[index].id),
+                      arguments: controller.trainers[i].id),
                   child: TrainerWidget(
-                    imageUrl: controller.trainers[index].profilePic!,
-                    numberOfPlans: controller.trainers[index].numberOfPlans!,
-                    trainerName: controller.trainers[index].name!,
+                    imageUrl: controller.trainers[i].profilePic!,
+                    numberOfPlans: controller.trainers[i].numberOfPlans!,
+                    trainerName: controller.trainers[i].name!,
                     numberOfSubscribers:
-                        controller.trainers[index].numberOfSubscribers!,
+                        controller.trainers[i].numberOfSubscribers!,
                     numberOfPrivateHours:
-                        controller.trainers[index].numberOfPrivateHours!,
+                        controller.trainers[i].numberOfPrivateHours!,
                   ),
                 );
               },

@@ -68,8 +68,8 @@ class TraineeProfileInfoController extends GetxController {
   @override
   void onInit() {
     userProfile = Get.arguments;
-    log(userProfile.gender!);
-    log(userProfile.fitnessSurvey!.preferredWorkoutLocationId!);
+   //log(userProfile.gender!);
+   //log(userProfile.fitnessSurvey!.preferredWorkoutLocationId!);
     initUserGender();
     initPreferredWorkoutLocation();
     initTrainingLevel();
@@ -136,9 +136,9 @@ class TraineeProfileInfoController extends GetxController {
       lastDate: DateTime.now(),
     );
     if (pickedDate != null) {
-      log(pickedDate.toString());
+     //log(pickedDate.toString());
       String formattedDate = DateFormat('dd/MM/yyyy').format(pickedDate);
-      log(formattedDate);
+     //log(formattedDate);
       dateinput.text = formattedDate;
     }
     FocusManager.instance.primaryFocus?.unfocus();

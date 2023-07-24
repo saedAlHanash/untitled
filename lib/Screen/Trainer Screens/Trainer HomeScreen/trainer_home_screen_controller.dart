@@ -49,9 +49,10 @@ class TrainerHomeScreenController extends GetxController {
   }
 
   Future<void> getTrainerPlans() async {
-    List<Plan> _plans = await _trainerRepository.getTrainerPlans();
-    if (_plans.isNotEmpty) {
-      _trainerPlans.addAll(_plans);
+    final plans = await _trainerRepository.getTrainerPlans();
+
+    if (plans.isNotEmpty) {
+      _trainerPlans.addAll(plans);
     }
     _trainerPlans.addAll([]);
   }

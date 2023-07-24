@@ -28,7 +28,7 @@ class Utils {
 
   static void changeStatusBarColor(Color color,
       {Brightness brightness = Brightness.dark}) {
-    log('status bar changed');
+   //log('status bar changed');
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
         statusBarColor: color,
@@ -185,7 +185,7 @@ class Utils {
     bool withRefreshToken = false,
     String customToken = '',
   }) {
-    Options options = Options(headers: {'lang': Get.locale?.languageCode ?? 'en'});
+    final options = Options(headers: {'lang': Get.locale?.languageCode ?? 'en'});
 
     /* if (contentType || all) {
        options.contentType = 'application/x-www-form-urlencoded';
@@ -196,8 +196,7 @@ class Utils {
       });
     }
     if (withToken || all || customToken.isNotEmpty) {
-      log('token');
-      log(StorageController().token);
+     //log(StorageController().token);
       options.headers!.addAll({
         "authorization": customToken.isNotEmpty
             ? "Bearer $customToken"
@@ -207,16 +206,16 @@ class Utils {
       });
     }
     if (withRefreshToken) {
-      log('RefreshToken');
-      log(StorageController().rememberToken);
+     //log('RefreshToken');
+     //log(StorageController().rememberToken);
       options.headers!.addAll({
         "authorization": "Bearer ${StorageController().rememberToken}",
         'lang': Get.locale?.languageCode??'en',
       });
     }
     // if (customToken.isNotEmpty) {
-    //   log('Custom Token');
-    //   log(customToken);
+    //  //log('Custom Token');
+    //  //log(customToken);
     //   options.headers!.addAll({
     //     "change-password-token": customToken,
     //   });

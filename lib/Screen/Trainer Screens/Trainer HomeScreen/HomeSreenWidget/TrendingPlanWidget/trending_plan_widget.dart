@@ -14,7 +14,7 @@ class TrendingPlanWidget extends GetView<TrainerHomeScreenController> {
 
   @override
   Widget build(BuildContext context) {
-    log(controller.trendingPlans.toString());
+   //log(controller.trendingPlans.toString());
     return Column(
       children: [
         _buildTrendingPlanHeader(plans: controller.trendingPlans),

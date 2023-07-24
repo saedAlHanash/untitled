@@ -20,11 +20,10 @@ class NotificationScreen extends GetView<NotificationController> {
             onPressed: () => Get.back(),
           ),
           title: Text('notifications'.tr),
-          titleTextStyle:
-              const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          titleTextStyle: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
         body: controller.isLoading
-            ? Center(child: CircularProgressIndicator.adaptive())
+            ? const Center(child: CircularProgressIndicator.adaptive())
             : SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -36,11 +35,11 @@ class NotificationScreen extends GetView<NotificationController> {
                         : SizedBox(
                             height: Get.height + 30,
                             child: ListView.builder(
+                              padding: const EdgeInsets.only(bottom: 200.0),
                               itemCount: controller.notifications.data!.length,
                               itemBuilder: (context, index) {
-                                List data = controller
-                                    .notifications.data!.reversed
-                                    .toList();
+                                List data =
+                                    controller.notifications.data!.reversed.toList();
                                 return NotificationWidget(
                                   title: data[index].body!,
                                   date: data[index].createdAt!,

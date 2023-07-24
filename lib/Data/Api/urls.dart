@@ -142,6 +142,7 @@ abstract class TRAINERURLS {
   static const String getTrainerPrivateSession =
       '${Constants.trainerBaseUrl}/wallet';
   static const String plans = '${Constants.trainerBaseUrl}/plans/ourPlans';
+
   static const String trainerPlans =
-      '${Constants.trainerBaseUrl}/plans/myPlans?training_level[0]=Beginner';
+      '${Constants.trainerBaseUrl}/plans/myPlans';
 }

@@ -16,10 +16,10 @@ class ExerciseItem extends GetWidget<TrainingController> {
 
   @override
   Widget build(BuildContext context) {
-    log('sssssssssssssssssssaaaaaaaa');
+   //log('sssssssssssssssssssaaaaaaaa');
 
-    log(sets.toString());
-    log(reps.toString());
+   //log(sets.toString());
+   //log(reps.toString());
     return Obx(
       () => CheckboxListTile(
         value: controller.currentChecks[sets],

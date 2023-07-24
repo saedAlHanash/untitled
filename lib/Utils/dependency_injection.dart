@@ -60,23 +60,23 @@ initRepositories() {
 }
 
 Future<void> initGetStorage() async {
-  log('init GetStore');
+ //log('init GetStore');
   await GetStorage.init();
   StorageController storage = StorageController();
-  log(storage.user);
-  log("lang");
-  log(storage.langCode);
+ //log(storage.user);
+ //log("lang");
+ //log(storage.langCode);
   AppController appController = Get.find<AppController>();
   appController.theme =
       (storage.theme == "dark" ? ThemeColor.dark : ThemeColor.light).obs;
-  log('======================================================');
-  log(storage.notification);
+ //log('======================================================');
+ //log(storage.notification);
 
   return;
 }
 
 Future<void> initDio() async {
-  log('init Dio');
+ //log('init Dio');
   BaseOptions baseOptions = BaseOptions(
     baseUrl: Constants.baseUrl,
     contentType: 'application/json',
@@ -186,11 +186,11 @@ requestPermission() async {
   );
 
   if (settings.authorizationStatus == AuthorizationStatus.authorized) {
-    log('User Granted Permission');
+   //log('User Granted Permission');
   } else if (settings.authorizationStatus == AuthorizationStatus.provisional) {
-    log('User Granted Provisional Permission');
+   //log('User Granted Provisional Permission');
   } else {
-    log('User Declined Or Has Not Accepted Permission');
+   //log('User Declined Or Has Not Accepted Permission');
   }
 }
 
@@ -228,10 +228,8 @@ Future<void> getProfile() async {
         createChatUser(profile);
       }
     } on Exception catch (e) {
-      print(e);
     }
   } else {
-    print('error');
   }
 }
 

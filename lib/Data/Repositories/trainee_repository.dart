@@ -27,7 +27,7 @@ class TraineeRepository {
       return await Methods.get(
           url: TRAINEEURLS.getUserProfile, options: options);
     } catch (error) {
-      log('\x1B[31merror');
+     //log('\x1B[31merror');
       rethrow;
     }
   }
@@ -42,7 +42,7 @@ class TraineeRepository {
         data: {'password': newPassword},
       );
     } catch (error) {
-      log('\x1B[31merror');
+     //log('\x1B[31merror');
       rethrow;
     }
   }
@@ -55,7 +55,7 @@ class TraineeRepository {
         options: options,
       );
     } catch (error) {
-      log('\x1B[31merror');
+     //log('\x1B[31merror');
       rethrow;
     }
   }
@@ -69,7 +69,7 @@ class TraineeRepository {
         options: options,
       );
     } catch (error) {
-      log('\x1B[31merror');
+     //log('\x1B[31merror');
       rethrow;
     }
   }
@@ -99,7 +99,7 @@ class TraineeRepository {
         return progress;
       }
     } catch (error) {
-      log(error.toString());
+      
     }
     return [];
   }
@@ -114,7 +114,7 @@ class TraineeRepository {
         return aboutUsModel;
       }
     } catch (error) {
-      log(error.toString());
+      
     }
     return AboutUsModel();
   }

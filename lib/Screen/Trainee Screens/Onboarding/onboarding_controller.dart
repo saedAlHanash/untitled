@@ -69,8 +69,8 @@ class OnboardingController extends GetxController {
   }
 
   onPageChanged(int newIndex) {
-    log(pages.length.toString());
-    log(newIndex.toString());
+   //log(pages.length.toString());
+   //log(newIndex.toString());
     if (newIndex == pages.length - 1) {
       isFinish = true;
     } else {

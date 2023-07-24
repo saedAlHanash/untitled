@@ -194,7 +194,7 @@ class TrendingPlanController extends GetxController {
   void toggleSortFilter(int index) {
     for (int i = 0; i < sortFilterControllers.length; i++) {
       if (i == index) {
-        log('sdsds');
+       //log('sdsds');
 
         sortFilterControllers[index] = !sortFilterControllers[index];
         if (sortFilterControllers[index]) {
@@ -212,7 +212,7 @@ class TrendingPlanController extends GetxController {
   Future<void> sort() async {
     selectedIndex = 2;
     Get.back();
-    log('sort');
+   //log('sort');
     isLoading = true;
     await getSortResultPlans();
     isLoading = false;
@@ -221,7 +221,7 @@ class TrendingPlanController extends GetxController {
   Future<void> filter() async {
     selectedIndex = 1;
     Get.back();
-    log('filter');
+   //log('filter');
     result();
     isLoading = true;
     await getFilterResultPlans();
@@ -231,7 +231,7 @@ class TrendingPlanController extends GetxController {
   Future<void> search() async {
     selectedIndex = 0;
     Get.back();
-    log('search');
+   //log('search');
     isLoading = true;
     await getSearchResultPlans();
     isLoading = false;
@@ -240,7 +240,7 @@ class TrendingPlanController extends GetxController {
   getSearchResultPlans() async {
     List<Plan> result =
         await _planRepository.getTrendingPlan({'name': searchTerm.text});
-    log('congrats $result');
+   //log('congrats $result');
     plans = <Plan>[].obs;
     for (var element in result) {
       plans.add(element);
@@ -251,7 +251,7 @@ class TrendingPlanController extends GetxController {
     List<Plan> result = [];
     for (int i = 0; i < sortFilterControllers.length; i++) {
       if (sortFilterControllers[i]) {
-        log('true ${sortFilterTypes[i]}');
+       //log('true ${sortFilterTypes[i]}');
         if (sortFilterTypes[i].isEmpty) {
           result = await _planRepository.getTrendingPlan({});
         } else {
@@ -260,7 +260,7 @@ class TrendingPlanController extends GetxController {
         }
       }
     }
-    log('congrats $result');
+   //log('congrats $result');
     plans = <Plan>[].obs;
     for (var element in result) {
       plans.add(element);
@@ -269,9 +269,9 @@ class TrendingPlanController extends GetxController {
 
   getFilterResultPlans() async {
     List<Plan> result = [];
-    log(data.toString());
+   //log(data.toString());
     result = await _planRepository.getTrendingPlan(data);
-    log('congrats $result');
+   //log('congrats $result');
     plans = <Plan>[].obs;
     for (var element in result) {
       plans.add(element);
@@ -371,11 +371,11 @@ class TrendingPlanController extends GetxController {
     if (trainingLevel.isNotEmpty) {
       data['training_level[0]'] = trainingLevel;
     }
-    log(data.toString());
+   //log(data.toString());
   }
 
   addPlanToFavorite(int index) async {
-    log(index.toString());
+   //log(index.toString());
     final temp = plans[index];
     temp.isBookMarked = !temp.isBookMarked!;
     plans.removeAt(index);

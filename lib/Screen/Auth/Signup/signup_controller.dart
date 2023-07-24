@@ -63,7 +63,7 @@ class SignupController extends GetxController {
   set isScure(value) => _isScure.value = value;
 
   void onCheckTrainer(bool? value) {
-    log(value.toString());
+   //log(value.toString());
     isTrainer = value;
     update();
   }
@@ -106,7 +106,7 @@ class SignupController extends GetxController {
     StorageController storageController = StorageController();
     String? token = '';
     token = await FirebaseMessaging.instance.getToken();
-    log('\x1B[32mUser Token $token');
+   //log('\x1B[32mUser Token $token');
     storageController.fcm = token;
     return token;
   }
@@ -144,7 +144,7 @@ class SignupController extends GetxController {
           _storageController.userType = isTrainer ? 'trainer' : 'trainee';
           _storageController.methodTakeAuthentication = 'google';
           final token = await getToken();
-          log('FFFCCCMMM $token');
+         //log('FFFCCCMMM $token');
           await storeFcm(token);
           Get.back();
           // Utils.openSnackBar(title: 'Login Success', textColor: Colors.white);
@@ -170,7 +170,7 @@ class SignupController extends GetxController {
 
   storeFcm(String token) async {
     ApiResult result = await _authRepository.saveFCM(token);
-    log(result.type.toString());
+   //log(result.type.toString());
   }
 
   sign_out() async {

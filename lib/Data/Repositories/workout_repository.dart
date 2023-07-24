@@ -19,8 +19,8 @@ class WorkoutRepository {
       url = '${TRAINEEURLS.getWorkoutsByPlanId}$id/workouts';
     }
     ApiResult result = await Methods.get(url: url, options: option);
-    log('ressss');
-    log(result.data.toString());
+   //log('ressss');
+   //log(result.data.toString());
     if (result.type == ApiResultType.success) {
       List<WorkoutModel> workouts = [];
       result.data.forEach((element) {
@@ -38,7 +38,7 @@ class WorkoutRepository {
         url: 'http://api.fitnessstorm.org/mobile/user/currentWorkout',
         options: option);
 
-    log(result.data.toString());
+   //log(result.data.toString());
     if (result.type == ApiResultType.success) {
       List<WorkoutModel> workouts = [];
       if (result.data != null && result.data.length != 0) {

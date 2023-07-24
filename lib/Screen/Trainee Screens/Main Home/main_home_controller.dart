@@ -35,7 +35,7 @@ class MainHomeController extends GetxController {
   Future<void> getAllNotifications() async {
     notifications = await _notificationRepository.getAllNotifications(false);
     numberOfNotification = notifications.unReadNotification;
-    print('dfsdfsadf');
-    print(numberOfNotification);
+   //   print('dfsdfsadf');
+   //   print(numberOfNotification);
   }
 }

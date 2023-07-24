@@ -106,8 +106,8 @@ class CustomSearchDelegate extends SearchDelegate {
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    log('qqqqqqqqqqqqqqqqqqqq');
-    log(query.toString());
+   //log('qqqqqqqqqqqqqqqqqqqq');
+   //log(query.toString());
     return Container();
   }
 }

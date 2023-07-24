@@ -29,7 +29,7 @@ class SubscriptionRepository {
       }
       return traineeNextPayments;
     } catch (e) {
-      log(e.toString());
+     //log(e.toString());
     }
     return [];
   }
@@ -43,7 +43,7 @@ class SubscriptionRepository {
         return SubscriptionsResponse.fromJson(result.data).data;
       }
     } catch (error) {
-      log(error.toString());
+      
     }
     return SubscriptionsModel.fromJson({});
   }
@@ -66,7 +66,7 @@ class SubscriptionRepository {
         return result;
       }
     } catch (error) {
-      log(error.toString());
+      
     }
     return ApiResultType.failure;
   }
@@ -81,7 +81,7 @@ class SubscriptionRepository {
         return result;
       }
     } catch (error) {
-      log(error.toString());
+      
     }
     return ApiResultType.failure;
   }
