@@ -18,11 +18,11 @@ void main() async {
 
   await DependencyInjection.init();
 
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown,
-  ]);
-
+  // SystemChrome.setPreferredOrientations([
+  //   DeviceOrientation.portraitUp,
+  //   DeviceOrientation.portraitDown,
+  // ]);
+  HttpOverrides.global = MyHttpOverrides();
   runApp(
     GetMaterialApp(
       color: Colors.white,
@@ -37,4 +37,14 @@ void main() async {
       locale: Locale(Get.find<LanguagesController>().selectedLanguage),
     ),
   );
+}
+
+class MyHttpOverrides extends HttpOverrides {
+  @override
+  HttpClient createHttpClient(SecurityContext? context) {
+    return super.createHttpClient(context)
+      ..badCertificateCallback = (X509Certificate cert, String host, int port) {
+        return true;
+      };
+  }
 }

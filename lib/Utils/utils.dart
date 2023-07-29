@@ -185,7 +185,7 @@ class Utils {
     bool withRefreshToken = false,
     String customToken = '',
   }) {
-    final options = Options(headers: {'lang': Get.locale?.languageCode ?? 'en'});
+    Options options = Options(headers: {'lang': Get.locale!.languageCode});
 
     /* if (contentType || all) {
        options.contentType = 'application/x-www-form-urlencoded';
@@ -202,7 +202,7 @@ class Utils {
             ? "Bearer $customToken"
             : "Bearer ${StorageController().token}",
         "timeZone": DateTime.now().timeZoneName,
-        'lang': Get.locale?.languageCode??'en',
+        'lang': Get.locale!.languageCode,
       });
     }
     if (withRefreshToken) {
@@ -210,12 +210,12 @@ class Utils {
      //log(StorageController().rememberToken);
       options.headers!.addAll({
         "authorization": "Bearer ${StorageController().rememberToken}",
-        'lang': Get.locale?.languageCode??'en',
+        'lang': Get.locale!.languageCode,
       });
     }
     // if (customToken.isNotEmpty) {
-    //  //log('Custom Token');
-    //  //log(customToken);
+    //   log('Custom Token');
+    //   log(customToken);
     //   options.headers!.addAll({
     //     "change-password-token": customToken,
     //   });

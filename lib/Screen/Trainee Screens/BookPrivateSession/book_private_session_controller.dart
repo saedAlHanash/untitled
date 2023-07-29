@@ -185,8 +185,10 @@ class BookPrivateSessionController extends GetxController {
       now.hour,
       now.minute,
     );
+    loggerObject.wtf(date.toIso8601String());
+    loggerObject.wtf(now.add(const Duration(days: -7)).toIso8601String());
 
-    if(now.isAfter(date))return;
+    if(now.add(const Duration(days: -7)).isAfter(date))return;
 
     if (currentWeekStartDay == 1) {
       _getPreviousMonth();
@@ -244,7 +246,7 @@ class BookPrivateSessionController extends GetxController {
     currentMonthDays = daysInMonth(year, index);
   }
 
-  generateDaysWidget(currentContext) {
+  List<Widget> generateDaysWidget(currentContext) {
     List<Widget> widgets = [];
     for (var element in currentDays) {
       widgets.add(
@@ -347,7 +349,7 @@ class BookPrivateSessionController extends GetxController {
     } else {
       final s = result[currentDay];
       loggerObject.i(s);
-      s.forEach((element) {
+      for(var element  in s){
         if (element['start_time'] != null) {
           final tempStart =
               DateFormat("yyyy-MM-dd hh:mm:ss").parse(element['start_time']);
@@ -355,6 +357,18 @@ class BookPrivateSessionController extends GetxController {
           final startTime = DateFormat('hh:mm a').format(tempStart);
           final endTime = DateFormat('hh:mm a').format(tempEnd);
 
+
+          loggerObject.w(tempStart);
+
+          if(DateTime.now().isAfter(tempStart)){
+            widgets.add(
+              Text(
+                'No_available_sessions'.tr,
+                style: const TextStyle(color: Color(0xFFA0A0A0), fontSize: 14),
+              ),
+            );
+            break;
+          }
           widgets.add(
             InkWell(
               onTap: () async {
@@ -404,7 +418,7 @@ class BookPrivateSessionController extends GetxController {
 
           widgets.add(const SizedBox(width: 30));
         }
-      });
+      }
     }
     return widgets;
   }

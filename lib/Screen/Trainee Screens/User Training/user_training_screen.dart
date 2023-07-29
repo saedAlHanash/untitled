@@ -8,6 +8,7 @@ import 'package:get/get.dart';
 import 'package:shimmer_animation/shimmer_animation.dart';
 
 import '../../../Utils/storage_controller.dart';
+import '../../Trainer Screens/Trainer Main Home/trainer_main_home_controller.dart';
 import 'Widget/slide_widget.dart';
 
 class UserTrainingScreen extends GetView<UserTrainingController> {
@@ -16,7 +17,7 @@ class UserTrainingScreen extends GetView<UserTrainingController> {
   @override
   Widget build(BuildContext context) {
     return Obx(() => WillPopScope(
-          onWillPop: controller.complete
+          onWillPop: controller.complete || storageController.userType == 'trainer'
               ? null
               : () async {
                   bool shouldNavigateBack = await showDialog(

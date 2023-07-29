@@ -25,7 +25,7 @@ class _VimeoPlayerState extends State<VimeoPlayer> {
 
   @override
   void initState() {
-   //   print('vid: ${widget.videoId}');
+    //   print('vid: ${widget.videoId}');
     controller = PodPlayerController(
       playVideoFrom: PlayVideoFrom.vimeo(
         widget.videoId,
@@ -34,6 +34,7 @@ class _VimeoPlayerState extends State<VimeoPlayer> {
         ),
       ),
     )..initialise();
+
 
     widget.onInitController?.call(controller);
     super.initState();
@@ -49,20 +50,34 @@ class _VimeoPlayerState extends State<VimeoPlayer> {
   Widget build(BuildContext context) {
     return Directionality(
       textDirection: TextDirection.ltr,
-      child: PodVideoPlayer(
-        controller: controller,
-        videoThumbnail: const DecorationImage(
-          image: AssetImage(Assets.imagesLogo2),
-        ),
-        videoTitle: Row(
-          children: [
-            Image.asset(
-              Assets.imagesFs2,
-              height: 40.0,
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          PodVideoPlayer(
+            controller: controller,
+            onToggleFullScreen: (isFullScreen) async{
+
+            },
+            videoThumbnail: const DecorationImage(
+              image: AssetImage(Assets.imagesLogo2),
             ),
-            const Spacer(),
-          ],
-        ),
+          ),
+          Positioned(
+            bottom: 5.0,
+            right: 15.0,
+            child: IgnorePointer(
+              child: Opacity(
+                opacity: 0.4,
+                child: Image.asset(
+                  Assets.imagesFs2,
+
+                  height: 40.0,
+                ),
+              ),
+            ),
+          ),
+
+        ],
       ),
     );
   }

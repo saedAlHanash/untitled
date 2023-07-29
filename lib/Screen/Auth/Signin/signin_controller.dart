@@ -84,9 +84,9 @@ class SigninController extends GetxController {
 
         getProfile();
         //Todo should un comment this
-        // final token = await getToken();
+        final token = await getToken();
         ////log('FFFCCCMMM $token');
-        // await storeFcm(token);
+        await storeFcm(token);
         Get.back();
         // Utils.openSnackBar(title: 'Login Success', textColor: Colors.white);
         isTrainer
@@ -115,14 +115,10 @@ class SigninController extends GetxController {
         x = await FirebaseAuth.instance.signInWithCredential(credential);
 
         ApiResult res;
-        // if (isTrainer) {
-        //   res = await _trainerAuthRepository.trainerLogin(
-        //       emailController.text, passwordController.text);
-        // } else {
+
         res = await _authRepository.traineeTakeAuthenticationByGoogleAccount(
             x.user!.email!, x.user!.displayName!, x.user!.uid);
-        // }
-       //   print(res);
+
         if (res.type == ApiResultType.success) {
           _storageController.token = res.data['access_token'];
           _storageController.rememberToken = res.data['refresh_token'];

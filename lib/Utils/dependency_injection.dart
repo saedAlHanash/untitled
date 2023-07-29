@@ -60,23 +60,23 @@ initRepositories() {
 }
 
 Future<void> initGetStorage() async {
- //log('init GetStore');
+  //log('init GetStore');
   await GetStorage.init();
   StorageController storage = StorageController();
- //log(storage.user);
- //log("lang");
- //log(storage.langCode);
+  //log(storage.user);
+  //log("lang");
+  //log(storage.langCode);
   AppController appController = Get.find<AppController>();
   appController.theme =
       (storage.theme == "dark" ? ThemeColor.dark : ThemeColor.light).obs;
- //log('======================================================');
- //log(storage.notification);
+  //log('======================================================');
+  //log(storage.notification);
 
   return;
 }
 
 Future<void> initDio() async {
- //log('init Dio');
+  //log('init Dio');
   BaseOptions baseOptions = BaseOptions(
     baseUrl: Constants.baseUrl,
     contentType: 'application/json',
@@ -175,23 +175,18 @@ initFirebaseMessaging() async {
 
 requestPermission() async {
   FirebaseMessaging messaging = FirebaseMessaging.instance;
-  NotificationSettings settings = await messaging.requestPermission(
-    alert: true,
-    announcement: false,
-    badge: true,
-    carPlay: false,
-    criticalAlert: false,
-    provisional: false,
-    sound: true,
-  );
-
-  if (settings.authorizationStatus == AuthorizationStatus.authorized) {
-   //log('User Granted Permission');
-  } else if (settings.authorizationStatus == AuthorizationStatus.provisional) {
-   //log('User Granted Provisional Permission');
-  } else {
-   //log('User Declined Or Has Not Accepted Permission');
+  if (Platform.isIOS) {
+   await messaging.requestPermission(
+      alert: true,
+      announcement: false,
+      badge: true,
+      carPlay: false,
+      criticalAlert: false,
+      provisional: false,
+      sound: true,
+    );
   }
+
 }
 
 Future<void> initFirebaseChat() async {
@@ -201,7 +196,6 @@ Future<void> initFirebaseChat() async {
       getProfile();
       return;
     }
-
   });
 }
 
@@ -227,10 +221,8 @@ Future<void> getProfile() async {
       } else {
         createChatUser(profile);
       }
-    } on Exception catch (e) {
-    }
-  } else {
-  }
+    } on Exception catch (e) {}
+  } else {}
 }
 
 class Note {

@@ -37,6 +37,7 @@ abstract class Methods {
       Map<String, String>? queryParameters}) async {
     LogService().w(url);
     LogService().w(data.toString());
+
     try {
       final dio.Response response = await _dio.post(
         url,
