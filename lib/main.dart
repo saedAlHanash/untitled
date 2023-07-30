@@ -18,10 +18,10 @@ void main() async {
 
   await DependencyInjection.init();
 
-  // SystemChrome.setPreferredOrientations([
-  //   DeviceOrientation.portraitUp,
-  //   DeviceOrientation.portraitDown,
-  // ]);
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
   HttpOverrides.global = MyHttpOverrides();
   runApp(
     GetMaterialApp(
