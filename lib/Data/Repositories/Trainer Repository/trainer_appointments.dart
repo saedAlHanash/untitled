@@ -4,8 +4,6 @@ import 'package:fitness_storm/Data/Api/methods.dart';
 import 'package:fitness_storm/Data/Api/urls.dart';
 import 'package:fitness_storm/Utils/utils.dart';
 
-import '../../../Model/trainer.dart';
-
 class TrainerAppointmentsRepository {
   Future<ApiResult> trainerSignup(
       String email, String password, String name, String gender) async {

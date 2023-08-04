@@ -1,12 +1,12 @@
 import 'dart:ui';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:fitness_storm/Screen/chat/my_room_object.dart';
-import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fitness_storm/Utils/storage_controller.dart';
+import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 import 'package:flutter_firebase_chat_core/flutter_firebase_chat_core.dart';
 
 import '../../Model/trainer.dart';

@@ -6,7 +6,6 @@ import 'package:fitness_storm/Model/plan.dart';
 import 'package:fitness_storm/Model/private_session.dart';
 import 'package:fitness_storm/Model/trainer.dart';
 import 'package:fitness_storm/Utils/utils.dart';
-import 'package:logger/logger.dart';
 
 class TrainerTrainerRepository {
   Future<List<Trainer>> getYourTrainer(int pageNumber) async {

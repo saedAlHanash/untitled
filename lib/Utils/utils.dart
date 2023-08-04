@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'dart:developer';
+ 
 
 import 'package:dio/dio.dart';
 import 'package:fitness_storm/Utils/storage_controller.dart';
@@ -28,7 +28,7 @@ class Utils {
 
   static void changeStatusBarColor(Color color,
       {Brightness brightness = Brightness.dark}) {
-   //log('status bar changed');
+    //log('status bar changed');
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
         statusBarColor: color,
@@ -84,7 +84,7 @@ class Utils {
 
     AlertDialog alert = AlertDialog(
         backgroundColor: Colors.white,
-        // title: Text("alert".tr),
+        // title: Text('alert'.tr),
         content: Text(message),
         actions: [cancelButton, continueButton]);
 
@@ -121,7 +121,7 @@ class Utils {
               child: TextField(
                 controller: searchTerm,
                 decoration: InputDecoration(
-                  hintText: "What_are_you_searching_for?".tr,
+                  hintText: 'What_are_you_searching_for?'.tr,
                   hintStyle: const TextStyle(fontSize: 12, color: Color(0xFFD1D1D1)),
                   suffixIcon: GestureDetector(
                     onTap: () => onTap(),
@@ -190,26 +190,27 @@ class Utils {
     /* if (contentType || all) {
        options.contentType = 'application/x-www-form-urlencoded';
      }*/
+
     if (accept || all || withRefreshToken) {
       options.headers!.addAll({
         'accept': 'application/json',
       });
     }
     if (withToken || all || customToken.isNotEmpty) {
-     //log(StorageController().token);
+      //log(StorageController().token);
       options.headers!.addAll({
-        "authorization": customToken.isNotEmpty
-            ? "Bearer $customToken"
-            : "Bearer ${StorageController().token}",
-        "timeZone": DateTime.now().timeZoneName,
+        'authorization': customToken.isNotEmpty
+            ? 'Bearer $customToken'
+            : 'Bearer ${StorageController().token}',
+        'timeZone': DateTime.now().timeZoneName,
         'lang': Get.locale!.languageCode,
       });
     }
     if (withRefreshToken) {
-     //log('RefreshToken');
-     //log(StorageController().rememberToken);
+      //log('RefreshToken');
+      //log(StorageController().rememberToken);
       options.headers!.addAll({
-        "authorization": "Bearer ${StorageController().rememberToken}",
+        'authorization': 'Bearer ${StorageController().rememberToken}',
         'lang': Get.locale!.languageCode,
       });
     }
@@ -217,7 +218,7 @@ class Utils {
     //   log('Custom Token');
     //   log(customToken);
     //   options.headers!.addAll({
-    //     "change-password-token": customToken,
+    //     'change-password-token': customToken,
     //   });
     // }
     return options;

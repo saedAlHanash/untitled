@@ -3,7 +3,6 @@ import 'package:fitness_storm/Screen/Trainee%20Screens/Subscription/Widget/payme
 import 'package:fitness_storm/Screen/Trainee%20Screens/Subscription/Widget/success_subscribed.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Subscription/Widget/without_subscribed.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Subscription/subscription_controller.dart';
-import 'package:fitness_storm/Utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

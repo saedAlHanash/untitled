@@ -4,8 +4,6 @@ import 'package:fitness_storm/Utils/Routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../Trainer Screens/Trainer Overview/Widget/ProfileHader/trainer_profile_image_widget.dart';
-
 class Workout extends StatelessWidget {
   final String dayId;
   final String workoutId;

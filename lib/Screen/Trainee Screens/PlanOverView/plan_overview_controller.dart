@@ -1,6 +1,3 @@
-import 'dart:convert';
-import 'dart:developer';
-
 import 'package:fitness_storm/Data/Api/api_result.dart';
 import 'package:fitness_storm/Data/Repositories/exercise_repository.dart';
 import 'package:fitness_storm/Data/Repositories/plan_repository.dart';
@@ -11,9 +8,7 @@ import 'package:fitness_storm/Model/plan_workout.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/User%20Training/user_training_controller.dart';
 import 'package:fitness_storm/Utils/utils.dart';
 import 'package:fitness_storm/helperClass.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:pod_player/pod_player.dart';

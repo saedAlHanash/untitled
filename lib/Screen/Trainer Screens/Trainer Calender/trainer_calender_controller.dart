@@ -1,14 +1,11 @@
-import 'dart:developer';
+ 
 
-import 'package:collection/collection.dart';
 import 'package:fitness_storm/Data/Repositories/Trainer%20Repository/trainer_appointments.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Calender/appointments.dart';
-import 'package:fitness_storm/Utils/utils.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:quiver/time.dart';
 
-import '../../../Utils/Routes/app_pages.dart';
 import '../../Trainee Screens/Trainer Overview/trainer_overview_controller.dart';
 import '../../chat/util.dart';
 

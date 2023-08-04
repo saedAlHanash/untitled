@@ -1,14 +1,11 @@
-import 'package:fitness_storm/Model/chat.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Chat/Widget/chat_card_widget.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Chat/Widget/customer_service_card_widget.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/Chat/chat_controller.dart';
 import 'package:fitness_storm/Screen/chat/util.dart';
 import 'package:fitness_storm/Utils/Routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart';
 import 'package:get/get.dart';
 
-import '../../../Utils/storage_controller.dart';
 import '../../chat/chat.dart';
 
 class ChatScreen extends StatelessWidget {

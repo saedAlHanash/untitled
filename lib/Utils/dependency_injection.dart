@@ -1,4 +1,4 @@
-import 'dart:developer';
+ 
 import 'dart:io';
 
 // import 'package:dio/adapter.dart';
@@ -8,13 +8,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:fitness_storm/Data/Repositories/plan_repository.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/Main%20Home/main_home_controller.dart';
 import 'package:fitness_storm/Utils/storage_controller.dart';
 import 'package:fitness_storm/Utils/utils.dart';
 import 'package:fitness_storm/helper/cache_helper.dart';
 import 'package:fitness_storm/helper/lang_helper.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_app_badger/flutter_app_badger.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';

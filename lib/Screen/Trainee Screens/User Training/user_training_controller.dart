@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:io';
 
 import 'package:fitness_storm/Data/Api/api_result.dart';
 import 'package:fitness_storm/Data/Repositories/exercise_repository.dart';
@@ -10,8 +9,8 @@ import 'package:get/get.dart';
 import 'package:pod_player/pod_player.dart';
 
 import '../../../Data/Repositories/get_url_video.dart';
+import '../../../Utils/protact_screen_service.dart';
 
-import 'package:screen_protector/screen_protector.dart';
 
 class UserTrainingController extends GetxController {
   late int break_for_set = 0;
@@ -44,8 +43,7 @@ class UserTrainingController extends GetxController {
 
   @override
   void onClose() async {
-    await ScreenProtector.protectDataLeakageOff();
-
+    ProtectScreenService().stopProtect();
 
     try {
       videoController.dispose();
@@ -75,7 +73,7 @@ class UserTrainingController extends GetxController {
     initVideoPlayerController();
     isLoading = false;
 
-    _protectDataLeakageOn();
+    ProtectScreenService().startProtect(Get.context);
 
     super.onInit();
   }
@@ -399,10 +397,3 @@ class UserTrainingController extends GetxController {
   }
 }
 
-void _protectDataLeakageOn() async {
-  if (Platform.isIOS) {
-    await ScreenProtector.protectDataLeakageWithColor(Colors.white);
-  } else if (Platform.isAndroid) {
-    await ScreenProtector.protectDataLeakageOn();
-  }
-}

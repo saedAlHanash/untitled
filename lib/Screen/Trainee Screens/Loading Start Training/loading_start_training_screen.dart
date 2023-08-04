@@ -1,4 +1,4 @@
-import 'dart:developer';
+ 
 
 import 'package:fitness_storm/Screen/Trainee%20Screens/Loading%20Start%20Training/loading_start_training_controller.dart';
 import 'package:flutter/material.dart';

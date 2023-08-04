@@ -16,7 +16,6 @@ import 'package:fitness_storm/Screen/Trainee%20Screens/BookPrivateSession/book_p
 import 'package:fitness_storm/Screen/Trainee%20Screens/BookPrivateSession/book_private_session_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Bookmarked%20Screen/bookmarked_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Bookmarked%20Screen/bookmarked_screen_binding.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/Chat/chat_binding.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Chat/chat_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/ContinueTrainingPlan/continue_training_binding.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/ContinueTrainingPlan/continue_training_screen.dart';

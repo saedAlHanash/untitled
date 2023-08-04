@@ -1,10 +1,9 @@
 // ignore_for_file: non_constant_identifier_names
 
 import 'package:firebase_auth/firebase_auth.dart' as firebase;
-import 'package:flutter_chat_types/src/user.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
-import 'package:logger/logger.dart';
+import 'package:get_storage/get_storage.dart';
+
 import '../Screen/chat/my_room_object.dart';
 import 'Constants/constants.dart';
 import 'Constants/enums.dart';

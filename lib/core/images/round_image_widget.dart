@@ -2,7 +2,6 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 
-
 import 'image_multi_type.dart';
 
 class RoundImageWidget extends StatelessWidget {

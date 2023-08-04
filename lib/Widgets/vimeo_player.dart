@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:pod_player/pod_player.dart';
 
 import '../Data/Repositories/get_url_video.dart';
@@ -35,7 +36,6 @@ class _VimeoPlayerState extends State<VimeoPlayer> {
       ),
     )..initialise();
 
-
     widget.onInitController?.call(controller);
     super.initState();
   }
@@ -55,8 +55,18 @@ class _VimeoPlayerState extends State<VimeoPlayer> {
         children: [
           PodVideoPlayer(
             controller: controller,
-            onToggleFullScreen: (isFullScreen) async{
-
+            onToggleFullScreen: (isFullScreen) async {
+              if (isFullScreen) {
+                SystemChrome.setPreferredOrientations([
+                  DeviceOrientation.landscapeLeft,
+                  DeviceOrientation.landscapeRight,
+                ]);
+              } else {
+                SystemChrome.setPreferredOrientations([
+                  DeviceOrientation.portraitUp,
+                  DeviceOrientation.portraitDown,
+                ]);
+              }
             },
             videoThumbnail: const DecorationImage(
               image: AssetImage(Assets.imagesLogo2),
@@ -70,13 +80,11 @@ class _VimeoPlayerState extends State<VimeoPlayer> {
                 opacity: 0.4,
                 child: Image.asset(
                   Assets.imagesFs2,
-
                   height: 40.0,
                 ),
               ),
             ),
           ),
-
         ],
       ),
     );

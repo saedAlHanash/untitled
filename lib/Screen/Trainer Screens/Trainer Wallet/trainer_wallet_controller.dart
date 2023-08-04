@@ -1,4 +1,4 @@
-import 'dart:developer';
+ 
 
 import 'package:dio/dio.dart';
 import 'package:fitness_storm/Data/Repositories/Trainer%20Repository/trainer_repository.dart';
@@ -13,8 +13,6 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import '../../../Data/Api/methods.dart';
 import '../../../Data/Api/urls.dart';
-import '../../../Model/chat.dart';
-import '../../../core/images/image_multi_type.dart';
 
 class TrainerWalletController extends GetxController {
   RxList<Wallet> sessions = <Wallet>[].obs;

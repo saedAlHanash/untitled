@@ -6,7 +6,6 @@ import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20HomeScreen/trai
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Main%20Home/trainer_main_home_controller.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Wallet/trainer_wallet_screen.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer_Profile/trainer_profile_screen.dart';
-import 'package:fitness_storm/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';

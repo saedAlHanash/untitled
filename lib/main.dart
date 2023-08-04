@@ -4,7 +4,6 @@ import 'package:fitness_storm/Utils/themes.dart';
 import 'package:fitness_storm/helper/lang_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 import 'package:get/get.dart';
 
 import './../core/translations.dart';

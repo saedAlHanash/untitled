@@ -1,4 +1,4 @@
-import 'dart:developer';
+ 
 
 import 'package:fitness_storm/Screen/Trainee%20Screens/Training/training_controller.dart';
 import 'package:fitness_storm/Widgets/vimeo_player.dart';

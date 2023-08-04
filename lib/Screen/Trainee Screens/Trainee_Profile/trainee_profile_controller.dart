@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fitness_storm/Data/Api/api_result.dart';
 import 'package:fitness_storm/Data/Repositories/auth_repository.dart';
 import 'package:fitness_storm/Data/Repositories/trainee_repository.dart';

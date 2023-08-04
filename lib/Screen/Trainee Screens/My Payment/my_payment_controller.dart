@@ -1,5 +1,4 @@
 import 'package:fitness_storm/Data/Repositories/subscription_repository.dart';
-import 'package:fitness_storm/Model/trainee_next_payment.dart';
 import 'package:get/state_manager.dart';
 
 class MyPaymentController extends GetxController {

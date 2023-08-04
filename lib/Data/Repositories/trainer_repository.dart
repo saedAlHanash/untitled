@@ -1,7 +1,6 @@
-import 'dart:developer';
+ 
 
 import 'package:dio/dio.dart';
-import 'package:logger/logger.dart';
 
 import '../../Model/plan.dart';
 import '../../Model/trainer.dart';

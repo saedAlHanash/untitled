@@ -1,4 +1,4 @@
-import 'dart:developer';
+ 
 
 import 'package:dio/dio.dart';
 import 'package:fitness_storm/Model/plan.dart';
@@ -103,7 +103,7 @@ class PlanRepository {
       } else {
         Utils.openSnackBar(message: result.message!);
         throw result.message!;
-        return [];
+
       }
     } catch (error) {
       Utils.openSnackBar(message: error.toString());
@@ -129,7 +129,7 @@ class PlanRepository {
       } else {
         Utils.openSnackBar(message: result.message!);
         return [];
-        throw result.message!;
+
       }
     } catch (error) {
       Utils.openSnackBar(message: error.toString());
