@@ -16,7 +16,6 @@ class ProtectScreenService {
 
   void startProtect(BuildContext? context) {
     this.context = context;
-    showFullScreenDialog(context);
     try {
       // For iOS only.
       addListenerPreventScreenshot();
@@ -55,7 +54,9 @@ class ProtectScreenService {
     // }
   }
 
-  void preventScreenshotOn() async => await ScreenProtector.preventScreenshotOn();
+  void preventScreenshotOn() async {
+    await ScreenProtector.preventScreenshotOn();
+  }
 
   void preventScreenshotOff() async => await ScreenProtector.preventScreenshotOff();
 
