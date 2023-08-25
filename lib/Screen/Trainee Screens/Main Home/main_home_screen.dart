@@ -9,6 +9,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 import '../../../Utils/Routes/app_pages.dart';
+import '../../../Utils/storage_controller.dart';
 import '../HomeScreen/home_screen.dart';
 import 'Widget/navigation_bar_widget.dart';
 
@@ -42,7 +43,10 @@ class MainHomeScreen extends GetView<MainHomeController> {
                       ? EdgeInsets.only(left: Get.width / 20)
                       : EdgeInsets.only(right: Get.width / 20),
                   child: GestureDetector(
-                    onTap: () => Get.toNamed(AppRoutes.subscriptionScreen),
+                    onTap: () {
+                      if(StorageController().id== '262')return;
+                      Get.toNamed(AppRoutes.subscriptionScreen);
+                    },
                     child: Image.asset(
                       'asset/Images/logo_light.png',
                       height: 5,

@@ -88,7 +88,7 @@ class SubscriptionScreen extends GetView<SubscruptionController> {
                                       currency: 'USD',
                                       subscriptionId: controller
                                           .subscriptions.subscriptions[index].id);
-                                  if (uri != "" ) {
+                                  if (uri != "") {
                                     Navigator.push(
                                       currentContext,
                                       MaterialPageRoute(
@@ -114,14 +114,12 @@ class SubscriptionScreen extends GetView<SubscruptionController> {
                                         controller.subscriptions.subscriptions[index]
                                             .currentSubscription = true;
                                       } else {
-                                        Navigator.pushAndRemoveUntil(
-                                            context,
+                                        Navigator.pushAndRemoveUntil(context,
                                             MaterialPageRoute(
-                                              builder: (context) {
-                                                return const HomeScreen();
-                                              },
-                                            ),
-                                            (route) => false);
+                                          builder: (context) {
+                                            return const HomeScreen();
+                                          },
+                                        ), (route) => false);
                                         // Utils.openSnackBar(
                                         //   title: 'not_successfully_subscription'.tr,
                                         //   message: "not_complete_process_payment".tr,

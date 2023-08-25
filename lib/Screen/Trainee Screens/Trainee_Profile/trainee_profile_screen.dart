@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
+import '../../../Utils/storage_controller.dart';
 import 'Widget/trainee_profile_header.dart';
 import 'Widget/trainer_button.dart';
 
@@ -17,24 +18,26 @@ class TraineeProfileScreen extends GetView<TraineeProfileController> {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
       statusBarColor: Theme.of(context).primaryColor, // status bar color
     ));
+    // controller.getUserProfile();
+
     return Obx(
       () => SizedBox(
         width: Get.width,
         child: controller.isLoading
-            ? Center(
-                child: CircularProgressIndicator(color: Get.theme.primaryColor))
+            ? Center(child: CircularProgressIndicator(color: Get.theme.primaryColor))
             : Padding(
                 padding: EdgeInsets.symmetric(horizontal: Get.width / 12.5),
-                child: const SingleChildScrollView(
+                child: SingleChildScrollView(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      TraineeProfileHeader(),
-                      SubscriptionPlanButton(),
-                      TraineeProfileBody(),
-                      TrainerButton(),
-                      UserProfileInfoButtons(),
-                      SizedBox(height: 20)
+                      const TraineeProfileHeader(),
+                      if (StorageController().id != '262') //add this for apple store
+                        const SubscriptionPlanButton(),
+                      const TraineeProfileBody(),
+                      const TrainerButton(),
+                      const UserProfileInfoButtons(),
+                      const SizedBox(height: 20)
                     ],
                   ),
                 ),

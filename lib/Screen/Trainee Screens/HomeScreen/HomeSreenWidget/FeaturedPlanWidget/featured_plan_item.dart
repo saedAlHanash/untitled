@@ -58,8 +58,8 @@ class FeaturedPlanItem extends GetWidget {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(15),
-        child: ImageMultiType(url:
-          Constants.imageUrl + planImageUrl,
+        child: ImageMultiType(
+          url: Constants.imageUrl + planImageUrl,
           height: MediaQuery.of(Get.context!).size.height / 2,
           // width: MediaQuery.of(Get.context!).size.width,
           fit: BoxFit.fitHeight,
@@ -76,7 +76,8 @@ class FeaturedPlanItem extends GetWidget {
     required int planFrequency,
     // required String trainingType,
   }) {
-    final width = MediaQuery.of(Get.context!).size.width - 30;
+    var width = MediaQuery.of(Get.context!).size.width - 30;
+    if (width < 0) width = 0;// add by saed
     return ClipRRect(
       borderRadius: const BorderRadius.only(
         bottomRight: Radius.circular(15),
@@ -88,12 +89,7 @@ class FeaturedPlanItem extends GetWidget {
           gradient: LinearGradient(
             begin: Alignment.bottomCenter,
             end: Alignment.topCenter,
-            colors: [
-              Colors.black,
-              Colors.black54,
-              Colors.black26,
-              Colors.black12
-            ],
+            colors: [Colors.black, Colors.black54, Colors.black26, Colors.black12],
           ),
         ),
         // color: Colors.grey.withOpacity(0.5),
@@ -138,9 +134,7 @@ class FeaturedPlanItem extends GetWidget {
                 child: Text(
                   planName,
                   style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold),
+                      color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
                 ),
               ),
             ),
@@ -180,7 +174,8 @@ class FeaturedPlanItem extends GetWidget {
       child: Center(
         child: CircleAvatar(
           backgroundColor: Colors.grey,
-          backgroundImage: CachedNetworkImageProvider(Constants.imageUrl + trainerImageUrl),
+          backgroundImage:
+              CachedNetworkImageProvider(Constants.imageUrl + trainerImageUrl),
           radius: Get.width / 8,
         ),
       ),

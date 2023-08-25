@@ -92,6 +92,7 @@ class PlanOverviewController extends GetxController {
     } else {
       if (response.statusCode == 451) {
         Utils.closeDialog();
+        if(StorageController().id== '262')return;
         Get.toNamed(AppRoutes.subscriptionScreen)!.then((value) async {
           if (HelperClass.successfullySubscription) {
             Utils.openLoadingDialog();
@@ -155,6 +156,7 @@ class PlanOverviewController extends GetxController {
           Utils.showAlertDialog(() {}, apiResult.message!, textContinue: 'okay'.tr);
         }
       } else if (apiResult.statusCode == 451) {
+        if(StorageController().id== '262')return;
         Utils.showAlertDialog(() {
           Get.toNamed(AppRoutes.subscriptionScreen);
         }, '''subscription_finished'''.tr, textContinue: 'subscribe'.tr);
