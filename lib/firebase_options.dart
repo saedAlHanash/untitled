@@ -59,12 +59,12 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyAg6BBIOzBi4B5LuSjh1sBO34uTOhzbjco',
-    appId: '1:644714333877:ios:891d4718349e20e1b820fc',
+    appId: '1:644714333877:ios:576cca000fca062cb820fc',
     messagingSenderId: '644714333877',
     projectId: 'fitness-strom-1',
     storageBucket: 'fitness-strom-1.appspot.com',
-    androidClientId: '644714333877-hs4gvjria97frfqn3giqnu0agv508i3g.apps.googleusercontent.com',
-    iosClientId: '644714333877-l7tc3rh4a101c6aplubh2qgm1ph3mpr8.apps.googleusercontent.com',
-    iosBundleId: 'com.chiteam.fitnessStorm',
+    androidClientId: '644714333877-7ofomv1e9dke876u0r9p6qfdm6763cs8.apps.googleusercontent.com',
+    iosClientId: '644714333877-stt8h2hvrja168qd3voimoqs8m8rrdsj.apps.googleusercontent.com',
+    iosBundleId: 'com.chi.fitnessStorm',
   );
 }

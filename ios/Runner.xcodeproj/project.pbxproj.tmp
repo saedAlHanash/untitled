@@ -169,7 +169,7 @@
 				<key>MARKETING_VERSION</key>
 				<string>1.0.2</string>
 				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>com.chiteam.fitnessStorm</string>
+				<string>com.chi.fitnessStorm</string>
 				<key>PRODUCT_NAME</key>
 				<string>$(TARGET_NAME)</string>
 				<key>SWIFT_OBJC_BRIDGING_HEADER</key>
@@ -1005,7 +1005,7 @@ echo "SUCCESS" &gt; "${SCRIPT_OUTPUT_FILE_0}"
 				<key>MARKETING_VERSION</key>
 				<string>1.0.2</string>
 				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>com.chiteam.fitnessStorm</string>
+				<string>com.chi.fitnessStorm</string>
 				<key>PRODUCT_NAME</key>
 				<string>$(TARGET_NAME)</string>
 				<key>SWIFT_OBJC_BRIDGING_HEADER</key>
@@ -1050,7 +1050,7 @@ echo "SUCCESS" &gt; "${SCRIPT_OUTPUT_FILE_0}"
 				<key>MARKETING_VERSION</key>
 				<string>1.0.2</string>
 				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>com.chiteam.fitnessStorm</string>
+				<string>com.chi.fitnessStorm</string>
 				<key>PRODUCT_NAME</key>
 				<string>$(TARGET_NAME)</string>
 				<key>SWIFT_OBJC_BRIDGING_HEADER</key>
