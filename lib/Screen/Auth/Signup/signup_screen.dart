@@ -177,23 +177,24 @@ class SignupScreen extends GetView<SignupController> {
                         ),
                       ),
                       SizedBox(height: Get.height / 30),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          MaterialButton(
-                            onPressed: () => controller.sign_in_google(),
-                            child: Container(
-                                width: Get.width / 8.5,
-                                height: Get.width / 8.5,
-                                padding: const EdgeInsets.all(7),
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(100),
-                                    color: Colors.white),
-                                child: SvgPicture.asset(
-                                    'asset/Images/googleSVG.svg')),
-                          )
-                        ],
-                      ),
+                      //TODO: google button
+                      // Row(
+                      //   mainAxisAlignment: MainAxisAlignment.center,
+                      //   children: [
+                      //     MaterialButton(
+                      //       onPressed: () => controller.sign_in_google(),
+                      //       child: Container(
+                      //           width: Get.width / 8.5,
+                      //           height: Get.width / 8.5,
+                      //           padding: const EdgeInsets.all(7),
+                      //           decoration: BoxDecoration(
+                      //               borderRadius: BorderRadius.circular(100),
+                      //               color: Colors.white),
+                      //           child: SvgPicture.asset(
+                      //               'asset/Images/googleSVG.svg')),
+                      //     )
+                      //   ],
+                      // ),
                       // SizedBox(height: Get.height / 30),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
