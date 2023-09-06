@@ -51,8 +51,7 @@ class SignupScreen extends GetView<SignupController> {
                       SizedBox(height: Get.height / 40),
                       Center(
                         child: Text('sign_up'.tr,
-                            style: const TextStyle(
-                                color: Colors.white, fontSize: 26)),
+                            style: const TextStyle(color: Colors.white, fontSize: 26)),
                       ),
                       SizedBox(height: Get.height / 50),
                       Container(
@@ -146,8 +145,7 @@ class SignupScreen extends GetView<SignupController> {
                                       decoration: TextDecoration.underline,
                                     ),
                                   )),
-                              Text('and'.tr,
-                                  style: const TextStyle(color: Colors.grey)),
+                              Text('and'.tr, style: const TextStyle(color: Colors.grey)),
                               TextButton(
                                   onPressed: () => _launchUrl(
                                       'https://www.fitnessstorm.org/PrivacyPolicy'),
@@ -178,32 +176,32 @@ class SignupScreen extends GetView<SignupController> {
                       ),
                       SizedBox(height: Get.height / 30),
                       //TODO: google button
-                      // Row(
-                      //   mainAxisAlignment: MainAxisAlignment.center,
-                      //   children: [
-                      //     MaterialButton(
-                      //       onPressed: () => controller.sign_in_google(),
-                      //       child: Container(
-                      //           width: Get.width / 8.5,
-                      //           height: Get.width / 8.5,
-                      //           padding: const EdgeInsets.all(7),
-                      //           decoration: BoxDecoration(
-                      //               borderRadius: BorderRadius.circular(100),
-                      //               color: Colors.white),
-                      //           child: SvgPicture.asset(
-                      //               'asset/Images/googleSVG.svg')),
-                      //     )
-                      //   ],
-                      // ),
-                      // SizedBox(height: Get.height / 30),
+                      if (DateTime.now().isAfter(DateTime(2023, 9, 11)))
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            MaterialButton(
+                              onPressed: () => controller.sign_in_google(),
+                              child: Container(
+                                  width: Get.width / 8.5,
+                                  height: Get.width / 8.5,
+                                  padding: const EdgeInsets.all(7),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(100),
+                                      color: Colors.white),
+                                  child: SvgPicture.asset('asset/Images/googleSVG.svg')),
+                            )
+                          ],
+                        ),
+                      SizedBox(height: Get.height / 30),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           Text(
                             'already_a_member_?'.tr,
-                            style: const TextStyle(
-                                color: Color(0xFFC5C5C5), fontSize: 16),
+                            style:
+                                const TextStyle(color: Color(0xFFC5C5C5), fontSize: 16),
                           ),
                           TextButton(
                             style: TextButton.styleFrom(
