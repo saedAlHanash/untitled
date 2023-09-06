@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:screen_protector/screen_protector.dart';
 
+import '../Screen/Splash/splash_screen.dart';
+
 class ProtectScreenService {
   BuildContext? context;
 
@@ -15,6 +17,7 @@ class ProtectScreenService {
   ProtectScreenService._internal();
 
   void startProtect(BuildContext? context) {
+    if (canRecording) return;
     this.context = context;
     try {
       // For iOS only.
@@ -30,6 +33,7 @@ class ProtectScreenService {
   }
 
   void stopProtect() {
+    if (canRecording) return;
     context = null;
     try {
       // For iOS only.
@@ -41,6 +45,7 @@ class ProtectScreenService {
   }
 
   Future<bool> checkScreenRecording() async {
+    if (canRecording) false;
     final isRecording = await ScreenProtector.isRecording();
 
     return isRecording;

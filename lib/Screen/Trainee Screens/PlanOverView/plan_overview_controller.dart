@@ -33,7 +33,8 @@ class PlanOverviewController extends GetxController {
   final TraineeRepository _traineeRepository = TraineeRepository();
   final WorkoutRepository _workoutRepository = WorkoutRepository();
 
-   PodPlayerController? videoController;
+  PodPlayerController? videoController;
+
   @override
   Future<void> onInit() async {
     super.onInit();
@@ -43,7 +44,7 @@ class PlanOverviewController extends GetxController {
     id = Get.arguments;
     // }
 
-   //log('plan overview id ${id}');
+    //log('plan overview id ${id}');
     isLoading = true;
     planOverview = await _planRepository.getPlanOverview(id);
     planWorkouts.value = await _workoutRepository.getPlanWorkout(id);
@@ -92,7 +93,8 @@ class PlanOverviewController extends GetxController {
     } else {
       if (response.statusCode == 451) {
         Utils.closeDialog();
-        if(StorageController().id== '262')return;
+        if (StorageController().id == '262') return;
+        videoController?.pause();
         Get.toNamed(AppRoutes.subscriptionScreen)!.then((value) async {
           if (HelperClass.successfullySubscription) {
             Utils.openLoadingDialog();
@@ -132,7 +134,7 @@ class PlanOverviewController extends GetxController {
         apiResult.statusCode == 402) {
       Get.back();
       Get.delete<UserTrainingController>();
-
+      videoController?.pause();
       Get.toNamed(AppRoutes.userTraining, arguments: [
         i + 1,
         planWorkouts[i].name,
@@ -156,7 +158,7 @@ class PlanOverviewController extends GetxController {
           Utils.showAlertDialog(() {}, apiResult.message!, textContinue: 'okay'.tr);
         }
       } else if (apiResult.statusCode == 451) {
-        if(StorageController().id== '262')return;
+        if (StorageController().id == '262') return;
         Utils.showAlertDialog(() {
           Get.toNamed(AppRoutes.subscriptionScreen);
         }, '''subscription_finished'''.tr, textContinue: 'subscribe'.tr);

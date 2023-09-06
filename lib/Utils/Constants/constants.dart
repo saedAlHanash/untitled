@@ -11,7 +11,7 @@ abstract class Constants {
   static const String userType = 'user_type';
 
   // static const String baseUrl = 'http://fitness-storm.chi-team.com';
-  static const String baseUrl = 'http://api.fitnessstorm.org';
+  static const String baseUrl = 'https://api.fitnessstorm.org';
 
   static const String userBaseUrl = '$baseUrl/mobile/user';
   static const String trainerBaseUrl = '$baseUrl/mobile/trainer';
@@ -20,4 +20,4 @@ abstract class Constants {
 
   static const String imageUrl = '$baseUrl/';
 }
-//http://api.fitnessstorm.org/mobile
+//https://api.fitnessstorm.org/mobile

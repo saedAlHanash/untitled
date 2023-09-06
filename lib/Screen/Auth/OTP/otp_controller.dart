@@ -1,5 +1,3 @@
- 
-
 import 'package:fitness_storm/Data/Api/api_result.dart';
 import 'package:fitness_storm/Data/Repositories/auth_repository.dart';
 import 'package:fitness_storm/Utils/Routes/app_pages.dart';
@@ -7,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../Utils/utils.dart';
+import '../../../helper/cache_helper.dart';
 
 class OTPController extends GetxController {
   late final bool isReset;
@@ -19,7 +18,10 @@ class OTPController extends GetxController {
   void onInit() {
     email = Get.arguments[0];
     isReset = Get.arguments[1];
-    // email = 'test@test.com';
+
+    if (!isReset) {
+      CacheHelper.saveData(key: 'sticky_otp', value: true);
+    }
     super.onInit();
   }
 
@@ -30,16 +32,14 @@ class OTPController extends GetxController {
   set email(value) => _email.value = value;
 
   submit() async {
-   //log(otpController.text);
+    //log(otpController.text);
     if (otpController.text.isEmpty) {
-      Utils.openSnackBar(
-          title: 'please_enter_oTP_code'.tr, textColor: Colors.white);
+      Utils.openSnackBar(title: 'please_enter_oTP_code'.tr, textColor: Colors.white);
       return;
     } else {
       Utils.openLoadingDialog();
 
-      ApiResult result =
-          await _authRepository.submitUserOTP(otpController.text);
+      ApiResult result = await _authRepository.submitUserOTP(otpController.text);
 
       if (result.type == ApiResultType.success) {
         Utils.openSnackBar(title: 'Success'.tr, textColor: Colors.white);
@@ -53,24 +53,22 @@ class OTPController extends GetxController {
   }
 
   submitForgetPassword() async {
-   //log('forgetpassword');
-   //log(otpController.text);
+    //log('forgetpassword');
+    //log(otpController.text);
     if (otpController.text.isEmpty) {
-      Utils.openSnackBar(
-          title: 'please_enter_oTP_code'.tr, textColor: Colors.white);
+      Utils.openSnackBar(title: 'please_enter_oTP_code'.tr, textColor: Colors.white);
       return;
     } else {
       Utils.openLoadingDialog();
 
-      ApiResult result = await _authRepository.submitForgetPasswordOTP(
-          email, otpController.text);
+      ApiResult result =
+          await _authRepository.submitForgetPasswordOTP(email, otpController.text);
 
       if (result.type == ApiResultType.success) {
         Utils.openSnackBar(title: 'Success'.tr, textColor: Colors.white);
         String token = result.data['token'];
 
-        Get.toNamed(AppRoutes.forgetPasswordNewPassword,
-            arguments: [email, token]);
+        Get.toNamed(AppRoutes.forgetPasswordNewPassword, arguments: [email, token]);
         Utils.closeDialog();
       } else {
         Utils.closeDialog();
@@ -82,7 +80,7 @@ class OTPController extends GetxController {
   }
 
   resendOTP() async {
-   //log(otpController.text);
+    //log(otpController.text);
     ApiResult result = await _authRepository.resendOTP();
 
     if (result.type == ApiResultType.success) {

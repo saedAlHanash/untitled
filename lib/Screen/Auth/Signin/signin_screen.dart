@@ -82,8 +82,7 @@ class SigninScreen extends GetView<SigninController> {
                       style: const TextStyle(color: Colors.white),
                       textController: controller.passwordController,
                       keyboardType: TextInputType.visiblePassword,
-                      controller:
-                          AppTextFieldController(controller.isScure.value),
+                      controller: AppTextFieldController(controller.isScure.value),
                       suffixIcon: controller.isScure.value
                           ? IconButton(
                               icon: Icon(
@@ -116,8 +115,7 @@ class SigninScreen extends GetView<SigninController> {
                               onChanged: (value) {
                                 controller.isTrainer = value;
                               },
-                              fillColor:
-                                  MaterialStateProperty.all(Colors.white),
+                              fillColor: MaterialStateProperty.all(Colors.white),
                               checkColor: Colors.white,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(5)),
@@ -130,13 +128,11 @@ class SigninScreen extends GetView<SigninController> {
                         ),
                         Expanded(
                           child: TextButton(
-                            onPressed: () =>
-                                Get.toNamed(AppRoutes.forgetPassword),
+                            onPressed: () => Get.toNamed(AppRoutes.forgetPassword),
                             child: FittedBox(
                               child: Text(
                                 'forgot_password_?'.tr,
-                                style: const TextStyle(
-                                    color: Colors.white, fontSize: 12),
+                                style: const TextStyle(color: Colors.white, fontSize: 12),
                               ),
                             ),
                           ),
@@ -176,46 +172,44 @@ class SigninScreen extends GetView<SigninController> {
                     //   fontSize: 16,
                     // ),
                     SizedBox(height: Get.height / 20),
-                    //TODO: google button
-                    // Row(
-                    //   mainAxisAlignment: MainAxisAlignment.center,
-                    //   children: [
-                    //     // MaterialButton(
-                    //     //   onPressed: () => controller.sign_out(),
-                    //     //   child: Container(
-                    //     //       width: Get.width / 8.5,
-                    //     //       height: Get.width / 8.5,
-                    //     //       padding: const EdgeInsets.all(7),
-                    //     //       decoration: BoxDecoration(
-                    //     //           borderRadius: BorderRadius.circular(100),
-                    //     //           color: Colors.white),
-                    //     //       child: SvgPicture.asset(
-                    //     //           'asset/Images/facebookSVG1.svg')),
-                    //     // ),
-                    //     // Image.asset('asset/Images/facebookSVG.svg'),
-                    //     // SizedBox(width: Get.width / 6),
-                    //     GestureDetector(
-                    //       onTap: () => controller.sign_in_google(),
-                    //       child: Container(
-                    //           width: Get.width / 8.5,
-                    //           height: Get.width / 8.5,
-                    //           padding: const EdgeInsets.all(7),
-                    //           decoration: BoxDecoration(
-                    //               borderRadius: BorderRadius.circular(100),
-                    //               color: Colors.white),
-                    //           child: SvgPicture.asset(
-                    //               'asset/Images/googleSVG.svg')),
-                    //     )
-                    //   ],
-                    // ),
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        // MaterialButton(
+                        //   onPressed: () => controller.sign_out(),
+                        //   child: Container(
+                        //       width: Get.width / 8.5,
+                        //       height: Get.width / 8.5,
+                        //       padding: const EdgeInsets.all(7),
+                        //       decoration: BoxDecoration(
+                        //           borderRadius: BorderRadius.circular(100),
+                        //           color: Colors.white),
+                        //       child: SvgPicture.asset(
+                        //           'asset/Images/facebookSVG1.svg')),
+                        // ),
+                        // Image.asset('asset/Images/facebookSVG.svg'),
+                        // SizedBox(width: Get.width / 6),
+                        GestureDetector(
+                          onTap: () => controller.sign_in_google(),
+                          child: Container(
+                              width: Get.width / 8.5,
+                              height: Get.width / 8.5,
+                              padding: const EdgeInsets.all(7),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(100),
+                                  color: Colors.white),
+                              child: SvgPicture.asset('asset/Images/googleSVG.svg')),
+                        )
+                      ],
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         Text(
                           'not_member_?'.tr,
-                          style: const TextStyle(
-                              color: Color(0xFFC5C5C5), fontSize: 16),
+                          style: const TextStyle(color: Color(0xFFC5C5C5), fontSize: 16),
                         ),
                         TextButton(
                           style: TextButton.styleFrom(

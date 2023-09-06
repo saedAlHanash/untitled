@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../Utils/Routes/app_pages.dart';
+import '../../../helper/cache_helper.dart';
 import 'Widget/custom_pinput.dart';
 import 'otp_controller.dart';
 
@@ -33,13 +34,13 @@ class OTPScreen extends GetView<OTPController> {
                   SizedBox(height: Get.height / 10),
                   Padding(
                     padding: EdgeInsets.symmetric(vertical: Get.height / 20),
-                    child: Image.asset('asset/Images/white_logo.png',
-                        width: Get.width / 4),
+                    child:
+                        Image.asset('asset/Images/white_logo.png', width: Get.width / 4),
                   ),
                   SizedBox(height: Get.height / 20),
                   Text(
                     'email_verification'.tr,
-                    style: TextStyle(fontSize: 26, color: Colors.white),
+                    style: const TextStyle(fontSize: 26, color: Colors.white),
                   ),
                   SizedBox(height: Get.height / 30),
                   Text(
@@ -56,11 +57,12 @@ class OTPScreen extends GetView<OTPController> {
                       alignment: Alignment.center,
                       child: TextButton(
                         onPressed: () {
+                          CacheHelper.saveData(key: 'sticky_otp', value: false);
                           Get.offAllNamed(AppRoutes.signUp);
                         },
                         child: Text(
                           'change_email'.tr,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.white,
                             fontSize: 14,
                             decoration: TextDecoration.underline,
@@ -80,7 +82,7 @@ class OTPScreen extends GetView<OTPController> {
                       onPressed: () {},
                       child: Text(
                         'resend_code'.tr,
-                        style: TextStyle(color: Colors.white, fontSize: 14),
+                        style: const TextStyle(color: Colors.white, fontSize: 14),
                       ),
                     ),
                   ),
@@ -98,6 +100,30 @@ class OTPScreen extends GetView<OTPController> {
                     text: 'Verify'.tr,
                     textColor: Colors.white,
                   ),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      TextButton(
+                        onPressed: () {
+                          CacheHelper.saveData(key: 'sticky_otp', value: false);
+                          Get.toNamed(AppRoutes.signIn);
+                        },
+                        style: TextButton.styleFrom(
+                            padding: EdgeInsets.zero,
+                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                            alignment: Alignment.bottomCenter),
+                        child: Text(
+                          'sign_in'.tr,
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                              fontSize: 16),
+                        ),
+                      )
+                    ],
+                  )
                 ],
               ),
             ),

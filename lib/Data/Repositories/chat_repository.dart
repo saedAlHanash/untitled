@@ -1,5 +1,3 @@
- 
-
 import 'package:dio/dio.dart';
 import 'package:fitness_storm/Data/Api/api_result.dart';
 import 'package:fitness_storm/Data/Api/methods.dart';
@@ -23,7 +21,7 @@ class ChatRepository {
       url = TRAINEEURLS.allChats;
     }
     ApiResult response = await Methods.get(url: url, options: option);
-   //log(response.data.toString());
+    //log(response.data.toString());
     if (response.type == ApiResultType.success) {
       response.data.forEach((element) {
         exercise.add(Chat.fromJson(element));
@@ -40,8 +38,7 @@ class ChatRepository {
     ApiResult result;
     if (channelId == "-1") {
       result = await Methods.get(
-          url: 'http://api.fitnessstorm.org/mobile/user/supportChat',
-          options: option);
+          url: 'https://api.fitnessstorm.org/mobile/user/supportChat', options: option);
     } else {
       String url2 = '';
       if (storageController.userType == 'trainer') {
@@ -49,8 +46,7 @@ class ChatRepository {
       } else {
         url2 = TRAINEEURLS.getConversation(channelId);
       }
-      result =
-          await Methods.get(url: '$url2?page=$pageNumber', options: option);
+      result = await Methods.get(url: '$url2?page=$pageNumber', options: option);
     }
     if (result.type == ApiResultType.success) {
       List<Conversation> conversation = [];
@@ -80,8 +76,8 @@ class ChatRepository {
           data: {"message": message},
           options: options);
     } else {
-      result = await Methods.post(
-          url: url2, data: {"message": message}, options: options);
+      result =
+          await Methods.post(url: url2, data: {"message": message}, options: options);
     }
     return result;
   }

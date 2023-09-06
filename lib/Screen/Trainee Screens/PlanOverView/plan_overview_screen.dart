@@ -9,6 +9,7 @@ import 'package:fitness_storm/Widgets/custom_button.dart';
 import 'package:fitness_storm/Widgets/read_more_text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 import '../../../Widgets/Exercise/day_widget.dart';
 import '../../../Widgets/custom_chip.dart';
@@ -138,7 +139,9 @@ class PlanOverviewScreen extends GetView<PlanOverviewController> {
                     radius: 10,
                     height: Get.height / 15,
                     width: Get.width,
-                    text: 'subscribe'.tr),
+                    text: GetStorage().read('currentPlan') == null
+                        ? 'subscribe'.tr
+                        : 'start_within_plan'.tr),
       ),
     );
   }

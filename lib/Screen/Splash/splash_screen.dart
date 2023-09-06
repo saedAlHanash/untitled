@@ -2,6 +2,8 @@ import 'package:fitness_storm/Screen/Splash/splash_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+bool canRecording = false;
+
 class Splash extends GetView<SplashController> {
   const Splash({Key? key}) : super(key: key);
 
@@ -22,12 +24,17 @@ class Splash extends GetView<SplashController> {
             Get.theme.colorScheme.secondary,
           ],
         )),
-        child: Center(
-          child: Padding(
-            padding: EdgeInsets.all(Get.width / 7),
-            child: Image.asset(
-              "asset/Images/white_logo.png",
-              fit: BoxFit.cover,
+        child: GestureDetector(
+          onDoubleTap: () {
+            canRecording = true;
+          },
+          child: Center(
+            child: Padding(
+              padding: EdgeInsets.all(Get.width / 7),
+              child: Image.asset(
+                "asset/Images/white_logo.png",
+                fit: BoxFit.cover,
+              ),
             ),
           ),
         ),

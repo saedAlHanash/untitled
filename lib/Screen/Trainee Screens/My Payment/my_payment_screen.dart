@@ -17,8 +17,7 @@ class MyPaymentScreen extends GetView<MyPaymentController> {
             onPressed: () => Get.back(),
           ),
           title: Text('my_payments'.tr),
-          titleTextStyle:
-              const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          titleTextStyle: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           // bottom: TabBar(
           //   indicatorWeight: 2,
           //   indicatorSize: TabBarIndicatorSize.label,
@@ -51,17 +50,18 @@ class MyPaymentScreen extends GetView<MyPaymentController> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Padding(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: Get.width / 12.5),
+                          padding: EdgeInsets.symmetric(horizontal: Get.width / 12.5),
                           child: Text(
                             'did_not_start_your_fitness'.tr,
-                            style: const TextStyle(
-                                color: Color(0xFF565C63), fontSize: 14),
+                            style:
+                                const TextStyle(color: Color(0xFF565C63), fontSize: 14),
                             textAlign: TextAlign.center,
                           ),
                         ),
                         CustomButton(
-                            onTapFunction: () {},
+                            onTapFunction: () {
+                              Get.back();
+                            },
                             text: 'choose_a_plan'.tr,
                             textColor: Colors.white,
                             fontSize: 16,

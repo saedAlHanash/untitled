@@ -35,7 +35,7 @@ class WorkoutRepository {
   Future<List<WorkoutModel>> getCurrentPlanWorkout() async {
     Options option = Utils.getOptions(withToken: true, all: true);
     ApiResult result = await Methods.get(
-        url: 'http://api.fitnessstorm.org/mobile/user/currentWorkout',
+        url: 'https://api.fitnessstorm.org/mobile/user/currentWorkout',
         options: option);
 
    //log(result.data.toString());

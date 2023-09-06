@@ -1,5 +1,3 @@
- 
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:fitness_storm/Data/Api/api_result.dart';
@@ -19,32 +17,27 @@ class SignupController extends GetxController {
   final Rx<TextEditingController> _confirmPasswordEditingController =
       TextEditingController().obs;
 
-  final Rx<TextEditingController> _emailEditingController =
-      TextEditingController().obs;
+  final Rx<TextEditingController> _emailEditingController = TextEditingController().obs;
 
   final RxBool _isFemale = false.obs;
   final RxBool _isMale = false.obs;
   final RxBool _isScure = true.obs;
   final RxBool _isTrainer = false.obs;
-  final Rx<TextEditingController> _nameEditingController =
-      TextEditingController().obs;
+  final Rx<TextEditingController> _nameEditingController = TextEditingController().obs;
 
   final Rx<TextEditingController> _passwordEditingController =
       TextEditingController().obs;
 
   final StorageController _storageController = StorageController();
 
-  TextEditingController get emailEditingController =>
-      _emailEditingController.value;
+  TextEditingController get emailEditingController => _emailEditingController.value;
 
-  TextEditingController get passwordEditingController =>
-      _passwordEditingController.value;
+  TextEditingController get passwordEditingController => _passwordEditingController.value;
 
   TextEditingController get confirmPasswordEditingController =>
       _confirmPasswordEditingController.value;
 
-  TextEditingController get nameEditingController =>
-      _nameEditingController.value;
+  TextEditingController get nameEditingController => _nameEditingController.value;
 
   bool get isMale => _isMale.value;
 
@@ -63,20 +56,18 @@ class SignupController extends GetxController {
   set isScure(value) => _isScure.value = value;
 
   void onCheckTrainer(bool? value) {
-   //log(value.toString());
+    //log(value.toString());
     isTrainer = value;
     update();
   }
 
   signup() async {
     if (emailEditingController.text.isEmpty) {
-      Utils.openSnackBar(
-          title: 'email_is_required'.tr, textColor: Colors.white);
+      Utils.openSnackBar(title: 'email_is_required'.tr, textColor: Colors.white);
     } else if (!emailEditingController.text.trim().isEmail) {
       Utils.openSnackBar(title: 'invald_email'.tr, textColor: Colors.white);
     } else if (passwordEditingController.text.isEmpty) {
-      Utils.openSnackBar(
-          title: 'password_is_required'.tr, textColor: Colors.white);
+      Utils.openSnackBar(title: 'password_is_required'.tr, textColor: Colors.white);
     } else if (nameEditingController.text.isEmpty) {
       Utils.openSnackBar(title: 'name_is_required'.tr, textColor: Colors.white);
     } else {
@@ -91,10 +82,8 @@ class SignupController extends GetxController {
       if (res.type == ApiResultType.success) {
         _storageController.token = res.data['access_token'];
         Get.back();
-        Utils.openSnackBar(
-            title: 'check_your_email'.tr, textColor: Colors.white);
-        Get.offAllNamed(AppRoutes.otp,
-            arguments: [emailEditingController.text, false]);
+        Utils.openSnackBar(title: 'check_your_email'.tr, textColor: Colors.white);
+        Get.offAllNamed(AppRoutes.otp, arguments: [emailEditingController.text, false]);
       } else {
         Get.back();
         Utils.openSnackBar(title: res.message!, textColor: Colors.white);
@@ -106,18 +95,18 @@ class SignupController extends GetxController {
     StorageController storageController = StorageController();
     String? token = '';
     token = await FirebaseMessaging.instance.getToken();
-   //log('\x1B[32mUser Token $token');
+    //log('\x1B[32mUser Token $token');
     storageController.fcm = token;
     return token;
   }
 
   sign_in_google() async {
     Utils.openLoadingDialog();
-    final  googleAccount = await GoogleSignIn().signIn();
+    final googleAccount = await GoogleSignIn().signIn();
 
-    final  googleAuthentication = await googleAccount!.authentication;
+    final googleAuthentication = await googleAccount!.authentication;
 
-    final credential =  GoogleAuthProvider.credential(
+    final credential = GoogleAuthProvider.credential(
         accessToken: googleAuthentication.accessToken,
         idToken: googleAuthentication.idToken);
     bool check = true;
@@ -144,7 +133,7 @@ class SignupController extends GetxController {
           _storageController.userType = isTrainer ? 'trainer' : 'trainee';
           _storageController.methodTakeAuthentication = 'google';
           final token = await getToken();
-         //log('FFFCCCMMM $token');
+          //log('FFFCCCMMM $token');
           await storeFcm(token);
           Get.back();
           // Utils.openSnackBar(title: 'Login Success', textColor: Colors.white);
@@ -170,7 +159,7 @@ class SignupController extends GetxController {
 
   storeFcm(String token) async {
     ApiResult result = await _authRepository.saveFCM(token);
-   //log(result.type.toString());
+    //log(result.type.toString());
   }
 
   sign_out() async {

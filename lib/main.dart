@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:fitness_storm/Data/Api/api_result.dart';
 import 'package:fitness_storm/Utils/themes.dart';
 import 'package:fitness_storm/helper/lang_helper.dart';
 import 'package:flutter/material.dart';
@@ -7,9 +9,13 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import './../core/translations.dart';
+import 'Data/Api/methods.dart';
+import 'Data/Api/urls.dart';
 import 'Screen/Splash/splash_binding.dart';
 import 'Utils/Routes/app_pages.dart';
 import 'Utils/dependency_injection.dart';
+import 'Utils/storage_controller.dart';
+import 'Utils/utils.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,6 +28,9 @@ void main() async {
     DeviceOrientation.portraitDown,
   ]);
   HttpOverrides.global = MyHttpOverrides();
+
+  ///send FCM to server
+  saveFCM();
   runApp(
     GetMaterialApp(
       color: Colors.white,
@@ -46,4 +55,12 @@ class MyHttpOverrides extends HttpOverrides {
         return true;
       };
   }
+}
+
+Future<void> saveFCM() async {
+  if (StorageController().token.isEmpty) return;
+  final token = await FirebaseMessaging.instance.getToken() ?? '';
+  final option = Utils.getOptions(accept: true, withToken: true);
+  Map<String, String> map = {'device_token': token};
+  await Methods.post(url: TRAINEEURLS.saveFcm, options: option, data: map);
 }
