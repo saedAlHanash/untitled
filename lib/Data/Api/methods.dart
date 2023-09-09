@@ -1,7 +1,5 @@
 // ignore_for_file: avoid_print
 
- 
-
 import 'package:dio/dio.dart';
 import 'package:dio/dio.dart' as dio;
 import 'package:get/get.dart';
@@ -35,9 +33,8 @@ abstract class Methods {
       required Options options,
       data,
       Map<String, String>? queryParameters}) async {
-    LogService().w(url);
-    LogService().w(data.toString());
-
+    loggerObject.i(url);
+    loggerObject.i(data.toString());
     try {
       final dio.Response response = await _dio.post(
         url,
@@ -46,13 +43,14 @@ abstract class Methods {
         queryParameters: queryParameters,
       );
 
+      loggerObject.v('${response.statusCode} ${response.data}');
       if (response.statusCode == 500) {
-       //log("testtttt");
-       //   print(response.data);
+        //log("testtttt");
+        //   print(response.data);
         return ApiResult.failureFromJson(response.data);
       }
 
-     //   print('response : ${response.data}');
+      //   print('response : ${response.data}');
 
       if (response.statusCode == 200 || response.statusCode == 201) {
         return ApiResult.successFromJson(response.data);
@@ -73,9 +71,7 @@ abstract class Methods {
   }) async {
     try {
       loggerObject.v(url);
-      var response = await _dio.get(url,
-          options: options,
-          queryParameters: data);
+      var response = await _dio.get(url, options: options, queryParameters: data);
       if (response.statusCode == 200) {
         if (response.data == '' || response.data is String || response.data.isEmpty) {
           response.data = {};
@@ -107,7 +103,7 @@ abstract class Methods {
       {required String url, required Options options, data}) async {
     try {
       var response = await _dio.put(url, options: options, data: data);
-     //   print('response ${url.split('').last}: ${response.data}');
+      //   print('response ${url.split('').last}: ${response.data}');
       if (response.statusCode == 200) {
         return ApiResult.successFromJson(response.data);
       } else {
@@ -124,7 +120,7 @@ abstract class Methods {
     LogService().wtf(url);
     try {
       var response = await _dio.delete(url, options: options, data: data);
-     //   print('response ${url.split('').last}: ${response.data}');
+      //   print('response ${url.split('').last}: ${response.data}');
       if (response.statusCode == 200) {
         return ApiResult.successFromJson(response.data);
       } else {
@@ -139,14 +135,14 @@ abstract class Methods {
   static Future<void> download({required String url, required String dir}) async {
     LogService().wtf(url);
     LogService().wtf(dir);
-   //   print(url);
-   //   print(dir);
+    //   print(url);
+    //   print(dir);
     // dir = dir[1];
     try {
-     //   print('uuuuuuuuuuuuu $url');
-     //   print('ddddddddddddd $dir');
+      //   print('uuuuuuuuuuuuu $url');
+      //   print('ddddddddddddd $dir');
       await _dio.download(url, dir, onReceiveProgress: (rec, total) {
-       //   print("Rec: $rec , Total: $total");
+        //   print("Rec: $rec , Total: $total");
       });
     } catch (e) {
       LogService().e(e.toString());

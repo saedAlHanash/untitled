@@ -7,11 +7,12 @@ import 'package:fitness_storm/helper/lang_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-
+import 'package:saed_http/api_manager/api_service.dart';
 import './../core/translations.dart';
 import 'Data/Api/methods.dart';
 import 'Data/Api/urls.dart';
 import 'Screen/Splash/splash_binding.dart';
+import 'Utils/Constants/constants.dart';
 import 'Utils/Routes/app_pages.dart';
 import 'Utils/dependency_injection.dart';
 import 'Utils/storage_controller.dart';
@@ -31,6 +32,7 @@ void main() async {
 
   ///send FCM to server
   saveFCM();
+
   runApp(
     GetMaterialApp(
       color: Colors.white,

@@ -285,8 +285,8 @@ class LocaleString extends Translations {
           'notifications': 'Notifications',
           'skip': 'skip',
           'enjoy_your_fitness_storm': 'Enjoy your Fitness Storm',
-          'not_successfully_subscription': 'Not Successfully subscribed',
-          'not_complete_process_payment': 'Not complete process payment',
+          'not_successfully_subscription': 'Not successfully subscribed',
+          'not_complete_process_payment': 'Payment process not completed',
           'subscribe': 'Subscribe',
           'week': 'Week',
           'finished_this_day': "User already finished this day",
@@ -434,6 +434,11 @@ The application Policies may be changed or updated occasionally to meet the requ
           'warning_delete_account':
               'Your account will be deleted with all your data, progress, and cancel any ongoing subscription.',
           'start_within_plan': 'Start Training with this plan',
+          'phone': 'Phone Number',
+          'coupon': 'Coupon Code',
+          'sup_total': 'Suptotal',
+          'voucher': 'Voucher',
+          'net_total': 'Net Total',
         },
         //ARABIC LANGUAGE
         'ar': {
@@ -898,6 +903,12 @@ Fitness Storm هو تطبيق ديناميكي يتيح للمستخدمين ا�
           'warning_delete_account':
               'حذف الحساب سيؤدي لحذف كامل بياناتك وتقدمك، وإلغاء أي اشتراك جاري.',
           'start_within_plan': 'ابدأ التدريب بهذه الخطة',
+          'phone': 'رقم الهاتف',
+          'coupon': 'كود الحسم',
+          'sup_total': 'الإجمالي',
+          'voucher': 'قيمة الحسم',
+          'net_total': 'المبلغ بعد الحسم',
+
         }
       };
 }

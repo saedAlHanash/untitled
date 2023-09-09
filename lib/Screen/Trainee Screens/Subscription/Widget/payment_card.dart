@@ -53,11 +53,11 @@ class PaymentCardWidget extends StatelessWidget {
 
   String get getType {
     if (plan.type == 'day') {
-      return 'DAY${plan.duration > 1 ? 's' : ''}';
+      return 'Day${plan.duration > 1 ? 's' : ''}';
     } else if (plan.type == 'month') {
-      return 'MONTH${plan.duration > 1 ? 's' : ''}';
+      return 'Month${plan.duration > 1 ? 's' : ''}';
     } else {
-      return 'YEAR${plan.duration > 1 ? 's' : ''}';
+      return 'Year${plan.duration > 1 ? 's' : ''}';
     }
   }
 }

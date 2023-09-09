@@ -1,10 +1,9 @@
- 
-
 import 'package:dio/dio.dart';
 import 'package:fitness_storm/Model/payment_private_session.dart';
 import 'package:fitness_storm/Model/trainee_next_payment.dart';
 
 import '../../Model/subscription_model.dart';
+import '../../Screen/Trainee Screens/coupon/data/request/pay_request.dart';
 import '../../Utils/utils.dart';
 import '../Api/api_result.dart';
 import '../Api/methods.dart';
@@ -29,7 +28,7 @@ class SubscriptionRepository {
       }
       return traineeNextPayments;
     } catch (e) {
-     //log(e.toString());
+      //log(e.toString());
     }
     return [];
   }
@@ -42,14 +41,13 @@ class SubscriptionRepository {
       if (result!.statusCode == 200) {
         return SubscriptionsResponse.fromJson(result.data).data;
       }
-    } catch (error) {
-      
-    }
+    } catch (error) {}
     return SubscriptionsModel.fromJson({});
   }
 
   Future<dynamic> createNewSubscription({
-    required String subscriptionId,
+    required PayRequest request,
+
   }) async {
     // Map<String, dynamic> data = {
     //   "subscription_id": subscriptionId,
@@ -57,17 +55,14 @@ class SubscriptionRepository {
     Options option = Utils.getOptions(withToken: true, all: true);
     try {
       ApiResult result = await Methods.post(
-          url: TRAINEEURLS.subscribtionPay,
-          data: {
-            "subscription_id": subscriptionId,
-          },
-          options: option);
+        url: TRAINEEURLS.subscribtionPay,
+        data: request.toJson(),
+        options: option,
+      );
       if (result.type == ApiResultType.success) {
         return result;
       }
-    } catch (error) {
-      
-    }
+    } catch (error) {}
     return ApiResultType.failure;
   }
 
@@ -80,9 +75,7 @@ class SubscriptionRepository {
       if (result.type == ApiResultType.success) {
         return result;
       }
-    } catch (error) {
-      
-    }
+    } catch (error) {}
     return ApiResultType.failure;
   }
 }

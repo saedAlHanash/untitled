@@ -1,10 +1,19 @@
+import 'dart:io';
+
 import 'package:fitness_storm/Data/Repositories/auth_repository.dart';
 import 'package:fitness_storm/Utils/Routes/app_pages.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../Data/Api/api_result.dart';
 import '../../Utils/storage_controller.dart';
+import '../../Utils/utils.dart';
 import '../../helper/cache_helper.dart';
+
+Future<void> openPage(String url) async {
+  final googleUrl = Uri.parse(url);
+  await launchUrl(googleUrl, mode: LaunchMode.externalApplication);
+}
 
 class SplashController extends GetxController {
   String title = 'FitnesStorm';
@@ -15,6 +24,25 @@ class SplashController extends GetxController {
   void onReady() {
     super.onReady();
     Future.delayed(const Duration(seconds: 3)).then((value) async {
+      if (await checkForceUpdate()) {
+        showUpdateDialog(
+          Get.context!,
+          child: const UpdateDialog(),
+          omCancel: (b) {
+            if (b) {
+              if (Platform.isIOS) {
+                openPage('https://apps.apple.com/us/app/fitness-storm/id6463420120');
+              } else {
+                openPage(
+                    'https://play.google.com/store/apps/details?id=com.chi.fitnessStorm');
+              }
+            }
+
+            return;
+          },
+        );
+        return;
+      }
       try {
         var res;
         if (StorageController().userType == 'trainer') {

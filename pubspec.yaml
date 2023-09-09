@@ -15,7 +15,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.1+13
+version: 1.0.1+14
 
 environment:
   sdk: ">=2.19.0 <3.0.0"
@@ -35,18 +35,26 @@ dependencies:
     git:
       url: https://github.com/saedAlHanash/saed_http
 
+  drawable_text:
+    git:
+      url: https://github.com/saedAlHanash/drawable_text
+      ref: android
+
   smooth_page_indicator: ^1.0.0+2
 #  flick_video_player:
   dio: 
   flutter_holo_date_picker: ^1.0.3
   badges:
+  bloc: ^8.1.2
+  flutter_bloc: ^8.1.1
   intl:
+  package_info_plus: ^4.1.0
   bottom_picker: ^1.8.0
   pod_player: ^0.2.0
   readmore: ^2.2.0
   flutter_native_splash: ^2.2.5
   google_sign_in:
-  agora_rtc_engine: ^6.2.0
+#  agora_rtc_engine: ^6.2.0
   # permission handler
   permission_handler:
   flutter_app_badger:

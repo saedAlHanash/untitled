@@ -32,12 +32,12 @@ class DayOverviewScreen extends GetView<DayOverviewController> {
                           textAlign: TextAlign.left,
                         ),
                         SizedBox(height: Get.height / 50),
-                        Text('${controller.totalMinut.toString()} ' + 'min'.tr),
+                        Text('${controller.totalMinut.toString()} ${'min'.tr}'),
                         SizedBox(height: Get.height / 30),
-                        Text('${controller.exercises.length} ' + 'exercise'.tr),
+                        Text('${controller.exercises.length} ${'exercise'.tr}'),
                         Padding(
                           padding: EdgeInsets.only(bottom: Get.height / 20),
-                          child: SingleChildScrollView(
+                          child: const SingleChildScrollView(
                             child: Column(
                                 // children: _buildExercise(controller.exercises),
                                 ),

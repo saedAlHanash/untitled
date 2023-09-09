@@ -1,5 +1,6 @@
 import 'dart:async';
- 
+import 'dart:convert';
+import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:fitness_storm/Utils/storage_controller.dart';
@@ -7,6 +8,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:package_info_plus/package_info_plus.dart';
+import 'package:saed_http/api_manager/api_service.dart';
+import 'package:saed_http/pair_class.dart';
+
+import 'Constants/constants.dart';
 
 class Utils {
   static final categoryItemWidth = Get.width * 0.44;
@@ -185,7 +191,7 @@ class Utils {
     bool withRefreshToken = false,
     String customToken = '',
   }) {
-    Options options = Options(headers: {'lang': Get.locale!.languageCode});
+    Options options = Options(headers: {'lang': Get.locale?.languageCode ?? 'en'});
 
     /* if (contentType || all) {
        options.contentType = 'application/x-www-form-urlencoded';
@@ -203,7 +209,7 @@ class Utils {
             ? 'Bearer $customToken'
             : 'Bearer ${StorageController().token}',
         'timeZone': DateTime.now().timeZoneName,
-        'lang': Get.locale!.languageCode,
+        'lang': Get.locale?.languageCode ?? 'en',
       });
     }
     if (withRefreshToken) {
@@ -222,5 +228,122 @@ class Utils {
     //   });
     // }
     return options;
+  }
+}
+
+SettingResult? versionControlModel;
+
+Future<bool> checkForceUpdate() async {
+  final appData = await PackageInfo.fromPlatform();
+  final pair = await _apiSettings();
+
+  if (pair.first == null) return false;
+
+  versionControlModel = pair.first;
+
+  num buildServer = 1000.0;
+
+  final buildNumber = num.tryParse(appData.buildNumber);
+
+  if (Platform.isIOS) {
+    buildServer = pair.first!.minAppleVersion;
+  } else {
+    buildServer = pair.first!.minAndroidVersion;
+  }
+
+  if (buildNumber == null) return false;
+
+  if (buildNumber < buildServer) return true;
+
+  return false;
+}
+
+Future<Pair<SettingResult?, String?>> _apiSettings() async {
+  APIService()
+    ..baseUrl = 'api.fitnessstorm.org'
+    ..innerHeader.addAll(
+      {
+        'authorization': 'Bearer ${StorageController().token}',
+        'timeZone': DateTime.now().timeZoneName,
+        'lang': Get.locale?.languageCode ?? 'en',
+      },
+    );
+
+  final response = await APIService().getApi(
+    url: 'api/terms',
+  );
+
+  if (response.statusCode == 200) {
+    return Pair(SettingResult.fromJson(jsonDecode(response.body)), null);
+  } else {
+    return Pair(null, '');
+  }
+}
+
+class SettingResult {
+  SettingResult({
+    required this.minAndroidVersion,
+    required this.minAppleVersion,
+    required this.isIosTest,
+  });
+
+  final num minAndroidVersion;
+  final num minAppleVersion;
+  final bool isIosTest;
+
+  factory SettingResult.fromJson(List<dynamic> json) {
+    return SettingResult(
+      minAndroidVersion: num.tryParse(json.firstWhereOrNull(
+                  (e) => (e)['label'] == 'min_android_version')['value'] ??
+              "1000") ??
+          1000,
+      minAppleVersion: num.tryParse(json.firstWhereOrNull(
+                  (e) => (e)['label'] == 'min_apple_version')['value'] ??
+              "1000") ??
+          1000,
+      isIosTest: (json.firstWhereOrNull((e) => (e)['label'] == 'is_ios_test')['value'] ??
+                  "false") ==
+              'true'
+          ? true
+          : false,
+    );
+  }
+
+  Map<String, dynamic> toJson() => {
+        "min_android_version": minAndroidVersion,
+        "min_apple_version": minAppleVersion,
+        "is_ios_test": isIosTest,
+      };
+}
+
+Future<bool> showUpdateDialog(BuildContext context,
+    {required Widget child, bool? callable, Function(bool b)? omCancel}) async {
+// show the dialog
+  final result = await showDialog(
+    context: context,
+    barrierColor: Colors.black.withOpacity(0.3),
+    barrierDismissible: false,
+    builder: (BuildContext context) => child,
+  );
+  omCancel?.call(result ?? false);
+
+  return (result ?? false);
+}
+
+class UpdateDialog extends StatelessWidget {
+  const UpdateDialog({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: const Text('تحديث جديد متاح'),
+      content: const Text('اصدار جديد من التطبيق يجب تحديث التطبيق للمتابعة'),
+      actions: [
+        ElevatedButton(
+          child: const Text('تحديث'),
+          onPressed: () => Navigator.pop(context, true),
+        ),
+      ],
+    );
   }
 }

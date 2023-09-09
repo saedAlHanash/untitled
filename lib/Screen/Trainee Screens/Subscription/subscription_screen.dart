@@ -1,14 +1,17 @@
+import 'package:fitness_storm/Data/Api/methods.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/HomeScreen/home_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Subscription/Widget/payment_card.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Subscription/Widget/success_subscribed.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Subscription/Widget/without_subscribed.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Subscription/subscription_controller.dart';
+import 'package:fitness_storm/Screen/Trainee%20Screens/coupon/ui/coupon_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../custome_web_page_view.dart';
 import '../../../helperClass.dart';
 import '../PlanOverView/plan_overview_controller.dart';
+import '../coupon/data/request/pay_request.dart';
 import 'Widget/current_payment_card.dart';
 
 class SubscriptionScreen extends GetView<SubscruptionController> {
@@ -16,8 +19,6 @@ class SubscriptionScreen extends GetView<SubscruptionController> {
 
   @override
   Widget build(BuildContext context) {
-    final currentContext = context;
-
     return Obx(
       () => Scaffold(
         appBar: AppBar(
@@ -71,7 +72,7 @@ class SubscriptionScreen extends GetView<SubscruptionController> {
                             childAspectRatio: 2 / 2.2,
                             mainAxisSpacing: Get.height / 40.6,
                           ),
-                          itemBuilder: (context, index) {
+                          itemBuilder: (_, index) {
                             if (controller
                                 .subscriptions.subscriptions[index].currentSubscription) {
                               return CurrentPaymentCardWidget(
@@ -80,90 +81,10 @@ class SubscriptionScreen extends GetView<SubscruptionController> {
                             }
                             return PaymentCardWidget(
                               plan: controller.subscriptions.subscriptions[index],
-                              onTapFunction: () async {
-                                if (!controller.isSubscribe) {
-                                  String uri = await controller.makePayment(
-                                      amount: controller
-                                          .subscriptions.subscriptions[index].price,
-                                      currency: 'USD',
-                                      subscriptionId: controller
-                                          .subscriptions.subscriptions[index].id);
-                                  if (uri != "") {
-                                    Navigator.push(
-                                      currentContext,
-                                      MaterialPageRoute(
-                                        builder: (context) => MyCustomeWebPage(
-                                          urlWebPage: uri,
-                                          subscruptionController: controller,
-                                        ),
-                                      ),
-                                    ).then((value) async {
-                                      if (value != null) {
-                                        await controller.getSubscribtionPaymentPlan();
-                                        HelperClass.successfullySubscription = true;
-                                        controller.isLoading = false;
-                                        controller.isBuy = true;
-                                        if (Get.isRegistered<PlanOverviewController>()) {
-                                          Get.find<PlanOverviewController>().isActivated =
-                                              true;
-                                        } else {
-                                          Get.lazyPut(() => PlanOverviewController());
-                                          Get.find<PlanOverviewController>().isActivated =
-                                              true;
-                                        }
-                                        controller.subscriptions.subscriptions[index]
-                                            .currentSubscription = true;
-                                      } else {
-                                        Navigator.pushAndRemoveUntil(context,
-                                            MaterialPageRoute(
-                                          builder: (context) {
-                                            return const HomeScreen();
-                                          },
-                                        ), (route) => false);
-                                        // Utils.openSnackBar(
-                                        //   title: 'not_successfully_subscription'.tr,
-                                        //   message: "not_complete_process_payment".tr,
-                                        // );
-                                      }
-                                    });
-                                    // kholoud.elsayed@hotmail.com
-                                  } else {
-                                    controller.isLoading = false;
-                                    Navigator.pop(context);
-                                  }
-                                  controller.isLoading = false;
-                                } else {
-                                  showDialog(
-                                      context: context,
-                                      builder: (_) => AlertDialog(
-                                            backgroundColor: Colors.white,
-                                            // title: Text(
-                                            //   'warning'.tr,
-                                            //   style: TextStyle(
-                                            //     color: Get.theme.primaryColor,
-                                            //   ),
-                                            // ),
-                                            content: Text('it_is_advisable'.tr),
-                                            actions: [
-                                              MaterialButton(
-                                                onPressed: () {
-                                                  Get.back();
-                                                },
-                                                child: Text('back'.tr),
-                                              )
-                                            ],
-                                          ));
-                                }
-                              },
+                              onTapFunction: () => onTapSubscrip(context, index),
                             );
                           },
                         ),
-                        // SizedBox(height: Get.height / 40.6),
-                        // PrivateCoatching(
-                        //     price: controller
-                        //         .subscriptions.privateSessionSubscription!
-                        //         .toString()),
-                        // SizedBox(height: Get.height / 40.6),
                       ],
                     ),
                   ),
@@ -171,5 +92,74 @@ class SubscriptionScreen extends GetView<SubscruptionController> {
         ),
       ),
     );
+  }
+
+  void onTapSubscrip(BuildContext context, int index) async {
+    if (!controller.isSubscribe) {
+      final result = await Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) {
+            return CouponWidget(
+                total: controller.subscriptions.subscriptions[index].price.toString());
+          },
+        ),
+      );
+      if (result == null) return;
+      var request = result as PayRequest;
+
+      request.subscriptionId = controller.subscriptions.subscriptions[index].id;
+
+      final uri = await controller.makePayment(request: request);
+      loggerObject.w(uri);
+      controller.isLoading = true;
+      if (uri != "" && context.mounted) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => MyCustomeWebPage(
+              urlWebPage: uri,
+              subscruptionController: controller,
+            ),
+          ),
+        ).then((value) async {
+          if (value != null) {
+            await controller.getSubscribtionPaymentPlan();
+            HelperClass.successfullySubscription = true;
+            controller.isLoading = false;
+            controller.isBuy = true;
+            if (Get.isRegistered<PlanOverviewController>()) {
+              Get.find<PlanOverviewController>().isActivated = true;
+            } else {
+              Get.lazyPut(() => PlanOverviewController());
+              Get.find<PlanOverviewController>().isActivated = true;
+            }
+            controller.subscriptions.subscriptions[index].currentSubscription = true;
+          } else {
+            Navigator.pop(context);
+          }
+        });
+        // kholoud.elsayed@hotmail.com
+      } else {
+        controller.isLoading = false;
+        Get.back();
+      }
+      controller.isLoading = false;
+    } else {
+      showDialog(
+          context: context,
+          builder: (_) => AlertDialog(
+                backgroundColor: Colors.white,
+                content: Text('it_is_advisable'.tr),
+                actions: [
+                  MaterialButton(
+                    onPressed: () {
+                      Get.back();
+                    },
+                    child: Text('back'.tr),
+                  )
+                ],
+              ));
+    }
   }
 }

@@ -44,7 +44,7 @@ class OTPController extends GetxController {
       if (result.type == ApiResultType.success) {
         Utils.openSnackBar(title: 'Success'.tr, textColor: Colors.white);
         Get.toNamed(AppRoutes.surveyScreen);
-        // Get.offAllNamed(AppRoutes.mainHome);
+
       } else {
         Get.back();
         Utils.openSnackBar(title: result.message!, textColor: Colors.white);

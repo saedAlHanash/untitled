@@ -9,6 +9,7 @@ import '../../../Data/Repositories/trainee_repository.dart';
 import '../../../Model/subscription_model.dart';
 import '../../../Model/user_profile.dart';
 import '../../../Utils/utils.dart';
+import '../coupon/data/request/pay_request.dart';
 
 class SubscruptionController extends GetxController {
   final RxBool _isLoading = false.obs;
@@ -105,13 +106,12 @@ class SubscruptionController extends GetxController {
   }
 
   Future<String> makePayment({
-    required num amount,
-    required String currency,
-    required String subscriptionId,
+    required PayRequest request,
+
   }) async {
     try {
       isLoading = true;
-      var d1 = await createPaymentIntent(subscriptionId);
+      var d1 = await createPaymentIntent(request);
       String uri = d1.data['url'];
       return uri;
     } catch (e, s) {
@@ -122,10 +122,10 @@ class SubscruptionController extends GetxController {
     return "";
   }
 
-  createPaymentIntent(String subscriptionId) async {
+  createPaymentIntent( PayRequest request) async {
     try {
       return await _subscriptionRepository.createNewSubscription(
-        subscriptionId: subscriptionId,
+          request:request,
       );
     } catch (err) {
      //log('err charging user: ${err.toString()}');
