@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:saed_http/api_manager/api_service.dart';
 import 'package:saed_http/pair_class.dart';
 
@@ -23,10 +22,15 @@ extension CubitStatusesHelper on CubitStatuses {
 class CouponCubit extends Cubit<CouponInitial> {
   CouponCubit() : super(CouponInitial.initial());
 
-  Future<void> checkCoupon(BuildContext context, {String? couponCode}) async {
+  Future<void> checkCoupon(
+    BuildContext context, {
+    String? couponCode,
+    required String subscriptionId,
+  }) async {
     if (couponCode == null || couponCode.isEmpty) return;
     emit(state.copyWith(statuses: CubitStatuses.loading));
-    final pair = await _checkCouponApi(couponCode: couponCode);
+    final pair =
+        await _checkCouponApi(couponCode: couponCode, subscriptionId: subscriptionId);
 
     if (pair.first == null) {
       if (context.mounted) {}
@@ -38,6 +42,7 @@ class CouponCubit extends Cubit<CouponInitial> {
 
   Future<Pair<CheckCouponResult?, String?>> _checkCouponApi({
     required String couponCode,
+    required String subscriptionId,
   }) async {
     APIService()
       ..baseUrl = 'api.fitnessstorm.org'
@@ -51,6 +56,7 @@ class CouponCubit extends Cubit<CouponInitial> {
       url: 'mobile/user/coupons/checkCoupon',
       query: {
         'code': couponCode,
+        'subscription_id': subscriptionId,
       },
     );
 

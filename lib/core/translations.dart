@@ -436,7 +436,7 @@ The application Policies may be changed or updated occasionally to meet the requ
           'start_within_plan': 'Start Training with this plan',
           'phone': 'Phone Number',
           'coupon': 'Coupon Code',
-          'sup_total': 'Suptotal',
+          'sup_total': 'Subtotal',
           'voucher': 'Voucher',
           'net_total': 'Net Total',
         },

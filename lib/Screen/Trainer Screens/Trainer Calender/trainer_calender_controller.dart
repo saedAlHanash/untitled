@@ -1,5 +1,3 @@
- 
-
 import 'package:fitness_storm/Data/Repositories/Trainer%20Repository/trainer_appointments.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Calender/appointments.dart';
 import 'package:get/get.dart';
@@ -106,7 +104,7 @@ class TrainerCalenderController extends GetxController {
 
   _getNextMonth() {
     int index = months.indexOf(currentMonth);
-   //log('$currentMonth Index id $index');
+    //log('$currentMonth Index id $index');
     if (index == months.length - 1) {
       index = -1;
     }
@@ -116,7 +114,7 @@ class TrainerCalenderController extends GetxController {
 
   _getPreviousMonth() {
     int index = months.indexOf(currentMonth);
-   //log('$currentMonth Index is $index');
+    //log('$currentMonth Index is $index');
     if (index == 0) {
       index == 12;
     }
@@ -142,7 +140,7 @@ class TrainerCalenderController extends GetxController {
       }
 
       if (list.isNotEmpty) {
-      await  getRoomByUser(list.first.trainer.id.toString());
+        await getRoomByUser(list.first.trainer.id.toString());
       }
 
       list.sort((a, b) => a.startTime.compareTo(b.startTime));
@@ -178,10 +176,8 @@ class TrainerCalenderController extends GetxController {
   //       }) ??
   //       {})['end_time'];
   //
-  //   if (DateTime.parse(lastTime).day <= now.day &&
-  //       (DateTime.parse(lastTime).hour + 1) >= (now.hour)) {
-  //     return true;
-  //   } else {
+  //   if (lastTime).day <= now.day &&
+  //       (lastTime).hour + 1) >= (now.hour)) {//     return true;//   } else {
   //     return false;
   //   }
   // }
@@ -204,7 +200,7 @@ class TrainerCalenderController extends GetxController {
   }
 
   getNextWeek() async {
-   //log('current Month days $currentMonthDays');
+    //log('current Month days $currentMonthDays');
     if (currentWeekEndDay == currentMonthDays) {
       _getNextMonth();
       currentWeekStartDay = 1;
@@ -256,21 +252,14 @@ class TrainerCalenderController extends GetxController {
     } else {
       haveDataCalender = true;
       result.forEach((e) {
-        if (calenders[DateFormat('yyyy-MM-dd')
-                    .format(DateTime.parse(Appointment.fromJson(e).startAt!))] ==
-                null ||
-            calenders[DateFormat('yyyy-MM-dd')
-                    .format(DateTime.parse(Appointment.fromJson(e).startAt!))]!
-                .isEmpty) {
-          calenders[DateFormat('yyyy-MM-dd')
-              .format(DateTime.parse(Appointment.fromJson(e).startAt!))] = [];
-          calenders[DateFormat('yyyy-MM-dd')
-                  .format(DateTime.parse(Appointment.fromJson(e).startAt!))]!
-              .add(Appointment.fromJson(e));
+        final model = Appointment.fromJson(e);
+
+        if (calenders[DateFormat('yyyy-MM-dd').format(model.startAt!)] == null ||
+            calenders[DateFormat('yyyy-MM-dd').format(model.startAt!)]!.isEmpty) {
+          calenders[DateFormat('yyyy-MM-dd').format(model.startAt!)] = [];
+          calenders[DateFormat('yyyy-MM-dd').format(model.startAt!)]!.add(model);
         } else {
-          calenders[DateFormat('yyyy-MM-dd')
-                  .format(DateTime.parse(Appointment.fromJson(e).startAt!))]!
-              .add(Appointment.fromJson(e));
+          calenders[DateFormat('yyyy-MM-dd').format(model.startAt!)]!.add(model);
         }
       });
     }

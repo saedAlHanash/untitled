@@ -24,8 +24,10 @@ class TrainerAppointmentsRepository {
       'is_booked': true,
       'timeZone': DateTime.now().timeZoneName,
     };
-    ApiResult result = await Methods.get(
+    final result = await Methods.get(
         url: TRAINERURLS.trainerAvailableTime, options: options, data: data);
+
+    print(result);
     if (result.type == ApiResultType.success) {
       if (result.data.isEmpty) {
         return {};

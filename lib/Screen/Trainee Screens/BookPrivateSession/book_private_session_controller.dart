@@ -1,5 +1,3 @@
- 
-
 import 'package:dio/dio.dart';
 import 'package:fitness_storm/Data/Api/api_result.dart';
 import 'package:fitness_storm/Data/Api/methods.dart';
@@ -181,14 +179,12 @@ class BookPrivateSessionController extends GetxController {
     final date = DateTime(
       year,
       months.indexOf(currentMonth) + 1,
-      currentWeekStartDay -7,
+      currentWeekStartDay - 7,
       now.hour,
       now.minute,
     );
-    loggerObject.wtf(date.toIso8601String());
-    loggerObject.wtf(now.add(const Duration(days: -7)).toIso8601String());
 
-    if(now.add(const Duration(days: -7)).isAfter(date))return;
+    if (now.add(const Duration(days: -7)).isAfter(date)) return;
 
     if (currentWeekStartDay == 1) {
       _getPreviousMonth();
@@ -334,7 +330,6 @@ class BookPrivateSessionController extends GetxController {
     } else {
       Utils.openSnackBar(title: uri.message!);
     }
-    //log(bookedDate.value.time!);
   }
 
   _generateAvailableTimes(String currentDay, {currentContext}) {
@@ -348,19 +343,30 @@ class BookPrivateSessionController extends GetxController {
       );
     } else {
       final s = result[currentDay];
-      loggerObject.i(s);
-      for(var element  in s){
+
+      for (var element in s) {
         if (element['start_time'] != null) {
-          final tempStart =
-              DateFormat("yyyy-MM-dd hh:mm:ss").parse(element['start_time']);
-          final tempEnd = DateFormat("yyyy-MM-dd hh:mm:ss").parse(element['end_time']);
+
+          //fix time zone
+          final tzo = DateTime.now().timeZoneOffset;
+
+          final tempStart = DateFormat("yyyy-MM-dd hh:mm:ss")
+              .parse(
+                element['start_time'],
+              )
+              .add(tzo);
+          final tempEnd = DateFormat("yyyy-MM-dd hh:mm:ss")
+              .parse(
+                element['end_time'],
+              )
+              .add(tzo);
+
           final startTime = DateFormat('hh:mm a').format(tempStart);
           final endTime = DateFormat('hh:mm a').format(tempEnd);
 
 
-          loggerObject.w(tempStart);
 
-          if(DateTime.now().isAfter(tempStart)){
+          if (DateTime.now().isAfter(tempStart)) {
             widgets.add(
               Text(
                 'No_available_sessions'.tr,
@@ -369,6 +375,7 @@ class BookPrivateSessionController extends GetxController {
             );
             break;
           }
+
           widgets.add(
             InkWell(
               onTap: () async {
@@ -394,7 +401,7 @@ class BookPrivateSessionController extends GetxController {
                 } else {
                   Utils.openSnackBar(title: uri.message!);
                 }
-                //log(bookedDate.value.time!);
+
               },
               child: Builder(builder: (context) {
                 return Container(

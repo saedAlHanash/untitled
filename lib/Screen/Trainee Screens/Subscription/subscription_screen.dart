@@ -101,7 +101,9 @@ class SubscriptionScreen extends GetView<SubscruptionController> {
         MaterialPageRoute(
           builder: (context) {
             return CouponWidget(
-                total: controller.subscriptions.subscriptions[index].price.toString());
+              subscriptionId: controller.subscriptions.subscriptions[index].id,
+              total: controller.subscriptions.subscriptions[index].price.toString(),
+            );
           },
         ),
       );
@@ -111,7 +113,6 @@ class SubscriptionScreen extends GetView<SubscruptionController> {
       request.subscriptionId = controller.subscriptions.subscriptions[index].id;
 
       final uri = await controller.makePayment(request: request);
-      loggerObject.w(uri);
       controller.isLoading = true;
       if (uri != "" && context.mounted) {
         Navigator.push(

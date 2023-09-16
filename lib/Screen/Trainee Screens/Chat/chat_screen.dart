@@ -23,58 +23,60 @@ class ChatScreen extends StatelessWidget {
         title: Text('chat'.tr),
         titleTextStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
       ),
-      body: StatefulBuilder(builder: (context, state) {
-        return FutureBuilder(
-          future: getChatRooms(),
-          builder: (context, AsyncSnapshot<List<Room>?> snapshot) {
-            if (!snapshot.hasData) {
-              return const Center(child: CircularProgressIndicator.adaptive());
-            }
-            return RefreshIndicator(
-              color: Colors.white,
-              onRefresh: () async {
-                state(() {});
-              },
-              child: SingleChildScrollView(
-                child: Column(children: [
-                  InkWell(
-                    onTap: () => Get.toNamed(AppRoutes.conversationScreen,
-                        arguments: ['customer_service'.tr, "-1"]),
-                    child: const CustomerServiceCardwidget(),
-                  ),
-                  ListView.builder(
-                    physics: const NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    itemCount: snapshot.data!.length,
-                    itemBuilder: (context, index) {
-                      final openRoom = snapshot.data![index];
-                      return GestureDetector(
-                        onTap: () {
-                          Navigator.push(context, MaterialPageRoute(
-                            builder: (context) {
-                              return ChatPage(
-                                room: openRoom,
-                                name: getChatMember(openRoom.users).lastName ?? '',
-                              );
-                            },
-                          ));
-                          // Get.toNamed(AppRoutes.conversationScreen,
-                          //   arguments: [chat.trainer!.name!, chat.channelId]);
-                        },
-                        child: ChatCardWidget(
-                          imagePath: '',
-                          trainerName: getChatMember(openRoom.users).lastName ?? '',
-                          lastMessage: openRoom.lastMessages?.first.status?.name ?? '',
-                        ),
-                      );
-                    },
-                  )
-                ]),
-              ),
-            );
-          },
-        );
-      }),
+      body: StatefulBuilder(
+        builder: (context, state) {
+          return FutureBuilder(
+            future: getChatRooms(),
+            builder: (context, AsyncSnapshot<List<Room>?> snapshot) {
+              if (!snapshot.hasData) {
+                return const Center(child: CircularProgressIndicator.adaptive());
+              }
+              return RefreshIndicator(
+                color: Colors.white,
+                onRefresh: () async {
+                  state(() {});
+                },
+                child: SingleChildScrollView(
+                  child: Column(children: [
+                    InkWell(
+                      onTap: () => Get.toNamed(AppRoutes.conversationScreen,
+                          arguments: ['customer_service'.tr, "-1"]),
+                      child: const CustomerServiceCardwidget(),
+                    ),
+                    ListView.builder(
+                      physics: const NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      itemCount: snapshot.data!.length,
+                      itemBuilder: (context, index) {
+                        final openRoom = snapshot.data![index];
+                        return GestureDetector(
+                          onTap: () {
+                            Navigator.push(context, MaterialPageRoute(
+                              builder: (context) {
+                                return ChatPage(
+                                  room: openRoom,
+                                  name: getChatMember(openRoom.users).lastName ?? '',
+                                );
+                              },
+                            ));
+                            // Get.toNamed(AppRoutes.conversationScreen,
+                            //   arguments: [chat.trainer!.name!, chat.channelId]);
+                          },
+                          child: ChatCardWidget(
+                            imagePath: '',
+                            trainerName: getChatMember(openRoom.users).lastName ?? '',
+                            lastMessage: openRoom.lastMessages?.first.status?.name ?? '',
+                          ),
+                        );
+                      },
+                    )
+                  ]),
+                ),
+              );
+            },
+          );
+        },
+      ),
     );
   }
 }

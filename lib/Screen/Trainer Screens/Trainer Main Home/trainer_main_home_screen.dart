@@ -37,6 +37,7 @@ class TrainerMainHomeScreen extends GetView<TrainerMainHomeController> {
             ? null
             : controller.navController.index == 3
                 ? AppBar(
+          //saedsaed
                     title: Text('my_calender'.tr,
                         style: const TextStyle(
                             fontSize: 22, fontWeight: FontWeight.bold)))

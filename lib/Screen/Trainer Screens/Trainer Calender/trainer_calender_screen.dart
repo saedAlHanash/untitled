@@ -16,99 +16,74 @@ class TrainerCalenderSceen extends GetView<TrainerCalenderController> {
         : SingleChildScrollView(
             child: Column(
               children: [
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.center,
-                //   children: [
-                //     IconButton(
-                //         onPressed: () => controller.getPreviousWeek(),
-                //         icon: Icon(Icons.arrow_back_ios_new,
-                //             color: Get.theme.primaryColor)),
-                //     Padding(
-                //       padding: EdgeInsets.symmetric(
-                //           horizontal: Get.width / 18.75,
-                //           vertical: Get.height / 40.6),
-                //       child: Row(
-                //         children: [
-                //           Text(
-                //             '${controller.currentWeekStartDay}-${controller.currentWeekEndDay} ${controller.currentMonth} - ${controller.currentYear}',
-                //             style: TextStyle(
-                //                 color: Get.theme.primaryColor,
-                //                 fontSize: 14,
-                //                 fontWeight: FontWeight.bold),
-                //           ),
-                //         ],
-                //       ),
-                //     ),
-                //     IconButton(
-                //         onPressed: () => controller.getNextWeek(),
-                //         icon: Icon(Icons.arrow_forward_ios,
-                //             color: Get.theme.primaryColor)),
-                //   ],
-                // ),
                 Obx(
-                  () => controller.haveDataCalender
-                      ? controller.isLoading
-                          ? const Center(
-                              child: CircularProgressIndicator.adaptive(),
-                            )
-                          : controller.calenders.isNotEmpty
-                              ? Column(
-                                  children:
-                                      controller.calenders.keys.toList().map((element) {
-                                    return Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsets.only(
-                                            top: 15.0,
-                                            left: isEnglish ? 20.0 : 0,
-                                            right: isEnglish ? 0.0 : 10,
-                                            bottom: 10,
-                                          ),
-                                          child: Row(
-                                            children: [
-                                              const CircleAvatar(
-                                                  radius: 3,
-                                                  backgroundColor: Colors.grey),
-                                              const SizedBox(width: 4),
-                                              Text(
-                                                element,
-                                                style: const TextStyle(
-                                                    color: Colors.grey,
-                                                    fontWeight: FontWeight.w600),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(
+                  () {
+                    return controller.haveDataCalender
+                        ? controller.isLoading
+                            ? const Center(
+                                child: CircularProgressIndicator.adaptive(),
+                              )
+                            : controller.calenders.isNotEmpty
+                                ? Column(
+                                    children:
+                                        controller.calenders.keys.toList().map((element) {
+                                      return Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Padding(
+                                            padding: EdgeInsets.only(
+                                              top: 15.0,
                                               left: isEnglish ? 20.0 : 0,
                                               right: isEnglish ? 0.0 : 10,
-                                              top: 15.0,
-                                              bottom: 15.0),
-                                          child: Column(
-                                            crossAxisAlignment: CrossAxisAlignment.center,
-                                            children:
-                                                controller.calenders[element]!.map((e) {
-                                              int d;
-                                              return DateOfSession(
-                                                  nameOfCustomer: e.user!.name!,
-                                                  date: e.startAt!,
-                                                  token: e.videoCallToken ?? "",
-                                                  isCheck: true);
-                                            }).toList(),
+                                              bottom: 10,
+                                            ),
+                                            child: Row(
+                                              children: [
+                                                const CircleAvatar(
+                                                    radius: 3,
+                                                    backgroundColor: Colors.grey),
+                                                const SizedBox(width: 4),
+                                                Text(
+                                                  element,
+                                                  style: const TextStyle(
+                                                      color: Colors.grey,
+                                                      fontWeight: FontWeight.w600),
+                                                ),
+                                              ],
+                                            ),
                                           ),
-                                        )
-                                      ],
-                                    );
-                                  }).toList(),
-                                )
-                              : Center(
-                                  child: Text('there_are_no_appointments_this_week'.tr),
-                                )
-                      : Center(
-                          child: Text('there_are_no_appointments_this_week'.tr),
-                        ),
+                                          Padding(
+                                            padding: EdgeInsets.only(
+                                                left: isEnglish ? 20.0 : 0,
+                                                right: isEnglish ? 0.0 : 10,
+                                                top: 15.0,
+                                                bottom: 15.0),
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              children:
+                                                  controller.calenders[element]!.map(
+                                                (e) {
+                                                  return DateOfSession(
+                                                      nameOfCustomer: e.user!.name!,
+                                                      date: e.startAt!.toIso8601String(),
+                                                      token: e.videoCallToken ?? "",
+                                                      isCheck: true);
+                                                },
+                                              ).toList(),
+                                            ),
+                                          )
+                                        ],
+                                      );
+                                    }).toList(),
+                                  )
+                                : Center(
+                                    child: Text('there_are_no_appointments_this_week'.tr),
+                                  )
+                        : Center(
+                            child: Text('there_are_no_appointments_this_week'.tr),
+                          );
+                  },
                 ),
               ],
             ),

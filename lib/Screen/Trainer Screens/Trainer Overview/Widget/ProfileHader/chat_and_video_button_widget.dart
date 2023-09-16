@@ -62,49 +62,18 @@ class _ChatAndVideoButtonWidgetState extends State<ChatAndVideoButtonWidget> {
                     myState(() => isLoading = false);
                     if (!mounted || openRoom == null) return;
 
-                    Navigator.push(context, MaterialPageRoute(
-                      builder: (context) {
-                        return ChatPage(
-                          room: openRoom,
-                          name: widget.trainer.name ?? '',
-                        );
-                      },
-                    ));
-
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return ChatPage(
+                            room: openRoom,
+                            name: widget.trainer.name ?? '',
+                          );
+                        },
+                      ),
+                    );
                     return;
-                    // bool check = await Get.put(TrainerCalenderController())
-                    //     .chatIsAvailable(widget.trainer.name ?? '');
-                    //
-                    // if (!check) {
-                    //   // Utils.showAlertDialog(onContinueButtonPressed, message)
-                    //   Utils.showAlertDialog(() {
-                    //     Get.back();
-                    //   }, "لا تتوفر المحادثة مع المدرب في هذا الوقت");
-                    // } else {
-                    //   // Utils.openLoadingDialog();
-                    //   // List<Chat> chats = await Get.put(ChatController()).getChats();
-                    //   // var chat = chats
-                    //   //     .firstWhere((element) => element.trainer!.name == widget.trainerName);
-                    //   //
-                    //   // String channelId = chat.channelId!;
-                    //   // try {
-                    //   //   await Get.put(ConversationController())
-                    //   //       .onSendMessage(channelId: channelId);
-                    //   //   Utils.closeDialog();
-                    //   //   Future.delayed(
-                    //   //     const Duration(seconds: 1),
-                    //   //     () {
-                    //   //       Get.toNamed(
-                    //   //         AppRoutes.conversationScreen,
-                    //   //         arguments: [widget.trainerName, channelId],
-                    //   //       );
-                    //   //     },
-                    //   //   );
-                    //   // } catch (e) {
-                    //   //   Utils.closeDialog();
-                    //   //   Utils.openSnackBar(title: e.toString());
-                    //   // }
-                    // }
                   },
             child: Container(
               height: Get.height / 27,

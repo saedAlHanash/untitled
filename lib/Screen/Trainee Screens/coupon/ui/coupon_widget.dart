@@ -10,9 +10,10 @@ import '../coupon_cubit/coupon_cubit.dart';
 import '../data/request/pay_request.dart';
 
 class CouponWidget extends StatefulWidget {
-  const CouponWidget({super.key, required this.total});
+  const CouponWidget({super.key, required this.total, required this.subscriptionId});
 
   final String total;
+  final String subscriptionId;
 
   @override
   State<CouponWidget> createState() => _CouponWidgetState();
@@ -191,6 +192,7 @@ class _CouponWidgetState extends State<CouponWidget> {
                                             } else {
                                               context.read<CouponCubit>().checkCoupon(
                                                     context,
+                                                    subscriptionId: widget.subscriptionId,
                                                     couponCode: request.code,
                                                   );
                                             }

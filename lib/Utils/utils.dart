@@ -200,6 +200,7 @@ class Utils {
     if (accept || all || withRefreshToken) {
       options.headers!.addAll({
         'accept': 'application/json',
+        'timeZone': DateTime.now().timeZoneName,
       });
     }
     if (withToken || all || customToken.isNotEmpty) {
@@ -218,6 +219,7 @@ class Utils {
       options.headers!.addAll({
         'authorization': 'Bearer ${StorageController().rememberToken}',
         'lang': Get.locale!.languageCode,
+        'timeZone': DateTime.now().timeZoneName,
       });
     }
     // if (customToken.isNotEmpty) {

@@ -54,7 +54,7 @@ dependencies:
   readmore: ^2.2.0
   flutter_native_splash: ^2.2.5
   google_sign_in:
-  agora_rtc_engine: ^6.2.0
+#  agora_rtc_engine: ^6.2.0
   # permission handler
   permission_handler:
   flutter_app_badger:

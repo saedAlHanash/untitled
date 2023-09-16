@@ -1,7 +1,7 @@
 class Appointment {
   String? id;
-  String? startAt;
-  String? endAt;
+  DateTime? startAt;
+  DateTime? endAt;
   String? summary;
   String? timeZoneStartAt;
   String? color;
@@ -20,8 +20,8 @@ class Appointment {
 
   Appointment.fromJson(Map<String, dynamic> json) {
     id = json['id'];
-    startAt = json['startAt'];
-    endAt = json['endAt'];
+    startAt = DateTime.tryParse(json['startAt'])?.add(DateTime.now().timeZoneOffset);
+    endAt = DateTime.tryParse(json['endAt'])?.add(DateTime.now().timeZoneOffset);
     summary = json['summary'];
     timeZoneStartAt = json['timeZoneStartAt'];
     color = json['color'];

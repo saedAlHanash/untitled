@@ -33,8 +33,8 @@ abstract class Methods {
       required Options options,
       data,
       Map<String, String>? queryParameters}) async {
-    loggerObject.i(url);
-    loggerObject.i(data.toString());
+    // loggerObject.i(url);
+    // loggerObject.i(data.toString());
     try {
       final dio.Response response = await _dio.post(
         url,
@@ -43,7 +43,7 @@ abstract class Methods {
         queryParameters: queryParameters,
       );
 
-      loggerObject.v('${response.statusCode} ${response.data}');
+      // loggerObject.v('${response.statusCode} ${response.data}');
       if (response.statusCode == 500) {
         //log("testtttt");
         //   print(response.data);
@@ -70,7 +70,6 @@ abstract class Methods {
     bool? isNotification,
   }) async {
     try {
-      loggerObject.v(url);
       var response = await _dio.get(url, options: options, queryParameters: data);
       if (response.statusCode == 200) {
         if (response.data == '' || response.data is String || response.data.isEmpty) {

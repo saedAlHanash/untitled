@@ -9,6 +9,7 @@ import 'package:fitness_storm/Utils/storage_controller.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 import 'package:flutter_firebase_chat_core/flutter_firebase_chat_core.dart';
 
+import '../../Data/Api/methods.dart';
 import '../../Model/trainer.dart';
 
 Future<List<types.User>> getChatUsers() async {
@@ -33,6 +34,7 @@ Future<List<types.User>> getChatUsers() async {
 }
 
 Future<List<types.Room>> getChatRooms() async {
+  print(StorageController().firebaseUser);
   if (StorageController().firebaseUser == null) return [];
   if (StorageController().listRooms.isNotEmpty) return StorageController().listRooms;
 
