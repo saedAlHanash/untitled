@@ -95,6 +95,18 @@ class SubscriptionScreen extends GetView<SubscruptionController> {
   }
 
   void onTapSubscrip(BuildContext context, int index) async {
+    final result = await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) {
+          return CouponWidget(
+            subscriptionId: controller.subscriptions.subscriptions[index].id,
+            total: controller.subscriptions.subscriptions[index].price.toString(),
+          );
+        },
+      ),
+    );
+    return;
     if (!controller.isSubscribe) {
       final result = await Navigator.push(
         context,

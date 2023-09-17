@@ -9,7 +9,7 @@ class LocaleString extends Translations {
           "Alphabetical_Z-A": "Alphabetical Z-A",
           "Most_Popular": 'Most Popularً',
           "PlayingـDaysـ(more first)": "Playing Days (more first)",
-          "PlayingـDaysـ(less first)": "Playin Days (less first)",
+          "PlayingـDaysـ(less first)": "Playing Days (less first)",
           'minute': 'minute',
           'plan_prog': 'Plan',
           'private_session_prog': 'Private Session',
@@ -153,7 +153,7 @@ class LocaleString extends Translations {
           'month': 'Month',
           'welcome': 'WELCOME',
           'congratulations':
-              'Congratulations on taking the first step towards your fitness journey with FitnessStorm. Now that you\'ve subscribed, you have access to all of our resources. Choose a plan and let\'s get started!',
+              'Congratulations on taking the first step towards your fitness journey with Fitness Storm. Now that you\'ve subscribed, you have access to all of our resources. Choose a plan and let\'s get started!',
           'successfully_subscribed': 'Successfully subscribed',
           'why_to_subscribe?': 'WHY TO SUBSCRIBE?',
           'enjoy_your_fitness_storm.': 'Enjoy your Fitness Storm.',
@@ -187,7 +187,7 @@ class LocaleString extends Translations {
           'i\'ll_come_back_later': 'I\'ll come back later',
           'set_x': 'Set X',
           'let\'s_go': 'Let\'s Go',
-          'you_can_do_it_this_set': 'You Can do it this Set',
+          'you_can_do_it_this_set': 'You can do it!',
           'great_job!': 'Great Job!',
           'take_a_break': 'Take a break',
           'before_the_next_exercise': 'before the next exercise',
@@ -195,7 +195,7 @@ class LocaleString extends Translations {
           'st_set': 'st set',
           'repeat_this_exercise': 'Repeat this Exercise',
           'slide_to_start_the_next_set': 'Slide to start the next Set',
-          'slide_to_start_the_timer_for_this_set': 'Slide to start simer',
+          'slide_to_start_the_timer_for_this_set': 'slide to start timer',
           'no_current_plan': 'No Current Plan',
           'our_trainer': 'Our Trainers',
           'private_sessions': 'Private Sessions',
@@ -234,14 +234,14 @@ class LocaleString extends Translations {
           'zumba': 'Zumba',
           'see_more': 'See More',
           'fitness_storm_message':
-              'Fitness Storm is a spirited application encouraging people to exercise anywhere and anytime and have the look they have always dreamed of.\nWhether you are a beginner or a pro, Fitness Storm gives you a golden chance to train with world class trainers through HD step-by-step instructional videos.\nLose weight, build muscle, and stay fit easily with the correct workouts and many effective training programs, designed by your favorite fitness experts. Sign up, answer a few questions, subscribe to one of our programs for 3 months, 6 months or 12 months and let us recommend the best plans that fits you. Get inspired with our amazing trainers and work out daily with step-by-step HD video instruction.\nNot convinced yet? To make every minute you train, play and compete – count, one to one session a unique program will be offered at fitness storm . If you want a more individualized approach to achieve the weight-loss, health, strength, injury prevention, or performance goals you have set for yourself, this program is designed for you where you can have a personal coach/dietician  focusing on reaching your individual goals.\nIt is time to be stronger, healthier, and happier than ever before with Fitness Storm!',
+              'Fitness Storm is a spirited application encouraging people to exercise anywhere and anytime and have the look they have always dreamed of.\nWhether you are a beginner or a pro, Fitness Storm gives you a golden chance to train with world class trainers through HD step-by-step instructional videos.\nLose weight, build muscle, and stay fit easily with the correct workouts and many effective training programs, designed by your favorite fitness experts. Sign up, answer a few questions, subscribe to one of our programs for 3 months, 6 months or 12 months and let us recommend the best plans that fits you. Get inspired with our amazing trainers and work out daily with step-by-step HD video instruction.\nNot convinced yet? To make every minute you train, play and compete – count, one to one session a unique program will be offered at fitness storm . If you want a more individualized approach to achieve the weight-loss, health, strength, injury prevention, or performance goals you have set for yourself, this program is designed for you where you can have a personal coach/dietitian  focusing on reaching your individual goals.\nIt is time to be stronger, healthier, and happier than ever before with Fitness Storm!',
           'terms&conditions':
-              'Terms & Conditions\nFitness Storm is a dynamic application enables the users to train with world class trainers through HD step-by-step instructional videos.\n\nService description\nThis appliction is a registered business in Saudi Arabia.\nFitness Storm enables the users to train with world class trainers through HD step-by-step instructional videos and helping them to have the body shape they have always dreamed of.\n\nUsing this application\nYour use of this application is subject to your irrevocable acceptance without modification of these terms of use (the \'Terms\') and you agree to use this application in accordance with and subject to these terms. The Terms as set out hereunder constitute the entire agreement between you and fitnessstorm,. If you do not read or accept these Terms, do not use this application. By accessing any part of fitnessstorm application, you consent to be bound by these terms. As a condition of your use of this application, you undertake to fitnessstorm that you will not use this application for any purpose that is unlawful or prohibited by these terms.\n\nImportant information\nCustomer using the application who are minor /under the age of 18 shall not register as a user of the application and shall not transact on or use the application only under the supervision of their parents.\nCardholder must retain a copy of transaction records and merchant policies and rules.\nYou are responsible for maintaining the confidentiality of his/her account.\nYou should never share your account information with anyone else.\nThe Developer reserves the right to cancel your account in case of finding any misuse of the application.\nYou are responsible for entering your information correctly when signing up to provide you with appropriate exercises that fits your activity level. As we offer exercises for beginners, moderately active and pro.\nUsers are responsible for selecting the right instructor and exercises for their needs. We are not responsible for any injury or harm might occur while exercising or performing inappropriate exercises.\nFitness Storm is targeting the individuals healthy enough to perform different types of exercises. In case you suffer from any injuries or specific health conditions, make sure to consult your physician before registering in our application.\nIf you are pregnant or breastfeeding, make sure that your doctor has specifically approved your use of the application.\n\nTerms and conditions for personal training:\nThe personal training sessions cannot be refunded, and the start and end dates of the sessions must be adhered to\n-Unforeseen circumstances may arise that result in rescheduling sessions, in which case the following policy will apply:\n- If you are forced to cancel the session within 24 days from the date of booking, the session will be compensated for free.\n- In case of canceling the session on the same day, the session will be deducted from the remaining sessions.\n-Personal training sessions are subject to an expiration period of 30 days from the date of participation.\n-The duration of the session is between 45 mins to one hour\n-The session cannot be recorded via video, as it is subject to confidentiality between the trainer and the trainee.\n-Numbers/emails cannot be exchanged between the trainer and the trainee, and the service is provided through Fitness Storm.\n-Postponement is two sessions per month.\n-The postponement must be notified at least one day before the session, otherwise the session will be considered cancelled.\n-A date must be set to compensate for the postponed session within a week starting from the day of the postponement, or the session is considered cancelled.\n\n\nPayment processing\nWe accept payments through the available options in the application in SAR or USD. \n\nPayment confirmation\nOnce the payment is made, the confirmation notice will be sent to the client via email within 24 hours of receipt of payment.\n\nGoverning Law and Jurisdiction\nAny purchase, dispute or claim arising out of or in connection with this application shall be governed and construed in accordance with the laws of Saudi Arabia.\nThe application Policies and Terms & Conditions may be changed or updated occasionally to meet the requirements and standards. Therefore, the Customers are encouraged to frequently visit these sections in order to be updated about the changes on the application. Modifications will be effective on the day they are posted.',
+              'Terms & Conditions\nFitness Storm is a dynamic application enables the users to train with world class trainers through HD step-by-step instructional videos.\n\nService description\nThis application is a registered business in Saudi Arabia.\nFitness Storm enables the users to train with world class trainers through HD step-by-step instructional videos and helping them to have the body shape they have always dreamed of.\n\nUsing this application\nYour use of this application is subject to your irrevocable acceptance without modification of these terms of use (the \'Terms\') and you agree to use this application in accordance with and subject to these terms. The Terms as set out hereunder constitute the entire agreement between you and fitness Storm,. If you do not read or accept these Terms, do not use this application. By accessing any part of fitness Storm application, you consent to be bound by these terms. As a condition of your use of this application, you undertake to fitness Storm that you will not use this application for any purpose that is unlawful or prohibited by these terms.\n\nImportant information\nCustomer using the application who are minor /under the age of 18 shall not register as a user of the application and shall not transact on or use the application only under the supervision of their parents.\nCardholder must retain a copy of transaction records and merchant policies and rules.\nYou are responsible for maintaining the confidentiality of his/her account.\nYou should never share your account information with anyone else.\nThe Developer reserves the right to cancel your account in case of finding any misuse of the application.\nYou are responsible for entering your information correctly when signing up to provide you with appropriate exercises that fits your activity level. As we offer exercises for beginners, moderately active and pro.\nUsers are responsible for selecting the right instructor and exercises for their needs. We are not responsible for any injury or harm might occur while exercising or performing inappropriate exercises.\nFitness Storm is targeting the individuals healthy enough to perform different types of exercises. In case you suffer from any injuries or specific health conditions, make sure to consult your physician before registering in our application.\nIf you are pregnant or breastfeeding, make sure that your doctor has specifically approved your use of the application.\n\nTerms and conditions for personal training:\nThe personal training sessions cannot be refunded, and the start and end dates of the sessions must be adhered to\n-Unforeseen circumstances may arise that result in rescheduling sessions, in which case the following policy will apply:\n- If you are forced to cancel the session within 24 days from the date of booking, the session will be compensated for free.\n- In case of canceling the session on the same day, the session will be deducted from the remaining sessions.\n-Personal training sessions are subject to an expiration period of 30 days from the date of participation.\n-The duration of the session is between 45 mins to one hour\n-The session cannot be recorded via video, as it is subject to confidentiality between the trainer and the trainee.\n-Numbers/emails cannot be exchanged between the trainer and the trainee, and the service is provided through Fitness Storm.\n-Postponement is two sessions per month.\n-The postponement must be notified at least one day before the session, otherwise the session will be considered cancelled.\n-A date must be set to compensate for the postponed session within a week starting from the day of the postponement, or the session is considered cancelled.\n\n\nPayment processing\nWe accept payments through the available options in the application in SAR or USD. \n\nPayment confirmation\nOnce the payment is made, the confirmation notice will be sent to the client via email within 24 hours of receipt of payment.\n\nGoverning Law and Jurisdiction\nAny purchase, dispute or claim arising out of or in connection with this application shall be governed and construed in accordance with the laws of Saudi Arabia.\nThe application Policies and Terms & Conditions may be changed or updated occasionally to meet the requirements and standards. Therefore, the Customers are encouraged to frequently visit these sections in order to be updated about the changes on the application. Modifications will be effective on the day they are posted.',
           'global_keys_reparent':
               'Widgets that have global keys reparent\ntheir subtrees when they are moved from one\nlocation in the tree to another location in \'\nthe tree. In order to reparent its subtree, \na widget must arrive at its new location in \nthe tree in the same animation frame in \nwhich it was removed from its old location \nthe tree.',
           '---------': '-----------------',
           'email_is_required': 'Email Is Required',
-          'invald_email': 'Invald Email',
+          'invald_email': 'Invalid Email',
           'check_your_email': 'Check Your Email',
           'password_is_required': 'Password Is Required',
           'name_is_required': 'Name Is Required',
@@ -292,9 +292,9 @@ class LocaleString extends Translations {
           'finished_this_day': "User already finished this day",
           'needBookPrivateSession':
               'You need to book an appointment to have a private session with the coach',
-          'Your_subscription_to_plan': 'Your subscription will be canceled with plan',
+          'Your_subscription_to_plan': 'You will be no longer training with plan',
           "subscription_finished":
-              "Your subscription to Fitness Sotrm has ended, kindly renew it to continue where you have stopped.Subscribe Cancel",
+              "Your subscription to Fitness Storm has ended, kindly renew it to continue where you have stopped.Subscribe Cancel",
           'will_be_canceled': 'will be canceled',
           'What_is_Fitness_Storm?': 'What is Fitness Storm?',
           'It_is_a_dynamic_application_in_both_Arabic':
@@ -308,7 +308,7 @@ class LocaleString extends Translations {
           '-What_plans_do_you_offer_to_subscribe?':
               'What plans do you offer to subscribe?',
           'We_offer_3_basic_plans':
-              ' We offer 3 basic plans: ✔	Plan for 3 months ✔	Plan for 6 months ✔	Plan for 12 months ✔	one to one session with coach or dietician (private classes) ',
+              ' We offer 3 basic plans: ✔	Plan for 3 months ✔	Plan for 6 months ✔	Plan for 12 months ✔	one to one session with coach or dietitian (private classes) ',
           'Are_there_exercises_for_beginners?': 'Are there exercises for beginners?',
           "make_chat":
               'You should be subscribed with this coach in particular to have a conversation',
@@ -404,7 +404,7 @@ Information we collect automatically:
 ●	browser and standard web server log information
 
 Use of personal data
-We use your data to provide you with the most recommended exercises sessions/fitness programs that fit your physical activity and fitness goal.  We also might use your contact details to contact you and getting your feedback on ourapplication and if you have any recommendations. 
+We use your data to provide you with the most recommended exercises sessions/fitness programs that fit your physical activity and fitness goal.  We also might use your contact details to contact you and getting your feedback on our application and if you have any recommendations. 
 To improve the efficiency of the application; Some data might be used for statistical and marketing analysis, systems testing, customer surveys, customer relations communications and offering you services and products we believe may interest you.
 For questions about our use of your personal information (including legal bases and transfer mechanisms we rely on), cookies or similar technologies, please contact our Data Protection Officer/Privacy Office by email provided at the application.
 
@@ -653,7 +653,7 @@ The application Policies may be changed or updated occasionally to meet the requ
           'month': 'الشهر',
           'welcome': 'مرحباّ',
           'congratulations':
-              'تهانينا على اتخاذ الخطوة الأولى نحو رحلة اللياقة البدنية مع FitnessStorm. الآن بعد أن اشتركت، لديك إمكانية الوصول إلى جميع مواردنا. اختر برنامج ودعنا نبدأ!',
+              'تهانينا على اتخاذ الخطوة الأولى نحو رحلة اللياقة البدنية مع Fitness Storm. الآن بعد أن اشتركت، لديك إمكانية الوصول إلى جميع مواردنا. اختر برنامج ودعنا نبدأ!',
           'successfully_subscribed': 'تم الاشتراك بنجاح',
           'why_to_subscribe': 'لماذا الاشتراك؟',
           'enjoy_your_fitness_storm.': 'استمتع برحلتك مع Fitness Storm ',
@@ -827,7 +827,7 @@ Fitness Storm هو تطبيق ديناميكي يتيح للمستخدمين ا�
           'not_complete_process_payment': 'لم يتم الدفع الكامل للعملية',
           'subscribe': 'اشترك',
           'week': 'اسبوع',
-          'What_is_Fitness_Storm?': 'ما هو FitnessStorm ؟',
+          'What_is_Fitness_Storm?': 'ما هو Fitness Storm ؟',
           'It_is_a_dynamic_application_in_both_Arabic':
               'إنه تطبيق ديناميكي باللغتين العربية والإنجليزية يمنحك فرصة للتدريب مع مدربين عالميين من خلال مقاطع فيديو تعليمية عالية الدقة خطوة بخطوة.',
           'Can_I_contact_the_coach_directly?': 'هل يمكنني الاتصال بالمدرب مباشرة ؟',
@@ -908,7 +908,6 @@ Fitness Storm هو تطبيق ديناميكي يتيح للمستخدمين ا�
           'sup_total': 'الإجمالي',
           'voucher': 'قيمة الحسم',
           'net_total': 'المبلغ بعد الحسم',
-
         }
       };
 }
