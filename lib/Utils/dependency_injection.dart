@@ -245,6 +245,7 @@ class Note {
       'Afak',
       'Afak App',
       playSound: true,
+      styleInformation:  BigTextStyleInformation(''),
       importance: Importance.defaultImportance,
       priority: Priority.high,
     );

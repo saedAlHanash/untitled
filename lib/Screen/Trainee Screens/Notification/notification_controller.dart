@@ -36,4 +36,10 @@ class NotificationController extends GetxController {
     notifications =
         await _notificationRepository.getAllNotifications(isTrainer);
   }
+  Future<void> getAllNotification1() async {
+        isLoading = true;
+    notifications =
+        await _notificationRepository.getAllNotifications(isTrainer);
+        isLoading = false;
+  }
 }

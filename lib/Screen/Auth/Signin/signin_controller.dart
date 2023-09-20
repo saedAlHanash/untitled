@@ -83,10 +83,10 @@ class SigninController extends GetxController {
         getProfile();
         //Todo should un comment this
         final token = await getToken();
-        ////log('FFFCCCMMM $token');
+
         await storeFcm(token);
         Get.back();
-        // Utils.openSnackBar(title: 'Login Success', textColor: Colors.white);
+
         isTrainer
             ? Get.offAllNamed(AppRoutes.trainerHomePage)
             : Get.offAllNamed(AppRoutes.mainHome);
@@ -94,7 +94,6 @@ class SigninController extends GetxController {
         Get.back();
         message.value = res.message!;
 
-        // Utils.openSnackBar(title: res.message!, textColor: Colors.white);
       }
     }
   }

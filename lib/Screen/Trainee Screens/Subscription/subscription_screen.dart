@@ -95,7 +95,6 @@ class SubscriptionScreen extends GetView<SubscruptionController> {
   }
 
   void onTapSubscrip(BuildContext context, int index) async {
-
     if (!controller.isSubscribe) {
       final result = await Navigator.push(
         context,
@@ -125,8 +124,8 @@ class SubscriptionScreen extends GetView<SubscruptionController> {
             ),
           ),
         ).then((value) async {
-
           if (value != null) {
+            // TODO: subscriptions/check
             await controller.getSubscribtionPaymentPlan();
 
             // HelperClass.successfullySubscription = true;
