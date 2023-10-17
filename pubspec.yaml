@@ -54,11 +54,13 @@ dependencies:
   readmore: ^2.2.0
   flutter_native_splash: ^2.2.5
   google_sign_in:
-  agora_rtc_engine: ^6.2.0
+#  agora_rtc_engine: ^6.2.0
   # permission handler
   permission_handler:
   flutter_app_badger:
   firebase_auth: ^4.6.3
+  firebase_analytics: any
+  firebase_dynamic_links: ^5.3.6
   get: ^4.6.5
   get_storage: ^2.0.3
   logger: ^1.1.0
@@ -97,6 +99,7 @@ dependencies:
   open_filex: ^4.3.2
   path_provider:
   shimmer_animation: ^2.1.0+1
+  flutter_meta_sdk: ^1.0.2
 dev_dependencies:
   flutter_test:
     sdk: flutter
