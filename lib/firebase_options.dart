@@ -64,7 +64,7 @@ class DefaultFirebaseOptions {
     projectId: 'fitness-strom-1',
     storageBucket: 'fitness-strom-1.appspot.com',
     androidClientId: '644714333877-7ofomv1e9dke876u0r9p6qfdm6763cs8.apps.googleusercontent.com',
-    iosClientId: '644714333877-stt8h2hvrja168qd3voimoqs8m8rrdsj.apps.googleusercontent.com',
+    iosClientId: '644714333877-120vrkjeaqnlmihnacereairhcv9i2ih.apps.googleusercontent.com',
     iosBundleId: 'com.chi.fitnessStorm',
   );
 }
