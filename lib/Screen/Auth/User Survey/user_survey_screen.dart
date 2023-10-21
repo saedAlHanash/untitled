@@ -39,13 +39,13 @@ class UserSurveyScreen extends GetView<UserSurveyController> {
                     // SizedBox(height: Get.height / 50),
                     Text(
                       'fitness_survey'.tr,
-                      style: TextStyle(fontSize: 26, color: Colors.white),
+                      style: const TextStyle(fontSize: 26, color: Colors.white),
                     ),
                     SizedBox(height: Get.height / 50),
                     Text(
                       'take_this_survey'.tr,
                       textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 14, color: Colors.white),
+                      style: const TextStyle(fontSize: 14, color: Colors.white),
                     ),
                     SizedBox(height: Get.height / 20),
                     Row(
@@ -69,7 +69,7 @@ class UserSurveyScreen extends GetView<UserSurveyController> {
                     ),
                     SizedBox(height: Get.height / 40.6),
                     Text('how_often_do_you_exercise?'.tr,
-                        style: TextStyle(fontSize: 14, color: Colors.white)),
+                        style: const TextStyle(fontSize: 14, color: Colors.white)),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -94,68 +94,60 @@ class UserSurveyScreen extends GetView<UserSurveyController> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('you_Prefer_to_workout_in'.tr + ':',
+                        Text('${'you_Prefer_to_workout_in'.tr}:',
                             style:
-                                TextStyle(fontSize: 14, color: Colors.white)),
+                                const TextStyle(fontSize: 14, color: Colors.white)),
                         Row(
                           children: [
-                            Theme(
-                              data: Theme.of(context).copyWith(
-                                  unselectedWidgetColor: Colors.white),
-                              child: Checkbox(
-                                value: controller.isGym,
-                                onChanged: (value) {
-                                  if (value!) {
-                                    controller.workoutLocation = 'gym';
-                                  } else {
-                                    controller.workoutLocation = '';
-                                  }
-                                  controller.isGym = value;
-                                  controller.isHome = false;
-                                },
-                                fillColor: MaterialStateProperty.all(
-                                  Get.theme.colorScheme.secondary,
-                                ),
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(5)),
-                                checkColor: Get.theme.colorScheme.secondary,
+                            Checkbox(
+                              value: controller.isGym,
+                              onChanged: (value) {
+                                if (value!) {
+                                  controller.workoutLocation = 'gym';
+                                } else {
+                                  controller.workoutLocation = '';
+                                }
+                                controller.isGym = value;
+                                controller.isHome = false;
+                              },
+                              fillColor: MaterialStateProperty.all(
+                                Get.theme.colorScheme.secondary,
                               ),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5)),
+                              checkColor: Get.theme.colorScheme.secondary,
                             ),
                             Text(
                               'gym'.tr,
                               style:
-                                  TextStyle(color: Colors.white, fontSize: 12),
+                                  const TextStyle(color: Colors.white, fontSize: 12),
                             )
                           ],
                         ),
                         Row(
                           children: [
-                            Theme(
-                              data: Theme.of(context).copyWith(
-                                  unselectedWidgetColor: Colors.white),
-                              child: Checkbox(
-                                value: controller.isHome,
-                                onChanged: (value) {
-                                  if (value!) {
-                                    controller.workoutLocation = 'home';
-                                  } else {
-                                    controller.workoutLocation = '';
-                                  }
-                                  controller.isHome = value;
-                                  controller.isGym = false;
-                                },
-                                fillColor: MaterialStateProperty.all(
-                                  Get.theme.colorScheme.secondary,
-                                ),
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(5)),
-                                checkColor: Get.theme.colorScheme.secondary,
-                              ),
-                            ),
+                            Checkbox(
+                               value: controller.isHome,
+                               onChanged: (value) {
+                                 if (value!) {
+                                   controller.workoutLocation = 'home';
+                                 } else {
+                                   controller.workoutLocation = '';
+                                 }
+                                 controller.isHome = value;
+                                 controller.isGym = false;
+                               },
+                               fillColor: MaterialStateProperty.all(
+                                 Get.theme.colorScheme.secondary,
+                               ),
+                               shape: RoundedRectangleBorder(
+                                   borderRadius: BorderRadius.circular(5)),
+                               checkColor: Get.theme.colorScheme.secondary,
+                             ),
                             Text(
                               'home'.tr,
                               style:
-                                  TextStyle(color: Colors.white, fontSize: 12),
+                                  const TextStyle(color: Colors.white, fontSize: 12),
                             )
                           ],
                         ),
@@ -169,70 +161,62 @@ class UserSurveyScreen extends GetView<UserSurveyController> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text('What\'s_your_training_level?'.tr,
-                              style: TextStyle(color: Colors.white)),
+                              style: const TextStyle(color: Colors.white)),
                           Column(
                             children: [
                               Row(
                                 children: [
-                                  Theme(
-                                    data: Theme.of(context).copyWith(
-                                        unselectedWidgetColor: Colors.white),
-                                    child: Checkbox(
-                                      value: controller.isBeginner,
-                                      onChanged: (value) {
-                                        if (value!) {
-                                          controller.trainingLevel = 'Beginner';
-                                        } else {
-                                          controller.trainingLevel = '';
-                                        }
-                                        controller.isBeginner = value;
-                                        controller.isIntermediate = false;
-                                        controller.isProfessional = false;
-                                      },
-                                      fillColor: MaterialStateProperty.all(
-                                        Get.theme.colorScheme.secondary,
-                                      ),
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(5)),
-                                      checkColor:
-                                          Get.theme.colorScheme.secondary,
-                                    ),
-                                  ),
+                                  Checkbox(
+                                     value: controller.isBeginner,
+                                     onChanged: (value) {
+                                       if (value!) {
+                                         controller.trainingLevel = 'Beginner';
+                                       } else {
+                                         controller.trainingLevel = '';
+                                       }
+                                       controller.isBeginner = value;
+                                       controller.isIntermediate = false;
+                                       controller.isProfessional = false;
+                                     },
+                                     fillColor: MaterialStateProperty.all(
+                                       Get.theme.colorScheme.secondary,
+                                     ),
+                                     shape: RoundedRectangleBorder(
+                                         borderRadius:
+                                             BorderRadius.circular(5)),
+                                     checkColor:
+                                         Get.theme.colorScheme.secondary,
+                                   ),
                                   Text(
                                     'beginner'.tr,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         color: Colors.white, fontSize: 12),
                                   )
                                 ],
                               ),
                               Row(
                                 children: [
-                                  Theme(
-                                    data: Theme.of(context).copyWith(
-                                        unselectedWidgetColor: Colors.white),
-                                    child: Checkbox(
-                                      value: controller.isIntermediate,
-                                      onChanged: (value) {
-                                        if (value!) {
-                                          controller.trainingLevel =
-                                              'Intermediate';
-                                        } else {
-                                          controller.trainingLevel = '';
-                                        }
-                                        controller.isBeginner = false;
-                                        controller.isIntermediate = value;
-                                        controller.isProfessional = false;
-                                      },
-                                      fillColor: MaterialStateProperty.all(
-                                        Get.theme.colorScheme.secondary,
-                                      ),
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(5)),
-                                      checkColor:
-                                          Get.theme.colorScheme.secondary,
+                                  Checkbox(
+                                    value: controller.isIntermediate,
+                                    onChanged: (value) {
+                                      if (value!) {
+                                        controller.trainingLevel =
+                                            'Intermediate';
+                                      } else {
+                                        controller.trainingLevel = '';
+                                      }
+                                      controller.isBeginner = false;
+                                      controller.isIntermediate = value;
+                                      controller.isProfessional = false;
+                                    },
+                                    fillColor: MaterialStateProperty.all(
+                                      Get.theme.colorScheme.secondary,
                                     ),
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(5)),
+                                    checkColor:
+                                        Get.theme.colorScheme.secondary,
                                   ),
                                   const Text(
                                     'Intermediate',
@@ -243,34 +227,30 @@ class UserSurveyScreen extends GetView<UserSurveyController> {
                               ),
                               Row(
                                 children: [
-                                  Theme(
-                                    data: Theme.of(context).copyWith(
-                                        unselectedWidgetColor: Colors.white),
-                                    child: Checkbox(
-                                      value: controller.isProfessional,
-                                      onChanged: (value) {
-                                        if (value!) {
-                                          controller.trainingLevel = 'Advanced';
-                                        } else {
-                                          controller.trainingLevel = '';
-                                        }
-                                        controller.isBeginner = false;
-                                        controller.isIntermediate = false;
-                                        controller.isProfessional = value;
-                                      },
-                                      fillColor: MaterialStateProperty.all(
-                                        Get.theme.colorScheme.secondary,
-                                      ),
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(5)),
-                                      checkColor:
-                                          Get.theme.colorScheme.secondary,
+                                  Checkbox(
+                                    value: controller.isProfessional,
+                                    onChanged: (value) {
+                                      if (value!) {
+                                        controller.trainingLevel = 'Advanced';
+                                      } else {
+                                        controller.trainingLevel = '';
+                                      }
+                                      controller.isBeginner = false;
+                                      controller.isIntermediate = false;
+                                      controller.isProfessional = value;
+                                    },
+                                    fillColor: MaterialStateProperty.all(
+                                      Get.theme.colorScheme.secondary,
                                     ),
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(5)),
+                                    checkColor:
+                                        Get.theme.colorScheme.secondary,
                                   ),
                                   Text(
                                     'professional'.tr,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         color: Colors.white, fontSize: 12),
                                   )
                                 ],
@@ -288,111 +268,99 @@ class UserSurveyScreen extends GetView<UserSurveyController> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text('what_is_your_training_goal?'.tr,
-                              style: TextStyle(color: Colors.white)),
+                              style: const TextStyle(color: Colors.white)),
                           Column(
                             children: [
                               Row(
                                 children: [
-                                  Theme(
-                                    data: Theme.of(context).copyWith(
-                                        unselectedWidgetColor: Colors.white),
-                                    child: Checkbox(
-                                      value: controller.isLoseweight,
-                                      onChanged: (value) {
-                                        if (value!) {
-                                          controller.trainingGoal =
-                                              'Lose weight';
-                                        } else {
-                                          controller.trainingGoal = '';
-                                        }
-                                        controller.isLoseweight = value;
-                                        controller.isBuildMuscle = false;
-                                        controller.isStayFit = false;
-                                      },
-                                      fillColor: MaterialStateProperty.all(
-                                        Get.theme.colorScheme.secondary,
-                                      ),
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(5)),
-                                      checkColor:
-                                          Get.theme.colorScheme.secondary,
+                                  Checkbox(
+                                    value: controller.isLoseweight,
+                                    onChanged: (value) {
+                                      if (value!) {
+                                        controller.trainingGoal =
+                                            'Lose weight';
+                                      } else {
+                                        controller.trainingGoal = '';
+                                      }
+                                      controller.isLoseweight = value;
+                                      controller.isBuildMuscle = false;
+                                      controller.isStayFit = false;
+                                    },
+                                    fillColor: MaterialStateProperty.all(
+                                      Get.theme.colorScheme.secondary,
                                     ),
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(5)),
+                                    checkColor:
+                                        Get.theme.colorScheme.secondary,
                                   ),
                                   Text(
                                     'lose_weight'.tr,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         color: Colors.white, fontSize: 12),
                                   )
                                 ],
                               ),
                               Row(
                                 children: [
-                                  Theme(
-                                    data: Theme.of(context).copyWith(
-                                        unselectedWidgetColor: Colors.white),
-                                    child: Checkbox(
-                                      value: controller.isBuildMuscle,
-                                      onChanged: (value) {
-                                        if (value!) {
-                                          controller.trainingGoal =
-                                              'Build muscle';
-                                        } else {
-                                          controller.trainingGoal = '';
-                                        }
-                                        controller.isLoseweight = false;
-                                        controller.isBuildMuscle = value;
-                                        controller.isStayFit = false;
-                                      },
-                                      fillColor: MaterialStateProperty.all(
-                                        Get.theme.colorScheme.secondary,
-                                      ),
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(5)),
-                                      checkColor:
-                                          Get.theme.colorScheme.secondary,
+                                  Checkbox(
+                                    value: controller.isBuildMuscle,
+                                    onChanged: (value) {
+                                      if (value!) {
+                                        controller.trainingGoal =
+                                            'Build muscle';
+                                      } else {
+                                        controller.trainingGoal = '';
+                                      }
+                                      controller.isLoseweight = false;
+                                      controller.isBuildMuscle = value;
+                                      controller.isStayFit = false;
+                                    },
+                                    fillColor: MaterialStateProperty.all(
+                                      Get.theme.colorScheme.secondary,
                                     ),
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(5)),
+                                    checkColor:
+                                        Get.theme.colorScheme.secondary,
                                   ),
                                   Text(
                                     'build_muscle'.tr,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         color: Colors.white, fontSize: 12),
                                   )
                                 ],
                               ),
                               Row(
                                 children: [
-                                  Theme(
-                                    data: Theme.of(context).copyWith(
-                                        unselectedWidgetColor: Colors.white),
-                                    child: Checkbox(
-                                      value: controller.isStayFit,
-                                      onChanged: (value) {
-                                        if (value!) {
-                                          controller.trainingGoal = 'Stay fit';
-                                        } else {
-                                          controller.trainingGoal = '';
-                                        }
-                                        controller.isLoseweight = false;
-                                        controller.isBuildMuscle = false;
-                                        controller.isStayFit = value;
-                                      },
-                                      activeColor:
-                                          Get.theme.colorScheme.secondary,
-                                      fillColor: MaterialStateProperty.all(
+                                  Checkbox(
+                                    value: controller.isStayFit,
+                                    onChanged: (value) {
+                                      if (value!) {
+                                        controller.trainingGoal = 'Stay fit';
+                                      } else {
+                                        controller.trainingGoal = '';
+                                      }
+                                      controller.isLoseweight = false;
+                                      controller.isBuildMuscle = false;
+                                      controller.isStayFit = value;
+                                    },
+                                    activeColor:
                                         Get.theme.colorScheme.secondary,
-                                      ),
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(5)),
-                                      checkColor:
-                                          Get.theme.colorScheme.secondary,
+                                    fillColor: MaterialStateProperty.all(
+                                      Get.theme.colorScheme.secondary,
                                     ),
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(5)),
+                                    checkColor:
+                                        Get.theme.colorScheme.secondary,
                                   ),
                                   Text(
                                     'stay_fit'.tr,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         color: Colors.white, fontSize: 12),
                                   )
                                 ],
@@ -419,7 +387,7 @@ class UserSurveyScreen extends GetView<UserSurveyController> {
                                   ),
                                   Text(
                                     'male'.tr,
-                                    style: TextStyle(color: Colors.white),
+                                    style: const TextStyle(color: Colors.white),
                                   )
                                 ],
                               ),
@@ -440,7 +408,7 @@ class UserSurveyScreen extends GetView<UserSurveyController> {
                                   ),
                                   Text(
                                     'female'.tr,
-                                    style: TextStyle(color: Colors.white),
+                                    style: const TextStyle(color: Colors.white),
                                   )
                                 ],
                               ),

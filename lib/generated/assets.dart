@@ -16,6 +16,7 @@ class Assets {
   static const String imagesBookmark = 'asset/Images/bookmark.svg';
   static const String imagesBookmarkSVG = 'asset/Images/bookmarkSVG.svg';
   static const String imagesCalender = 'asset/Images/calender.svg';
+  static const String imagesCallCenter = 'asset/Images/call_center.svg';
   static const String imagesCancel = 'asset/Images/cancel.svg';
   static const String imagesChat2SVG = 'asset/Images/chat2SVG.svg';
   static const String imagesChat3 = 'asset/Images/chat3.png';

@@ -39,9 +39,20 @@ class ChatScreen extends StatelessWidget {
                 child: SingleChildScrollView(
                   child: Column(children: [
                     InkWell(
-                      onTap: () => Get.toNamed(AppRoutes.conversationScreen,
-                          arguments: ['customer_service'.tr, "-1"]),
-                      child: const CustomerServiceCardwidget(),
+                      onTap: () async {
+                        final room = await getRoomByUser('0');
+                        if (context.mounted) {
+                          Navigator.push(context, MaterialPageRoute(
+                            builder: (context) {
+                              return ChatPage(
+                                room: room!,
+                                name: 'CUSTOMER SERVICE' ?? '',
+                              );
+                            },
+                          ));
+                        }
+                      },
+                      child:  const CustomerServiceCardwidget(),
                     ),
                     ListView.builder(
                       physics: const NeverScrollableScrollPhysics(),
@@ -63,9 +74,7 @@ class ChatScreen extends StatelessWidget {
                             //   arguments: [chat.trainer!.name!, chat.channelId]);
                           },
                           child: ChatCardWidget(
-                            imagePath: '',
-                            trainerName: getChatMember(openRoom.users).lastName ?? '',
-                            lastMessage: openRoom.lastMessages?.first.status?.name ?? '',
+                            room: openRoom,
                           ),
                         );
                       },

@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 
 import '../Model/plan.dart';
 import '../Utils/Routes/app_pages.dart';
-import '../core/images/image_multi_type.dart';
+import 'package:image_multi_type/image_multi_type.dart';
 import 'custom_chip.dart';
 import 'trainer_profile_image.dart';
 

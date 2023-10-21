@@ -19,28 +19,24 @@ class TrainingGoalCheckboxBody extends GetWidget<TraineeProfileInfoController> {
               children: [
                 Row(
                   children: [
-                    Theme(
-                      data: Theme.of(context).copyWith(
-                          unselectedWidgetColor: const Color(0xFFA0A0A0)),
-                      child: Checkbox(
-                        value: controller.isLoseWeight,
-                        onChanged: (value) {
-                          if (value!) {
-                            controller.trainingGoal = 'Lose weight';
-                          } else {
-                            controller.trainingGoal = '';
-                          }
-                          controller.isLoseWeight = value;
-                          controller.isBuildMuscle = false;
-                          controller.isStayFit = false;
-                          controller.userProfile.fitnessSurvey!.trainingGoal =
-                              controller.trainingGoal;
-                        },
-                        activeColor: Get.theme.colorScheme.secondary,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5)),
-                        checkColor: Get.theme.colorScheme.secondary,
-                      ),
+                    Checkbox(
+                      value: controller.isLoseWeight,
+                      onChanged: (value) {
+                        if (value!) {
+                          controller.trainingGoal = 'Lose weight';
+                        } else {
+                          controller.trainingGoal = '';
+                        }
+                        controller.isLoseWeight = value;
+                        controller.isBuildMuscle = false;
+                        controller.isStayFit = false;
+                        controller.userProfile.fitnessSurvey!.trainingGoal =
+                            controller.trainingGoal;
+                      },
+                      activeColor: Get.theme.colorScheme.secondary,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5)),
+                      checkColor: Get.theme.colorScheme.secondary,
                     ),
                     Text(
                       'lose_weight'.tr,
@@ -50,28 +46,24 @@ class TrainingGoalCheckboxBody extends GetWidget<TraineeProfileInfoController> {
                 ),
                 Row(
                   children: [
-                    Theme(
-                      data: Theme.of(context).copyWith(
-                          unselectedWidgetColor: const Color(0xFFA0A0A0)),
-                      child: Checkbox(
-                        value: controller.isBuildMuscle,
-                        onChanged: (value) {
-                          if (value!) {
-                            controller.trainingGoal = 'Build muscle';
-                          } else {
-                            controller.trainingGoal = '';
-                          }
-                          controller.isLoseWeight = false;
-                          controller.isBuildMuscle = value;
-                          controller.isStayFit = false;
-                          controller.userProfile.fitnessSurvey!.trainingGoal =
-                              controller.trainingGoal;
-                        },
-                        activeColor: Get.theme.colorScheme.secondary,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5)),
-                        checkColor: Get.theme.colorScheme.secondary,
-                      ),
+                    Checkbox(
+                      value: controller.isBuildMuscle,
+                      onChanged: (value) {
+                        if (value!) {
+                          controller.trainingGoal = 'Build muscle';
+                        } else {
+                          controller.trainingGoal = '';
+                        }
+                        controller.isLoseWeight = false;
+                        controller.isBuildMuscle = value;
+                        controller.isStayFit = false;
+                        controller.userProfile.fitnessSurvey!.trainingGoal =
+                            controller.trainingGoal;
+                      },
+                      activeColor: Get.theme.colorScheme.secondary,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5)),
+                      checkColor: Get.theme.colorScheme.secondary,
                     ),
                     Text(
                       'build_muscle'.tr,
@@ -81,26 +73,22 @@ class TrainingGoalCheckboxBody extends GetWidget<TraineeProfileInfoController> {
                 ),
                 Row(
                   children: [
-                    Theme(
-                      data: Theme.of(context).copyWith(
-                          unselectedWidgetColor: const Color(0xFFA0A0A0)),
-                      child: Checkbox(
-                        value: controller.isStayFit,
-                        onChanged: (value) {
-                          if (value!) {
-                            controller.trainingGoal = 'Stay fit';
-                          } else {
-                            controller.trainingGoal = '';
-                          }
-                          controller.isLoseWeight = false;
-                          controller.isBuildMuscle = false;
-                          controller.isStayFit = value;
-                        },
-                        activeColor: Get.theme.colorScheme.secondary,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5)),
-                        checkColor: Get.theme.colorScheme.secondary,
-                      ),
+                    Checkbox(
+                      value: controller.isStayFit,
+                      onChanged: (value) {
+                        if (value!) {
+                          controller.trainingGoal = 'Stay fit';
+                        } else {
+                          controller.trainingGoal = '';
+                        }
+                        controller.isLoseWeight = false;
+                        controller.isBuildMuscle = false;
+                        controller.isStayFit = value;
+                      },
+                      activeColor: Get.theme.colorScheme.secondary,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5)),
+                      checkColor: Get.theme.colorScheme.secondary,
                     ),
                     Text(
                       'stay_fit'.tr,

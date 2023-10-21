@@ -1,11 +1,17 @@
+import 'package:drawable_text/drawable_text.dart';
 import 'package:fitness_storm/Screen/Auth/Signin/signin_controller.dart';
 import 'package:fitness_storm/Utils/Routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:image_multi_type/image_multi_type.dart';
 
 import '../../../../Widgets/custom_button.dart';
 import '../../../../Widgets/custom_text_field.dart';
+import '../../../Widgets/language_board_widget.dart';
+import '../../../common/assets.gen.dart';
+import '../../../common/bottom_sheets.dart';
+import '../../Trainee Screens/Trainee_Profile/Widget/profile_card.dart';
 
 class SigninScreen extends GetView<SigninController> {
   const SigninScreen({Key? key}) : super(key: key);
@@ -37,15 +43,33 @@ class SigninScreen extends GetView<SigninController> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(height: Get.height / 20),
-                    Center(
-                      child: Image.asset('asset/Images/white_logo.png',
-                          width: Get.width / 4),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            BottomSheets.languageBottomSheet(
+                              const LanguageBoardWidget(fromAuthPage: true),
+                            );
+                          },
+                          child: ImageMultiType(
+                            url: Assets.images.language,
+                            width: Get.width / 15,
+                          ),
+                        ),
+                        Image.asset(
+                          'asset/Images/white_logo.png',
+                          width: Get.width / 4,
+                        ),
+                        const SizedBox(),
+                      ],
                     ),
                     SizedBox(height: Get.height / 20),
                     Center(
                       child: Text('sign_in'.tr,
-                          style: TextStyle(color: Colors.white, fontSize: 26)),
+                          style: const TextStyle(color: Colors.white, fontSize: 26)),
                     ),
+
                     SizedBox(height: Get.height / 50),
                     Text(
                       controller.message.value,
@@ -116,9 +140,9 @@ class SigninScreen extends GetView<SigninController> {
                                 controller.isTrainer = value;
                               },
                               fillColor: MaterialStateProperty.all(Colors.white),
-                              checkColor: Colors.white,
+                              checkColor: Get.theme.primaryColor,
                               shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5)),
+                                  borderRadius: BorderRadius.circular(3)),
                             ),
                             Text(
                               'sign_in_Trainer'.tr,
@@ -191,7 +215,7 @@ class SigninScreen extends GetView<SigninController> {
                         // Image.asset('asset/Images/facebookSVG.svg'),
                         // SizedBox(width: Get.width / 6),
                         //TODO: google button
-                        if (DateTime.now().isAfter(DateTime(2023, 9, 12)))
+                        if (DateTime.now().isAfter(DateTime(2023, 10, 23)))
                           GestureDetector(
                             onTap: () => controller.sign_in_google(),
                             child: Container(
@@ -202,7 +226,7 @@ class SigninScreen extends GetView<SigninController> {
                                     borderRadius: BorderRadius.circular(100),
                                     color: Colors.white),
                                 child: SvgPicture.asset('asset/Images/googleSVG.svg')),
-                          )
+                          ),
                       ],
                     ),
                     Row(

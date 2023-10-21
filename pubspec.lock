@@ -656,13 +656,13 @@ packages:
     source: hosted
     version: "2.0.15"
   flutter_svg:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: flutter_svg
-      sha256: "6ff9fa12892ae074092de2fa6a9938fb21dbabfdaa2ff57dc697ff912fc8d4b2"
+      sha256: "8c5d68a82add3ca76d792f058b186a0599414f279f00ece4830b9b231b570338"
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.6"
+    version: "2.0.7"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -809,6 +809,15 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.17"
+  image_multi_type:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: HEAD
+      resolved-ref: ee44f1a51d0feb827c76459286c538fb79f2bb18
+      url: "https://github.com/saedAlHanash/image_multi_type"
+    source: git
+    version: "0.0.1"
   image_picker:
     dependency: "direct main"
     description:
@@ -1033,14 +1042,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.8.3"
-  path_drawing:
-    dependency: transitive
-    description:
-      name: path_drawing
-      sha256: bbb1934c0cbb03091af082a6389ca2080345291ef07a5fa6d6e078ba8682f977
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.1"
   path_parsing:
     dependency: transitive
     description:
@@ -1157,10 +1158,10 @@ packages:
     dependency: transitive
     description:
       name: petitparser
-      sha256: "49392a45ced973e8d94a85fdb21293fbb40ba805fc49f2965101ae748a3683b4"
+      sha256: cb3798bef7fc021ac45b308f4b51208a152792445cce0448c9a4ba5879dd8750
       url: "https://pub.dev"
     source: hosted
-    version: "5.1.0"
+    version: "5.4.0"
   photo_view:
     dependency: transitive
     description:
@@ -1386,6 +1387,30 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.0+1"
+  sign_in_with_apple:
+    dependency: "direct main"
+    description:
+      name: sign_in_with_apple
+      sha256: "0975c23b9f8b30a80e27d5659a75993a093d4cb5f4eb7d23a9ccc586fea634e0"
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.0.0"
+  sign_in_with_apple_platform_interface:
+    dependency: transitive
+    description:
+      name: sign_in_with_apple_platform_interface
+      sha256: a5883edee09ed6be19de19e7d9f618a617fe41a6fa03f76d082dfb787e9ea18d
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
+  sign_in_with_apple_web:
+    dependency: transitive
+    description:
+      name: sign_in_with_apple_web
+      sha256: "44b66528f576e77847c14999d5e881e17e7223b7b0625a185417829e5306f47a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.1"
   simple_gesture_detector:
     dependency: transitive
     description:
@@ -1615,6 +1640,30 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.7"
+  vector_graphics:
+    dependency: transitive
+    description:
+      name: vector_graphics
+      sha256: b16dadf7eb610e20da044c141b4a0199a5e8082ca21daba68322756f953ce714
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.9"
+  vector_graphics_codec:
+    dependency: transitive
+    description:
+      name: vector_graphics_codec
+      sha256: a4b01403d5c613db115e30e71eca33f7e9e09f2d3c52c3fb84e16333ecddc539
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.9"
+  vector_graphics_compiler:
+    dependency: transitive
+    description:
+      name: vector_graphics_compiler
+      sha256: d26c0e2f237476426523eb25512e4c09fa27c6d33ed659a0e69d79e20b5dc47f
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.9"
   vector_math:
     dependency: transitive
     description:
@@ -1739,10 +1788,10 @@ packages:
     dependency: transitive
     description:
       name: xml
-      sha256: "979ee37d622dec6365e2efa4d906c37470995871fe9ae080d967e192d88286b5"
+      sha256: "5bc72e1e45e941d825fd7468b9b4cc3b9327942649aeb6fc5cdbf135f0a86e84"
       url: "https://pub.dev"
     source: hosted
-    version: "6.2.2"
+    version: "6.3.0"
   yaml:
     dependency: transitive
     description:
@@ -1761,4 +1810,4 @@ packages:
     version: "1.12.4"
 sdks:
   dart: ">=3.0.5 <4.0.0"
-  flutter: ">=3.7.0"
+  flutter: ">=3.7.6"

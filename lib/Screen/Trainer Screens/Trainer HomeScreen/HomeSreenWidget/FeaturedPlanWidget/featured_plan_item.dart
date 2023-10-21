@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../../Widgets/plan_time_freqency.dart';
-import '../../../../../core/images/image_multi_type.dart';
+import 'package:image_multi_type/image_multi_type.dart';
 
 class FeaturedPlanItem extends GetWidget {
   final String planImageUrl;

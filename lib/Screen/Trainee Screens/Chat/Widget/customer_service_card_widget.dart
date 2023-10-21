@@ -1,9 +1,20 @@
+import 'package:drawable_text/drawable_text.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Chat/chat_controller.dart';
+import 'package:fitness_storm/helper/extensions.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_chat_types/flutter_chat_types.dart';
 import 'package:get/get.dart';
+import 'package:image_multi_type/image_multi_type.dart';
+import 'package:image_multi_type/round_image_widget.dart';
+
+import '../../../../generated/assets.dart';
 
 class CustomerServiceCardwidget extends GetWidget<ChatController> {
-  const CustomerServiceCardwidget({super.key});
+
+
+  const CustomerServiceCardwidget({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -11,12 +22,12 @@ class CustomerServiceCardwidget extends GetWidget<ChatController> {
       height: Get.height / 9,
       width: Get.width,
       color: Colors.white,
+      margin: EdgeInsets.symmetric(vertical: Get.height / 162.4),
       child: Row(children: [
         Container(
           width: Get.width / 6,
           height: Get.width / 6,
-          margin:
-              EdgeInsets.only(left: Get.width / 12.5, right: Get.width / 18.75),
+          margin: EdgeInsets.only(left: Get.width / 12.5, right: Get.width / 18.75),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(100),
             border: Border.all(width: 2, color: Colors.white),
@@ -25,13 +36,12 @@ class CustomerServiceCardwidget extends GetWidget<ChatController> {
                 color: Colors.grey.withOpacity(0.5),
                 spreadRadius: 0.1,
                 blurRadius: 8,
-                offset: const Offset(0, 10),
+                offset: const Offset(0, 10), // changes position of shadow
               ),
             ],
           ),
-          child: ClipRRect(
-              borderRadius: BorderRadius.circular(100),
-              child: Image.asset('asset/Images/user.png')),
+          alignment: Alignment.center,
+          child: const ImageMultiType(url: Assets.imagesCallCenter),
         ),
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -39,15 +49,9 @@ class CustomerServiceCardwidget extends GetWidget<ChatController> {
           children: [
             Text(
               'customer_service'.tr,
-              style: TextStyle(
-                  color: Color(0xFF565C63),
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold),
+              style: const TextStyle(
+                  color: Color(0xFF565C63), fontSize: 16, fontWeight: FontWeight.bold),
             ),
-            Text(
-              'last_message'.tr,
-              style: TextStyle(color: Color(0xFFA0A0A0), fontSize: 16),
-            )
           ],
         )
       ]),

@@ -5,9 +5,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
-class LanguageBoardWidget extends StatelessWidget {
-  LanguageBoardWidget({super.key});
+class LanguageBoardWidget extends StatefulWidget {
+  const LanguageBoardWidget({super.key, this.fromAuthPage = false});
 
+  final bool fromAuthPage;
+
+  @override
+  State<LanguageBoardWidget> createState() => _LanguageBoardWidgetState();
+}
+
+class _LanguageBoardWidgetState extends State<LanguageBoardWidget> {
   LanguagesController languagesController = Get.find<LanguagesController>();
 
   @override
@@ -19,11 +26,13 @@ class LanguageBoardWidget extends StatelessWidget {
         children: [
           LangWidget(
             title: 'عربي',
-            ontap: () async => await languagesController.setLanguage('ar'),
+            ontap: () async => await languagesController.setLanguage('ar',
+                fromAuthPage: widget.fromAuthPage),
           ).padding(EdgeInsets.symmetric(vertical: 8)),
           LangWidget(
             title: 'English',
-            ontap: () async => await languagesController.setLanguage('en'),
+            ontap: () async => await languagesController.setLanguage('en',
+                fromAuthPage: widget.fromAuthPage),
           ),
         ],
       ).padding(

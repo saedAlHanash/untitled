@@ -22,27 +22,23 @@ class WorkoutLocationCheckboxBody
                 width: 80,
                 child: Row(
                   children: [
-                    Theme(
-                      data: Theme.of(context).copyWith(
-                          unselectedWidgetColor: const Color(0xFFA0A0A0)),
-                      child: Checkbox(
-                        value: controller.isGym,
-                        onChanged: (value) {
-                          if (value!) {
-                            controller.userWorkoutLocation = 'gym';
-                            HelperClass.workoutLocation = 'gym';
-                          } else {
-                            controller.userWorkoutLocation = '';
-                          }
-                          controller.isGym = value;
-                          controller.isHome = false;
-                          // controller.userProfile.fitnessSurvey.
-                        },
-                        activeColor: Get.theme.colorScheme.secondary,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5)),
-                        checkColor: Get.theme.colorScheme.secondary,
-                      ),
+                    Checkbox(
+                      value: controller.isGym,
+                      onChanged: (value) {
+                        if (value!) {
+                          controller.userWorkoutLocation = 'gym';
+                          HelperClass.workoutLocation = 'gym';
+                        } else {
+                          controller.userWorkoutLocation = '';
+                        }
+                        controller.isGym = value;
+                        controller.isHome = false;
+                        // controller.userProfile.fitnessSurvey.
+                      },
+                      activeColor: Get.theme.colorScheme.secondary,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5)),
+                      checkColor: Get.theme.colorScheme.secondary,
                     ),
                     Text(
                       'gym'.tr,
@@ -56,26 +52,22 @@ class WorkoutLocationCheckboxBody
                 width: 90,
                 child: Row(
                   children: [
-                    Theme(
-                      data: Theme.of(context).copyWith(
-                          unselectedWidgetColor: const Color(0xFFA0A0A0)),
-                      child: Checkbox(
-                        value: controller.isHome,
-                        onChanged: (value) {
-                          if (value!) {
-                            controller.userWorkoutLocation = 'home';
-                            HelperClass.workoutLocation = 'home';
-                          } else {
-                            controller.userWorkoutLocation = '';
-                          }
-                          controller.isHome = value;
-                          controller.isGym = false;
-                        },
-                        activeColor: Get.theme.colorScheme.secondary,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5)),
-                        checkColor: Get.theme.colorScheme.secondary,
-                      ),
+                    Checkbox(
+                      value: controller.isHome,
+                      onChanged: (value) {
+                        if (value!) {
+                          controller.userWorkoutLocation = 'home';
+                          HelperClass.workoutLocation = 'home';
+                        } else {
+                          controller.userWorkoutLocation = '';
+                        }
+                        controller.isHome = value;
+                        controller.isGym = false;
+                      },
+                      activeColor: Get.theme.colorScheme.secondary,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5)),
+                      checkColor: Get.theme.colorScheme.secondary,
                     ),
                     Text(
                       'home'.tr,

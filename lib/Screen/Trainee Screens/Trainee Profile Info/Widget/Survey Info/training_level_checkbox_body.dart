@@ -22,28 +22,24 @@ class TrainingLevelCheckboxBody
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Theme(
-                      data: Theme.of(context).copyWith(
-                          unselectedWidgetColor: const Color(0xFFA0A0A0)),
-                      child: Checkbox(
-                        value: controller.isBeginner,
-                        onChanged: (value) {
-                          if (value!) {
-                            controller.trainingLevel = 'Beginner';
-                          } else {
-                            controller.trainingLevel = '';
-                          }
-                          controller.isBeginner = value;
-                          controller.isIntermediate = false;
-                          controller.isProfessional = false;
-                          controller.userProfile.fitnessSurvey!
-                              .trainingLevelId = controller.trainingLevel;
-                        },
-                        activeColor: Get.theme.colorScheme.secondary,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5)),
-                        checkColor: Get.theme.colorScheme.secondary,
-                      ),
+                    Checkbox(
+                      value: controller.isBeginner,
+                      onChanged: (value) {
+                        if (value!) {
+                          controller.trainingLevel = 'Beginner';
+                        } else {
+                          controller.trainingLevel = '';
+                        }
+                        controller.isBeginner = value;
+                        controller.isIntermediate = false;
+                        controller.isProfessional = false;
+                        controller.userProfile.fitnessSurvey!
+                            .trainingLevelId = controller.trainingLevel;
+                      },
+                      activeColor: Get.theme.colorScheme.secondary,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5)),
+                      checkColor: Get.theme.colorScheme.secondary,
                     ),
                     Expanded(
                       child: Text(
@@ -56,28 +52,24 @@ class TrainingLevelCheckboxBody
                 ),
                 Row(
                   children: [
-                    Theme(
-                      data: Theme.of(context).copyWith(
-                          unselectedWidgetColor: const Color(0xFFA0A0A0)),
-                      child: Checkbox(
-                        value: controller.isIntermediate,
-                        onChanged: (value) {
-                          if (value!) {
-                            controller.trainingLevel = 'Intermediate';
-                          } else {
-                            controller.trainingLevel = '';
-                          }
-                          controller.isBeginner = false;
-                          controller.isIntermediate = value;
-                          controller.isProfessional = false;
-                          controller.userProfile.fitnessSurvey!
-                              .trainingLevelId = controller.trainingLevel;
-                        },
-                        activeColor: Get.theme.colorScheme.secondary,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5)),
-                        checkColor: Get.theme.colorScheme.secondary,
-                      ),
+                    Checkbox(
+                      value: controller.isIntermediate,
+                      onChanged: (value) {
+                        if (value!) {
+                          controller.trainingLevel = 'Intermediate';
+                        } else {
+                          controller.trainingLevel = '';
+                        }
+                        controller.isBeginner = false;
+                        controller.isIntermediate = value;
+                        controller.isProfessional = false;
+                        controller.userProfile.fitnessSurvey!
+                            .trainingLevelId = controller.trainingLevel;
+                      },
+                      activeColor: Get.theme.colorScheme.secondary,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5)),
+                      checkColor: Get.theme.colorScheme.secondary,
                     ),
                     Expanded(
                       child: Text(
@@ -90,28 +82,24 @@ class TrainingLevelCheckboxBody
                 ),
                 Row(
                   children: [
-                    Theme(
-                      data: Theme.of(context).copyWith(
-                          unselectedWidgetColor: const Color(0xFFA0A0A0)),
-                      child: Checkbox(
-                        value: controller.isProfessional,
-                        onChanged: (value) {
-                          if (value!) {
-                            controller.trainingLevel = 'Advanced';
-                          } else {
-                            controller.trainingLevel = '';
-                          }
-                          controller.isBeginner = false;
-                          controller.isIntermediate = false;
-                          controller.isProfessional = value;
-                          controller.userProfile.fitnessSurvey!
-                              .trainingLevelId = controller.trainingLevel;
-                        },
-                        activeColor: Get.theme.colorScheme.secondary,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5)),
-                        checkColor: Get.theme.colorScheme.secondary,
-                      ),
+                    Checkbox(
+                      value: controller.isProfessional,
+                      onChanged: (value) {
+                        if (value!) {
+                          controller.trainingLevel = 'Advanced';
+                        } else {
+                          controller.trainingLevel = '';
+                        }
+                        controller.isBeginner = false;
+                        controller.isIntermediate = false;
+                        controller.isProfessional = value;
+                        controller.userProfile.fitnessSurvey!
+                            .trainingLevelId = controller.trainingLevel;
+                      },
+                      activeColor: Get.theme.colorScheme.secondary,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5)),
+                      checkColor: Get.theme.colorScheme.secondary,
                     ),
                     Expanded(
                       child: Text(

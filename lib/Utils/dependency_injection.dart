@@ -1,4 +1,3 @@
- 
 import 'dart:io';
 
 // import 'package:dio/adapter.dart';
@@ -173,7 +172,7 @@ initFirebaseMessaging() async {
 requestPermission() async {
   FirebaseMessaging messaging = FirebaseMessaging.instance;
   if (Platform.isIOS) {
-   await messaging.requestPermission(
+    await messaging.requestPermission(
       alert: true,
       announcement: false,
       badge: true,
@@ -183,7 +182,6 @@ requestPermission() async {
       sound: true,
     );
   }
-
 }
 
 Future<void> initFirebaseChat() async {
@@ -242,10 +240,10 @@ class Note {
     // vibrationPattern[1] = 1000;
 
     const androidPlatformChannelSpecifics = AndroidNotificationDetails(
-      'Afak',
-      'Afak App',
+      'Fitness',
+      'Fitness Storm',
       playSound: true,
-      styleInformation:  BigTextStyleInformation(''),
+      styleInformation: BigTextStyleInformation(''),
       importance: Importance.defaultImportance,
       priority: Priority.high,
     );

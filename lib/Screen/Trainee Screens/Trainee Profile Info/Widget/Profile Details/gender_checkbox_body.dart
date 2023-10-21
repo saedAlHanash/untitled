@@ -19,25 +19,21 @@ class GenderCheckboxBody extends GetWidget<TraineeProfileInfoController> {
                 Expanded(
                   child: Row(
                     children: [
-                      Theme(
-                        data: Theme.of(context).copyWith(
-                            unselectedWidgetColor: const Color(0xFFA0A0A0)),
-                        child: Checkbox(
-                          value: controller.isMale,
-                          onChanged: (value) {
-                            if (value!) {
-                              controller.userGender = 'male';
-                            } else {
-                              controller.userGender = '';
-                            }
-                            controller.isMale = value;
-                            controller.isFemale = false;
-                          },
-                          activeColor: Get.theme.colorScheme.secondary,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5)),
-                          checkColor: Get.theme.colorScheme.secondary,
-                        ),
+                      Checkbox(
+                        value: controller.isMale,
+                        onChanged: (value) {
+                          if (value!) {
+                            controller.userGender = 'male';
+                          } else {
+                            controller.userGender = '';
+                          }
+                          controller.isMale = value;
+                          controller.isFemale = false;
+                        },
+                        activeColor: Get.theme.colorScheme.secondary,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(5)),
+                        checkColor: Get.theme.colorScheme.secondary,
                       ),
                       Text(
                         'male'.tr,
@@ -50,10 +46,7 @@ class GenderCheckboxBody extends GetWidget<TraineeProfileInfoController> {
                 Expanded(
                   child: Row(
                     children: [
-                      Theme(
-                        data: Theme.of(context).copyWith(
-                            unselectedWidgetColor: const Color(0xFFA0A0A0)),
-                        child: Checkbox(
+                      Checkbox(
                           value: controller.isFemale,
                           onChanged: (value) {
                             if (value!) {
@@ -69,7 +62,6 @@ class GenderCheckboxBody extends GetWidget<TraineeProfileInfoController> {
                               borderRadius: BorderRadius.circular(5)),
                           checkColor: Get.theme.colorScheme.secondary,
                         ),
-                      ),
                       Text(
                         'female'.tr,
                         style:

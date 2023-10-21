@@ -10,12 +10,10 @@ class LanguagesController extends GetxController {
   String get selectedLanguage =>
       CacheHelper.getData(key: 'lang') ?? _selectedLanguage.value;
 
-  Future<void> setLanguage(
-    String language,
-  ) async {
+  Future<void> setLanguage(String language, {bool fromAuthPage = false}) async {
     await CacheHelper.saveData(key: 'lang', value: language);
     _selectedLanguage.value = language;
     Get.updateLocale(Locale(language));
-    Get.offAllNamed(AppRoutes.mainHome);
+    Get.offAllNamed(fromAuthPage ? AppRoutes.signIn : AppRoutes.mainHome);
   }
 }

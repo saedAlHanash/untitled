@@ -2,7 +2,7 @@ import 'package:fitness_storm/Utils/Constants/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
-import '../../../../core/images/image_multi_type.dart';
+import 'package:image_multi_type/image_multi_type.dart';
 
 class FilterResult extends StatelessWidget {
   const FilterResult(
