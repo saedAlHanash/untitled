@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../Utils/Routes/app_pages.dart';
+import '../../../chat/chat.dart';
+import '../../../chat/util.dart';
 
 class TrainerButton extends StatelessWidget {
   const TrainerButton({super.key});
@@ -12,12 +14,18 @@ class TrainerButton extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: Get.height / 40),
       child: CustomButton(
-        onTapFunction: () {
-          Get.toNamed(AppRoutes.conversationScreen, arguments: [
-            'customer_service'.tr,
-            "-1",
-            "Hi! I would like to join your team as a trainer."
-          ]);
+        onTapFunction: () async{
+          final room = await getRoomByUser('0');
+          if (context.mounted) {
+            Navigator.push(context, MaterialPageRoute(
+              builder: (context) {
+                return ChatPage(
+                  room: room!,
+                  name: 'CUSTOMER SERVICE' ?? '',
+                );
+              },
+            ));
+          }
         },
         text: 'Join_us_as_a_Trainer'.tr,
         fontSize: 18,

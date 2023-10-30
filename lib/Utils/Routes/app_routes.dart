@@ -35,7 +35,7 @@ abstract class AppRoutes {
   static const bookmarkedScreen = '/bookmarked_plan';
   static const myPaymentScreen = '/My_Payment_Screen';
   static const chatScreen = '/chat_screen';
-  static const conversationScreen = '/conversation_screen';
+  // static const conversationScreen = '/conversation_screen';
   static const bookPrivateSession = '/book_private_session';
   static const aboutAs = '/about_as';
   static const FAQs = '/FAQs';

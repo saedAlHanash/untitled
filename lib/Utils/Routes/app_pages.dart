@@ -203,10 +203,10 @@ class AppPages {
       GetPage(
           name: AppRoutes.chatScreen,
           page: () => const ChatScreen(),),
-      GetPage(
-          name: AppRoutes.conversationScreen,
-          page: () => const ConversationScreen(),
-          binding: ConversationBinding()),
+      // GetPage(
+      //     name: AppRoutes.conversationScreen,
+      //     page: () => const ConversationScreen(),
+      //     binding: ConversationBinding()),
       GetPage(
           name: AppRoutes.bookPrivateSession,
           page: () => const BookPrivateSessionScreen(),

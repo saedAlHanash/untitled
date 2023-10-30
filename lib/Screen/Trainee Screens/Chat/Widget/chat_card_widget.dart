@@ -9,7 +9,7 @@ import 'package:get/get.dart';
 
 import '../../../chat/util.dart';
 
-class ChatCardWidget extends GetWidget<ChatController> {
+class ChatCardWidget extends StatelessWidget {
   final Room room;
 
   const ChatCardWidget({

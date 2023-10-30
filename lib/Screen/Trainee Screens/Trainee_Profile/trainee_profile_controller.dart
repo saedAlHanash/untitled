@@ -184,7 +184,5 @@ class TraineeProfileController extends GetxController {
     Get.toNamed(AppRoutes.myPaymentScreen);
   }
 
-  onContactUsClick() {
-    Get.toNamed(AppRoutes.conversationScreen, arguments: ['customer_service'.tr, "-1"]);
-  }
+
 }

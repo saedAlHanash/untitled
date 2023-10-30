@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../Utils/Routes/app_pages.dart';
+import '../../../chat/chat.dart';
+import '../../../chat/util.dart';
 
 class TermAndConditionWidget extends StatelessWidget {
   const TermAndConditionWidget({super.key});
@@ -67,9 +69,18 @@ class TermAndConditionWidget extends StatelessWidget {
                   SizedBox(
                     height: 25,
                     child: TextButton(
-                      onPressed: () {
-                        Get.toNamed(AppRoutes.conversationScreen,
-                            arguments: ['customer_service'.tr, "-1", ""]);
+                      onPressed: () async{
+                        final room = await getRoomByUser('0');
+                        if (context.mounted) {
+                          Navigator.push(context, MaterialPageRoute(
+                            builder: (context) {
+                              return ChatPage(
+                                room: room!,
+                                name: 'CUSTOMER SERVICE' ?? '',
+                              );
+                            },
+                          ));
+                        }
                       },
                       style: TextButton.styleFrom(
                         padding: const EdgeInsets.all(0),

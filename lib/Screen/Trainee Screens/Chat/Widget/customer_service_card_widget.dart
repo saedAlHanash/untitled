@@ -9,7 +9,7 @@ import 'package:image_multi_type/round_image_widget.dart';
 
 import '../../../../generated/assets.dart';
 
-class CustomerServiceCardwidget extends GetWidget<ChatController> {
+class CustomerServiceCardwidget extends StatelessWidget {
 
 
   const CustomerServiceCardwidget({
