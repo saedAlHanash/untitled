@@ -33,8 +33,6 @@ abstract class Methods {
       required Options options,
       data,
       Map<String, String>? queryParameters}) async {
-    // loggerObject.i(url);
-    // loggerObject.i(data.toString());
     try {
       final dio.Response response = await _dio.post(
         url,
@@ -43,14 +41,12 @@ abstract class Methods {
         queryParameters: queryParameters,
       );
 
-      // loggerObject.v('${response.statusCode} ${response.data}');
+
       if (response.statusCode == 500) {
-        //log("testtttt");
-        //   print(response.data);
+
         return ApiResult.failureFromJson(response.data);
       }
 
-      //   print('response : ${response.data}');
 
       if (response.statusCode == 200 || response.statusCode == 201) {
         return ApiResult.successFromJson(response.data);

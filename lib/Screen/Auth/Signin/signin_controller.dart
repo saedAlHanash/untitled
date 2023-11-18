@@ -1,8 +1,11 @@
+import 'dart:convert';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fitness_storm/Data/Repositories/Trainer%20Repository/trainer_auth_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:saed_http/api_manager/api_service.dart';
 
 import '../../../../Data/Api/api_result.dart';
 import '../../../../Data/Repositories/auth_repository.dart';
@@ -15,6 +18,8 @@ class SigninController extends GetxController {
   final RxBool isScure = true.obs;
   final RxString message = ''.obs;
 
+  bool isPhone = false;
+  String phone = '';
   final AuthRepository _authRepository = AuthRepository();
   final Rx<TextEditingController> _emailController = TextEditingController().obs;
 
@@ -50,6 +55,42 @@ class SigninController extends GetxController {
   // AccessToken? _accessToken;
 
   login() async {
+    if (isPhone) {
+      Utils.openLoadingDialog();
+      final option = Utils.getOptions(accept: true);
+      final headers = <String, String>{};
+      option.headers?.forEach((key, value) {
+        headers[key] = value.toString();
+      });
+      final result = await APIService().postApi(
+        url: 'mobile/user/auth/phone_register',
+        header: headers,
+        body: {
+          "mobile": phone,
+          "name": phone,
+          "isTest": true,
+        },
+      );
+
+      Utils.closeDialog();
+
+      if (result.statusCode >= 200 && result.statusCode < 210) {
+        final model = LoginPhone.fromJson(jsonDecode(result.body));
+        _storageController.token = model.data.accessToken;
+        _storageController.rememberToken = model.data.refreshToken;
+        _storageController.id = model.data.id;
+        _storageController.userType = 'trainee';
+        _storageController.methodTakeAuthentication = '';
+        if (!model.data.isConfirmed) {
+          Get.offNamed(AppRoutes.otp, arguments: [phone, false]);
+        } else {
+          Get.offAllNamed(AppRoutes.mainHome);
+        }
+      } else {
+        message.value = result.statusCode.toString();
+      }
+      return;
+    }
     if (emailController.text.isEmpty) {
       message.value = 'email_is_required'.tr;
       // Utils.openSnackBar(title: 'Email Is Required', textColor: Colors.white);
@@ -81,6 +122,7 @@ class SigninController extends GetxController {
         _storageController.methodTakeAuthentication = '';
 
         getProfile();
+
         //Todo should un comment this
         final token = await getToken();
 
@@ -93,12 +135,11 @@ class SigninController extends GetxController {
       } else {
         Get.back();
         message.value = res.message!;
-
       }
     }
   }
 
-  sign_in_google() async {
+  signInGoogle() async {
     Utils.openLoadingDialog();
     try {
       final googleAccount = await GoogleSignIn().signIn();
@@ -157,7 +198,7 @@ class SigninController extends GetxController {
     }
   }
 
-  sign_out() async {
+  signOut() async {
     await GoogleSignIn().disconnect();
     await GoogleSignIn().signOut();
   }
@@ -177,3 +218,59 @@ class SigninController extends GetxController {
   }
 }
 //keytool -list -v -alias androiddebugkey -keystore %USERPROFILE%\.android\debug.keystore
+
+class LoginPhone {
+  LoginPhone({
+    required this.data,
+  });
+
+  final Data data;
+
+  factory LoginPhone.fromJson(Map<String, dynamic> json) {
+    return LoginPhone(
+      data: Data.fromJson(json["data"]),
+    );
+  }
+
+  Map<String, dynamic> toJson() => {
+        "data": data?.toJson(),
+      };
+}
+
+class Data {
+  Data({
+    required this.id,
+    required this.accessToken,
+    required this.refreshToken,
+    required this.isFirstTime,
+    required this.isConfirmed,
+    required this.confirmationCode,
+  });
+
+  final String id;
+  final String accessToken;
+  final String refreshToken;
+  final bool isFirstTime;
+  final bool isConfirmed;
+  final num confirmationCode;
+
+  factory Data.fromJson(Map<String, dynamic> json) {
+    return Data(
+      id: json["id"] ?? "",
+      accessToken: json["access_token"] ?? "",
+      refreshToken: json["refresh_token"] ?? "",
+      isFirstTime: json["is_first_time"] ?? false,
+      isConfirmed: json["is_confirmed"] ?? false,
+      confirmationCode: json["confirmation_code"] ?? 0,
+    );
+  }
+
+  Map<String, dynamic> toJson() => {
+        "id": id,
+        "access_token": accessToken,
+        "refresh_token": refreshToken,
+        "is_first_time": isFirstTime,
+        "is_confirmed": isConfirmed,
+        "confirmation_code": confirmationCode,
+      };
+}

@@ -39,7 +39,7 @@ class OTPScreen extends GetView<OTPController> {
                   ),
                   SizedBox(height: Get.height / 20),
                   Text(
-                    'email_verification'.tr,
+                    (controller.isPhone ? 'phone_verification' : 'email_verification').tr,
                     style: const TextStyle(fontSize: 26, color: Colors.white),
                   ),
                   SizedBox(height: Get.height / 30),
@@ -58,10 +58,10 @@ class OTPScreen extends GetView<OTPController> {
                       child: TextButton(
                         onPressed: () {
                           CacheHelper.saveData(key: 'sticky_otp', value: false);
-                          Get.offAllNamed(AppRoutes.signUp);
+                          Get.offAllNamed(AppRoutes.signIn);
                         },
                         child: Text(
-                          'change_email'.tr,
+                           (controller.isPhone ? 'change_phone' : 'change_email').tr,
                           style: const TextStyle(
                             color: Colors.white,
                             fontSize: 14,
@@ -100,7 +100,6 @@ class OTPScreen extends GetView<OTPController> {
                     text: 'Verify'.tr,
                     textColor: Colors.white,
                   ),
-
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.end,

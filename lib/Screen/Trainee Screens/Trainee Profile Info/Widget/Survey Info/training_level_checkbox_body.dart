@@ -36,10 +36,10 @@ class TrainingLevelCheckboxBody
                         controller.userProfile.fitnessSurvey!
                             .trainingLevelId = controller.trainingLevel;
                       },
-                      activeColor: Get.theme.colorScheme.secondary,
+                      fillColor: MaterialStateProperty.all(Colors.white),
+                      checkColor: Get.theme.primaryColor,
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5)),
-                      checkColor: Get.theme.colorScheme.secondary,
+                          borderRadius: BorderRadius.circular(3)),
                     ),
                     Expanded(
                       child: Text(
@@ -66,10 +66,10 @@ class TrainingLevelCheckboxBody
                         controller.userProfile.fitnessSurvey!
                             .trainingLevelId = controller.trainingLevel;
                       },
-                      activeColor: Get.theme.colorScheme.secondary,
+                      fillColor: MaterialStateProperty.all(Colors.white),
+                      checkColor: Get.theme.primaryColor,
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5)),
-                      checkColor: Get.theme.colorScheme.secondary,
+                          borderRadius: BorderRadius.circular(3)),
                     ),
                     Expanded(
                       child: Text(
@@ -96,10 +96,10 @@ class TrainingLevelCheckboxBody
                         controller.userProfile.fitnessSurvey!
                             .trainingLevelId = controller.trainingLevel;
                       },
-                      activeColor: Get.theme.colorScheme.secondary,
+                      fillColor: MaterialStateProperty.all(Colors.white),
+                      checkColor: Get.theme.primaryColor,
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5)),
-                      checkColor: Get.theme.colorScheme.secondary,
+                          borderRadius: BorderRadius.circular(3)),
                     ),
                     Expanded(
                       child: Text(

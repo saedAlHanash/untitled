@@ -33,10 +33,10 @@ class TrainingGoalCheckboxBody extends GetWidget<TraineeProfileInfoController> {
                         controller.userProfile.fitnessSurvey!.trainingGoal =
                             controller.trainingGoal;
                       },
-                      activeColor: Get.theme.colorScheme.secondary,
+                      fillColor: MaterialStateProperty.all(Colors.white),
+                      checkColor: Get.theme.primaryColor,
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5)),
-                      checkColor: Get.theme.colorScheme.secondary,
+                          borderRadius: BorderRadius.circular(3)),
                     ),
                     Text(
                       'lose_weight'.tr,
@@ -60,10 +60,10 @@ class TrainingGoalCheckboxBody extends GetWidget<TraineeProfileInfoController> {
                         controller.userProfile.fitnessSurvey!.trainingGoal =
                             controller.trainingGoal;
                       },
-                      activeColor: Get.theme.colorScheme.secondary,
+                      fillColor: MaterialStateProperty.all(Colors.white),
+                      checkColor: Get.theme.primaryColor,
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5)),
-                      checkColor: Get.theme.colorScheme.secondary,
+                          borderRadius: BorderRadius.circular(3)),
                     ),
                     Text(
                       'build_muscle'.tr,
@@ -85,10 +85,10 @@ class TrainingGoalCheckboxBody extends GetWidget<TraineeProfileInfoController> {
                         controller.isBuildMuscle = false;
                         controller.isStayFit = value;
                       },
-                      activeColor: Get.theme.colorScheme.secondary,
+                      fillColor: MaterialStateProperty.all(Colors.white),
+                      checkColor: Get.theme.primaryColor,
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5)),
-                      checkColor: Get.theme.colorScheme.secondary,
+                          borderRadius: BorderRadius.circular(3)),
                     ),
                     Text(
                       'stay_fit'.tr,

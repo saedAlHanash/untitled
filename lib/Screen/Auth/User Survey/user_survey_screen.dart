@@ -110,12 +110,10 @@ class UserSurveyScreen extends GetView<UserSurveyController> {
                                 controller.isGym = value;
                                 controller.isHome = false;
                               },
-                              fillColor: MaterialStateProperty.all(
-                                Get.theme.colorScheme.secondary,
-                              ),
+                              fillColor: MaterialStateProperty.all(Colors.white),
+                              checkColor: Get.theme.primaryColor,
                               shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5)),
-                              checkColor: Get.theme.colorScheme.secondary,
+                                  borderRadius: BorderRadius.circular(3)),
                             ),
                             Text(
                               'gym'.tr,
@@ -137,12 +135,10 @@ class UserSurveyScreen extends GetView<UserSurveyController> {
                                  controller.isHome = value;
                                  controller.isGym = false;
                                },
-                               fillColor: MaterialStateProperty.all(
-                                 Get.theme.colorScheme.secondary,
-                               ),
-                               shape: RoundedRectangleBorder(
-                                   borderRadius: BorderRadius.circular(5)),
-                               checkColor: Get.theme.colorScheme.secondary,
+                              fillColor: MaterialStateProperty.all(Colors.white),
+                              checkColor: Get.theme.primaryColor,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(3)),
                              ),
                             Text(
                               'home'.tr,
@@ -178,14 +174,10 @@ class UserSurveyScreen extends GetView<UserSurveyController> {
                                        controller.isIntermediate = false;
                                        controller.isProfessional = false;
                                      },
-                                     fillColor: MaterialStateProperty.all(
-                                       Get.theme.colorScheme.secondary,
-                                     ),
-                                     shape: RoundedRectangleBorder(
-                                         borderRadius:
-                                             BorderRadius.circular(5)),
-                                     checkColor:
-                                         Get.theme.colorScheme.secondary,
+                                    fillColor: MaterialStateProperty.all(Colors.white),
+                                    checkColor: Get.theme.primaryColor,
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(3)),
                                    ),
                                   Text(
                                     'beginner'.tr,
@@ -209,14 +201,10 @@ class UserSurveyScreen extends GetView<UserSurveyController> {
                                       controller.isIntermediate = value;
                                       controller.isProfessional = false;
                                     },
-                                    fillColor: MaterialStateProperty.all(
-                                      Get.theme.colorScheme.secondary,
-                                    ),
+                                    fillColor: MaterialStateProperty.all(Colors.white),
+                                    checkColor: Get.theme.primaryColor,
                                     shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(5)),
-                                    checkColor:
-                                        Get.theme.colorScheme.secondary,
+                                        borderRadius: BorderRadius.circular(3)),
                                   ),
                                   const Text(
                                     'Intermediate',
@@ -239,14 +227,10 @@ class UserSurveyScreen extends GetView<UserSurveyController> {
                                       controller.isIntermediate = false;
                                       controller.isProfessional = value;
                                     },
-                                    fillColor: MaterialStateProperty.all(
-                                      Get.theme.colorScheme.secondary,
-                                    ),
+                                    fillColor: MaterialStateProperty.all(Colors.white),
+                                    checkColor: Get.theme.primaryColor,
                                     shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(5)),
-                                    checkColor:
-                                        Get.theme.colorScheme.secondary,
+                                        borderRadius: BorderRadius.circular(3)),
                                   ),
                                   Text(
                                     'professional'.tr,
@@ -286,14 +270,10 @@ class UserSurveyScreen extends GetView<UserSurveyController> {
                                       controller.isBuildMuscle = false;
                                       controller.isStayFit = false;
                                     },
-                                    fillColor: MaterialStateProperty.all(
-                                      Get.theme.colorScheme.secondary,
-                                    ),
+                                    fillColor: MaterialStateProperty.all(Colors.white),
+                                    checkColor: Get.theme.primaryColor,
                                     shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(5)),
-                                    checkColor:
-                                        Get.theme.colorScheme.secondary,
+                                        borderRadius: BorderRadius.circular(3)),
                                   ),
                                   Text(
                                     'lose_weight'.tr,
@@ -317,14 +297,10 @@ class UserSurveyScreen extends GetView<UserSurveyController> {
                                       controller.isBuildMuscle = value;
                                       controller.isStayFit = false;
                                     },
-                                    fillColor: MaterialStateProperty.all(
-                                      Get.theme.colorScheme.secondary,
-                                    ),
+                                    fillColor: MaterialStateProperty.all(Colors.white),
+                                    checkColor: Get.theme.primaryColor,
                                     shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(5)),
-                                    checkColor:
-                                        Get.theme.colorScheme.secondary,
+                                        borderRadius: BorderRadius.circular(3)),
                                   ),
                                   Text(
                                     'build_muscle'.tr,
@@ -347,16 +323,10 @@ class UserSurveyScreen extends GetView<UserSurveyController> {
                                       controller.isBuildMuscle = false;
                                       controller.isStayFit = value;
                                     },
-                                    activeColor:
-                                        Get.theme.colorScheme.secondary,
-                                    fillColor: MaterialStateProperty.all(
-                                      Get.theme.colorScheme.secondary,
-                                    ),
+                                    fillColor: MaterialStateProperty.all(Colors.white),
+                                    checkColor: Get.theme.primaryColor,
                                     shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(5)),
-                                    checkColor:
-                                        Get.theme.colorScheme.secondary,
+                                        borderRadius: BorderRadius.circular(3)),
                                   ),
                                   Text(
                                     'stay_fit'.tr,
@@ -378,12 +348,10 @@ class UserSurveyScreen extends GetView<UserSurveyController> {
                                       controller.isMale = value;
                                       controller.isFemale = false;
                                     },
-                                    fillColor: MaterialStateProperty.all(
-                                      Get.theme.colorScheme.secondary,
-                                    ),
+                                    fillColor: MaterialStateProperty.all(Colors.white),
+                                    checkColor: Get.theme.primaryColor,
                                     shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(5)),
-                                    checkColor: Get.theme.colorScheme.secondary,
+                                        borderRadius: BorderRadius.circular(3)),
                                   ),
                                   Text(
                                     'male'.tr,
@@ -399,12 +367,10 @@ class UserSurveyScreen extends GetView<UserSurveyController> {
                                       controller.isFemale = value;
                                       controller.isMale = false;
                                     },
-                                    fillColor: MaterialStateProperty.all(
-                                      Get.theme.colorScheme.secondary,
-                                    ),
+                                    fillColor: MaterialStateProperty.all(Colors.white),
+                                    checkColor: Get.theme.primaryColor,
                                     shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(5)),
-                                    checkColor: Get.theme.colorScheme.secondary,
+                                        borderRadius: BorderRadius.circular(3)),
                                   ),
                                   Text(
                                     'female'.tr,

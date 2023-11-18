@@ -1,5 +1,7 @@
 import 'package:drawable_text/drawable_text.dart';
+import 'package:fitness_storm/Data/Api/methods.dart';
 import 'package:fitness_storm/Screen/Auth/Signin/signin_controller.dart';
+import 'package:fitness_storm/Screen/Auth/login_phone/ui/pages/login_phone_page.dart';
 import 'package:fitness_storm/Utils/Routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -77,55 +79,85 @@ class SigninScreen extends GetView<SigninController> {
                     ),
                     SizedBox(height: Get.height / 50),
 
-                    Container(
-                      padding: EdgeInsets.only(bottom: Get.height / 120),
-                      child: Text(
-                        'email'.tr,
-                        style: const TextStyle(color: Colors.white),
-                      ),
-                    ),
-                    CustomTextField(
-                      "",
-                      hint: "enter_email_address".tr,
-                      style: const TextStyle(color: Colors.white),
-                      textController: controller.emailController,
-                      keyboardType: TextInputType.emailAddress,
-                      controller: AppTextFieldController(false),
-                    ),
-                    SizedBox(height: Get.height / 30),
-                    Container(
-                      padding: EdgeInsets.only(bottom: Get.height / 120),
-                      child: Text(
-                        'password'.tr,
-                        style: const TextStyle(color: Colors.white),
-                      ),
-                    ),
-                    CustomTextField(
-                      "",
-                      hint: "enter_password".tr,
-                      style: const TextStyle(color: Colors.white),
-                      textController: controller.passwordController,
-                      keyboardType: TextInputType.visiblePassword,
-                      controller: AppTextFieldController(controller.isScure.value),
-                      suffixIcon: controller.isScure.value
-                          ? IconButton(
-                              icon: Icon(
-                                Icons.visibility_off,
-                                color: Get.theme.colorScheme.secondary,
+                    StatefulBuilder(
+                      builder: (context, setState) {
+                        final test = controller.emailController.text;
+                        controller.isPhone =
+                            test.isNotEmpty && int.tryParse(test.substring(0, 1)) != null;
+
+                        if (controller.isPhone) {
+                          Future(() => controller.isTrainer = false);
+                        }
+                        return Column(
+                          children: [
+                            Container(
+                              width: Get.width,
+                              padding: EdgeInsets.only(bottom: Get.height / 120),
+                              child: Text(
+                                (controller.isPhone ? 'phone' : 'email').tr,
+                                style: const TextStyle(color: Colors.white),
                               ),
-                              onPressed: () {
-                                controller.isScure.value = false;
-                              },
-                            )
-                          : IconButton(
-                              icon: Icon(
-                                Icons.visibility,
-                                color: Get.theme.colorScheme.secondary,
-                              ),
-                              onPressed: () {
-                                controller.isScure.value = true;
-                              },
                             ),
+                            if (controller.isPhone)
+                              MyPhoneForm(
+                                onChange: (p0) => setState(() {
+                                  controller.phone =
+                                      p0.phoneNumber?.replaceAll('+', '') ?? '';
+                                }),
+                                controller: controller.emailController,
+                              )
+                            else
+                              CustomTextField(
+                                "",
+                                hint: "enter_email_address".tr,
+                                style: const TextStyle(color: Colors.white),
+                                textController: controller.emailController,
+                                keyboardType: TextInputType.emailAddress,
+                                onChanged: (p0) => setState(() {}),
+                                controller: AppTextFieldController(false),
+                              ),
+                            SizedBox(height: Get.height / 30),
+                            if (!controller.isPhone) ...[
+                              Container(
+                                width: Get.width,
+                                padding: EdgeInsets.only(bottom: Get.height / 120),
+                                child: Text(
+                                  'password'.tr,
+                                  style: const TextStyle(color: Colors.white),
+                                ),
+                              ),
+                              CustomTextField(
+                                "",
+                                hint: "enter_password".tr,
+                                style: const TextStyle(color: Colors.white),
+                                textController: controller.passwordController,
+                                keyboardType: TextInputType.visiblePassword,
+                                controller:
+                                    AppTextFieldController(controller.isScure.value),
+                                suffixIcon: controller.isScure.value
+                                    ? IconButton(
+                                        icon: Icon(
+                                          Icons.visibility_off,
+                                          color: Get.theme.colorScheme.secondary,
+                                        ),
+                                        onPressed: () {
+                                          controller.isScure.value = false;
+                                        },
+                                      )
+                                    : IconButton(
+                                        icon: Icon(
+                                          Icons.visibility,
+                                          color: Get.theme.colorScheme.secondary,
+                                        ),
+                                        onPressed: () {
+                                          controller.isScure.value = true;
+                                        },
+                                      ),
+                              ),
+                            ],
+                          ],
+                        );
+                      },
                     ),
 
                     SizedBox(height: Get.height / 60),
@@ -137,6 +169,7 @@ class SigninScreen extends GetView<SigninController> {
                             Checkbox(
                               value: controller.isTrainer,
                               onChanged: (value) {
+                                if (controller.isPhone) return;
                                 controller.isTrainer = value;
                               },
                               fillColor: MaterialStateProperty.all(Colors.white),
@@ -217,7 +250,7 @@ class SigninScreen extends GetView<SigninController> {
                         //TODO: google button
                         if (DateTime.now().isAfter(DateTime(2023, 10, 23)))
                           GestureDetector(
-                            onTap: () => controller.sign_in_google(),
+                            onTap: () => controller.signInGoogle(),
                             child: Container(
                                 width: Get.width / 8.5,
                                 height: Get.width / 8.5,

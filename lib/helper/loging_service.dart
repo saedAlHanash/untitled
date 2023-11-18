@@ -1,3 +1,4 @@
+import 'package:fitness_storm/Data/Api/methods.dart';
 import 'package:logger/logger.dart';
 
 class LogService {
@@ -14,7 +15,7 @@ class LogService {
 
   void e(String message) {
     if (_debug) {
-
+      loggerObject.e(message);
     } else {
       return;
     }

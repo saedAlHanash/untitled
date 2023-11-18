@@ -36,9 +36,7 @@ class TrainingExerciseWidget extends StatelessWidget {
               Text(
                 title,
                 style: const TextStyle(
-                    color: Color(0xFF565C63),
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold),
+                    color: Color(0xFF565C63), fontSize: 14, fontWeight: FontWeight.bold),
               ),
               Text(
                 '$sets  ' +
@@ -47,8 +45,7 @@ class TrainingExerciseWidget extends StatelessWidget {
                       reps,
                       isSecondsBased,
                     )}',
-                style: TextStyle(
-                    color: Get.theme.colorScheme.secondary, fontSize: 12),
+                style: TextStyle(color: Get.theme.colorScheme.secondary, fontSize: 12),
               ),
             ],
           ),
@@ -87,11 +84,12 @@ class TrainingExerciseWidget extends StatelessWidget {
           width: Get.width / 22,
           height: Get.width / 22,
           child: Checkbox(
-              value: isFinished,
-              onChanged: (_) {},
-              shape: const CircleBorder(),
-              fillColor:
-                  MaterialStatePropertyAll(Get.theme.colorScheme.secondary)),
+            value: isFinished,
+            onChanged: (_) {},
+            fillColor: MaterialStateProperty.all(Colors.white),
+            checkColor: Get.theme.primaryColor,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(3)),
+          ),
         ),
         SizedBox(width: Get.width / 60),
         isPlaying

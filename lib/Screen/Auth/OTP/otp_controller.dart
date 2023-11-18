@@ -14,11 +14,14 @@ class OTPController extends GetxController {
   final RxString _email = ''.obs;
   final Rx<TextEditingController> _otpController = TextEditingController().obs;
 
+  bool isPhone = false;
+
   @override
   void onInit() {
     email = Get.arguments[0];
     isReset = Get.arguments[1];
 
+    isPhone = email.isNotEmpty && int.tryParse(email.substring(0, 1)) != null;
     if (!isReset) {
       CacheHelper.saveData(key: 'sticky_otp', value: true);
     }
@@ -44,7 +47,6 @@ class OTPController extends GetxController {
       if (result.type == ApiResultType.success) {
         Utils.openSnackBar(title: 'Success'.tr, textColor: Colors.white);
         Get.toNamed(AppRoutes.surveyScreen);
-
       } else {
         Get.back();
         Utils.openSnackBar(title: result.message!, textColor: Colors.white);

@@ -35,10 +35,10 @@ class WorkoutLocationCheckboxBody
                         controller.isHome = false;
                         // controller.userProfile.fitnessSurvey.
                       },
-                      activeColor: Get.theme.colorScheme.secondary,
+                      fillColor: MaterialStateProperty.all(Colors.white),
+                      checkColor: Get.theme.primaryColor,
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5)),
-                      checkColor: Get.theme.colorScheme.secondary,
+                          borderRadius: BorderRadius.circular(3)),
                     ),
                     Text(
                       'gym'.tr,
@@ -64,10 +64,10 @@ class WorkoutLocationCheckboxBody
                         controller.isHome = value;
                         controller.isGym = false;
                       },
-                      activeColor: Get.theme.colorScheme.secondary,
+                      fillColor: MaterialStateProperty.all(Colors.white),
+                      checkColor: Get.theme.primaryColor,
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5)),
-                      checkColor: Get.theme.colorScheme.secondary,
+                          borderRadius: BorderRadius.circular(3)),
                     ),
                     Text(
                       'home'.tr,

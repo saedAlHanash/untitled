@@ -181,7 +181,7 @@ class SignupScreen extends GetView<SignupController> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             MaterialButton(
-                              onPressed: () => controller.sign_in_google(),
+                              onPressed: () => controller.signInGoogle(),
                               child: Container(
                                   width: Get.width / 8.5,
                                   height: Get.width / 8.5,

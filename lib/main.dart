@@ -32,6 +32,7 @@ void main() async {
 
   ///send FCM to server
   saveFCM();
+  APIService().initBaseUrl(baseUrl: 'api.fitnessstorm.org');
 
   runApp(
     GetMaterialApp(

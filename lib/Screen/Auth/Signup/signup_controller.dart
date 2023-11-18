@@ -28,7 +28,7 @@ class SignupController extends GetxController {
   final Rx<TextEditingController> _passwordEditingController =
       TextEditingController().obs;
 
-  final StorageController _storageController = StorageController();
+  final _storageController = StorageController();
 
   TextEditingController get emailEditingController => _emailEditingController.value;
 
@@ -73,12 +73,9 @@ class SignupController extends GetxController {
     } else {
       Utils.openLoadingDialog();
       ApiResult res;
-      // if (isTrainer) {
-      //   res = await _authRepository.trainerSignup(emailEditingController.text, passwordEditingController.text, nameEditingController.text, gender);
-      // } else {
       res = await _authRepository.traineeSignup(emailEditingController.text,
           passwordEditingController.text, nameEditingController.text);
-      // }
+
       if (res.type == ApiResultType.success) {
         _storageController.token = res.data['access_token'];
         Get.back();
@@ -100,7 +97,7 @@ class SignupController extends GetxController {
     return token;
   }
 
-  sign_in_google() async {
+  signInGoogle() async {
     Utils.openLoadingDialog();
     final googleAccount = await GoogleSignIn().signIn();
 
@@ -162,7 +159,7 @@ class SignupController extends GetxController {
     //log(result.type.toString());
   }
 
-  sign_out() async {
+  signOut() async {
     await GoogleSignIn().signOut();
   }
 }

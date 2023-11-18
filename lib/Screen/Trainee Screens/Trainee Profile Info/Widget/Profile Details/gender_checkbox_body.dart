@@ -30,10 +30,10 @@ class GenderCheckboxBody extends GetWidget<TraineeProfileInfoController> {
                           controller.isMale = value;
                           controller.isFemale = false;
                         },
-                        activeColor: Get.theme.colorScheme.secondary,
+                        fillColor: MaterialStateProperty.all(Colors.white),
+                        checkColor: Get.theme.primaryColor,
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5)),
-                        checkColor: Get.theme.colorScheme.secondary,
+                            borderRadius: BorderRadius.circular(3)),
                       ),
                       Text(
                         'male'.tr,
@@ -57,10 +57,10 @@ class GenderCheckboxBody extends GetWidget<TraineeProfileInfoController> {
                             controller.isFemale = value;
                             controller.isMale = false;
                           },
-                          activeColor: Get.theme.colorScheme.secondary,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5)),
-                          checkColor: Get.theme.colorScheme.secondary,
+                        fillColor: MaterialStateProperty.all(Colors.white),
+                        checkColor: Get.theme.primaryColor,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(3)),
                         ),
                       Text(
                         'female'.tr,

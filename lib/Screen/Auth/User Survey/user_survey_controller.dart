@@ -81,21 +81,28 @@ class UserSurveyController extends GetxController {
   }
 
   onSubmit() async {
-    AuthRepository authRepository = AuthRepository();
+    final authRepository = AuthRepository();
     if (weightController.value.text.isEmpty) {
       Utils.openSnackBar(title: 'weight_field_is_require'.tr);
+      return;
     } else if (hightController.text.isEmpty) {
       Utils.openSnackBar(title: 'hight_field_is_require'.tr);
+      return;
     } else if (daysPerWeekController.text.isEmpty) {
       Utils.openSnackBar(title: 'how_many_you_training_field_is_require'.tr);
+      return;
     } else if (hoursPerDayController.text.isEmpty) {
       Utils.openSnackBar(title: 'how_many_you_training_field_is_require'.tr);
+      return;
     } else if (workoutLocation.isEmpty) {
       Utils.openSnackBar(title: 'workout_location_field_is_require'.tr);
+      return;
     } else if (trainingLevel.isEmpty) {
       Utils.openSnackBar(title: 'training_level_field_is_require'.tr);
+      return;
     } else if (trainingGoal.isEmpty) {
       Utils.openSnackBar(title: 'training_goal_field_is_require'.tr);
+      return;
     }
     String gender = '';
     if (isMale) {
@@ -115,10 +122,10 @@ class UserSurveyController extends GetxController {
       gender,
     );
     if (result.type == ApiResultType.success) {
-      Get.back();
+      Utils.closeDialog();
       Get.offAllNamed(AppRoutes.mainHome);
     } else {
-      Get.back();
+      Utils.closeDialog();
       Utils.openSnackBar(title: result.message!);
     }
   }
