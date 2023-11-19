@@ -1,6 +1,5 @@
- 
-
 import 'package:fitness_storm/Data/Api/api_result.dart';
+import 'package:fitness_storm/Data/Api/methods.dart';
 import 'package:get/get.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -44,30 +43,8 @@ class SubscruptionController extends GetxController {
   WebViewController? webViewControllerl;
   Map<String, dynamic>? paymentIntentData;
 
-  // initalizeWebViewController(String url) async {
-  //   webViewControllerl = WebViewController()
-  //     ..setJavaScriptMode(JavaScriptMode.unrestricted)
-  //     ..setBackgroundColor(const Color(0x00000000))
-  //     ..setNavigationDelegate(
-  //       NavigationDelegate(
-  //         onProgress: (int progress) {
-  //           // Update loading bar.
-  //         },
-  //         onPageStarted: (String url) {},
-  //         onPageFinished: (String url) {},
-  //         onWebResourceError: (WebResourceError error) {},
-  //         onNavigationRequest: (NavigationRequest request) {
-  //           if (request.url.startsWith(url)) {
-  //             return NavigationDecision.prevent;
-  //           }
-  //           return NavigationDecision.navigate;
-  //         },
-  //       ),
-  //     )
-  //     ..loadRequest(Uri.parse(url));
-  // }
-
   getSubscribtionPaymentPlan() async {
+    loggerObject.w('getNew');
     isLoading = true;
     subscriptions = await _subscriptionRepository.subscribePaymentPlan();
 
@@ -107,7 +84,6 @@ class SubscruptionController extends GetxController {
 
   Future<String> makePayment({
     required PayRequest request,
-
   }) async {
     try {
       isLoading = true;
@@ -117,18 +93,18 @@ class SubscruptionController extends GetxController {
     } catch (e, s) {
       Utils.openSnackBar(title: 'failure'.tr, message: 'An_error_occurred'.tr);
       isLoading = false;
-     //log('exception:$e$s');
+      //log('exception:$e$s');
     }
     return "";
   }
 
-  createPaymentIntent( PayRequest request) async {
+  createPaymentIntent(PayRequest request) async {
     try {
       return await _subscriptionRepository.createNewSubscription(
-          request:request,
+        request: request,
       );
     } catch (err) {
-     //log('err charging user: ${err.toString()}');
+      //log('err charging user: ${err.toString()}');
     }
   }
 
@@ -136,7 +112,7 @@ class SubscruptionController extends GetxController {
     try {
       return await _subscriptionRepository.cancelSubscription();
     } catch (err) {
-     //log('err charging user: ${err.toString()}');
+      //log('err charging user: ${err.toString()}');
     }
   }
 

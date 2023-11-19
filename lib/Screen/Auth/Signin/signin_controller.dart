@@ -41,6 +41,10 @@ class SigninController extends GetxController {
   @override
   void onInit() {
     //log('you are in trainee');
+    FirebaseAuth.instance.signOut();
+    StorageController()
+      ..listRooms.clear()
+      ..listRooms.clear();
     super.onInit();
   }
 
@@ -68,7 +72,7 @@ class SigninController extends GetxController {
         body: {
           "mobile": phone,
           "name": phone,
-          "isTest": true,
+          "isTest": false,
         },
       );
 
@@ -81,6 +85,7 @@ class SigninController extends GetxController {
         _storageController.id = model.data.id;
         _storageController.userType = 'trainee';
         _storageController.methodTakeAuthentication = '';
+        getProfile();
         if (!model.data.isConfirmed) {
           Get.offNamed(AppRoutes.otp, arguments: [phone, false]);
         } else {

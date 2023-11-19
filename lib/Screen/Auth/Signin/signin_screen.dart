@@ -94,7 +94,7 @@ class SigninScreen extends GetView<SigninController> {
                               width: Get.width,
                               padding: EdgeInsets.only(bottom: Get.height / 120),
                               child: Text(
-                                (controller.isPhone ? 'phone' : 'email').tr,
+                                ('emailOrPhone').tr,
                                 style: const TextStyle(color: Colors.white),
                               ),
                             ),
@@ -161,41 +161,43 @@ class SigninScreen extends GetView<SigninController> {
                     ),
 
                     SizedBox(height: Get.height / 60),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            Checkbox(
-                              value: controller.isTrainer,
-                              onChanged: (value) {
-                                if (controller.isPhone) return;
-                                controller.isTrainer = value;
-                              },
-                              fillColor: MaterialStateProperty.all(Colors.white),
-                              checkColor: Get.theme.primaryColor,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(3)),
-                            ),
-                            Text(
-                              'sign_in_Trainer'.tr,
-                              style: const TextStyle(color: Colors.white),
-                            ),
-                          ],
-                        ),
-                        Expanded(
-                          child: TextButton(
-                            onPressed: () => Get.toNamed(AppRoutes.forgetPassword),
-                            child: FittedBox(
-                              child: Text(
-                                'forgot_password_?'.tr,
-                                style: const TextStyle(color: Colors.white, fontSize: 12),
+                    if (!controller.isPhone)
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              Checkbox(
+                                value: controller.isTrainer,
+                                onChanged: (value) {
+                                  if (controller.isPhone) return;
+                                  controller.isTrainer = value;
+                                },
+                                fillColor: MaterialStateProperty.all(Colors.white),
+                                checkColor: Get.theme.primaryColor,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(3)),
+                              ),
+                              Text(
+                                'sign_in_Trainer'.tr,
+                                style: const TextStyle(color: Colors.white),
+                              ),
+                            ],
+                          ),
+                          Expanded(
+                            child: TextButton(
+                              onPressed: () => Get.toNamed(AppRoutes.forgetPassword),
+                              child: FittedBox(
+                                child: Text(
+                                  'forgot_password_?'.tr,
+                                  style:
+                                      const TextStyle(color: Colors.white, fontSize: 12),
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
+                        ],
+                      ),
                     // CheckboxListTile(
                     //     title: const Text('sdsdsdsdsd',
                     //         style: TextStyle(color: Colors.white)),
@@ -248,7 +250,7 @@ class SigninScreen extends GetView<SigninController> {
                         // Image.asset('asset/Images/facebookSVG.svg'),
                         // SizedBox(width: Get.width / 6),
                         //TODO: google button
-                        if (DateTime.now().isAfter(DateTime(2023, 10, 23)))
+                        if (DateTime.now().isAfter(DateTime(2023, 11, 23)))
                           GestureDetector(
                             onTap: () => controller.signInGoogle(),
                             child: Container(

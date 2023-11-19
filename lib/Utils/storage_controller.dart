@@ -66,7 +66,6 @@ class StorageController {
 
   String get userType => _userType.val;
 
-  firebase.User? firebaseUser;
 
   set rememberToken(String val) => _remember_token.val = val;
 

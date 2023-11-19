@@ -34,20 +34,20 @@ Future<List<types.User>> getChatUsers() async {
 }
 
 Future<List<types.Room>> getChatRooms() async {
-  print(StorageController().firebaseUser);
-  if (StorageController().firebaseUser == null) return [];
+  print(FirebaseAuth.instance.currentUser);
+  if (FirebaseAuth.instance.currentUser == null) return [];
   if (StorageController().listRooms.isNotEmpty) return StorageController().listRooms;
 
   final rooms = await FirebaseFirestore.instance
       .collection('rooms')
       .where(
         'userIds',
-        arrayContains: StorageController().firebaseUser?.uid,
+        arrayContains: FirebaseAuth.instance.currentUser?.uid,
       )
       .get();
 
   final listRooms = await processRoomsQuery(
-    StorageController().firebaseUser!,
+    FirebaseAuth.instance.currentUser!,
     FirebaseFirestore.instance,
     rooms,
     'users',
@@ -87,10 +87,10 @@ Future<types.Room?> getRoomByUser(String? id) async {
 types.User getChatMember(List<types.User> list, {bool? me}) {
   for (var e in list) {
     if (me ?? false) {
-      if (e.id == StorageController().firebaseUser?.uid) {
+      if (e.id == FirebaseAuth.instance.currentUser?.uid) {
         return e;
       }
-    } else if (e.id != StorageController().firebaseUser?.uid) {
+    } else if (e.id != FirebaseAuth.instance.currentUser?.uid) {
       return e;
     }
   }
@@ -122,31 +122,31 @@ Future<void> createChatUser(Trainer profile) async {
     );
   } on Exception catch (e) {
     if (e.toString().contains('email address is already')) {
-      loginChatUser(profile);
+      loginChatUser(profile.id!,profile.name!);
     }
   }
 }
 
-Future<void> loginChatUser(Trainer profile) async {
+Future<void> loginChatUser(String id ,String name) async {
   var credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-    email: 'fitnes.${profile.id}@fitnes.com',
-    password: '98898${profile.id}!@qweDSAFCA',
+    email: 'fitnes.$id@fitnes.com',
+    password: '98898$id!@qweDSAFCA',
   );
 
   await FirebaseChatCore.instance.createUserInFirestore(
     types.User(
-        firstName: profile.id,
+        firstName: id,
         id: credential.user!.uid,
-        lastName: profile.name,
+        lastName:name,
         metadata: {'fcm': await FirebaseMessaging.instance.getToken()}),
   );
 }
 
 Future<void> logoutChatUser() async {
-  if (StorageController().firebaseUser != null) {
+  if (FirebaseAuth.instance.currentUser != null) {
     await FirebaseFirestore.instance
         .collection('users')
-        .doc(StorageController().firebaseUser?.uid)
+        .doc(FirebaseAuth.instance.currentUser?.uid)
         .update(
       {
         'metadata': {'fcm': ''},

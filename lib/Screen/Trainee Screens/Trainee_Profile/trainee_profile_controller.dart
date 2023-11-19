@@ -77,6 +77,7 @@ class TraineeProfileController extends GetxController {
     ApiResult result = await _traineeRepository.editProfile(userProfile.toJson());
     if (result.type == ApiResultType.success) {
       await getUserProfile();
+      loginChatUser(userProfile.id!,userProfile.name!);
       Utils.closeDialog();
     } else {
       Utils.openSnackBar(title: 'Something_Went_Wrong'.tr);

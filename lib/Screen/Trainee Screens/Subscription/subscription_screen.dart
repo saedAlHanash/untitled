@@ -107,6 +107,7 @@ class SubscriptionScreen extends GetView<SubscruptionController> {
           },
         ),
       );
+
       if (result == null) return;
       var request = result as PayRequest;
 
@@ -124,23 +125,23 @@ class SubscriptionScreen extends GetView<SubscruptionController> {
             ),
           ),
         ).then((value) async {
-          if (value != null) {
-            // TODO: subscriptions/check
-            await controller.getSubscribtionPaymentPlan();
-
-            // HelperClass.successfullySubscription = true;
-            // controller.isLoading = false;
-            // controller.isBuy = true;
-            // if (Get.isRegistered<PlanOverviewController>()) {
-            //   Get.find<PlanOverviewController>().isActivated = true;
-            // } else {
-            //   Get.lazyPut(() => PlanOverviewController());
-            //   Get.find<PlanOverviewController>().isActivated = true;
-            // }
-            // controller.subscriptions.subscriptions[index].currentSubscription = true;
-          } else {
-            Navigator.pop(context);
-          }
+          await controller.getSubscribtionPaymentPlan();
+          // if (value != null) {
+          //   // TODO: subscriptions/check
+          //
+          //   // HelperClass.successfullySubscription = true;
+          //   // controller.isLoading = false;
+          //   // controller.isBuy = true;
+          //   // if (Get.isRegistered<PlanOverviewController>()) {
+          //   //   Get.find<PlanOverviewController>().isActivated = true;
+          //   // } else {
+          //   //   Get.lazyPut(() => PlanOverviewController());
+          //   //   Get.find<PlanOverviewController>().isActivated = true;
+          //   // }
+          //   // controller.subscriptions.subscriptions[index].currentSubscription = true;
+          // } else {
+          //   Navigator.pop(context);
+          // }
         });
         // kholoud.elsayed@hotmail.com
       } else {
@@ -150,19 +151,20 @@ class SubscriptionScreen extends GetView<SubscruptionController> {
       controller.isLoading = false;
     } else {
       showDialog(
-          context: context,
-          builder: (_) => AlertDialog(
-                backgroundColor: Colors.white,
-                content: Text('it_is_advisable'.tr),
-                actions: [
-                  MaterialButton(
-                    onPressed: () {
-                      Get.back();
-                    },
-                    child: Text('back'.tr),
-                  )
-                ],
-              ));
+        context: context,
+        builder: (_) => AlertDialog(
+          backgroundColor: Colors.white,
+          content: Text('it_is_advisable'.tr),
+          actions: [
+            MaterialButton(
+              onPressed: () {
+                Get.back();
+              },
+              child: Text('back'.tr),
+            )
+          ],
+        ),
+      );
     }
   }
 }

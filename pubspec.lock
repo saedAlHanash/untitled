@@ -17,6 +17,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.2"
+  agora_rtc_engine:
+    dependency: "direct main"
+    description:
+      name: agora_rtc_engine
+      sha256: e3e07fb79f90417ad1ab0a3b30f2a299e33c311193fafa09bb769a69081d8e5c
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.2.4"
   archive:
     dependency: transitive
     description:
@@ -906,6 +914,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.4"
+  iris_method_channel:
+    dependency: transitive
+    description:
+      name: iris_method_channel
+      sha256: "2bcaa69e9a9ac0ca88380f28ef400095fecb3bb3da2faf0c798db6eef8131088"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.0-dev.3"
   js:
     dependency: transitive
     description:

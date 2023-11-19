@@ -57,7 +57,7 @@ class _MyCustomeWebPageState extends State<MyCustomeWebPage> {
           leading: IconButton(
             onPressed: () async {
               Get.back();
-              await Get.find<SubscruptionController>().getSubscribtionPaymentPlan();
+              // await Get.find<SubscruptionController>().getSubscribtionPaymentPlan();
             },
             icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
           ),

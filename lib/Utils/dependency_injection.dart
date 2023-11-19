@@ -107,11 +107,18 @@ const channel = AndroidNotificationChannel(
   importance: Importance.high,
 );
 
-final flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
+FlutterLocalNotificationsPlugin? flutterLocalNotificationsPlugin;
 
 @pragma('vm:entry-point')
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  if (flutterLocalNotificationsPlugin == null) {
+    await Note.initialize();
+  }
+
   final notification = message.notification;
 
   String title = '';
@@ -139,19 +146,6 @@ initFirebaseMessaging() async {
   FirebaseMessaging.instance.subscribeToTopic(Constants.topicTrainerNotification);
 
   FirebaseMessaging.onMessage.listen((RemoteMessage message) async {
-    // var isSupportedFlutterAppBadger = await FlutterAppBadger.isAppBadgeSupported();
-    //
-    // if (isSupportedFlutterAppBadger) {
-    //   if (!Get.isRegistered<MainHomeController>()) {
-    //     Get.put(MainHomeController());
-    //   }
-    //   await Get.find<MainHomeController>().getAllNotifications();
-    //   if (Get.find<MainHomeController>().numberOfNotification != 0) {
-    //     FlutterAppBadger.updateBadgeCount(1);
-    //   } else {
-    //     FlutterAppBadger.removeBadge();
-    //   }
-    // }
     final notification = message.notification;
 
     String title = '';
@@ -186,7 +180,6 @@ requestPermission() async {
 
 Future<void> initFirebaseChat() async {
   FirebaseAuth.instance.authStateChanges().listen((User? user) {
-    StorageController().firebaseUser = user;
     if (user == null) {
       getProfile();
       return;
@@ -197,7 +190,7 @@ Future<void> initFirebaseChat() async {
 Future<void> getProfile() async {
   if (StorageController().token.isEmpty) return;
 
-  if (StorageController().firebaseUser != null) return;
+  if (FirebaseAuth.instance.currentUser != null) return;
 
   final result = await Methods.get(
     url: StorageController().userType == 'trainer'
@@ -211,7 +204,7 @@ Future<void> getProfile() async {
 
     try {
       if (await isChatUserFound(profile.id ?? '')) {
-        loginChatUser(profile);
+        loginChatUser(profile.id!, profile.name!);
         return;
       } else {
         createChatUser(profile);
@@ -222,38 +215,35 @@ Future<void> getProfile() async {
 
 class Note {
   static Future initialize() async {
+    flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
     var androidInitialize = const AndroidInitializationSettings('mipmap/launcher_icon');
     var iOSInitialize = const DarwinInitializationSettings();
     var initializationsSettings =
         InitializationSettings(android: androidInitialize, iOS: iOSInitialize);
-    await flutterLocalNotificationsPlugin.initialize(initializationsSettings);
+
+    await flutterLocalNotificationsPlugin!.initialize(initializationsSettings);
   }
 
+  static const androidPlatformChannelSpecifics = AndroidNotificationDetails(
+    'Fitness',
+    'Fitness Storm',
+    playSound: true,
+    enableVibration: true,
+    styleInformation: BigTextStyleInformation(''),
+    importance: Importance.max,
+    priority: Priority.max,
+  );
+
   static Future showBigTextNotification({
-    var id = 0,
     required String title,
     required String body,
-    var payload,
   }) async {
-    // var vibrationPattern = Int64List(2);
-    // vibrationPattern[0] = 1000;
-    // vibrationPattern[1] = 1000;
-
-    const androidPlatformChannelSpecifics = AndroidNotificationDetails(
-      'Fitness',
-      'Fitness Storm',
-      playSound: true,
-      styleInformation: BigTextStyleInformation(''),
-      importance: Importance.defaultImportance,
-      priority: Priority.high,
-    );
-
     var not = const NotificationDetails(
       android: androidPlatformChannelSpecifics,
       iOS: DarwinNotificationDetails(),
     );
 
-    await flutterLocalNotificationsPlugin.show(
-        (DateTime.now().millisecondsSinceEpoch ~/ 1000), title, body, not);
+    await flutterLocalNotificationsPlugin!
+        .show((DateTime.now().millisecondsSinceEpoch.toUnsigned(31)), title, body, not);
   }
 }
