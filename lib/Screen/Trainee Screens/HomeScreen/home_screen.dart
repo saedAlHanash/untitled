@@ -1,10 +1,10 @@
- 
-
 import 'package:fitness_storm/Data/Repositories/plan_repository.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/HomeScreen/HomeSreenWidget/ContinueTraining/continue_training_widget.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/HomeScreen/HomeSreenWidget/search_result.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/HomeScreen/home_screen_controller.dart';
+import 'package:fitness_storm/Screen/Trainee%20Screens/HomeScreen/refresh_home_plan_cubit/refresh_home_plan_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
@@ -21,7 +21,8 @@ class HomeScreen extends GetView<HomeScreenController> {
     return Obx(
       () => controller.isLoading.value
           ? SizedBox(
-              height: Get.height, child: const Center(child: CircularProgressIndicator.adaptive()))
+              height: Get.height,
+              child: const Center(child: CircularProgressIndicator.adaptive()))
           : RefreshIndicator(
               onRefresh: () async {
                 controller.isLoading.value = true;
@@ -40,17 +41,22 @@ class HomeScreen extends GetView<HomeScreenController> {
                     await controller.trainerRepository.getYourTrainer(1);
                 controller.isLoading.value = false;
               },
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    // SizedBox(height: 100),
-                    controller.continueTrainingPlans.isEmpty
-                        ? const SizedBox.shrink()
-                        : const ContinueTrainingWidget(),
-                    const TrendingPlanWidget(),
-                    const FeaturedPlanWidget(),
-                    const YourTrainersWidget(),
-                  ],
+              child: BlocListener<RefreshHomePlanCubit, RefreshHomePlanState>(
+                listener: (context, state) {
+                  controller.reInitial();
+                },
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      // SizedBox(height: 100),
+                      controller.continueTrainingPlans.isEmpty
+                          ? const SizedBox.shrink()
+                          : const ContinueTrainingWidget(),
+                      const TrendingPlanWidget(),
+                      const FeaturedPlanWidget(),
+                      const YourTrainersWidget(),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -106,8 +112,8 @@ class CustomSearchDelegate extends SearchDelegate {
 
   @override
   Widget buildSuggestions(BuildContext context) {
-   //log('qqqqqqqqqqqqqqqqqqqq');
-   //log(query.toString());
+    //log('qqqqqqqqqqqqqqqqqqqq');
+    //log(query.toString());
     return Container();
   }
 }

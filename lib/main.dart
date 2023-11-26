@@ -6,12 +6,14 @@ import 'package:fitness_storm/Utils/themes.dart';
 import 'package:fitness_storm/helper/lang_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart' as bloc;
 import 'package:get/get.dart';
 import 'package:saed_http/api_manager/api_service.dart';
 import './../core/translations.dart';
 import 'Data/Api/methods.dart';
 import 'Data/Api/urls.dart';
 import 'Screen/Splash/splash_binding.dart';
+import 'Screen/Trainee Screens/HomeScreen/refresh_home_plan_cubit/refresh_home_plan_cubit.dart';
 import 'Utils/Constants/constants.dart';
 import 'Utils/Routes/app_pages.dart';
 import 'Utils/dependency_injection.dart';
@@ -36,17 +38,20 @@ void main() async {
   APIService().initBaseUrl(baseUrl: 'api.fitnessstorm.org');
 
   runApp(
-    GetMaterialApp(
-      color: Colors.white,
-      title: "Fitness Storm",
-      initialBinding: SplashBinding(),
-      initialRoute: AppRoutes.splash,
-      debugShowCheckedModeBanner: false,
-      defaultTransition: Transition.fade,
-      getPages: AppPages().getPages(),
-      theme: lightTheme,
-      translations: LocaleString(),
-      locale: Locale(Get.find<LanguagesController>().selectedLanguage),
+    bloc.BlocProvider(
+      create: (context) => RefreshHomePlanCubit(),
+      child: GetMaterialApp(
+        color: Colors.white,
+        title: "Fitness Storm",
+        initialBinding: SplashBinding(),
+        initialRoute: AppRoutes.splash,
+        debugShowCheckedModeBanner: false,
+        defaultTransition: Transition.fade,
+        getPages: AppPages().getPages(),
+        theme: lightTheme,
+        translations: LocaleString(),
+        locale: Locale(Get.find<LanguagesController>().selectedLanguage),
+      ),
     ),
   );
 }

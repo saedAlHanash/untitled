@@ -39,12 +39,12 @@ class OTPScreen extends GetView<OTPController> {
                   ),
                   SizedBox(height: Get.height / 20),
                   Text(
-                    (controller.isPhone ? 'phone_verification' : 'email_verification').tr,
+                    ('email_verification').tr,
                     style: const TextStyle(fontSize: 26, color: Colors.white),
                   ),
                   SizedBox(height: Get.height / 30),
                   Text(
-                    'sent_6_digit'.tr + ':',
+                    '${'sent_6_digit'.tr}:',
                     textAlign: TextAlign.center,
                     style: const TextStyle(fontSize: 14, color: Colors.white),
                   ),
@@ -61,7 +61,7 @@ class OTPScreen extends GetView<OTPController> {
                           Get.offAllNamed(AppRoutes.signIn);
                         },
                         child: Text(
-                           (controller.isPhone ? 'change_phone' : 'change_email').tr,
+                           ('change_email').tr,
                           style: const TextStyle(
                             color: Colors.white,
                             fontSize: 14,

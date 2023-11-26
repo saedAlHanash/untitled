@@ -88,6 +88,7 @@ class SigninScreen extends GetView<SigninController> {
                         if (controller.isPhone) {
                           Future(() => controller.isTrainer = false);
                         }
+
                         return Column(
                           children: [
                             Container(
@@ -100,10 +101,13 @@ class SigninScreen extends GetView<SigninController> {
                             ),
                             if (controller.isPhone)
                               MyPhoneForm(
-                                onChange: (p0) => setState(() {
+                                onChange: (p0) {
                                   controller.phone =
                                       p0.phoneNumber?.replaceAll('+', '') ?? '';
-                                }),
+                                  if ((controller.emailController.text).isEmpty) {
+                                    setState(() {});
+                                  }
+                                },
                                 controller: controller.emailController,
                               )
                             else
@@ -126,85 +130,80 @@ class SigninScreen extends GetView<SigninController> {
                                   style: const TextStyle(color: Colors.white),
                                 ),
                               ),
-                              CustomTextField(
-                                "",
-                                hint: "enter_password".tr,
-                                style: const TextStyle(color: Colors.white),
-                                textController: controller.passwordController,
-                                keyboardType: TextInputType.visiblePassword,
-                                controller:
-                                    AppTextFieldController(controller.isScure.value),
-                                suffixIcon: controller.isScure.value
-                                    ? IconButton(
-                                        icon: Icon(
-                                          Icons.visibility_off,
-                                          color: Get.theme.colorScheme.secondary,
+                              StatefulBuilder(builder: (context, mState) {
+                                return CustomTextField(
+                                  "",
+                                  hint: "enter_password".tr,
+                                  style: const TextStyle(color: Colors.white),
+                                  textController: controller.passwordController,
+                                  keyboardType: TextInputType.visiblePassword,
+                                  controller:
+                                      AppTextFieldController(controller.isScure.value),
+                                  suffixIcon: controller.isScure.value
+                                      ? IconButton(
+                                          icon: Icon(
+                                            Icons.visibility_off,
+                                            color: Get.theme.colorScheme.secondary,
+                                          ),
+                                          onPressed: () {
+                                            mState(
+                                                () => controller.isScure.value = false);
+                                          },
+                                        )
+                                      : IconButton(
+                                          icon: Icon(
+                                            Icons.visibility,
+                                            color: Get.theme.colorScheme.secondary,
+                                          ),
+                                          onPressed: () {
+                                            mState(() => controller.isScure.value = true);
+                                          },
                                         ),
-                                        onPressed: () {
-                                          controller.isScure.value = false;
-                                        },
-                                      )
-                                    : IconButton(
-                                        icon: Icon(
-                                          Icons.visibility,
-                                          color: Get.theme.colorScheme.secondary,
+                                );
+                              }),
+                              SizedBox(height: Get.height / 60),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Checkbox(
+                                          value: controller.isTrainer,
+                                          onChanged: (value) {
+                                            if (controller.isPhone) return;
+                                            controller.isTrainer = value;
+                                          },
+                                          fillColor: MaterialStateProperty.all(Colors.white),
+                                          checkColor: Get.theme.primaryColor,
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.circular(3)),
                                         ),
-                                        onPressed: () {
-                                          controller.isScure.value = true;
-                                        },
+                                        Text(
+                                          'sign_in_Trainer'.tr,
+                                          style: const TextStyle(color: Colors.white),
+                                        ),
+                                      ],
+                                    ),
+                                    Expanded(
+                                      child: TextButton(
+                                        onPressed: () => Get.toNamed(AppRoutes.forgetPassword),
+                                        child: FittedBox(
+                                          child: Text(
+                                            'forgot_password_?'.tr,
+                                            style:
+                                            const TextStyle(color: Colors.white, fontSize: 12),
+                                          ),
+                                        ),
                                       ),
-                              ),
+                                    ),
+                                  ],
+                                ),
                             ],
                           ],
                         );
                       },
                     ),
 
-                    SizedBox(height: Get.height / 60),
-                    if (!controller.isPhone)
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              Checkbox(
-                                value: controller.isTrainer,
-                                onChanged: (value) {
-                                  if (controller.isPhone) return;
-                                  controller.isTrainer = value;
-                                },
-                                fillColor: MaterialStateProperty.all(Colors.white),
-                                checkColor: Get.theme.primaryColor,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(3)),
-                              ),
-                              Text(
-                                'sign_in_Trainer'.tr,
-                                style: const TextStyle(color: Colors.white),
-                              ),
-                            ],
-                          ),
-                          Expanded(
-                            child: TextButton(
-                              onPressed: () => Get.toNamed(AppRoutes.forgetPassword),
-                              child: FittedBox(
-                                child: Text(
-                                  'forgot_password_?'.tr,
-                                  style:
-                                      const TextStyle(color: Colors.white, fontSize: 12),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    // CheckboxListTile(
-                    //     title: const Text('sdsdsdsdsd',
-                    //         style: TextStyle(color: Colors.white)),
-                    //     value: controller.isTrainer,
-                    //     onChanged: (value) {
-                    //       controller.isTrainer = value;
-                    //     }),
                     SizedBox(height: Get.height / 15),
                     Center(
                       child: CustomButton(
@@ -219,17 +218,7 @@ class SigninScreen extends GetView<SigninController> {
                         fontSize: 16,
                       ),
                     ),
-                    // CustomButton(
-                    //   radius: 30,
-                    //   width: Get.width / 2.6,
-                    //   height: Get.height / 15,
-                    //   margin: 0,
-                    //   padding: 0,
-                    //   onTapFunction: () => Get.toNamed(AppRoutes.video),
-                    //   text: 'Go Live',
-                    //   textColor: Colors.white,
-                    //   fontSize: 16,
-                    // ),
+
                     SizedBox(height: Get.height / 20),
 
                     Row(

@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:fitness_storm/Data/Api/api_result.dart';
+import 'package:fitness_storm/Data/Api/methods.dart';
 import 'package:fitness_storm/Utils/Routes/app_pages.dart';
 import 'package:fitness_storm/Utils/utils.dart';
 import 'package:flutter/material.dart';
@@ -112,17 +113,15 @@ class SignupController extends GetxController {
       x = await FirebaseAuth.instance.signInWithCredential(credential);
       check = true;
     } catch (e) {
+      loggerObject.e(e);
       check = false;
     } finally {
+      loggerObject.w(check);
       if (check) {
         ApiResult res;
-        // if (isTrainer) {
-        //   res = await _trainerAuthRepository.trainerLogin(
-        //       emailController.text, passwordController.text);
-        // } else {
         res = await _authRepository.traineeTakeAuthenticationByGoogleAccount(
             x.user!.email!, x.user!.displayName!, x.user!.uid);
-        // }
+        loggerObject.w(res.statusCode);
         if (res.type == ApiResultType.success) {
           _storageController.token = res.data['access_token'];
           _storageController.rememberToken = res.data['refresh_token'];
@@ -144,10 +143,12 @@ class SignupController extends GetxController {
             }
           }
         } else {
+          GoogleSignIn().signOut();
           Get.back();
           message.value = res.message!;
         }
       } else {
+        GoogleSignIn().signOut();
         Utils.closeDialog();
         Utils.openSnackBar(title: 'not_login'.tr, message: message.value);
       }

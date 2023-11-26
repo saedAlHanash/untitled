@@ -40,6 +40,21 @@ class HomeScreenController extends GetxController {
     super.onInit();
   }
 
+  Future<void> reInitial() async {
+    isLoading.value = true;
+    await fillContinueTrainingPlans();
+    GetStorage getStorage = GetStorage();
+    if (continueTrainingPlans.isNotEmpty) {
+      await getStorage.write(
+          'currentPlan', continueTrainingPlans.value[0].name);
+    }
+    Get.back();
+    trendingPlans.value = await planRepository.getTrendingPlan({});
+    featuredPlans.value = await planRepository.getFeaturedgPlan(1);
+    yourTrainer.value = await trainerRepository.getYourTrainer(1);
+    isLoading.value = false;
+  }
+
   TextEditingController get searchController => _searchEditingController.value;
 
   set searchController(value) => _searchEditingController.value = value;

@@ -9,6 +9,7 @@ import 'package:fitness_storm/Screen/Trainee%20Screens/User%20Training/user_trai
 import 'package:fitness_storm/Utils/utils.dart';
 import 'package:fitness_storm/helperClass.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:pod_player/pod_player.dart';
@@ -16,6 +17,7 @@ import 'package:pod_player/pod_player.dart';
 import '../../../Utils/Routes/app_pages.dart';
 import '../../../Utils/storage_controller.dart';
 import '../../chat/util.dart';
+import '../HomeScreen/refresh_home_plan_cubit/refresh_home_plan_cubit.dart';
 
 class PlanOverviewController extends GetxController {
   late String id;
@@ -69,8 +71,7 @@ class PlanOverviewController extends GetxController {
     GetStorage getStorage = GetStorage();
     String? prevPlan = getStorage.read('currentPlan');
     if (prevPlan != null) {
-      Utils.showAlertDialog(
-          subscribeToPlan, '''${'Your_subscription_to_plan'.tr} ${prevPlan}''');
+      Utils.showAlertDialog(subscribeToPlan, '''${'Your_subscription_to_plan'.tr} $prevPlan''');
     } else {
       subscribeToPlan();
     }
@@ -88,7 +89,9 @@ class PlanOverviewController extends GetxController {
           title: 'successfully_subscribed'.tr,
           message: 'enjoy_your_fitness_storm'.tr,
           second: 5);
-      Get.offAllNamed(AppRoutes.mainHome);
+      // Get.offAllNamed(AppRoutes.mainHome);
+      Get.context?.read<RefreshHomePlanCubit>().refresh();
+      Get.offNamed(AppRoutes.planOverview, arguments:id);
       isActivated = true;
     } else {
       if (response.statusCode == 451) {
@@ -99,6 +102,7 @@ class PlanOverviewController extends GetxController {
           if (HelperClass.successfullySubscription) {
             Utils.openLoadingDialog();
             var response = await _traineeRepository.subscribePlan(planId: id);
+
             if (response.type == ApiResultType.success) {
               Utils.closeDialog();
               GetStorage getStorage = GetStorage();
@@ -107,15 +111,18 @@ class PlanOverviewController extends GetxController {
                   title: 'Successfully subscribed!',
                   message: 'enjoy_your_fitness_storm'.tr,
                   second: 5);
-              Get.offAllNamed(AppRoutes.mainHome);
+              // Get.offAllNamed(AppRoutes.mainHome);
+              Get.context?.read<RefreshHomePlanCubit>().refresh();
+              Get.offNamed(AppRoutes.planOverview, arguments:id);
               isActivated = true;
-            } else {
+            }
+            else {
               Utils.closeDialog();
             }
           } else {
             Utils.openSnackBar(
               title: 'not_successfully_subscription'.tr,
-              message: "Not complete process payment",
+              message: "not_complete_process_payment".tr,
             );
           }
         });

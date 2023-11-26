@@ -107,7 +107,7 @@ class MyPhoneForm extends StatelessWidget {
                   borderSide: BorderSide.none, borderRadius: BorderRadius.circular(8)),
             ),
             selectorConfig: const SelectorConfig(
-              selectorType: PhoneInputSelectorType.DROPDOWN,
+              selectorType: PhoneInputSelectorType.DIALOG,
             ),
             textFieldController: controller,
             keyboardType: const TextInputType.numberWithOptions(
@@ -116,7 +116,7 @@ class MyPhoneForm extends StatelessWidget {
             ),
             selectorTextStyle: TextStyle(color: Colors.white),
             formatInput: false,
-            initialValue: PhoneNumber(isoCode: 'AE', phoneNumber: initialValue),
+            initialValue: PhoneNumber(isoCode: 'EG', phoneNumber: initialValue),
           ),
         ),
       ],

@@ -137,7 +137,11 @@ class SignupScreen extends GetView<SignupController> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               TextButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    _launchUrl(
+                                      'https://www.fitnessstorm.org/TermsAndConditions',
+                                    );
+                                  },
                                   child: Text(
                                     'terms_of_conditions'.tr,
                                     style: const TextStyle(
@@ -148,7 +152,8 @@ class SignupScreen extends GetView<SignupController> {
                               Text('and'.tr, style: const TextStyle(color: Colors.grey)),
                               TextButton(
                                   onPressed: () => _launchUrl(
-                                      'https://www.fitnessstorm.org/PrivacyPolicy'),
+                                        'https://www.fitnessstorm.org/PrivacyPolicy',
+                                      ),
                                   child: Text(
                                     'privacy-policy'.tr,
                                     style: const TextStyle(
