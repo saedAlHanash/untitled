@@ -50,5 +50,7 @@ class Assets {
   static const String imagesVideo = 'asset/Images/video.png';
   static const String imagesWallet = 'asset/Images/wallet.svg';
   static const String imagesWhiteLogo = 'asset/Images/white_logo.png';
+  static const String lottiesFitnessstormLogoAnimationColored = 'asset/lotties/fitnessstorm_logo_animation_colored.json';
+  static const String lottiesFitnessstormLogoAnimationWhite = 'asset/lotties/fitnessstorm_logo_animation_white.json';
 
 }

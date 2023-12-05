@@ -16,7 +16,7 @@ import 'package:fitness_storm/Screen/Trainee%20Screens/BookPrivateSession/book_p
 import 'package:fitness_storm/Screen/Trainee%20Screens/BookPrivateSession/book_private_session_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Bookmarked%20Screen/bookmarked_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Bookmarked%20Screen/bookmarked_screen_binding.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/Chat/chat_screen.dart';
+
 import 'package:fitness_storm/Screen/Trainee%20Screens/ContinueTrainingPlan/continue_training_binding.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/ContinueTrainingPlan/continue_training_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Conversation/conversation_binding.dart';
@@ -77,6 +77,7 @@ import 'package:fitness_storm/Utils/storage_controller.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
+import '../../Screen/chat/rooms_screen.dart';
 import '../../Screen/Trainee Screens/Provide Information/Terms And Conditions/terms_conditions_screen.dart';
 
 part './app_routes.dart';
@@ -202,7 +203,7 @@ class AppPages {
           binding: MyPaymentBinding()),
       GetPage(
           name: AppRoutes.chatScreen,
-          page: () => const ChatScreen(),),
+          page: () => const RoomsScreen(),),
       // GetPage(
       //     name: AppRoutes.conversationScreen,
       //     page: () => const ConversationScreen(),

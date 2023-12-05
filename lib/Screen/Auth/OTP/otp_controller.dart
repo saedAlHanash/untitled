@@ -46,6 +46,7 @@ class OTPController extends GetxController {
 
       if (result.type == ApiResultType.success) {
         Utils.openSnackBar(title: 'Success'.tr, textColor: Colors.white);
+        CacheHelper.saveData(key: 'sticky_otp', value: false);
         Get.toNamed(AppRoutes.surveyScreen);
       } else {
         Get.back();

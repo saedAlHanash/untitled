@@ -1,11 +1,14 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:fitness_storm/Screen/chat/room_messages_bloc/room_messages_cubit.dart';
 import 'package:fitness_storm/Screen/chat/util.dart';
 import 'package:fitness_storm/Utils/storage_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 import 'package:flutter_chat_ui/flutter_chat_ui.dart';
 import 'package:flutter_firebase_chat_core/flutter_firebase_chat_core.dart';
@@ -15,6 +18,8 @@ import 'package:mime/mime.dart';
 import 'package:open_filex/open_filex.dart';
 import 'package:path_provider/path_provider.dart';
 
+import '../../main.dart';
+import 'get_chats_rooms_bloc/get_rooms_cubit.dart';
 import 'my_room_object.dart';
 
 class ChatPage extends StatefulWidget {
@@ -32,13 +37,36 @@ class ChatPage extends StatefulWidget {
 }
 
 class _ChatPageState extends State<ChatPage> {
+  // late final
+  List<types.Message>? initialMessage;
+
+  late final RoomMessagesCubit cubit;
+
   @override
   void initState() {
-    StorageController().myRoomObject = MyRoomObject(
+    myRoomObject = MyRoomObject(
       roomId: widget.room.id,
       fcmToken: (getChatMember(widget.room.users).metadata ?? {})['fcm'] ?? '',
     );
+    cubit = context.read<RoomMessagesCubit>();
     super.initState();
+  }
+
+  @override
+  void deactivate() {
+    if (cubit.state.allMessages.isNotEmpty) {
+      final m = cubit.state.allMessages.first;
+
+      latestUpdateMessagesBox.put(cubit.state.roomId, m.updatedAt ?? 0);
+      var room =
+          types.Room.fromJson(jsonDecode(roomsBox.get(cubit.state.roomId) ?? '{}'));
+      if (room.updatedAt == m.updatedAt) return;
+      room = room.copyWith(updatedAt: m.updatedAt);
+      roomsBox.put(cubit.state.roomId, jsonEncode(room));
+      context.read<GetRoomsCubit>().updateRooms();
+    }
+
+    super.deactivate();
   }
 
   bool _isAttachmentUploading = false;
@@ -202,7 +230,7 @@ class _ChatPageState extends State<ChatPage> {
 
   void _handleSendPressed(types.PartialText message) {
     sendNotificationMessage(
-        StorageController().myRoomObject,
+        myRoomObject,
         ChatNotification(
           title: getChatMember(widget.room.users, me: true).lastName ?? '',
           body: message.text,
@@ -223,36 +251,26 @@ class _ChatPageState extends State<ChatPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          systemOverlayStyle: SystemUiOverlayStyle.light,
-          title: Text(widget.name),
-        ),
-        body: StreamBuilder<types.Room>(
-          initialData: widget.room,
-          stream: FirebaseChatCore.instance.room(widget.room.id),
-          builder: (context, snapshot) {
-            if (!snapshot.hasData) {
-              return const Center(child: CircularProgressIndicator.adaptive());
-            }
-
-            return StreamBuilder<List<types.Message>>(
-              initialData: const [],
-              stream: FirebaseChatCore.instance.messages(snapshot.data!),
-              builder: (context, snapshot) => Chat(
-                isAttachmentUploading: _isAttachmentUploading,
-                messages: snapshot.data ?? [],
-                onAttachmentPressed: _handleAtachmentPressed,
-                onMessageTap: _handleMessageTap,
-                onPreviewDataFetched: _handlePreviewDataFetched,
-                onSendPressed: _handleSendPressed,
-                theme: const DarkChatTheme(),
-                user: types.User(
-                  id: FirebaseChatCore.instance.firebaseUser?.uid ?? '',
-                ),
-              ),
-            );
-          },
-        ),
-      );
+      appBar: AppBar(
+        systemOverlayStyle: SystemUiOverlayStyle.light,
+        title: Text(widget.name),
+      ),
+      body: BlocBuilder<RoomMessagesCubit, RoomMessagesInitial>(
+        builder: (context, state) {
+          return Chat(
+            isAttachmentUploading: _isAttachmentUploading,
+            messages: state.allMessages,
+            onAttachmentPressed: _handleAtachmentPressed,
+            onMessageTap: _handleMessageTap,
+            onPreviewDataFetched: _handlePreviewDataFetched,
+            onSendPressed: _handleSendPressed,
+            theme: const DarkChatTheme(),
+            user: types.User(
+              id: FirebaseChatCore.instance.firebaseUser?.uid ?? '',
+            ),
+          );
+        },
+      ),
+    );
   }
 }

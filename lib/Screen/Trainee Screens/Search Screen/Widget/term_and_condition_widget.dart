@@ -1,3 +1,4 @@
+import 'package:fitness_storm/Screen/Trainee%20Screens/Chat/Widget/chat_card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -5,9 +6,15 @@ import '../../../../Utils/Routes/app_pages.dart';
 import '../../../chat/chat.dart';
 import '../../../chat/util.dart';
 
-class TermAndConditionWidget extends StatelessWidget {
+class TermAndConditionWidget extends StatefulWidget {
   const TermAndConditionWidget({super.key});
 
+  @override
+  State<TermAndConditionWidget> createState() => _TermAndConditionWidgetState();
+}
+
+class _TermAndConditionWidgetState extends State<TermAndConditionWidget> {
+  bool loading = false;
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -70,16 +77,12 @@ class TermAndConditionWidget extends StatelessWidget {
                     height: 25,
                     child: TextButton(
                       onPressed: () async{
+                                if (loading) return;
+                        loading = true;
                         final room = await getRoomByUser('0');
+                         loading = false;
                         if (context.mounted) {
-                          Navigator.push(context, MaterialPageRoute(
-                            builder: (context) {
-                              return ChatPage(
-                                room: room!,
-                                name: 'CUSTOMER SERVICE' ?? '',
-                              );
-                            },
-                          ));
+                          openRoomFunction(context, room!);
                         }
                       },
                       style: TextButton.styleFrom(

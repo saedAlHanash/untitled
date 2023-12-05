@@ -1,6 +1,9 @@
 import 'package:fitness_storm/Screen/Splash/splash_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
+
+import '../../generated/assets.dart';
 
 bool canRecording = false;
 
@@ -31,9 +34,8 @@ class Splash extends GetView<SplashController> {
           child: Center(
             child: Padding(
               padding: EdgeInsets.all(Get.width / 7),
-              child: Image.asset(
-                "asset/Images/white_logo.png",
-                fit: BoxFit.cover,
+              child: Lottie.asset(
+                Assets.lottiesFitnessstormLogoAnimationWhite,
               ),
             ),
           ),

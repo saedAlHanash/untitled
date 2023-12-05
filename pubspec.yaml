@@ -44,7 +44,7 @@ dependencies:
     git:
       url: https://github.com/saedAlHanash/image_multi_type
 
-
+  hive_flutter: any
   smooth_page_indicator: ^1.0.0+2
 #  flick_video_player:
   dio: 
@@ -138,6 +138,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - asset/Images/
+    - asset/lotties/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

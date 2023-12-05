@@ -116,7 +116,7 @@ class SignupController extends GetxController {
       loggerObject.e(e);
       check = false;
     } finally {
-      loggerObject.w(check);
+
       if (check) {
         ApiResult res;
         res = await _authRepository.traineeTakeAuthenticationByGoogleAccount(

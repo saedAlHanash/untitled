@@ -288,7 +288,7 @@ class LocaleString extends Translations {
           'notifications': 'Notifications',
           'skip': 'skip',
           'enjoy_your_fitness_storm': 'Enjoy your Fitness Storm',
-          'not_successfully_subscription': 'Unsuccessful subscribed',
+          'not_successfully_subscription': 'Unsuccessful subscription',
           'not_complete_process_payment': 'Payment process not completed',
           'subscribe': 'Subscribe',
           'week': 'Week',

@@ -40,7 +40,6 @@ class SigninController extends GetxController {
 
   @override
   void onInit() {
-    //log('you are in trainee');
     FirebaseAuth.instance.signOut();
     StorageController()
       ..listRooms.clear()
@@ -169,11 +168,9 @@ class SigninController extends GetxController {
           _storageController.userType = isTrainer ? 'trainer' : 'trainee';
           _storageController.methodTakeAuthentication = 'google';
           final token = await getToken();
-          //log('FFFCCCMMM $token');
           await storeFcm(token);
           getProfile();
           Get.back();
-          // Utils.openSnackBar(title: 'Login Success', textColor: Colors.white);
           if (isTrainer) {
             Get.offAllNamed(AppRoutes.trainerHomePage);
           } else {

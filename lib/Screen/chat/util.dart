@@ -1,5 +1,5 @@
 import 'dart:ui';
-
+import 'package:firebase_auth/firebase_auth.dart' as firebase;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -11,6 +11,20 @@ import 'package:flutter_firebase_chat_core/flutter_firebase_chat_core.dart';
 
 import '../../Data/Api/methods.dart';
 import '../../Model/trainer.dart';
+import '../../main.dart';
+
+extension TypesRoom on types.Room {
+  bool get isNotReed {
+    if (createdAt == updatedAt) return false;
+    final result = (updatedAt ?? 0) - (latestUpdateMessagesBox.get(id) ?? 0);
+    // loggerObject.w('$id $updatedAt - ${(latestUpdateMessagesBox.get(id))} = $result');
+    return result > 2000;
+  }
+}
+
+var myRoomObject = MyRoomObject();
+
+firebase.User? firebaseUser = FirebaseChatCore.instance.firebaseUser;
 
 Future<List<types.User>> getChatUsers() async {
   // if (StorageController().listUsers.isNotEmpty) return StorageController().listUsers;
@@ -34,7 +48,6 @@ Future<List<types.User>> getChatUsers() async {
 }
 
 Future<List<types.Room>> getChatRooms() async {
-  print(FirebaseAuth.instance.currentUser);
   if (FirebaseAuth.instance.currentUser == null) return [];
   if (StorageController().listRooms.isNotEmpty) return StorageController().listRooms;
 
@@ -54,6 +67,8 @@ Future<List<types.Room>> getChatRooms() async {
   );
 
   StorageController().listRooms = listRooms;
+
+  listRooms.removeWhere((e) => (e.name ?? '').toLowerCase().contains('customer service'));
 
   return listRooms;
 }
@@ -122,12 +137,12 @@ Future<void> createChatUser(Trainer profile) async {
     );
   } on Exception catch (e) {
     if (e.toString().contains('email address is already')) {
-      loginChatUser(profile.id!,profile.name!);
+      loginChatUser(profile.id!, profile.name!);
     }
   }
 }
 
-Future<void> loginChatUser(String id ,String name) async {
+Future<void> loginChatUser(String id, String name) async {
   var credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
     email: 'fitnes.$id@fitnes.com',
     password: '98898$id!@qweDSAFCA',
@@ -137,7 +152,7 @@ Future<void> loginChatUser(String id ,String name) async {
     types.User(
         firstName: id,
         id: credential.user!.uid,
-        lastName:name,
+        lastName: name,
         metadata: {'fcm': await FirebaseMessaging.instance.getToken()}),
   );
 }

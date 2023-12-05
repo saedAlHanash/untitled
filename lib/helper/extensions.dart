@@ -154,7 +154,7 @@ extension DateUtcHelper on DateTime {
   String get formatDateAther => DateFormat('yyyy/MM/dd HH:MM').format(this);
 
   String formatDuration({DateTime? serverDate}) {
-    final difference = this.difference(serverDate ?? DateTime.now());
+    final difference = this.difference(serverDate ?? DateTime.now()).abs();
 
     final months = difference.inDays ~/ 30;
     final days = difference.inDays % 30;
@@ -186,6 +186,7 @@ extension DateUtcHelper on DateTime {
       formattedDuration.write(' / $seconds s');
     }
 
+    formattedDuration.write('        $formatDateTime');
     return formattedDuration.toString().trim().replaceFirst('/', '');
   }
 

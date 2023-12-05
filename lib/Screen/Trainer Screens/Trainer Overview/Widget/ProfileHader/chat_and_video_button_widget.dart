@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import '../../../../../Data/Repositories/Trainer Repository/trainer_appointments.dart';
 import '../../../../../Model/trainer.dart';
 import '../../../../../Utils/Routes/app_pages.dart';
+import '../../../../Trainee Screens/Chat/Widget/chat_card_widget.dart';
 import '../../../../Trainee Screens/Trainer Overview/trainer_overview_controller.dart';
 import '../../../../video/video.dart';
 import '../../../Trainer Calender/trainer_calender_controller.dart';
@@ -61,18 +62,7 @@ class _ChatAndVideoButtonWidgetState extends State<ChatAndVideoButtonWidget> {
 
                     myState(() => isLoading = false);
                     if (!mounted || openRoom == null) return;
-
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return ChatPage(
-                            room: openRoom,
-                            name: widget.trainer.name ?? '',
-                          );
-                        },
-                      ),
-                    );
+                    openRoomFunction(context, openRoom);
                     return;
                   },
             child: Container(

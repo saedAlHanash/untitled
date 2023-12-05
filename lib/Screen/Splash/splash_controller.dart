@@ -49,13 +49,14 @@ class SplashController extends GetxController {
           res = await authRepository.refreshTrainerToken();
           if (res.type == ApiResultType.success) {
             StorageController().token = res.data['access_token'];
-            // Utils.openSnackBar(title: res.data['access_token']);
             Get.offAllNamed(AppRoutes.trainerHomePage);
           } else {
+
             if (CacheHelper.getData(key: 'sticky_otp') ?? false) {
               Get.offNamed(AppRoutes.otp, arguments: ['', false]);
               return;
             }
+
             if (StorageController().token.isEmpty) {
               Get.offNamed(AppRoutes.signIn);
             } else {

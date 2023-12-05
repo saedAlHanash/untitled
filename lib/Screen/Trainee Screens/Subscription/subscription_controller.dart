@@ -44,7 +44,6 @@ class SubscruptionController extends GetxController {
   Map<String, dynamic>? paymentIntentData;
 
   getSubscribtionPaymentPlan() async {
-    loggerObject.w('getNew');
     isLoading = true;
     subscriptions = await _subscriptionRepository.subscribePaymentPlan();
 

@@ -8,20 +8,32 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart' as bloc;
 import 'package:get/get.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:saed_http/api_manager/api_service.dart';
 import './../core/translations.dart';
 import 'Data/Api/methods.dart';
 import 'Data/Api/urls.dart';
 import 'Screen/Splash/splash_binding.dart';
 import 'Screen/Trainee Screens/HomeScreen/refresh_home_plan_cubit/refresh_home_plan_cubit.dart';
+import 'Screen/chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 import 'Utils/Constants/constants.dart';
 import 'Utils/Routes/app_pages.dart';
 import 'Utils/dependency_injection.dart';
 import 'Utils/storage_controller.dart';
 import 'Utils/utils.dart';
+import 'package:hive/hive.dart';
+
+late Box<String> roomsBox;
+late Box usersBox;
+late Box<String> roomMessage;
+late Box<int> latestUpdateMessagesBox;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+  roomsBox = await Hive.openBox('rooms');
+  latestUpdateMessagesBox = await Hive.openBox('messages');
+  usersBox = await Hive.openBox('users');
   Get.put(LanguagesController());
 
   await DependencyInjection.init();
@@ -38,8 +50,11 @@ void main() async {
   APIService().initBaseUrl(baseUrl: 'api.fitnessstorm.org');
 
   runApp(
-    bloc.BlocProvider(
-      create: (context) => RefreshHomePlanCubit(),
+    bloc.MultiBlocProvider(
+      providers: [
+        bloc.BlocProvider(create: (_) => RefreshHomePlanCubit()),
+        bloc.BlocProvider(create: (_) => GetRoomsCubit()..getChatRooms()),
+      ],
       child: GetMaterialApp(
         color: Colors.white,
         title: "Fitness Storm",

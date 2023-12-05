@@ -2,12 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../Utils/Routes/app_pages.dart';
+import '../../../Trainee Screens/Chat/Widget/chat_card_widget.dart';
 import '../../../chat/chat.dart';
 import '../../../chat/util.dart';
 
-class TrainerTermAndConditionWidget extends StatelessWidget {
+class TrainerTermAndConditionWidget extends StatefulWidget {
   const TrainerTermAndConditionWidget({super.key});
 
+  @override
+  State<TrainerTermAndConditionWidget> createState() => _TrainerTermAndConditionWidgetState();
+}
+
+class _TrainerTermAndConditionWidgetState extends State<TrainerTermAndConditionWidget> {
+  bool loading = false;
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -73,16 +80,12 @@ class TrainerTermAndConditionWidget extends StatelessWidget {
                     height: 25,
                     child: TextButton(
                       onPressed: () async{
+                                if (loading) return;
+                        loading = true;
                         final room = await getRoomByUser('0');
+                         loading = false;
                         if (context.mounted) {
-                          Navigator.push(context, MaterialPageRoute(
-                            builder: (context) {
-                              return ChatPage(
-                                room: room!,
-                                name: 'CUSTOMER SERVICE' ?? '',
-                              );
-                            },
-                          ));
+                          openRoomFunction(context, room!);
                         }
                       },
                       style: TextButton.styleFrom(
