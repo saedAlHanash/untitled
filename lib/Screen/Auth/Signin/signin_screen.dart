@@ -102,8 +102,7 @@ class SigninScreen extends GetView<SigninController> {
                             if (controller.isPhone)
                               MyPhoneForm(
                                 onChange: (p0) {
-                                  controller.phone =
-                                      p0.phoneNumber?.replaceAll('+', '') ?? '';
+                                  controller.phone = p0.phoneNumber??'';
                                   if ((controller.emailController.text).isEmpty) {
                                     setState(() {});
                                   }

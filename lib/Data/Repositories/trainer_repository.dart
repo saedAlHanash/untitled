@@ -25,7 +25,8 @@ class TrainerRepository {
       }
       return trainers;
     } else {
-      throw result.message!;
+      return [];
+      // throw result.message!;
     }
   }
 

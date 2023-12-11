@@ -45,17 +45,18 @@ class SplashController extends GetxController {
       }
       try {
         var res;
+
+        if (CacheHelper.getData(key: 'sticky_otp') ?? false) {
+          Get.offNamed(AppRoutes.otp, arguments: ['', false]);
+          return;
+        }
+
         if (StorageController().userType == 'trainer') {
           res = await authRepository.refreshTrainerToken();
           if (res.type == ApiResultType.success) {
             StorageController().token = res.data['access_token'];
             Get.offAllNamed(AppRoutes.trainerHomePage);
           } else {
-
-            if (CacheHelper.getData(key: 'sticky_otp') ?? false) {
-              Get.offNamed(AppRoutes.otp, arguments: ['', false]);
-              return;
-            }
 
             if (StorageController().token.isEmpty) {
               Get.offNamed(AppRoutes.signIn);
@@ -64,16 +65,17 @@ class SplashController extends GetxController {
             }
           }
         } else {
+          if (CacheHelper.getData(key: 'sticky_otp') ?? false) {
+          Get.offNamed(AppRoutes.otp, arguments: ['', false]);
+          return;
+          }
           res = await authRepository.refreshUserToken();
           if (res.type == ApiResultType.success) {
             StorageController().token = res.data['access_token'];
             // Utils.openSnackBar(title: res.data['access_token']);
             Get.offAllNamed(AppRoutes.mainHome);
           } else {
-            if (CacheHelper.getData(key: 'sticky_otp') ?? false) {
-              Get.offNamed(AppRoutes.otp, arguments: ['', false]);
-              return;
-            }
+
             if (StorageController().token.isEmpty) {
               Get.offNamed(AppRoutes.signIn);
             } else {

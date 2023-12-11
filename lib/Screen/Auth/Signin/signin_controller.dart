@@ -6,13 +6,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:saed_http/api_manager/api_service.dart';
-
+import 'package:intl_phone_number_input/intl_phone_number_input.dart';
+import 'package:intl/intl.dart';
+import 'package:flutter_libphonenumber/flutter_libphonenumber.dart';
 import '../../../../Data/Api/api_result.dart';
 import '../../../../Data/Repositories/auth_repository.dart';
 import '../../../../Utils/Routes/app_pages.dart';
 import '../../../../Utils/storage_controller.dart';
 import '../../../../Utils/utils.dart';
 import '../../../Utils/dependency_injection.dart';
+
 
 class SigninController extends GetxController {
   final RxBool isScure = true.obs;
@@ -71,7 +74,7 @@ class SigninController extends GetxController {
         body: {
           "mobile": phone,
           "name": phone,
-          "isTest": false,
+          "isTest": true,
         },
       );
 

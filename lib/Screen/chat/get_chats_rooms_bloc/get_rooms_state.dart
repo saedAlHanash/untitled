@@ -5,12 +5,14 @@ class GetRoomsInitial {
   final List<types.Room> allRooms;
   final List<types.Room> myRooms;
   final String error;
+  final bool noReadMessages;
   final StreamSubscription<QuerySnapshot<Map<String, dynamic>>>? stream;
 
   const GetRoomsInitial({
     required this.statuses,
     required this.allRooms,
     required this.error,
+    required this.noReadMessages,
     required this.myRooms,
     this.stream,
   });
@@ -30,6 +32,7 @@ class GetRoomsInitial {
       allRooms: allFromHive,
       myRooms: myRoom,
       error: '',
+      noReadMessages: false,
       statuses: CubitStatuses.init,
     );
   }
@@ -39,6 +42,7 @@ class GetRoomsInitial {
     List<types.Room>? allRooms,
     List<types.Room>? myRooms,
     String? error,
+    bool? noReadMessages,
     StreamSubscription<QuerySnapshot<Map<String, dynamic>>>? stream,
   }) {
     return GetRoomsInitial(
@@ -46,6 +50,7 @@ class GetRoomsInitial {
         allRooms: allRooms ?? this.allRooms,
         myRooms: myRooms ?? this.myRooms,
         error: error ?? this.error,
+        noReadMessages: noReadMessages ?? this.noReadMessages,
         stream: stream ?? this.stream);
   }
 }

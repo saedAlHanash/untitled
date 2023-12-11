@@ -18,6 +18,7 @@ class GetRoomsCubit extends Cubit<GetRoomsInitial> {
   GetRoomsCubit() : super(GetRoomsInitial.initial());
 
   Future<void> getChatRooms() async {
+    loggerObject.w(FirebaseChatCore.instance.firebaseUser);
     if (firebaseUser == null) return;
 
     rooms();
@@ -87,12 +88,11 @@ class GetRoomsCubit extends Cubit<GetRoomsInitial> {
       // ..addAll(rooms)
       ..sort((a, b) => (b.updatedAt ?? 0).compareTo(a.updatedAt ?? 0));
 
-    // loggerObject.w(rooms);
     emit(
       state.copyWith(
-        allRooms: allRooms,
-        statuses: CubitStatuses.done,
-      ),
+          allRooms: allRooms,
+          statuses: CubitStatuses.done,
+          noReadMessages: allRooms.firstWhereOrNull((e) => e.isNotReed) != null),
     );
   }
 

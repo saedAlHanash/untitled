@@ -5,11 +5,14 @@ import 'package:fitness_storm/Screen/Trainee%20Screens/Search%20Screen/search_sc
 import 'package:fitness_storm/Screen/Trainee%20Screens/Trainee_Profile/trainee_profile_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Workout%20Screen/workout_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 import '../../../Utils/Routes/app_pages.dart';
 import '../../../Utils/storage_controller.dart';
+import '../../chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
+import '../../chat/room_messages_bloc/room_messages_cubit.dart';
 import '../HomeScreen/home_screen.dart';
 import 'Widget/navigation_bar_widget.dart';
 
@@ -44,7 +47,7 @@ class MainHomeScreen extends GetView<MainHomeController> {
                       : EdgeInsets.only(right: Get.width / 20),
                   child: GestureDetector(
                     onTap: () {
-                      if(StorageController().id== '262')return;
+                      if (StorageController().id == '262') return;
                       Get.toNamed(AppRoutes.subscriptionScreen);
                     },
                     child: Image.asset(
@@ -56,9 +59,26 @@ class MainHomeScreen extends GetView<MainHomeController> {
                 actions: [
                   IconButton(
                       onPressed: () => Get.toNamed(AppRoutes.chatScreen),
-                      icon: SvgPicture.asset(
-                        'asset/Images/chatSVG.svg',
-                        color: Get.theme.scaffoldBackgroundColor,
+                      icon: BlocBuilder<GetRoomsCubit, GetRoomsInitial>(
+                        builder: (context, state) {
+                          return Stack(
+                            children: [
+                              SvgPicture.asset(
+                                'asset/Images/chatSVG.svg',
+                                color: Get.theme.scaffoldBackgroundColor,
+                              ),
+                              if (state.noReadMessages)
+                                Container(
+                                  height: 7.0,
+                                  width: 7.0,
+                                  decoration: const BoxDecoration(
+                                    color: Colors.red,
+                                    shape: BoxShape.circle,
+                                  ),
+                                )
+                            ],
+                          );
+                        },
                       )),
                   Stack(
                     alignment: isEnglish ? Alignment.topRight : Alignment.topLeft,

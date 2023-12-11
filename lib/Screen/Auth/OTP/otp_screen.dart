@@ -78,8 +78,10 @@ class OTPScreen extends GetView<OTPController> {
                       horizontal: Get.width / 25,
                     ),
                     alignment: Alignment.topRight,
-                    child: TextButton(
-                      onPressed: () {},
+                    child:true?SizedBox(): TextButton(
+                      onPressed: () {
+                        controller.resendOTP();
+                      },
                       child: Text(
                         'resend_code'.tr,
                         style: const TextStyle(color: Colors.white, fontSize: 14),

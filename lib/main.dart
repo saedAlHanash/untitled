@@ -21,7 +21,6 @@ import 'Utils/Routes/app_pages.dart';
 import 'Utils/dependency_injection.dart';
 import 'Utils/storage_controller.dart';
 import 'Utils/utils.dart';
-import 'package:hive/hive.dart';
 
 late Box<String> roomsBox;
 late Box usersBox;

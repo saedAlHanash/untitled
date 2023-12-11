@@ -34,7 +34,7 @@ class OTPController extends GetxController {
 
   set email(value) => _email.value = value;
 
-  submit() async {
+  void submit() async {
     //log(otpController.text);
     if (otpController.text.isEmpty) {
       Utils.openSnackBar(title: 'please_enter_oTP_code'.tr, textColor: Colors.white);
@@ -55,7 +55,7 @@ class OTPController extends GetxController {
     }
   }
 
-  submitForgetPassword() async {
+  void submitForgetPassword() async {
     //log('forgetpassword');
     //log(otpController.text);
     if (otpController.text.isEmpty) {
@@ -82,10 +82,11 @@ class OTPController extends GetxController {
     }
   }
 
-  resendOTP() async {
+  void resendOTP() async {
     //log(otpController.text);
+    Utils.openLoadingDialog();
     ApiResult result = await _authRepository.resendOTP();
-
+    Utils.closeDialog();
     if (result.type == ApiResultType.success) {
       Utils.openSnackBar(
           title: 'verification_sent_successfully'.tr, textColor: Colors.white);

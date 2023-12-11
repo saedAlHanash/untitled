@@ -7,10 +7,12 @@ import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Main%20Home/tra
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Wallet/trainer_wallet_screen.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer_Profile/trainer_profile_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 import '../../../Utils/Routes/app_pages.dart';
+import '../../chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 import 'Widget/trainer_navigation_bar_widget.dart';
 
 class TrainerMainHomeScreen extends GetView<TrainerMainHomeController> {
@@ -58,9 +60,26 @@ class TrainerMainHomeScreen extends GetView<TrainerMainHomeController> {
                     actions: [
                       IconButton(
                           onPressed: () => Get.toNamed(AppRoutes.chatScreen),
-                          icon: SvgPicture.asset(
-                            'asset/Images/chatSVG.svg',
-                            color: Get.theme.scaffoldBackgroundColor,
+                          icon: BlocBuilder<GetRoomsCubit, GetRoomsInitial>(
+                            builder: (context, state) {
+                              return Stack(
+                                children: [
+                                  SvgPicture.asset(
+                                    'asset/Images/chatSVG.svg',
+                                    color: Get.theme.scaffoldBackgroundColor,
+                                  ),
+                                  if (state.noReadMessages)
+                                    Container(
+                                      height: 7.0,
+                                      width: 7.0,
+                                      decoration: const BoxDecoration(
+                                        color: Colors.red,
+                                        shape: BoxShape.circle,
+                                      ),
+                                    )
+                                ],
+                              );
+                            },
                           )),
                       Builder(builder: (context) {
                         return IconButton(

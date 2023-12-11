@@ -1,17 +1,8 @@
-[
-  {
-    "id": 1,
-    "label": "min_android_version",
-    "value": "1"
-  },
-  {
-    "id": 2,
-    "label": "min_apple_version",
-    "value": "1"
-  },
-  {
+{
+  "data": {
     "id": 3,
-    "label": "is_ios_test",
-    "value": "true"
+    "name": "Kitchen",
+    "image": "https:\/\/sadaf-group.s3.me-south-1.amazonaws.com\/categories\/YtHaYn2sTqEHt9YbQx4vhLmIfJSHAVnrZFg213Y2.png",
+    "icon": "https:\/\/sadaf-group.s3.me-south-1.amazonaws.com\/categories\/KaS4CfBkI2oU6FBwu6ufaFgRbIIT5rh5ZMaKMyMR.png"
   }
-]
+}

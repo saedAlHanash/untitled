@@ -29,7 +29,7 @@ class YourTrainersWidget extends GetWidget<HomeScreenController> {
   Widget _buildYourTrainersList({required List<Trainer> trainers}) {
     return SizedBox(
       width: MediaQuery.of(Get.context!).size.width,
-      height: MediaQuery.of(Get.context!).size.height / 3.4,
+      height: MediaQuery.of(Get.context!).size.height / 3,
       child: ListView.builder(
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,

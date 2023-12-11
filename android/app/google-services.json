@@ -14,11 +14,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "644714333877-7ofomv1e9dke876u0r9p6qfdm6763cs8.apps.googleusercontent.com",
+          "client_id": "644714333877-46uebmts9jf82k8r33e21oc4jltai9d7.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.chi.fitnessStorm",
-            "certificate_hash": "e37ad461ba2172464e66075d8d8d6b2e9cb17daa"
+            "certificate_hash": "8073cdf4e56c263ead03f4e5ab68b11f93f0b154"
           }
         },
         {
@@ -29,6 +29,43 @@
             "certificate_hash": "b9623ebc4bb3f108392bacde3d149e763fbd7152"
           }
         },
+        {
+          "client_id": "644714333877-1bqnqk8h7omigcg7n930aft0m62i60jo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQNJPPpwccWSWZuBk-8IJsBcIuMMkuxX8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "644714333877-1bqnqk8h7omigcg7n930aft0m62i60jo.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "644714333877-120vrkjeaqnlmihnacereairhcv9i2ih.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.chi.fitnessStorm",
+                "app_store_id": "6463420120"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:644714333877:android:d2e5621631ddf36db820fc",
+        "android_client_info": {
+          "package_name": "com.chi.fitness_admin_chat"
+        }
+      },
+      "oauth_client": [
         {
           "client_id": "644714333877-1bqnqk8h7omigcg7n930aft0m62i60jo.apps.googleusercontent.com",
           "client_type": 3
