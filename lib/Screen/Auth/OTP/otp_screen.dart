@@ -35,16 +35,16 @@ class OTPScreen extends GetView<OTPController> {
                   Padding(
                     padding: EdgeInsets.symmetric(vertical: Get.height / 20),
                     child:
-                        Image.asset('asset/Images/white_logo.png', width: Get.width / 4),
+                    Image.asset('asset/Images/white_logo.png', width: Get.width / 4),
                   ),
                   SizedBox(height: Get.height / 20),
                   Text(
-                    ('email_verification').tr,
+                    'email_verification'.tr,
                     style: const TextStyle(fontSize: 26, color: Colors.white),
                   ),
                   SizedBox(height: Get.height / 30),
                   Text(
-                    '${'sent_6_digit'.tr}:',
+                    'sent_6_digit'.tr + ':',
                     textAlign: TextAlign.center,
                     style: const TextStyle(fontSize: 14, color: Colors.white),
                   ),
@@ -58,10 +58,10 @@ class OTPScreen extends GetView<OTPController> {
                       child: TextButton(
                         onPressed: () {
                           CacheHelper.saveData(key: 'sticky_otp', value: false);
-                          Get.offAllNamed(AppRoutes.signIn);
+                          Get.offAllNamed(AppRoutes.signUp);
                         },
                         child: Text(
-                           ('change_email').tr,
+                          'change_email'.tr,
                           style: const TextStyle(
                             color: Colors.white,
                             fontSize: 14,
@@ -78,10 +78,8 @@ class OTPScreen extends GetView<OTPController> {
                       horizontal: Get.width / 25,
                     ),
                     alignment: Alignment.topRight,
-                    child:true?SizedBox(): TextButton(
-                      onPressed: () {
-                        controller.resendOTP();
-                      },
+                    child: TextButton(
+                      onPressed: () {},
                       child: Text(
                         'resend_code'.tr,
                         style: const TextStyle(color: Colors.white, fontSize: 14),
@@ -102,6 +100,7 @@ class OTPScreen extends GetView<OTPController> {
                     text: 'Verify'.tr,
                     textColor: Colors.white,
                   ),
+
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.end,

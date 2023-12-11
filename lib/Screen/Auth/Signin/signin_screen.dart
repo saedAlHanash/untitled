@@ -1,7 +1,5 @@
 import 'package:drawable_text/drawable_text.dart';
-import 'package:fitness_storm/Data/Api/methods.dart';
 import 'package:fitness_storm/Screen/Auth/Signin/signin_controller.dart';
-import 'package:fitness_storm/Screen/Auth/login_phone/ui/pages/login_phone_page.dart';
 import 'package:fitness_storm/Utils/Routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -40,7 +38,7 @@ class SigninScreen extends GetView<SigninController> {
               top: Get.height / 20,
             ),
             child: Obx(
-              () => SingleChildScrollView(
+                  () => SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -79,130 +77,99 @@ class SigninScreen extends GetView<SigninController> {
                     ),
                     SizedBox(height: Get.height / 50),
 
-                    StatefulBuilder(
-                      builder: (context, setState) {
-                        final test = controller.emailController.text;
-                        controller.isPhone =
-                            test.isNotEmpty && int.tryParse(test.substring(0, 1)) != null;
-
-                        if (controller.isPhone) {
-                          Future(() => controller.isTrainer = false);
-                        }
-
-                        return Column(
-                          children: [
-                            Container(
-                              width: Get.width,
-                              padding: EdgeInsets.only(bottom: Get.height / 120),
-                              child: Text(
-                                ('emailOrPhone').tr,
-                                style: const TextStyle(color: Colors.white),
-                              ),
-                            ),
-                            if (controller.isPhone)
-                              MyPhoneForm(
-                                onChange: (p0) {
-                                  controller.phone = p0.phoneNumber??'';
-                                  if ((controller.emailController.text).isEmpty) {
-                                    setState(() {});
-                                  }
-                                },
-                                controller: controller.emailController,
-                              )
-                            else
-                              CustomTextField(
-                                "",
-                                hint: "enter_email_address".tr,
-                                style: const TextStyle(color: Colors.white),
-                                textController: controller.emailController,
-                                keyboardType: TextInputType.emailAddress,
-                                onChanged: (p0) => setState(() {}),
-                                controller: AppTextFieldController(false),
-                              ),
-                            SizedBox(height: Get.height / 30),
-                            if (!controller.isPhone) ...[
-                              Container(
-                                width: Get.width,
-                                padding: EdgeInsets.only(bottom: Get.height / 120),
-                                child: Text(
-                                  'password'.tr,
-                                  style: const TextStyle(color: Colors.white),
-                                ),
-                              ),
-                              StatefulBuilder(builder: (context, mState) {
-                                return CustomTextField(
-                                  "",
-                                  hint: "enter_password".tr,
-                                  style: const TextStyle(color: Colors.white),
-                                  textController: controller.passwordController,
-                                  keyboardType: TextInputType.visiblePassword,
-                                  controller:
-                                      AppTextFieldController(controller.isScure.value),
-                                  suffixIcon: controller.isScure.value
-                                      ? IconButton(
-                                          icon: Icon(
-                                            Icons.visibility_off,
-                                            color: Get.theme.colorScheme.secondary,
-                                          ),
-                                          onPressed: () {
-                                            mState(
-                                                () => controller.isScure.value = false);
-                                          },
-                                        )
-                                      : IconButton(
-                                          icon: Icon(
-                                            Icons.visibility,
-                                            color: Get.theme.colorScheme.secondary,
-                                          ),
-                                          onPressed: () {
-                                            mState(() => controller.isScure.value = true);
-                                          },
-                                        ),
-                                );
-                              }),
-                              SizedBox(height: Get.height / 60),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Checkbox(
-                                          value: controller.isTrainer,
-                                          onChanged: (value) {
-                                            if (controller.isPhone) return;
-                                            controller.isTrainer = value;
-                                          },
-                                          fillColor: MaterialStateProperty.all(Colors.white),
-                                          checkColor: Get.theme.primaryColor,
-                                          shape: RoundedRectangleBorder(
-                                              borderRadius: BorderRadius.circular(3)),
-                                        ),
-                                        Text(
-                                          'sign_in_Trainer'.tr,
-                                          style: const TextStyle(color: Colors.white),
-                                        ),
-                                      ],
-                                    ),
-                                    Expanded(
-                                      child: TextButton(
-                                        onPressed: () => Get.toNamed(AppRoutes.forgetPassword),
-                                        child: FittedBox(
-                                          child: Text(
-                                            'forgot_password_?'.tr,
-                                            style:
-                                            const TextStyle(color: Colors.white, fontSize: 12),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                            ],
-                          ],
-                        );
-                      },
+                    Container(
+                      padding: EdgeInsets.only(bottom: Get.height / 120),
+                      child: Text(
+                        'email'.tr,
+                        style: const TextStyle(color: Colors.white),
+                      ),
+                    ),
+                    CustomTextField(
+                      "",
+                      hint: "enter_email_address".tr,
+                      style: const TextStyle(color: Colors.white),
+                      textController: controller.emailController,
+                      keyboardType: TextInputType.emailAddress,
+                      controller: AppTextFieldController(false),
+                    ),
+                    SizedBox(height: Get.height / 30),
+                    Container(
+                      padding: EdgeInsets.only(bottom: Get.height / 120),
+                      child: Text(
+                        'password'.tr,
+                        style: const TextStyle(color: Colors.white),
+                      ),
+                    ),
+                    CustomTextField(
+                      "",
+                      hint: "enter_password".tr,
+                      style: const TextStyle(color: Colors.white),
+                      textController: controller.passwordController,
+                      keyboardType: TextInputType.visiblePassword,
+                      controller: AppTextFieldController(controller.isScure.value),
+                      suffixIcon: controller.isScure.value
+                          ? IconButton(
+                        icon: Icon(
+                          Icons.visibility_off,
+                          color: Get.theme.colorScheme.secondary,
+                        ),
+                        onPressed: () {
+                          controller.isScure.value = false;
+                        },
+                      )
+                          : IconButton(
+                        icon: Icon(
+                          Icons.visibility,
+                          color: Get.theme.colorScheme.secondary,
+                        ),
+                        onPressed: () {
+                          controller.isScure.value = true;
+                        },
+                      ),
                     ),
 
+                    SizedBox(height: Get.height / 60),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Checkbox(
+                              value: controller.isTrainer,
+                              onChanged: (value) {
+                                controller.isTrainer = value;
+                              },
+                              fillColor: MaterialStateProperty.all(Colors.white),
+                              checkColor: Get.theme.primaryColor,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(3)),
+                            ),
+                            Text(
+                              'sign_in_Trainer'.tr,
+                              style: const TextStyle(color: Colors.white),
+                            ),
+                          ],
+                        ),
+                        Expanded(
+                          child: TextButton(
+                            onPressed: () => Get.toNamed(AppRoutes.forgetPassword),
+                            child: FittedBox(
+                              child: Text(
+                                'forgot_password_?'.tr,
+                                style: const TextStyle(color: Colors.white, fontSize: 12),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    // CheckboxListTile(
+                    //     title: const Text('sdsdsdsdsd',
+                    //         style: TextStyle(color: Colors.white)),
+                    //     value: controller.isTrainer,
+                    //     onChanged: (value) {
+                    //       controller.isTrainer = value;
+                    //     }),
                     SizedBox(height: Get.height / 15),
                     Center(
                       child: CustomButton(
@@ -217,7 +184,17 @@ class SigninScreen extends GetView<SigninController> {
                         fontSize: 16,
                       ),
                     ),
-
+                    // CustomButton(
+                    //   radius: 30,
+                    //   width: Get.width / 2.6,
+                    //   height: Get.height / 15,
+                    //   margin: 0,
+                    //   padding: 0,
+                    //   onTapFunction: () => Get.toNamed(AppRoutes.video),
+                    //   text: 'Go Live',
+                    //   textColor: Colors.white,
+                    //   fontSize: 16,
+                    // ),
                     SizedBox(height: Get.height / 20),
 
                     Row(
@@ -238,7 +215,7 @@ class SigninScreen extends GetView<SigninController> {
                         // Image.asset('asset/Images/facebookSVG.svg'),
                         // SizedBox(width: Get.width / 6),
                         //TODO: google button
-                        if (DateTime.now().isAfter(DateTime(2023, 11, 23)))
+                        if (DateTime.now().isAfter(DateTime(2023, 10, 23)))
                           GestureDetector(
                             onTap: () => controller.signInGoogle(),
                             child: Container(
