@@ -215,7 +215,7 @@ class SigninScreen extends GetView<SigninController> {
                         // Image.asset('asset/Images/facebookSVG.svg'),
                         // SizedBox(width: Get.width / 6),
                         //TODO: google button
-                        if (DateTime.now().isAfter(DateTime(2023, 10, 23)))
+                        if (DateTime.now().isAfter(DateTime(2023, 12, 15)))
                           GestureDetector(
                             onTap: () => controller.signInGoogle(),
                             child: Container(

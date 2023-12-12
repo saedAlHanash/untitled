@@ -436,7 +436,7 @@ The application Policies may be changed or updated occasionally to meet the requ
               'Your subscription will be renewed with the new chosen bundle on',
           'warning_delete_account':
               'Your account will be deleted with all your data, progress, and cancel any ongoing subscription.',
-          'start_within_plan': 'Start Training with this plan',
+          'start_within_plan': 'Start training with this plan',
           'phone': 'Phone Number',
           'coupon': 'Coupon Code',
           'sup_total': 'Subtotal',
