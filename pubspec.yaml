@@ -44,7 +44,6 @@ dependencies:
     git:
       url: https://github.com/saedAlHanash/image_multi_type
 
-  flutter_libphonenumber: any
   hive_flutter: any
   smooth_page_indicator: ^1.0.0+2
 #  flick_video_player:
