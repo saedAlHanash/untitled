@@ -1,11 +1,6 @@
-import 'package:drawable_text/drawable_text.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/Chat/chat_controller.dart';
-import 'package:fitness_storm/helper/extensions.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_chat_types/flutter_chat_types.dart';
 import 'package:get/get.dart';
 import 'package:image_multi_type/image_multi_type.dart';
-import 'package:image_multi_type/round_image_widget.dart';
 
 import '../../../../generated/assets.dart';
 

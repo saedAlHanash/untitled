@@ -1,4 +1,3 @@
-import 'package:drawable_text/drawable_text.dart';
 import 'package:fitness_storm/Screen/Auth/Signin/signin_controller.dart';
 import 'package:fitness_storm/Utils/Routes/app_pages.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +10,6 @@ import '../../../../Widgets/custom_text_field.dart';
 import '../../../Widgets/language_board_widget.dart';
 import '../../../common/assets.gen.dart';
 import '../../../common/bottom_sheets.dart';
-import '../../Trainee Screens/Trainee_Profile/Widget/profile_card.dart';
 
 class SigninScreen extends GetView<SigninController> {
   const SigninScreen({Key? key}) : super(key: key);

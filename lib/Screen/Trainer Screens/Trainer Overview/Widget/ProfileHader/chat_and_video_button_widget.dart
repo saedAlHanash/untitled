@@ -1,4 +1,3 @@
-import 'package:fitness_storm/Screen/chat/chat.dart';
 import 'package:fitness_storm/Screen/chat/util.dart';
 import 'package:fitness_storm/Utils/utils.dart';
 import 'package:flutter/material.dart';

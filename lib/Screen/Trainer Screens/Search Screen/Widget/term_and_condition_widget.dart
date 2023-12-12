@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 
 import '../../../../Utils/Routes/app_pages.dart';
 import '../../../Trainee Screens/Chat/Widget/chat_card_widget.dart';
-import '../../../chat/chat.dart';
 import '../../../chat/util.dart';
 
 class TrainerTermAndConditionWidget extends StatefulWidget {

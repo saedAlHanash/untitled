@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../Utils/Routes/app_pages.dart';
-import '../../../chat/chat.dart';
 import '../../../chat/util.dart';
 
 class TermAndConditionWidget extends StatefulWidget {

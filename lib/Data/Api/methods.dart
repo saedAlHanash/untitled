@@ -4,7 +4,6 @@ import 'package:dio/dio.dart';
 import 'package:dio/dio.dart' as dio;
 import 'package:get/get.dart';
 import 'package:logger/logger.dart';
-import 'package:saed_http/api_manager/api_service.dart';
 
 import '../../helper/loging_service.dart';
 import 'api_result.dart';

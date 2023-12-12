@@ -1,5 +1,4 @@
 import 'package:fitness_storm/Data/Api/api_result.dart';
-import 'package:fitness_storm/Data/Api/methods.dart';
 import 'package:get/get.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 

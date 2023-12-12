@@ -1,7 +1,8 @@
 import 'dart:ui';
-import 'package:firebase_auth/firebase_auth.dart' as firebase;
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dio/dio.dart';
+import 'package:firebase_auth/firebase_auth.dart' as firebase;
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:fitness_storm/Screen/chat/my_room_object.dart';

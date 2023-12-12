@@ -2,8 +2,6 @@ import 'package:fitness_storm/Widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../Utils/Routes/app_pages.dart';
-import '../../../chat/chat.dart';
 import '../../../chat/util.dart';
 import '../../Chat/Widget/chat_card_widget.dart';
 

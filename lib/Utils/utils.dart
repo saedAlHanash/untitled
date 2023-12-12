@@ -12,8 +12,6 @@ import 'package:package_info_plus/package_info_plus.dart';
 import 'package:saed_http/api_manager/api_service.dart';
 import 'package:saed_http/pair_class.dart';
 
-import 'Constants/constants.dart';
-
 class Utils {
   static final categoryItemWidth = Get.width * 0.44;
   static const categoryItemHeight = 242.0;

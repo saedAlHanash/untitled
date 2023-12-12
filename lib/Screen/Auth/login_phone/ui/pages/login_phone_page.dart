@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_multi_type/image_multi_type.dart';
+import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
 import '../../../../../Widgets/language_board_widget.dart';
 import '../../../../../common/assets.gen.dart';
 import '../../../../../common/bottom_sheets.dart';
-import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
 class LoginPhonePage extends StatelessWidget {
   const LoginPhonePage({super.key});

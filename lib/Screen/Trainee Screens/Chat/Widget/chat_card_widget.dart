@@ -1,7 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:drawable_text/drawable_text.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/Chat/chat_controller.dart';
-import 'package:fitness_storm/Utils/Constants/constants.dart';
 import 'package:fitness_storm/helper/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

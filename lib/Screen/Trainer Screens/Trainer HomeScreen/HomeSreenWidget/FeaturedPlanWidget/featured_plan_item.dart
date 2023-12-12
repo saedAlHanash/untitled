@@ -2,9 +2,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fitness_storm/Utils/Constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_multi_type/image_multi_type.dart';
 
 import '../../../../../Widgets/plan_time_freqency.dart';
-import 'package:image_multi_type/image_multi_type.dart';
 
 class FeaturedPlanItem extends GetWidget {
   final String planImageUrl;

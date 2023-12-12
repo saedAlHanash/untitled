@@ -5,10 +5,10 @@ import 'package:fitness_storm/Utils/Constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:image_multi_type/image_multi_type.dart';
 
 import '../Model/plan.dart';
 import '../Utils/Routes/app_pages.dart';
-import 'package:image_multi_type/image_multi_type.dart';
 import 'custom_chip.dart';
 import 'trainer_profile_image.dart';
 

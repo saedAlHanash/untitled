@@ -1,6 +1,5 @@
 // ignore_for_file: non_constant_identifier_names
 
-import 'package:firebase_auth/firebase_auth.dart' as firebase;
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 import 'package:get_storage/get_storage.dart';
 

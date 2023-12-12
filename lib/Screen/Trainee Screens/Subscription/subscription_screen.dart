@@ -1,5 +1,3 @@
-import 'package:fitness_storm/Data/Api/methods.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/HomeScreen/home_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Subscription/Widget/payment_card.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Subscription/Widget/success_subscribed.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Subscription/Widget/without_subscribed.dart';
@@ -9,8 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../custome_web_page_view.dart';
-import '../../../helperClass.dart';
-import '../PlanOverView/plan_overview_controller.dart';
 import '../coupon/data/request/pay_request.dart';
 import 'Widget/current_payment_card.dart';
 
