@@ -32,14 +32,9 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>com.googleusercontent.apps.644714333877-120vrkjeaqnlmihnacereairhcv9i2ih</string>
-				<string>fb2111600515853572</string>
 			</array>
 		</dict>
 	</array>
-	<key>FacebookAppID</key>
-    <string>2111600515853572</string>
-    <key>FacebookDisplayName</key>
-    <string>Fitness Storm</string>
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>FirebaseAppDelegateProxyEnabled</key>
