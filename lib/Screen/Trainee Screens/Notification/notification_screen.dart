@@ -28,35 +28,23 @@ class NotificationScreen extends GetView<NotificationController> {
                 onRefresh: () async {
                   controller.getAllNotification1();
                 },
-                child: SingleChildScrollView(
-                  physics: const AlwaysScrollableScrollPhysics(),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      controller.notifications.data!.isEmpty
-                          ? const EmptyScreen()
-                          : SizedBox(
-                              height: Get.height + 30,
-                              child: ListView.builder(
-                                physics: const NeverScrollableScrollPhysics(),
-                                shrinkWrap: true,
-                                padding: const EdgeInsets.only(bottom: 200.0),
-                                itemCount: controller.notifications.data!.length,
-                                itemBuilder: (context, index) {
-                                  List data =
-                                      controller.notifications.data!.reversed.toList();
-                                  return NotificationWidget(
-                                    title: data[index].body!,
-                                    date: data[index].createdAt!,
-                                  );
-                                },
-                              ),
-                            ),
-                    ],
-                  ),
-                ),
+                child: controller.notifications.data!.isEmpty
+                    ? const EmptyScreen()
+                    : SizedBox(
+                        height: Get.height + 30,
+                        child: ListView.builder(
+                          shrinkWrap: true,
+                          padding: const EdgeInsets.only(bottom: 200.0),
+                          itemCount: controller.notifications.data!.length,
+                          itemBuilder: (context, index) {
+                            List data = controller.notifications.data!.reversed.toList();
+                            return NotificationWidget(
+                              title: data[index].body!,
+                              date: data[index].createdAt!,
+                            );
+                          },
+                        ),
+                      ),
               ),
       ),
     );

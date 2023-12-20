@@ -149,7 +149,6 @@ class TraineeProfileController extends GetxController {
   logoutDependingOnTheLoginMethod() async {
     GetStorage getStorage = GetStorage();
     String methodLogin = await getStorage.read(Constants.methodTakeAuthentication);
-    StorageController().listUsers.clear();
 
     switch (methodLogin) {
       case 'google':

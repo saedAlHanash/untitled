@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
+import '../../Data/Api/methods.dart';
 import '../../Utils/dependency_injection.dart';
 import '../Trainee Screens/Chat/Widget/customer_service_card_widget.dart';
 import 'get_chats_rooms_bloc/get_rooms_cubit.dart';
@@ -53,18 +54,10 @@ class _RoomsScreenState extends State<RoomsScreen> {
             itemCount: state.allRooms.length + 1,
             itemBuilder: (context, i) {
               if (i == 0) {
-                return InkWell(
-                  onTap: () async {
-                    final room = await getRoomByUser('0');
-                    if (context.mounted) {
-                      openRoomFunction(context, room!);
-                    }
-                  },
-                  child: const CustomerServiceCardwidget(),
-                );
+                return CustomerServiceCardWidget(room: state.getCostumerRoom());
               }
               final openRoom = state.allRooms[i - 1];
-
+              // loggerObject.w(openRoom.toJson());
               return ChatCardWidget(
                 room: openRoom,
               );

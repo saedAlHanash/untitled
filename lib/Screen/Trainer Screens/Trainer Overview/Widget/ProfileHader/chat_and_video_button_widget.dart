@@ -1,6 +1,7 @@
 import 'package:fitness_storm/Screen/chat/util.dart';
 import 'package:fitness_storm/Utils/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
 import '../../../../../Data/Repositories/Trainer Repository/trainer_appointments.dart';
@@ -8,6 +9,7 @@ import '../../../../../Model/trainer.dart';
 import '../../../../../Utils/Routes/app_pages.dart';
 import '../../../../Trainee Screens/Chat/Widget/chat_card_widget.dart';
 import '../../../../Trainee Screens/Trainer Overview/trainer_overview_controller.dart';
+import '../../../../chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 import '../../../../video/video.dart';
 import '../../../Trainer Calender/trainer_calender_controller.dart';
 
@@ -57,7 +59,9 @@ class _ChatAndVideoButtonWidgetState extends State<ChatAndVideoButtonWidget> {
                     }
                     myState(() => isLoading = true);
 
-                    final openRoom = await getRoomByUser(widget.trainer.id.toString());
+                    final openRoom = await context
+                        .read<GetRoomsCubit>()
+                        .getRoomByUser(widget.trainer.id.toString());
 
                     myState(() => isLoading = false);
                     if (!mounted || openRoom == null) return;

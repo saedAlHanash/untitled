@@ -1,10 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:drawable_text/drawable_text.dart';
+import 'package:fitness_storm/Data/Api/methods.dart';
 import 'package:fitness_storm/helper/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import '../../../../main.dart';
@@ -55,6 +57,7 @@ class _ChatCardWidgetState extends State<ChatCardWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (widget.room.name?.contains('Customer Service') ?? false) return const SizedBox();
     return GestureDetector(
       onTap: () => openRoom(context),
       child: Container(

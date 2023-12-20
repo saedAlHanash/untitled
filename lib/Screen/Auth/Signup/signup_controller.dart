@@ -121,7 +121,7 @@ class SignupController extends GetxController {
         ApiResult res;
         res = await _authRepository.traineeTakeAuthenticationByGoogleAccount(
             x.user!.email!, x.user!.displayName!, x.user!.uid);
-        loggerObject.w(res.statusCode);
+        // loggerObject.w(res.statusCode);
         if (res.type == ApiResultType.success) {
           _storageController.token = res.data['access_token'];
           _storageController.rememberToken = res.data['refresh_token'];

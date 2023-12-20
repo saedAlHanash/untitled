@@ -42,9 +42,6 @@ class SigninController extends GetxController {
   @override
   void onInit() {
     FirebaseAuth.instance.signOut();
-    StorageController()
-      ..listRooms.clear()
-      ..listRooms.clear();
     super.onInit();
   }
 

@@ -18,18 +18,16 @@ extension TypesRoom on types.Room {
   bool get isNotReed {
     if (createdAt == updatedAt) return false;
     final result = (updatedAt ?? 0) - (latestUpdateMessagesBox.get(id) ?? 0);
-    loggerObject.w('$id $updatedAt - ${(latestUpdateMessagesBox.get(id))} = $result');
+    // loggerObject.w('$id $updatedAt - ${(latestUpdateMessagesBox.get(id))} = $result');
     return result > 2000;
   }
 }
 
 var myRoomObject = MyRoomObject();
 
-firebase.User? firebaseUser = FirebaseChatCore.instance.firebaseUser;
+final firebaseUser = FirebaseChatCore.instance.firebaseUser;
 
 Future<List<types.User>> getChatUsers() async {
-  // if (StorageController().listUsers.isNotEmpty) return StorageController().listUsers;
-
   final users = await FirebaseFirestore.instance.collection('users').get();
 
   final listUsers = users.docs.map((doc) {
@@ -43,61 +41,7 @@ Future<List<types.User>> getChatUsers() async {
     return types.User.fromJson(data);
   }).toList();
 
-  StorageController().listUsers = listUsers;
-
   return listUsers;
-}
-
-Future<List<types.Room>> getChatRooms() async {
-  if (FirebaseAuth.instance.currentUser == null) return [];
-  if (StorageController().listRooms.isNotEmpty) return StorageController().listRooms;
-
-  final rooms = await FirebaseFirestore.instance
-      .collection('rooms')
-      .where(
-        'userIds',
-        arrayContains: FirebaseAuth.instance.currentUser?.uid,
-      )
-      .get();
-
-  final listRooms = await processRoomsQuery(
-    FirebaseAuth.instance.currentUser!,
-    FirebaseFirestore.instance,
-    rooms,
-    'users',
-  );
-
-  StorageController().listRooms = listRooms;
-
-  listRooms.removeWhere((e) => (e.name ?? '').toLowerCase().contains('customer service'));
-
-  return listRooms;
-}
-
-Future<String> test() async {
-  return '';
-}
-
-Future<types.Room?> getRoomByUser(String? id) async {
-  if (id == null) return null;
-
-  final rooms = await getChatRooms();
-  for (var e in rooms) {
-    for (var e1 in e.users) {
-      if (e1.firstName == id) {
-        return e;
-      }
-    }
-  }
-
-  for (var e in await getChatUsers()) {
-    if (e.firstName == id) {
-      var newRoom = await FirebaseChatCore.instance.createRoom(e);
-      StorageController().listRooms.add(newRoom);
-      return newRoom;
-    }
-  }
-  return null;
 }
 
 types.User getChatMember(List<types.User> list, {bool? me}) {
@@ -114,8 +58,7 @@ types.User getChatMember(List<types.User> list, {bool? me}) {
 }
 
 Future<bool> isChatUserFound(String id) async {
-  await getChatUsers();
-  for (var e in StorageController().listUsers) {
+  for (var e in await getChatUsers()) {
     if (e.firstName == id) return true;
   }
   return false;
@@ -200,24 +143,3 @@ Future<void> sendNotificationMessage(
   );
   StorageController().myRoomObject.needToSendNotification = false;
 }
-
-const colors = [
-  Color(0xffff6767),
-  Color(0xff66e0da),
-  Color(0xfff5a2d9),
-  Color(0xfff0c722),
-  Color(0xff6a85e5),
-  Color(0xfffd9a6f),
-  Color(0xff92db6e),
-  Color(0xff73b8e5),
-  Color(0xfffd7590),
-  Color(0xffc78ae5),
-];
-
-Color getUserAvatarNameColor(types.User user) {
-  final index = user.id.hashCode % colors.length;
-  return colors[index];
-}
-
-String getUserName(types.User user) =>
-    '${user.firstName ?? ''} ${user.lastName ?? ''}'.trim();

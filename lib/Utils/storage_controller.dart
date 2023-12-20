@@ -10,9 +10,7 @@ import 'Constants/enums.dart';
 class StorageController {
   static StorageController? _instance;
 
-  List<types.User> listUsers = [];
 
-  List<types.Room> listRooms = [];
 
   var myRoomObject = MyRoomObject();
 

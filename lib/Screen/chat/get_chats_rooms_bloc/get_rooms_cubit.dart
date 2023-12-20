@@ -18,11 +18,12 @@ class GetRoomsCubit extends Cubit<GetRoomsInitial> {
   GetRoomsCubit() : super(GetRoomsInitial.initial());
 
   Future<void> getChatRooms() async {
-    loggerObject.w(FirebaseChatCore.instance.firebaseUser);
+    // loggerObject.w(FirebaseChatCore.instance.firebaseUser);
     if (firebaseUser == null) return;
 
     rooms();
   }
+
 
   /// Returns a stream of messages from Firebase for a given room.
   void rooms() {
@@ -96,26 +97,6 @@ class GetRoomsCubit extends Cubit<GetRoomsInitial> {
     );
   }
 
-  Future<types.Room?> getRoomByUser(String? id) async {
-    if (id == null) return null;
-
-    for (var e in state.myRooms) {
-      for (var e1 in e.users) {
-        if (e1.id == id) {
-          return e;
-        }
-      }
-    }
-
-    for (var e in await getChatUsers()) {
-      if (e.id == id) {
-        var newRoom = await FirebaseChatCore.instance.createRoom(e);
-        // localListRooms.add(newRoom);
-        return newRoom;
-      }
-    }
-    return null;
-  }
 
   List<types.Room> get getRoomsFromHive {
     return roomsBox.values.map((e) {
@@ -133,6 +114,30 @@ class GetRoomsCubit extends Cubit<GetRoomsInitial> {
   void updateRooms() {
     _setData();
   }
+
+
+
+  Future<types.Room?> getRoomByUser(String? id) async {
+    if (id == null) return null;
+
+    for (var e in state.allRooms) {
+      for (var e1 in e.users) {
+        if (e1.firstName == id) {
+          return e;
+        }
+      }
+    }
+
+    for (var e in await getChatUsers()) {
+      if (e.firstName == id) {
+        var newRoom = await FirebaseChatCore.instance.createRoom(e);
+
+        return newRoom;
+      }
+    }
+    return null;
+  }
+
 
   @override
   Future<Function> close() async {

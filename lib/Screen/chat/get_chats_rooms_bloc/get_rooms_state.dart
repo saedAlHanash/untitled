@@ -53,7 +53,12 @@ class GetRoomsInitial {
         noReadMessages: noReadMessages ?? this.noReadMessages,
         stream: stream ?? this.stream);
   }
+types.Room? getCostumerRoom() {
+  return allRooms
+      .firstWhereOrNull((e) => e.name?.contains('Customer Service') ?? false);
 }
+}
+
 
 bool _isMe(types.Room room) {
   for (var e in room.users) {

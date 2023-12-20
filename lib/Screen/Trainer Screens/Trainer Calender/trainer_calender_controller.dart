@@ -3,8 +3,9 @@ import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Calender/appoin
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:quiver/time.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../Trainee Screens/Trainer Overview/trainer_overview_controller.dart';
+import '../../chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 import '../../chat/util.dart';
 
 class TrainerCalenderController extends GetxController {
@@ -140,7 +141,7 @@ class TrainerCalenderController extends GetxController {
       }
 
       if (list.isNotEmpty) {
-        await getRoomByUser(list.first.trainer.id.toString());
+        await Get.context?.read<GetRoomsCubit>().getRoomByUser(list.first.trainer.id.toString());
       }
 
       list.sort((a, b) => a.startTime.compareTo(b.startTime));

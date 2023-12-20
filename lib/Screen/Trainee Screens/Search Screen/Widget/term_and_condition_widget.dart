@@ -1,8 +1,10 @@
 import 'package:fitness_storm/Screen/Trainee%20Screens/Chat/Widget/chat_card_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
 import '../../../../Utils/Routes/app_pages.dart';
+import '../../../chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 import '../../../chat/util.dart';
 
 class TermAndConditionWidget extends StatefulWidget {
@@ -14,14 +16,15 @@ class TermAndConditionWidget extends StatefulWidget {
 
 class _TermAndConditionWidgetState extends State<TermAndConditionWidget> {
   bool loading = false;
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: Align(
         alignment: FractionalOffset.bottomCenter,
         child: Padding(
-          padding: EdgeInsets.symmetric(
-              horizontal: Get.width / 10, vertical: Get.height / 21),
+          padding:
+              EdgeInsets.symmetric(horizontal: Get.width / 10, vertical: Get.height / 21),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -48,8 +51,7 @@ class _TermAndConditionWidgetState extends State<TermAndConditionWidget> {
                       style: TextButton.styleFrom(
                         padding: const EdgeInsets.all(0),
                         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        textStyle:
-                            const TextStyle(fontWeight: FontWeight.normal),
+                        textStyle: const TextStyle(fontWeight: FontWeight.normal),
                       ),
                       child: Text(
                         'FAQ'.tr,
@@ -75,11 +77,11 @@ class _TermAndConditionWidgetState extends State<TermAndConditionWidget> {
                   SizedBox(
                     height: 25,
                     child: TextButton(
-                      onPressed: () async{
-                                if (loading) return;
+                      onPressed: () async {
+                        if (loading) return;
                         loading = true;
-                        final room = await getRoomByUser('0');
-                         loading = false;
+                        final room = await context.read<GetRoomsCubit>().getRoomByUser('0');
+                        loading = false;
                         if (context.mounted) {
                           openRoomFunction(context, room!);
                         }
@@ -87,8 +89,7 @@ class _TermAndConditionWidgetState extends State<TermAndConditionWidget> {
                       style: TextButton.styleFrom(
                         padding: const EdgeInsets.all(0),
                         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        textStyle:
-                            const TextStyle(fontWeight: FontWeight.normal),
+                        textStyle: const TextStyle(fontWeight: FontWeight.normal),
                       ),
                       child: Text(
                         'customer_services'.tr,

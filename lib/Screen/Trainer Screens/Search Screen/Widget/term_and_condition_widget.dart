@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
 import '../../../../Utils/Routes/app_pages.dart';
 import '../../../Trainee Screens/Chat/Widget/chat_card_widget.dart';
+import '../../../chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 import '../../../chat/util.dart';
 
 class TrainerTermAndConditionWidget extends StatefulWidget {
@@ -81,7 +83,7 @@ class _TrainerTermAndConditionWidgetState extends State<TrainerTermAndConditionW
                       onPressed: () async{
                                 if (loading) return;
                         loading = true;
-                        final room = await getRoomByUser('0');
+                        final room = await context.read<GetRoomsCubit>().getRoomByUser('0');
                          loading = false;
                         if (context.mounted) {
                           openRoomFunction(context, room!);
