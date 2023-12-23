@@ -1,21 +1,14 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:image_multi_type/image_multi_type.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:drawable_text/drawable_text.dart';
 import 'package:fitness_storm/helper/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart';
 import 'package:get/get.dart';
-import 'package:hive_flutter/hive_flutter.dart';
+import 'package:image_multi_type/image_multi_type.dart';
 
-import '../../../../main.dart';
-import '../../../chat/chat.dart';
-import '../../../chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
-import '../../../chat/room_messages_bloc/room_messages_cubit.dart';
-import '../../../chat/util.dart';
 import '../../../../generated/assets.dart';
+import '../../../chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
+import '../../../chat/util.dart';
 import 'chat_card_widget.dart';
 
 class CustomerServiceCardWidget extends StatelessWidget {

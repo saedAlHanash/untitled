@@ -1,18 +1,12 @@
 // ignore_for_file: non_constant_identifier_names
 
-import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 import 'package:get_storage/get_storage.dart';
 
-import '../Screen/chat/my_room_object.dart';
 import 'Constants/constants.dart';
 import 'Constants/enums.dart';
 
 class StorageController {
   static StorageController? _instance;
-
-
-
-  var myRoomObject = MyRoomObject();
 
   factory StorageController() => _instance ??= StorageController._();
 
@@ -31,9 +25,7 @@ class StorageController {
   final _methodTakeAuthentication =
       ReadWriteValue(Constants.methodTakeAuthentication, '');
 
-  String get token {
-    return _token.val;
-  }
+  String get token => _token.val;
 
   String get loginOrSignUpWithAnyMethod => _methodTakeAuthentication.val;
 
@@ -63,7 +55,6 @@ class StorageController {
 
   String get userType => _userType.val;
 
-
   set rememberToken(String val) => _remember_token.val = val;
 
   set methodTakeAuthentication(String val) => _methodTakeAuthentication.val = val;
@@ -85,4 +76,18 @@ class StorageController {
   set userType(val) => _userType.val = val;
 
   set lang(String value) => _lang.val = value;
+
+  void clear() {
+    _id.val = '';
+    _lang.val = '';
+    _token.val = '';
+    _remember_token.val = '';
+    _user.val = '';
+    _theme.val = '';
+    _notification.val = '';
+    _videoPaths.val = '';
+    _fcm.val = '';
+    _userType.val = '';
+    _methodTakeAuthentication.val = '';
+  }
 }

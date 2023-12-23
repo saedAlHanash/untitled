@@ -12,6 +12,8 @@ import 'package:package_info_plus/package_info_plus.dart';
 import 'package:saed_http/api_manager/api_service.dart';
 import 'package:saed_http/pair_class.dart';
 
+import '../Screen/Trainee Screens/coupon/ui/coupon_widget.dart';
+
 class Utils {
   static final categoryItemWidth = Get.width * 0.44;
   static const categoryItemHeight = 242.0;
@@ -74,23 +76,74 @@ class Utils {
 
   static void showAlertDialog(Function onContinueButtonPressed, String message,
       {String? textContinue}) {
-    Widget cancelButton = TextButton(
+    final cancelButton = TextButton(
         child: Text(
           'cancel'.tr,
         ),
         onPressed: () => Get.back());
 
-    Widget continueButton = TextButton(
-        child: Text(
-          textContinue ?? 'continue'.tr,
-        ),
-        onPressed: () => {Get.back(), onContinueButtonPressed()});
+    final continueButton = TextButton(
+      child: Text(
+        textContinue ?? 'continue'.tr,
+      ),
+      onPressed: () => {
+        Get.back(),
+        onContinueButtonPressed(),
+      },
+    );
 
     AlertDialog alert = AlertDialog(
         backgroundColor: Colors.white,
         // title: Text('alert'.tr),
         content: Text(message),
         actions: [cancelButton, continueButton]);
+
+    Get.dialog(alert);
+  }
+
+  static void showCancelSubscriptionAlertDialog(
+    Function(String cancelReason) onContinueButtonPressed,
+    String message, {
+    String? textContinue,
+  }) {
+    final textController = TextEditingController();
+
+    final cancelButton = TextButton(
+        child: Text(
+          'cancel'.tr,
+        ),
+        onPressed: () => Get.back());
+
+    final continueButton = TextButton(
+      child: Text(
+        textContinue ?? 'continue'.tr,
+      ),
+      onPressed: () => {
+        Get.back(),
+        onContinueButtonPressed(textController.text),
+      },
+    );
+
+    AlertDialog alert = AlertDialog(
+        backgroundColor: Colors.white,
+        // title: Text('alert'.tr),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(message),
+            SizedBox(height: Get.height / 90),
+            MyTextFormNoLabelWidget(
+              labelColor: Get.theme.primaryColor,
+              label: 'cancel_reason'.tr,
+              controller: textController,
+              maxLines: 5,
+            ),
+          ],
+        ),
+        actions: [
+          cancelButton,
+          continueButton,
+        ]);
 
     Get.dialog(alert);
   }

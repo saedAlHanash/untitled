@@ -106,9 +106,9 @@ class SubscruptionController extends GetxController {
     }
   }
 
-  cancelSubscribtion() async {
+  cancelSubscribtion({required String? cancelReason}) async {
     try {
-      return await _subscriptionRepository.cancelSubscription();
+      return await _subscriptionRepository.cancelSubscription(cancelReason ?? '');
     } catch (err) {
       //log('err charging user: ${err.toString()}');
     }

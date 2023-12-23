@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 
 import '../../../../Utils/Routes/app_pages.dart';
 import '../../../chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
-import '../../../chat/util.dart';
 
 class TermAndConditionWidget extends StatefulWidget {
   const TermAndConditionWidget({super.key});

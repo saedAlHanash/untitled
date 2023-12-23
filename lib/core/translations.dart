@@ -244,7 +244,8 @@ class LocaleString extends Translations {
               'Widgets that have global keys reparent\ntheir subtrees when they are moved from one\nlocation in the tree to another location in \'\nthe tree. In order to reparent its subtree, \na widget must arrive at its new location in \nthe tree in the same animation frame in \nwhich it was removed from its old location \nthe tree.',
           '---------': '-----------------',
           'email_is_required': 'Email Is Required',
-          'invald_email': 'Invalid Email',
+          'invalid_email': 'Invalid Email',
+          'invalid_phone': 'Invalid Phone Number',
           'check_your_email': 'Check Your Email',
           'password_is_required': 'Password Is Required',
           'name_is_required': 'Name Is Required',
@@ -442,6 +443,7 @@ The application Policies may be changed or updated occasionally to meet the requ
           'sup_total': 'Subtotal',
           'voucher': 'Voucher',
           'net_total': 'Net Total',
+          'cancel_reason': 'Cancel reason',
         },
         //ARABIC LANGUAGE
         'ar': {
@@ -792,7 +794,8 @@ Fitness Storm هو تطبيق ديناميكي يتيح للمستخدمين ا�
               'لا توجد خطط تمرين في نتائج البحث الخاصة بك، يمكنك التحقق من التدريبات واستخدام الفلاتر للعثور على ما تبحث عنه',
           '---------': '-----------------',
           'email_is_required': 'البريد الإلكتروني مطلوب',
-          'invald_email': 'بريد إلكتروني غير صالح',
+          'invalid_email': 'بريد إلكتروني غير صالح',
+          'invalid_phone': 'رقم هاتف غير صالح',
           'check_your_email': 'تحقق من بريدك الالكتروني',
           'password_is_required': 'كلمة السر مطلوبة',
           'name_is_required': 'الاسم مطلوب',
@@ -914,6 +917,7 @@ Fitness Storm هو تطبيق ديناميكي يتيح للمستخدمين ا�
           'sup_total': 'الإجمالي',
           'voucher': 'قيمة الحسم',
           'net_total': 'المبلغ بعد الحسم',
+          'cancel_reason': 'سبب الإلغاء',
         }
       };
 }

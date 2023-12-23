@@ -68,16 +68,17 @@ class SubscriptionScreen extends GetView<SubscruptionController> {
                             childAspectRatio: 2 / 2.2,
                             mainAxisSpacing: Get.height / 40.6,
                           ),
-                          itemBuilder: (_, index) {
-                            if (controller
-                                .subscriptions.subscriptions[index].currentSubscription) {
+                          itemBuilder: (_, i) {
+                            if (
+                                controller
+                                    .subscriptions.subscriptions[i].currentSubscription) {
                               return CurrentPaymentCardWidget(
-                                plan: controller.subscriptions.subscriptions[index],
+                                plan: controller.subscriptions.subscriptions[i],
                               );
                             }
                             return PaymentCardWidget(
-                              plan: controller.subscriptions.subscriptions[index],
-                              onTapFunction: () => onTapSubscrip(context, index),
+                              plan: controller.subscriptions.subscriptions[i],
+                              onTapFunction: () => onTapSubscrip(context, i),
                             );
                           },
                         ),
@@ -90,15 +91,15 @@ class SubscriptionScreen extends GetView<SubscruptionController> {
     );
   }
 
-  void onTapSubscrip(BuildContext context, int index) async {
+  void onTapSubscrip(BuildContext context, int i) async {
     if (!controller.isSubscribe) {
       final result = await Navigator.push(
         context,
         MaterialPageRoute(
           builder: (context) {
             return CouponWidget(
-              subscriptionId: controller.subscriptions.subscriptions[index].id,
-              total: controller.subscriptions.subscriptions[index].price.toString(),
+              subscriptionId: controller.subscriptions.subscriptions[i].id,
+              total: controller.subscriptions.subscriptions[i].price.toString(),
             );
           },
         ),
@@ -107,7 +108,7 @@ class SubscriptionScreen extends GetView<SubscruptionController> {
       if (result == null) return;
       var request = result as PayRequest;
 
-      request.subscriptionId = controller.subscriptions.subscriptions[index].id;
+      request.subscriptionId = controller.subscriptions.subscriptions[i].id;
 
       final uri = await controller.makePayment(request: request);
       controller.isLoading = true;
@@ -122,22 +123,6 @@ class SubscriptionScreen extends GetView<SubscruptionController> {
           ),
         ).then((value) async {
           await controller.getSubscribtionPaymentPlan();
-          // if (value != null) {
-          //   // TODO: subscriptions/check
-          //
-          //   // HelperClass.successfullySubscription = true;
-          //   // controller.isLoading = false;
-          //   // controller.isBuy = true;
-          //   // if (Get.isRegistered<PlanOverviewController>()) {
-          //   //   Get.find<PlanOverviewController>().isActivated = true;
-          //   // } else {
-          //   //   Get.lazyPut(() => PlanOverviewController());
-          //   //   Get.find<PlanOverviewController>().isActivated = true;
-          //   // }
-          //   // controller.subscriptions.subscriptions[index].currentSubscription = true;
-          // } else {
-          //   Navigator.pop(context);
-          // }
         });
         // kholoud.elsayed@hotmail.com
       } else {

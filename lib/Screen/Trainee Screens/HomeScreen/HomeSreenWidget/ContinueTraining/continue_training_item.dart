@@ -28,31 +28,29 @@ class ContinueTrainingItem extends GetView<HomeScreenController> {
     // required String trainerName,
   }) {
     // Check if the current locale is English
-    bool isEnglish = Get.locale?.languageCode == 'en';
+    var isEnglish = Get.locale?.languageCode == 'en';
     return Padding(
       padding: isEnglish
           ? EdgeInsets.only(
               top: 10, left: MediaQuery.of(context).size.width * 0.03)
           : EdgeInsets.only(
               top: 10, right: MediaQuery.of(context).size.width * 0.03),
-      child: SizedBox(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            FittedBox(
-              child: Text(
-                planName,
-                style: TextStyle(
-                  color: Get.theme.colorScheme.secondary,
-                  fontSize: CustomeAppTheme.fontSizeMedium,
-                ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          FittedBox(
+            child: Text(
+              planName,
+              style: TextStyle(
+                color: Get.theme.colorScheme.secondary,
+                fontSize: CustomeAppTheme.fontSizeMedium,
               ),
             ),
-            FittedBox(
-                child: Text('next_up'.tr + ' : Day $nextDayNumber',
-                    style: TextStyle(color: Get.theme.primaryColor)))
-          ],
-        ),
+          ),
+          FittedBox(
+              child: Text('next_up'.tr + ' : Day $nextDayNumber',
+                  style: TextStyle(color: Get.theme.primaryColor)))
+        ],
       ),
     );
   }
@@ -73,10 +71,11 @@ class ContinueTrainingItem extends GetView<HomeScreenController> {
           ),
         ),
         Positioned(
+
           top: 18,
           left: Get.width / 80,
           child: Container(
-            height: Get.height / 27,
+            height: Get.height / 26,
             padding: EdgeInsets.all(Get.width / 100),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(7),
@@ -97,19 +96,17 @@ class ContinueTrainingItem extends GetView<HomeScreenController> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _buildPlanImage(
-              planImageUrl: planImageUrl, planProgress: planProgress),
-          _buildTrainerInfo(
-            context,
-            planName: planName,
-            // trainerName: trainerName,
-          )
-        ],
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        _buildPlanImage(
+            planImageUrl: planImageUrl, planProgress: planProgress),
+        _buildTrainerInfo(
+          context,
+          planName: planName,
+          // trainerName: trainerName,
+        )
+      ],
     );
   }
 }

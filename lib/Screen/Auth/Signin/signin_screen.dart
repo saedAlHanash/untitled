@@ -10,6 +10,7 @@ import '../../../../Widgets/custom_text_field.dart';
 import '../../../Widgets/language_board_widget.dart';
 import '../../../common/assets.gen.dart';
 import '../../../common/bottom_sheets.dart';
+import '../login_phone/ui/pages/login_phone_page.dart';
 
 class SigninScreen extends GetView<SigninController> {
   const SigninScreen({Key? key}) : super(key: key);
@@ -75,20 +76,47 @@ class SigninScreen extends GetView<SigninController> {
                     ),
                     SizedBox(height: Get.height / 50),
 
-                    Container(
-                      padding: EdgeInsets.only(bottom: Get.height / 120),
-                      child: Text(
-                        'email'.tr,
-                        style: const TextStyle(color: Colors.white),
-                      ),
-                    ),
-                    CustomTextField(
-                      "",
-                      hint: "enter_email_address".tr,
-                      style: const TextStyle(color: Colors.white),
-                      textController: controller.emailController,
-                      keyboardType: TextInputType.emailAddress,
-                      controller: AppTextFieldController(false),
+                    StatefulBuilder(
+                      builder: (context, setState) {
+                        final test = controller.emailController.text;
+
+                        controller.isPhone =
+                            test.isNotEmpty && int.tryParse(test.substring(0, 1)) !=
+                                null;
+
+                        return Column(
+                          children: [
+                            Container(
+                              width: Get.width,
+                              padding: EdgeInsets.only(bottom: Get.height / 120),
+                              child: Text(
+                                ('emailOrPhone').tr,
+                                style: const TextStyle(color: Colors.white),
+                              ),
+                            ),
+                            if (controller.isPhone)
+                              MyPhoneForm(
+                                onChange: (p0) {
+                                  controller.phone = p0.phoneNumber ?? '';
+                                  if ((controller.emailController.text).isEmpty) {
+                                    setState(() {});
+                                  }
+                                },
+                                controller: controller.emailController,
+                              )
+                            else
+                              CustomTextField(
+                                "",
+                                hint: "emailOrPhone".tr,
+                                style: const TextStyle(color: Colors.white),
+                                textController: controller.emailController,
+                                keyboardType: TextInputType.emailAddress,
+                                onChanged: (p0) => setState(() {}),
+                                controller: AppTextFieldController(false),
+                              ),
+                          ],
+                        );
+                      },
                     ),
                     SizedBox(height: Get.height / 30),
                     Container(

@@ -1,19 +1,24 @@
+import 'dart:convert';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:fitness_storm/Data/Api/api_result.dart';
-import 'package:fitness_storm/Data/Api/methods.dart';
 import 'package:fitness_storm/Utils/Routes/app_pages.dart';
 import 'package:fitness_storm/Utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:saed_http/api_manager/api_service.dart';
 
 import '../../../../Data/Repositories/auth_repository.dart';
 import '../../../../Utils/storage_controller.dart';
+import '../../../Data/Api/error_response.dart';
+import '../Signin/signin_controller.dart';
 
 class SignupController extends GetxController {
   final RxString message = ''.obs;
-
+  bool isPhone = false;
+  String phone = '';
   final AuthRepository _authRepository = AuthRepository();
   final Rx<TextEditingController> _confirmPasswordEditingController =
       TextEditingController().obs;
@@ -65,27 +70,84 @@ class SignupController extends GetxController {
   signup() async {
     if (emailEditingController.text.isEmpty) {
       Utils.openSnackBar(title: 'email_is_required'.tr, textColor: Colors.white);
-    } else if (!emailEditingController.text.trim().isEmail) {
-      Utils.openSnackBar(title: 'invald_email'.tr, textColor: Colors.white);
-    } else if (passwordEditingController.text.isEmpty) {
-      Utils.openSnackBar(title: 'password_is_required'.tr, textColor: Colors.white);
-    } else if (nameEditingController.text.isEmpty) {
-      Utils.openSnackBar(title: 'name_is_required'.tr, textColor: Colors.white);
-    } else {
-      Utils.openLoadingDialog();
-      ApiResult res;
-      res = await _authRepository.traineeSignup(emailEditingController.text,
-          passwordEditingController.text, nameEditingController.text);
+      return;
+    }
 
-      if (res.type == ApiResultType.success) {
-        _storageController.token = res.data['access_token'];
-        Get.back();
-        Utils.openSnackBar(title: 'check_your_email'.tr, textColor: Colors.white);
-        Get.offAllNamed(AppRoutes.otp, arguments: [emailEditingController.text, false]);
+    if (!emailEditingController.text.trim().isEmail && !isPhone) {
+      Utils.openSnackBar(title: 'invalid_email'.tr, textColor: Colors.white);
+      return;
+    }
+    if (!emailEditingController.text.trim().isPhoneNumber && isPhone) {
+      Utils.openSnackBar(title: 'invalid_phone'.tr, textColor: Colors.white);
+      return;
+    }
+
+    if (passwordEditingController.text.isEmpty) {
+      Utils.openSnackBar(title: 'password_is_required'.tr, textColor: Colors.white);
+      return;
+    }
+    if (nameEditingController.text.isEmpty) {
+      Utils.openSnackBar(title: 'name_is_required'.tr, textColor: Colors.white);
+      return;
+    }
+
+    if (isPhone) {
+      Utils.openLoadingDialog();
+      final option = Utils.getOptions(accept: true);
+      final headers = <String, String>{};
+      option.headers?.forEach((key, value) {
+        headers[key] = value.toString();
+      });
+      final body = <String, dynamic>{
+        "name": nameEditingController.text,
+        "password": passwordEditingController.text,
+        "mobile": phone,
+        "isTest": true,
+      };
+      final result = await APIService().postApi(
+        url: 'mobile/user/auth/phone_register',
+        header: headers,
+        body: body,
+      );
+
+      Utils.closeDialog();
+
+      if (result.statusCode >= 200 && result.statusCode < 210) {
+        final model = LoginPhone.fromJson(jsonDecode(result.body));
+        _storageController.token = model.data.accessToken;
+        _storageController.rememberToken = model.data.refreshToken;
+        _storageController.id = model.data.id;
+        _storageController.userType = 'trainee';
+        _storageController.methodTakeAuthentication = '';
+
+        if (!model.data.isConfirmed) {
+          Get.offNamed(AppRoutes.otp, arguments: [phone, false]);
+        } else {
+          Get.offAllNamed(AppRoutes.mainHome);
+        }
       } else {
-        Get.back();
-        Utils.openSnackBar(title: res.message!, textColor: Colors.white);
+
+        final error  = ErrorResponse.fromJson(jsonDecode(result.body)).message ??
+            result.statusCode.toString();
+        Utils.openSnackBar(title: error, textColor: Colors.white);
       }
+
+      return;
+    }
+
+    Utils.openLoadingDialog();
+    ApiResult res;
+    res = await _authRepository.traineeSignup(emailEditingController.text,
+        passwordEditingController.text, nameEditingController.text);
+
+    if (res.type == ApiResultType.success) {
+      _storageController.token = res.data['access_token'];
+      Get.back();
+      Utils.openSnackBar(title: 'check_your_email'.tr, textColor: Colors.white);
+      Get.offAllNamed(AppRoutes.otp, arguments: [emailEditingController.text, false]);
+    } else {
+      Get.back();
+      Utils.openSnackBar(title: res.message!, textColor: Colors.white);
     }
   }
 
@@ -113,10 +175,8 @@ class SignupController extends GetxController {
       x = await FirebaseAuth.instance.signInWithCredential(credential);
       check = true;
     } catch (e) {
-      loggerObject.e(e);
       check = false;
     } finally {
-
       if (check) {
         ApiResult res;
         res = await _authRepository.traineeTakeAuthenticationByGoogleAccount(

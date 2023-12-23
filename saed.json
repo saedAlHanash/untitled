@@ -1,8 +1,10 @@
 {
   "data": {
-    "id": 3,
-    "name": "Kitchen",
-    "image": "https:\/\/sadaf-group.s3.me-south-1.amazonaws.com\/categories\/YtHaYn2sTqEHt9YbQx4vhLmIfJSHAVnrZFg213Y2.png",
-    "icon": "https:\/\/sadaf-group.s3.me-south-1.amazonaws.com\/categories\/KaS4CfBkI2oU6FBwu6ufaFgRbIIT5rh5ZMaKMyMR.png"
+    "id": "829",
+    "access_token": "H8hE5WANro5icLzDehvizICmIcgogsDOoZ1dPRgw",
+    "refresh_token": "XldUejRuomZZxUX4pDdZiXCXW2dMzEpSovdFeiSN",
+    "is_first_time": false,
+    "is_confirmed": null,
+    "confirmation_code": 36727
   }
 }

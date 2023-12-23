@@ -1,11 +1,10 @@
-import 'package:flutter/material.dart';
 import 'package:drawable_text/drawable_text.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
-import 'package:get/utils.dart';
+import 'package:image_multi_type/image_multi_type.dart';
 
 import '../../../../Widgets/custom_button.dart';
-import 'package:image_multi_type/image_multi_type.dart';
 import '../coupon_cubit/coupon_cubit.dart';
 import '../data/request/pay_request.dart';
 
@@ -230,6 +229,7 @@ class MyTextFormNoLabelWidget extends StatelessWidget {
     this.enable,
     this.icon,
     this.color,
+    this.labelColor,
     this.initialValue,
     this.textDirection,
   }) : super(key: key);
@@ -238,6 +238,7 @@ class MyTextFormNoLabelWidget extends StatelessWidget {
   final String hint;
   final String? icon;
   final Color? color;
+  final Color? labelColor;
   final int maxLines;
   final int maxLength;
   final bool obscureText;
@@ -310,7 +311,7 @@ class MyTextFormNoLabelWidget extends StatelessWidget {
           DrawableText(
             text: label,
             matchParent: true,
-            color: Colors.white,
+            color: labelColor ?? Colors.white,
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
             size: 16.0,
           ),

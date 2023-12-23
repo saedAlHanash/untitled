@@ -33,7 +33,7 @@ class ContinueTrainingWidget extends GetView<HomeScreenController> {
     return plans.isNotEmpty
         ? SizedBox(
             width: double.infinity,
-            height: MediaQuery.of(context).size.height / 3.6,
+            height: MediaQuery.of(context).size.height / 3.5,
             child: ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,

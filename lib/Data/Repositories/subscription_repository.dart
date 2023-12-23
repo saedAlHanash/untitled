@@ -47,7 +47,6 @@ class SubscriptionRepository {
 
   Future<dynamic> createNewSubscription({
     required PayRequest request,
-
   }) async {
     // Map<String, dynamic> data = {
     //   "subscription_id": subscriptionId,
@@ -66,11 +65,11 @@ class SubscriptionRepository {
     return ApiResultType.failure;
   }
 
-  Future<dynamic> cancelSubscription() async {
-    Map<String, dynamic> data = {};
+  Future<dynamic> cancelSubscription(String note) async {
+    Map<String, dynamic> data = {'note': note};
     Options option = Utils.getOptions(withToken: true, all: true);
     try {
-      ApiResult result = await Methods.post(
+      final result = await Methods.post(
           url: TRAINEEURLS.cancelSubscription, data: data, options: option);
       if (result.type == ApiResultType.success) {
         return result;

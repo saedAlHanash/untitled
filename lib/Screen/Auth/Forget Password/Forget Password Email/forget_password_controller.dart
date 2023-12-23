@@ -26,7 +26,7 @@ class ForgetPasswordEmailController extends GetxController {
       return;
     }
     if (!emailController.text.trim().isEmail) {
-      Utils.openSnackBar(title: 'invald_email'.tr, textColor: Colors.white);
+      Utils.openSnackBar(title: 'invalid_email'.tr, textColor: Colors.white);
       return;
     }
 

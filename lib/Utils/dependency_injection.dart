@@ -188,6 +188,7 @@ Future<void> initFirebaseChat() async {
 }
 
 Future<void> getProfile() async {
+
   if (StorageController().token.isEmpty) return;
 
   if (FirebaseAuth.instance.currentUser != null) return;

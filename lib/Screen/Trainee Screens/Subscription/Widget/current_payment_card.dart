@@ -57,9 +57,9 @@ class CurrentPaymentCardWidget extends StatelessWidget {
             margin: const EdgeInsets.all(6),
             child: ElevatedButton(
               onPressed: () {
-                Utils.showAlertDialog(
-                  () {
-                    Get.find<SubscruptionController>().cancelSubscribtion();
+                Utils.showCancelSubscriptionAlertDialog(
+                  (cancelReason) {
+                    Get.find<SubscruptionController>().cancelSubscribtion(cancelReason: cancelReason);
                     Get.find<SubscruptionController>().changeIsSubscrip();
                     Get.find<SubscruptionController>().getSubscribtionPaymentPlan();
                   },

@@ -1,12 +1,12 @@
 import 'package:fitness_storm/Data/Repositories/Trainer%20Repository/trainer_appointments.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Calender/appointments.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:quiver/time.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../Trainee Screens/Trainer Overview/trainer_overview_controller.dart';
 import '../../chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
-import '../../chat/util.dart';
 
 class TrainerCalenderController extends GetxController {
   RxList<Appointment> appointments = <Appointment>[].obs;

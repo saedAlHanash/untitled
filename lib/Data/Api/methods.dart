@@ -41,12 +41,9 @@ abstract class Methods {
         queryParameters: queryParameters,
       );
 
-
       if (response.statusCode == 500) {
-
         return ApiResult.failureFromJson(response.data);
       }
-
 
       if (response.statusCode == 200 || response.statusCode == 201) {
         return ApiResult.successFromJson(response.data);
@@ -73,7 +70,12 @@ abstract class Methods {
         }
         return ApiResult.successFromJson(response.data);
       } else {
-        return ApiResult.failureFromJson(response.data);
+        final error = ApiResult.failureFromJson(response.data);
+        // if (error.message?.contains('Account is not confirmed') ?? false) {
+        //   StorageController().token = '';
+        //   Get.offAllNamed(AppRoutes.signIn, arguments: ['', false]);
+        // }
+        return error;
       }
     } catch (e) {
       LogService().e(e.toString());

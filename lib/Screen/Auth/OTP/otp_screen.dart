@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../Utils/Routes/app_pages.dart';
+import '../../../Utils/storage_controller.dart';
 import '../../../helper/cache_helper.dart';
 import 'Widget/custom_pinput.dart';
 import 'otp_controller.dart';
@@ -108,6 +109,8 @@ class OTPScreen extends GetView<OTPController> {
                       TextButton(
                         onPressed: () {
                           CacheHelper.saveData(key: 'sticky_otp', value: false);
+                          CacheHelper.clearData();
+                          StorageController().clear();
                           Get.toNamed(AppRoutes.signIn);
                         },
                         style: TextButton.styleFrom(

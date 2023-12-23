@@ -12,8 +12,8 @@ import '../../../../Data/Repositories/auth_repository.dart';
 import '../../../../Utils/Routes/app_pages.dart';
 import '../../../../Utils/storage_controller.dart';
 import '../../../../Utils/utils.dart';
+import '../../../Data/Api/error_response.dart';
 import '../../../Utils/dependency_injection.dart';
-
 
 class SigninController extends GetxController {
   final RxBool isScure = true.obs;
@@ -56,6 +56,20 @@ class SigninController extends GetxController {
   // AccessToken? _accessToken;
 
   login() async {
+    if (!emailController.text.trim().isEmail && !isPhone) {
+      message.value = 'invalid_email'.tr;
+      Utils.openSnackBar(title: 'invalid Email', textColor: Colors.white);
+      return;
+    }
+    if (!emailController.text.trim().isPhoneNumber && isPhone) {
+      Utils.openSnackBar(title: 'invalid_phone'.tr, textColor: Colors.white);
+      return;
+    }
+    if (passwordController.text.isEmpty) {
+      Utils.openSnackBar(title: 'password_is_required'.tr, textColor: Colors.white);
+      return;
+    }
+
     if (isPhone) {
       Utils.openLoadingDialog();
       final option = Utils.getOptions(accept: true);
@@ -64,12 +78,11 @@ class SigninController extends GetxController {
         headers[key] = value.toString();
       });
       final result = await APIService().postApi(
-        url: 'mobile/user/auth/phone_register',
+        url: 'mobile/user/auth/phoneLogin',
         header: headers,
         body: {
           "mobile": phone,
-          "name": phone,
-          "isTest": true,
+          "password": passwordController.text,
         },
       );
 
@@ -89,55 +102,44 @@ class SigninController extends GetxController {
           Get.offAllNamed(AppRoutes.mainHome);
         }
       } else {
-        message.value = result.statusCode.toString();
+        final error = ErrorResponse.fromJson(jsonDecode(result.body)).message ??
+            result.statusCode.toString();
+        Utils.openSnackBar(title: error, textColor: Colors.white);
       }
       return;
     }
-    if (emailController.text.isEmpty) {
-      message.value = 'email_is_required'.tr;
-      // Utils.openSnackBar(title: 'Email Is Required', textColor: Colors.white);
-      return;
-    } else if (!emailController.text.trim().isEmail) {
-      message.value = 'invald_email'.tr;
-      // Utils.openSnackBar(title: 'Invald Email', textColor: Colors.white);
-      return;
-    } else if (passwordController.text.isEmpty) {
-      message.value = 'password_is_required'.tr;
-      // Utils.openSnackBar(title: 'Password Is Required', textColor: Colors.white);
-      return;
+
+    Utils.openLoadingDialog();
+    ApiResult res;
+    if (isTrainer) {
+      res = await _trainerAuthRepository.trainerLogin(
+          emailController.text, passwordController.text);
     } else {
-      Utils.openLoadingDialog();
-      ApiResult res;
-      if (isTrainer) {
-        res = await _trainerAuthRepository.trainerLogin(
-            emailController.text, passwordController.text);
-      } else {
-        res = await _authRepository.traineeLogin(
-            emailController.text, passwordController.text);
-      }
+      res = await _authRepository.traineeLogin(
+          emailController.text, passwordController.text);
+    }
 
-      if (res.type == ApiResultType.success) {
-        _storageController.token = res.data['access_token'];
-        _storageController.rememberToken = res.data['refresh_token'];
-        _storageController.id = res.data['id'];
-        _storageController.userType = isTrainer ? 'trainer' : 'trainee';
-        _storageController.methodTakeAuthentication = '';
+    if (res.type == ApiResultType.success) {
+      _storageController.token = res.data['access_token'];
+      _storageController.rememberToken = res.data['refresh_token'];
+      _storageController.id = res.data['id'];
+      _storageController.userType = isTrainer ? 'trainer' : 'trainee';
+      _storageController.methodTakeAuthentication = '';
 
-        getProfile();
+      getProfile();
 
-        //Todo should un comment this
-        final token = await getToken();
+      //Todo should un comment this
+      final token = await getToken();
 
-        await storeFcm(token);
-        Get.back();
+      await storeFcm(token);
+      Get.back();
 
-        isTrainer
-            ? Get.offAllNamed(AppRoutes.trainerHomePage)
-            : Get.offAllNamed(AppRoutes.mainHome);
-      } else {
-        Get.back();
-        message.value = res.message!;
-      }
+      isTrainer
+          ? Get.offAllNamed(AppRoutes.trainerHomePage)
+          : Get.offAllNamed(AppRoutes.mainHome);
+    } else {
+      Get.back();
+      message.value = res.message!;
     }
   }
 

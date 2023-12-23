@@ -7,6 +7,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../Widgets/custom_button.dart';
 import '../../../../Widgets/custom_text_field.dart';
+import '../login_phone/ui/pages/login_phone_page.dart';
 
 class SignupScreen extends GetView<SignupController> {
   const SignupScreen({Key? key}) : super(key: key);
@@ -54,6 +55,50 @@ class SignupScreen extends GetView<SignupController> {
                             style: const TextStyle(color: Colors.white, fontSize: 26)),
                       ),
                       SizedBox(height: Get.height / 50),
+
+                      StatefulBuilder(
+                        builder: (context, setState) {
+                          final test = controller.emailEditingController.text;
+
+                          controller.isPhone =
+                              test.isNotEmpty && int.tryParse(test.substring(0, 1)) !=
+                                  null;
+
+                          return Column(
+                            children: [
+                              Container(
+                                width: Get.width,
+                                padding: EdgeInsets.only(bottom: Get.height / 120),
+                                child: Text(
+                                  ('emailOrPhone').tr,
+                                  style: const TextStyle(color: Colors.white),
+                                ),
+                              ),
+                              if (controller.isPhone)
+                                MyPhoneForm(
+                                  onChange: (p0) {
+                                    controller.phone = p0.phoneNumber ?? '';
+                                    if ((controller.emailEditingController.text).isEmpty) {
+                                      setState(() {});
+                                    }
+                                  },
+                                  controller: controller.emailEditingController,
+                                )
+                              else
+                                CustomTextField(
+                                  "",
+                                  hint: "emailOrPhone".tr,
+                                  style: const TextStyle(color: Colors.white),
+                                  textController: controller.emailEditingController,
+                                  keyboardType: TextInputType.emailAddress,
+                                  onChanged: (p0) => setState(() {}),
+                                  controller: AppTextFieldController(false),
+                                ),
+                            ],
+                          );
+                        },
+                      ),
+                      SizedBox(height: Get.height / 50),
                       Container(
                         padding: EdgeInsets.only(bottom: Get.height / 120),
                         child: Text(
@@ -67,22 +112,6 @@ class SignupScreen extends GetView<SignupController> {
                         style: const TextStyle(color: Colors.white),
                         textController: controller.nameEditingController,
                         keyboardType: TextInputType.name,
-                        controller: AppTextFieldController(false),
-                      ),
-                      SizedBox(height: Get.height / 50),
-                      Container(
-                        padding: EdgeInsets.only(bottom: Get.height / 120),
-                        child: Text(
-                          'email'.tr,
-                          style: const TextStyle(color: Colors.white),
-                        ),
-                      ),
-                      CustomTextField(
-                        "",
-                        style: const TextStyle(color: Colors.white),
-                        hint: "enter_email_address".tr,
-                        textController: controller.emailEditingController,
-                        keyboardType: TextInputType.emailAddress,
                         controller: AppTextFieldController(false),
                       ),
                       SizedBox(height: Get.height / 50),
