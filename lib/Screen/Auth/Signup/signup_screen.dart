@@ -1,3 +1,4 @@
+import 'package:fitness_storm/Data/Api/methods.dart';
 import 'package:fitness_storm/Screen/Auth/Signup/signup_controller.dart';
 import 'package:fitness_storm/Utils/Routes/app_pages.dart';
 import 'package:flutter/material.dart';
@@ -77,6 +78,7 @@ class SignupScreen extends GetView<SignupController> {
                               if (controller.isPhone)
                                 MyPhoneForm(
                                   onChange: (p0) {
+                                    loggerObject.w(p0);
                                     controller.phone = p0.phoneNumber ?? '';
                                     if ((controller.emailEditingController.text).isEmpty) {
                                       setState(() {});

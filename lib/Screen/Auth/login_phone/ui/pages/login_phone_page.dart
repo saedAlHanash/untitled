@@ -57,7 +57,7 @@ class MyPhoneForm extends StatelessWidget {
             ),
             selectorTextStyle: TextStyle(color: Colors.white),
             formatInput: false,
-            initialValue: PhoneNumber(isoCode: 'EG', phoneNumber: initialValue),
+            initialValue: PhoneNumber(isoCode: 'SA', phoneNumber: initialValue),
           ),
         ),
       ],

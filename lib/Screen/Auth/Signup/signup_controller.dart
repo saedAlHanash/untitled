@@ -102,7 +102,7 @@ class SignupController extends GetxController {
         "name": nameEditingController.text,
         "password": passwordEditingController.text,
         "mobile": phone,
-        "isTest": true,
+        "isTest": false,
       };
       final result = await APIService().postApi(
         url: 'mobile/user/auth/phone_register',
@@ -126,8 +126,7 @@ class SignupController extends GetxController {
           Get.offAllNamed(AppRoutes.mainHome);
         }
       } else {
-
-        final error  = ErrorResponse.fromJson(jsonDecode(result.body)).message ??
+        final error = ErrorResponse.fromJson(jsonDecode(result.body)).message ??
             result.statusCode.toString();
         Utils.openSnackBar(title: error, textColor: Colors.white);
       }

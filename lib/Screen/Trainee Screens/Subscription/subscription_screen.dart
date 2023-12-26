@@ -69,9 +69,8 @@ class SubscriptionScreen extends GetView<SubscruptionController> {
                             mainAxisSpacing: Get.height / 40.6,
                           ),
                           itemBuilder: (_, i) {
-                            if (
-                                controller
-                                    .subscriptions.subscriptions[i].currentSubscription) {
+                            if (controller
+                                .subscriptions.subscriptions[i].currentSubscription) {
                               return CurrentPaymentCardWidget(
                                 plan: controller.subscriptions.subscriptions[i],
                               );

@@ -46,7 +46,7 @@ void main() async {
   saveFCM();
 
   APIService().initBaseUrl(baseUrl: 'api.fitnessstorm.org');
-
+  setLastSeen();
   runApp(
     bloc.MultiBlocProvider(
       providers: [
@@ -66,6 +66,20 @@ void main() async {
         locale: Locale(Get.find<LanguagesController>().selectedLanguage),
       ),
     ),
+  );
+}
+
+void setLastSeen() {
+  if (StorageController().token.isEmpty) return;
+
+  APIService().initHeader(
+    header: {
+      'authorization': 'Bearer ${StorageController().token}',
+    },
+  );
+  APIService().patchApi(
+    url: 'mobile/user/profile/last-seen',
+    body: {},
   );
 }
 
