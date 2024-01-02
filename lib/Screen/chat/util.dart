@@ -2,9 +2,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:fitness_storm/Data/Api/methods.dart';
 import 'package:fitness_storm/Screen/chat/my_room_object.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 import 'package:flutter_firebase_chat_core/flutter_firebase_chat_core.dart';
+import 'package:saed_http/api_manager/api_service.dart';
 
 import '../../Model/trainer.dart';
 import '../../main.dart';
@@ -17,8 +19,6 @@ extension TypesRoom on types.Room {
     return result > 2000;
   }
 }
-
-var myRoomObject = MyRoomObject();
 
 final firebaseUser = FirebaseChatCore.instance.firebaseUser;
 
@@ -108,33 +108,21 @@ Future<void> logoutChatUser() async {
     );
   }
 
+  await roomsBox.clear();
   await FirebaseAuth.instance.signOut();
 }
 
-var dio = Dio();
-
-Future<void> sendNotificationMessage(
+Future<bool> sendNotificationMessage(
     MyRoomObject myRoomObject, ChatNotification message) async {
-  if (!myRoomObject.needToSendNotification || myRoomObject.fcmToken.isEmpty) return;
+  loggerObject.w('message');
+  if (myRoomObject.fcmToken.isEmpty) return false;
 
   if (message.body.length > 100) {
     message.body = message.body.substring(0, 99);
   }
-
-  var data = {
-    'notification': {'title': message.title, 'body': message.body},
-    'to': myRoomObject.fcmToken,
-  };
-  var response = await dio.post(
-    'https://fcm.googleapis.com/fcm/send',
-    data: data,
-    options: Options(
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization':
-            'key=AAAAlhv4BrU:APA91bGDGCjqhQRkl69cqUwENh7jpw3nE8wxUuZiifz4T5Pz_rbNdHzKdqZD13V6y49Oh70enJ2BvCULLBshlu6V1PhvPb_THE36hv7p7qyl3NbKVXEzhapbrUKSUg_c3W3_vmG0i-hd',
-      },
-    ),
+  final result = await APIService().postApi(
+    url: 'mobile/api/send-notification',
+    body: {"token": myRoomObject.fcmToken, "message": message.body},
   );
-
+  return result.statusCode == 200;
 }

@@ -141,23 +141,23 @@ class TrainerCalenderController extends GetxController {
       }
 
       if (list.isNotEmpty) {
-        await Get.context?.read<GetRoomsCubit>().getRoomByUser(list.first.trainer.id.toString());
+        await Get.context
+            ?.read<GetRoomsCubit>()
+            .getRoomByUser(list.first.trainer.id.toString());
       }
 
       list.sort((a, b) => a.startTime.compareTo(b.startTime));
 
+      final dateTimeNow = DateTime.now().subtract(DateTime.now().timeZoneOffset);
+
       for (var e in list) {
-        //endTime is before now
-        if (e.endTime.compareTo(DateTime.now()) < 0) {
-          continue;
+        final b = dateTimeNow.isAfter(e.startTime);
+        final a = dateTimeNow.isBefore(e.endTime);
+
+        if (b && a) {
+          return e;
         } else {
-          if (DateTime.now().isAfter(e.startTime) && DateTime.now().isBefore(e.endTime)) {
-            //now is between startTime and endTime
-            return e;
-          } else {
-            //now not is between startTime and endTime
-            continue;
-          }
+          continue;
         }
       }
 

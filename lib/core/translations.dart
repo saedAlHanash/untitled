@@ -443,6 +443,8 @@ The application Policies may be changed or updated occasionally to meet the requ
           'sup_total': 'Subtotal',
           'voucher': 'Voucher',
           'net_total': 'Net Total',
+          'why_cancel':
+              'Your Fitness Storm membership will not be renewed. However, you will be able to continue using your membership until its end date.\n Why would you like to cancel your subscription? ',
           'cancel_reason': 'Cancel reason',
         },
         //ARABIC LANGUAGE
@@ -665,7 +667,8 @@ The application Policies may be changed or updated occasionally to meet the requ
           'successfully_subscribed': 'تم الاشتراك بنجاح',
           'why_to_subscribe': 'لماذا الاشتراك؟',
           'enjoy_your_fitness_storm.': 'استمتع برحلتك مع Fitness Storm ',
-          'join_fitnessStorm_for_personalized': '11+ خطة اشتراك\n13+مدرب\nوصول غير محدود',
+          'join_fitnessStorm_for_personalized':
+              'أكثر من ١١ برنامج رياضى\nأكثر من ١٣ مدرب\n اشتراك غير محدود على جميع البرامج',
           'prioritizing_your_fitness':
               'Prioritizing your fitness leads to physical and mental health benefits like improved mood, reduced stress, and better sleep.',
           'start_your_journey': 'ابدأ رحلتك إلى صحتك اليوم!',
@@ -909,6 +912,8 @@ Fitness Storm هو تطبيق ديناميكي يتيح للمستخدمين ا�
           'cancel_renewal':
               'لن يتم تجديد اشتراكك، لكن بإمكانك الاستفادة وإكمال تمارينك حتى انتهاء دورة اشتراكك الحالية.',
           'warning_renewal': 'سيتم تجديد اشتراكك بالباقة الجديدة المختارة بتاريخ',
+          'why_cancel':
+              'لن يتم تجديد باقتك في فتنس ستورم. ومع ذلك، ستتمكن من الاستمرار في استخدام عضويتك حتى تاريخ انتهائها. \n ما هو سبب الغاء اشتراكك ؟',
           'warning_delete_account':
               'حذف الحساب سيؤدي لحذف كامل بياناتك وتقدمك، وإلغاء أي اشتراك جاري.',
           'start_within_plan': 'ابدأ التدريب بهذه الخطة',

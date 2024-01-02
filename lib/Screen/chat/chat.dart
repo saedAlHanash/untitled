@@ -41,6 +41,8 @@ class _ChatPageState extends State<ChatPage> {
 
   late final RoomMessagesCubit cubit;
 
+  late final MyRoomObject myRoomObject;
+
   @override
   void initState() {
     myRoomObject = MyRoomObject(
@@ -228,12 +230,21 @@ class _ChatPageState extends State<ChatPage> {
   }
 
   void _handleSendPressed(types.PartialText message) {
-    sendNotificationMessage(
+    if (myRoomObject.needToSendNotification) {
+      sendNotificationMessage(
         myRoomObject,
         ChatNotification(
-          title: getChatMember(widget.room.users, me: true).lastName ?? '',
           body: message.text,
-        ));
+        ),
+      ).then(
+        (value) {
+          if (value) {
+            ///for send notification to first message
+            myRoomObject.needToSendNotification = false;
+          }
+        },
+      );
+    }
 
     FirebaseChatCore.instance.sendMessage(
       message,

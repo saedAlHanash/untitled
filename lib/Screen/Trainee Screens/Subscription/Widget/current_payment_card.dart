@@ -63,7 +63,7 @@ class CurrentPaymentCardWidget extends StatelessWidget {
                     Get.find<SubscruptionController>().changeIsSubscrip();
                     Get.find<SubscruptionController>().getSubscribtionPaymentPlan();
                   },
-                  'cancel_renewal'.tr,
+                  'why_cancel'.tr,
                 );
               },
               style: ButtonStyle(

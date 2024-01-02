@@ -52,21 +52,21 @@ class _ChatAndVideoButtonWidgetState extends State<ChatAndVideoButtonWidget> {
             onTap: isLoading
                 ? null
                 : () async {
-                    if (!isHaveSession) {
-                      bookSession();
-                      return;
-                    }
-                    myState(() => isLoading = true);
+              if (!isHaveSession) {
+                bookSession();
+                return;
+              }
+              myState(() => isLoading = true);
 
-                    final openRoom = await context
-                        .read<GetRoomsCubit>()
-                        .getRoomByUser(widget.trainer.id.toString());
+              final openRoom = await context
+                  .read<GetRoomsCubit>()
+                  .getRoomByUser(widget.trainer.id.toString());
 
-                    myState(() => isLoading = false);
-                    if (!mounted || openRoom == null) return;
-                    openRoomFunction(context, openRoom);
-                    return;
-                  },
+              myState(() => isLoading = false);
+              if (!mounted || openRoom == null) return;
+              openRoomFunction(context, openRoom);
+              return;
+            },
             child: Container(
               height: Get.height / 27,
               width: Get.width / 12.5,
@@ -88,21 +88,22 @@ class _ChatAndVideoButtonWidgetState extends State<ChatAndVideoButtonWidget> {
           onTap: isLoading
               ? null
               : () async {
-                  if (!isHaveSession) {
-                    bookSession();
-                  } else if (data.videoCallToken.isEmpty) {
-                    Utils.openSnackBar(message: "It's not time for the call yet");
-                  } else {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => Video1(
-                          tempToken: data.videoCallToken,
-                        ),
+            if (!isHaveSession) {
+              bookSession();
+            } else if (data.videoCallToken.isEmpty) {
+              Utils.openSnackBar(message: "Video Call Token not found ");
+            } else {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) =>
+                      Video1(
+                        tempToken: data.videoCallToken,
                       ),
-                    );
-                  }
-                },
+                ),
+              );
+            }
+          },
           child: Container(
             height: Get.height / 27,
             // width: Get.width / 2.5,
@@ -138,9 +139,18 @@ class _ChatAndVideoButtonWidgetState extends State<ChatAndVideoButtonWidget> {
       Get.toNamed(
         AppRoutes.bookPrivateSession,
         arguments: [
-          Get.find<TrainerOverviewController>().trainer.name,
-          Get.find<TrainerOverviewController>().trainer.profilePic,
-          Get.find<TrainerOverviewController>().trainer.id
+          Get
+              .find<TrainerOverviewController>()
+              .trainer
+              .name,
+          Get
+              .find<TrainerOverviewController>()
+              .trainer
+              .profilePic,
+          Get
+              .find<TrainerOverviewController>()
+              .trainer
+              .id
         ],
       );
     }, '''needBookPrivateSession'''.tr, textContinue: 'Book'.tr);
