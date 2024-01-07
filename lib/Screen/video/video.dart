@@ -1,24 +1,8 @@
-/*
 import 'package:agora_rtc_engine/agora_rtc_engine.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
-*/
 
-import 'package:flutter/material.dart';
-
-class Video1 extends StatelessWidget {
-  const Video1({super.key, required this.tempToken});
-
-  final String tempToken;
-
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
-  }
-}
-
-/*
 class Video1 extends StatefulWidget {
   const Video1({Key? key, required this.tempToken}) : super(key: key);
   final String tempToken;
@@ -256,4 +240,19 @@ class _CallScreenState extends State<CallScreen> {
     );
   }
 }
-*/
+
+
+
+/*
+import 'package:flutter/material.dart';
+
+class Video1 extends StatelessWidget {
+  const Video1({super.key, required this.tempToken});
+
+  final String tempToken;
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}*/
