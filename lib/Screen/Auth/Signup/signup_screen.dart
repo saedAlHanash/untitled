@@ -60,10 +60,10 @@ class SignupScreen extends GetView<SignupController> {
                       StatefulBuilder(
                         builder: (context, setState) {
                           final test = controller.emailEditingController.text;
-
-                          controller.isPhone =
-                              test.isNotEmpty && int.tryParse(test.substring(0, 1)) !=
-                                  null;
+                          //TODO: phone active
+                          // controller.isPhone =
+                          //     test.isNotEmpty && int.tryParse(test.substring(0, 1)) !=
+                          //         null;
 
                           return Column(
                             children: [

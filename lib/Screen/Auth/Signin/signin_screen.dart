@@ -80,9 +80,10 @@ class SigninScreen extends GetView<SigninController> {
                       builder: (context, setState) {
                         final test = controller.emailController.text;
 
-                        controller.isPhone =
-                            test.isNotEmpty && int.tryParse(test.substring(0, 1)) !=
-                                null;
+                        //TODO: phone number active
+                        // controller.isPhone =
+                        //     test.isNotEmpty && int.tryParse(test.substring(0, 1)) !=
+                        //         null;
 
                         return Column(
                           children: [

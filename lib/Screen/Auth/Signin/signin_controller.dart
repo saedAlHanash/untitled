@@ -19,7 +19,7 @@ class SigninController extends GetxController {
   final RxBool isScure = true.obs;
   final RxString message = ''.obs;
 
-  bool isPhone = false;
+final   bool isPhone = false;
   String phone = '';
   final AuthRepository _authRepository = AuthRepository();
   final Rx<TextEditingController> _emailController = TextEditingController().obs;

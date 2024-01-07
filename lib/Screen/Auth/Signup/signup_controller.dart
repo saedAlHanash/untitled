@@ -17,7 +17,7 @@ import '../Signin/signin_controller.dart';
 
 class SignupController extends GetxController {
   final RxString message = ''.obs;
-  bool isPhone = false;
+ final  bool isPhone = false;
   String phone = '';
   final AuthRepository _authRepository = AuthRepository();
   final Rx<TextEditingController> _confirmPasswordEditingController =
