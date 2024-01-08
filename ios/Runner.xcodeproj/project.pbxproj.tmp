@@ -161,7 +161,7 @@
 					<string>@executable_path/Frameworks</string>
 				</array>
 				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>com.chi.untitled</string>
+				<string>com.chi.fitnessStorm</string>
 				<key>PRODUCT_NAME</key>
 				<string>$(TARGET_NAME)</string>
 				<key>SWIFT_OBJC_BRIDGING_HEADER</key>
@@ -318,7 +318,7 @@
 				<key>MARKETING_VERSION</key>
 				<string>1.0</string>
 				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>com.chi.untitled.RunnerTests</string>
+				<string>com.chi.fitnessStorm.RunnerTests</string>
 				<key>PRODUCT_NAME</key>
 				<string>$(TARGET_NAME)</string>
 				<key>SWIFT_ACTIVE_COMPILATION_CONDITIONS</key>
@@ -352,7 +352,7 @@
 				<key>MARKETING_VERSION</key>
 				<string>1.0</string>
 				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>com.chi.untitled.RunnerTests</string>
+				<string>com.chi.fitnessStorm.RunnerTests</string>
 				<key>PRODUCT_NAME</key>
 				<string>$(TARGET_NAME)</string>
 				<key>SWIFT_VERSION</key>
@@ -382,7 +382,7 @@
 				<key>MARKETING_VERSION</key>
 				<string>1.0</string>
 				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>com.chi.untitled.RunnerTests</string>
+				<string>com.chi.fitnessStorm.RunnerTests</string>
 				<key>PRODUCT_NAME</key>
 				<string>$(TARGET_NAME)</string>
 				<key>SWIFT_VERSION</key>
@@ -1118,7 +1118,7 @@
 					<string>@executable_path/Frameworks</string>
 				</array>
 				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>com.chi.untitled</string>
+				<string>com.chi.fitnessStorm</string>
 				<key>PRODUCT_NAME</key>
 				<string>$(TARGET_NAME)</string>
 				<key>SWIFT_OBJC_BRIDGING_HEADER</key>
@@ -1157,7 +1157,7 @@
 					<string>@executable_path/Frameworks</string>
 				</array>
 				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>com.chi.untitled</string>
+				<string>com.chi.fitnessStorm</string>
 				<key>PRODUCT_NAME</key>
 				<string>$(TARGET_NAME)</string>
 				<key>SWIFT_OBJC_BRIDGING_HEADER</key>
