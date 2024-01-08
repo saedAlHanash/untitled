@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:fitness_storm/Data/Api/methods.dart';
 import 'package:fitness_storm/Screen/chat/room_messages_bloc/room_messages_cubit.dart';
 import 'package:fitness_storm/Screen/chat/util.dart';
 import 'package:flutter/material.dart';
@@ -55,16 +56,20 @@ class _ChatPageState extends State<ChatPage> {
 
   @override
   void deactivate() {
-    if (cubit.state.allMessages.isNotEmpty) {
-      final m = cubit.state.allMessages.first;
+    try {
+      if (cubit.state.allMessages.isNotEmpty) {
+        final m = cubit.state.allMessages.first;
 
-      latestUpdateMessagesBox.put(cubit.state.roomId, m.updatedAt ?? 0);
-      var room =
-          types.Room.fromJson(jsonDecode(roomsBox.get(cubit.state.roomId) ?? '{}'));
-      if (room.updatedAt == m.updatedAt) return;
-      room = room.copyWith(updatedAt: m.updatedAt);
-      roomsBox.put(cubit.state.roomId, jsonEncode(room));
-      context.read<GetRoomsCubit>().updateRooms();
+        latestUpdateMessagesBox.put(cubit.state.roomId, m.updatedAt ?? 0);
+        var room =
+            types.Room.fromJson(jsonDecode(roomsBox.get(cubit.state.roomId) ?? '{}'));
+        if (room.updatedAt == m.updatedAt) return;
+        room = room.copyWith(updatedAt: m.updatedAt);
+        roomsBox.put(cubit.state.roomId, jsonEncode(room));
+        context.read<GetRoomsCubit>().updateRooms();
+      }
+    } on Exception catch (e) {
+      loggerObject.e(e);
     }
 
     super.deactivate();
@@ -276,7 +281,7 @@ class _ChatPageState extends State<ChatPage> {
             onSendPressed: _handleSendPressed,
             theme: const DarkChatTheme(),
             user: types.User(
-              id: FirebaseChatCore.instance.firebaseUser?.uid ?? '',
+              id: firebaseUser?.uid ?? '',
             ),
           );
         },

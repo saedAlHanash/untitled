@@ -163,7 +163,7 @@ class LocaleString extends Translations {
           'congratulations':
               'Congratulations on taking the first step towards your fitness journey with Fitness Storm. Now that you\'ve subscribed, you have access to all of our resources. Choose a plan and let\'s get started!',
           'successfully_subscribed': 'Successfully subscribed',
-          'why_to_subscribe?': 'WHY TO SUBSCRIBE?',
+          'why_to_subscribe': 'WHY TO SUBSCRIBE?',
           'enjoy_your_fitness_storm.': 'Enjoy your Fitness Storm.',
           'join_fitnessStorm_for_personalized':
               '11+ PLANS\n13+TRAINERS\nUNLIMITED ACCESS ',
@@ -303,7 +303,7 @@ class LocaleString extends Translations {
               'You need to book an appointment to have a private session with the coach',
           'Your_subscription_to_plan': 'You will be no longer training with plan',
           "subscription_finished":
-              "Your subscription to Fitness Storm has ended, kindly renew it to continue where you have stopped.Subscribe Cancel",
+              "Your subscription to Fitness Storm has ended, kindly renew it to continue where you have stopped.",
           'will_be_canceled': 'will be canceled',
           'What_is_Fitness_Storm?': 'What is Fitness Storm?',
           'It_is_a_dynamic_application_in_both_Arabic':

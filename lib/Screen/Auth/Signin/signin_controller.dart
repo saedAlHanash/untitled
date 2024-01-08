@@ -95,7 +95,7 @@ final   bool isPhone = false;
         _storageController.id = model.data.id;
         _storageController.userType = 'trainee';
         _storageController.methodTakeAuthentication = '';
-        getProfile();
+
         if (!model.data.isConfirmed) {
           Get.offNamed(AppRoutes.otp, arguments: [phone, false]);
         } else {
@@ -126,7 +126,6 @@ final   bool isPhone = false;
       _storageController.userType = isTrainer ? 'trainer' : 'trainee';
       _storageController.methodTakeAuthentication = '';
 
-      getProfile();
 
       //Todo should un comment this
       final token = await getToken();
@@ -169,7 +168,7 @@ final   bool isPhone = false;
           _storageController.methodTakeAuthentication = 'google';
           final token = await getToken();
           await storeFcm(token);
-          getProfile();
+
           Get.back();
           if (isTrainer) {
             Get.offAllNamed(AppRoutes.trainerHomePage);

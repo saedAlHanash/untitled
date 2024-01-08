@@ -6,10 +6,17 @@ import 'package:fitness_storm/Data/Api/methods.dart';
 import 'package:fitness_storm/Screen/chat/my_room_object.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 import 'package:flutter_firebase_chat_core/flutter_firebase_chat_core.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:saed_http/api_manager/api_service.dart';
 
 import '../../Model/trainer.dart';
+import '../../Utils/dependency_injection.dart';
 import '../../main.dart';
+import 'get_chats_rooms_bloc/get_rooms_cubit.dart';
+
+import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 extension TypesRoom on types.Room {
   bool get isNotReed {
@@ -20,7 +27,26 @@ extension TypesRoom on types.Room {
   }
 }
 
-final firebaseUser = FirebaseChatCore.instance.firebaseUser;
+User? get firebaseUser {
+  final user = FirebaseChatCore.instance.firebaseUser;
+  if (user == null) getProfileForLoginChat();
+  return user;
+}
+
+Future<User?> get firebaseUserAsync async {
+  final email = FirebaseAuth.instance.currentUser?.email ?? '';
+
+  if (email.isNotEmpty&&!email.startsWith('fitnes') || !email.endsWith('@fitnes.com')) {
+    await FirebaseAuth.instance.signOut();
+  }
+
+  final user = FirebaseChatCore.instance.firebaseUser;
+  if (user == null) {
+    await getProfileForLoginChat();
+    return firebaseUser;
+  }
+  return user;
+}
 
 Future<List<types.User>> getChatUsers() async {
   final users = await FirebaseFirestore.instance.collection('users').get();
@@ -98,7 +124,7 @@ Future<void> loginChatUser(String id, String name) async {
 
 Future<void> logoutChatUser() async {
   if (FirebaseAuth.instance.currentUser != null) {
-    await FirebaseFirestore.instance
+    FirebaseFirestore.instance
         .collection('users')
         .doc(FirebaseAuth.instance.currentUser?.uid)
         .update(
@@ -109,6 +135,9 @@ Future<void> logoutChatUser() async {
   }
 
   await roomsBox.clear();
+  // await latestUpdateMessagesBox.clear();
+  await reInitialHive();
+  Get.context?.read<GetRoomsCubit>().reInitial();
   await FirebaseAuth.instance.signOut();
 }
 
@@ -120,8 +149,9 @@ Future<bool> sendNotificationMessage(
   if (message.body.length > 100) {
     message.body = message.body.substring(0, 99);
   }
+  APIService().initBaseUrl(baseUrl: 'api.fitnessstorm.org');
   final result = await APIService().postApi(
-    url: 'mobile/api/send-notification',
+    url: 'api/send-notification',
     body: {"token": myRoomObject.fcmToken, "message": message.body},
   );
   return result.statusCode == 200;

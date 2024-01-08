@@ -26,12 +26,22 @@ late Box usersBox;
 late Box<String> roomMessage;
 late Box<int> latestUpdateMessagesBox;
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Hive.initFlutter();
+Future<void> initialHive() async {
   roomsBox = await Hive.openBox('rooms');
   latestUpdateMessagesBox = await Hive.openBox('messages');
   usersBox = await Hive.openBox('users');
+}
+
+Future<void> reInitialHive() async {
+  await roomsBox.close();
+  await latestUpdateMessagesBox.close();
+  await usersBox.close();
+  await initialHive();
+}
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   Get.put(LanguagesController());
 
   await DependencyInjection.init();
@@ -51,7 +61,7 @@ void main() async {
     bloc.MultiBlocProvider(
       providers: [
         bloc.BlocProvider(create: (_) => RefreshHomePlanCubit()),
-        bloc.BlocProvider(create: (_) => GetRoomsCubit()..getChatRooms()),
+        bloc.BlocProvider(create: (_) => GetRoomsCubit()),
       ],
       child: GetMaterialApp(
         color: Colors.white,

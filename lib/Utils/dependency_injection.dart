@@ -11,9 +11,11 @@ import 'package:fitness_storm/Utils/storage_controller.dart';
 import 'package:fitness_storm/Utils/utils.dart';
 import 'package:fitness_storm/helper/cache_helper.dart';
 import 'package:fitness_storm/helper/lang_helper.dart';
+import 'package:flutter_firebase_chat_core/flutter_firebase_chat_core.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:hive_flutter/adapters.dart';
 
 import '../Data/Api/api_result.dart';
 import '../Data/Api/methods.dart';
@@ -21,6 +23,7 @@ import '../Data/Api/urls.dart';
 import '../Model/trainer.dart';
 import '../Screen/chat/util.dart';
 import '../firebase_options.dart';
+import '../main.dart';
 import 'Constants/constants.dart';
 import 'Constants/enums.dart';
 import 'app_controller.dart';
@@ -29,6 +32,9 @@ class DependencyInjection {
   static Future<void> init() async {
     // WidgetsFlutterBinding.ensureInitialized();
     // await initFirebaseMessaging();
+
+    await Hive.initFlutter();
+    initialHive();
 
     await Note.initialize();
 
@@ -179,19 +185,17 @@ requestPermission() async {
 }
 
 Future<void> initFirebaseChat() async {
-  FirebaseAuth.instance.authStateChanges().listen((User? user) {
-    if (user == null) {
-      getProfile();
-      return;
-    }
-  });
+  FirebaseAuth.instance.authStateChanges().listen((User? user) {});
 }
 
-Future<void> getProfile() async {
+var loading = false;
 
+Future<void> getProfileForLoginChat() async {
+  if (loading) return;
+  loading = true;
   if (StorageController().token.isEmpty) return;
 
-  if (FirebaseAuth.instance.currentUser != null) return;
+  if (FirebaseChatCore.instance.firebaseUser != null) return;
 
   final result = await Methods.get(
     url: StorageController().userType == 'trainer'
@@ -199,16 +203,17 @@ Future<void> getProfile() async {
         : TRAINEEURLS.getUserProfile,
     options: Utils.getOptions(accept: true, withToken: true),
   );
+  loading = false;
 
   if (result.type == ApiResultType.success) {
     final profile = Trainer.fromJson(result.data);
 
     try {
       if (await isChatUserFound(profile.id ?? '')) {
-        loginChatUser(profile.id!, profile.name!);
+      await  loginChatUser(profile.id!, profile.name!);
         return;
       } else {
-        createChatUser(profile);
+        await createChatUser(profile);
       }
     } on Exception catch (e) {}
   } else {}

@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Chat/Widget/chat_card_widget.dart';
+import 'package:fitness_storm/Screen/Trainee%20Screens/coupon/coupon_cubit/coupon_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
@@ -16,18 +17,18 @@ class RoomsScreen extends StatefulWidget {
 }
 
 class _RoomsScreenState extends State<RoomsScreen> {
+  bool loading = false;
+
   @override
   void initState() {
-    final email = FirebaseAuth.instance.currentUser?.email ?? '';
-
-    if (!email.startsWith('fitnes') || !email.endsWith('@fitnes.com')) {
-      FirebaseAuth.instance.signOut();
-      getProfile();
+    final getRoomCubitState = Get.context?.read<GetRoomsCubit>().state.statuses;
+    if (getRoomCubitState != CubitStatuses.done &&
+        getRoomCubitState != CubitStatuses.loading) {
+      Get.context?.read<GetRoomsCubit>().getChatRooms();
     }
+
     super.initState();
   }
-
-  bool loading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +44,9 @@ class _RoomsScreenState extends State<RoomsScreen> {
       ),
       body: BlocBuilder<GetRoomsCubit, GetRoomsInitial>(
         builder: (context, state) {
+          if (state.statuses.loading) {
+            return const CircularProgressIndicator.adaptive();
+          }
           return ListView.separated(
             separatorBuilder: (context, i) {
               return Divider(

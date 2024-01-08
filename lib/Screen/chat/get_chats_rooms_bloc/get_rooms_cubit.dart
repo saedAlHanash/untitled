@@ -18,11 +18,11 @@ class GetRoomsCubit extends Cubit<GetRoomsInitial> {
 
   Future<void> getChatRooms() async {
     // loggerObject.w(FirebaseChatCore.instance.firebaseUser);
-    if (firebaseUser == null) return;
+    if (await firebaseUserAsync == null) return;
 
+    emit(state.copyWith(statuses: CubitStatuses.loading));
     rooms();
   }
-
 
   /// Returns a stream of messages from Firebase for a given room.
   void rooms() {
@@ -48,7 +48,7 @@ class GetRoomsCubit extends Cubit<GetRoomsInitial> {
         'users',
       );
 
-      storeRoomsInHive(listRooms);
+      await storeRoomsInHive(listRooms);
 
       if (!isClosed) {
         _setData();
@@ -96,7 +96,6 @@ class GetRoomsCubit extends Cubit<GetRoomsInitial> {
     );
   }
 
-
   List<types.Room> get getRoomsFromHive {
     return roomsBox.values.map((e) {
       return types.Room.fromJson(jsonDecode(e));
@@ -113,8 +112,6 @@ class GetRoomsCubit extends Cubit<GetRoomsInitial> {
   void updateRooms() {
     _setData();
   }
-
-
 
   Future<types.Room?> getRoomByUser(String? id) async {
     if (id == null) return null;
@@ -137,11 +134,15 @@ class GetRoomsCubit extends Cubit<GetRoomsInitial> {
     return null;
   }
 
-
   @override
   Future<Function> close() async {
     super.close();
     state.stream?.cancel();
     return () {};
+  }
+
+  void reInitial() {
+    state.stream?.cancel();
+    emit(GetRoomsInitial.initial());
   }
 }

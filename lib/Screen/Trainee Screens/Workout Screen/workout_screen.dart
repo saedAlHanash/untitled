@@ -2,7 +2,10 @@ import 'package:fitness_storm/Screen/Trainee%20Screens/Workout%20Screen/workout_
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../Model/plan.dart';
+import '../../../Utils/Routes/app_pages.dart';
 import '../../../Widgets/custom_button.dart';
+import '../HomeScreen/home_screen_controller.dart';
 import 'Widget/day_bar.dart';
 
 class WorkoutScreen extends GetView<WorkoutScreenController> {
@@ -50,7 +53,12 @@ class WorkoutScreen extends GetView<WorkoutScreenController> {
                   children: [
                     Text('no_current_plan'.tr),
                     CustomButton(
-                      onTapFunction: () => Get.back(),
+                      onTapFunction: () {
+                        Get.toNamed(
+                          AppRoutes.featuredPlamScreen,
+                          arguments: Get.find<HomeScreenController>().featuredPlans,
+                        );
+                      },
                       textColor: Colors.white,
                       fontSize: 16,
                       text: 'choose_a_plan'.tr,
