@@ -121,12 +121,12 @@ class UserSurveyController extends GetxController {
       hoursPerDayController.text,
       gender,
     );
-    if (result.type == ApiResultType.success) {
       Utils.closeDialog();
       Get.offAllNamed(AppRoutes.mainHome);
-    } else {
-      Utils.closeDialog();
-      Utils.openSnackBar(title: result.message!);
-    }
+    // if (result.type == ApiResultType.success) {
+    // } else {
+    //   Utils.closeDialog();
+    //   Utils.openSnackBar(title: result.message!);
+    // }
   }
 }
