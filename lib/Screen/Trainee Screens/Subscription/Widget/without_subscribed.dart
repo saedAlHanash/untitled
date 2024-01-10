@@ -17,7 +17,7 @@ class WithoutSubscribed extends StatelessWidget {
         ),
         SizedBox(height: Get.height / 16.24),
         Text(
-          isSubscirbe ? 'successfully_subscribed'.tr : 'why_to_subscribe?'.tr,
+          isSubscirbe ? 'successfully_subscribed'.tr : 'why_to_subscribe'.tr,
           textAlign: TextAlign.center,
           style: const TextStyle(
             color: Colors.white,

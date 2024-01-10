@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 
 import '../../../Data/Api/api_result.dart';
 import '../../../Utils/storage_controller.dart';
+import '../../../main.dart';
 import '../../Trainee Screens/coupon/coupon_cubit/coupon_cubit.dart';
 import '../../chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 
@@ -19,6 +20,7 @@ class TrainerMainHomeController extends GetxController {
 
   @override
   Future<void> onInit() async {
+    saveFCM();
     final getRoomCubitState = Get.context?.read<GetRoomsCubit>().state.statuses;
     if (getRoomCubitState != CubitStatuses.done &&
         getRoomCubitState != CubitStatuses.loading) {

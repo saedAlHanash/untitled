@@ -5,6 +5,7 @@ import '../../../Data/Repositories/notification_repository.dart';
 import '../../../Model/notification_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../main.dart';
 import '../../chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 import '../coupon/coupon_cubit/coupon_cubit.dart';
 
@@ -20,9 +21,10 @@ class MainHomeController extends GetxController {
 
   @override
   Future<void> onInit() async {
+    saveFCM();
+
     super.onInit();
     isLoading = true;
-
     final getRoomCubitState = Get.context?.read<GetRoomsCubit>().state.statuses;
     if (getRoomCubitState != CubitStatuses.done &&
         getRoomCubitState != CubitStatuses.loading) {

@@ -52,7 +52,7 @@ void main() async {
   ]);
   HttpOverrides.global = MyHttpOverrides();
 
-  ///send FCM to server
+  // ///send FCM to server
   saveFCM();
 
   APIService().initBaseUrl(baseUrl: 'api.fitnessstorm.org');

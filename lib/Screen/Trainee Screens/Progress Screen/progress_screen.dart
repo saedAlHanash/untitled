@@ -64,12 +64,12 @@ class ProgressScreen extends GetView<ProgressScreenController> {
                                   color: Get.theme.primaryColor)),
                     ],
                   ),
-                  const SizedBox(height: 10),
+                  const SizedBox(height: 10),/*
                   controller.progressModel.isEmpty
                       ? Center(
                           child: Text('the_from_is_not_a_valid_date'.tr),
                         )
-                      : Column(
+                      :*/ Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: controller.progressModel

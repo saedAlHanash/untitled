@@ -112,10 +112,10 @@ class ProgressScreenController extends GetxController {
     String fromDate = '$year-$monthNumberString-$currentStartDayWeekString';
     String endDate = '$year-$monthNumberString-$currentEndDayWeekString';
 
-    int ds;
+
     DateTime from = DateTime.parse(fromDate);
     DateTime to = DateTime.parse(endDate);
-    int d;
+
     progressModel = await traineeRepository
         .getTraineeProgress(dateFormat.format(from), to: dateFormat.format(to));
   }

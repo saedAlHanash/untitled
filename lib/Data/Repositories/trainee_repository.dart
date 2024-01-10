@@ -89,6 +89,7 @@ class TraineeRepository {
         List<ProgressModel> progress = [];
 
         var uu = result.data;
+
         for (var element in uu.values.toList()) {
           String key = element.keys.elementAt(0);
 
