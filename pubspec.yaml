@@ -43,6 +43,7 @@ dependencies:
   image_multi_type:
     git:
       url: https://github.com/saedAlHanash/image_multi_type
+
   wakelock: any
   hive_flutter: any
   smooth_page_indicator: ^1.0.0+2
@@ -59,7 +60,7 @@ dependencies:
   readmore: ^2.2.0
   flutter_native_splash: ^2.2.5
   google_sign_in:
-  agora_rtc_engine: ^6.2.0
+#  agora_rtc_engine: ^6.2.0
   # permission handler
   permission_handler:
   flutter_app_badger:
@@ -82,15 +83,15 @@ dependencies:
   firebase_messaging: ^14.6.3
   firebase_core: ^2.14.0
   flutter_local_notifications: ^14.0.0
-  cached_network_image: ^3.2.2
+  cached_network_image: ^3.3.1
   quiver: ^3.1.0
   #  flutter_screenutil:
   webview_flutter: 3.0.4
   sliding_up_panel:
-  table_calendar:
+#  table_calendar:
   shared_preferences: ^2.1.0
-  audio_service:
-  faker: ^2.1.0
+#  audio_service:
+#  faker: ^2.1.0
   file_picker:
   firebase_storage: ^11.2.3
   flutter_chat_types: ^3.6.1
@@ -104,7 +105,7 @@ dependencies:
   path_provider:
   shimmer_animation: ^2.1.0+1
   flutter_meta_sdk: ^1.0.2
-  sign_in_with_apple: ^5.0.0
+#  sign_in_with_apple: ^5.0.0
   intl_phone_number_input:
 dev_dependencies:
   flutter_test:
