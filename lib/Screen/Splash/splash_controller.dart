@@ -65,10 +65,6 @@ class SplashController extends GetxController {
             }
           }
         } else {
-          if (CacheHelper.getData(key: 'sticky_otp') ?? false) {
-          Get.offNamed(AppRoutes.otp, arguments: ['', false]);
-          return;
-          }
           res = await authRepository.refreshUserToken();
           if (res.type == ApiResultType.success) {
             StorageController().token = res.data['access_token'];

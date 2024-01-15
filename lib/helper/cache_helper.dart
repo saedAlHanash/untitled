@@ -7,7 +7,7 @@ class CacheHelper {
     _pref = await SharedPreferences.getInstance();
   }
 
-  static void clearData() => _pref?.clear();
+  static Future<void> clearData() async => await _pref?.clear();
 
   static Future<bool> saveData({
     required String key,

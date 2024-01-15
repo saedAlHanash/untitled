@@ -37,7 +37,7 @@ class NotificationScreen extends GetView<NotificationController> {
                           padding: const EdgeInsets.only(bottom: 200.0),
                           itemCount: controller.notifications.data!.length,
                           itemBuilder: (context, index) {
-                            List data = controller.notifications.data!.reversed.toList();
+                            List data = controller.notifications.data!.toList();
                             return NotificationWidget(
                               title: data[index].body!,
                               date: data[index].createdAt!,

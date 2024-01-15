@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:fitness_storm/Data/Api/api_result.dart';
+import 'package:fitness_storm/Data/Api/methods.dart';
 import 'package:fitness_storm/Data/Repositories/trainer_repository.dart';
 import 'package:fitness_storm/Model/available_time.dart';
 import 'package:fitness_storm/Model/book_appointment.dart';
@@ -343,9 +344,9 @@ class BookPrivateSessionController extends GetxController {
     } else {
       final s = result[currentDay];
 
+      loggerObject.wtf(s);
       for (var element in s) {
         if (element['start_time'] != null) {
-
           //fix time zone
           final tzo = DateTime.now().timeZoneOffset;
 
@@ -362,8 +363,6 @@ class BookPrivateSessionController extends GetxController {
 
           final startTime = DateFormat('hh:mm a').format(tempStart);
           final endTime = DateFormat('hh:mm a').format(tempEnd);
-
-
 
           if (DateTime.now().isAfter(tempStart)) {
             widgets.add(
@@ -400,7 +399,6 @@ class BookPrivateSessionController extends GetxController {
                 } else {
                   Utils.openSnackBar(title: uri.message!);
                 }
-
               },
               child: Builder(builder: (context) {
                 return Container(

@@ -36,7 +36,7 @@ class OTPScreen extends GetView<OTPController> {
                   Padding(
                     padding: EdgeInsets.symmetric(vertical: Get.height / 20),
                     child:
-                    Image.asset('asset/Images/white_logo.png', width: Get.width / 4),
+                        Image.asset('asset/Images/white_logo.png', width: Get.width / 4),
                   ),
                   SizedBox(height: Get.height / 20),
                   Text(
@@ -58,8 +58,10 @@ class OTPScreen extends GetView<OTPController> {
                       alignment: Alignment.center,
                       child: TextButton(
                         onPressed: () {
-                          CacheHelper.saveData(key: 'sticky_otp', value: false);
-                          Get.offAllNamed(AppRoutes.signUp);
+                          CacheHelper.saveData(key: 'sticky_otp', value: false)
+                              .then((value) {
+                            Get.offAllNamed(AppRoutes.signIn);
+                          });
                         },
                         child: Text(
                           'change_email'.tr,
@@ -101,15 +103,14 @@ class OTPScreen extends GetView<OTPController> {
                     text: 'Verify'.tr,
                     textColor: Colors.white,
                   ),
-
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       TextButton(
-                        onPressed: () {
-                          CacheHelper.saveData(key: 'sticky_otp', value: false);
-                          CacheHelper.clearData();
+                        onPressed: () async {
+                          await CacheHelper.saveData(key: 'sticky_otp', value: false);
+                          await CacheHelper.clearData();
                           StorageController().clear();
                           Get.toNamed(AppRoutes.signIn);
                         },
