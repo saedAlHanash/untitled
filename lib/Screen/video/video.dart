@@ -1,8 +1,8 @@
-/*import 'package:agora_rtc_engine/agora_rtc_engine.dart';
+import 'package:agora_rtc_engine/agora_rtc_engine.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:wakelock/wakelock.dart';
+import 'package:wakelock_plus/wakelock_plus.dart';
 
 class Video1 extends StatefulWidget {
   const Video1({Key? key, required this.tempToken}) : super(key: key);
@@ -20,7 +20,7 @@ class _Video1State extends State<Video1> {
 
   @override
   void initState() {
-    Wakelock.enable();
+    WakelockPlus.enable();
     super.initState();
     initAgora();
     eventHandler = RtcEngineEventHandler(
@@ -72,7 +72,7 @@ class _Video1State extends State<Video1> {
 
   @override
   void dispose() {
-    Wakelock.disable();
+    WakelockPlus.disable();
     _engine.leaveChannel();
     _engine.unregisterEventHandler(eventHandler);
     super.dispose();
@@ -242,10 +242,11 @@ class _CallScreenState extends State<CallScreen> {
       ),
     );
   }
-}*/
+}
 
+/*
 import 'package:flutter/material.dart';
-import 'package:wakelock/wakelock.dart';
+
 
 class Video1 extends StatelessWidget {
   const Video1({super.key, required this.tempToken});
@@ -257,3 +258,4 @@ class Video1 extends StatelessWidget {
     return const Placeholder();
   }
 }
+*/

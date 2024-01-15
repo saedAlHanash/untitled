@@ -44,7 +44,7 @@ dependencies:
     git:
       url: https://github.com/saedAlHanash/image_multi_type
 
-  wakelock: any
+#  wakelock: any
   hive_flutter: any
   smooth_page_indicator: ^1.0.0+2
   #  flick_video_player:
@@ -56,11 +56,11 @@ dependencies:
   intl:
   package_info_plus: ^4.1.0
   bottom_picker: ^1.8.0
-  pod_player: ^0.2.0
+  pod_player: ^0.2.1
   readmore: ^2.2.0
   flutter_native_splash: ^2.2.5
   google_sign_in:
-#  agora_rtc_engine: ^6.2.0
+  agora_rtc_engine: ^6.2.0
   # permission handler
   permission_handler:
   flutter_app_badger:
