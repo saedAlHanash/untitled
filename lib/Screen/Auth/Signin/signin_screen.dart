@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:fitness_storm/Screen/Auth/Signin/signin_controller.dart';
 import 'package:fitness_storm/Utils/Routes/app_pages.dart';
 import 'package:flutter/material.dart';
@@ -37,7 +39,7 @@ class SigninScreen extends GetView<SigninController> {
               top: Get.height / 20,
             ),
             child: Obx(
-                  () => SingleChildScrollView(
+              () => SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -136,23 +138,23 @@ class SigninScreen extends GetView<SigninController> {
                       controller: AppTextFieldController(controller.isScure.value),
                       suffixIcon: controller.isScure.value
                           ? IconButton(
-                        icon: Icon(
-                          Icons.visibility_off,
-                          color: Get.theme.colorScheme.secondary,
-                        ),
-                        onPressed: () {
-                          controller.isScure.value = false;
-                        },
-                      )
+                              icon: Icon(
+                                Icons.visibility_off,
+                                color: Get.theme.colorScheme.secondary,
+                              ),
+                              onPressed: () {
+                                controller.isScure.value = false;
+                              },
+                            )
                           : IconButton(
-                        icon: Icon(
-                          Icons.visibility,
-                          color: Get.theme.colorScheme.secondary,
-                        ),
-                        onPressed: () {
-                          controller.isScure.value = true;
-                        },
-                      ),
+                              icon: Icon(
+                                Icons.visibility,
+                                color: Get.theme.colorScheme.secondary,
+                              ),
+                              onPressed: () {
+                                controller.isScure.value = true;
+                              },
+                            ),
                     ),
 
                     SizedBox(height: Get.height / 60),
@@ -242,7 +244,9 @@ class SigninScreen extends GetView<SigninController> {
                         // Image.asset('asset/Images/facebookSVG.svg'),
                         // SizedBox(width: Get.width / 6),
                         //TODO: google button
-                        if (DateTime.now().isAfter(DateTime(2024, 1, 12)))
+
+                        if (DateTime.now().isAfter(DateTime(2024, 1, 18)) &&
+                            Platform.isIOS)
                           GestureDetector(
                             onTap: () => controller.signInGoogle(),
                             child: Container(

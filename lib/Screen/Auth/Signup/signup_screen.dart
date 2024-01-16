@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:fitness_storm/Data/Api/methods.dart';
 import 'package:fitness_storm/Screen/Auth/Signup/signup_controller.dart';
 import 'package:fitness_storm/Utils/Routes/app_pages.dart';
@@ -80,7 +82,8 @@ class SignupScreen extends GetView<SignupController> {
                                   onChange: (p0) {
                                     loggerObject.w(p0);
                                     controller.phone = p0.phoneNumber ?? '';
-                                    if ((controller.emailEditingController.text).isEmpty) {
+                                    if ((controller.emailEditingController.text)
+                                        .isEmpty) {
                                       setState(() {});
                                     }
                                   },
@@ -212,7 +215,7 @@ class SignupScreen extends GetView<SignupController> {
                       ),
                       SizedBox(height: Get.height / 30),
                       //TODO: google button
-                      if (DateTime.now().isAfter(DateTime(2024, 1, 12)))
+                      if (DateTime.now().isAfter(DateTime(2024, 1, 18)) && Platform.isIOS)
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
