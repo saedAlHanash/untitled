@@ -245,8 +245,7 @@ class SigninScreen extends GetView<SigninController> {
                         // SizedBox(width: Get.width / 6),
                         //TODO: google button
 
-                        if (DateTime.now().isAfter(DateTime(2024, 1, 18)) &&
-                            Platform.isIOS)
+                        if (DateTime.now().isAfter(DateTime(2024, 1, 18)))
                           GestureDetector(
                             onTap: () => controller.signInGoogle(),
                             child: Container(

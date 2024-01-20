@@ -215,7 +215,7 @@ class SignupScreen extends GetView<SignupController> {
                       ),
                       SizedBox(height: Get.height / 30),
                       //TODO: google button
-                      if (DateTime.now().isAfter(DateTime(2024, 1, 18)) && Platform.isIOS)
+                      if (DateTime.now().isAfter(DateTime(2024, 1, 18)))
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
