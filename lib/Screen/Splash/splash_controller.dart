@@ -2,13 +2,19 @@ import 'dart:io';
 
 import 'package:fitness_storm/Data/Repositories/auth_repository.dart';
 import 'package:fitness_storm/Utils/Routes/app_pages.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../Data/Api/api_result.dart';
 import '../../Utils/storage_controller.dart';
 import '../../Utils/utils.dart';
+import '../../core/injection/injection_container.dart';
+import '../../features/auth/bloc/login_cubit/login_cubit.dart';
+import '../../features/auth/ui/pages/login_page.dart';
 import '../../helper/cache_helper.dart';
+import '../../router/app_router.dart';
 
 Future<void> openPage(String url) async {
   final googleUrl = Uri.parse(url);
@@ -43,6 +49,7 @@ class SplashController extends GetxController {
         );
         return;
       }
+
       try {
         var res;
 
@@ -57,9 +64,9 @@ class SplashController extends GetxController {
             StorageController().token = res.data['access_token'];
             Get.offAllNamed(AppRoutes.trainerHomePage);
           } else {
-
             if (StorageController().token.isEmpty) {
-              Get.offNamed(AppRoutes.signIn);
+              Navigator.pushNamed(Get.context!, RouteName.login);
+              // Get.offNamed(AppRoutes.signIn);
             } else {
               Get.offAllNamed(AppRoutes.trainerHomePage);
             }
@@ -71,9 +78,18 @@ class SplashController extends GetxController {
             // Utils.openSnackBar(title: res.data['access_token']);
             Get.offAllNamed(AppRoutes.mainHome);
           } else {
-
             if (StorageController().token.isEmpty) {
-              Get.offNamed(AppRoutes.signIn);
+              Navigator.push(Get.context!, MaterialPageRoute(
+                builder: (_) {
+                  return MultiBlocProvider(
+                    providers: [
+                      BlocProvider(create: (_) => sl<LoginCubit>()),
+                    ],
+                    child: const LoginPage(),
+                  );
+                },
+              ));
+              // Get.offNamed(AppRoutes.signIn);
             } else {
               Get.offAllNamed(AppRoutes.mainHome);
             }

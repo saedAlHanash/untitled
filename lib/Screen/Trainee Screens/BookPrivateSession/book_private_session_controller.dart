@@ -344,7 +344,6 @@ class BookPrivateSessionController extends GetxController {
     } else {
       final s = result[currentDay];
 
-      loggerObject.wtf(s);
       for (var element in s) {
         if (element['start_time'] != null) {
           //fix time zone

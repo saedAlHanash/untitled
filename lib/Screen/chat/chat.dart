@@ -18,6 +18,7 @@ import 'package:mime/mime.dart';
 import 'package:open_filex/open_filex.dart';
 import 'package:path_provider/path_provider.dart';
 
+import '../../core/api_manager/api_service.dart';
 import '../../main.dart';
 import 'get_chats_rooms_bloc/get_rooms_cubit.dart';
 import 'my_room_object.dart';

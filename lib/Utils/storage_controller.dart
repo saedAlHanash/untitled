@@ -25,6 +25,7 @@ class StorageController {
   final _methodTakeAuthentication =
       ReadWriteValue(Constants.methodTakeAuthentication, '');
 
+  //TODO saeeeeeeeeeeeeeeeeed
   String get token => _token.val;
 
   String get loginOrSignUpWithAnyMethod => _methodTakeAuthentication.val;

@@ -1,3 +1,4 @@
+import 'package:fitness_storm/core/util/shared_preferences.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class CacheHelper {
@@ -5,6 +6,7 @@ class CacheHelper {
 
   static init() async {
     _pref = await SharedPreferences.getInstance();
+    AppSharedPreference.init(_pref!);
   }
 
   static Future<void> clearData() async => await _pref?.clear();

@@ -69,7 +69,7 @@ class _VimeoPlayerState extends State<VimeoPlayer> {
               }
             },
             videoThumbnail: const DecorationImage(
-              image: AssetImage(Assets.imagesLogo2),
+              image: AssetImage(Assets.imagesLogo),
             ),
           ),
           Positioned(

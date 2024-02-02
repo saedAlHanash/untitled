@@ -30,10 +30,9 @@ import 'app_controller.dart';
 
 class DependencyInjection {
   static Future<void> init() async {
-    // WidgetsFlutterBinding.ensureInitialized();
-    // await initFirebaseMessaging();
 
     await Hive.initFlutter();
+
     initialHive();
 
     await Note.initialize();
@@ -43,6 +42,7 @@ class DependencyInjection {
     await initDio();
 
     Get.put(AppController(), permanent: true);
+
     initRepositories();
 
     await initGetStorage();

@@ -66,7 +66,7 @@ class _CouponWidgetState extends State<CouponWidget> {
                             DrawableText(
                               text: 'voucher'.tr,
                               matchParent: true,
-                              fontFamily: FontManager.cairoBold,
+                              fontFamily: FontManager.cairoBold.name,
                               drawableAlin: DrawableAlin.between,
                               padding: const EdgeInsets.symmetric(horizontal: 10.0),
                               drawableEnd: DrawableText(
@@ -76,7 +76,7 @@ class _CouponWidgetState extends State<CouponWidget> {
                           DrawableText(
                             text: 'sup_total'.tr,
                             matchParent: true,
-                            fontFamily: FontManager.cairoBold,
+                            fontFamily: FontManager.cairoBold.name,
                             drawableAlin: DrawableAlin.between,
                             padding: const EdgeInsets.symmetric(horizontal: 10.0),
                             drawableEnd: DrawableText(
@@ -88,12 +88,12 @@ class _CouponWidgetState extends State<CouponWidget> {
                             DrawableText(
                               text: 'net_total'.tr,
                               matchParent: true,
-                              fontFamily: FontManager.cairoBold,
+                              fontFamily: FontManager.cairoBold.name,
                               drawableAlin: DrawableAlin.between,
                               color: Get.theme.primaryColor,
                               padding: const EdgeInsets.symmetric(horizontal: 15.0),
                               drawableEnd: DrawableText(
-                                fontFamily: FontManager.cairoBold,
+                                fontFamily: FontManager.cairoBold.name,
                                 text: ((num.tryParse(widget.total) ?? 0) -
                                         (((num.tryParse(widget.total) ?? 0) *
                                                 state.result.percentage) /

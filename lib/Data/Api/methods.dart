@@ -9,21 +9,6 @@ import '../../helper/loging_service.dart';
 import 'api_result.dart';
 import 'handling_errors.dart';
 
-var loggerObject = Logger(
-  printer: PrettyPrinter(
-    methodCount: 0,
-    // number of method calls to be displayed
-    errorMethodCount: 0,
-    // number of method calls if stacktrace is provided
-    lineLength: 300,
-    // width of the output
-    colors: true,
-    // Colorful log messages
-    printEmojis: false,
-    // Print an emoji for each log message
-    printTime: false,
-  ),
-);
 
 abstract class Methods {
   static final _dio = Get.find<Dio>();

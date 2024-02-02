@@ -1,25 +1,24 @@
 import 'dart:io';
 
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:fitness_storm/Utils/themes.dart';
 import 'package:fitness_storm/helper/lang_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_bloc/flutter_bloc.dart' as bloc;
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:saed_http/api_manager/api_service.dart';
 
-import './../core/translations.dart';
 import 'Data/Api/methods.dart';
 import 'Data/Api/urls.dart';
-import 'Screen/Splash/splash_binding.dart';
 import 'Screen/Trainee Screens/HomeScreen/refresh_home_plan_cubit/refresh_home_plan_cubit.dart';
 import 'Screen/chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
-import 'Utils/Routes/app_pages.dart';
 import 'Utils/dependency_injection.dart';
 import 'Utils/storage_controller.dart';
 import 'Utils/utils.dart';
+import 'core/api_manager/api_service.dart';
+import 'core/app/app_widget.dart';
+import 'core/injection/injection_container.dart' as di;
+import 'core/injection/injection_container.dart';
 
 late Box<String> roomsBox;
 late Box usersBox;
@@ -50,31 +49,23 @@ void main() async {
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
+
   HttpOverrides.global = MyHttpOverrides();
 
   // ///send FCM to server
   saveFCM();
 
-  APIService().initBaseUrl(baseUrl: 'api.fitnessstorm.org');
   setLastSeen();
+
+  await di.init();
+
   runApp(
-    bloc.MultiBlocProvider(
+    MultiBlocProvider(
       providers: [
-        bloc.BlocProvider(create: (_) => RefreshHomePlanCubit()),
-        bloc.BlocProvider(create: (_) => GetRoomsCubit()),
+        BlocProvider(create: (_) => RefreshHomePlanCubit()),
+        BlocProvider(create: (_) => GetRoomsCubit()),
       ],
-      child: GetMaterialApp(
-        color: Colors.white,
-        title: "Fitness Storm",
-        initialBinding: SplashBinding(),
-        initialRoute: AppRoutes.splash,
-        debugShowCheckedModeBanner: false,
-        defaultTransition: Transition.fade,
-        getPages: AppPages().getPages(),
-        theme: lightTheme,
-        translations: LocaleString(),
-        locale: Locale(Get.find<LanguagesController>().selectedLanguage),
-      ),
+      child: const MyApp(),
     ),
   );
 }
@@ -82,11 +73,6 @@ void main() async {
 void setLastSeen() {
   if (StorageController().token.isEmpty) return;
 
-  APIService().initHeader(
-    header: {
-      'authorization': 'Bearer ${StorageController().token}',
-    },
-  );
   APIService().patchApi(
     url: 'mobile/user/profile/last-seen',
     body: {},
@@ -110,3 +96,4 @@ Future<void> saveFCM() async {
   Map<String, String> map = {'device_token': token};
   await Methods.post(url: TRAINEEURLS.saveFcm, options: option, data: map);
 }
+

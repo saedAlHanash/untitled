@@ -9,10 +9,12 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:package_info_plus/package_info_plus.dart';
-import 'package:saed_http/api_manager/api_service.dart';
-import 'package:saed_http/pair_class.dart';
+ 
+
 
 import '../Screen/Trainee Screens/coupon/ui/coupon_widget.dart';
+import '../core/api_manager/api_service.dart';
+import '../core/util/pair_class.dart';
 
 class Utils {
   static final categoryItemWidth = Get.width * 0.44;
@@ -312,15 +314,6 @@ Future<bool> checkForceUpdate() async {
 }
 
 Future<Pair<SettingResult?, String?>> _apiSettings() async {
-  APIService()
-    ..baseUrl = 'api.fitnessstorm.org'
-    ..innerHeader.addAll(
-      {
-        'authorization': 'Bearer ${StorageController().token}',
-        'timeZone': DateTime.now().timeZoneName,
-        'lang': Get.locale?.languageCode ?? 'en',
-      },
-    );
 
   final response = await APIService().getApi(
     url: 'api/terms',

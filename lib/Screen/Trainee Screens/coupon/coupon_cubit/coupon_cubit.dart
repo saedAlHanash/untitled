@@ -3,10 +3,12 @@ import 'dart:convert';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:saed_http/api_manager/api_service.dart';
-import 'package:saed_http/pair_class.dart';
+ 
+
 
 import '../../../../Utils/storage_controller.dart';
+import '../../../../core/api_manager/api_service.dart';
+import '../../../../core/util/pair_class.dart';
 import '../data/response/coupon_response.dart';
 
 part 'coupon_state.dart';
@@ -44,13 +46,6 @@ class CouponCubit extends Cubit<CouponInitial> {
     required String couponCode,
     required String subscriptionId,
   }) async {
-    APIService()
-      ..baseUrl = 'api.fitnessstorm.org'
-      ..innerHeader.addAll(
-        {
-          'authorization': 'Bearer ${StorageController().token}',
-        },
-      );
 
     final response = await APIService().postApi(
       url: 'mobile/user/coupons/checkCoupon',

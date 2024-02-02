@@ -5,7 +5,6 @@ import 'package:fitness_storm/Data/Repositories/Trainer%20Repository/trainer_aut
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:saed_http/api_manager/api_service.dart';
 
 import '../../../../Data/Api/api_result.dart';
 import '../../../../Data/Repositories/auth_repository.dart';
@@ -14,12 +13,13 @@ import '../../../../Utils/storage_controller.dart';
 import '../../../../Utils/utils.dart';
 import '../../../Data/Api/error_response.dart';
 import '../../../Utils/dependency_injection.dart';
+import '../../../core/api_manager/api_service.dart';
 
 class SigninController extends GetxController {
   final RxBool isScure = true.obs;
   final RxString message = ''.obs;
 
-final   bool isPhone = false;
+  final bool isPhone = false;
   String phone = '';
   final AuthRepository _authRepository = AuthRepository();
   final Rx<TextEditingController> _emailController = TextEditingController().obs;
@@ -61,10 +61,12 @@ final   bool isPhone = false;
       Utils.openSnackBar(title: 'invalid Email', textColor: Colors.white);
       return;
     }
+
     if (!emailController.text.trim().isPhoneNumber && isPhone) {
       Utils.openSnackBar(title: 'invalid_phone'.tr, textColor: Colors.white);
       return;
     }
+
     if (passwordController.text.isEmpty) {
       Utils.openSnackBar(title: 'password_is_required'.tr, textColor: Colors.white);
       return;
@@ -125,7 +127,6 @@ final   bool isPhone = false;
       _storageController.id = res.data['id'];
       _storageController.userType = isTrainer ? 'trainer' : 'trainee';
       _storageController.methodTakeAuthentication = '';
-
 
       //Todo should un comment this
       final token = await getToken();

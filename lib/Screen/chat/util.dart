@@ -8,10 +8,11 @@ import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 import 'package:flutter_firebase_chat_core/flutter_firebase_chat_core.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:saed_http/api_manager/api_service.dart';
+ 
 
 import '../../Model/trainer.dart';
 import '../../Utils/dependency_injection.dart';
+import '../../core/api_manager/api_service.dart';
 import '../../main.dart';
 import 'get_chats_rooms_bloc/get_rooms_cubit.dart';
 
@@ -149,7 +150,7 @@ Future<bool> sendNotificationMessage(
   if (message.body.length > 100) {
     message.body = message.body.substring(0, 99);
   }
-  APIService().initBaseUrl(baseUrl: 'api.fitnessstorm.org');
+
   final result = await APIService().postApi(
     url: 'api/send-notification',
     body: {"token": myRoomObject.fcmToken, "message": message.body},

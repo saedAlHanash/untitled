@@ -8,11 +8,12 @@ import 'package:fitness_storm/Utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:saed_http/api_manager/api_service.dart';
+
 
 import '../../../../Data/Repositories/auth_repository.dart';
 import '../../../../Utils/storage_controller.dart';
 import '../../../Data/Api/error_response.dart';
+import '../../../core/api_manager/api_service.dart';
 import '../Signin/signin_controller.dart';
 
 class SignupController extends GetxController {

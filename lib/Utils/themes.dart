@@ -35,6 +35,9 @@ ThemeData lightTheme = ThemeData(
     primaryColor: primarySwatch,
     scaffoldBackgroundColor: Colors.white,
     cardColor: primarySwatch,
+    checkboxTheme: CheckboxThemeData(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(3)),
+    ),
     shadowColor: Colors.grey.withOpacity(0.3),
     useMaterial3: true,
     appBarTheme: AppBarTheme(
@@ -61,8 +64,7 @@ ThemeData darkTheme = ThemeData(
     appBarTheme: const AppBarTheme(
       elevation: 0.0,
       foregroundColor: Colors.white,
-      backgroundColor:
-          Color(0xFF2B2B2B), //lightBackgroundColor.withOpacity(0.75),
+      backgroundColor: Color(0xFF2B2B2B), //lightBackgroundColor.withOpacity(0.75),
     ),
     colorScheme: ColorScheme.fromSwatch(primarySwatch: primarySwatch)
         .copyWith(

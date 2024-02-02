@@ -1,6 +1,8 @@
 import 'package:fitness_storm/Data/Api/methods.dart';
 import 'package:logger/logger.dart';
 
+import '../core/api_manager/api_service.dart';
+
 class LogService {
 
   static const _debug = true;
