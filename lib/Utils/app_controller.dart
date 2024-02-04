@@ -2,6 +2,7 @@ import 'package:fitness_storm/Data/Repositories/plan_repository.dart';
 import 'package:fitness_storm/Model/training_type.dart';
 import 'package:get/get.dart';
 
+import '../core/models/plan_model.dart';
 import 'Constants/enums.dart';
 
 class AppController extends GetxController {

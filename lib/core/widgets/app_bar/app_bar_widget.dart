@@ -8,14 +8,14 @@ import '../../strings/app_color_manager.dart';
 
 class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   const AppBarWidget({
-    Key? key,
+    super.key,
     this.titleText,
     this.elevation,
     this.zeroHeight,
     this.actions,
     this.title,
     this.color,
-  }) : super(key: key);
+  });
 
   final String? titleText;
   final Widget? title;
@@ -27,8 +27,8 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: color ?? AppColorManager.whit,
-      surfaceTintColor: color ?? AppColorManager.whit,
+      backgroundColor: color ?? AppColorManager.mainColor,
+      surfaceTintColor: color ?? AppColorManager.mainColor,
       toolbarHeight: (zeroHeight ?? false) ? 0 : 80.0.h,
       // scrolledUnderElevation: 0,
       title: title ??
@@ -39,7 +39,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
           ),
       leading: Navigator.canPop(context)
           ? BackBtnWidget(
-              appBarColor: color ?? AppColorManager.whit,
+              appBarColor: color ?? AppColorManager.mainColor,
             )
           : null,
       actions: actions,

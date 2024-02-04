@@ -52,12 +52,13 @@ void main() async {
 
   HttpOverrides.global = MyHttpOverrides();
 
+  await di.init();
+
   // ///send FCM to server
   saveFCM();
 
   setLastSeen();
 
-  await di.init();
 
   runApp(
     MultiBlocProvider(
@@ -74,7 +75,7 @@ void setLastSeen() {
   if (StorageController().token.isEmpty) return;
 
   APIService().patchApi(
-    url: 'mobile/user/profile/last-seen',
+    url: 'profile/last-seen',
     body: {},
   );
 }

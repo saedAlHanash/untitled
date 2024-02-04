@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
 import '../../Utils/dependency_injection.dart';
+import '../../core/strings/enum_manager.dart';
 import '../Trainee Screens/Chat/Widget/customer_service_card_widget.dart';
 import 'get_chats_rooms_bloc/get_rooms_cubit.dart';
 

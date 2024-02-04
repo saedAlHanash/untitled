@@ -41,8 +41,8 @@ class TrainerBioWidget extends GetWidget<TrainerTrainerOverviewController> {
                 onTap: () => Get.toNamed(AppRoutes.bookPrivateSession,
                     arguments: [
                       controller.trainer.name,
-                      controller.trainer.profilePic,
-                      controller.trainer.id
+                      controller.trainer.image,
+                      controller.trainer.id.toString()
                     ]),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -56,8 +56,8 @@ class TrainerBioWidget extends GetWidget<TrainerTrainerOverviewController> {
                       onPressed: () => Get.toNamed(AppRoutes.bookPrivateSession,
                           arguments: [
                             controller.trainer.name,
-                            controller.trainer.profilePic,
-                            controller.trainer.id
+                            controller.trainer.image,
+                            controller.trainer.id.toString()
                           ]),
                       icon: const Icon(
                         Icons.arrow_forward_ios,

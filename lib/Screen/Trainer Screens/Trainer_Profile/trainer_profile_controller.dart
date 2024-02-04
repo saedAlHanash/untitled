@@ -17,7 +17,7 @@ class TrainerProfileController extends GetxController {
 
   set isLoading(value) => _isLoading.value = value;
 
-  late final Trainer trainerProfile;
+  late final TrainerModel trainerProfile;
 
   final TrainerAuthRepository _trainerAuthRepository = TrainerAuthRepository();
 
@@ -58,7 +58,7 @@ class TrainerProfileController extends GetxController {
     isLoading = true;
     final result = await _trainerAuthRepository.getTrainerProfile();
     if (result.type == ApiResultType.success) {
-      trainerProfile = Trainer.fromJson(result.data);
+      trainerProfile = TrainerModel.fromJson(result.data);
     } else {
       Utils.openSnackBar(title: 'Something_Went_Wrong'.tr);
     }

@@ -12,6 +12,7 @@ import '../../../../Widgets/custom_text_field.dart';
 import '../../../Widgets/language_board_widget.dart';
 import '../../../common/assets.gen.dart';
 import '../../../common/bottom_sheets.dart';
+import '../../../generated/assets.dart';
 import '../login_phone/ui/pages/login_phone_page.dart';
 
 class SigninScreen extends GetView<SigninController> {
@@ -54,7 +55,7 @@ class SigninScreen extends GetView<SigninController> {
                             );
                           },
                           child: ImageMultiType(
-                            url: Assets.images.language,
+                            url: Assets.imagesLanguage,
                             width: Get.width / 15,
                           ),
                         ),

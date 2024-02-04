@@ -5,7 +5,7 @@ import '../../../../../Model/trainer.dart';
 import 'chat_and_video_button_widget.dart';
 
 class TrainerProfileInfowidget extends StatelessWidget {
-  final Trainer trainer;
+  final TrainerModel trainer;
 
   const TrainerProfileInfowidget({
     super.key,
@@ -29,9 +29,6 @@ class TrainerProfileInfowidget extends StatelessWidget {
               fontSize: 22,
             ),
           ),
-          ChatAndVideoButtonWidget(
-            trainer: trainer,
-          )
         ],
       ),
     );

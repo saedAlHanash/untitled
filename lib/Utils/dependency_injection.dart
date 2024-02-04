@@ -206,11 +206,11 @@ Future<void> getProfileForLoginChat() async {
   loading = false;
 
   if (result.type == ApiResultType.success) {
-    final profile = Trainer.fromJson(result.data);
+    final profile = TrainerModel.fromJson(result.data);
 
     try {
-      if (await isChatUserFound(profile.id ?? '')) {
-      await  loginChatUser(profile.id!, profile.name!);
+      if (await isChatUserFound(profile.id.toString() ?? '')) {
+      await  loginChatUser(profile.id.toString(), profile.name);
         return;
       } else {
         await createChatUser(profile);

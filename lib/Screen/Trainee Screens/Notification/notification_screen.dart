@@ -12,7 +12,6 @@ class NotificationScreen extends GetView<NotificationController> {
   Widget build(BuildContext context) {
     return Obx(
       () => Scaffold(
-        backgroundColor: const Color(0xFFF5F5F5),
         appBar: AppBar(
           elevation: 0,
           leading: IconButton(
@@ -28,20 +27,17 @@ class NotificationScreen extends GetView<NotificationController> {
                 onRefresh: () async {
                   controller.getAllNotification1();
                 },
-                child: controller.notifications.data!.isEmpty
+                child: controller.notifications.data.isEmpty
                     ? const EmptyScreen()
                     : SizedBox(
                         height: Get.height + 30,
                         child: ListView.builder(
                           shrinkWrap: true,
                           padding: const EdgeInsets.only(bottom: 200.0),
-                          itemCount: controller.notifications.data!.length,
+                          itemCount: controller.notifications.data.length,
                           itemBuilder: (context, index) {
-                            List data = controller.notifications.data!.toList();
-                            return NotificationWidget(
-                              title: data[index].body!,
-                              date: data[index].createdAt!,
-                            );
+                            List data = controller.notifications.data.toList();
+                            return NotificationWidget(item: data[index]);
                           },
                         ),
                       ),

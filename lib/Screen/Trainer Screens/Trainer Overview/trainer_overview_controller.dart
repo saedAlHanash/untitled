@@ -7,16 +7,17 @@ import 'package:get/get.dart';
 
 import '../../../Model/plan.dart';
 import '../../../Model/trainer.dart';
+import '../../../core/models/plan_model.dart';
 
 class TrainerTrainerOverviewController extends GetxController {
-  final Rx<Trainer> _trainer = Trainer.empty().obs;
-  final RxList<Plan> _trainerPlans = <Plan>[].obs;
+  final Rx<TrainerModel> _trainer = TrainerModel.fromJson({}).obs;
+  final RxList<PlanModel> _trainerPlans = <PlanModel>[].obs;
   final RxBool _isLoading = false.obs;
   final RxBool _isvisible = true.obs;
 
-  Trainer get trainer => _trainer.value;
+  TrainerModel get trainer => _trainer.value;
 
-  List<Plan> get trainerPlans => _trainerPlans;
+  List<PlanModel> get trainerPlans => _trainerPlans;
 
   bool get isLoading => _isLoading.value;
 
@@ -43,20 +44,20 @@ class TrainerTrainerOverviewController extends GetxController {
   }
 
   addPlanToFavorite(int index) async {
-   //log(index.toString());
-    final temp = _trainerPlans[index];
-    temp.isBookMarked = !temp.isBookMarked!;
-    _trainerPlans.removeAt(index);
-    _trainerPlans.refresh();
-    _trainerPlans.insert(index, temp);
-    _trainerPlans.refresh();
-    await addToBookmark(temp.id!, !temp.isBookMarked!);
+   // //log(index.toString());
+   //  final temp = _trainerPlans[index];
+   //  temp.isBookMark = !temp.isBookMark!;
+   //  _trainerPlans.removeAt(index);
+   //  _trainerPlans.refresh();
+   //  _trainerPlans.insert(index, temp);
+   //  _trainerPlans.refresh();
+   //  await addToBookmark(temp.id!, !temp.isBookMark!);
   }
 
-  addToBookmark(String id, bool isBookMarked) async {
+  addToBookmark(String id, bool isBookMark) async {
     PlanRepository planRepository = PlanRepository();
-    isBookMarked = !isBookMarked;
-    if (!isBookMarked) {
+    isBookMark = !isBookMark;
+    if (!isBookMark) {
       ApiResult apiResult = await planRepository.removeFromBookmark(id);
       if (apiResult.type == ApiResultType.success) {
         // Utils.openSnackBar(message: 'Success');

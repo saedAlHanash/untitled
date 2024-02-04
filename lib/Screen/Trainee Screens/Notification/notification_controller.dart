@@ -1,11 +1,13 @@
 import 'package:fitness_storm/Data/Repositories/notification_repository.dart';
-import 'package:fitness_storm/Model/notification_model.dart';
+
 import 'package:fitness_storm/helperClass.dart';
 import 'package:get/get.dart';
 
+import '../../../Model/notification_model.dart';
+
 class NotificationController extends GetxController {
   final RxBool _isLoading = false.obs;
-  late NotificationModel notifications = NotificationModel();
+  late NotificationsResponse notifications = NotificationsResponse.fromJson({});
   final NotificationRepository _notificationRepository =
       NotificationRepository();
   late final bool isTrainer;

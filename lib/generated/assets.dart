@@ -4,14 +4,15 @@ class Assets {
 
   static const String assetImagesDrawer = 'asset/Images/drawer.svg';
   static const String assetImagesFilter = 'asset/Images/filter.svg';
+  static const String fontRobotoBold = 'asset/Font/Roboto-Bold.ttf';
   static const String fontRobotoCondensedBold = 'asset/Font/RobotoCondensed-Bold.ttf';
   static const String fontRobotoCondensedLight = 'asset/Font/RobotoCondensed-Light.ttf';
   static const String fontRobotoCondensedRegular = 'asset/Font/RobotoCondensed-Regular.ttf';
   static const String fontRobotoItalic = 'asset/Font/Roboto-Italic.ttf';
   static const String fontRobotoLight = 'asset/Font/Roboto-Light.ttf';
-  static const String fontRobotoRegular = 'asset/Font/Roboto-Regular.ttf';
   static const String fontRobotoMedium = 'asset/Font/Roboto-Medium.ttf';
-  static const String fontRobotoBold = 'asset/Font/Roboto-Bold.ttf';
+  static const String fontRobotoRegular = 'asset/Font/Roboto-Regular.ttf';
+  static const String imagesActiveFav = 'asset/Images/active_fav.svg';
   static const String imagesAuth1 = 'asset/Images/auth1.png';
   static const String imagesBookmark = 'asset/Images/bookmark.svg';
   static const String imagesBookmarkSVG = 'asset/Images/bookmarkSVG.svg';

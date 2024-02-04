@@ -1,5 +1,6 @@
 // ignore_for_file: non_constant_identifier_names
 
+import 'package:fitness_storm/core/util/shared_preferences.dart';
 import 'package:get_storage/get_storage.dart';
 
 import 'Constants/constants.dart';
@@ -60,7 +61,10 @@ class StorageController {
 
   set methodTakeAuthentication(String val) => _methodTakeAuthentication.val = val;
 
-  set token(String val) => _token.val = val;
+  set token(String val) {
+    AppSharedPreference.cashToken(val);
+    _token.val = val;
+  }
 
   set id(String id) => _id.val = id;
 

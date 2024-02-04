@@ -21,3 +21,5 @@ enum DeviceStatus { pending, accepted, reject, notFound }
 enum StartPage { login, home, otp }
 
 enum FontFamily { roboto, robotoSimBold, robotoBold }
+
+enum PrivetSessionState { noEver, active, waiting, needBooking }

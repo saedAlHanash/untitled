@@ -2,6 +2,7 @@ import 'package:fitness_storm/Model/training_level.dart';
 import 'package:fitness_storm/Model/training_location.dart';
 import 'package:fitness_storm/Model/training_type.dart';
 
+import '../core/models/plan_model.dart';
 import 'trainer.dart';
 
 class PlanOverview {
@@ -12,7 +13,7 @@ class PlanOverview {
   int? workoutFrequency;
   String? introductionVideo;
   String? description;
-  Trainer? trainer;
+  TrainerModel? trainer;
   List<TrainingType>? trainingType;
   List<TrainingLocation>? trainingLocation;
   List<TrainingLevel>? trainingLevel;
@@ -42,7 +43,7 @@ class PlanOverview {
     introductionVideo = json['introduction_video'];
     description = json['description'];
     trainer =
-        json['trainer'] != null ? Trainer.fromJson(json['trainer']) : null;
+        json['trainer'] != null ? TrainerModel.fromJson(json['trainer']) : null;
     isActivated = json['current_activated_plan'];
 
     if (json['training_type'] != null) {

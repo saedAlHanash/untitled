@@ -123,66 +123,6 @@ class TrainerCalenderController extends GetxController {
     currentMonthDays = daysInMonth(year, index - 1);
   }
 
-  Future<AppointmentModel?> traineeMakeVideoCall() async {
-    final trainerAppointmentsRepository = TrainerAppointmentsRepository();
-
-    var scheduledCallTimes = await trainerAppointmentsRepository.coachMakeVideoCall();
-
-    if (scheduledCallTimes.isEmpty) {
-      return null;
-    } else {
-      var list = <AppointmentModel>[];
-
-      //get my trainer session
-      for (var e in scheduledCallTimes) {
-        if (e.trainer.id.toString() == Get.find<TrainerOverviewController>().trainer.id) {
-          list.add(e);
-        }
-      }
-
-      if (list.isNotEmpty) {
-        await Get.context
-            ?.read<GetRoomsCubit>()
-            .getRoomByUser(list.first.trainer.id.toString());
-      }
-
-      list.sort((a, b) => a.startTime.compareTo(b.startTime));
-
-      final dateTimeNow = DateTime.now().subtract(DateTime.now().timeZoneOffset);
-
-      for (var e in list) {
-        final b = dateTimeNow.isAfter(e.startTime);
-        final a = dateTimeNow.isBefore(e.endTime);
-
-        if (b && a) {
-          return e;
-        } else {
-          continue;
-        }
-      }
-
-      return AppointmentModel.fromJson({});
-    }
-  }
-
-  // chatIsAvailable(String trainerName) async {
-  //   DateTime now = DateTime.now();
-  //   TrainerAppointmentsRepository trainerAppointmentsRepository =
-  //       TrainerAppointmentsRepository();
-  //   List scheduledCallTimes = await trainerAppointmentsRepository.coachMakeVideoCall();
-  //   if (scheduledCallTimes.isEmpty) return false;
-  //
-  //   String lastTime = (scheduledCallTimes.firstWhereOrNull((element) {
-  //         return element['trainer']['name'] == trainerName;
-  //       }) ??
-  //       {})['end_time'];
-  //
-  //   if (lastTime).day <= now.day &&
-  //       (lastTime).hour + 1) >= (now.hour)) {//     return true;//   } else {
-  //     return false;
-  //   }
-  // }
-
   getPreviousWeek() async {
     if (currentWeekStartDay == 1) {
       _getPreviousMonth();

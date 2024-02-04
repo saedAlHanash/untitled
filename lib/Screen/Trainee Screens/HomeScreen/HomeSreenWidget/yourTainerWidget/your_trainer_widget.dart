@@ -5,14 +5,19 @@ import 'package:fitness_storm/Screen/Trainee%20Screens/HomeScreen/HomeSreenWidge
 import 'package:fitness_storm/Screen/Trainee%20Screens/HomeScreen/home_screen_controller.dart';
 import 'package:fitness_storm/Utils/Routes/app_pages.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
+import '../../../../../core/injection/injection_container.dart';
+import '../../../../../features/plans/bloc/plans_cubit/plans_cubit.dart';
+import '../../../../../features/trainer/bloc/trainer_cubit/trainer_cubit.dart';
+import '../../../../../features/trainer/ui/pages/trainer_page.dart';
 import '../list_header.dart';
 
 class YourTrainersWidget extends GetWidget<HomeScreenController> {
   const YourTrainersWidget({Key? key}) : super(key: key);
 
-  Function pushYourTrainersScreen(List<Trainer> trainers) {
+  Function pushYourTrainersScreen(List<TrainerModel> trainers) {
     return () {
       // Navigator.push(
       //   context,
@@ -26,7 +31,7 @@ class YourTrainersWidget extends GetWidget<HomeScreenController> {
     };
   }
 
-  Widget _buildYourTrainersList({required List<Trainer> trainers}) {
+  Widget _buildYourTrainersList({required List<TrainerModel> trainers}) {
     return SizedBox(
       width: MediaQuery.of(Get.context!).size.width,
       height: MediaQuery.of(Get.context!).size.height / 3,
@@ -34,14 +39,13 @@ class YourTrainersWidget extends GetWidget<HomeScreenController> {
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
         itemCount: trainers.length,
-        itemBuilder: (context, index) {
+        itemBuilder: (context, i) {
           return GestureDetector(
-            onTap: () => Get.toNamed(AppRoutes.traienrOverview,
-                arguments: trainers[index].id),
+            onTap: () => startTrainerPage(context, trainers[i].id),
             child: YourTrainersItem(
-              trainerImageUrl: trainers[index].profilePic!,
-              trainerName: trainers[index].name!,
-              numberOfPlans: trainers[index].numberOfPlans!,
+              trainerImageUrl: trainers[i].image,
+              trainerName: trainers[i].name,
+              numberOfPlans: trainers[i].numberOfPlans.toString(),
             ),
           );
         },
@@ -59,14 +63,28 @@ class YourTrainersWidget extends GetWidget<HomeScreenController> {
                 arguments: controller.yourTrainer)),
         _buildYourTrainersList(
           trainers: controller.yourTrainer.value
-              .getRange(
-                  0,
-                  controller.yourTrainer.length > 3
-                      ? 3
-                      : controller.yourTrainer.length)
+              .getRange(0,
+                  controller.yourTrainer.length > 3 ? 3 : controller.yourTrainer.length)
               .toList(),
         )
       ],
     );
   }
+}
+
+void startTrainerPage(BuildContext context, int id) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (context) {
+        return MultiBlocProvider(
+          providers: [
+            BlocProvider(create: (_) => sl<TrainerCubit>()..getTrainer(id: id)),
+            BlocProvider(create: (_) => sl<PlansCubit>()..getPlans(id: id)),
+          ],
+          child: TrainerPage(),
+        );
+      },
+    ),
+  );
 }

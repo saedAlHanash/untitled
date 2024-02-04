@@ -6,16 +6,17 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../Model/plan.dart';
+import '../../../core/models/plan_model.dart';
 
 class TrainerHomeScreenController extends GetxController {
   final RxList<SubscribedPlan> continueTrainingPlans = <SubscribedPlan>[].obs;
-  final RxList<Plan> trendingPlans = <Plan>[].obs;
-  final RxList<Plan> featuredPlans = <Plan>[].obs;
-  final RxList<Trainer> yourTrainer = <Trainer>[].obs;
+  final RxList<PlanModel> trendingPlans = <PlanModel>[].obs;
+  final RxList<PlanModel> featuredPlans = <PlanModel>[].obs;
+  final RxList<TrainerModel> yourTrainer = <TrainerModel>[].obs;
 
-  List<Plan> get trainerPlans => _trainerPlans;
+  List<PlanModel> get trainerPlans => _trainerPlans;
 
-  RxList<Plan> _trainerPlans = <Plan>[].obs;
+  RxList<PlanModel> _trainerPlans = <PlanModel>[].obs;
 
   set trainerPlans(value) => _trainerPlans.value = value;
 

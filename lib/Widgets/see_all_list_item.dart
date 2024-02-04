@@ -1,19 +1,16 @@
-import 'package:fitness_storm/Model/training_level.dart';
-import 'package:fitness_storm/Model/training_location.dart';
-import 'package:fitness_storm/Model/training_type.dart';
 import 'package:fitness_storm/Utils/Constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 
-import '../Model/plan.dart';
 import '../Utils/Routes/app_pages.dart';
+import '../core/models/plan_model.dart';
 import 'custom_chip.dart';
 import 'trainer_profile_image.dart';
 
 class SeeAllListItem extends StatelessWidget {
-  final Plan plan;
+  final PlanModel plan;
   final Widget subTitle;
   final Function isPressed;
   final int index;
@@ -30,25 +27,26 @@ class SeeAllListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Get.toNamed(AppRoutes.planOverview, arguments: plan.id);
+        Get.toNamed(AppRoutes.planOverview, arguments: plan.id.toString());
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           buildItemImage(
-              imageUrl: plan.image!,
-              planId: plan.id!,
-              isBookmarked: plan.isBookMarked,
-              isPressed: isPressed,
-              index: index),
+            imageUrl: plan.image,
+            planId: plan.id,
+            isBookmarked: plan.isBookmark,
+            isPressed: isPressed,
+            index: index,
+          ),
           buildItemInformation(
-            planTitle: plan.name!,
+            planTitle: plan.name,
             subTitle: subTitle,
-            trainerImageUrl: plan.trainer!.profilePic!,
-            trainerName: plan.trainer!.name!,
-            trainingLevel: plan.trainingLevel!,
-            trainingLocation: plan.trainingLocation!,
-            trainingType: plan.trainingType!,
+            trainerImageUrl: plan.trainer!.image,
+            trainerName: plan.trainer!.name,
+            trainingLevel: plan.level,
+            trainingLocation: plan.trainingLocation,
+            trainingType: plan.trainingType,
           ),
         ],
       ),
@@ -57,8 +55,8 @@ class SeeAllListItem extends StatelessWidget {
 
   Widget buildItemImage(
       {required String imageUrl,
-      required String planId,
-      required bool? isBookmarked,
+      required int planId,
+      required bool isBookmarked,
       required Function isPressed,
       required int index}) {
     return Stack(
@@ -68,8 +66,7 @@ class SeeAllListItem extends StatelessWidget {
           padding: EdgeInsets.only(top: 3),
           // height: MediaQuery.of(Get.context!).size.height / 3,
           width: MediaQuery.of(Get.context!).size.width,
-          child: ImageMultiType(url:Constants.imageUrl + imageUrl,
-              fit: BoxFit.fitWidth),
+          child: ImageMultiType(url: Constants.imageUrl + imageUrl, fit: BoxFit.fitWidth),
         ),
         isBookmarked == null
             ? SizedBox.shrink()
@@ -144,7 +141,7 @@ class SeeAllListItem extends StatelessWidget {
                       children: [
                         Row(
                             children: trainingLocation
-                                .map((e) => CustomChip(text: e.type!))
+                                .map((e) => CustomChip(text: e.type))
                                 .toList()),
                         Row(
                             children: trainingLevel
@@ -152,7 +149,7 @@ class SeeAllListItem extends StatelessWidget {
                                 .toList()),
                         Row(
                             children: trainingType
-                                .map((e) => CustomChip(text: e.type!))
+                                .map((e) => CustomChip(text: e.type))
                                 .toList()),
 
                         // CustomChip(text: trainingLocation),

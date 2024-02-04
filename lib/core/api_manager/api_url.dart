@@ -76,6 +76,14 @@ class GetUrl {
   static const faq = 'questions';
 
   static var termsAndConditions = 'pages';
+
+  static var bookedAppointments = 'bookedAppointments';
+
+  static var getTrainer = 'trainers';
+
+  static var temp = '';
+
+  static String plans(int id) => 'trainers/$id/plans';
 }
 
 class PostUrl {
@@ -97,7 +105,7 @@ class PostUrl {
   static const confirmCode = 'opt-check';
   static const otpPassword = 'password/check';
 
-  static const addFavorite = 'favorites';
+  static String addFavorite(int id) => 'plans/$id/addToBookmarkedPlans';
 
   static const restPass = 'reset-password';
 
@@ -132,7 +140,7 @@ class PutUrl {
 }
 
 class DeleteUrl {
-  static const removeFavorite = 'favorites';
+  static String removeFavorite(int id) => 'plans/$id/deleteFromBookmarkedPlans';
 
   static const removeFromCart = 'carts/products';
 

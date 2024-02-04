@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 
 import '../../../../Widgets/custom_button.dart';
+import '../../../../core/strings/enum_manager.dart';
 import '../coupon_cubit/coupon_cubit.dart';
 import '../data/request/pay_request.dart';
 

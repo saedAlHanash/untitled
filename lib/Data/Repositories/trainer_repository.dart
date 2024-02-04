@@ -6,20 +6,21 @@ import '../../Model/plan.dart';
 import '../../Model/trainer.dart';
 import '../../Utils/Constants/constants.dart';
 import '../../Utils/utils.dart';
+import '../../core/models/plan_model.dart';
 import '../Api/api_result.dart';
 import '../Api/methods.dart';
 import '../Api/urls.dart';
 
 class TrainerRepository {
-  Future<List<Trainer>> getYourTrainer(int pageNumber) async {
+  Future<List<TrainerModel>> getYourTrainer(int pageNumber) async {
     Options option = Utils.getOptions(withToken: true, all: true);
     ApiResult result = await Methods.get(
         url: '${TRAINEEURLS.getYourTrainer}$pageNumber', options: option);
     if (result.type == ApiResultType.success) {
-      List<Trainer> trainers = [];
+      List<TrainerModel> trainers = [];
       for (var element in result.data) {
-        Trainer trainer = Trainer.fromJson(element);
-        if (int.parse(trainer.numberOfPrivateHours!) > 0) {
+        TrainerModel trainer = TrainerModel.fromJson(element);
+        if (trainer.numberOfPrivateHours > 0) {
           trainers.add(trainer);
         }
       }
@@ -41,7 +42,7 @@ class TrainerRepository {
     return j;
   }
 
-  Future<Trainer> getTrainerById(String id) async {
+  Future<TrainerModel> getTrainerById(String id) async {
     Options option = Utils.getOptions(
       withToken: true,
       all: true,
@@ -50,21 +51,21 @@ class TrainerRepository {
         await Methods.get(url: '${TRAINEEURLS.getTrainerById}$id', options: option);
     if (result.type == ApiResultType.success) {
       //log(result.data.toString());
-      return Trainer.fromJson(result.data);
+      return TrainerModel.fromJson(result.data);
     } else {
       Utils.openSnackBar(message: "Work on authentication problem");
-      return Trainer();
+      return TrainerModel.fromJson({});
     }
   }
 
-  Future<List<Plan>> getTrainerPlans(String id) async {
+  Future<List<PlanModel>> getTrainerPlans(String id) async {
     Options options = Utils.getOptions(withToken: true, all: true);
     ApiResult result =
         await Methods.get(url: TRAINEEURLS.getTrainerPlans(id), options: options);
     if (result.type == ApiResultType.success) {
-      List<Plan> plans = [];
+      List<PlanModel> plans = [];
       for (var element in result.data) {
-        plans.add(Plan.fromJson(element));
+        plans.add(PlanModel.fromJson(element));
       }
       return plans;
     } else {

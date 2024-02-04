@@ -5,18 +5,6 @@ import 'package:fitness_storm/Data/Api/urls.dart';
 import 'package:fitness_storm/Utils/utils.dart';
 
 class TrainerAppointmentsRepository {
-  Future<ApiResult> trainerSignup(
-      String email, String password, String name, String gender) async {
-    Options option = Utils.getOptions(accept: true);
-    Map<String, String> data = {
-      "email": email,
-      "password": password,
-      "name": name,
-      "gender": gender
-    };
-    return await Methods.post(
-        url: TRAINERURLS.trainerSignup, options: option, data: data);
-  }
 
   Future<dynamic> getTrainerAvailableTimes() async {
     Options options = Utils.getOptions(withToken: true, all: true);
@@ -136,6 +124,7 @@ class AppointmentModel {
         "trainer": trainer.toJson(),
       };
 }
+
 class TrainerAppointments {
   TrainerAppointments({
     required this.id,
@@ -153,8 +142,7 @@ class TrainerAppointments {
   }
 
   Map<String, dynamic> toJson() => {
-    "id": id,
-    "name": name,
-  };
+        "id": id,
+        "name": name,
+      };
 }
-

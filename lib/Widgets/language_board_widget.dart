@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
+import '../generated/assets.dart';
+
 class LanguageBoardWidget extends StatefulWidget {
   const LanguageBoardWidget({super.key, this.fromAuthPage = false});
 
@@ -66,7 +68,7 @@ class LangWidget extends StatelessWidget {
           Expanded(
             flex: 1,
             child: SvgPicture.asset(
-              Assets.images.language,
+              Assets.imagesLanguage,
               color: Color(0xFF565C63),
               height: 30,
             ),

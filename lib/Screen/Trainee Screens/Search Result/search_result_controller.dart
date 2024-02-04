@@ -13,6 +13,7 @@ import '../../../Model/plan.dart';
 import '../../../Model/specialties_model.dart';
 import '../../../Model/trainer.dart';
 import '../../../Utils/utils.dart';
+import '../../../core/models/plan_model.dart';
 
 class SearchResultController extends GetxController {
   final TrainerRepository _trainerRepository = TrainerRepository();
@@ -20,8 +21,8 @@ class SearchResultController extends GetxController {
   late final String searchTerm;
 
   final RxInt _selectedIndex = 0.obs;
-  final RxList<Trainer> _trainers = <Trainer>[].obs;
-  final RxList<Plan> _plans = <Plan>[].obs;
+  final RxList<TrainerModel> _trainers = <TrainerModel>[].obs;
+  final RxList<PlanModel> _plans = <PlanModel>[].obs;
   final RxInt _trainersPageNumber = 1.obs;
   final RxInt _trainersNumberOfResults = 0.obs;
   final RxInt _plansPageNumber = 1.obs;
@@ -36,9 +37,9 @@ class SearchResultController extends GetxController {
 
   int get selectedIndex => _selectedIndex.value;
 
-  List<Trainer> get trainers => _trainers;
+  List<TrainerModel> get trainers => _trainers;
 
-  List<Plan> get plans => _plans;
+  List<PlanModel> get plans => _plans;
 
   int get trainersPageNumber => _trainersPageNumber.value;
 
@@ -119,9 +120,9 @@ class SearchResultController extends GetxController {
     ApiResult apiResult = await _trainerRepository.getSearchTrainer(
         trainersPageNumber, queryParameters);
     if (apiResult.type == ApiResultType.success) {
-      trainers = <Trainer>[];
+      trainers = <TrainerModel>[];
       apiResult.data.forEach((element) {
-        trainers.add(Trainer.fromJson(element));
+        trainers.add(TrainerModel.fromJson(element));
       });
     }
     isLoadingTrainer = false;
@@ -141,9 +142,9 @@ class SearchResultController extends GetxController {
     ApiResult apiResult =
         await _planRepository.getSearchPlans(plansPageNumber, queryParameters);
     if (apiResult.type == ApiResultType.success) {
-      plans = <Plan>[];
+      plans = <PlanModel>[];
       apiResult.data.forEach((element) {
-        plans.add(Plan.fromJson(element));
+        plans.add(PlanModel.fromJson(element));
       });
     }
     isLoadingPlans = false;
@@ -171,13 +172,13 @@ class SearchResultController extends GetxController {
     }
   }
 
-  Future<List<Trainer>> getPagenationTrainer() async {
+  Future<List<TrainerModel>> getPagenationTrainer() async {
     ApiResult result = await _trainerRepository
         .getSearchTrainer(trainersPageNumber, {'name': searchTerm});
     if (result.type == ApiResultType.success) {
-      List<Trainer> tempTrainers = [];
+      List<TrainerModel> tempTrainers = [];
       result.data.forEach((element) {
-        tempTrainers.add(Trainer.fromJson(element));
+        tempTrainers.add(TrainerModel.fromJson(element));
       });
       return tempTrainers;
     }
@@ -186,13 +187,13 @@ class SearchResultController extends GetxController {
     };
   }
 
-  Future<List<Plan>> getPagenationPlans() async {
+  Future<List<PlanModel>> getPagenationPlans() async {
     ApiResult result = await _planRepository
         .getSearchPlans(plansPageNumber, {'name': searchTerm});
     if (result.type == ApiResultType.success) {
-      List<Plan> tempPlans = [];
+      List<PlanModel> tempPlans = [];
       result.data.forEach((element) {
-        tempPlans.add(Plan.fromJson(element));
+        tempPlans.add(PlanModel.fromJson(element));
       });
       return tempPlans;
     }
@@ -208,10 +209,10 @@ class SearchResultController extends GetxController {
     if (result.type == ApiResultType.success) {
       // List<Trainer> trainers = [];
       for (var element in result.data) {
-        Trainer trainer = Trainer.fromJson(element);
+        TrainerModel trainer = TrainerModel.fromJson(element);
         bool checkIfCorrect = false;
-        for (Specialties ele in trainer.specialties!) {
-          if (ele.type!.toLowerCase() == searchTerm.toLowerCase()) {
+        for (Specialty ele in trainer.specialties) {
+          if (ele.type.toLowerCase() == searchTerm.toLowerCase()) {
             checkIfCorrect = true;
             break;
           }
@@ -231,7 +232,7 @@ class SearchResultController extends GetxController {
         .getSearchPlans(plansPageNumber, {'name': searchTerm});
     if (result.type == ApiResultType.success) {
       result.data.forEach((element) {
-        plans.add(Plan.fromJson(element));
+        plans.add(PlanModel.fromJson(element));
       });
       plansNumberOfResults = result.numberOfResults;
       plansPageNumber++;
@@ -247,20 +248,20 @@ class SearchResultController extends GetxController {
   }
 
   addPlanToFavorite(int index) async {
-   //log(index.toString());
-    final temp = plans[index];
-    temp.isBookMarked = !temp.isBookMarked!;
-    _plans.removeAt(index);
-    _plans.refresh();
-    _plans.insert(index, temp);
-    _plans.refresh();
-    await addToBookmark(temp.id!, !temp.isBookMarked!);
+   // //log(index.toString());
+   //  final temp = plans[index];
+   //  temp.isBookMark = !temp.isBookMark!;
+   //  _plans.removeAt(index);
+   //  _plans.refresh();
+   //  _plans.insert(index, temp);
+   //  _plans.refresh();
+   //  await addToBookmark(temp.id!, !temp.isBookMark!);
   }
 
-  addToBookmark(String id, bool isBookMarked) async {
+  addToBookmark(String id, bool isBookMark) async {
     PlanRepository planRepository = PlanRepository();
-    isBookMarked = !isBookMarked;
-    if (!isBookMarked) {
+    isBookMark = !isBookMark;
+    if (!isBookMark) {
       ApiResult apiResult = await planRepository.removeFromBookmark(id);
       if (apiResult.type == ApiResultType.success) {
         // Utils.openSnackBar(message: 'Success');

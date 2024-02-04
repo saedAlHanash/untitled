@@ -8,12 +8,13 @@ import 'package:fitness_storm/Utils/Routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../../core/models/plan_model.dart';
 import '../list_header.dart';
 
 class TrendingPlanWidget extends GetView<HomeScreenController> {
   const TrendingPlanWidget({Key? key}) : super(key: key);
 
-  Widget _buildTrendingPlanHeader({required List<Plan> plans}) {
+  Widget _buildTrendingPlanHeader({required List<PlanModel> plans}) {
     return ListHeader(
       headerTitle: 'trending_plan'.tr,
       seeAllFunction: () {
@@ -23,7 +24,7 @@ class TrendingPlanWidget extends GetView<HomeScreenController> {
     );
   }
 
-  Widget _buildTrendsPlanList({required List<Plan> plans}) {
+  Widget _buildTrendsPlanList({required List<PlanModel> plans}) {
     return SizedBox(
       width: MediaQuery.of(Get.context!).size.width,
       height: Platform.isIOS
@@ -38,9 +39,9 @@ class TrendingPlanWidget extends GetView<HomeScreenController> {
             onTap: () =>
                 Get.toNamed(AppRoutes.planOverview, arguments: plans[index].id),
             child: TrendingPlanItem(
-              planImageUrl: plans[index].image!,
-              planName: plans[index].name!,
-              trainerName: plans[index].trainer!.name!,
+              planImageUrl: plans[index].image,
+              planName: plans[index].name,
+              trainerName: plans[index].trainer!.name,
             ),
           );
         },

@@ -8,12 +8,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../Utils/app_controller.dart';
+import '../../../core/models/plan_model.dart';
 import '../FeaturedPlan/featured_plan_controller.dart';
 import 'Widget/Filter/filter_sheet_widget.dart';
 import 'Widget/Sort/sort_bottom_sheet.dart';
 
 class BookmarkedScreenController extends GetxController {
-  final RxList<Plan> _plans = <Plan>[].obs;
+  final RxList<PlanModel> _plans = <PlanModel>[].obs;
   final RxInt _selectedIndex = (-1).obs;
   final RxBool _isLoading = false.obs;
   final RxList<bool> _sortFilterControllers = <bool>[].obs;
@@ -44,7 +45,7 @@ class BookmarkedScreenController extends GetxController {
 
   Map<String, dynamic> get data => _data;
 
-  List<Plan> get plans => _plans;
+  List<PlanModel> get plans => _plans;
 
   List<bool> get sortFilterControllers => _sortFilterControllers;
 
@@ -230,17 +231,17 @@ class BookmarkedScreenController extends GetxController {
   }
 
   getSearchResultPlans() async {
-    List<Plan> result =
+    List<PlanModel> result =
         await planRepository.getTrendingPlan({'name': searchTerm.text});
    //log('congrats $result');
-    plans = <Plan>[].obs;
+    plans = <PlanModel>[].obs;
     for (var element in result) {
       plans.add(element);
     }
   }
 
   getSortResultPlans() async {
-    List<Plan> result = [];
+    List<PlanModel> result = [];
     for (int i = 0; i < sortFilterControllers.length; i++) {
       if (sortFilterControllers[i]) {
        //log('true ${sortFilterTypes[i]}');
@@ -253,18 +254,18 @@ class BookmarkedScreenController extends GetxController {
       }
     }
    //log('congrats $result');
-    plans = <Plan>[].obs;
+    plans = <PlanModel>[].obs;
     for (var element in result) {
       plans.add(element);
     }
   }
 
   getFilterResultPlans() async {
-    List<Plan> result = [];
+    List<PlanModel> result = [];
    //log(data.toString());
     result = await planRepository.getTrendingPlan(data);
    //log('congrats $result');
-    plans = <Plan>[].obs;
+    plans = <PlanModel>[].obs;
     for (var element in result) {
       plans.add(element);
     }
@@ -367,20 +368,20 @@ class BookmarkedScreenController extends GetxController {
   }
 
   addPlanToFavorite(int index) async {
-   //log(index.toString());
-    final temp = plans[index];
-    temp.isBookMarked = !temp.isBookMarked!;
-    plans.removeAt(index);
-    _plans.refresh();
-    plans.insert(index, temp);
-    _plans.refresh();
-    await addToBookmark(temp.id!, !temp.isBookMarked!);
+   // //log(index.toString());
+   //  final temp = plans[index];
+   //  temp.isBookMark = !temp.isBookMark!;
+   //  plans.removeAt(index);
+   //  _plans.refresh();
+   //  plans.insert(index, temp);
+   //  _plans.refresh();
+   //  await addToBookmark(temp.id!, !temp.isBookMark!);
   }
 
-  addToBookmark(String id, bool isBookMarked) async {
+  addToBookmark(String id, bool isBookMark) async {
     PlanRepository planRepository = PlanRepository();
-    isBookMarked = !isBookMarked;
-    if (!isBookMarked) {
+    isBookMark = !isBookMark;
+    if (!isBookMark) {
       ApiResult apiResult = await planRepository.removeFromBookmark(id);
       if (apiResult.type == ApiResultType.success) {
         // Utils.openSnackBar(message: 'Success');

@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import '../../../../Utils/Routes/app_pages.dart';
+import '../../HomeScreen/HomeSreenWidget/yourTainerWidget/your_trainer_widget.dart';
 import '../search_result_controller.dart';
 import 'empty_search_result.dart';
 
@@ -47,17 +48,16 @@ class SearchTrainerListView extends GetWidget<SearchResultController> {
                     ),
                     child: ListView.builder(
                       itemCount: controller.trainers.length,
-                      itemBuilder: (context, index) {
-                        Trainer trainer = controller.trainers[index];
+                      itemBuilder: (context, i) {
+                        TrainerModel trainer = controller.trainers[i];
                         return GestureDetector(
-                          onTap: () => Get.toNamed(AppRoutes.traienrOverview,
-                              arguments: controller.trainers[index].id),
+                          onTap: () => startTrainerPage(context, controller.trainers[i].id),
                           child: TrainerWidget(
-                            trainerName: trainer.name!,
-                            imageUrl: trainer.profilePic!,
-                            numberOfPlans: trainer.numberOfPlans!,
-                            numberOfPrivateHours: trainer.numberOfPrivateHours!,
-                            numberOfSubscribers: trainer.numberOfSubscribers!,
+                            trainerName: trainer.name,
+                            imageUrl: trainer.image,
+                            numberOfPlans: trainer.numberOfPlans.toString(),
+                            numberOfPrivateHours: trainer.numberOfPrivateHours.toString(),
+                            numberOfSubscribers: trainer.numberOfSubscribers.toString(),
                           ),
                         );
                       },

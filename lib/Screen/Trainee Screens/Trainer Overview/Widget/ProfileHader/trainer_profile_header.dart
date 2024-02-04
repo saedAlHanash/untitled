@@ -1,31 +1,71 @@
+import 'package:drawable_text/drawable_text.dart';
 import 'package:fitness_storm/Utils/Constants/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:image_multi_type/round_image_widget.dart';
 
 import '../../../../../Model/trainer.dart';
-import 'trainer_profile_image_widget.dart';
-import 'trainer_profile_info_widget.dart';
+import '../../../../../core/strings/app_color_manager.dart';
+import '../../../../../core/strings/enum_manager.dart';
+import '../../../../../core/widgets/my_button.dart';
+import '../../../../../features/appointments/ui/widget/appointments_button.dart';
 
 class TrainerProfileHeader extends StatelessWidget {
-  final String imageUrl;
-  final Trainer trainer;
-
   const TrainerProfileHeader({
     super.key,
-    required this.imageUrl,
     required this.trainer,
   });
+
+  final TrainerModel trainer;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(
-          horizontal: Get.width / 20, vertical: Get.height / 30),
+      padding: const EdgeInsets.all(20.0).r,
       child: Row(
         children: [
-          TrainerProfileImageWidget(imageUrl: Constants.imageUrl + imageUrl),
-          TrainerProfileInfowidget(
-            trainer: trainer,
+          SizedBox(
+            height: 160.0.h,
+            width: 120.0.w,
+            child: RoundImageWidget(
+              url: Constants.imageUrl + (trainer.image ?? ''),
+              radios: 12.0.r,
+              height: 160.0.h,
+              width: 120.0.w,
+            ),
+          ),
+          15.0.horizontalSpace,
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                DrawableText(
+                  text: (trainer.name ?? '').toUpperCase(),
+                  size: 16.0.sp,
+                  fontFamily: FontFamily.robotoBold.name,
+                ),
+                15.0.verticalSpace,
+                Row(
+                  children: [
+                    Expanded(
+                      child: MyButtonRound(
+                        color: AppColorManager.mainColor,
+                        child: DrawableText(text: ''),
+                        onTap: () {},
+                      ),
+                    ),
+                    15.0.horizontalSpace,
+                    Expanded(
+                      child: MyButtonRound(
+                        color: AppColorManager.mainColorLight,
+                        child: DrawableText(text: ''),
+                        onTap: () {},
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ],
       ),

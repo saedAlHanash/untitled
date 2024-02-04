@@ -32,7 +32,7 @@ class TrainerProfileHeader extends GetView<TrainerProfileController> {
             borderRadius: BorderRadius.circular(100),
             child: CachedNetworkImage(
               imageUrl: Constants.imageUrl +
-                  controller.trainerProfile.profilePic.toString(),
+                  controller.trainerProfile.image.toString(),
               fadeInDuration: const Duration(seconds: 1),
               placeholder: (context, url) => const CircularProgressIndicator.adaptive(),
               errorWidget: (context, url, error) =>

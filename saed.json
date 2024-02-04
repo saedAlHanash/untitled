@@ -1,163 +1,275 @@
 {
   "data": [
     {
-      "id": "44",
-      "name": "Body Weight Workout",
-      "image": "storage/app/public/plansImages/Q1mINfgwYUIZzSJpG7NpyFzJWyXpOZZkd8rQCGMG.jpg",
-      "user_progress": 0.03333333333333333,
-      "current_activated_plan": true,
-      "days": [
+      "id": "24",
+      "image": "storage/app/public/trainersImages/4GfGCIYQ1SrdlcQ6bsv6jI6PKRsAS5fEMuRjvAcv.png",
+      "name": "Mariam khaled",
+      "bio": "Certified coach and personal trainer 7 years experience in sports programs the winner of golden medal of national sports program competition (متاح حجز مواعيد)",
+      "introduction_video": null,
+      "number_of_plans": "1",
+      "number_of_private_hours": 68,
+      "number_of_subscribers": 29,
+      "specialties": [
         {
-          "id": "693",
-          "day_number": 1,
-          "completed": true
-        },
-        {
-          "id": "698",
-          "day_number": 2,
-          "completed": false
-        },
-        {
-          "id": "755",
-          "day_number": 3,
-          "completed": false
-        },
-        {
-          "id": "703",
-          "day_number": 4,
-          "completed": false
-        },
-        {
-          "id": "756",
-          "day_number": 5,
-          "completed": false
-        },
-        {
-          "id": "707",
-          "day_number": 6,
-          "completed": false
-        },
-        {
-          "id": "757",
-          "day_number": 7,
-          "completed": false
-        },
-        {
-          "id": "694",
-          "day_number": 8,
-          "completed": false
-        },
-        {
-          "id": "699",
-          "day_number": 9,
-          "completed": false
-        },
-        {
-          "id": "758",
-          "day_number": 10,
-          "completed": false
-        },
-        {
-          "id": "704",
-          "day_number": 11,
-          "completed": false
-        },
-        {
-          "id": "759",
-          "day_number": 12,
-          "completed": false
-        },
-        {
-          "id": "708",
-          "day_number": 13,
-          "completed": false
-        },
-        {
-          "id": "760",
-          "day_number": 14,
-          "completed": false
-        },
-        {
-          "id": "695",
-          "day_number": 15,
-          "completed": false
-        },
-        {
-          "id": "700",
-          "day_number": 16,
-          "completed": false
-        },
-        {
-          "id": "761",
-          "day_number": 17,
-          "completed": false
-        },
-        {
-          "id": "705",
-          "day_number": 18,
-          "completed": false
-        },
-        {
-          "id": "762",
-          "day_number": 19,
-          "completed": false
-        },
-        {
-          "id": "709",
-          "day_number": 20,
-          "completed": false
-        },
-        {
-          "id": "763",
-          "day_number": 21,
-          "completed": false
-        },
-        {
-          "id": "696",
-          "day_number": 22,
-          "completed": false
-        },
-        {
-          "id": "701",
-          "day_number": 23,
-          "completed": false
-        },
-        {
-          "id": "764",
-          "day_number": 24,
-          "completed": false
-        },
-        {
-          "id": "706",
-          "day_number": 25,
-          "completed": false
-        },
-        {
-          "id": "765",
-          "day_number": 26,
-          "completed": false
-        },
-        {
-          "id": "710",
-          "day_number": 27,
-          "completed": false
-        },
-        {
-          "id": "766",
-          "day_number": 28,
-          "completed": false
-        },
-        {
-          "id": "697",
-          "day_number": 29,
-          "completed": false
-        },
-        {
-          "id": "702",
-          "day_number": 30,
-          "completed": false
+          "id": "19",
+          "type": "Body Weight Workout",
+          "type_id": "19",
+          "plan_id": "44"
         }
-      ]
+      ],
+      "private_session_price": 100,
+      "appointment": {
+        "id": 201,
+        "status": "started",
+        "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IAA5KDvS+VP9JuzlIr10LVbIwWYB7iJQs6J2qxL1XfDaeYp+KioAAAAAEAA1mgAAE4+/ZAEAAQAnT75k",
+        "time": null
+      }
+    },
+    {
+      "id": "25",
+      "image": "storage/app/public/trainersImages/dKJPZFIN4hUGZVwGnMHQY1x6gwaQMBjnlPWeNm50.png",
+      "name": "Nisrine Khoury",
+      "bio": "Lebanese Yoga Trainer and has 10 years experience in home yoga and other related sports relaxation techniques and meditation (fully booked ) (غير متاح حجز مواعيد)",
+      "introduction_video": null,
+      "number_of_plans": "3",
+      "number_of_private_hours": 10,
+      "number_of_subscribers": 6,
+      "specialties": [
+        {
+          "id": "16",
+          "type": "yoga",
+          "type_id": "16",
+          "plan_id": "41"
+        }
+      ],
+      "private_session_price": 100,
+      "appointment": null
+    },
+    {
+      "id": "26",
+      "image": "storage/app/public/trainersImages/NJMWUKTkEPMagUXhM4DlJTE0IOXozYVDk3Hiba86.png",
+      "name": "Rita Kamar",
+      "bio": "One of the most important Lebanese international coaches (fully booked ) (غير متاح حجز مواعيد)",
+      "introduction_video": null,
+      "number_of_plans": "4",
+      "number_of_private_hours": 6,
+      "number_of_subscribers": 9,
+      "specialties": [
+        {
+          "id": "2",
+          "type": "HIIT training",
+          "type_id": "2",
+          "plan_id": "42"
+        },
+        {
+          "id": "17",
+          "type": "Zumba",
+          "type_id": "17",
+          "plan_id": "72"
+        },
+        {
+          "id": "4",
+          "type": "Strength training",
+          "type_id": "4",
+          "plan_id": "75"
+        },
+        {
+          "id": "6",
+          "type": "Mobility training",
+          "type_id": "6",
+          "plan_id": "76"
+        }
+      ],
+      "private_session_price": 100,
+      "appointment": {
+        "id": 3248,
+        "status": "started",
+        "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IABz3Fukm6DJx0y+Te6AHgtYmAo+IWoCkY2is9jKWvdkzop+KioAAAAAEAAFQAAAZpeiZQEAAQB6V6Fl",
+        "time": null
+      }
+    },
+    {
+      "id": "28",
+      "image": "storage/app/public/trainersImages/yppSt4zOSRm3YIPGvuKeVmOVYo0YXQM3a94XXgL4.png",
+      "name": "Abdelazim Mohamed",
+      "bio": "Egyptian Coach and Personal Trainer specialized in strength training and body building programs (fully booked ) (غير متاح حجز مواعيد)",
+      "introduction_video": null,
+      "number_of_plans": "2",
+      "number_of_private_hours": 24,
+      "number_of_subscribers": 13,
+      "specialties": [
+        {
+          "id": "1",
+          "type": "Weightlifting",
+          "type_id": "1",
+          "plan_id": "45"
+        },
+        {
+          "id": "4",
+          "type": "Strength training",
+          "type_id": "4",
+          "plan_id": "73"
+        }
+      ],
+      "private_session_price": 100,
+      "appointment": null
+    },
+    {
+      "id": "29",
+      "image": "storage/app/public/trainersImages/GBwT0GB2f4VosuLrfdxPzRGPv86ldn2kpmqAu01c.png",
+      "name": "Doha Dergham",
+      "bio": "Coach and Personal Trainer called the queen of home workout (fully booked ) (غير متاح حجز مواعيد)",
+      "introduction_video": null,
+      "number_of_plans": "1",
+      "number_of_private_hours": 10,
+      "number_of_subscribers": 23,
+      "specialties": [
+        {
+          "id": "3",
+          "type": "Body weight",
+          "type_id": "3",
+          "plan_id": "43"
+        }
+      ],
+      "private_session_price": 100,
+      "appointment": null
+    },
+    {
+      "id": "30",
+      "image": "storage/app/public/trainersImages/76ojdOJPB99Y2qIssenI6Lhc3st46EUHea0pfn98.png",
+      "name": "Rashad Kazaz",
+      "bio": "Syrian Coach specialized in weightlifting, body building and weight loss  programs (غير متاح حجز مواعيد)",
+      "introduction_video": null,
+      "number_of_plans": "1",
+      "number_of_private_hours": 5,
+      "number_of_subscribers": 2,
+      "specialties": [
+        {
+          "id": "1",
+          "type": "Weightlifting",
+          "type_id": "1",
+          "plan_id": "46"
+        }
+      ],
+      "private_session_price": 100,
+      "appointment": null
+    },
+    {
+      "id": "31",
+      "image": "storage/app/public/trainersImages/plzYOgjKEk3UL61WNeFTn9axvvrFBzUY2F4w7uON.jpg",
+      "name": "Ismail Lagdashi",
+      "bio": "اسماعيل الكضاشي  بطل المغرب في الملاكمة  وبطل المملكة العربية السعودية في الملاكمة والكيك بوكسين والمواي تاي حاصل على الحزام الاسود في الكيك بوكسين WAKO مدرب دولي في الملاكمة 1STAR   (غير متاح حجز مواعيد)",
+      "introduction_video": null,
+      "number_of_plans": "1",
+      "number_of_private_hours": 8,
+      "number_of_subscribers": 0,
+      "specialties": [
+        {
+          "id": "10",
+          "type": "Body building",
+          "type_id": "10",
+          "plan_id": "68"
+        }
+      ],
+      "private_session_price": 100,
+      "appointment": {
+        "id": 988,
+        "status": "started",
+        "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IABg7wdDC8ACeqgKUZnEJAv11TEv6vTaRKWgnVw0LUTit4p+KioAAAAAEABm7AAA48v9ZAEAAQD3i/xk",
+        "time": null
+      }
+    },
+    {
+      "id": "49",
+      "image": "storage/app/public/trainersImages/1sUmPMBeno5CDVdbNr1wpqxTXWZLH1PpA4EejlJr.png",
+      "name": "Life Coach Hawraa Alhashimi",
+      "bio": "حوراء يحيى الهاشمى مدربة حياة لايف كوتشينج معتمدة ( متاح حجز مواعيد)",
+      "introduction_video": null,
+      "number_of_plans": "0",
+      "number_of_private_hours": 64,
+      "number_of_subscribers": 0,
+      "specialties": [],
+      "private_session_price": 150,
+      "appointment": {
+        "id": 131,
+        "status": "started",
+        "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IACbQWmZlrp+FcVW4WhFnLRZuE8i946obpei7sEMV/GgWYp+KioAAAAAEABflQAAh228ZAEAAQCbLbtk",
+        "time": null
+      }
+    },
+    {
+      "id": "50",
+      "image": "storage/app/public/trainersImages/4LSMwDOZEeCjuziUu7ELkh6MkORTmku5duvg4p1l.jpg",
+      "name": "Sabrin",
+      "bio": "Coach and Personal Trainer (متاح حجز جلسات )",
+      "introduction_video": null,
+      "number_of_plans": "0",
+      "number_of_private_hours": 126,
+      "number_of_subscribers": 0,
+      "specialties": [],
+      "private_session_price": 100,
+      "appointment": {
+        "id": 1054,
+        "status": "started",
+        "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IAC6DL5zjNfOD4Pb2BSeMmwklLdBi+YuYS3JlJV9LYV87op+KioAAAAAEADBHwEAlAkBZQEAAQCoyf9k",
+        "time": null
+      }
+    },
+    {
+      "id": "51",
+      "image": "storage/app/public/trainersImages/73HeMh0YyaBGf6jufn7ExFqKx655IqKkBvKgPE4g.png",
+      "name": "Salma",
+      "bio": "Coach and Personal Trainer (غير متاح حجز جلسات يمكنك التواصل على الشات لحجز اقرب موعد )",
+      "introduction_video": null,
+      "number_of_plans": "0",
+      "number_of_private_hours": 84,
+      "number_of_subscribers": 0,
+      "specialties": [],
+      "private_session_price": 100,
+      "appointment": {
+        "id": 715,
+        "status": "started",
+        "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IACw+yRl99quUdKqN/bSwZGOYOnPsxPo+PqmPcIYGYD4z4p+KioAAAAAEACtLQEA9FX6ZAEAAQAHFvlk",
+        "time": null
+      }
+    },
+    {
+      "id": "54",
+      "image": "storage/app/public/trainersImages/wrVSSuhF9fMFSsb8WWAX7ukNNnhXfuJ8r9Mb0LMG.png",
+      "name": "Dietitian Doaa Dahdoli",
+      "bio": "Nutritionist أخصائية تغذية  (متاح حجز مواعيد )",
+      "introduction_video": null,
+      "number_of_plans": "0",
+      "number_of_private_hours": 55,
+      "number_of_subscribers": 0,
+      "specialties": [],
+      "private_session_price": 150,
+      "appointment": {
+        "id": 545,
+        "status": "started",
+        "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IABsegoEcuR/FVpLAOGxFgQvo06oH17aXAPI/BByGR+LpYp+KioAAAAAEABmJwEAxYfaZAEAAQDZR9lk",
+        "time": null
+      }
+    },
+    {
+      "id": "56",
+      "image": "storage/app/public/trainersImages/Kvz1SO40ZSDsDWVNCTD5hqnwo9yWUKzw9flIUNqO.png",
+      "name": "Tamara Emad تمارا عماد",
+      "bio": "Coach and Personal Trainer",
+      "introduction_video": null,
+      "number_of_plans": "0",
+      "number_of_private_hours": 5,
+      "number_of_subscribers": 0,
+      "specialties": [],
+      "private_session_price": 100,
+      "appointment": {
+        "id": 6571,
+        "status": "started",
+        "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IAD9aPKos3kICCD+Cztbgz9nwpF4SWImNYj+Bo1ZFU5ceIp+KioAAAAAEAC3cQAAAx25ZQEAAQAX3bdl",
+        "time": null
+      }
     }
-  ]
+  ],
+  "number_of_pages": 1,
+  "number_of_results": 12
 }

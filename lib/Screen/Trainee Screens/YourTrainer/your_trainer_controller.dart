@@ -96,7 +96,7 @@ class YourTrainerController extends GetxController {
 
   set data(value) => _data.value = value;
 
-  RxList<Trainer> trainers = <Trainer>[].obs;
+  RxList<TrainerModel> trainers = <TrainerModel>[].obs;
   final RxInt pageNumber = 2.obs;
   final Rx<RefreshController> refreshController = RefreshController().obs;
   final RxInt _selectedIndex = 5.obs;
@@ -247,9 +247,9 @@ class YourTrainerController extends GetxController {
         .getSearchTrainer(pageNumber.value, {'name': searchTerm.text});
     if (result.type == ApiResultType.success) {
      //log('congrats $result');
-      trainers = <Trainer>[].obs;
+      trainers = <TrainerModel>[].obs;
       for (var element in result.data) {
-        trainers.add(Trainer.fromJson(element));
+        trainers.add(TrainerModel.fromJson(element));
       }
     }
   }
@@ -271,9 +271,9 @@ class YourTrainerController extends GetxController {
       }
     }
    //log('congrats ${apiResult!.data}');
-    trainers = <Trainer>[].obs;
+    trainers = <TrainerModel>[].obs;
     for (var element in apiResult!.data) {
-      trainers.add(Trainer.fromJson(element));
+      trainers.add(TrainerModel.fromJson(element));
     }
   }
 
@@ -284,9 +284,9 @@ class YourTrainerController extends GetxController {
         await _trainerRepository.getSearchTrainer(pageNumber.value, data);
     if (apiResult.type == ApiResultType.success) {
      //log('congrats ${apiResult.data}');
-      trainers = <Trainer>[].obs;
+      trainers = <TrainerModel>[].obs;
       for (var element in apiResult.data) {
-        trainers.add(Trainer.fromJson(element));
+        trainers.add(TrainerModel.fromJson(element));
       }
     }
   }

@@ -50,7 +50,7 @@ class TrainerSearchPlanListView
                         shrinkWrap: true,
                         itemCount: controller.plans.length,
                         itemBuilder: (context, index) {
-                          Plan plan = controller.plans[index];
+                          final  plan = controller.plans[index];
                           return SeeAllListItem(
                             plan: plan,
                             index: index,

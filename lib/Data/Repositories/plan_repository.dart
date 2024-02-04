@@ -8,6 +8,7 @@ import 'package:fitness_storm/Model/training_type.dart';
 import '../../Model/subscribed_plan.dart';
 import '../../Utils/storage_controller.dart';
 import '../../Utils/utils.dart';
+import '../../core/models/plan_model.dart';
 import '../Api/api_result.dart';
 import '../Api/methods.dart';
 import '../Api/urls.dart';
@@ -36,14 +37,14 @@ class PlanRepository {
         url: TRAINEEURLS.removeFromBookMarked(id), options: options);
   }
 
-  Future<List<Plan>> getAllBookmarked() async {
+  Future<List<PlanModel>> getAllBookmarked() async {
     Options options = Utils.getOptions(withToken: true, all: true);
     ApiResult result =
         await Methods.get(url: TRAINEEURLS.getBookmarkPlan, options: options);
     if (result.type == ApiResultType.success) {
-      List<Plan> plans = [];
+      List<PlanModel> plans = [];
       for (var element in result.data) {
-        plans.add(Plan.fromJson(element));
+        plans.add(PlanModel.fromJson(element));
       }
       return plans;
     } else {
@@ -84,7 +85,7 @@ class PlanRepository {
     }
   }
 
-  Future<List<Plan>> getTrendingPlan(
+  Future<List<PlanModel>> getTrendingPlan(
       Map<String, dynamic>? queryParameter) async {
    //log(queryParameter.toString());
     Options option = Utils.getOptions(withToken: true, all: true);
@@ -95,9 +96,9 @@ class PlanRepository {
           data: queryParameter);
       if (result.type == ApiResultType.success) {
        //log(result.data.toString());
-        List<Plan> plans = [];
+        List<PlanModel> plans = [];
         for (var element in result.data) {
-          plans.add(Plan.fromJson(element));
+          plans.add(PlanModel.fromJson(element));
         }
         return plans;
       } else {
@@ -112,7 +113,7 @@ class PlanRepository {
     }
   }
 
-  Future<List<Plan>> getFeaturedgPlan(int pageNumber,
+  Future<List<PlanModel>> getFeaturedgPlan(int pageNumber,
       {Map<String, dynamic>? queryParameter}) async {
     Options option = Utils.getOptions(withToken: true, all: true);
     try {
@@ -121,9 +122,9 @@ class PlanRepository {
           options: option,
           data: queryParameter);
       if (result.type == ApiResultType.success) {
-        List<Plan> plans = [];
+        List<PlanModel> plans = [];
         for (var element in result.data) {
-          plans.add(Plan.fromJson(element));
+          plans.add(PlanModel.fromJson(element));
         }
         return plans;
       } else {
@@ -161,14 +162,14 @@ class PlanRepository {
         options: option);
   }
 
-  Future<List<Plan>> searchPlans(String query) async {
+  Future<List<PlanModel>> searchPlans(String query) async {
     Options option = Utils.getOptions(withToken: true, all: true);
-    List<Plan> plans = [];
+    List<PlanModel> plans = [];
     final response = await Methods.get(
         url: '${TRAINEEURLS.filter}?name=$query', options: option);
     if (response.type == ApiResultType.success) {
       response.data.forEach((elemant) {
-        plans.add(Plan.fromJson(elemant));
+        plans.add(PlanModel.fromJson(elemant));
       });
     }
     return plans;

@@ -698,6 +698,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "verificationSentSuccessfully": MessageLookupByLibrary.simpleMessage(
             "Verification Code Has Been Sent Successfully"),
         "verify": MessageLookupByLibrary.simpleMessage("verify"),
+        "videoCall": MessageLookupByLibrary.simpleMessage("Video Call"),
         "videoInitialized":
             MessageLookupByLibrary.simpleMessage("Video initialized"),
         "voucher": MessageLookupByLibrary.simpleMessage("Voucher"),

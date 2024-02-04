@@ -26,7 +26,7 @@ abstract class AppRoutes {
   static const loadingStartTrainginScreen = '/loading_start_traingin_screen';
   static const filterScreen = '/filter_screen';
   static const filterResult = '/filter_result';
-  static const traienrOverview = '/trainer_overview';
+
   static const subscriptionScreen = '/subscription_screen';
   static const notificationScreen = '/notification_screen';
   static const searchResultSceen = '/search_result_screen';

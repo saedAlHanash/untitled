@@ -25,7 +25,7 @@ class TrainerProfileOverviewScreen
               child: Column(
                 children: [
                   TrainerProfileOverviewHeader(
-                      imageUrl: controller.trainer.profilePic!,
+                      imageUrl: controller.trainer.image!,
                       trainerName: controller.trainer.name!),
                   TrainerProfileOverviewBio(
                     trainerBio: controller.trainer.bio! +
@@ -34,11 +34,11 @@ class TrainerProfileOverviewScreen
                         controller.trainer.bio! +
                         controller.trainer.bio!,
                     // privateSessionPrice: controller.trainer.privateSessionPrice!.toString(),
-                    numberOfPlans: controller.trainer.numberOfPlans!,
+                    numberOfPlans: controller.trainer.numberOfPlans!.toString(),
                     numberOfPrivateHours:
-                        controller.trainer.numberOfPrivateHours!,
+                        controller.trainer.numberOfPrivateHours!.toString(),
                     numberOfSubscribers:
-                        controller.trainer.numberOfSubscribers!,
+                        controller.trainer.numberOfSubscribers!.toString(),
                   ),
                 ],
               ),

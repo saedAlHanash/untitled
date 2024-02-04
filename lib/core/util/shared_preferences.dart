@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../features/auth/data/response/login_response.dart';
-import '../../main.dart';
 import '../strings/enum_manager.dart';
 
 class AppSharedPreference {

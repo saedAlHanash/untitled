@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
+import '../HomeScreen/HomeSreenWidget/yourTainerWidget/your_trainer_widget.dart';
 import 'Widget/filter_row.dart';
 import 'Widget/trainer_widget.dart';
 import 'your_trainer_controller.dart';
@@ -39,7 +40,7 @@ class YourTrainersScreen extends GetView<YourTrainerController> {
     );
   }
 
-  Widget _buildYourTrainerList(List<Trainer> trainers) {
+  Widget _buildYourTrainerList(List<TrainerModel> trainers) {
     return controller.isLoading
         ? const Center(child: CircularProgressIndicator.adaptive())
         : SmartRefresher(
@@ -72,16 +73,15 @@ class YourTrainersScreen extends GetView<YourTrainerController> {
               itemCount: controller.trainers.length,
               itemBuilder: (context, i) {
                 return GestureDetector(
-                  onTap: () => Get.toNamed(AppRoutes.traienrOverview,
-                      arguments: controller.trainers[i].id),
+                  onTap: () => startTrainerPage(context, controller.trainers[i].id),
                   child: TrainerWidget(
-                    imageUrl: controller.trainers[i].profilePic!,
-                    numberOfPlans: controller.trainers[i].numberOfPlans!,
-                    trainerName: controller.trainers[i].name!,
+                    imageUrl: controller.trainers[i].image,
+                    numberOfPlans: controller.trainers[i].numberOfPlans.toString(),
+                    trainerName: controller.trainers[i].name,
                     numberOfSubscribers:
-                        controller.trainers[i].numberOfSubscribers!,
+                        controller.trainers[i].numberOfSubscribers.toString(),
                     numberOfPrivateHours:
-                        controller.trainers[i].numberOfPrivateHours!,
+                        controller.trainers[i].numberOfPrivateHours.toString(),
                   ),
                 );
               },

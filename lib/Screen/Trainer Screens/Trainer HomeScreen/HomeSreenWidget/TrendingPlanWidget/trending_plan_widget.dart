@@ -7,6 +7,7 @@ import 'package:fitness_storm/Utils/Routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../../core/models/plan_model.dart';
 import '../list_header.dart';
 
 class TrendingPlanWidget extends GetView<TrainerHomeScreenController> {
@@ -30,14 +31,14 @@ class TrendingPlanWidget extends GetView<TrainerHomeScreenController> {
     );
   }
 
-  Widget _buildTrendingPlanHeader({required List<Plan> plans}) {
+  Widget _buildTrendingPlanHeader({required List<PlanModel> plans}) {
     return ListHeader(
         headerTitle: 'trending_plan'.tr,
         seeAllFunction: () => Get.toNamed(AppRoutes.trendingPlanScreen,
             arguments: controller.trendingPlans));
   }
 
-  Widget _buildTrendsPlanList({required List<Plan> plans}) {
+  Widget _buildTrendsPlanList({required List<PlanModel> plans}) {
     return SizedBox(
       width: MediaQuery.of(Get.context!).size.width,
       height: MediaQuery.of(Get.context!).size.height / 4,

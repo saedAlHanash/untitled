@@ -8,10 +8,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../Utils/utils.dart';
+import '../../../core/models/plan_model.dart';
 import 'Widget/Filter/filter_sheet_widget.dart';
 
 class TrendingPlanController extends GetxController {
-  RxList<Plan> plans = <Plan>[].obs;
+  RxList<PlanModel> plans = <PlanModel>[].obs;
   final TextEditingController searchTerm = TextEditingController();
   late final Map<String, String> sortByKeys;
   final RxList<bool> sortFilterControllers = <bool>[].obs;
@@ -238,17 +239,17 @@ class TrendingPlanController extends GetxController {
   }
 
   getSearchResultPlans() async {
-    List<Plan> result =
+    List<PlanModel> result =
         await _planRepository.getTrendingPlan({'name': searchTerm.text});
    //log('congrats $result');
-    plans = <Plan>[].obs;
+    plans = <PlanModel>[].obs;
     for (var element in result) {
       plans.add(element);
     }
   }
 
   getSortResultPlans() async {
-    List<Plan> result = [];
+    List<PlanModel> result = [];
     for (int i = 0; i < sortFilterControllers.length; i++) {
       if (sortFilterControllers[i]) {
        //log('true ${sortFilterTypes[i]}');
@@ -261,18 +262,18 @@ class TrendingPlanController extends GetxController {
       }
     }
    //log('congrats $result');
-    plans = <Plan>[].obs;
+    plans = <PlanModel>[].obs;
     for (var element in result) {
       plans.add(element);
     }
   }
 
   getFilterResultPlans() async {
-    List<Plan> result = [];
+    List<PlanModel> result = [];
    //log(data.toString());
     result = await _planRepository.getTrendingPlan(data);
    //log('congrats $result');
-    plans = <Plan>[].obs;
+    plans = <PlanModel>[].obs;
     for (var element in result) {
       plans.add(element);
     }
@@ -375,20 +376,20 @@ class TrendingPlanController extends GetxController {
   }
 
   addPlanToFavorite(int index) async {
-   //log(index.toString());
-    final temp = plans[index];
-    temp.isBookMarked = !temp.isBookMarked!;
-    plans.removeAt(index);
-    plans.refresh();
-    plans.insert(index, temp);
-    plans.refresh();
-    await addToBookmark(temp.id!, !temp.isBookMarked!);
+   // //log(index.toString());
+   //  final temp = plans[index];
+   //  temp.isBookMark = !temp.isBookMark!;
+   //  plans.removeAt(index);
+   //  plans.refresh();
+   //  plans.insert(index, temp);
+   //  plans.refresh();
+   //  await addToBookmark(temp.id!, !temp.isBookMark!);
   }
 
-  addToBookmark(String id, bool isBookMarked) async {
+  addToBookmark(String id, bool isBookMark) async {
     PlanRepository planRepository = PlanRepository();
-    isBookMarked = !isBookMarked;
-    if (!isBookMarked) {
+    isBookMark = !isBookMark;
+    if (!isBookMark) {
       ApiResult apiResult = await planRepository.removeFromBookmark(id);
       if (apiResult.type == ApiResultType.success) {
         // Utils.openSnackBar(message: 'Success');

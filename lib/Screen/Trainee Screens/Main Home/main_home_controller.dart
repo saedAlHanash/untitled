@@ -5,13 +5,14 @@ import '../../../Data/Repositories/notification_repository.dart';
 import '../../../Model/notification_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../core/strings/enum_manager.dart';
 import '../../../main.dart';
 import '../../chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 import '../coupon/coupon_cubit/coupon_cubit.dart';
 
 class MainHomeController extends GetxController {
   AppNavigationBarController navController = AppNavigationBarController();
-  late NotificationModel notifications = NotificationModel();
+  late NotificationsResponse notifications = NotificationsResponse.fromJson({});
   String? token;
 
   final RxBool _isLoading = false.obs;

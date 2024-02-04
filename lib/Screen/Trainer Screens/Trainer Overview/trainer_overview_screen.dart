@@ -27,17 +27,10 @@ class TrainerTrainerOverviewScreen extends GetView<TrainerTrainerOverviewControl
                 child: Column(
                   children: [
                     TrainerProfileHeader(
-                      imageUrl: controller.trainer.profilePic!,
+                      imageUrl: controller.trainer.image!,
                       trainer: controller.trainer,
                     ),
-                    TrainerBioWidget(
-                      trainerBio: controller.trainer.bio!,
-                      privateSessionPrice:
-                          controller.trainer.privateSessionPrice!.toString(),
-                      numberOfPlans: controller.trainer.numberOfPlans!,
-                      numberOfPrivateHours: controller.trainer.numberOfPrivateHours!,
-                      numberOfSubscribers: controller.trainer.numberOfSubscribers!,
-                    ),
+                    TrainerBioWidget(trainer: controller.trainer),
                     SizedBox(
                       height: 100,
                       child: Row(
@@ -114,7 +107,7 @@ class TrainerTrainerOverviewScreen extends GetView<TrainerTrainerOverviewControl
                         SizedBox(
                           height: Get.height,
                           child: ImageMultiType(url:
-                            Constants.imageUrl + controller.trainer.profilePic!,
+                            Constants.imageUrl + controller.trainer.image!,
                             fit: BoxFit.cover,
                           ),
                         ),

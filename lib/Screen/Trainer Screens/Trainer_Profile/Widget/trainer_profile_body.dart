@@ -7,6 +7,8 @@ import 'package:fitness_storm/common/bottom_sheets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../generated/assets.dart';
+
 class TrainerProfileBody extends GetWidget<TrainerProfileController> {
   const TrainerProfileBody({super.key});
 
@@ -27,7 +29,7 @@ class TrainerProfileBody extends GetWidget<TrainerProfileController> {
                     title: 'Trainer_Profile'.tr,
                     onTap: controller.onTrainerProfileButtonPressed),
                 ProfileCard(
-                    imageUrl: Assets.images.language,
+                    imageUrl: Assets.imagesLanguage,
                     iconColor: Color(0xFF565C63),
                     title: 'lang'.tr,
                     onTap: () {

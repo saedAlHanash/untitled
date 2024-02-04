@@ -3,14 +3,7 @@ import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 
 import '../Screen/Trainee Screens/coupon/coupon_cubit/coupon_cubit.dart';
-
-
-
-extension CubitStatusesHelper on CubitStatuses {
-  bool get loading => this == CubitStatuses.loading;
-
-  bool get done => this == CubitStatuses.done;
-}
+import '../core/strings/enum_manager.dart';
 
 extension FormatDuration on Duration {
   String get format =>
@@ -122,10 +115,11 @@ extension DateUtcHelper on DateTime {
 
   DateTime get getUtc => DateTime.utc(year, month, day);
 
-  String get formatDate => DateFormat.yMd().format(this);
+  String get formatDate =>
+      DateFormat.yMd().format(subtract(DateTime.now().timeZoneOffset));
 
   String get formatTime {
-    var t = DateFormat('h:mm a').format(this);
+    var t = DateFormat('h:mm a').format(subtract(DateTime.now().timeZoneOffset));
 
     return t.replaceAll('PM', 'م').replaceAll('AM', 'ص');
   }

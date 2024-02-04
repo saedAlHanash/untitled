@@ -5159,6 +5159,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Video Call`
+  String get videoCall {
+    return Intl.message(
+      'Video Call',
+      name: 'videoCall',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

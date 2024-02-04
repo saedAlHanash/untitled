@@ -8,7 +8,6 @@ import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 import 'package:flutter_firebase_chat_core/flutter_firebase_chat_core.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
- 
 
 import '../../Model/trainer.dart';
 import '../../Utils/dependency_injection.dart';
@@ -37,7 +36,7 @@ User? get firebaseUser {
 Future<User?> get firebaseUserAsync async {
   final email = FirebaseAuth.instance.currentUser?.email ?? '';
 
-  if (email.isNotEmpty&&!email.startsWith('fitnes') || !email.endsWith('@fitnes.com')) {
+  if (email.isNotEmpty && !email.startsWith('fitnes') || !email.endsWith('@fitnes.com')) {
     await FirebaseAuth.instance.signOut();
   }
 
@@ -86,7 +85,7 @@ Future<bool> isChatUserFound(String id) async {
   return false;
 }
 
-Future<void> createChatUser(Trainer profile) async {
+Future<void> createChatUser(TrainerModel profile) async {
   try {
     final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
       email: 'fitnes.${profile.id}@fitnes.com',
@@ -95,7 +94,7 @@ Future<void> createChatUser(Trainer profile) async {
 
     await FirebaseChatCore.instance.createUserInFirestore(
       types.User(
-        firstName: profile.id,
+        firstName: profile.id.toString(),
         id: credential.user!.uid,
         lastName: profile.name,
         metadata: {'fcm': await FirebaseMessaging.instance.getToken()},
@@ -103,7 +102,7 @@ Future<void> createChatUser(Trainer profile) async {
     );
   } on Exception catch (e) {
     if (e.toString().contains('email address is already')) {
-      loginChatUser(profile.id!, profile.name!);
+      loginChatUser(profile.id!.toString(), profile.name!);
     }
   }
 }

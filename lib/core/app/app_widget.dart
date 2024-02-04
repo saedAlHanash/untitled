@@ -15,6 +15,8 @@ import '../../Screen/Trainee Screens/coupon/coupon_cubit/coupon_cubit.dart';
 import '../../Utils/Routes/app_pages.dart';
 import '../../Utils/dependency_injection.dart';
 import '../../Utils/themes.dart';
+import '../../features/appointments/bloc/booked_appointments_cubit/booked_appointments_cubit.dart';
+import '../../features/plans/bloc/add_favorite/add_favorite_cubit.dart';
 import '../../generated/l10n.dart';
 import '../../helper/lang_helper.dart';
 import '../../router/app_router.dart';
@@ -115,12 +117,16 @@ class _MyAppState extends State<MyApp> {
             return bloc.MultiBlocProvider(
               providers: [
                 bloc.BlocProvider(create: (_) => sl<CouponCubit>()),
+                bloc.BlocProvider(create: (_) => sl<AddFavoriteCubit>()),
+                bloc.BlocProvider(
+                  create: (_) => sl<BookedAppointmentsCubit>()..getBookedAppointments(),
+                ),
               ],
               child: child!,
             );
           },
           scrollBehavior: MyCustomScrollBehavior(),
-          onGenerateRoute: routes,
+          // onGenerateRoute: routes,
         );
       },
     );

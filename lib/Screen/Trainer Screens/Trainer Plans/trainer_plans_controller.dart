@@ -4,13 +4,15 @@ import 'package:fitness_storm/Data/Repositories/plan_repository.dart';
 import 'package:fitness_storm/Model/plan.dart';
 import 'package:get/state_manager.dart';
 
+import '../../../core/models/plan_model.dart';
+
 class TrainerPlansController extends GetxController {
   RxBool _isLoading = false.obs;
   TrainerTrainerRepository _trainerRepository = TrainerTrainerRepository();
 
-  List<Plan> get trainerPlans => _trainerPlans;
+  List<PlanModel> get trainerPlans => _trainerPlans;
 
-  RxList<Plan> _trainerPlans = <Plan>[].obs;
+  RxList<PlanModel> _trainerPlans = <PlanModel>[].obs;
 
   set trainerPlans(value) => _trainerPlans.value = value;
 
@@ -33,7 +35,7 @@ class TrainerPlansController extends GetxController {
   addToBookmark() async {
     PlanRepository planRepository = PlanRepository();
 
-    // if (!isBookMarked) {
+    // if (!isBookMark) {
     //   ApiResult apiResult = await planRepository.removeFromBookmark(id);
     //   if (apiResult.type == ApiResultType.success) {
     //     // Utils.openSnackBar(message: 'Success');
@@ -47,8 +49,8 @@ class TrainerPlansController extends GetxController {
   }
 
   //TODO add function to get trainer plans when api ready
-  Future<List<Plan>> getTrainerPlans() async {
-    List<Plan> _plans = await _trainerRepository.getTrainerPlans();
+  Future<List<PlanModel>> getTrainerPlans() async {
+    List<PlanModel> _plans = await _trainerRepository.getTrainerPlans();
     if (_plans.isNotEmpty) {
       _trainerPlans.addAll(_plans);
     }

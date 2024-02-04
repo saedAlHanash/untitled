@@ -7,19 +7,20 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 import '../../../Model/plan.dart';
+import '../../../core/models/plan_model.dart';
 import '../../../main.dart';
 
 class HomeScreenController extends GetxController {
   final RxList<SubscribedPlan> continueTrainingPlans = <SubscribedPlan>[].obs;
-  final RxList<Plan> featuredPlans = <Plan>[].obs;
+  final RxList<PlanModel> featuredPlans = <PlanModel>[].obs;
   final RxBool isLoading = false.obs;
 
   // final RxInt pageNumber = 1.obs;
   final PlanRepository planRepository = PlanRepository();
 
   final TrainerRepository trainerRepository = TrainerRepository();
-  final RxList<Plan> trendingPlans = <Plan>[].obs;
-  final RxList<Trainer> yourTrainer = <Trainer>[].obs;
+  final RxList<PlanModel> trendingPlans = <PlanModel>[].obs;
+  final RxList<TrainerModel> yourTrainer = <TrainerModel>[].obs;
 
   final Rx<TextEditingController> _searchEditingController =
       TextEditingController().obs;

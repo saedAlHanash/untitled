@@ -3,23 +3,13 @@ import 'package:fitness_storm/Utils/Routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../../Model/trainer.dart';
 import 'bio_check_widget.dart';
 
-class TrainerBioWidget extends GetWidget<TrainerOverviewController> {
-  final String trainerBio;
-  final String numberOfPlans;
-  final String numberOfSubscribers;
-  final String numberOfPrivateHours;
-  final String privateSessionPrice;
+class TrainerBioWidget extends StatelessWidget {
+  const TrainerBioWidget({required this.trainer, super.key});
 
-  const TrainerBioWidget({
-    super.key,
-    required this.trainerBio,
-    required this.numberOfPlans,
-    required this.numberOfSubscribers,
-    required this.numberOfPrivateHours,
-    required this.privateSessionPrice,
-  });
+  final TrainerModel trainer;
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +18,9 @@ class TrainerBioWidget extends GetWidget<TrainerOverviewController> {
       children: [
         InkWell(
           onTap: () => Get.toNamed(AppRoutes.bookPrivateSession, arguments: [
-            controller.trainer.name,
-            controller.trainer.profilePic,
-            controller.trainer.id
+            trainer.name,
+            trainer.image,
+            trainer.id.toString(),
           ]),
           child: Container(
             height: Get.height / 20,
@@ -48,16 +38,16 @@ class TrainerBioWidget extends GetWidget<TrainerOverviewController> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Text(
-                      '$privateSessionPrice ${'sar/hour'.tr}',
+                      '${trainer.privateSessionPrice} ${'sar/hour'.tr}',
                       style: const TextStyle(color: Colors.white, fontSize: 14),
                     ),
                     IconButton(
                       padding: EdgeInsets.zero,
                       onPressed: () => Get.toNamed(AppRoutes.bookPrivateSession,
                           arguments: [
-                            controller.trainer.name,
-                            controller.trainer.profilePic,
-                            controller.trainer.id
+                           trainer.name,
+                           trainer.image,
+                           trainer.id.toString()
                           ]),
                       icon: const Icon(
                         Icons.arrow_forward_ios,
@@ -84,13 +74,14 @@ class TrainerBioWidget extends GetWidget<TrainerOverviewController> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     BioCheckWidget(
-                        title: 'WORKOUT_PLANS'.tr, value: numberOfPlans),
+                        title: 'WORKOUT_PLANS'.tr,
+                        value: trainer.numberOfPlans.toString()),
                     BioCheckWidget(
                         title: 'SUBSCRIBERS_cap'.tr,
-                        value: numberOfSubscribers),
+                        value: trainer.numberOfSubscribers.toString()),
                     BioCheckWidget(
                         title: 'private_hours'.tr,
-                        value: '+$numberOfPrivateHours'),
+                        value: '+${trainer.numberOfPrivateHours}'),
                   ],
                 ),
               ),
@@ -102,7 +93,7 @@ class TrainerBioWidget extends GetWidget<TrainerOverviewController> {
                 ),
                 child: Center(
                   child: Text(
-                    trainerBio,
+                    trainer.bio,
                     textAlign: isEnglish ? TextAlign.left : TextAlign.left,
                     style: const TextStyle(fontSize: 14, color: Colors.white),
                   ),

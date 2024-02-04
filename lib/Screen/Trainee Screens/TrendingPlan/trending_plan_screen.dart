@@ -5,11 +5,12 @@ import 'package:get/get.dart';
 import '../../../Model/plan.dart';
 import '../../../Widgets/plan_time_freqency.dart';
 import '../../../Widgets/see_all_list_item.dart';
+import '../../../core/models/plan_model.dart';
 
 class TrendingPlansScreen extends GetView<TrendingPlanController> {
   const TrendingPlansScreen({Key? key}) : super(key: key);
 
-  Widget _buildTrendsPlansList(List<Plan> plans) {
+  Widget _buildTrendsPlansList(List<PlanModel> plans) {
     return controller.isLoading
         ? const Center(child: CircularProgressIndicator.adaptive())
         : ListView.builder(

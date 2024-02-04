@@ -1,24 +1,31 @@
-class Specialties {
-  String? id;
-  String? type;
-  String? typeId;
-  String? planId;
+import 'package:fitness_storm/core/extensions/extensions.dart';
 
-  Specialties({this.id, this.type, this.typeId, this.planId});
+class Specialty {
+  Specialty({
+    required this.id,
+    required this.type,
+    required this.typeId,
+    required this.planId,
+  });
 
-  Specialties.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    type = json['type'];
-    typeId = json['type_id'];
-    planId = json['plan_id'];
+  final int id;
+  final String type;
+  final int typeId;
+  final int planId;
+
+  factory Specialty.fromJson(Map<String, dynamic> json) {
+    return Specialty(
+      id: json["id"].toString().tryParseOrZeroInt,
+      type: json["type"] ?? "",
+      typeId: json["type_id"].toString().tryParseOrZeroInt,
+      planId: json["plan_id"].toString().tryParseOrZeroInt,
+    );
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['type'] = this.type;
-    data['type_id'] = this.typeId;
-    data['plan_id'] = this.planId;
-    return data;
-  }
+  Map<String, dynamic> toJson() => {
+    "id": id,
+    "type": type,
+    "type_id": typeId,
+    "plan_id": planId,
+  };
 }

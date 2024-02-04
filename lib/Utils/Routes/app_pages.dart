@@ -71,11 +71,17 @@ import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Profile%20Overv
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Wallet/trainer_wallet_binding.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Wallet/trainer_wallet_screen.dart';
 import 'package:fitness_storm/Utils/storage_controller.dart';
+import 'package:fitness_storm/core/api_manager/api_service.dart';
+import 'package:fitness_storm/core/extensions/extensions.dart';
+import 'package:fitness_storm/features/trainer/bloc/trainer_cubit/trainer_cubit.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
 import '../../Screen/Trainee Screens/Provide Information/Terms And Conditions/terms_conditions_screen.dart';
 import '../../Screen/chat/rooms_screen.dart';
+import '../../core/injection/injection_container.dart';
+import '../../features/trainer/ui/pages/trainer_page.dart';
 
 part './app_routes.dart';
 
@@ -83,9 +89,7 @@ class AppPages {
   List<GetPage> getPages() {
     return [
       GetPage(
-          name: AppRoutes.splash,
-          page: () => const Splash(),
-          binding: SplashBinding()),
+          name: AppRoutes.splash, page: () => const Splash(), binding: SplashBinding()),
       GetPage(
           name: AppRoutes.homePage,
           page: () => const HomeScreen(),
@@ -130,10 +134,7 @@ class AppPages {
           name: AppRoutes.signIn,
           page: () => const SigninScreen(),
           binding: SigninBinding()),
-      GetPage(
-          name: AppRoutes.otp,
-          page: () => const OTPScreen(),
-          binding: OTPBinding()),
+      GetPage(name: AppRoutes.otp, page: () => const OTPScreen(), binding: OTPBinding()),
       GetPage(
           name: AppRoutes.training,
           page: () => const TrainingScreen(),
@@ -154,10 +155,6 @@ class AppPages {
           name: AppRoutes.filterResult,
           page: () => const FilterResultScreen(),
           binding: FilterPageBinding()),
-      GetPage(
-          name: AppRoutes.traienrOverview,
-          page: () => TrainerOverviewScreen(),
-          binding: TrainerOverviewBinding()),
       GetPage(
           name: AppRoutes.traienrPlanOverview,
           page: () => const TrainerTrainerOverviewScreen(),
@@ -196,11 +193,12 @@ class AppPages {
           binding: BookmarkedScreenBinding()),
       GetPage(
           name: AppRoutes.myPaymentScreen,
-          page: () =>  MyPaymentScreen(),
+          page: () => MyPaymentScreen(),
           binding: MyPaymentBinding()),
       GetPage(
-          name: AppRoutes.chatScreen,
-          page: () => const RoomsScreen(),),
+        name: AppRoutes.chatScreen,
+        page: () => const RoomsScreen(),
+      ),
       // GetPage(
       //     name: AppRoutes.conversationScreen,
       //     page: () => const ConversationScreen(),

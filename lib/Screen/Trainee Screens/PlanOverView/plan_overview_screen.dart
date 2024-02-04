@@ -17,7 +17,7 @@ import '../../../Widgets/vimeo_player.dart';
 import 'Widget/trainer_profile.dart';
 
 class PlanOverviewScreen extends GetView<PlanOverviewController> {
-  const PlanOverviewScreen({Key? key}) : super(key: key);
+  const PlanOverviewScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -86,7 +86,7 @@ class PlanOverviewScreen extends GetView<PlanOverviewController> {
                           ReadMoreTextWidget(text: controller.planOverview.description!),
                           const SizedBox(height: 30),
                           TrainerProfile(controller.planOverview.trainer!.name!,
-                              controller.planOverview.trainer!.profilePic!),
+                              controller.planOverview.trainer!.image!),
                           const SizedBox(height: 30),
                           TrainerBio(controller.planOverview.trainer!.bio!),
                         ],

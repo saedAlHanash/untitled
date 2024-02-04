@@ -1,54 +1,84 @@
+class NotificationsResponse {
+  NotificationsResponse({
+    required this.data,
+    required this.numberOfPages,
+    required this.numberOfResults,
+    required this.unReadNotification,
+  });
+
+  final List<NotificationModel> data;
+  final num numberOfPages;
+  final num numberOfResults;
+  final num unReadNotification;
+
+  factory NotificationsResponse.fromJson(Map<String, dynamic> json) {
+    return NotificationsResponse(
+      data: json["data"] == null
+          ? []
+          : List<NotificationModel>.from(
+          json["data"]!.map((x) => NotificationModel.fromJson(x))),
+      numberOfPages: json["number_of_pages"] ?? 0,
+      numberOfResults: json["number_of_results"] ?? 0,
+      unReadNotification: json["un_read_notification"] ?? 0,
+    );
+  }
+
+  Map<String, dynamic> toJson() => {
+    "data": data.map((x) => x.toJson()).toList(),
+    "number_of_pages": numberOfPages,
+    "number_of_results": numberOfResults,
+    "un_read_notification": unReadNotification,
+  };
+}
+
 class NotificationModel {
-  List<Data>? data;
-  int? numberOfPages;
-  int? numberOfResults;
-  int? unReadNotification;
+  NotificationModel({
+    required this.title,
+    required this.body,
+    required this.type,
+    required this.data,
+    required this.createdAt,
+  });
 
-  NotificationModel(
-      {this.data,
-      this.numberOfPages,
-      this.numberOfResults,
-      this.unReadNotification});
+  final String title;
+  final String body;
+  final String type;
+  final Data? data;
+  final String createdAt;
 
-  NotificationModel.fromJson(Map<String, dynamic> json) {
-    if (json['data'] != null) {
-      data = <Data>[];
-      json['data'].forEach((v) {
-        data!.add(new Data.fromJson(v));
-      });
-    }
-    numberOfPages = json['number_of_pages'];
-    numberOfResults = json['number_of_results'];
-    unReadNotification = json['un_read_notification'];
+  factory NotificationModel.fromJson(Map<String, dynamic> json) {
+    return NotificationModel(
+      title: json["title"] ?? "",
+      body: json["body"] ?? "",
+      type: json["type"] ?? "",
+      data: json["data"] == null ? null : Data.fromJson(json["data"]),
+      createdAt: json["created_at"] ?? "",
+    );
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.data != null) {
-      data['data'] = this.data!.map((v) => v.toJson()).toList();
-    }
-    data['number_of_pages'] = this.numberOfPages;
-    data['number_of_results'] = this.numberOfResults;
-    data['un_read_notification'] = this.unReadNotification;
-    return data;
-  }
+  Map<String, dynamic> toJson() => {
+    "title": title,
+    "body": body,
+    "type": type,
+    "data": data?.toJson(),
+    "created_at": createdAt,
+  };
 }
 
 class Data {
-  String? body;
-  String? createdAt;
+  Data({
+    required this.date,
+  });
 
-  Data({this.body, this.createdAt});
+  final DateTime? date;
 
-  Data.fromJson(Map<String, dynamic> json) {
-    body = json['body'];
-    createdAt = json['created_at'];
+  factory Data.fromJson(Map<String, dynamic> json) {
+    return Data(
+      date: DateTime.tryParse(json["date"] ?? ""),
+    );
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['body'] = this.body;
-    data['created_at'] = this.createdAt;
-    return data;
-  }
+  Map<String, dynamic> toJson() => {
+    "date": date?.toIso8601String(),
+  };
 }

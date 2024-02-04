@@ -8,12 +8,11 @@ import 'package:flutter/material.dart';
 
 import '../../../../Utils/storage_controller.dart';
 import '../../../../core/api_manager/api_service.dart';
+import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/pair_class.dart';
 import '../data/response/coupon_response.dart';
 
 part 'coupon_state.dart';
-
-enum CubitStatuses { init, loading, done, error }
 
 extension CubitStatusesHelper on CubitStatuses {
   bool get loading => this == CubitStatuses.loading;

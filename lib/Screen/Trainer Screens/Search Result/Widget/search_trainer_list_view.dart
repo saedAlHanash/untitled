@@ -49,17 +49,17 @@ class TrainerSearchTrainerListView
                     child: ListView.builder(
                       itemCount: controller.trainers.length,
                       itemBuilder: (context, index) {
-                        Trainer trainer = controller.trainers[index];
+                        TrainerModel trainer = controller.trainers[index];
                         return GestureDetector(
                           onTap: () => Get.toNamed(
                               AppRoutes.trainerTrainerOverviewScreen,
-                              arguments: controller.trainers[index].id),
+                              arguments: controller.trainers[index].id.toString()),
                           child: TrainerWidget(
-                            trainerName: trainer.name!,
-                            imageUrl: trainer.profilePic!,
-                            numberOfPlans: trainer.numberOfPlans!,
-                            numberOfPrivateHours: trainer.numberOfPrivateHours!,
-                            numberOfSubscribers: trainer.numberOfSubscribers!,
+                            trainerName: trainer.name,
+                            imageUrl: trainer.image,
+                            numberOfPlans: trainer.numberOfPlans.toString(),
+                            numberOfPrivateHours: trainer.numberOfPrivateHours.toString(),
+                            numberOfSubscribers: trainer.numberOfSubscribers.toString(),
                           ),
                         );
                       },

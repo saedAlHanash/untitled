@@ -4,6 +4,7 @@ import 'package:fitness_storm/Widgets/see_all_list_item.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../core/models/plan_model.dart';
 import 'bookmarked_screen_controller.dart';
 
 class BookmarkedScreen extends GetView<BookmarkedScreenController> {
@@ -31,7 +32,7 @@ class BookmarkedScreen extends GetView<BookmarkedScreenController> {
     );
   }
 
-  Widget _buildBookmarkPlansList(List<Plan> plans) {
+  Widget _buildBookmarkPlansList(List<PlanModel> plans) {
     return controller.isLoading
         ? const Center(child: CircularProgressIndicator.adaptive())
         : ListView.builder(

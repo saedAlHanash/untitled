@@ -8,7 +8,7 @@ import 'trainer_profile_info_widget.dart';
 
 class TrainerProfileHeader extends StatelessWidget {
   final String imageUrl;
-  final Trainer trainer;
+  final TrainerModel trainer;
 
   const TrainerProfileHeader(
       {super.key, required this.imageUrl, required this.trainer});
