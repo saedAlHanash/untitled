@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:fitness_storm/Data/Repositories/auth_repository.dart';
 import 'package:fitness_storm/Utils/Routes/app_pages.dart';
+import 'package:fitness_storm/core/app/app_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
@@ -79,17 +80,7 @@ class SplashController extends GetxController {
             Get.offAllNamed(AppRoutes.mainHome);
           } else {
             if (StorageController().token.isEmpty) {
-              Navigator.push(Get.context!, MaterialPageRoute(
-                builder: (_) {
-                  return MultiBlocProvider(
-                    providers: [
-                      BlocProvider(create: (_) => sl<LoginCubit>()),
-                    ],
-                    child: const LoginPage(),
-                  );
-                },
-              ));
-              // Get.offNamed(AppRoutes.signIn);
+              startLogin(ctx!);
             } else {
               Get.offAllNamed(AppRoutes.mainHome);
             }

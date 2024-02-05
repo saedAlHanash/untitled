@@ -52,15 +52,15 @@ class APIService {
 
   factory APIService() => _singleton;
 
-  final innerHeader = {
-    'Content-Type': 'application/json',
-    'Accept': 'Application/json',
-    'timeZone': DateTime.now().timeZoneName,
-    'lang': Get.locale?.languageCode ?? 'en',
-    // 'lang': AppSharedPreference.getLocal,
-    'DeviceToken': AppSharedPreference.getDeviceId,
-    'Authorization': 'Bearer ${AppSharedPreference.getToken}',
-  };
+  Map<String, String> get innerHeader => {
+        'Content-Type': 'application/json',
+        'Accept': 'Application/json',
+        'timeZone': DateTime.now().timeZoneName,
+        'lang': Get.locale?.languageCode ?? 'en',
+        // 'lang': AppSharedPreference.getLocal,
+        'DeviceToken': AppSharedPreference.getDeviceId,
+        'Authorization': 'Bearer ${AppSharedPreference.getToken}',
+      };
 
   APIService._internal();
 

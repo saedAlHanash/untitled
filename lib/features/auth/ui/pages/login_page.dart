@@ -123,6 +123,7 @@ class _LoginPageState extends State<LoginPage> {
                         return Column(
                           children: [
                             MyButtonRound(
+                              color: AppColorManager.mainColorLight,
                               text: S.of(context).signIn,
                               onTap: () {
                                 if (!_formKey.currentState!.validate()) return;
@@ -132,18 +133,12 @@ class _LoginPageState extends State<LoginPage> {
                             30.0.verticalSpace,
                             if (DateTime.now().isAfter(DateTime(2024, 1, 18)))
                               GestureDetector(
-                                onTap: () {},
-                                child: Container(
-                                  width: Get.width / 8.5,
-                                  height: Get.width / 8.5,
-                                  padding: const EdgeInsets.all(7),
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(100),
-                                      color: Colors.white),
-                                  child: ImageMultiType(
-                                    url: Assets.imagesGoogleSVG,
-                                    width: 40.0.r,
-                                  ),
+                                onTap: () {
+                                  loginCubit.loginGoogle();
+                                },
+                                child: ImageMultiType(
+                                  url: Assets.imagesGoogleSVG,
+                                  width: 40.0.r,
                                 ),
                               ),
                           ],
@@ -156,7 +151,7 @@ class _LoginPageState extends State<LoginPage> {
                       drawableAlin: DrawableAlin.between,
                       color: Colors.white,
                       drawableEnd: TextButton(
-                        onPressed: () => Navigator.pushNamed(context, RouteName.signup),
+                        onPressed: () => startSignup(context),
                         child: DrawableText(
                           fontFamily: FontManager.cairoBold.name,
                           color: Colors.white,

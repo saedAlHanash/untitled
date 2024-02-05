@@ -14,7 +14,7 @@ import '../../../core/api_manager/api_service.dart';
 import '../login_phone/ui/pages/login_phone_page.dart';
 
 class SignupScreen extends GetView<SignupController> {
-  const SignupScreen({Key? key}) : super(key: key);
+  const SignupScreen({super.key});
 
   Future<void> _launchUrl(String url) async {
     if (!await launchUrl(Uri.parse(url))) {

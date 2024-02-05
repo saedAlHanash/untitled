@@ -105,6 +105,8 @@ class PostUrl {
   static const confirmCode = 'opt-check';
   static const otpPassword = 'password/check';
 
+  static var loginSocial = 'auth/social_login';
+
   static String addFavorite(int id) => 'plans/$id/addToBookmarkedPlans';
 
   static const restPass = 'reset-password';

@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fitness_storm/core/api_manager/api_url.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
+import 'package:get/get.dart';
 
 import '../../../../core/api_manager/api_service.dart';
 import '../../../../core/error/error_manager.dart';
@@ -40,7 +41,7 @@ class SignupCubit extends Cubit<SignupInitial> {
       otp = response.jsonBody['data']['otp_code'].toString();
       return Pair(true, null);
     } else {
-        return response.getPairError;
+      return response.getPairError;
     }
   }
 
@@ -69,8 +70,8 @@ class SignupCubit extends Cubit<SignupInitial> {
   }
 
   String? get validatePhoneOrEmail {
-    if (state.request.phoneOrEmail == null) {
-      return '${S().email} - ${S().phoneNumber}'
+    if (!(state.request.phoneOrEmail ?? '').isEmail) {
+      return '${S().email}'
           ' ${S().isRequired}';
     }
     return null;

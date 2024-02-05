@@ -170,3 +170,37 @@ class RouteName {
   static const supportRoom = '/31';
   static const faq = '/32';
 }
+
+void startSignup(BuildContext context) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (_) {
+        final providers = [
+          BlocProvider(create: (_) => sl<SignupCubit>()),
+        ];
+        return MultiBlocProvider(
+          providers: providers,
+          child: const SignupPage(),
+        );
+      },
+    ),
+  );
+}
+
+void startLogin(BuildContext context){
+  Navigator.push(context, MaterialPageRoute(
+    builder: (_) {
+      return MultiBlocProvider(
+        providers: [
+          BlocProvider(create: (_) => sl<LoginCubit>()),
+        ],
+        child: const LoginPage(),
+      );
+    },
+  ));
+}
+
+void start(BuildContext context){
+
+}
