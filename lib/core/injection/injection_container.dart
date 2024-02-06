@@ -9,6 +9,7 @@ import '../../features/auth/bloc/delete_account_cubit/delete_account_cubit.dart'
 import '../../features/auth/bloc/forget_password_cubit/forget_password_cubit.dart';
 import '../../features/auth/bloc/get_me_cubit/get_me_cubit.dart';
 import '../../features/auth/bloc/login_cubit/login_cubit.dart';
+import '../../features/auth/bloc/login_social_cubit/login_social_cubit.dart';
 import '../../features/auth/bloc/otp_password_cubit/otp_password_cubit.dart';
 import '../../features/auth/bloc/resend_code_cubit/resend_code_cubit.dart';
 import '../../features/auth/bloc/reset_password_cubit/reset_password_cubit.dart';
@@ -41,6 +42,7 @@ Future<void> init() async {
   sl.registerFactory(() => ResendCodeCubit());
   sl.registerFactory(() => DeleteAccountCubit());
   sl.registerFactory(() => OtpPasswordCubit());
+  sl.registerFactory(() => LoginSocialCubit());
 
   //endregion
 

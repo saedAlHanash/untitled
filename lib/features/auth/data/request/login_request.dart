@@ -28,7 +28,7 @@ class LoginRequest {
     return {
       'email': phoneOrEmail,
       'password': password,
-
+      'confirmation_code': code,
     };
   }
 }

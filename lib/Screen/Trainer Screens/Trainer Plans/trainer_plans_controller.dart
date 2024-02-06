@@ -1,7 +1,6 @@
 import 'package:fitness_storm/Data/Api/api_result.dart';
 import 'package:fitness_storm/Data/Repositories/Trainer%20Repository/trainer_repository.dart';
 import 'package:fitness_storm/Data/Repositories/plan_repository.dart';
-import 'package:fitness_storm/Model/plan.dart';
 import 'package:get/state_manager.dart';
 
 import '../../../core/models/plan_model.dart';

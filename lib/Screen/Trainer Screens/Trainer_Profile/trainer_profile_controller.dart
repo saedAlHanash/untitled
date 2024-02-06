@@ -4,7 +4,6 @@ import 'package:fitness_storm/Data/Api/api_result.dart';
 import 'package:fitness_storm/Data/Repositories/Trainer%20Repository/trainer_auth_repository.dart';
 import 'package:fitness_storm/Model/trainer.dart';
 import 'package:fitness_storm/Utils/Routes/app_pages.dart';
-import 'package:fitness_storm/Utils/storage_controller.dart';
 import 'package:fitness_storm/Utils/utils.dart';
 import 'package:get/get.dart';
 
@@ -17,7 +16,7 @@ class TrainerProfileController extends GetxController {
 
   set isLoading(value) => _isLoading.value = value;
 
-  late final TrainerModel trainerProfile;
+    TrainerModel? trainerProfile;
 
   final TrainerAuthRepository _trainerAuthRepository = TrainerAuthRepository();
 
@@ -29,11 +28,11 @@ class TrainerProfileController extends GetxController {
 
   logout() async {
     Utils.openLoadingDialog();
-    final storageController = StorageController();
+
     var res = await _trainerAuthRepository.trainerLogout();
     if (res.type == ApiResultType.success) {
-      storageController.token = '';
-      storageController.rememberToken = '';
+
+       
       await logoutChatUser();
       ;
       Get.back();
@@ -41,8 +40,8 @@ class TrainerProfileController extends GetxController {
       Get.offAllNamed(AppRoutes.signIn);
     } else {
       if (res.message == 'Unauthenticated.') {
-        storageController.token = '';
-        storageController.rememberToken = '';
+
+         
         Get.back();
         // Utils.openSnackBar(title: 'Logout Success');
         Get.offAllNamed(AppRoutes.signIn);

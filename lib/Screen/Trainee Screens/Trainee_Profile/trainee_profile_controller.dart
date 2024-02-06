@@ -4,7 +4,7 @@ import 'package:fitness_storm/Data/Repositories/trainee_repository.dart';
 import 'package:fitness_storm/Model/user_profile.dart';
 import 'package:fitness_storm/Utils/Constants/constants.dart';
 import 'package:fitness_storm/Utils/Routes/app_pages.dart';
-import 'package:fitness_storm/Utils/storage_controller.dart';
+
 import 'package:fitness_storm/Utils/utils.dart';
 import 'package:fitness_storm/helperClass.dart';
 import 'package:flutter/cupertino.dart';
@@ -110,20 +110,20 @@ class TraineeProfileController extends GetxController {
 
   logout() async {
     Utils.openLoadingDialog();
-    StorageController storageController = StorageController();
+
     var res = await _authRepository.traineeLogout();
     if (res.type == ApiResultType.success) {
       GetStorage getStorage = GetStorage();
       await getStorage.write('currentPlan', null);
-      storageController.token = '';
-      storageController.rememberToken = '';
+
+       
       Get.back();
       // Utils.openSnackBar(title: 'Logout Success');
       Get.offAllNamed(AppRoutes.signIn);
     } else {
       if (res.message == 'Unauthenticated.') {
-        storageController.token = '';
-        storageController.rememberToken = '';
+
+         
         Get.back();
         // Utils.openSnackBar(title: 'Logout Success');
         Get.offAllNamed(AppRoutes.signIn);
@@ -135,10 +135,9 @@ class TraineeProfileController extends GetxController {
 
   logoutGoogle() async {
     await GoogleSignIn().signOut();
-    StorageController storageController = StorageController();
-    storageController.token = '';
-    storageController.rememberToken = '';
-    storageController.methodTakeAuthentication = '';
+     
+
+     
     GetStorage getStorage = GetStorage();
     await getStorage.write('currentPlan', null);
     Get.back();

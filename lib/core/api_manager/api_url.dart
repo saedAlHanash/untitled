@@ -75,24 +75,26 @@ class GetUrl {
 
   static const faq = 'questions';
 
-  static var termsAndConditions = 'pages';
+  static const termsAndConditions = 'pages';
 
-  static var bookedAppointments = 'bookedAppointments';
+  static const bookedAppointments = 'bookedAppointments';
 
-  static var getTrainer = 'trainers';
+  static const getTrainer = 'trainers';
 
-  static var temp = '';
+  static const temp = '';
 
   static String plans(int id) => 'trainers/$id/plans';
 }
 
 class PostUrl {
+
   static const loginUrl = 'auth/login';
-  static const signup = 'register';
 
-  static const forgetPassword = 'password/email';
+  static const signup = 'auth/register';
 
-  static const resetPassword = 'password/reset';
+  static const forgetPassword = 'auth/resetPassword';
+
+  static const resetPasswordCheckCode = 'auth/resetPassword/checkCode';
 
   static const closeVideo = 'lessons/close-video';
 
@@ -102,10 +104,12 @@ class PostUrl {
   static const insertCode = 'courses/insert-code';
   static const logout = 'logout';
 
-  static const confirmCode = 'opt-check';
+  static const confirmCode = 'auth/confirmAccount';
   static const otpPassword = 'password/check';
 
-  static var loginSocial = 'auth/social_login';
+  static const loginSocial = 'auth/social_login';
+
+  static const resetPassword ='auth/resetPassword/changePassword';
 
   static String addFavorite(int id) => 'plans/$id/addToBookmarkedPlans';
 
@@ -114,7 +118,7 @@ class PostUrl {
   static const createOrder = 'checkout/cash';
   static const createEPaymentOrder = 'checkout/credit';
 
-  static const resendCode = 'opt-resend';
+  static const resendCode = 'auth/resendConfirmationCode';
 
   static const addToCart = 'carts';
 

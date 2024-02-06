@@ -5,8 +5,8 @@ import 'package:fitness_storm/Data/Api/methods.dart';
 import 'package:fitness_storm/Data/Api/urls.dart';
 
 import '../../Model/exercise.dart';
-import '../../Utils/storage_controller.dart';
 import '../../Utils/utils.dart';
+import '../../core/app/app_provider.dart';
 import '../Api/api_result.dart';
 
 class ExerciseRepository {
@@ -14,7 +14,7 @@ class ExerciseRepository {
     Options option = Utils.getOptions(withToken: true, all: true);
     List<Exercises> exercise = [];
     String url = '';
-    if ((StorageController().userType == 'trainer')) {
+    if (( AppProvider.isTrainer)) {
       url = '${TRAINERURLS.getExerciesByWorkoutId}$id/exercises';
     } else {
       url = '${TRAINEEURLS.getExerciesByWorkoutId}$id/exercises';

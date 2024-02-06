@@ -46,8 +46,6 @@ import 'package:fitness_storm/Screen/Trainee%20Screens/Subscription/subscription
 import 'package:fitness_storm/Screen/Trainee%20Screens/Subscription/subscription_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Trainee%20Profile%20Info/trainee_profile_info_binding.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Trainee%20Profile%20Info/trainee_profile_info_screen.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/Trainer%20Overview/trainer_overview_binding.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/Trainer%20Overview/trainer_overview_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Training/training_binding.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Training/training_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/TrendingPlan/trending_plan_binding.dart';
@@ -70,18 +68,12 @@ import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Profile%20Overv
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Profile%20Overview/trainer_profile_overview_screen.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Wallet/trainer_wallet_binding.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Wallet/trainer_wallet_screen.dart';
-import 'package:fitness_storm/Utils/storage_controller.dart';
-import 'package:fitness_storm/core/api_manager/api_service.dart';
-import 'package:fitness_storm/core/extensions/extensions.dart';
-import 'package:fitness_storm/features/trainer/bloc/trainer_cubit/trainer_cubit.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
 import '../../Screen/Trainee Screens/Provide Information/Terms And Conditions/terms_conditions_screen.dart';
 import '../../Screen/chat/rooms_screen.dart';
-import '../../core/injection/injection_container.dart';
-import '../../features/trainer/ui/pages/trainer_page.dart';
 
 part './app_routes.dart';
 
@@ -263,7 +255,7 @@ class AppPages {
   }
 
   Future<String> getInitPage() async {
-    if (StorageController().rememberToken.isEmpty) {
+    if (AppProvider.token.isEmpty) {
       return AppRoutes.authScreen;
     } else {
       return AppRoutes.mainHome;

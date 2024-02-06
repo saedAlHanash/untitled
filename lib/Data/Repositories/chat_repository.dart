@@ -6,16 +6,16 @@ import 'package:fitness_storm/Model/chat.dart';
 import 'package:fitness_storm/Model/conversation.dart';
 import 'package:fitness_storm/Utils/utils.dart';
 
-import '../../Utils/storage_controller.dart';
+import '../../core/app/app_provider.dart';
 
 class ChatRepository {
   Future<List<Chat>> getAllPreviousChats() async {
     Options option = Utils.getOptions(withToken: true, all: true);
-    final StorageController storageController = StorageController();
+
 
     List<Chat> exercise = [];
     String url = '';
-    if (storageController.userType == 'trainer') {
+    if ( AppProvider.isTrainer) {
       url = TRAINERURLS.allChatsTrainer;
     } else {
       url = TRAINEEURLS.allChats;
@@ -33,7 +33,7 @@ class ChatRepository {
 
   Future<List<Conversation>> getConversation(
       {required int pageNumber, required String channelId}) async {
-    final StorageController storageController = StorageController();
+     
     Options option = Utils.getOptions(withToken: true, all: true);
     ApiResult result;
     if (channelId == "-1") {
@@ -41,7 +41,7 @@ class ChatRepository {
           url: 'https://api.fitnessstorm.org/mobile/user/supportChat', options: option);
     } else {
       String url2 = '';
-      if (storageController.userType == 'trainer') {
+      if ( AppProvider.isTrainer) {
         url2 = TRAINERURLS.getConversation(channelId);
       } else {
         url2 = TRAINEEURLS.getConversation(channelId);
@@ -61,9 +61,9 @@ class ChatRepository {
 
   Future<ApiResult> sendMessage(
       {required String channelId, required String message}) async {
-    final StorageController storageController = StorageController();
+     
     String url2 = '';
-    if (storageController.userType == 'trainer') {
+    if ( AppProvider.isTrainer) {
       url2 = TRAINERURLS.sendMessage(channelId);
     } else {
       url2 = TRAINEEURLS.sendMessage(channelId);

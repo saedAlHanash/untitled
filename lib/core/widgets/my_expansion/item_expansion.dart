@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
+import 'package:flutter/material.dart';
 
 class ItemExpansion {
   ItemExpansion({

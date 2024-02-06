@@ -1,7 +1,6 @@
-import 'package:fitness_storm/core/api_manager/api_service.dart';
-import 'package:flutter/material.dart';
-import 'package:http/http.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
+import 'package:http/http.dart';
+
 import '../app/app_widget.dart';
 import '../util/abstraction.dart';
 import '../util/shared_preferences.dart';

@@ -9,7 +9,6 @@ import '../../../Data/Api/methods.dart';
 import '../../../Data/Api/urls.dart';
 import '../../../Data/Repositories/plan_repository.dart';
 import '../../../Data/Repositories/trainer_repository.dart';
-import '../../../Model/plan.dart';
 import '../../../Model/specialties_model.dart';
 import '../../../Model/trainer.dart';
 import '../../../Utils/utils.dart';

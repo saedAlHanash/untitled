@@ -2,7 +2,6 @@
 
 import 'package:fitness_storm/Data/Api/api_result.dart';
 import 'package:fitness_storm/Data/Repositories/plan_repository.dart';
-import 'package:fitness_storm/Model/plan.dart';
 import 'package:fitness_storm/Utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

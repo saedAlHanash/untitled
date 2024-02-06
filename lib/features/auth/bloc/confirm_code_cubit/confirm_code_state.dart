@@ -1,19 +1,22 @@
 part of 'confirm_code_cubit.dart';
 
-class ConfirmCodeInitial extends AbstractCubit<LoginData> {
+class ConfirmCodeInitial extends AbstractCubit<bool> {
   final LoginRequest request;
+  final bool isPassReset;
 
   const ConfirmCodeInitial({
     required super.result,
     super.error,
     super.statuses,
     required this.request,
+    required this.isPassReset,
   });
 
   factory ConfirmCodeInitial.initial() {
     return ConfirmCodeInitial(
-      result: LoginData.fromJson({}),
+      result: false,
       request: LoginRequest(),
+      isPassReset: false,
     );
   }
 
@@ -22,15 +25,17 @@ class ConfirmCodeInitial extends AbstractCubit<LoginData> {
 
   ConfirmCodeInitial copyWith({
     CubitStatuses? statuses,
-    LoginData? result,
+    bool? result,
     String? error,
     LoginRequest? request,
+    bool? isPassReset,
   }) {
     return ConfirmCodeInitial(
       statuses: statuses ?? this.statuses,
       result: result ?? this.result,
       error: error ?? this.error,
       request: request ?? this.request,
+      isPassReset: isPassReset ?? this.isPassReset,
     );
   }
 }

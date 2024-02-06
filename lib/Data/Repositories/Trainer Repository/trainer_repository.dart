@@ -2,7 +2,6 @@ import 'package:dio/dio.dart';
 import 'package:fitness_storm/Data/Api/api_result.dart';
 import 'package:fitness_storm/Data/Api/methods.dart';
 import 'package:fitness_storm/Data/Api/urls.dart';
-import 'package:fitness_storm/Model/plan.dart';
 import 'package:fitness_storm/Model/private_session.dart';
 import 'package:fitness_storm/Model/trainer.dart';
 import 'package:fitness_storm/Utils/utils.dart';

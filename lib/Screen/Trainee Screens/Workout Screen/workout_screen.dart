@@ -2,7 +2,6 @@ import 'package:fitness_storm/Screen/Trainee%20Screens/Workout%20Screen/workout_
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../Model/plan.dart';
 import '../../../Utils/Routes/app_pages.dart';
 import '../../../Widgets/custom_button.dart';
 import '../HomeScreen/home_screen_controller.dart';

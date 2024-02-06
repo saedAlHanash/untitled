@@ -7,7 +7,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:fitness_storm/Data/Repositories/plan_repository.dart';
-import 'package:fitness_storm/Utils/storage_controller.dart';
+
 import 'package:fitness_storm/Utils/utils.dart';
 import 'package:fitness_storm/helper/cache_helper.dart';
 import 'package:fitness_storm/helper/lang_helper.dart';
@@ -22,6 +22,7 @@ import '../Data/Api/methods.dart';
 import '../Data/Api/urls.dart';
 import '../Model/trainer.dart';
 import '../Screen/chat/util.dart';
+import '../core/app/app_provider.dart';
 import '../firebase_options.dart';
 import '../main.dart';
 import 'Constants/constants.dart';
@@ -64,13 +65,11 @@ initRepositories() {
 Future<void> initGetStorage() async {
   //log('init GetStore');
   await GetStorage.init();
-  StorageController storage = StorageController();
   //log(storage.user);
   //log("lang");
   //log(storage.langCode);
   AppController appController = Get.find<AppController>();
-  appController.theme =
-      (storage.theme == "dark" ? ThemeColor.dark : ThemeColor.light).obs;
+  appController.theme = ( ThemeColor.light).obs;
   //log('======================================================');
   //log(storage.notification);
 
@@ -193,12 +192,12 @@ var loading = false;
 Future<void> getProfileForLoginChat() async {
   if (loading) return;
   loading = true;
-  if (StorageController().token.isEmpty) return;
+  if (AppProvider.token.isEmpty) return;
 
   if (FirebaseChatCore.instance.firebaseUser != null) return;
 
   final result = await Methods.get(
-    url: StorageController().userType == 'trainer'
+    url:  AppProvider.isTrainer
         ? TRAINERURLS.trainerPorile
         : TRAINEEURLS.getUserProfile,
     options: Utils.getOptions(accept: true, withToken: true),

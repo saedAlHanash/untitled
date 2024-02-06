@@ -31,8 +31,7 @@ abstract class TRAINEEURLS {
   static const String subscribeToPlan =
       '${Constants.userBaseUrl}/subscribeToPlan';
   static const String completeDay = '${Constants.userBaseUrl}/completeDay';
-  static const String refeshUserToken =
-      '${Constants.userBaseUrl}/auth/refreshToken';
+
   static const String filter = '${Constants.userBaseUrl}/plans';
   static const String subscribePaymentPlan =
       '${Constants.userBaseUrl}/subscriptions';
@@ -109,8 +108,6 @@ abstract class TRAINERURLS {
   static const String submitOTP =
       '${Constants.trainerBaseUrl}/auth/confirmAccount';
   static const String trainerLogin = '${Constants.trainerBaseUrl}/auth/login';
-  static const String refreshTrainerToken =
-      '${Constants.trainerBaseUrl}/auth/refreshToken';
   static const String logout = '${Constants.trainerBaseUrl}/auth/logout';
   static const String trainerPorile = '${Constants.trainerBaseUrl}/profile';
   static const String trainerAvailableTime =

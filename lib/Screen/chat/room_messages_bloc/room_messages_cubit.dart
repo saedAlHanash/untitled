@@ -9,7 +9,6 @@ import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 
 import '../../../core/strings/enum_manager.dart';
 import '../../../main.dart';
-import '../../Trainee Screens/coupon/coupon_cubit/coupon_cubit.dart';
 import '../../chat/util.dart';
 
 part 'room_messages_state.dart';

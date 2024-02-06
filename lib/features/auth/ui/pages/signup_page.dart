@@ -1,5 +1,7 @@
 import 'package:drawable_text/drawable_text.dart';
+import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
+import 'package:fitness_storm/features/auth/ui/widget/login_social_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -55,7 +57,10 @@ class _SignupPageState extends State<SignupPage> {
         BlocListener<SignupCubit, SignupInitial>(
           listenWhen: (p, c) => c.statuses.done,
           listener: (context, state) {
-            Navigator.pushNamedAndRemoveUntil(context, RouteName.home, (route) => false);
+            if (AppProvider.isConfirmed) {
+            } else {
+              startConfirmCodeAccount(context);
+            }
           },
           child: Scaffold(
             backgroundColor: Colors.transparent,
@@ -176,30 +181,18 @@ class _SignupPageState extends State<SignupPage> {
                         if (state.statuses.loading) {
                           return MyStyle.loadingWidget(color: Colors.white);
                         }
-                        return Column(
-                          children: [
-                            MyButtonRound(
-                              text: S.of(context).signUp,
-
-                              color: AppColorManager.mainColorLight,
-                              onTap: () {
-                                if (!_formKey.currentState!.validate()) return;
-                                signupCubit.signup();
-                              },
-                            ),
-                            30.0.verticalSpace,
-                            if (DateTime.now().isAfter(DateTime(2024, 1, 18)))
-                              GestureDetector(
-                                onTap: () {},
-                                child: ImageMultiType(
-                                  url: Assets.imagesGoogleSVG,
-                                  width: 40.0.r,
-                                ),
-                              ),
-                          ],
+                        return MyButtonRound(
+                          text: S.of(context).signUp,
+                          color: AppColorManager.mainColorLight,
+                          onTap: () {
+                            if (!_formKey.currentState!.validate()) return;
+                            signupCubit.signup();
+                          },
                         );
                       },
                     ),
+                    30.0.verticalSpace,
+                    const LoginSocialWidget(),
                     7.0.verticalSpace,
                     DrawableText(
                       text: S.of(context).alreadyAMember,

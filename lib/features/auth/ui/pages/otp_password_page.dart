@@ -1,11 +1,11 @@
 import 'package:drawable_text/drawable_text.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/util/snack_bar_message.dart';
 import 'package:fitness_storm/core/widgets/my_button.dart';
-import 'package:fitness_storm/features/auth/ui/pages/forget_passowrd_page.dart';
+import 'package:fitness_storm/features/auth/ui/pages/forget_password_page.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/my_style.dart';

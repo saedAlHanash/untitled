@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:fitness_storm/Data/Api/api_result.dart';
-import 'package:fitness_storm/Data/Api/methods.dart';
 import 'package:fitness_storm/Data/Repositories/trainer_repository.dart';
 import 'package:fitness_storm/Model/available_time.dart';
 import 'package:fitness_storm/Model/book_appointment.dart';

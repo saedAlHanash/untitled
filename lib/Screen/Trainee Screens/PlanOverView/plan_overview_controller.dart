@@ -15,7 +15,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:pod_player/pod_player.dart';
 
 import '../../../Utils/Routes/app_pages.dart';
-import '../../../Utils/storage_controller.dart';
+import '../../../core/app/app_provider.dart';
 import '../../chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 import '../HomeScreen/refresh_home_plan_cubit/refresh_home_plan_cubit.dart';
 
@@ -96,7 +96,7 @@ class PlanOverviewController extends GetxController {
     } else {
       if (response.statusCode == 451) {
         Utils.closeDialog();
-        if (StorageController().id == '262') return;
+        if (AppControl.isAppleAccount) return;
         videoController?.pause();
         Get.toNamed(AppRoutes.subscriptionScreen)!.then((value) async {
           if (HelperClass.successfullySubscription) {
@@ -136,7 +136,7 @@ class PlanOverviewController extends GetxController {
     Utils.openLoadingDialog();
     final apiResult = await _exerciseRepository.startDay(planWorkouts[i].id!);
 
-    if ((StorageController().userType == 'trainer') ||
+    if (( AppProvider.isTrainer) ||
         apiResult.type == ApiResultType.success ||
         apiResult.statusCode == 402) {
       Get.back();
@@ -165,7 +165,7 @@ class PlanOverviewController extends GetxController {
           Utils.showAlertDialog(() {}, apiResult.message!, textContinue: 'okay'.tr);
         }
       } else if (apiResult.statusCode == 451) {
-        if (StorageController().id == '262') return;
+        if (AppControl.isAppleAccount) return;
         Utils.showAlertDialog(() {
           Get.toNamed(AppRoutes.subscriptionScreen);
         }, '''subscription_finished'''.tr, textContinue: 'subscribe'.tr);

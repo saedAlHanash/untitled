@@ -6,7 +6,7 @@ enum AttachmentType { image, youtube, video, d3 }
 
 enum PricingMatrixType { day, date }
 
-enum DoneType { password, login, order }
+enum UserType { user, trainer }
 
 enum FilterItem { activity, group, country, city }
 

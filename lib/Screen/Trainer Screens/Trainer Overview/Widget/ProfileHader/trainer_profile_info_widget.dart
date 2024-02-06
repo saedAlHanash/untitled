@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../../Model/trainer.dart';
-import 'chat_and_video_button_widget.dart';
 
 class TrainerProfileInfowidget extends StatelessWidget {
   final TrainerModel trainer;

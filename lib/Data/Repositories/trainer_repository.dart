@@ -1,8 +1,8 @@
  
 
 import 'package:dio/dio.dart';
+import 'package:fitness_storm/core/api_manager/api_service.dart';
 
-import '../../Model/plan.dart';
 import '../../Model/trainer.dart';
 import '../../Utils/Constants/constants.dart';
 import '../../Utils/utils.dart';
@@ -60,6 +60,7 @@ class TrainerRepository {
 
   Future<List<PlanModel>> getTrainerPlans(String id) async {
     Options options = Utils.getOptions(withToken: true, all: true);
+    loggerObject.w(options);
     ApiResult result =
         await Methods.get(url: TRAINEEURLS.getTrainerPlans(id), options: options);
     if (result.type == ApiResultType.success) {

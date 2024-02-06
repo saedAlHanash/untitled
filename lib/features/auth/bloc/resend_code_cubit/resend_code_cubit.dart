@@ -1,18 +1,12 @@
 import 'package:bloc/bloc.dart';
-
-import 'package:flutter/material.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
-import 'package:fitness_storm/core/util/shared_preferences.dart';
 
 import '../../../../core/api_manager/api_service.dart';
 import '../../../../core/api_manager/api_url.dart';
 import '../../../../core/error/error_manager.dart';
-import '../../../../core/injection/injection_container.dart';
-import '../../../../core/network/network_info.dart';
 import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/abstraction.dart';
 import '../../../../core/util/pair_class.dart';
-
 
 part 'resend_code_state.dart';
 
@@ -35,12 +29,8 @@ class ResendCodeCubit extends Cubit<ResendCodeInitial> {
   Future<Pair<bool?, String?>> _resendCodeApi() async {
     final response = await APIService().postApi(
       url: PostUrl.resendCode,
-      query: {'email_or_phone': AppSharedPreference.getPhoneOrEmail},
     );
 
-    if(response.statusCode ==403){
-      AppSharedPreference.removePhoneOrEmail();
-    }
     if (response.statusCode.success) {
       return Pair(true, null);
     } else {

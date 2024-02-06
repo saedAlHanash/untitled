@@ -4,7 +4,6 @@ import 'package:fitness_storm/Screen/Trainee%20Screens/PlanOverView/Widget/day_b
 import 'package:fitness_storm/Screen/Trainee%20Screens/PlanOverView/Widget/trainer_bio.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/PlanOverView/Widget/video_tail_widget.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/PlanOverView/plan_overview_controller.dart';
-import 'package:fitness_storm/Utils/storage_controller.dart';
 import 'package:fitness_storm/Widgets/custom_button.dart';
 import 'package:fitness_storm/Widgets/read_more_text_widget.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +13,7 @@ import 'package:get_storage/get_storage.dart';
 import '../../../Widgets/Exercise/day_widget.dart';
 import '../../../Widgets/custom_chip.dart';
 import '../../../Widgets/vimeo_player.dart';
+import '../../../core/app/app_provider.dart';
 import 'Widget/trainer_profile.dart';
 
 class PlanOverviewScreen extends GetView<PlanOverviewController> {
@@ -127,7 +127,7 @@ class PlanOverviewScreen extends GetView<PlanOverviewController> {
         floatingActionButtonLocation: Platform.isIOS
             ? FloatingActionButtonLocation.centerDocked
             : FloatingActionButtonLocation.centerFloat,
-        floatingActionButton: (StorageController().userType == 'trainer')
+        floatingActionButton: ( AppProvider.isTrainer)
             ? const SizedBox.shrink()
             : controller.isActivated
                 ? Container()

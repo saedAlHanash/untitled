@@ -1,6 +1,6 @@
+import 'package:fitness_storm/core/strings/app_color_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fitness_storm/core/strings/app_color_manager.dart';
 
 const primaryColor = AppColorManager.black;
 const secondaryColor = AppColorManager.mainColorDark;

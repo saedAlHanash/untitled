@@ -4,13 +4,13 @@ import 'package:fitness_storm/core/util/abstraction.dart';
 
 import '../../../../core/api_manager/api_service.dart';
 import '../../../../core/api_manager/api_url.dart';
+import '../../../../core/app/app_provider.dart';
 import '../../../../core/error/error_manager.dart';
 import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/pair_class.dart';
 import '../../../../core/util/shared_preferences.dart';
 import '../../../../generated/l10n.dart';
 import '../../data/request/login_request.dart';
-import '../../data/response/login_response.dart';
 
 part 'confirm_code_state.dart';
 
@@ -30,35 +30,28 @@ class ConfirmCodeCubit extends Cubit<ConfirmCodeInitial> {
     }
   }
 
-  Future<Pair<LoginData?, String?>> _confirmCodeApi() async {
+  Future<Pair<bool?, String?>> _confirmCodeApi() async {
     final response = await APIService().postApi(
       url: PostUrl.confirmCode,
       body: state.request.toJson(),
     );
 
     if (response.statusCode == 200) {
-      final pair = Pair(LoginData.fromJson(response.jsonBody), null);
-      AppSharedPreference.cashToken(pair.first.accessToken);
+      final pair = Pair(true, null);
 
-      AppSharedPreference.removePhoneOrEmail();
-      APIService.reInitial();
+      await AppProvider.cashSetConfirmAccount();
+
+      await AppSharedPreference.removePhoneOrEmail();
+
       return pair;
     } else {
-        return response.getPairError;
+      return response.getPairError;
     }
   }
 
   set setPhoneOrEmail(String? phoneOrEmail) => state.request.phoneOrEmail = phoneOrEmail;
 
   set setCode(String? code) => state.request.code = code;
-
-  String? get validatePhoneOrEmail {
-    if (state.request.phoneOrEmail.isBlank) {
-      return '${S().email} - ${S().phoneNumber}'
-          ' ${S().isRequired}';
-    }
-    return null;
-  }
 
   String? get validateCode {
     if (state.request.code.isBlank) {

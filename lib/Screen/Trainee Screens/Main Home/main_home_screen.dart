@@ -10,7 +10,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 import '../../../Utils/Routes/app_pages.dart';
-import '../../../Utils/storage_controller.dart';
+import '../../../core/app/app_provider.dart';
 import '../../chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 import '../HomeScreen/home_screen.dart';
 import 'Widget/navigation_bar_widget.dart';
@@ -46,7 +46,7 @@ class MainHomeScreen extends GetView<MainHomeController> {
                       : EdgeInsets.only(right: Get.width / 20),
                   child: GestureDetector(
                     onTap: () {
-                      if (StorageController().id == '262') return;
+                      if (AppControl.isAppleAccount) return;
                       Get.toNamed(AppRoutes.subscriptionScreen);
                     },
                     child: Image.asset(

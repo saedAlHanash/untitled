@@ -3,14 +3,12 @@ import 'package:fitness_storm/Screen/Trainee%20Screens/HomeScreen/HomeSreenWidge
 import 'package:fitness_storm/Screen/Trainee%20Screens/HomeScreen/HomeSreenWidget/search_result.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/HomeScreen/home_screen_controller.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/HomeScreen/refresh_home_plan_cubit/refresh_home_plan_cubit.dart';
-import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
-import '../../../Model/trainer.dart';
 import '../../../Utils/Routes/app_pages.dart';
 import 'HomeSreenWidget/FeaturedPlanWidget/featured_plan_widget.dart';
 import 'HomeSreenWidget/TrendingPlanWidget/trending_plan_widget.dart';

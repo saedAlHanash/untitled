@@ -423,6 +423,7 @@ class MyTextFormOutLineWidget extends StatefulWidget {
     this.iconWidgetLift,
     this.onChangedFocus,
     this.onTap,
+    this.autofillHints,
   });
 
   final bool? enable;
@@ -441,6 +442,7 @@ class MyTextFormOutLineWidget extends StatefulWidget {
   final Function(bool)? onChangedFocus;
   final Function()? onTap;
 
+  final List<String>? autofillHints;
   final String? Function(String?)? validator;
   final TextEditingController? controller;
   final TextInputType? keyBordType;
@@ -535,7 +537,7 @@ class _MyTextFormOutLineWidgetState extends State<MyTextFormOutLineWidget> {
       ),
       alignLabelWithHint: true,
       filled: true,
-      labelStyle: TextStyle(color: widget.color ?? AppColorManager.mainColor),
+      labelStyle: TextStyle(color: widget.color),
       suffixIcon: widget.obscureText ? suffixIcon : widget.iconWidgetLift,
       prefixIcon: widget.obscureText ? null : suffixIcon,
     );
@@ -559,6 +561,7 @@ class _MyTextFormOutLineWidgetState extends State<MyTextFormOutLineWidget> {
           ),
           3.0.verticalSpace,
           TextFormField(
+            autofillHints: widget.autofillHints,
             onTap: () => widget.onTap?.call(),
             validator: widget.validator,
             decoration: inputDecoration,

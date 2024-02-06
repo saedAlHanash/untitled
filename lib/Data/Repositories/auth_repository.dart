@@ -54,17 +54,8 @@ class AuthRepository {
     return await Methods.post(url: TRAINEEURLS.resendOTP, options: option);
   }
 
-  Future<ApiResult> refreshUserToken() async {
-    Options option = Utils.getOptions(accept: true, withRefreshToken: true);
-    return await Methods.post(
-        url: TRAINEEURLS.refeshUserToken, options: option);
-  }
 
-  Future<ApiResult> refreshTrainerToken() async {
-    Options option = Utils.getOptions(accept: true, withRefreshToken: true);
-    return await Methods.post(
-        url: TRAINERURLS.refreshTrainerToken, options: option);
-  }
+
 
   Future<ApiResult> traineeLogout() async {
     Options option = Utils.getOptions(accept: true, withRefreshToken: true);

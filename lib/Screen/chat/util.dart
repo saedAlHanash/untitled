@@ -1,22 +1,17 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:fitness_storm/Data/Api/methods.dart';
 import 'package:fitness_storm/Screen/chat/my_room_object.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 import 'package:flutter_firebase_chat_core/flutter_firebase_chat_core.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import '../../Model/trainer.dart';
 import '../../Utils/dependency_injection.dart';
 import '../../core/api_manager/api_service.dart';
 import '../../main.dart';
 import 'get_chats_rooms_bloc/get_rooms_cubit.dart';
-
-import 'package:bloc/bloc.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 extension TypesRoom on types.Room {
   bool get isNotReed {

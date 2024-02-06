@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
-import '../../../Utils/storage_controller.dart';
+import '../../../core/app/app_provider.dart';
 import 'Widget/trainee_profile_header.dart';
 import 'Widget/trainer_button.dart';
 
@@ -32,7 +32,7 @@ class TraineeProfileScreen extends GetView<TraineeProfileController> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       const TraineeProfileHeader(),
-                      if (StorageController().id != '262') //add this for apple store
+                      if (AppControl.isAppleAccount) //add this for apple store
                         const SubscriptionPlanButton(),
                       const TraineeProfileBody(),
                       const TrainerButton(),

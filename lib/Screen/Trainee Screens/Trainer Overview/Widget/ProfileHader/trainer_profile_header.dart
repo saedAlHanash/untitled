@@ -8,7 +8,6 @@ import '../../../../../Model/trainer.dart';
 import '../../../../../core/strings/app_color_manager.dart';
 import '../../../../../core/strings/enum_manager.dart';
 import '../../../../../core/widgets/my_button.dart';
-import '../../../../../features/appointments/ui/widget/appointments_button.dart';
 
 class TrainerProfileHeader extends StatelessWidget {
   const TrainerProfileHeader({

@@ -7,8 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shimmer_animation/shimmer_animation.dart';
 
-import '../../../Utils/storage_controller.dart';
-import '../../Trainer Screens/Trainer Main Home/trainer_main_home_controller.dart';
+import '../../../core/app/app_provider.dart';
 import 'Widget/slide_widget.dart';
 
 class UserTrainingScreen extends GetView<UserTrainingController> {
@@ -17,7 +16,7 @@ class UserTrainingScreen extends GetView<UserTrainingController> {
   @override
   Widget build(BuildContext context) {
     return Obx(() => WillPopScope(
-          onWillPop: controller.complete || storageController.userType == 'trainer'
+          onWillPop: controller.complete ||  AppProvider.isTrainer
               ? null
               : () async {
                   bool shouldNavigateBack = await showDialog(
@@ -131,7 +130,7 @@ class UserTrainingScreen extends GetView<UserTrainingController> {
                       (controller.type == "Zumba" || controller.type == 'zumba')
                           ? const SizedBox.shrink()
                           : ExerciseListView(),
-                      (StorageController().userType == 'trainer')
+                      ( AppProvider.isTrainer)
                           ? const SizedBox.shrink()
                           : SizedBox(
                               height: Get.height / 8,
@@ -159,7 +158,7 @@ class UserTrainingScreen extends GetView<UserTrainingController> {
                   )
                 : controller.type == "Zumba" ||
                         controller.type == 'zumba' ||
-                        (StorageController().userType == 'trainer')
+                        ( AppProvider.isTrainer)
                     ? const SizedBox.shrink()
                     : Obx(
                         () => controller.isLoading

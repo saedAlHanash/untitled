@@ -23,10 +23,6 @@ class TrainerAuthRepository {
     return await Methods.post(url: TRAINERURLS.trainerLogin, options: option, data: data);
   }
 
-  Future<ApiResult> refreshTrainerToken() async {
-    final option = Utils.getOptions(accept: true, withRefreshToken: true);
-    return await Methods.post(url: TRAINERURLS.refreshTrainerToken, options: option);
-  }
 
   Future<ApiResult> trainerLogout() async {
     final option = Utils.getOptions(accept: true, withRefreshToken: true);

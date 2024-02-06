@@ -16,7 +16,7 @@ class MyButton extends StatelessWidget {
     this.width,
     this.height,
     this.enable,
-    this.toUpper = true,
+    this.toUpper = false,
     this.padding,
   }) : super(key: key);
 
@@ -141,7 +141,7 @@ class MyButtonRound extends StatelessWidget {
     this.textColor,
     this.width,
     this.withOpacity = true,
-    this.toUpper = true,
+    this.toUpper = false,
     this.padding,
     this.enable = true,
   });

@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:fitness_storm/core/util/shared_preferences.dart';
 import 'package:fitness_storm/helper/lang_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -13,12 +14,11 @@ import 'Data/Api/urls.dart';
 import 'Screen/Trainee Screens/HomeScreen/refresh_home_plan_cubit/refresh_home_plan_cubit.dart';
 import 'Screen/chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 import 'Utils/dependency_injection.dart';
-import 'Utils/storage_controller.dart';
 import 'Utils/utils.dart';
 import 'core/api_manager/api_service.dart';
+import 'core/app/app_provider.dart';
 import 'core/app/app_widget.dart';
 import 'core/injection/injection_container.dart' as di;
-import 'core/injection/injection_container.dart';
 
 late Box<String> roomsBox;
 late Box usersBox;
@@ -59,7 +59,6 @@ void main() async {
 
   setLastSeen();
 
-
   runApp(
     MultiBlocProvider(
       providers: [
@@ -72,7 +71,7 @@ void main() async {
 }
 
 void setLastSeen() {
-  if (StorageController().token.isEmpty) return;
+  if (AppProvider.token.isEmpty) return;
 
   APIService().patchApi(
     url: 'profile/last-seen',
@@ -91,10 +90,9 @@ class MyHttpOverrides extends HttpOverrides {
 }
 
 Future<void> saveFCM() async {
-  if (StorageController().token.isEmpty) return;
+  if (AppProvider.token.isEmpty) return;
   final token = await FirebaseMessaging.instance.getToken() ?? '';
   final option = Utils.getOptions(accept: true, withToken: true);
   Map<String, String> map = {'device_token': token};
   await Methods.post(url: TRAINEEURLS.saveFcm, options: option, data: map);
 }
-

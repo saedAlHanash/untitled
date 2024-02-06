@@ -3,11 +3,10 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
-import 'package:fitness_storm/core/strings/app_color_manager.dart';
+
 import '../error/error_manager.dart';
 import '../strings/enum_manager.dart';
 import '../util/pair_class.dart';
-import '../util/snack_bar_message.dart';
 import '../widgets/spinner_widget.dart';
 
 extension SplitByLength on String {

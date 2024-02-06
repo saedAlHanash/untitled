@@ -32,7 +32,7 @@ class TrainerProfileHeader extends GetView<TrainerProfileController> {
             borderRadius: BorderRadius.circular(100),
             child: CachedNetworkImage(
               imageUrl: Constants.imageUrl +
-                  controller.trainerProfile.image.toString(),
+                  (controller.trainerProfile?.image.toString() ?? ''),
               fadeInDuration: const Duration(seconds: 1),
               placeholder: (context, url) => const CircularProgressIndicator.adaptive(),
               errorWidget: (context, url, error) =>
@@ -42,11 +42,9 @@ class TrainerProfileHeader extends GetView<TrainerProfileController> {
         ),
         SizedBox(height: Get.height / 27),
         Text(
-          controller.trainerProfile.name!,
+          controller.trainerProfile?.name ?? '',
           style: TextStyle(
-              fontSize: 26,
-              color: Get.theme.primaryColor,
-              fontWeight: FontWeight.bold),
+              fontSize: 26, color: Get.theme.primaryColor, fontWeight: FontWeight.bold),
         ),
         SizedBox(height: Get.height / 67.7),
         GestureDetector(

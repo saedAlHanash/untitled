@@ -1,9 +1,8 @@
 // ignore_for_file: avoid_print
 
-import 'package:dio/dio.dart';
 import 'package:dio/dio.dart' as dio;
+import 'package:dio/dio.dart';
 import 'package:get/get.dart';
-import 'package:logger/logger.dart';
 
 import '../../helper/loging_service.dart';
 import 'api_result.dart';

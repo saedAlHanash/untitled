@@ -10,7 +10,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-import '../../../Model/plan.dart';
 import '../../../core/models/plan_model.dart';
 
 class FeaturedPlanController extends GetxController {

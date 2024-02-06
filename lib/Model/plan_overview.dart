@@ -1,7 +1,3 @@
-import 'package:fitness_storm/Model/training_level.dart';
-import 'package:fitness_storm/Model/training_location.dart';
-import 'package:fitness_storm/Model/training_type.dart';
-
 import '../core/models/plan_model.dart';
 import 'trainer.dart';
 

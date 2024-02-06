@@ -1,6 +1,5 @@
 import 'package:drawable_text/drawable_text.dart';
 import 'package:fitness_storm/Utils/Constants/constants.dart';
-import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,7 +13,6 @@ import '../../../../../core/strings/app_color_manager.dart';
 import '../../../../../core/strings/enum_manager.dart';
 import '../../../../../core/widgets/my_button.dart';
 import '../../../../Screen/Trainee Screens/Chat/Widget/chat_card_widget.dart';
-import '../../../../Screen/Trainee Screens/Trainer Overview/trainer_overview_controller.dart';
 import '../../../../Screen/chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 import '../../../../Screen/video/video.dart';
 import '../../../../Utils/Routes/app_pages.dart';

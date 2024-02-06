@@ -7,7 +7,6 @@ import '../../../Data/Api/api_result.dart';
 import '../../../Data/Repositories/Trainer Repository/plan_repository.dart';
 import '../../../Data/Repositories/Trainer Repository/trainer_repository.dart';
 import '../../../Data/Repositories/plan_repository.dart';
-import '../../../Model/plan.dart';
 import '../../../Model/trainer.dart';
 import '../../../core/models/plan_model.dart';
 

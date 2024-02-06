@@ -5,7 +5,6 @@ import 'package:fitness_storm/Model/trainer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../Model/plan.dart';
 import '../../../core/models/plan_model.dart';
 
 class TrainerHomeScreenController extends GetxController {

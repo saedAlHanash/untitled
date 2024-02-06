@@ -1,4 +1,3 @@
-import 'package:fitness_storm/common/assets.gen.dart';
 import 'package:fitness_storm/extensions/widget_extensions.dart';
 import 'package:fitness_storm/helper/lang_helper.dart';
 import 'package:flutter/material.dart';

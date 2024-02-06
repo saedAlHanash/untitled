@@ -1,20 +1,21 @@
-import 'package:drawable_text/drawable_text.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
+import 'package:fitness_storm/core/strings/app_color_manager.dart';
 import 'package:fitness_storm/core/util/shared_preferences.dart';
 import 'package:fitness_storm/core/widgets/my_button.dart';
 import 'package:fitness_storm/core/widgets/my_text_form_widget.dart';
-
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:image_multi_type/image_multi_type.dart';
 
 import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/my_style.dart';
-import '../../../../core/widgets/app_bar/app_bar_widget.dart';
+import '../../../../core/widgets/verification_code_widget.dart';
 import '../../../../generated/assets.dart';
 import '../../../../generated/l10n.dart';
 import '../../../../router/app_router.dart';
 import '../../bloc/reset_password_cubit/reset_password_cubit.dart';
+import '../widget/auth_header.dart';
 
 class ResetPasswordPage extends StatefulWidget {
   const ResetPasswordPage({Key? key}) : super(key: key);
@@ -25,15 +26,13 @@ class ResetPasswordPage extends StatefulWidget {
 
 class _ResetPasswordPageState extends State<ResetPasswordPage> {
   late final ResetPasswordCubit resetPassCubit;
-  late final ResetPasswordInitial resetPassState;
+
 
   final _formKey = GlobalKey<FormState>();
 
   @override
   void initState() {
     resetPassCubit = context.read<ResetPasswordCubit>();
-    resetPassState = context.read<ResetPasswordCubit>().state;
-
     super.initState();
   }
 
@@ -42,70 +41,76 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
     return BlocListener<ResetPasswordCubit, ResetPasswordInitial>(
       listenWhen: (p, c) => c.statuses == CubitStatuses.done,
       listener: (context, state) {
-
+        startLogin(context);
       },
-      child: Scaffold(
-        appBar: AppBarWidget(titleText: S.of(context).resetPassword),
-        bottomNavigationBar: TextButton(
-          onPressed: () {
-            AppSharedPreference.removePhoneOrEmail();
-            Navigator.pushNamed(context, RouteName.login);
-          },
-          child: DrawableText(
-            size: 18.0.sp,
-            underLine: true,
-            fontFamily: FontManager.cairoBold.name,
-            text: '${S.of(context).login}.',
+      child: Stack(
+        children: [
+          ImageMultiType(
+            url: Assets.imagesAuth1,
+            height: 1.0.sh,
+            fit: BoxFit.cover,
           ),
-        ),
-        body: SingleChildScrollView(
-          padding: MyStyle.authPagesPadding,
-          child: Form(
-            key: _formKey,
-            child: Column(
-              children: [
-                115.0.verticalSpace,
-                DrawableText(
-                  text: S.of(context).newPassword,
-                  matchParent: true,
-                  padding: const EdgeInsets.symmetric(horizontal: 10.0).w,
+          Container(
+            height: 1.0.sh,
+            color: Colors.black.withOpacity(0.6),
+          ),
+          SafeArea(
+            child: Scaffold(
+              backgroundColor: Colors.transparent,
+              body: Padding(
+                padding: MyStyle.authPagesPadding,
+                child: Form(
+                  key: _formKey,
+                  child: Column(
+                    children: [
+                      AuthHeader(name: S.of(context).resetPassword),
+                      40.0.verticalSpace,
+                      PinCodeWidget(
+                        onChange: (p0) => resetPassCubit.setCode = p0,
+                        validator: (p0) => resetPassCubit.validateCode,
+                      ),
+                      30.0.verticalSpace,
+                      MyTextFormOutLineWidget(
+                        obscureText: true,
+                        validator: (p0) => resetPassCubit.validatePassword,
+                        label: S.of(context).newPassword,
+                        initialValue: resetPassCubit.state.request.password,
+                        keyBordType: TextInputType.emailAddress,
+                        onChanged: (val) => resetPassCubit.setPassword = val,
+                      ),
+                      const Spacer(),
+                      BlocBuilder<ResetPasswordCubit, ResetPasswordInitial>(
+                        builder: (_, state) {
+                          if (state.statuses.loading) {
+                            return MyStyle.loadingWidget();
+                          }
+                          return MyButtonRound(
+                            color: AppColorManager.mainColorLight,
+                            text: S.of(context).reset,
+                            onTap: () {
+                              if (!_formKey.currentState!.validate()) return;
+                              resetPassCubit.resetPassword();
+                            },
+                          );
+                        },
+                      ),
+                      15.0.verticalSpace,
+                      MyButtonRound(
+                        color: AppColorManager.gray,
+                        text: S.of(context).cancel,
+                        onTap: () {
+                          AppSharedPreference.cashRestPassEmail('');
+                          startLogin(context);
+                        },
+                      ),
+                      const Spacer(),
+                    ],
+                  ),
                 ),
-                35.0.verticalSpace,
-                MyTextFormOutLineWidget(
-                  obscureText: true,
-                  validator: (p0) => resetPassCubit.validatePassword,
-                  label: S.of(context).password,
-                  initialValue: resetPassCubit.state.request.password,
-                  keyBordType: TextInputType.emailAddress,
-                  onChanged: (val) => resetPassCubit.setPassword = val,
-                ),
-                20.0.verticalSpace,
-                MyTextFormOutLineWidget(
-                  obscureText: true,
-                  validator: (p0) => resetPassCubit.validateConfirmPassword,
-                  label: S.of(context).confirmNewPassword,
-                  initialValue: resetPassCubit.state.request.passwordConfirmation,
-                  onChanged: (val) => resetPassCubit.setConfirmPassword = val,
-                ),
-                30.0.verticalSpace,
-                BlocBuilder<ResetPasswordCubit, ResetPasswordInitial>(
-                  builder: (_, state) {
-                    if (state.statuses.loading) {
-                      return MyStyle.loadingWidget();
-                    }
-                    return MyButton(
-                      text: S.of(context).changePassword,
-                      onTap: () {
-                        if (!_formKey.currentState!.validate()) return;
-                        resetPassCubit.resetPassword();
-                      },
-                    );
-                  },
-                ),
-              ],
+              ),
             ),
           ),
-        ),
+        ],
       ),
     );
   }

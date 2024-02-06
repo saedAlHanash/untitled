@@ -3,8 +3,8 @@
 import 'package:dio/dio.dart';
 import 'package:fitness_storm/Model/plan_workout.dart';
 
-import '../../Utils/storage_controller.dart';
 import '../../Utils/utils.dart';
+import '../../core/app/app_provider.dart';
 import '../Api/api_result.dart';
 import '../Api/methods.dart';
 import '../Api/urls.dart';
@@ -13,7 +13,7 @@ class WorkoutRepository {
   Future<List<WorkoutModel>> getPlanWorkout(String id) async {
     Options option = Utils.getOptions(withToken: true, all: true);
     String url = '';
-    if (StorageController().userType == 'trainer') {
+    if ( AppProvider.isTrainer) {
       url = '${TRAINERURLS.getWorkoutsByPlanId}$id/workouts';
     } else {
       url = '${TRAINEEURLS.getWorkoutsByPlanId}$id/workouts';

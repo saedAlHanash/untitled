@@ -1,19 +1,14 @@
-import 'dart:convert';
-
 import 'package:equatable/equatable.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fitness_storm/core/api_manager/api_url.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/api_manager/api_service.dart';
-import '../../../../core/error/error_manager.dart';
-import '../../../../core/injection/injection_container.dart';
-import '../../../../core/network/network_info.dart';
+import '../../../../core/app/app_provider.dart';
 import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/pair_class.dart';
 import '../../../../core/util/snack_bar_message.dart';
-import '../../../../generated/l10n.dart';
 import '../../data/response/login_response.dart';
 
 part 'get_me_state.dart';
@@ -34,10 +29,9 @@ class GetMeCubit extends Cubit<GetMeInitial> {
        emit(state.copyWith(statuses: CubitStatuses.error, error: pair.second));
     } else {
 
-      // AppSharedPreference.cashLoginData(pair.first!);
-      APIService.reInitial();
-
+      await AppProvider.cashLoginData(pair.first!);
       emit(state.copyWith(statuses: CubitStatuses.done, result: pair.first));
+
     }
   }
 

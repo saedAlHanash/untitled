@@ -2,7 +2,6 @@ import 'package:fitness_storm/Screen/Trainee%20Screens/TrendingPlan/trending_pla
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../Model/plan.dart';
 import '../../../Widgets/plan_time_freqency.dart';
 import '../../../Widgets/see_all_list_item.dart';
 import '../../../core/models/plan_model.dart';

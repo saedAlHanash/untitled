@@ -1,6 +1,8 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fitness_storm/core/api_manager/api_url.dart';
+import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
+import 'package:fitness_storm/features/auth/data/response/login_response.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
 import '../../../../core/api_manager/api_service.dart';
@@ -8,10 +10,8 @@ import '../../../../core/error/error_manager.dart';
 import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/abstraction.dart';
 import '../../../../core/util/pair_class.dart';
-import '../../../../core/util/shared_preferences.dart';
 import '../../../../generated/l10n.dart';
 import '../../data/request/signup_request.dart';
-import '../../ui/pages/forget_passowrd_page.dart';
 
 part 'signup_state.dart';
 
@@ -37,8 +37,8 @@ class SignupCubit extends Cubit<SignupInitial> {
     );
 
     if (response.statusCode.success) {
-      await AppSharedPreference.cashPhoneOrEmail(state.request.phoneOrEmail);
-      otp = response.jsonBody['data']['otp_code'].toString();
+      await AppProvider.cashLoginData(LoginData.fromJson(response.jsonBody));
+
       return Pair(true, null);
     } else {
       return response.getPairError;
@@ -46,8 +46,6 @@ class SignupCubit extends Cubit<SignupInitial> {
   }
 
   set setName(String? name) => state.request.name = name;
-
-  set setBirthday(DateTime? birthday) => state.request.birthday = birthday;
 
   set setPhoneOrEmail(String? phoneOrEmail) => state.request.phoneOrEmail = phoneOrEmail;
 
@@ -58,13 +56,6 @@ class SignupCubit extends Cubit<SignupInitial> {
   String? get validateName {
     if (state.request.name == null) {
       return S().nameEmpty;
-    }
-    return null;
-  }
-
-  String? get validateBirthday {
-    if (state.request.birthday == null) {
-      return '${S().birthday} ${S().isRequired}';
     }
     return null;
   }

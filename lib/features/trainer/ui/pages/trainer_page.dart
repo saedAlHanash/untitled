@@ -9,7 +9,6 @@ import '../../../../Screen/Trainee Screens/HomeScreen/HomeSreenWidget/plan_time_
 import '../../../../Screen/Trainee Screens/Trainer Overview/Widget/ProfileBio/trainer_bio_widget.dart';
 import '../../../../core/util/my_style.dart';
 import '../../../appointments/bloc/booked_appointments_cubit/booked_appointments_cubit.dart';
-import '../../../plans/bloc/add_favorite/add_favorite_cubit.dart';
 import '../../../plans/bloc/plans_cubit/plans_cubit.dart';
 import '../../bloc/trainer_cubit/trainer_cubit.dart';
 import '../widget/plans_list.dart';

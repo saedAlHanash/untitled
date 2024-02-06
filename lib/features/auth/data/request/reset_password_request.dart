@@ -3,16 +3,15 @@ import 'package:fitness_storm/core/util/shared_preferences.dart';
 class ResetPasswordRequest {
   ResetPasswordRequest({
     this.password,
-    this.passwordConfirmation,
+    this.code,
   });
 
   String? password;
-  String? passwordConfirmation;
+  String? code;
 
   Map<String, dynamic> toJson() => {
-        "email_or_phone": AppSharedPreference.getPhoneOrEmailPassword,
-        "otp_code": AppSharedPreference.getOtpPassword,
+        "email": AppSharedPreference.getRestPassEmail,
+        "code": code,
         "password": password,
-        "password_confirmation": passwordConfirmation,
       };
 }

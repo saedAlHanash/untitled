@@ -9,9 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-
 import '../../../../Data/Repositories/auth_repository.dart';
-import '../../../../Utils/storage_controller.dart';
 import '../../../Data/Api/error_response.dart';
 import '../../../core/api_manager/api_service.dart';
 import '../Signin/signin_controller.dart';
@@ -35,7 +33,7 @@ class SignupController extends GetxController {
   final Rx<TextEditingController> _passwordEditingController =
       TextEditingController().obs;
 
-  final _storageController = StorageController();
+   
 
   TextEditingController get emailEditingController => _emailEditingController.value;
 
@@ -115,11 +113,11 @@ class SignupController extends GetxController {
 
       if (result.statusCode >= 200 && result.statusCode < 210) {
         final model = LoginPhone.fromJson(jsonDecode(result.body));
-        _storageController.token = model.data.accessToken;
-        _storageController.rememberToken = model.data.refreshToken;
-        _storageController.id = model.data.id;
-        _storageController.userType = 'trainee';
-        _storageController.methodTakeAuthentication = '';
+
+        
+
+
+        
 
         if (!model.data.isConfirmed) {
           Get.offNamed(AppRoutes.otp, arguments: [phone, false]);
@@ -141,7 +139,7 @@ class SignupController extends GetxController {
         passwordEditingController.text, nameEditingController.text);
 
     if (res.type == ApiResultType.success) {
-      _storageController.token = res.data['access_token'];
+
       Get.back();
       Utils.openSnackBar(title: 'check_your_email'.tr, textColor: Colors.white);
       Get.offAllNamed(AppRoutes.otp, arguments: [emailEditingController.text, false]);
@@ -152,11 +150,11 @@ class SignupController extends GetxController {
   }
 
   getToken() async {
-    StorageController storageController = StorageController();
+     
     String? token = '';
     token = await FirebaseMessaging.instance.getToken();
     //log('\x1B[32mUser Token $token');
-    storageController.fcm = token;
+
     return token;
   }
 
@@ -183,11 +181,9 @@ class SignupController extends GetxController {
             x.user!.email!, x.user!.displayName!, x.user!.uid);
         // loggerObject.w(res.statusCode);
         if (res.type == ApiResultType.success) {
-          _storageController.token = res.data['access_token'];
-          _storageController.rememberToken = res.data['refresh_token'];
-          _storageController.id = res.data['id'];
-          _storageController.userType = isTrainer ? 'trainer' : 'trainee';
-          _storageController.methodTakeAuthentication = 'google';
+
+
+          
           final token = await getToken();
           //log('FFFCCCMMM $token');
           await storeFcm(token);

@@ -1,7 +1,6 @@
 import 'package:fitness_storm/Screen/Trainee%20Screens/Trainee_Profile/Widget/profile_card.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Trainee_Profile/trainee_profile_controller.dart';
 import 'package:fitness_storm/Widgets/language_board_widget.dart';
-import 'package:fitness_storm/common/assets.gen.dart';
 import 'package:fitness_storm/common/bottom_sheets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

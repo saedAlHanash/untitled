@@ -2,18 +2,14 @@ import 'dart:io';
 
 import 'package:fitness_storm/Data/Repositories/auth_repository.dart';
 import 'package:fitness_storm/Utils/Routes/app_pages.dart';
+import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/core/app/app_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../Data/Api/api_result.dart';
-import '../../Utils/storage_controller.dart';
 import '../../Utils/utils.dart';
-import '../../core/injection/injection_container.dart';
-import '../../features/auth/bloc/login_cubit/login_cubit.dart';
-import '../../features/auth/ui/pages/login_page.dart';
 import '../../helper/cache_helper.dart';
 import '../../router/app_router.dart';
 
@@ -23,10 +19,6 @@ Future<void> openPage(String url) async {
 }
 
 class SplashController extends GetxController {
-  String title = 'FitnesStorm';
-
-  AuthRepository authRepository = AuthRepository();
-
   @override
   void onReady() {
     super.onReady();
@@ -51,44 +43,7 @@ class SplashController extends GetxController {
         return;
       }
 
-      try {
-        var res;
-
-        if (CacheHelper.getData(key: 'sticky_otp') ?? false) {
-          Get.offNamed(AppRoutes.otp, arguments: ['', false]);
-          return;
-        }
-
-        if (StorageController().userType == 'trainer') {
-          res = await authRepository.refreshTrainerToken();
-          if (res.type == ApiResultType.success) {
-            StorageController().token = res.data['access_token'];
-            Get.offAllNamed(AppRoutes.trainerHomePage);
-          } else {
-            if (StorageController().token.isEmpty) {
-              Navigator.pushNamed(Get.context!, RouteName.login);
-              // Get.offNamed(AppRoutes.signIn);
-            } else {
-              Get.offAllNamed(AppRoutes.trainerHomePage);
-            }
-          }
-        } else {
-          res = await authRepository.refreshUserToken();
-          if (res.type == ApiResultType.success) {
-            StorageController().token = res.data['access_token'];
-            // Utils.openSnackBar(title: res.data['access_token']);
-            Get.offAllNamed(AppRoutes.mainHome);
-          } else {
-            if (StorageController().token.isEmpty) {
-              startLogin(ctx!);
-            } else {
-              Get.offAllNamed(AppRoutes.mainHome);
-            }
-          }
-        }
-      } catch (e) {
-        //log(e.toString());
-      }
+      Get.offAllNamed(AppRoutes.mainHome);
     });
   }
 }

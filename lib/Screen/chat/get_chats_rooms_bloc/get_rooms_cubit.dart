@@ -9,7 +9,6 @@ import 'package:flutter_firebase_chat_core/flutter_firebase_chat_core.dart';
 
 import '../../../core/strings/enum_manager.dart';
 import '../../../main.dart';
-import '../../Trainee Screens/coupon/coupon_cubit/coupon_cubit.dart';
 import '../../chat/util.dart';
 
 part 'get_rooms_state.dart';

@@ -7,11 +7,9 @@ import '../strings/enum_manager.dart';
 
 class AppSharedPreference {
   static const _token = '1';
-  static const _deviceId = '0';
-  static const _phoneNumber = '3';
+  static const _restPassEmail = '3';
   static const _toScreen = '4';
   static const _policy = '5';
-  static const _user = '6';
 
   static const _fireToken = '8';
   static const _notificationCount = '9';
@@ -24,6 +22,7 @@ class AppSharedPreference {
   static const _otpPassword = '16';
   static const _currency = '17';
   static const _profile = '19';
+  static const _loginData = '0';
 
   static late SharedPreferences _prefs;
 
@@ -40,18 +39,13 @@ class AppSharedPreference {
     return _prefs.getString(_token) ?? '';
   }
 
-  static String get getDeviceId {
-    final f = _prefs.getString(_deviceId) ?? '';
-    return f;
+  static cashRestPassEmail(String? email) async {
+    if (email == null) return;
+    await _prefs.setString(_restPassEmail, email);
   }
 
-  static cashPhoneOrEmail(String? phone) async {
-    if (phone == null) return;
-    await _prefs.setString(_phoneNumber, phone);
-  }
-
-  static String get getPhoneOrEmail {
-    return _prefs.getString(_phoneNumber) ?? '';
+  static String get getRestPassEmail {
+    return _prefs.getString(_restPassEmail) ?? '';
   }
 
   static cashPhoneOrEmailPassword(String? phone) async {
@@ -73,32 +67,22 @@ class AppSharedPreference {
   }
 
   static Future<void> removePhoneOrEmail() async {
-    await _prefs.remove(_phoneNumber);
     await _prefs.remove(_phoneNumberPassword);
     await _prefs.remove(_otpPassword);
   }
 
-  static cashToScreen(ToScreen appState) {
-    _prefs.setInt(_toScreen, appState.index);
+  static cashUserType(UserType appState) async {
+    await _prefs.setInt(_toScreen, appState.index);
   }
 
-  static ToScreen toScreen() {
-    final index = _prefs.getInt(_toScreen) ?? 0;
-    return ToScreen.values[index];
-  }
-
-  static cashAcceptPolicy(bool isAccept) {
-    if (isAccept == false) cashToScreen(ToScreen.policy);
-
-    _prefs.setBool(_policy, isAccept);
-  }
+  static UserType get getUserType => UserType.values[_prefs.getInt(_toScreen) ?? 0];
 
   static bool isAcceptPolicy() {
     return _prefs.getBool(_policy) ?? false;
   }
 
-  static void clear() {
-    _prefs.clear();
+  static Future<void> clear() async {
+    await _prefs.clear();
   }
 
   static Future<void> logout() async {
@@ -162,11 +146,11 @@ class AppSharedPreference {
 
   static String get currency => _prefs.getString(_currency) ?? '\$';
 
-  static set setProfile(LoginData profile) {
-    _prefs.setString(_profile, jsonEncode(profile.toJson()));
+  static cashLoginData(LoginData profile) async {
+    await _prefs.setString(_profile, jsonEncode(profile.toJson()));
   }
 
-  static LoginData get getProfile {
+  static LoginData get loginDate {
     return LoginData.fromJson(jsonDecode(_prefs.getString(_profile) ?? '{}'));
   }
 }

@@ -1,5 +1,4 @@
 import 'package:fitness_storm/Model/trainer.dart';
-import 'package:fitness_storm/Utils/Routes/app_pages.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

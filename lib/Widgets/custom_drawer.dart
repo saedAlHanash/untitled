@@ -4,7 +4,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../Utils/storage_controller.dart';
 import '../Utils/utils.dart';
 
 class CustomDrawer extends StatelessWidget {
@@ -41,8 +40,8 @@ class CustomDrawer extends StatelessWidget {
             onTap: () async {
               Utils.openLoadingDialog();
               // await authRepository.logout();
-              StorageController().token = '';
-              StorageController().rememberToken = '';
+
+
               ////   print(object)
               Get.back();
               Get.offAllNamed(AppRoutes.signIn);

@@ -3,17 +3,15 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:fitness_storm/Utils/storage_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:package_info_plus/package_info_plus.dart';
- 
-
 
 import '../Screen/Trainee Screens/coupon/ui/coupon_widget.dart';
 import '../core/api_manager/api_service.dart';
+import '../core/app/app_provider.dart';
 import '../core/util/pair_class.dart';
 
 class Utils {
@@ -259,9 +257,7 @@ class Utils {
     if (withToken || all || customToken.isNotEmpty) {
       //log(StorageController().token);
       options.headers!.addAll({
-        'authorization': customToken.isNotEmpty
-            ? 'Bearer $customToken'
-            : 'Bearer ${StorageController().token}',
+        'Authorization':'Bearer ${AppProvider.token}',
         'timeZone': DateTime.now().timeZoneName,
         'lang': Get.locale?.languageCode ?? 'en',
       });
@@ -270,7 +266,7 @@ class Utils {
       //log('RefreshToken');
       //log(StorageController().rememberToken);
       options.headers!.addAll({
-        'authorization': 'Bearer ${StorageController().rememberToken}',
+        'Authorization': 'Bearer ${AppProvider.token}',
         'lang': Get.locale!.languageCode,
         'timeZone': DateTime.now().timeZoneName,
       });
@@ -317,6 +313,7 @@ Future<Pair<SettingResult?, String?>> _apiSettings() async {
 
   final response = await APIService().getApi(
     url: 'api/terms',
+    additionalConstParam: '',
   );
 
   if (response.statusCode == 200) {

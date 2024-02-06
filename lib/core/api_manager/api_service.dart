@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:math';
 import 'dart:typed_data';
 
+import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
@@ -45,10 +46,10 @@ class APIService {
 
   final network = sl<NetworkInfo>();
 
-  factory APIService.reInitial() {
-    _singleton = APIService._internal();
-    return _singleton;
-  }
+  // factory APIService.reInitial() {
+  //   _singleton = APIService._internal();
+  //   return _singleton;
+  // }
 
   factory APIService() => _singleton;
 
@@ -57,9 +58,7 @@ class APIService {
         'Accept': 'Application/json',
         'timeZone': DateTime.now().timeZoneName,
         'lang': Get.locale?.languageCode ?? 'en',
-        // 'lang': AppSharedPreference.getLocal,
-        'DeviceToken': AppSharedPreference.getDeviceId,
-        'Authorization': 'Bearer ${AppSharedPreference.getToken}',
+        'Authorization': 'Bearer ${AppProvider.token}',
       };
 
   APIService._internal();

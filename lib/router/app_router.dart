@@ -2,21 +2,17 @@ import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:fitness_storm/core/strings/enum_manager.dart';
-
 import '../core/injection/injection_container.dart';
-import '../core/widgets/web_view.dart';
 import '../features/auth/bloc/confirm_code_cubit/confirm_code_cubit.dart';
-import '../features/auth/bloc/delete_account_cubit/delete_account_cubit.dart';
 import '../features/auth/bloc/forget_password_cubit/forget_password_cubit.dart';
 import '../features/auth/bloc/login_cubit/login_cubit.dart';
-import '../features/auth/bloc/logout/logout_cubit.dart';
+import '../features/auth/bloc/login_social_cubit/login_social_cubit.dart';
 import '../features/auth/bloc/otp_password_cubit/otp_password_cubit.dart';
 import '../features/auth/bloc/resend_code_cubit/resend_code_cubit.dart';
 import '../features/auth/bloc/reset_password_cubit/reset_password_cubit.dart';
 import '../features/auth/bloc/signup_cubit/signup_cubit.dart';
 import '../features/auth/ui/pages/confirm_code_page.dart';
-import '../features/auth/ui/pages/forget_passowrd_page.dart';
+import '../features/auth/ui/pages/forget_password_page.dart';
 import '../features/auth/ui/pages/login_page.dart';
 import '../features/auth/ui/pages/otp_password_page.dart';
 import '../features/auth/ui/pages/reset_password_page.dart';
@@ -178,6 +174,7 @@ void startSignup(BuildContext context) {
       builder: (_) {
         final providers = [
           BlocProvider(create: (_) => sl<SignupCubit>()),
+          BlocProvider(create: (_) => sl<LoginSocialCubit>()),
         ];
         return MultiBlocProvider(
           providers: providers,
@@ -188,12 +185,13 @@ void startSignup(BuildContext context) {
   );
 }
 
-void startLogin(BuildContext context){
+void startLogin(BuildContext context) {
   Navigator.push(context, MaterialPageRoute(
     builder: (_) {
       return MultiBlocProvider(
         providers: [
           BlocProvider(create: (_) => sl<LoginCubit>()),
+          BlocProvider(create: (_) => sl<LoginSocialCubit>()),
         ],
         child: const LoginPage(),
       );
@@ -201,6 +199,55 @@ void startLogin(BuildContext context){
   ));
 }
 
-void start(BuildContext context){
-
+void startForgetPass(BuildContext context) {
+  final providers = [
+    BlocProvider(create: (_) => sl<ForgetPasswordCubit>()),
+  ];
+  Navigator.push(context, MaterialPageRoute(
+    builder: (_) {
+      return MultiBlocProvider(
+        providers: providers,
+        child: const ForgetPasswordPage(),
+      );
+    },
+  ));
 }
+
+void startRestPass(BuildContext context) {
+  final providers = [
+    BlocProvider(create: (_) => sl<ResetPasswordCubit>()),
+  ];
+
+  //endregion
+  Navigator.push(context, MaterialPageRoute(
+    builder: (_) {
+      return MultiBlocProvider(
+        providers: providers,
+        child: const ResetPasswordPage(),
+      );
+    },
+  ));
+}
+
+void startConfirmCodeAccount(BuildContext context) {
+  final providers = [
+    BlocProvider(create: (_) => sl<ConfirmCodeCubit>()),
+    BlocProvider(create: (_) => sl<ResendCodeCubit>()),
+  ];
+
+  Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (_) {
+        return MultiBlocProvider(
+          providers: providers,
+          child: const ConfirmCodePage(),
+        );
+      },
+    ),
+  );
+}
+
+void startHome(BuildContext context) {}
+
+void start(BuildContext context) {}

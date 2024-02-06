@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 
-import '../Screen/Trainee Screens/coupon/coupon_cubit/coupon_cubit.dart';
 import '../core/strings/enum_manager.dart';
 
 extension FormatDuration on Duration {

@@ -1,7 +1,6 @@
  
 import 'dart:io';
 
-import 'package:fitness_storm/Model/plan.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/HomeScreen/HomeSreenWidget/TrendingPlanWidget/trending_plan_item.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/HomeScreen/home_screen_controller.dart';
 import 'package:fitness_storm/Utils/Routes/app_pages.dart';

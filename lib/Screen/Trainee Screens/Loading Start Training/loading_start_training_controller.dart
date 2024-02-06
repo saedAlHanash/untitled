@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
-import '/Model/exercise.dart';
 import '../../../Utils/Routes/app_pages.dart';
+import '/Model/exercise.dart';
 
 class LoadingStartTrainingController extends GetxController {
   String title = 'FitnesStorm';

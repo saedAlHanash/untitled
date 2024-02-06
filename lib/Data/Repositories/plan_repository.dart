@@ -1,13 +1,11 @@
  
 
 import 'package:dio/dio.dart';
-import 'package:fitness_storm/Model/plan.dart';
 import 'package:fitness_storm/Model/plan_overview.dart';
-import 'package:fitness_storm/Model/training_type.dart';
 
 import '../../Model/subscribed_plan.dart';
-import '../../Utils/storage_controller.dart';
 import '../../Utils/utils.dart';
+import '../../core/app/app_provider.dart';
 import '../../core/models/plan_model.dart';
 import '../Api/api_result.dart';
 import '../Api/methods.dart';
@@ -142,7 +140,7 @@ class PlanRepository {
   Future<PlanOverview> getPlanOverview(String id) async {
     Options option = Utils.getOptions(withToken: true, all: true);
     String url = '';
-    if (StorageController().userType == 'trainer') {
+    if ( AppProvider.isTrainer) {
       url = '${TRAINERURLS.getPlanById}$id';
     } else {
       url = '${TRAINEEURLS.getPlanById}$id';

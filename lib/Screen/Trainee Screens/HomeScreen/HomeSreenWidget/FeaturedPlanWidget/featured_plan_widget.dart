@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../../../../../Model/plan.dart';
 import '../../../../../Utils/Routes/app_pages.dart';
 import '../../../../../core/models/plan_model.dart';
 import '../list_header.dart';

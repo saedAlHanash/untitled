@@ -5,11 +5,12 @@ import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:fitness_storm/generated/assets.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart' as bloc;
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:image_multi_type/image_multi_type.dart';
-import 'package:flutter_bloc/flutter_bloc.dart' as bloc;
+
 import '../../Screen/Splash/splash_binding.dart';
 import '../../Screen/Trainee Screens/coupon/coupon_cubit/coupon_cubit.dart';
 import '../../Utils/Routes/app_pages.dart';
@@ -19,7 +20,6 @@ import '../../features/appointments/bloc/booked_appointments_cubit/booked_appoin
 import '../../features/plans/bloc/add_favorite/add_favorite_cubit.dart';
 import '../../generated/l10n.dart';
 import '../../helper/lang_helper.dart';
-import '../../router/app_router.dart';
 import '../injection/injection_container.dart';
 import '../translations.dart';
 import '../util/shared_preferences.dart';
