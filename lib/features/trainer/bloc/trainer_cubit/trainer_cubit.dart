@@ -16,7 +16,7 @@ class TrainerCubit extends Cubit<TrainerInitial> {
   TrainerCubit() : super(TrainerInitial.initial());
 
   Future<void> getTrainer({required int id}) async {
-    if (!AppSharedPreference.isLogin) return;
+     
 
     emit(state.copyWith(statuses: CubitStatuses.loading, id: id));
     final pair = await _bookedAppointmentsApi();

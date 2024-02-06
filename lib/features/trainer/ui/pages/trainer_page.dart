@@ -22,11 +22,17 @@ class TrainerPage extends StatefulWidget {
 }
 
 class _TrainerPageState extends State<TrainerPage> {
+  late final TrainerCubit trainerCubit;
+
   @override
   void initState() {
-    context.read<BookedAppointmentsCubit>().getBookedAppointments();
+    trainerCubit = context.read<TrainerCubit>();
+    context.read<BookedAppointmentsCubit>().getBookedAppointments(
+          trainerId: trainerCubit.state.id,
+        );
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

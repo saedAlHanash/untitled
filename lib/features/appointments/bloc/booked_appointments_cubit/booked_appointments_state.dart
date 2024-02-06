@@ -1,11 +1,11 @@
 part of 'booked_appointments_cubit.dart';
 
 class BookedAppointmentsInitial extends AbstractCubit<List<Appointments>> {
-  // final LoginRequest request;
+  final int trainerId;
   const BookedAppointmentsInitial({
     required super.result,
     super.error,
-    // required this.request,
+    required this.trainerId,
     super.statuses,
   });
 
@@ -13,7 +13,7 @@ class BookedAppointmentsInitial extends AbstractCubit<List<Appointments>> {
     return const BookedAppointmentsInitial(
       result: [],
       error: '',
-      // request: LoginRequest(),
+      trainerId: 0,
       statuses: CubitStatuses.init,
     );
   }
@@ -25,27 +25,21 @@ class BookedAppointmentsInitial extends AbstractCubit<List<Appointments>> {
     CubitStatuses? statuses,
     List<Appointments>? result,
     String? error,
-    // LoginRequest? request,
+    int? trainerId,
   }) {
     return BookedAppointmentsInitial(
       statuses: statuses ?? this.statuses,
       result: result ?? this.result,
       error: error ?? this.error,
-      // request: request ?? this.request,
+      trainerId: trainerId ?? this.trainerId,
     );
   }
 
-  Pair<Appointments?, PrivetSessionState> getSession(int trainerId) {
+  Pair<Appointments?, PrivetSessionState> getSession() {
     if (result.isEmpty) {
       return Pair(null, PrivetSessionState.noEver);
     } else {
-      var list = <Appointments>[];
-
-      for (var e in result) {
-        if (e.trainer.id == trainerId) list.add(e);
-      }
-
-      if (list.isEmpty) return Pair(null, PrivetSessionState.noEver);
+      var list = result;
 
       list.sort((a, b) => a.startTime.compareTo(b.startTime));
 

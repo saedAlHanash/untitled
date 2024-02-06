@@ -15,10 +15,8 @@ part 'booked_appointments_state.dart';
 class BookedAppointmentsCubit extends Cubit<BookedAppointmentsInitial> {
   BookedAppointmentsCubit() : super(BookedAppointmentsInitial.initial());
 
-  Future<void> getBookedAppointments() async {
-    if (!AppSharedPreference.isLogin) return;
-
-    emit(state.copyWith(statuses: CubitStatuses.loading));
+  Future<void> getBookedAppointments({required int trainerId}) async {
+    emit(state.copyWith(statuses: CubitStatuses.loading, trainerId: trainerId));
     final pair = await _bookedAppointmentsApi();
     if (pair.first == null) {
       emit(state.copyWith(statuses: CubitStatuses.error, error: pair.second));
@@ -29,7 +27,12 @@ class BookedAppointmentsCubit extends Cubit<BookedAppointmentsInitial> {
   }
 
   Future<Pair<BookedAppointments?, String?>> _bookedAppointmentsApi() async {
-    final response = await APIService().getApi(url: GetUrl.bookedAppointments);
+    final response = await APIService().getApi(
+      url: GetUrl.bookedAppointments,
+      query: {
+        'trainer_id': state.trainerId,
+      },
+    );
 
     if (response.statusCode.success) {
       return Pair(BookedAppointments.fromJson(response.jsonBodyPure), null);

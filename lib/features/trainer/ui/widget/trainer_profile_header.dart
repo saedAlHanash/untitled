@@ -63,7 +63,7 @@ class TrainerProfileHeader extends StatelessWidget {
                         return MyStyle.loadingWidget();
                       }
 
-                      final pair = state.getSession(trainer.id);
+                      final pair = state.getSession();
 
                       if (pair.second == PrivetSessionState.noEver) {
                         return Center(

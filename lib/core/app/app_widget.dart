@@ -119,7 +119,7 @@ class _MyAppState extends State<MyApp> {
                 bloc.BlocProvider(create: (_) => sl<CouponCubit>()),
                 bloc.BlocProvider(create: (_) => sl<AddFavoriteCubit>()),
                 bloc.BlocProvider(
-                  create: (_) => sl<BookedAppointmentsCubit>()..getBookedAppointments(),
+                  create: (_) => sl<BookedAppointmentsCubit>(),
                 ),
               ],
               child: child!,

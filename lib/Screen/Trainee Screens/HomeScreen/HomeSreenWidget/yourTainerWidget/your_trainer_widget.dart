@@ -82,7 +82,7 @@ void startTrainerPage(BuildContext context, int id) {
             BlocProvider(create: (_) => sl<TrainerCubit>()..getTrainer(id: id)),
             BlocProvider(create: (_) => sl<PlansCubit>()..getPlans(id: id)),
           ],
-          child: TrainerPage(),
+          child: const TrainerPage(),
         );
       },
     ),

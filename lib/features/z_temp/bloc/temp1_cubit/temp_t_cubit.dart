@@ -16,7 +16,7 @@ class TempCubit extends Cubit<TempInitial> {
   TempCubit() : super(TempInitial.initial());
 
   Future<void> getTemp() async {
-    if (!AppSharedPreference.isLogin) return;
+     
 
     emit(state.copyWith(statuses: CubitStatuses.loading));
     final pair = await _bookedAppointmentsApi();
