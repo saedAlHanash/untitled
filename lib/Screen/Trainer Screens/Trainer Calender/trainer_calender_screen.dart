@@ -65,8 +65,8 @@ class TrainerCalenderSceen extends GetView<TrainerCalenderController> {
                                                   controller.calenders[element]!.map(
                                                 (e) {
                                                   return DateOfSession(
-                                                      nameOfCustomer: e.user!.name!,
-                                                      date: e.startAt!.toIso8601String(),
+                                                      nameOfCustomer: e.user.name,
+                                                      date: e.startTime.toIso8601String(),
                                                       token: e.videoCallToken ?? "",
                                                       isCheck: true);
                                                 },

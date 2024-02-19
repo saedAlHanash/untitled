@@ -11,6 +11,7 @@ import 'package:get/get.dart';
 
 import '../../../Utils/Routes/app_pages.dart';
 import '../../../core/app/app_provider.dart';
+import '../../../features/profile/ui/pages/profile_page.dart';
 import '../../chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 import '../HomeScreen/home_screen.dart';
 import 'Widget/navigation_bar_widget.dart';
@@ -23,7 +24,7 @@ class MainHomeScreen extends GetView<MainHomeController> {
     const WorkoutScreen(),
     const SearchScreen(),
     const ProgressScreen(),
-    const TraineeProfileScreen(),
+    const ProfilePage(),
   ];
 
   @override

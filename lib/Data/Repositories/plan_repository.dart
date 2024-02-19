@@ -2,6 +2,7 @@
 
 import 'package:dio/dio.dart';
 import 'package:fitness_storm/Model/plan_overview.dart';
+import 'package:fitness_storm/core/api_manager/api_service.dart';
 
 import '../../Model/subscribed_plan.dart';
 import '../../Utils/utils.dart';
@@ -137,7 +138,7 @@ class PlanRepository {
     }
   }
 
-  Future<PlanOverview> getPlanOverview(String id) async {
+  Future<PlanModel> getPlanOverview(String id) async {
     Options option = Utils.getOptions(withToken: true, all: true);
     String url = '';
     if ( AppProvider.isTrainer) {
@@ -147,7 +148,10 @@ class PlanRepository {
     }
 
     ApiResult result = await Methods.get(url: url, options: option);
-    var x = PlanOverview.fromJson(result.data);
+
+    loggerObject.wtf(result.data);
+
+    var x = PlanModel.fromJson(result.data);
     return x;
   }
 

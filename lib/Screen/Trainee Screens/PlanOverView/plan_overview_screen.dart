@@ -28,7 +28,7 @@ class PlanOverviewScreen extends GetView<PlanOverviewController> {
             leading: IconButton(
                 icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
                 onPressed: () => Get.back()),
-            title: Text(controller.isLoading ? '' : controller.planOverview.name!,
+            title: Text(controller.isLoading ? '' : controller.planOverview.name ?? '',
                 style: const TextStyle(fontWeight: FontWeight.bold))),
         body: controller.isLoading
             ? const Center(child: CircularProgressIndicator.adaptive())
@@ -37,7 +37,7 @@ class PlanOverviewScreen extends GetView<PlanOverviewController> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     VimeoPlayer(
-                      videoId: controller.planOverview.introductionVideo!,
+                      videoId: controller.planOverview.introductionVideo,
                       onInitController: (videoController) {
                         controller.videoController = videoController;
                       },
@@ -50,12 +50,12 @@ class PlanOverviewScreen extends GetView<PlanOverviewController> {
                         children: [
                           const SizedBox(height: 30),
                           Text(
-                            controller.planOverview.name!,
+                            controller.planOverview.name ?? '',
                             style:
                                 const TextStyle(color: Color(0xFF565C63), fontSize: 26),
                           ),
                           Text(
-                            controller.planOverview.trainer!.name!,
+                            controller.planOverview.trainer?.name ?? '',
                             style: TextStyle(
                                 color: Get.theme.colorScheme.secondary, fontSize: 14),
                           ),
@@ -68,27 +68,27 @@ class PlanOverviewScreen extends GetView<PlanOverviewController> {
                               // mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Row(
-                                    children: controller.planOverview.trainingLocation!
-                                        .map((e) => CustomChip(text: e.type!))
+                                    children: controller.planOverview.trainingLocation
+                                        .map((e) => CustomChip(text: e.type))
                                         .toList()),
                                 Row(
-                                    children: controller.planOverview.trainingLevel!
-                                        .map((e) => CustomChip(text: e.type!))
+                                    children: controller.planOverview.level
+                                        .map((e) => CustomChip(text: e.type))
                                         .toList()),
                                 Row(
-                                    children: controller.planOverview.trainingType!
-                                        .map((e) => CustomChip(text: e.type!))
+                                    children: controller.planOverview.trainingType
+                                        .map((e) => CustomChip(text: e.type))
                                         .toList()),
                               ],
                             ),
                           ),
                           const SizedBox(height: 30),
-                          ReadMoreTextWidget(text: controller.planOverview.description!),
+                          ReadMoreTextWidget(text: controller.planOverview.description),
                           const SizedBox(height: 30),
-                          TrainerProfile(controller.planOverview.trainer!.name!,
-                              controller.planOverview.trainer!.image!),
+                          TrainerProfile(controller.planOverview.trainer.name,
+                              controller.planOverview.trainer.image),
                           const SizedBox(height: 30),
-                          TrainerBio(controller.planOverview.trainer!.bio!),
+                          TrainerBio(controller.planOverview.trainer.bio),
                         ],
                       ),
                     ),
@@ -127,7 +127,7 @@ class PlanOverviewScreen extends GetView<PlanOverviewController> {
         floatingActionButtonLocation: Platform.isIOS
             ? FloatingActionButtonLocation.centerDocked
             : FloatingActionButtonLocation.centerFloat,
-        floatingActionButton: ( AppProvider.isTrainer)
+        floatingActionButton: (AppProvider.isTrainer)
             ? const SizedBox.shrink()
             : controller.isActivated
                 ? Container()

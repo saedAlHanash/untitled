@@ -5,6 +5,7 @@ import 'package:fitness_storm/core/widgets/my_button.dart';
 import 'package:fitness_storm/core/widgets/my_text_form_widget.dart';
 import 'package:fitness_storm/features/auth/ui/widget/auth_header.dart';
 import 'package:fitness_storm/features/auth/ui/widget/login_social_widget.dart';
+import 'package:fitness_storm/features/profile/bloc/profile_cubit/profile_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -19,6 +20,7 @@ import '../../../../generated/assets.dart';
 import '../../../../generated/l10n.dart';
 import '../../../../router/app_router.dart';
 import '../../bloc/login_cubit/login_cubit.dart';
+import '../../bloc/login_social_cubit/login_social_cubit.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -35,7 +37,6 @@ class _LoginPageState extends State<LoginPage> {
   @override
   void initState() {
     loginCubit = context.read<LoginCubit>();
-
     super.initState();
   }
 
@@ -52,15 +53,26 @@ class _LoginPageState extends State<LoginPage> {
           height: 1.0.sh,
           color: Colors.black.withOpacity(0.6),
         ),
-        BlocListener<LoginCubit, LoginInitial>(
-          listenWhen: (p, c) => c.statuses.done,
-          listener: (context, state) {
-            if (AppProvider.isConfirmed) {
-              Get.offAllNamed(AppRoutes.mainHome);
-            } else {
-              startConfirmCodeAccount(context);
-            }
-          },
+        MultiBlocListener(
+          listeners: [
+            BlocListener<LoginCubit, LoginInitial>(
+              listenWhen: (p, c) => c.statuses.done,
+              listener: (context, state) {
+                if (AppProvider.isConfirmed) {
+                  context.read<ProfileCubit>().getProfile(newData: true);
+                  Get.offAllNamed(AppRoutes.mainHome);
+                } else {
+                  startConfirmCodeAccount(context);
+                }
+              },
+            ),
+            BlocListener<LoginSocialCubit, LoginSocialInitial>(
+              listenWhen: (p, c) => c.statuses.done,
+              listener: (context, state) {
+                startHome();
+              },
+            ),
+          ],
           child: Scaffold(
             backgroundColor: Colors.transparent,
             body: SingleChildScrollView(

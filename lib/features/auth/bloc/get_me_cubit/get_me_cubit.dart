@@ -29,7 +29,7 @@ class GetMeCubit extends Cubit<GetMeInitial> {
        emit(state.copyWith(statuses: CubitStatuses.error, error: pair.second));
     } else {
 
-      await AppProvider.cashLoginData(pair.first!);
+      // await AppProvider.cashLoginData(pair.first!);
       emit(state.copyWith(statuses: CubitStatuses.done, result: pair.first));
 
     }

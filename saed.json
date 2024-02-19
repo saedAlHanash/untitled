@@ -1,10 +1,56 @@
 {
-  "data": {
-    "id": "1095",
-    "access_token": "ebiSaauWUauPYwhYSqPxuitDeCbZEmwbab00BBkJ",
-    "refresh_token": "I02DzxDcYm5r22VIzg1FmDFtIluWSMBfFXSrhjOb",
-    "is_first_time": false,
-    "is_confirmed": null,
-    "confirmation_code": 40650
-  }
+  "id": "44",
+  "name": "Body Weight Workout",
+  "total_weeks": 4,
+  "workout_frequency": 4,
+  "introduction_video": "739932290",
+  "description": "body workout",
+  "level": [
+    {
+      "id": "1",
+      "type": "Beginner",
+      "pivot": {
+        "plan_id": 44,
+        "training_level_id": 1
+      }
+    }
+  ],
+  "trainer": {
+    "id": "24",
+    "name": "Mariam khaled مريم خالد",
+    "image": "storage/app/public/trainersImages/4GfGCIYQ1SrdlcQ6bsv6jI6PKRsAS5fEMuRjvAcv.png",
+    "bio": "Certified coach and personal trainer 7 years experience in sports programs the winner of golden medal of national sports program competition (متاح حجز مواعيد)"
+  },
+  "training_type": [
+    {
+      "id": "19",
+      "type": "Body Weight Workout",
+      "pivot": {
+        "plan_id": 44,
+        "training_type_id": 19
+      }
+    }
+  ],
+  "training_location": [
+    {
+      "id": "1",
+      "type": "home",
+      "pivot": {
+        "plan_id": 44,
+        "training_location_id": 1
+      }
+    },
+    {
+      "id": "2",
+      "type": "gym",
+      "pivot": {
+        "plan_id": 44,
+        "training_location_id": 2
+      }
+    }
+  ],
+  "current_activated_plan": true,
+  "image": null,
+  "is_bookmark": false,
+  "is_active": null
 }

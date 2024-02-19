@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../features/auth/data/response/login_response.dart';
+import '../../features/profile/data/response/profile_response.dart';
 import '../strings/enum_manager.dart';
 
 class AppSharedPreference {
@@ -21,8 +22,8 @@ class AppSharedPreference {
   static const _phoneNumberPassword = '15';
   static const _otpPassword = '16';
   static const _currency = '17';
-  static const _profile = '19';
-  static const _loginData = '0';
+  static const _loginData = '19';
+  static const _profile = '0';
 
   static late SharedPreferences _prefs;
 
@@ -75,7 +76,10 @@ class AppSharedPreference {
     await _prefs.setInt(_toScreen, appState.index);
   }
 
-  static UserType get getUserType => UserType.values[_prefs.getInt(_toScreen) ?? 0];
+  static UserType get getUserType {
+    final index =_prefs.getInt(_toScreen) ?? 0 ;
+    return UserType.values[index];
+  }
 
   static bool isAcceptPolicy() {
     return _prefs.getBool(_policy) ?? false;
@@ -146,11 +150,19 @@ class AppSharedPreference {
 
   static String get currency => _prefs.getString(_currency) ?? '\$';
 
-  static cashLoginData(LoginData profile) async {
-    await _prefs.setString(_profile, jsonEncode(profile.toJson()));
+  static cashLoginData(LoginData loginData) async {
+    await _prefs.setString(_loginData, jsonEncode(loginData.toJson()));
   }
 
   static LoginData get loginDate {
-    return LoginData.fromJson(jsonDecode(_prefs.getString(_profile) ?? '{}'));
+    return LoginData.fromJson(jsonDecode(_prefs.getString(_loginData) ?? '{}'));
+  }
+
+  static cashProfile(Profile profile) async {
+    await _prefs.setString(_profile, jsonEncode(profile.toJson()));
+  }
+
+  static Profile get profile {
+    return Profile.fromJson(jsonDecode(_prefs.getString(_profile) ?? '{}'));
   }
 }

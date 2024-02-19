@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:fitness_storm/core/util/shared_preferences.dart';
 import 'package:fitness_storm/helper/lang_helper.dart';
+import 'package:fitness_storm/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -57,7 +58,7 @@ void main() async {
   // ///send FCM to server
   saveFCM();
 
-  setLastSeen();
+  await setLastSeen();
 
   runApp(
     MultiBlocProvider(
@@ -70,13 +71,10 @@ void main() async {
   );
 }
 
-void setLastSeen() {
-  if (AppProvider.token.isEmpty) return;
-
-  APIService().patchApi(
-    url: 'profile/last-seen',
-    body: {},
-  );
+Future<void> setLastSeen() async {
+  final result = await APIService().patchApi(url: 'profile/last-seen');
+  if (result.statusCode != 401) return;
+  await AppProvider.logout();
 }
 
 class MyHttpOverrides extends HttpOverrides {

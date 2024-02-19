@@ -4,6 +4,8 @@ import 'package:fitness_storm/Widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../Utils/Routes/app_pages.dart';
+
 class MyPaymentScreen extends GetView<MyPaymentController> {
   MyPaymentScreen({super.key});
 
@@ -60,7 +62,7 @@ class MyPaymentScreen extends GetView<MyPaymentController> {
                         ),
                         CustomButton(
                             onTapFunction: () {
-                              Get.back();
+                              Get.toNamed(AppRoutes.subscriptionScreen);
                             },
                             text: 'choose_a_plan'.tr,
                             textColor: Colors.white,

@@ -79,7 +79,7 @@ class CustomSearchDelegate extends SearchDelegate {
                 child: SearchResult(
                     imageUrl: snapshot.data[index].image,
                     planName: snapshot.data[index].name,
-                    trainerName: snapshot.data[index].trainer.name),
+                    trainerName: snapshot.data[index].user.name),
               );
             },
           );

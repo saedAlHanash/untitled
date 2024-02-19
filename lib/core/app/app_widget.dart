@@ -2,6 +2,8 @@ import 'package:drawable_text/drawable_text.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
 import 'package:fitness_storm/core/strings/enum_manager.dart';
+import 'package:fitness_storm/features/auth/bloc/logout/logout_cubit.dart';
+import 'package:fitness_storm/features/profile/bloc/profile_cubit/profile_cubit.dart';
 import 'package:fitness_storm/generated/assets.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +19,8 @@ import '../../Utils/Routes/app_pages.dart';
 import '../../Utils/dependency_injection.dart';
 import '../../Utils/themes.dart';
 import '../../features/appointments/bloc/booked_appointments_cubit/booked_appointments_cubit.dart';
+import '../../features/appointments/bloc/bundles_cubit/bundles_cubit.dart';
+import '../../features/auth/bloc/survey_cubit/survey_cubit.dart';
 import '../../features/plans/bloc/add_favorite/add_favorite_cubit.dart';
 import '../../generated/l10n.dart';
 import '../../helper/lang_helper.dart';
@@ -117,7 +121,11 @@ class _MyAppState extends State<MyApp> {
             return bloc.MultiBlocProvider(
               providers: [
                 bloc.BlocProvider(create: (_) => sl<CouponCubit>()),
+                bloc.BlocProvider(create: (_) => sl<SurveyCubit>()),
+                bloc.BlocProvider(create: (_) => sl<BundlesCubit>()),
                 bloc.BlocProvider(create: (_) => sl<AddFavoriteCubit>()),
+                bloc.BlocProvider(create: (_) => sl<LogoutCubit>()),
+                bloc.BlocProvider(create: (_) => sl<ProfileCubit>()..getProfile()),
                 bloc.BlocProvider(
                   create: (_) => sl<BookedAppointmentsCubit>(),
                 ),

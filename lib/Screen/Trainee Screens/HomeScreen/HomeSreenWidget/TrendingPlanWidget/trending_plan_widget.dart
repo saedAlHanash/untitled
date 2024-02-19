@@ -35,8 +35,9 @@ class TrendingPlanWidget extends GetView<HomeScreenController> {
         itemCount: plans.length,
         itemBuilder: (context1, index) {
           return GestureDetector(
-            onTap: () =>
-                Get.toNamed(AppRoutes.planOverview, arguments: plans[index].id),
+            onTap: () {
+              Get.toNamed(AppRoutes.planOverview, arguments: plans[index].id);
+            },
             child: TrendingPlanItem(
               planImageUrl: plans[index].image,
               planName: plans[index].name,

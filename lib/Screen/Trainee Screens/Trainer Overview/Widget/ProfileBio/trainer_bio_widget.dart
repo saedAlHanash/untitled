@@ -1,8 +1,16 @@
+import 'package:drawable_text/drawable_text.dart';
 import 'package:fitness_storm/Utils/Routes/app_pages.dart';
+import 'package:fitness_storm/core/extensions/extensions.dart';
+import 'package:fitness_storm/core/strings/app_color_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:image_multi_type/image_multi_type.dart';
 
 import '../../../../../Model/trainer.dart';
+import '../../../../../features/appointments/bloc/bundles_cubit/bundles_cubit.dart';
+import '../../../../../generated/l10n.dart';
 import 'bio_check_widget.dart';
 
 class TrainerBioWidget extends StatelessWidget {
@@ -22,7 +30,7 @@ class TrainerBioWidget extends StatelessWidget {
             trainer.id.toString(),
           ]),
           child: Container(
-            height: Get.height / 20,
+            height: 45.0.h,
             color: Get.theme.primaryColor,
             padding: EdgeInsets.symmetric(horizontal: Get.width / 18.75),
             child: Row(
@@ -44,9 +52,9 @@ class TrainerBioWidget extends StatelessWidget {
                       padding: EdgeInsets.zero,
                       onPressed: () => Get.toNamed(AppRoutes.bookPrivateSession,
                           arguments: [
-                           trainer.name,
-                           trainer.image,
-                           trainer.id.toString()
+                            trainer.name,
+                            trainer.image,
+                            trainer.id.toString()
                           ]),
                       icon: const Icon(
                         Icons.arrow_forward_ios,
@@ -59,6 +67,36 @@ class TrainerBioWidget extends StatelessWidget {
               ],
             ),
           ),
+        ),
+        BlocBuilder<BundlesCubit, BundlesInitial>(
+          builder: (context, state) {
+            if (state.statuses.loading) {
+              return 0.0.verticalSpace;
+            }
+            return InkWell(
+              onTap: () {},
+              child: Container(
+                height: 45.0.h,
+                color: AppColorManager.mainColorLight,
+                padding: EdgeInsets.symmetric(horizontal: Get.width / 18.75),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    DrawableText(
+                      text: S.of(context).bundles,
+                      size: 14.0.sp,
+                      color: Colors.white,
+                    ),
+                    ImageMultiType(
+                      url: Icons.arrow_forward_ios,
+                      color: Colors.white,
+                      width: 20.0.r,
+                    ),
+                  ],
+                ),
+              ),
+            );
+          },
         ),
         Container(
           color: const Color(0xFF9F86C1),

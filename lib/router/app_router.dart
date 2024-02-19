@@ -1,7 +1,13 @@
 import 'package:fitness_storm/core/api_manager/api_service.dart';
+import 'package:fitness_storm/features/profile/bloc/update_profile_cubit/update_profile_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get.dart';
 
+import '../features/appointments/bloc/booked_appointments_cubit/booked_appointments_cubit.dart';
+import '../features/appointments/ui/pages/appointments_page.dart';
+import '../features/profile/ui/pages/update_profile_page.dart';
+import '../Utils/Routes/app_pages.dart';
 import '../core/injection/injection_container.dart';
 import '../features/auth/bloc/confirm_code_cubit/confirm_code_cubit.dart';
 import '../features/auth/bloc/forget_password_cubit/forget_password_cubit.dart';
@@ -168,65 +174,59 @@ class RouteName {
 }
 
 void startSignup(BuildContext context) {
-  Navigator.push(
-    context,
-    MaterialPageRoute(
-      builder: (_) {
-        final providers = [
-          BlocProvider(create: (_) => sl<SignupCubit>()),
-          BlocProvider(create: (_) => sl<LoginSocialCubit>()),
-        ];
-        return MultiBlocProvider(
-          providers: providers,
-          child: const SignupPage(),
-        );
-      },
-    ),
-  );
+  final providers = [
+    BlocProvider(create: (_) => sl<SignupCubit>()),
+    BlocProvider(create: (_) => sl<LoginSocialCubit>()),
+  ];
+  Get.to(() => MultiBlocProvider(
+        providers: providers,
+        child: const SignupPage(),
+      ));
 }
 
-void startLogin(BuildContext context) {
-  Navigator.push(context, MaterialPageRoute(
-    builder: (_) {
-      return MultiBlocProvider(
-        providers: [
-          BlocProvider(create: (_) => sl<LoginCubit>()),
-          BlocProvider(create: (_) => sl<LoginSocialCubit>()),
-        ],
-        child: const LoginPage(),
-      );
-    },
-  ));
+void startLogin() {
+  Get.offAll(
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (_) => sl<LoginCubit>()),
+        BlocProvider(create: (_) => sl<LoginSocialCubit>()),
+      ],
+      child: const LoginPage(),
+    ),
+  );
 }
 
 void startForgetPass(BuildContext context) {
   final providers = [
     BlocProvider(create: (_) => sl<ForgetPasswordCubit>()),
   ];
-  Navigator.push(context, MaterialPageRoute(
-    builder: (_) {
-      return MultiBlocProvider(
+  Get.to(() => MultiBlocProvider(
         providers: providers,
         child: const ForgetPasswordPage(),
-      );
-    },
-  ));
+      ));
+}
+
+void startAppointment() {
+  final providers = [
+    BlocProvider(create: (_) => sl<BookedAppointmentsCubit>()..getBookedAppointments()),
+  ];
+  Get.to(() => MultiBlocProvider(
+        providers: providers,
+        child: const AppointmentsPage(),
+      ));
 }
 
 void startRestPass(BuildContext context) {
   final providers = [
     BlocProvider(create: (_) => sl<ResetPasswordCubit>()),
   ];
-
+  Get.to(
+    () => MultiBlocProvider(
+      providers: providers,
+      child: const ResetPasswordPage(),
+    ),
+  );
   //endregion
-  Navigator.push(context, MaterialPageRoute(
-    builder: (_) {
-      return MultiBlocProvider(
-        providers: providers,
-        child: const ResetPasswordPage(),
-      );
-    },
-  ));
 }
 
 void startConfirmCodeAccount(BuildContext context) {
@@ -235,19 +235,26 @@ void startConfirmCodeAccount(BuildContext context) {
     BlocProvider(create: (_) => sl<ResendCodeCubit>()),
   ];
 
-  Navigator.push(
-    context,
-    MaterialPageRoute(
-      builder: (_) {
-        return MultiBlocProvider(
-          providers: providers,
-          child: const ConfirmCodePage(),
-        );
-      },
+  Get.offAll(MultiBlocProvider(
+    providers: providers,
+    child: const ConfirmCodePage(),
+  ));
+}
+
+void startHome() {
+  Get.offAllNamed(AppRoutes.mainHome);
+}
+
+void startUpdateProfile() {
+  final providers = [
+    BlocProvider(create: (_) => sl<UpdateProfileCubit>()),
+  ];
+  Get.to(
+    () => MultiBlocProvider(
+      providers: providers,
+      child: const TraineeProfileInfoScreen(),
     ),
   );
 }
-
-void startHome(BuildContext context) {}
 
 void start(BuildContext context) {}

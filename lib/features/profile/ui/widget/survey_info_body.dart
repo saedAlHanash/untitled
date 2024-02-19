@@ -1,14 +1,13 @@
-import 'package:fitness_storm/Screen/Trainee%20Screens/Trainee%20Profile%20Info/Widget/Survey%20Info/height_weight_widget.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/Trainee%20Profile%20Info/Widget/Survey%20Info/often_exercise_widget.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/Trainee%20Profile%20Info/Widget/Survey%20Info/training_goal_checkbox_body.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/Trainee%20Profile%20Info/Widget/Survey%20Info/training_level_checkbox_body.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/Trainee%20Profile%20Info/trainee_profile_info_controller.dart';
+import 'package:fitness_storm/features/profile/ui/widget/height_weight_widget.dart';
+import 'package:fitness_storm/features/profile/ui/widget/often_exercise_widget.dart';
+import 'package:fitness_storm/features/profile/ui/widget/training_goal_checkbox_body.dart';
+import 'package:fitness_storm/features/profile/ui/widget/training_level_checkbox_body.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'workout_location_checkbox_body.dart';
 
-class SurveyInfoBody extends GetWidget<TraineeProfileInfoController> {
+class SurveyInfoBody extends StatelessWidget {
   const SurveyInfoBody({super.key});
 
   @override

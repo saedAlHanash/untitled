@@ -37,7 +37,10 @@ class SignupCubit extends Cubit<SignupInitial> {
     );
 
     if (response.statusCode.success) {
-      await AppProvider.cashLoginData(LoginData.fromJson(response.jsonBody));
+      await AppProvider.cashLoginData(
+        LoginData.fromJson(response.jsonBody),
+        isTrainer: false,
+      );
 
       return Pair(true, null);
     } else {

@@ -15,6 +15,6 @@ class MainHomeBinding extends Bindings {
     Get.lazyPut(() => WorkoutScreenController());
     Get.lazyPut(() => SearchScreenController());
     Get.lazyPut(() => ProgressScreenController());
-    Get.lazyPut(() => TraineeProfileController());
+    // Get.lazyPut(() => TraineeProfileController());
   }
 }

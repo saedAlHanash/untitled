@@ -27,7 +27,7 @@ class SeeAllListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Get.toNamed(AppRoutes.planOverview, arguments: plan.id.toString());
+        Get.toNamed(AppRoutes.planOverview, arguments: plan.id);
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,

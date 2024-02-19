@@ -97,12 +97,13 @@ class CustomSearchDelegate extends SearchDelegate {
             itemBuilder: (context, index) {
               // return Text(snapshot.data[index].image);
               return GestureDetector(
-                onTap: () => Get.toNamed(AppRoutes.planOverview,
-                    arguments: snapshot.data[index].id),
+                onTap: () {
+                  Get.toNamed(AppRoutes.planOverview, arguments: snapshot.data[index].id);
+                },
                 child: SearchResult(
                     imageUrl: snapshot.data[index].image,
                     planName: snapshot.data[index].name,
-                    trainerName: snapshot.data[index].trainer.name),
+                    trainerName: snapshot.data[index].user.name),
               );
             },
           );

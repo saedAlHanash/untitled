@@ -34,6 +34,7 @@ class Assets {
   static const String imagesLeft = 'asset/Images/left.svg';
   static const String imagesLogo = 'asset/Images/logo.png';
   static const String imagesLogoLight = 'asset/Images/logo_light.png';
+  static const String imagesLogout = 'asset/Images/logout.svg';
   static const String imagesNotificationSVG = 'asset/Images/notificationSVG.svg';
   static const String imagesPayment = 'asset/Images/payment.svg';
   static const String imagesProfileInfo = 'asset/Images/profile_info.svg';
@@ -47,10 +48,13 @@ class Assets {
   static const String imagesSubscription = 'asset/Images/subscription.svg';
   static const String imagesSuccessfully = 'asset/Images/successfully.svg';
   static const String imagesUser = 'asset/Images/user.png';
+  static const String imagesVCall = 'asset/Images/v_call.svg';
   static const String imagesVideo = 'asset/Images/video.png';
   static const String imagesWallet = 'asset/Images/wallet.svg';
   static const String imagesWhiteLogo = 'asset/Images/white_logo.png';
   static const String lottiesFitnessstormLogoAnimationColored = 'asset/lotties/fitnessstorm_logo_animation_colored.json';
   static const String lottiesFitnessstormLogoAnimationWhite = 'asset/lotties/fitnessstorm_logo_animation_white.json';
+  static const String lottiesNoData = 'asset/lotties/no_data.json';
+  static const String lottiesSadFace = 'asset/lotties/sad_face.json';
 
 }

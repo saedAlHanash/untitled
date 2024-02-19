@@ -69,7 +69,6 @@ class LoginSocialCubit extends Cubit<LoginSocialInitial> {
   Future<Pair<LoginData?, String?>> _loginSocialApi(
       {required UserCredential user}) async {
     final response = await APIService().postApi(
-      additional: additionalConstUser,
       url: PostUrl.loginSocial,
       body: {
         "email": user.user?.email,
@@ -81,7 +80,7 @@ class LoginSocialCubit extends Cubit<LoginSocialInitial> {
     if (response.statusCode.success) {
       final pair = Pair(LoginData.fromJson(response.jsonBody), null);
 
-      await AppProvider.cashLoginData(pair.first);
+      await AppProvider.cashLoginData(pair.first,isTrainer: false);
       AppSharedPreference.removePhoneOrEmail();
 
       return pair;

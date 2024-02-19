@@ -1,6 +1,8 @@
+import 'package:fitness_storm/core/strings/app_color_manager.dart';
 import 'package:fitness_storm/extensions/widget_extensions.dart';
 import 'package:fitness_storm/helper/lang_helper.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
@@ -22,14 +24,12 @@ class _LanguageBoardWidgetState extends State<LanguageBoardWidget> {
   Widget build(BuildContext context) {
     return Center(
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           LangWidget(
             title: 'عربي',
             ontap: () async => await languagesController.setLanguage('ar',
                 fromAuthPage: widget.fromAuthPage),
-          ).padding(EdgeInsets.symmetric(vertical: 8)),
+          ).padding(const EdgeInsets.symmetric(vertical: 8).r),
           LangWidget(
             title: 'English',
             ontap: () async => await languagesController.setLanguage('en',
@@ -37,9 +37,7 @@ class _LanguageBoardWidgetState extends State<LanguageBoardWidget> {
           ),
         ],
       ).padding(
-        EdgeInsets.symmetric(
-          horizontal: 30,
-        ),
+        const EdgeInsets.symmetric(horizontal: 30).r,
       ),
     );
   }
@@ -58,17 +56,18 @@ class LangWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 60,
+      height: 60.h,
       decoration: BoxDecoration(
-          color: Color(0xFF565C63).withOpacity(0.5),
-          borderRadius: BorderRadius.circular(10)),
+        color: AppColorManager.cardColor,
+        borderRadius: BorderRadius.circular(10.r),
+      ),
       child: Row(
         children: [
           Expanded(
             flex: 1,
             child: SvgPicture.asset(
               Assets.imagesLanguage,
-              color: Color(0xFF565C63),
+              color: const Color(0xFF565C63),
               height: 30,
             ),
           ),
@@ -76,7 +75,7 @@ class LangWidget extends StatelessWidget {
             flex: 1,
             child: Text(
               title,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
             ),
           )
         ],

@@ -201,9 +201,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "bodybuilding": MessageLookupByLibrary.simpleMessage("Body building"),
         "bookPrivateSession":
             MessageLookupByLibrary.simpleMessage("Book Private Session"),
+        "bookmarked": MessageLookupByLibrary.simpleMessage("Bookmarked"),
         "bookmarkedPlans":
             MessageLookupByLibrary.simpleMessage("Bookmarked Plans"),
         "buildMuscle": MessageLookupByLibrary.simpleMessage("Build muscle"),
+        "bundles": MessageLookupByLibrary.simpleMessage("Bundles"),
         "bySingingUpYouAreAgreeingToOur": MessageLookupByLibrary.simpleMessage(
             "By signing up, you are agreeing to our policies"),
         "calender": MessageLookupByLibrary.simpleMessage("Calender"),
@@ -433,6 +435,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("كلمة المرور الجديدة"),
         "next": MessageLookupByLibrary.simpleMessage("التالي"),
         "nextPayment": MessageLookupByLibrary.simpleMessage("NEXT PAYMENT"),
+        "nextSession": MessageLookupByLibrary.simpleMessage("Next Session"),
         "nextUp": MessageLookupByLibrary.simpleMessage("Next Up"),
         "noCurrentPlan":
             MessageLookupByLibrary.simpleMessage("No Current Plan"),
@@ -454,6 +457,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "numberPhone": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
         "offer": MessageLookupByLibrary.simpleMessage("عرض"),
         "okay": MessageLookupByLibrary.simpleMessage("okay"),
+        "oldSession": MessageLookupByLibrary.simpleMessage("Old Session"),
         "oops": MessageLookupByLibrary.simpleMessage("حدث خطأ ما!"),
         "orContactOur":
             MessageLookupByLibrary.simpleMessage("  or contact our"),

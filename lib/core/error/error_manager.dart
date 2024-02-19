@@ -1,4 +1,5 @@
 import 'package:fitness_storm/core/extensions/extensions.dart';
+import 'package:fitness_storm/router/app_router.dart';
 import 'package:http/http.dart';
 
 import '../app/app_widget.dart';
@@ -10,10 +11,10 @@ class ErrorManager {
   static String getApiError(Response response) {
     switch (response.statusCode) {
       case 401:
+
         AppSharedPreference.logout();
-        // if (ctx != null) {
-        //   Navigator.pushNamedAndRemoveUntil(ctx!, RouteName.login, (route) => false);
-        // }
+        startLogin();
+
         return ' المستخدم الحالي لم يسجل الدخول ' '${response.statusCode}';
 
       case 503:
@@ -42,7 +43,6 @@ class ErrorBody {
   final String message;
 
   factory ErrorBody.fromJson(Map<String, dynamic> json) {
-
     final item = json["errors"];
     return ErrorBody(
         errors: item == null

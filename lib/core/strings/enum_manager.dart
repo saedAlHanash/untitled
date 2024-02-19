@@ -22,4 +22,8 @@ enum StartPage { login, home, otp }
 
 enum FontFamily { roboto, robotoSimBold, robotoBold }
 
+enum ProfileCardType { profile, fav, payment, lang, appointment }
+
+enum ProfileButtonType { about, privacy, faq, terms }
+
 enum PrivetSessionState { noEver, active, waiting, needBooking }

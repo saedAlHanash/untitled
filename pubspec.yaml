@@ -19,6 +19,7 @@ dependencies:
   hive_flutter: any
   smooth_page_indicator: ^1.0.0+2
   dio:
+  group_button:
   flutter_holo_date_picker: ^1.0.3
   badges:
   bloc: ^8.1.2

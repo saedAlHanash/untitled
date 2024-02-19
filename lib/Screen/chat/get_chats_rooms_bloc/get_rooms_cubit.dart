@@ -114,11 +114,17 @@ class GetRoomsCubit extends Cubit<GetRoomsInitial> {
   }
 
   Future<types.Room?> getRoomByUser(String? id) async {
-    if (id == null) return null;
+    emit(state.copyWith(statuses: CubitStatuses.loading));
+
+    if (id == null) {
+      emit(state.copyWith(statuses: CubitStatuses.init));
+      return null;
+    }
 
     for (var e in state.allRooms) {
       for (var e1 in e.users) {
         if (e1.firstName == id) {
+          emit(state.copyWith(statuses: CubitStatuses.init));
           return e;
         }
       }
@@ -128,9 +134,11 @@ class GetRoomsCubit extends Cubit<GetRoomsInitial> {
       if (e.firstName == id) {
         var newRoom = await FirebaseChatCore.instance.createRoom(e);
 
+        emit(state.copyWith(statuses: CubitStatuses.init));
         return newRoom;
       }
     }
+    emit(state.copyWith(statuses: CubitStatuses.init));
     return null;
   }
 

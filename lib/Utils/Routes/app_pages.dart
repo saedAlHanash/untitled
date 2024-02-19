@@ -44,8 +44,8 @@ import 'package:fitness_storm/Screen/Trainee%20Screens/Search%20Result/search_re
 import 'package:fitness_storm/Screen/Trainee%20Screens/Search%20Result/search_result_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Subscription/subscription_binding.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Subscription/subscription_screen.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/Trainee%20Profile%20Info/trainee_profile_info_binding.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/Trainee%20Profile%20Info/trainee_profile_info_screen.dart';
+
+import 'package:fitness_storm/features/profile/ui/pages/update_profile_page.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Training/training_binding.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Training/training_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/TrendingPlan/trending_plan_binding.dart';
@@ -82,10 +82,7 @@ class AppPages {
     return [
       GetPage(
           name: AppRoutes.splash, page: () => const Splash(), binding: SplashBinding()),
-      GetPage(
-          name: AppRoutes.homePage,
-          page: () => const HomeScreen(),
-          binding: HomeScreenBinding()),
+
       GetPage(
           name: AppRoutes.mainHome,
           page: () => MainHomeScreen(),
@@ -147,10 +144,7 @@ class AppPages {
           name: AppRoutes.filterResult,
           page: () => const FilterResultScreen(),
           binding: FilterPageBinding()),
-      GetPage(
-          name: AppRoutes.traienrPlanOverview,
-          page: () => const TrainerTrainerOverviewScreen(),
-          binding: TrainerTrainerOverviewBinding()),
+
       GetPage(
           name: AppRoutes.forgetPassword,
           page: () => const ForgetPasswordEmailScreen(),
@@ -176,9 +170,9 @@ class AppPages {
           page: () => const UserSurveyScreen(),
           binding: UserSurveyBinding()),
       GetPage(
-          name: AppRoutes.traineeProfileInfo,
-          page: () => const TraineeProfileInfoScreen(),
-          binding: TraineeProfileInfoBinding()),
+        name: AppRoutes.traineeProfileInfo,
+        page: () => const TraineeProfileInfoScreen(),
+      ),
       GetPage(
           name: AppRoutes.bookmarkedScreen,
           page: () => const BookmarkedScreen(),

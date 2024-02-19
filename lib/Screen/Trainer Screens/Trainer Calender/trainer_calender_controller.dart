@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:quiver/time.dart';
 
+import '../../../core/models/booked_appointments.dart';
+
 class TrainerCalenderController extends GetxController {
   RxList<Appointment> appointments = <Appointment>[].obs;
   RxMap<String, List<Appointment>> calenders = <String, List<Appointment>>{}.obs;
@@ -191,12 +193,12 @@ class TrainerCalenderController extends GetxController {
       result.forEach((e) {
         final model = Appointment.fromJson(e);
 
-        if (calenders[DateFormat('yyyy-MM-dd').format(model.startAt!)] == null ||
-            calenders[DateFormat('yyyy-MM-dd').format(model.startAt!)]!.isEmpty) {
-          calenders[DateFormat('yyyy-MM-dd').format(model.startAt!)] = [];
-          calenders[DateFormat('yyyy-MM-dd').format(model.startAt!)]!.add(model);
+        if (calenders[DateFormat('yyyy-MM-dd').format(model.startTime)] == null ||
+            calenders[DateFormat('yyyy-MM-dd').format(model.startTime)]!.isEmpty) {
+          calenders[DateFormat('yyyy-MM-dd').format(model.startTime)] = [];
+          calenders[DateFormat('yyyy-MM-dd').format(model.startTime)]!.add(model);
         } else {
-          calenders[DateFormat('yyyy-MM-dd').format(model.startAt!)]!.add(model);
+          calenders[DateFormat('yyyy-MM-dd').format(model.startTime)]!.add(model);
         }
       });
     }

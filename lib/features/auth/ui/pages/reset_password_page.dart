@@ -41,7 +41,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
     return BlocListener<ResetPasswordCubit, ResetPasswordInitial>(
       listenWhen: (p, c) => c.statuses == CubitStatuses.done,
       listener: (context, state) {
-        startLogin(context);
+        startLogin();
       },
       child: Stack(
         children: [
@@ -100,7 +100,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                         text: S.of(context).cancel,
                         onTap: () {
                           AppSharedPreference.cashRestPassEmail('');
-                          startLogin(context);
+                          startLogin();
                         },
                       ),
                       const Spacer(),

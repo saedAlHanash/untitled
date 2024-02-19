@@ -21,6 +21,7 @@ class AppColorManager {
 
   static const dividerColor = Color(0xFFCFCFCF);
   static const f1 = Color(0xFFf1f1f1);
+  static const a0 = Color(0xFFA0A0A0);
   static const f6 = Color(0xFFf6f6f6);
   static const e4 = Color(0xFF4E5053);
   static const ac = Color(0xFFACACAC);
@@ -37,6 +38,8 @@ class AppColorManager {
   static const c99 = Color(0xFF999999);
 
   static const priceColor =  Color(0xFF20889B);
+
+  static const darkBluGry=  Color(0xFF565C63);
 
 
 

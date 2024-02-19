@@ -69,7 +69,6 @@ class TraineeRepository {
         options: options,
       );
     } catch (error) {
-     //log('\x1B[31merror');
       rethrow;
     }
   }

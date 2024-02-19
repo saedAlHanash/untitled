@@ -224,6 +224,7 @@
   "male": "Male",
   "female": "Female",
   "bookmarkedPlans": "Bookmarked Plans",
+  "bookmarked": "Bookmarked",
   "resetFilters": "Reset Filters",
   "FITNESSLEVEL": "FITNESS LEVEL",
   "LOCATION": "LOCATION",
@@ -514,5 +515,8 @@
   "netTotal": "Net Total",
   "whyCancel": "Your Fitness Storm membership will not be renewed. However, you will be able to continue using your membership until its end date.\n Why would you like to cancel your subscription? ",
   "cancelReason": "Cancel reason",
-  "videoCall": "Video Call"
+  "videoCall": "Video Call",
+  "oldSession": "Old Session",
+  "bundles": "Bundles",
+  "nextSession": "Next Session"
 }

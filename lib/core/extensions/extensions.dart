@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 
+import '../../Screen/Trainer Screens/Trainer Calender/appointments.dart';
 import '../error/error_manager.dart';
+import '../models/booked_appointments.dart';
 import '../strings/enum_manager.dart';
 import '../util/pair_class.dart';
 import '../widgets/spinner_widget.dart';
@@ -258,6 +260,8 @@ extension DateUtcHelper on DateTime {
     // Otherwise, it is in the previous week.
     return weekNumber - 1;
   }
+
+  DateTime get fixTimeZone => subtract(DateTime.now().timeZoneOffset);
 }
 
 extension FirstItem<E> on Iterable<E> {
@@ -292,6 +296,17 @@ extension EnumsH on List<Enum> {
         item: e,
       ),
     ).toList();
+  }
+}
+
+extension AppointmentH on Appointment {
+  bool get isNow {
+    final dateTimeNow = DateTime.now().fixTimeZone;
+
+    final b = dateTimeNow.isAfter(startTime);
+    final a = dateTimeNow.isBefore(endTime);
+
+    return a && b;
   }
 }
 

@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/strings/enum_manager.dart';
-import 'package:flutter/material.dart';
 
 import '../../../../core/api_manager/api_service.dart';
 import '../../../../core/api_manager/api_url.dart';
@@ -12,9 +12,8 @@ part 'logout_state.dart';
 
 class LogoutCubit extends Cubit<LogoutInitial> {
   LogoutCubit() : super(LogoutInitial.initial());
-  
 
-  Future<void> logout(BuildContext context) async {
+  Future<void> logout() async {
     emit(state.copyWith(statuses: CubitStatuses.loading));
     final pair = await _logoutApi();
 
@@ -30,10 +29,12 @@ class LogoutCubit extends Cubit<LogoutInitial> {
       url: PostUrl.logout,
     );
 
+    await AppProvider.logout();
+
     if (response.statusCode == 200) {
       return Pair(true, null);
     } else {
-        return response.getPairError;
+      return response.getPairError;
     }
   }
 }

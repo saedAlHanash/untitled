@@ -16,6 +16,7 @@ import 'package:pod_player/pod_player.dart';
 
 import '../../../Utils/Routes/app_pages.dart';
 import '../../../core/app/app_provider.dart';
+import '../../../core/models/plan_model.dart';
 import '../../chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 import '../HomeScreen/refresh_home_plan_cubit/refresh_home_plan_cubit.dart';
 
@@ -30,7 +31,7 @@ class PlanOverviewController extends GetxController {
   final ExerciseRepository _exerciseRepository = ExerciseRepository();
   final RxBool _isActivated = true.obs;
   final RxBool _isLoading = false.obs;
-  final Rx<PlanOverview> _planOverview = PlanOverview().obs;
+  final Rx<PlanModel> _planOverview = PlanModel.fromJson({}).obs;
   final PlanRepository _planRepository = PlanRepository();
   final TraineeRepository _traineeRepository = TraineeRepository();
   final WorkoutRepository _workoutRepository = WorkoutRepository();
@@ -43,7 +44,7 @@ class PlanOverviewController extends GetxController {
     // if (ConstantData.idPlan != null) {
     //   id = ConstantData.idPlan!;
     // } else {
-    id = Get.arguments;
+    id = (Get.arguments??'').toString();
     // }
 
     //log('plan overview id ${id}');
@@ -51,7 +52,7 @@ class PlanOverviewController extends GetxController {
     planOverview = await _planRepository.getPlanOverview(id);
     planWorkouts.value = await _workoutRepository.getPlanWorkout(id);
     keys = List.generate(planWorkouts.length, (i) => GlobalKey());
-    isActivated = planOverview.isActivated;
+    isActivated = planOverview.isActive;
     isLoading = false;
   }
 
@@ -59,7 +60,7 @@ class PlanOverviewController extends GetxController {
 
   bool get isLoading => _isLoading.value;
 
-  PlanOverview get planOverview => _planOverview.value;
+  PlanModel get planOverview => _planOverview.value;
 
   set isActivated(value) => _isActivated.value = value;
 
@@ -79,7 +80,7 @@ class PlanOverviewController extends GetxController {
 
   subscribeToPlan() async {
     Utils.openLoadingDialog();
-    var response = await _traineeRepository.subscribePlan(planId: planOverview.id!);
+    var response = await _traineeRepository.subscribePlan(planId: planOverview.id.toString());
     if (response.type == ApiResultType.success) {
       Get.context?.read<GetRoomsCubit>().getRoomByUser(planOverview.trainer?.id.toString());
       Utils.closeDialog();

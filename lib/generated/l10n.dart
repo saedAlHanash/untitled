@@ -1,7 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-
 import 'intl/messages_all.dart';
 
 // **************************************************************************
@@ -2266,6 +2265,16 @@ class S {
     return Intl.message(
       'Bookmarked Plans',
       name: 'bookmarkedPlans',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bookmarked`
+  String get bookmarked {
+    return Intl.message(
+      'Bookmarked',
+      name: 'bookmarked',
       desc: '',
       args: [],
     );
@@ -5166,6 +5175,36 @@ class S {
     return Intl.message(
       'Video Call',
       name: 'videoCall',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Old Session`
+  String get oldSession {
+    return Intl.message(
+      'Old Session',
+      name: 'oldSession',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bundles`
+  String get bundles {
+    return Intl.message(
+      'Bundles',
+      name: 'bundles',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Next Session`
+  String get nextSession {
+    return Intl.message(
+      'Next Session',
+      name: 'nextSession',
       desc: '',
       args: [],
     );

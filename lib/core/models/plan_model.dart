@@ -1,5 +1,7 @@
 import 'package:fitness_storm/core/extensions/extensions.dart';
 
+import '../../Model/trainer.dart';
+
 class PlanResponse {
   PlanResponse({
     required this.data,
@@ -31,20 +33,25 @@ class PlanModel {
     required this.trainingLocation,
     required this.totalWeeks,
     required this.isBookmark,
+    required this.isActive,
+    required this.introductionVideo,
+    required this.description,
     required this.workoutFrequency,
   });
 
   final int workoutFrequency;
   final int id;
-
   final String name;
   final String image;
   final List<TrainingType> trainingType;
   final List<TrainingLevel> level;
-  final Trainer? trainer;
+  final TrainerModel trainer;
   final List<TrainingLocation> trainingLocation;
   final int totalWeeks;
   bool isBookmark;
+  final bool isActive;
+  final String introductionVideo;
+  final String description;
 
   factory PlanModel.fromJson(Map<String, dynamic> json) {
     return PlanModel(
@@ -59,7 +66,7 @@ class PlanModel {
           ? []
           : List<TrainingLevel>.from(
               json["level"]!.map((x) => TrainingLevel.fromJson(x))),
-      trainer: json["trainer"] == null ? null : Trainer.fromJson(json["trainer"]),
+      trainer: TrainerModel.fromJson(json["trainer"] ?? {}),
       trainingLocation: json["training_location"] == null
           ? []
           : List<TrainingLocation>.from(
@@ -67,6 +74,9 @@ class PlanModel {
       totalWeeks: json["total_weeks"].toString().tryParseOrZeroInt,
       workoutFrequency: json["workout_frequency"].toString().tryParseOrZeroInt,
       isBookmark: json["is_bookmark"] ?? false,
+      isActive: json["is_active"] ?? false,
+      introductionVideo: json["introduction_video"] ?? '',
+      description: json["description"] ?? '',
     );
   }
 
@@ -76,10 +86,13 @@ class PlanModel {
         "image": image,
         "training_type": trainingType.map((x) => x.toJson()).toList(),
         "level": level.map((x) => x.toJson()).toList(),
-        "trainer": trainer?.toJson(),
+        "trainer": trainer.toJson(),
         "training_location": trainingLocation.map((x) => x.toJson()).toList(),
         "total_weeks": totalWeeks,
         "is_bookmark": isBookmark,
+        "is_active": isActive,
+        "introduction_video": introductionVideo,
+        "description": description,
       };
 }
 
@@ -131,31 +144,6 @@ class LevelPivot {
       };
 }
 
-class Trainer {
-  Trainer({
-    required this.id,
-    required this.name,
-    required this.image,
-  });
-
-  final int id;
-  final String name;
-  final String image;
-
-  factory Trainer.fromJson(Map<String, dynamic> json) {
-    return Trainer(
-      id: json["id"].toString().tryParseOrZeroInt,
-      name: json["name"] ?? "",
-      image: json["image"] ?? "",
-    );
-  }
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": name,
-        "image": image,
-      };
-}
 
 class TrainingLocation {
   TrainingLocation({

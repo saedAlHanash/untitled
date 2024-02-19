@@ -42,6 +42,10 @@ class SplashController extends GetxController {
         );
         return;
       }
+      if (AppProvider.token.isEmpty) {
+        startLogin();
+        return;
+      }
 
       Get.offAllNamed(AppRoutes.mainHome);
     });

@@ -1,3 +1,5 @@
+import 'package:fitness_storm/core/app/app_provider.dart';
+
 class GetUrl {
   static const getHome = 'home';
 
@@ -83,16 +85,19 @@ class GetUrl {
 
   static const temp = '';
 
+  static var bundles ='bundles';
+
   static String plans(int id) => 'trainers/$id/plans';
 }
 
 class PostUrl {
-
   static const loginUrl = 'auth/login';
 
   static const signup = 'auth/register';
 
   static const forgetPassword = 'auth/resetPassword';
+
+  static const survey = 'fitness-survey';
 
   static const resetPasswordCheckCode = 'auth/resetPassword/checkCode';
 
@@ -102,14 +107,14 @@ class PostUrl {
   static const uploadFile = 'media';
 
   static const insertCode = 'courses/insert-code';
-  static const logout = 'logout';
+  static const logout = 'auth/logout';
 
   static const confirmCode = 'auth/confirmAccount';
   static const otpPassword = 'password/check';
 
   static const loginSocial = 'auth/social_login';
 
-  static const resetPassword ='auth/resetPassword/changePassword';
+  static const resetPassword = 'auth/resetPassword/changePassword';
 
   static String addFavorite(int id) => 'plans/$id/addToBookmarkedPlans';
 
@@ -122,7 +127,7 @@ class PostUrl {
 
   static const addToCart = 'carts';
 
-  static const updateProfile = 'profile/update';
+  static const updateProfile = 'profile';
 
   static const addSupportMessage = 'messages/add';
 
@@ -158,6 +163,7 @@ class PatchUrl {}
 const additionalConstTrainer = 'mobile/trainer/';
 const additionalConstUser = 'mobile/user/';
 
-String get additionalConst => 'mobile/user/';
+String get additionalConst =>
+    AppProvider.isTrainer ? additionalConstTrainer : additionalConstUser;
 
 const baseUrl = 'api.fitnessstorm.org';

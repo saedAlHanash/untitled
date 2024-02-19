@@ -1,17 +1,24 @@
 part of 'booked_appointments_cubit.dart';
 
-class BookedAppointmentsInitial extends AbstractCubit<List<Appointments>> {
+class BookedAppointmentsInitial extends AbstractCubit<List<Appointment>> {
   final int trainerId;
+  final List<Appointment> old;
+  final List<Appointment> next;
+
   const BookedAppointmentsInitial({
     required super.result,
     super.error,
     required this.trainerId,
+    required this.old,
+    required this.next,
     super.statuses,
   });
 
   factory BookedAppointmentsInitial.initial() {
     return const BookedAppointmentsInitial(
       result: [],
+      old: [],
+      next: [],
       error: '',
       trainerId: 0,
       statuses: CubitStatuses.init,
@@ -23,19 +30,23 @@ class BookedAppointmentsInitial extends AbstractCubit<List<Appointments>> {
 
   BookedAppointmentsInitial copyWith({
     CubitStatuses? statuses,
-    List<Appointments>? result,
+    List<Appointment>? result,
+    List<Appointment>? old,
+    List<Appointment>? next,
     String? error,
     int? trainerId,
   }) {
     return BookedAppointmentsInitial(
       statuses: statuses ?? this.statuses,
       result: result ?? this.result,
+      old: old ?? this.old,
+      next: next ?? this.next,
       error: error ?? this.error,
       trainerId: trainerId ?? this.trainerId,
     );
   }
 
-  Pair<Appointments?, PrivetSessionState> getSession() {
+  Pair<Appointment?, PrivetSessionState> getSession() {
     if (result.isEmpty) {
       return Pair(null, PrivetSessionState.noEver);
     } else {
@@ -46,15 +57,9 @@ class BookedAppointmentsInitial extends AbstractCubit<List<Appointments>> {
       final dateTimeNow = DateTime.now().subtract(DateTime.now().timeZoneOffset);
 
       for (var e in list) {
+        if (!e.isNow) continue;
 
-        final b = dateTimeNow.isAfter(e.startTime);
-        final a = dateTimeNow.isBefore(e.endTime);
-
-        if (b && a) {
-          return Pair(e, PrivetSessionState.active);
-        } else {
-          continue;
-        }
+        return Pair(e, PrivetSessionState.active);
       }
 
       if (dateTimeNow.isBefore(list.last.startTime)) {

@@ -2,17 +2,21 @@ import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:fitness_storm/features/auth/data/response/login_response.dart';
 
+import '../../features/profile/data/response/profile_response.dart';
 import '../util/shared_preferences.dart';
 
 class AppProvider {
-  static var _loginData = AppSharedPreference.loginDate;
+  static LoginData _loginData = AppSharedPreference.loginDate;
 
-  static var _userType = AppSharedPreference.getUserType;
+  static UserType _userType = AppSharedPreference.getUserType;
+
+  static Profile _profile = AppSharedPreference.profile;
 
   static int get myId => _loginData.id;
 
-  static String get token {
+  static Profile get profile => _profile;
 
+  static String get token {
     return _loginData.accessToken;
   }
 
@@ -27,17 +31,31 @@ class AppProvider {
     _userType = AppSharedPreference.getUserType;
   }
 
-  static cashLoginData(LoginData data, {bool? isTrainer}) async {
+  static cashLoginData(LoginData data, {required bool isTrainer}) async {
     await AppSharedPreference.cashLoginData(data);
-    if (isTrainer != null) {
+
+    if (isTrainer ) {
       await AppSharedPreference.cashUserType(UserType.trainer);
+    } else {
+      await AppSharedPreference.cashUserType(UserType.user);
     }
+    loggerObject.w(AppSharedPreference.getUserType);
     _setLoginData();
+  }
+
+  static cashProfile(Profile data, {bool? isTrainer}) async {
+    await AppSharedPreference.cashProfile(data);
+    _profile = data;
   }
 
   static cashSetConfirmAccount() async {
     await AppSharedPreference.cashLoginData(_loginData.copyWith(isConfirmed: true));
     _setLoginData();
+  }
+
+  static Future<void> logout() async {
+    await AppSharedPreference.logout();
+    _loginData = AppSharedPreference.loginDate;
   }
 }
 

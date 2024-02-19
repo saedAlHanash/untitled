@@ -20,6 +20,7 @@ import '../../../../core/strings/enum_manager.dart';
 import '../../../../generated/assets.dart';
 import '../../../../generated/l10n.dart';
 import '../../../../router/app_router.dart';
+import '../../bloc/login_social_cubit/login_social_cubit.dart';
 import '../../bloc/signup_cubit/signup_cubit.dart';
 
 class SignupPage extends StatefulWidget {
@@ -54,14 +55,24 @@ class _SignupPageState extends State<SignupPage> {
           height: 1.0.sh,
           color: Colors.black.withOpacity(0.6),
         ),
-        BlocListener<SignupCubit, SignupInitial>(
-          listenWhen: (p, c) => c.statuses.done,
-          listener: (context, state) {
-            if (AppProvider.isConfirmed) {
-            } else {
-              startConfirmCodeAccount(context);
-            }
-          },
+        MultiBlocListener(
+          listeners: [
+            BlocListener<SignupCubit, SignupInitial>(
+              listenWhen: (p, c) => c.statuses.done,
+              listener: (context, state) {
+                if (AppProvider.isConfirmed) {
+                } else {
+                  startConfirmCodeAccount(context);
+                }
+              },
+            ),
+            BlocListener<LoginSocialCubit, LoginSocialInitial>(
+              listenWhen: (p, c) => c.statuses.done,
+              listener: (context, state) {
+                startHome();
+              },
+            ),
+          ],
           child: Scaffold(
             backgroundColor: Colors.transparent,
             body: SingleChildScrollView(

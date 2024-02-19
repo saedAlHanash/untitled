@@ -28,13 +28,14 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       backgroundColor: color ?? AppColorManager.mainColor,
       surfaceTintColor: color ?? AppColorManager.mainColor,
-      toolbarHeight: (zeroHeight ?? false) ? 0 : 80.0.h,
+      toolbarHeight: (zeroHeight ?? false) ? 0 : 70.0.h,
       // scrolledUnderElevation: 0,
       title: title ??
           DrawableText(
             text: titleText ?? '',
-            size: 22.0.spMin,
-            fontFamily: FontManager.cairo.name,
+            size: 24.0.spMin,
+            color: Colors.white,
+            fontFamily: FontManager.cairoBold.name,
           ),
       leading: Navigator.canPop(context)
           ? BackBtnWidget(
@@ -50,5 +51,5 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   // TODO: implement preferredSize
-  Size get preferredSize => Size(1.0.sw, (zeroHeight ?? false) ? 0 : 80.0.h);
+  Size get preferredSize => Size(1.0.sw, (zeroHeight ?? false) ? 0 : 70.0.h);
 }

@@ -4,8 +4,10 @@ import 'package:fitness_storm/Model/plan_overview.dart';
 import 'package:fitness_storm/Utils/utils.dart';
 import 'package:get/get.dart';
 
+import '../../../core/models/plan_model.dart';
+
 class FilterResultController extends GetxController {
-  RxList<PlanOverview> plansOverviews = <PlanOverview>[].obs;
+  RxList<PlanModel> plansOverviews = <PlanModel>[].obs;
 
   final RxBool _isLoading = false.obs;
   final PlanRepository _planRepository = PlanRepository();
@@ -21,7 +23,7 @@ class FilterResultController extends GetxController {
 
     if (response.type == ApiResultType.success) {
       response.data.forEach((element) {
-        plansOverviews.add(PlanOverview.fromJson(element));
+        plansOverviews.add(PlanModel.fromJson(element));
       });
     } else {
       Get.back();

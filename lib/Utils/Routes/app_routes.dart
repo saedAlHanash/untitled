@@ -11,8 +11,8 @@ abstract class AppRoutes {
 
   // Trainee Screen
   static const video = '/video';
-  static const homePage = '/home';
-  static const traienrPlanOverview = '/traienrPlanOverview';
+
+
   static const mainHome = '/main_home';
   static const planOverview = '/plan_overview';
   static const continueTrainingPlanScreen = '/continue_training_plan_screen';

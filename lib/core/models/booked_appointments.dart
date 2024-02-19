@@ -1,17 +1,15 @@
-import '../../Model/trainer.dart';
+import 'package:fitness_storm/core/extensions/extensions.dart';
 
 class BookedAppointments {
-  BookedAppointments({
-    required this.data,
-  });
+  BookedAppointments({required this.data});
 
-  final List<Appointments> data;
+  final List<Appointment> data;
 
   factory BookedAppointments.fromJson(Map<String, dynamic> json) {
     return BookedAppointments(
       data: json["data"] == null
           ? []
-          : List<Appointments>.from(json["data"]!.map((x) => Appointments.fromJson(x))),
+          : List<Appointment>.from(json["data"]!.map((x) => Appointment.fromJson(x))),
     );
   }
 
@@ -20,14 +18,14 @@ class BookedAppointments {
       };
 }
 
-class Appointments {
-  Appointments({
+class Appointment {
+  Appointment({
     required this.id,
     required this.startTime,
     required this.endTime,
     required this.videoCallToken,
     required this.status,
-    required this.trainer,
+    required this.user,
   });
 
   final int id;
@@ -35,25 +33,44 @@ class Appointments {
   final DateTime endTime;
   final String videoCallToken;
   final String status;
-  final TrainerModel trainer;
+  final User user;
 
-  factory Appointments.fromJson(Map<String, dynamic> json) {
-    return Appointments(
+  factory Appointment.fromJson(Map<String, dynamic> json) {
+    return Appointment(
       id: json["id"] ?? 0,
-      startTime: DateTime.tryParse(json["start_time"] ?? "")?? DateTime(2030),
-      endTime: DateTime.tryParse(json["end_time"] ?? "")?? DateTime(2030),
+      startTime: DateTime.tryParse(json["start_time"] ?? "") ?? DateTime(2030),
+      endTime: DateTime.tryParse(json["end_time"] ?? "") ?? DateTime(2030),
       videoCallToken: json["video_call_token"] ?? "",
       status: json["status"] ?? "",
-      trainer:  TrainerModel.fromJson(json["trainer"]??{}),
+      user: User.fromJson(json["trainer"] ?? json["user"] ?? {}),
     );
   }
 
   Map<String, dynamic> toJson() => {
         "id": id,
-        "start_time": startTime?.toIso8601String(),
-        "end_time": endTime?.toIso8601String(),
+        "start_time": startTime.toIso8601String(),
+        "end_time": endTime.toIso8601String(),
         "video_call_token": videoCallToken,
         "status": status,
-        "trainer": trainer?.toJson(),
       };
+}
+
+class User {
+  User({
+    required this.id,
+    required this.image,
+    required this.name,
+  });
+
+  final int id;
+  final String image;
+  final String name;
+
+  factory User.fromJson(Map<String, dynamic> json) {
+    return User(
+      id: json["id"].toString().tryParseOrZeroInt,
+      image: json["image"] ?? "",
+      name: json["name"] ?? "",
+    );
+  }
 }

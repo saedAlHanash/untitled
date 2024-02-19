@@ -6,7 +6,7 @@ import '../strings/app_color_manager.dart';
 
 class MyButton extends StatelessWidget {
   const MyButton({
-    Key? key,
+    super.key,
     this.child,
     this.onTap,
     this.text = '',
@@ -18,7 +18,7 @@ class MyButton extends StatelessWidget {
     this.enable,
     this.toUpper = false,
     this.padding,
-  }) : super(key: key);
+  });
 
   final Widget? child;
   final String text;
@@ -38,7 +38,8 @@ class MyButton extends StatelessWidget {
         DrawableText(
           text: toUpper ? text.toUpperCase() : text,
           color: textColor ?? AppColorManager.whit,
-          fontFamily: FontManager.cairoSemiBold.name,
+          fontFamily: FontManager.cairoBold.name,
+          size: 18.0.sp,
         );
 
     return SizedBox(
@@ -69,7 +70,7 @@ class MyButton extends StatelessWidget {
 
 class MyButtonOutLine extends StatelessWidget {
   const MyButtonOutLine({
-    Key? key,
+    super.key,
     this.child,
     this.onTap,
     this.text = '',
@@ -80,7 +81,7 @@ class MyButtonOutLine extends StatelessWidget {
     this.enable,
     this.toUpper = true,
     this.padding,
-  }) : super(key: key);
+  });
 
   final Widget? child;
   final String text;

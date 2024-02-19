@@ -1,6 +1,9 @@
 import 'package:fitness_storm/Model/specialties_model.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 
+import '../Screen/Trainer Screens/Trainer Calender/appointments.dart';
+import '../core/models/booked_appointments.dart';
+
 class TrainerModel {
   TrainerModel({
     required this.id,
@@ -62,29 +65,4 @@ class TrainerModel {
       };
 }
 
-class Appointment {
-  Appointment({
-    required this.id,
-    required this.status,
-    required this.videoCallToken,
-  });
-
-  final int id;
-  final String status;
-  final String videoCallToken;
-
-  factory Appointment.fromJson(Map<String, dynamic> json) {
-    return Appointment(
-      id: json["id"].toString().tryParseOrZeroInt,
-      status: json["status"] ?? "",
-      videoCallToken: json["video_call_token"] ?? "",
-    );
-  }
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "status": status,
-        "video_call_token": videoCallToken,
-      };
-}
 

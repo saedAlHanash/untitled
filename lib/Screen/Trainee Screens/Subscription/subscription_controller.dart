@@ -7,6 +7,7 @@ import '../../../Data/Repositories/trainee_repository.dart';
 import '../../../Model/subscription_model.dart';
 import '../../../Model/user_profile.dart';
 import '../../../Utils/utils.dart';
+import '../../../features/profile/data/response/profile_response.dart';
 import '../coupon/data/request/pay_request.dart';
 
 class SubscruptionController extends GetxController {
@@ -14,7 +15,7 @@ class SubscruptionController extends GetxController {
   final RxBool _isBuy = false.obs;
   final Rx<SubscriptionsModel> _subscriptionsModel = SubscriptionsModel.fromJson({}).obs;
   final TraineeRepository _traineeRepository = TraineeRepository();
-  late UserProfile userProfile;
+  late Profile userProfile;
   late Rx<bool> _isSubscribe = false.obs;
   final RxString _nameUser = "".obs;
 
@@ -67,7 +68,7 @@ class SubscruptionController extends GetxController {
     isLoading = true;
     ApiResult result = await _traineeRepository.getUserProfile();
     if (result.type == ApiResultType.success) {
-      userProfile = UserProfile.fromJson(result.data);
+      userProfile = Profile.fromJson(result.data);
       nameUser = userProfile.name;
     } else {
       Utils.openSnackBar(title: 'Something_Went_Wrong'.tr);
