@@ -1,23 +1,15 @@
 
-import 'package:fitness_storm/helperClass.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
-
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:drawable_text/drawable_text.dart';
-
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
 import 'package:fitness_storm/core/widgets/my_checkbox_widget.dart';
 import 'package:fitness_storm/core/widgets/spinner_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../generated/l10n.dart';
 import '../../bloc/update_profile_cubit/update_profile_cubit.dart';
 import '../../data/response/profile_response.dart';
-import '../../../../generated/l10n.dart';
 
 class WorkoutLocationCheckboxBody extends StatefulWidget {
   const WorkoutLocationCheckboxBody({super.key});

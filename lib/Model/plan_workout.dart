@@ -1,4 +1,5 @@
 import 'package:fitness_storm/Model/exercise.dart';
+import 'package:fitness_storm/core/extensions/extensions.dart';
 
 class WorkoutModel {
   String? id;
@@ -32,7 +33,7 @@ class WorkoutModel {
     id = json['id'];
     workoutId = json['workout_id'];
     name = json['name'];
-    image = json['image'];
+    image = json['image'].toString().fixAvatarImage;
     dayNumber = json['day_number'];
     totalMinutes = json['total_minutes'];
     type = json['type'];

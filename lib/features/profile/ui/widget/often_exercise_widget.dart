@@ -3,9 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
+import '../../../../core/widgets/trainee_text_field.dart';
 import '../../bloc/update_profile_cubit/update_profile_cubit.dart';
 import '../../data/response/profile_response.dart';
-import '../../../../core/widgets/trainee_text_field.dart';
 
 class OftenExerciseWidget extends StatefulWidget {
   const OftenExerciseWidget({super.key});

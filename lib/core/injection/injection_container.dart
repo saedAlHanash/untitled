@@ -3,8 +3,11 @@ import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../features/appointments/bloc/available_times_cubit/available_times_cubit.dart';
 import '../../features/appointments/bloc/booked_appointments_cubit/booked_appointments_cubit.dart';
 import '../../features/appointments/bloc/bundles_cubit/bundles_cubit.dart';
+import '../../features/appointments/bloc/create_bundle_cubit/create_bundle_cubit.dart';
+import '../../features/appointments/bloc/create_session_cubit/create_session_cubit.dart';
 import '../../features/auth/bloc/confirm_code_cubit/confirm_code_cubit.dart';
 import '../../features/auth/bloc/delete_account_cubit/delete_account_cubit.dart';
 import '../../features/auth/bloc/forget_password_cubit/forget_password_cubit.dart';
@@ -55,6 +58,9 @@ Future<void> init() async {
 
   // region Appointments
   sl.registerFactory(() => BookedAppointmentsCubit());
+  sl.registerFactory(() => AvailableTimesCubit());
+  sl.registerFactory(() => CreateSessionCubit());
+  sl.registerFactory(() => CreateBundleCubit());
 
   //endregion
 

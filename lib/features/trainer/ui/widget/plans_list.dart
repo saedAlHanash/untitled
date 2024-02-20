@@ -1,4 +1,3 @@
-import 'package:fitness_storm/Utils/Constants/constants.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -146,7 +145,7 @@ class _PlanImageState extends State<_PlanImage> {
           padding: const EdgeInsets.only(top: 3),
           width: MediaQuery.of(Get.context!).size.width,
           child: ImageMultiType(
-              url: Constants.imageUrl + widget.plan.image, fit: BoxFit.fitWidth),
+              url: widget.plan.image, fit: BoxFit.fitWidth),
         ),
         Align(
           alignment: Alignment.topRight,

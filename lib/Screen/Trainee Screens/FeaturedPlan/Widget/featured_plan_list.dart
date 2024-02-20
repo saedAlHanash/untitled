@@ -46,9 +46,9 @@ class FeaturedPlanList extends GetWidget<FeaturedPlanController> {
                     isPressed: controller.addPlanToFavorite,
                     index: index,
                     subTitle: PlanTimeFrequency(
-                      totalWeeks: controller.plans[index].totalWeeks!,
+                      totalWeeks: controller.plans[index].totalWeeks,
                       workoutFrequency:
-                          controller.plans[index].workoutFrequency!,
+                          controller.plans[index].workoutFrequency,
                       color: Colors.grey,
                     ),
                   );

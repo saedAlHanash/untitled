@@ -1,8 +1,6 @@
-import 'package:fitness_storm/core/app/app_provider.dart';
-import 'package:fitness_storm/features/auth/bloc/survey_cubit/survey_cubit.dart';
+import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/features/profile/ui/widget/survey_info_body.dart';
 import 'package:fitness_storm/features/profile/ui/widget/trainee_edit_profile.dart';
-import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
@@ -10,7 +8,6 @@ import 'package:get/get.dart';
 import '../../../../core/util/my_style.dart';
 import '../../bloc/profile_cubit/profile_cubit.dart';
 import '../../bloc/update_profile_cubit/update_profile_cubit.dart';
-import '../../../../Screen/Trainee Screens/Trainee_Profile/trainee_profile_controller.dart';
 import '../widget/profile_details_body.dart';
 
 class TraineeProfileInfoScreen extends StatelessWidget {

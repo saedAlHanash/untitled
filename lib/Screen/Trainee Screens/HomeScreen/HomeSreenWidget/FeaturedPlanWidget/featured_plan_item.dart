@@ -1,5 +1,4 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:fitness_storm/Utils/Constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_multi_type/image_multi_type.dart';
@@ -59,7 +58,7 @@ class FeaturedPlanItem extends GetWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(15),
         child: ImageMultiType(
-          url: Constants.imageUrl + planImageUrl,
+          url: planImageUrl,
           height: MediaQuery.of(Get.context!).size.height / 2,
           // width: MediaQuery.of(Get.context!).size.width,
           fit: BoxFit.fitHeight,
@@ -175,7 +174,7 @@ class FeaturedPlanItem extends GetWidget {
         child: CircleAvatar(
           backgroundColor: Colors.grey,
           backgroundImage:
-              CachedNetworkImageProvider(Constants.imageUrl + trainerImageUrl),
+              CachedNetworkImageProvider( trainerImageUrl),
           radius: Get.width / 8,
         ),
       ),

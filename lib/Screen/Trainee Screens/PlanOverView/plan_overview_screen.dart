@@ -7,6 +7,7 @@ import 'package:fitness_storm/Screen/Trainee%20Screens/PlanOverView/plan_overvie
 import 'package:fitness_storm/Widgets/custom_button.dart';
 import 'package:fitness_storm/Widgets/read_more_text_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
@@ -28,7 +29,7 @@ class PlanOverviewScreen extends GetView<PlanOverviewController> {
             leading: IconButton(
                 icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
                 onPressed: () => Get.back()),
-            title: Text(controller.isLoading ? '' : controller.planOverview.name ?? '',
+            title: Text(controller.isLoading ? '' : controller.planOverview.name,
                 style: const TextStyle(fontWeight: FontWeight.bold))),
         body: controller.isLoading
             ? const Center(child: CircularProgressIndicator.adaptive())
@@ -48,14 +49,14 @@ class PlanOverviewScreen extends GetView<PlanOverviewController> {
                           horizontal: MediaQuery.of(context).size.width / 20),
                       child: Column(
                         children: [
-                          const SizedBox(height: 30),
+                          30.0.verticalSpace,
                           Text(
-                            controller.planOverview.name ?? '',
+                            controller.planOverview.name,
                             style:
                                 const TextStyle(color: Color(0xFF565C63), fontSize: 26),
                           ),
                           Text(
-                            controller.planOverview.trainer?.name ?? '',
+                            controller.planOverview.trainer.name,
                             style: TextStyle(
                                 color: Get.theme.colorScheme.secondary, fontSize: 14),
                           ),
@@ -82,12 +83,12 @@ class PlanOverviewScreen extends GetView<PlanOverviewController> {
                               ],
                             ),
                           ),
-                          const SizedBox(height: 30),
+                          30.0.verticalSpace,
                           ReadMoreTextWidget(text: controller.planOverview.description),
-                          const SizedBox(height: 30),
+                          30.0.verticalSpace,
                           TrainerProfile(controller.planOverview.trainer.name,
                               controller.planOverview.trainer.image),
-                          const SizedBox(height: 30),
+                          30.0.verticalSpace,
                           TrainerBio(controller.planOverview.trainer.bio),
                         ],
                       ),

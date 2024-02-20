@@ -1,4 +1,3 @@
-import 'package:fitness_storm/Model/plan.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

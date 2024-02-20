@@ -1,4 +1,3 @@
-import 'package:fitness_storm/Utils/Constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_multi_type/image_multi_type.dart';
@@ -83,7 +82,7 @@ class YourTrainersItem extends GetWidget {
         height: MediaQuery.of(Get.context!).size.height / 3,
         width: MediaQuery.of(Get.context!).size.width / 2.6,
         child:
-            ImageMultiType(url:Constants.imageUrl + planImageUrl, fit: BoxFit.cover),
+            ImageMultiType(url: planImageUrl, fit: BoxFit.cover),
       ),
     );
   }

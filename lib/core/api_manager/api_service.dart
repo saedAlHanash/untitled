@@ -4,11 +4,11 @@ import 'dart:math';
 import 'dart:typed_data';
 
 import 'package:fitness_storm/core/app/app_provider.dart';
+import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 import 'package:logger/logger.dart';
-import 'package:fitness_storm/core/extensions/extensions.dart';
 
 import '../injection/injection_container.dart';
 import '../network/network_info.dart';
@@ -263,7 +263,7 @@ class APIService {
     Map<String, dynamic>? fields,
     Map<String, String>? header,
   }) async {
-    loggerObject.w(AppSharedPreference.getToken);
+
     Map<String, String> f = {};
     (fields ?? {}).forEach((key, value) => f[key] = value.toString());
 

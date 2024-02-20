@@ -21,29 +21,10 @@ class WorkoutScreen extends GetView<WorkoutScreenController> {
                   // SizedBox(height: Get.height / 25),
                   // ScrollablePositionedList.builder(
                   Expanded(
-                      child: SingleChildScrollView(
-                    child: Column(children: controller.workoutWidgets),
-                  )
-                      //  ListView.builder(
-                      //   key: UniqueKey(),
-                      //   // itemScrollController: controller.scrollController,
-                      //   controller: ScrollController(),
-                      //   shrinkWrap: true,
-                      //   itemCount: controller.workouts.length,
-                      //   itemBuilder: (context, index) {
-                      //     return GestureDetector(
-                      //       onTap: () => controller.startTraining(index),
-                      //       child: DayWidget(
-                      //         key: controller.keys[index],
-                      //         imageUrl: controller.workouts[index].image!,
-                      //         dayNumber: (index + 1).toString(),
-                      //         totalMinutes: controller.workouts[index].totalMinutes!,
-                      //         exercises: controller.workouts[index].exercises!,
-                      //       ),
-                      //     );
-                      //   },
-                      // ),
-                      ),
+                    child: SingleChildScrollView(
+                      child: Column(children: controller.workoutWidgets),
+                    ),
+                  ),
                 ])
               : Center(
                   child: Column(

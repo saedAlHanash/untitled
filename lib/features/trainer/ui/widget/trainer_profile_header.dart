@@ -1,5 +1,4 @@
 import 'package:drawable_text/drawable_text.dart';
-import 'package:fitness_storm/Utils/Constants/constants.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,7 +7,6 @@ import 'package:get/get.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 import 'package:image_multi_type/round_image_widget.dart';
 
-import '../../../../../Model/trainer.dart';
 import '../../../../../core/strings/app_color_manager.dart';
 import '../../../../../core/strings/enum_manager.dart';
 import '../../../../../core/widgets/my_button.dart';
@@ -20,7 +18,9 @@ import '../../../../Utils/utils.dart';
 import '../../../../core/util/my_style.dart';
 import '../../../../generated/assets.dart';
 import '../../../../generated/l10n.dart';
+import '../../../../router/app_router.dart';
 import '../../../appointments/bloc/booked_appointments_cubit/booked_appointments_cubit.dart';
+import '../../data/response/trainer.dart';
 
 class TrainerProfileHeader extends StatelessWidget {
   const TrainerProfileHeader({super.key, required this.trainer});
@@ -37,7 +37,7 @@ class TrainerProfileHeader extends StatelessWidget {
             height: 160.0.h,
             width: 120.0.w,
             child: RoundImageWidget(
-              url: Constants.imageUrl + (trainer.image),
+              url: (trainer.image),
               radios: 12.0.r,
               height: 160.0.h,
               width: 120.0.w,
@@ -158,10 +158,7 @@ class TrainerProfileHeader extends StatelessWidget {
 
   void bookSession(TrainerModel trainer) {
     Utils.showAlertDialog(() {
-      Get.toNamed(
-        AppRoutes.bookPrivateSession,
-        arguments: [trainer.name, trainer.image, trainer.id.toString()],
-      );
+      startBookPrivetSession(trainer);
     }, '''needBookPrivateSession'''.tr, textContinue: 'Book'.tr);
   }
 }

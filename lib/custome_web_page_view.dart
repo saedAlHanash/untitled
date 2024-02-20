@@ -1,6 +1,7 @@
 // ignore: must_be_immutable
 import 'dart:async';
 
+import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -24,20 +25,8 @@ class _MyCustomeWebPageState extends State<MyCustomeWebPage> {
   @override
   void initState() {
     super.initState();
+    loggerObject.w(widget.urlWebPage);
     controller = Completer<WebViewController>();
-    // controller = WebViewController()
-    //   ..setJavaScriptMode(JavaScriptMode.unrestricted)
-    //   ..setNavigationDelegate(
-    //       NavigationDelegate(onNavigationRequest: (NavigationRequest request) {
-    //     if (request.url.contains('/return')) {
-    //       Navigator.pop(context, true);
-    //       return NavigationDecision.prevent;
-    //     }
-    //     return NavigationDecision.navigate;
-    //   }))
-    //   ..loadRequest(
-    //     Uri.parse(widget.urlWebPage!),
-    //   );
   }
 
   JavascriptChannel _toasterJavascriptChannel(BuildContext context) {

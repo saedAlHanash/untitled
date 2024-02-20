@@ -1,9 +1,10 @@
 // ignore_for_file: invalid_use_of_protected_member
 
-import 'package:fitness_storm/Model/trainer.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/HomeScreen/HomeSreenWidget/yourTainerWidget/your_trainer_item.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/HomeScreen/home_screen_controller.dart';
 import 'package:fitness_storm/Utils/Routes/app_pages.dart';
+import 'package:fitness_storm/features/appointments/data/request/bundles_request.dart';
+import 'package:fitness_storm/features/trainer/data/response/trainer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
@@ -16,21 +17,7 @@ import '../../../../../features/trainer/ui/pages/trainer_page.dart';
 import '../list_header.dart';
 
 class YourTrainersWidget extends GetWidget<HomeScreenController> {
-  const YourTrainersWidget({Key? key}) : super(key: key);
-
-  Function pushYourTrainersScreen(List<TrainerModel> trainers) {
-    return () {
-      // Navigator.push(
-      //   context,
-      //   MaterialPageRoute(
-      //     builder: (context) => BlocProvider<TrainerBloc>(
-      //       create: (context) => TrainerBloc(),
-      //       child: YourTrainersScreen(trainers: trainers),
-      //     ),
-      //   ),
-      // );
-    };
-  }
+  const YourTrainersWidget({super.key});
 
   Widget _buildYourTrainersList({required List<TrainerModel> trainers}) {
     return SizedBox(
@@ -82,7 +69,10 @@ void startTrainerPage(BuildContext context, int id) {
           providers: [
             BlocProvider(create: (_) => sl<TrainerCubit>()..getTrainer(id: id)),
             BlocProvider(create: (_) => sl<PlansCubit>()..getPlans(id: id)),
-            BlocProvider(create: (_) => sl<BundlesCubit>()..getBundles()),
+            BlocProvider(
+              create: (_) =>
+                  sl<BundlesCubit>()..getBundles(request: BundlesRequest(trainerId: id)),
+            ),
           ],
           child: const TrainerPage(),
         );

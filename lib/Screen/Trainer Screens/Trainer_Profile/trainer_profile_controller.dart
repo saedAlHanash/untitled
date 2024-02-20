@@ -2,9 +2,9 @@
 
 import 'package:fitness_storm/Data/Api/api_result.dart';
 import 'package:fitness_storm/Data/Repositories/Trainer%20Repository/trainer_auth_repository.dart';
-import 'package:fitness_storm/Model/trainer.dart';
 import 'package:fitness_storm/Utils/Routes/app_pages.dart';
 import 'package:fitness_storm/Utils/utils.dart';
+import 'package:fitness_storm/features/trainer/data/response/trainer.dart';
 import 'package:get/get.dart';
 
 import '../../chat/util.dart';

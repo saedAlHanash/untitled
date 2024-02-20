@@ -8,7 +8,7 @@ import '../../../../../Model/subscribed_plan.dart';
 import 'continue_training_item.dart';
 
 class ContinueTrainingWidget extends GetView<HomeScreenController> {
-  const ContinueTrainingWidget({Key? key}) : super(key: key);
+  const ContinueTrainingWidget({super.key});
 
   Widget _buildContinueTrainingPlanHeader(context,
       {required List<SubscribedPlan> plans}) {

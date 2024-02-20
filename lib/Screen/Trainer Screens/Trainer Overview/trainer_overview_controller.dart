@@ -5,9 +5,8 @@ import 'package:fitness_storm/Data/Repositories/plan_repository.dart';
 import 'package:fitness_storm/Data/Repositories/trainer_repository.dart';
 import 'package:get/get.dart';
 
-import '../../../Model/plan.dart';
-import '../../../Model/trainer.dart';
 import '../../../core/models/plan_model.dart';
+import '../../../features/trainer/data/response/trainer.dart';
 
 class TrainerTrainerOverviewController extends GetxController {
   final Rx<TrainerModel> _trainer = TrainerModel.fromJson({}).obs;

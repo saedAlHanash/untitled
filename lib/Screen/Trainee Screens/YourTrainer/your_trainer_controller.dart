@@ -2,7 +2,7 @@
 
 import 'package:fitness_storm/Data/Api/api_result.dart';
 import 'package:fitness_storm/Data/Repositories/trainer_repository.dart';
-import 'package:fitness_storm/Model/trainer.dart';
+import 'package:fitness_storm/features/trainer/data/response/trainer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';

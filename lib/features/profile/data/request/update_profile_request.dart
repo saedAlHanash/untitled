@@ -1,9 +1,7 @@
 import 'package:fitness_storm/core/app/app_provider.dart';
-import 'package:fitness_storm/core/util/shared_preferences.dart';
 
 import '../../../../core/api_manager/api_service.dart';
 import '../../../../core/strings/enum_manager.dart';
-import '../response/profile_response.dart';
 
 class UpdateProfileRequest {
   UpdateProfileRequest({

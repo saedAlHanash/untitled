@@ -1,7 +1,6 @@
 import 'package:fitness_storm/Screen/Trainee%20Screens/HomeScreen/home_screen_controller.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Progress%20Screen/progress_screen_controller.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Search%20Screen/search_screen_controller.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/Trainee_Profile/trainee_profile_controller.dart';
 import 'package:get/get.dart';
 
 import '../Workout Screen/workout_screen_controller.dart';

@@ -18,6 +18,6 @@ abstract class Constants {
   static const String topicUserNotification = 'users';
   static const String topicTrainerNotification = 'trainer';
 
-  static const String imageUrl = '$baseUrl/';
+  static const String imageUrl1 = '$baseUrl/';
 }
 //https://api.fitnessstorm.org/mobile

@@ -1,4 +1,3 @@
-import 'package:fitness_storm/Utils/Constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -31,7 +30,7 @@ class TrainerWidget extends StatelessWidget {
       margin: EdgeInsets.only(bottom: Get.height / 162.4),
       child: Row(
         children: [
-          TrainerImageWidget(imageUrl: Constants.imageUrl + imageUrl),
+          TrainerImageWidget(imageUrl:imageUrl),
           TrainerInfoWidget(
             trainerName: trainerName,
             numberOfPlans: numberOfPlans,

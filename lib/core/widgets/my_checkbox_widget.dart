@@ -1,10 +1,9 @@
 import 'package:collection/collection.dart';
 import 'package:drawable_text/drawable_text.dart';
+import 'package:fitness_storm/core/widgets/spinner_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:group_button/group_button.dart';
-import 'package:fitness_storm/core/widgets/spinner_widget.dart';
 
 import '../strings/app_color_manager.dart';
 

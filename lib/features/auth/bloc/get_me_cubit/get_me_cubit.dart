@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/api_manager/api_service.dart';
-import '../../../../core/app/app_provider.dart';
 import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/pair_class.dart';
 import '../../../../core/util/snack_bar_message.dart';

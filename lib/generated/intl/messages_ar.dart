@@ -172,6 +172,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "aboutUs": MessageLookupByLibrary.simpleMessage("معلومات عنا"),
         "accountCreated":
             MessageLookupByLibrary.simpleMessage("تم إنشاء الحساب!"),
+        "add": MessageLookupByLibrary.simpleMessage("إضافة"),
         "advanced": MessageLookupByLibrary.simpleMessage("Advanced"),
         "alert": MessageLookupByLibrary.simpleMessage("Alert"),
         "allFinished": MessageLookupByLibrary.simpleMessage("All Finished!"),
@@ -199,6 +200,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "birthday": MessageLookupByLibrary.simpleMessage("تاريخ الميلاد"),
         "bodyWeight": MessageLookupByLibrary.simpleMessage("Body Weight"),
         "bodybuilding": MessageLookupByLibrary.simpleMessage("Body building"),
+        "book": MessageLookupByLibrary.simpleMessage("حجز"),
         "bookPrivateSession":
             MessageLookupByLibrary.simpleMessage("Book Private Session"),
         "bookmarked": MessageLookupByLibrary.simpleMessage("Bookmarked"),
@@ -542,6 +544,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "releaseToLoadMore":
             MessageLookupByLibrary.simpleMessage("release to load more"),
         "rememberMe": MessageLookupByLibrary.simpleMessage("تذكرني"),
+        "remove": MessageLookupByLibrary.simpleMessage("إزالة"),
         "renewalPrice": MessageLookupByLibrary.simpleMessage("Renewal Price"),
         "repeatThisExercise":
             MessageLookupByLibrary.simpleMessage("Repeat this Exercise"),
@@ -568,6 +571,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "sent6Digit": MessageLookupByLibrary.simpleMessage(
             "We have sent a 5-digit code to your email"),
         "session": MessageLookupByLibrary.simpleMessage("session"),
+        "sessionsCount": MessageLookupByLibrary.simpleMessage("Sessions Count"),
         "set": MessageLookupByLibrary.simpleMessage("Set"),
         "setNewPass": MessageLookupByLibrary.simpleMessage(
             "Set the new password to this account"),

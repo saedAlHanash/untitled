@@ -1,6 +1,6 @@
 import 'package:fitness_storm/core/extensions/extensions.dart';
 
-import '../../Model/trainer.dart';
+import '../../features/trainer/data/response/trainer.dart';
 
 class PlanResponse {
   PlanResponse({
@@ -57,7 +57,7 @@ class PlanModel {
     return PlanModel(
       id: json["id"].toString().tryParseOrZeroInt,
       name: json["name"] ?? "",
-      image: json["image"] ?? "",
+      image: (json["image"] ?? "").toString().fixAvatarImage,
       trainingType: json["training_type"] == null
           ? []
           : List<TrainingType>.from(

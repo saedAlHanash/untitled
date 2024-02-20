@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer_Profile/trainer_profile_controller.dart';
-import 'package:fitness_storm/Utils/Constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -31,7 +30,7 @@ class TrainerProfileHeader extends GetView<TrainerProfileController> {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(100),
             child: CachedNetworkImage(
-              imageUrl: Constants.imageUrl +
+              imageUrl: 
                   (controller.trainerProfile?.image.toString() ?? ''),
               fadeInDuration: const Duration(seconds: 1),
               placeholder: (context, url) => const CircularProgressIndicator.adaptive(),

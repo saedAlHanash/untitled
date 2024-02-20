@@ -1,4 +1,4 @@
-import 'package:fitness_storm/Model/trainer.dart';
+import 'package:fitness_storm/features/trainer/data/response/trainer.dart';
 import 'package:get/get.dart';
 
 class TrainerProfileOverviewController extends GetxController {

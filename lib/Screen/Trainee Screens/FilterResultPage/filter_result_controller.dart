@@ -1,6 +1,5 @@
 import 'package:fitness_storm/Data/Api/api_result.dart';
 import 'package:fitness_storm/Data/Repositories/plan_repository.dart';
-import 'package:fitness_storm/Model/plan_overview.dart';
 import 'package:fitness_storm/Utils/utils.dart';
 import 'package:get/get.dart';
 

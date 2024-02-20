@@ -80,7 +80,7 @@ class SignupScreen extends GetView<SignupController> {
                                   if (controller.isPhone)
                                     MyPhoneForm(
                                       onChange: (p0) {
-                                        loggerObject.w(p0);
+
                                         controller.phone = p0.phoneNumber ?? '';
                                         if ((controller.emailEditingController.text)
                                             .isEmpty) {

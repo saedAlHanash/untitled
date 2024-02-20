@@ -1,9 +1,6 @@
 import 'package:drawable_text/drawable_text.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/Trainee_Profile/Widget/info_button.dart';
-import 'package:fitness_storm/Utils/themes.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
 import 'package:fitness_storm/core/strings/enum_manager.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';

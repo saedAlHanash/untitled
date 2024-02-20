@@ -69,7 +69,7 @@ class User {
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
       id: json["id"].toString().tryParseOrZeroInt,
-      image: json["image"] ?? "",
+      image: (json["image"] ?? "").toString().fixAvatarImage,
       name: json["name"] ?? "",
     );
   }

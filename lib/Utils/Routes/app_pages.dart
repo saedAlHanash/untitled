@@ -12,8 +12,8 @@ import 'package:fitness_storm/Screen/Auth/User%20Survey/user_survey_binding.dart
 import 'package:fitness_storm/Screen/Auth/User%20Survey/user_survey_screen.dart';
 import 'package:fitness_storm/Screen/Splash/splash_binding.dart';
 import 'package:fitness_storm/Screen/Splash/splash_screen.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/BookPrivateSession/book_private_session_binding.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/BookPrivateSession/book_private_session_screen.dart';
+
+import 'package:fitness_storm/features/appointments/ui/pages/book_session_page.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Bookmarked%20Screen/bookmarked_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Bookmarked%20Screen/bookmarked_screen_binding.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/ContinueTrainingPlan/continue_training_binding.dart';
@@ -23,8 +23,6 @@ import 'package:fitness_storm/Screen/Trainee%20Screens/FeaturedPlan/featured_pla
 import 'package:fitness_storm/Screen/Trainee%20Screens/FilterPage/filter_page_binding.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/FilterPage/filter_page_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/FilterResultPage/filter_result_screen.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/HomeScreen/home_screen.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/HomeScreen/home_screen_binding.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Loading%20Start%20Training/loading_start_training_binding.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Loading%20Start%20Training/loading_start_training_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Main%20Home/main_home_binding.dart';
@@ -44,8 +42,6 @@ import 'package:fitness_storm/Screen/Trainee%20Screens/Search%20Result/search_re
 import 'package:fitness_storm/Screen/Trainee%20Screens/Search%20Result/search_result_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Subscription/subscription_binding.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Subscription/subscription_screen.dart';
-
-import 'package:fitness_storm/features/profile/ui/pages/update_profile_page.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Training/training_binding.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Training/training_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/TrendingPlan/trending_plan_binding.dart';
@@ -69,11 +65,16 @@ import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Profile%20Overv
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Wallet/trainer_wallet_binding.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Wallet/trainer_wallet_screen.dart';
 import 'package:fitness_storm/core/app/app_provider.dart';
+import 'package:fitness_storm/core/extensions/extensions.dart';
+import 'package:fitness_storm/features/appointments/bloc/available_times_cubit/available_times_cubit.dart';
+import 'package:fitness_storm/features/appointments/data/request/available_times_request.dart';
+import 'package:fitness_storm/features/profile/ui/pages/update_profile_page.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
-import 'package:get/get_navigation/src/routes/get_route.dart';
 
 import '../../Screen/Trainee Screens/Provide Information/Terms And Conditions/terms_conditions_screen.dart';
 import '../../Screen/chat/rooms_screen.dart';
+import '../../core/injection/injection_container.dart';
 
 part './app_routes.dart';
 
@@ -189,10 +190,7 @@ class AppPages {
       //     name: AppRoutes.conversationScreen,
       //     page: () => const ConversationScreen(),
       //     binding: ConversationBinding()),
-      GetPage(
-          name: AppRoutes.bookPrivateSession,
-          page: () => const BookPrivateSessionScreen(),
-          binding: BookPrivateSessionBinding()),
+
       GetPage(
           name: AppRoutes.trainerHomePage,
           page: () => TrainerMainHomeScreen(),

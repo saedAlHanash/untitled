@@ -1,16 +1,11 @@
 import 'dart:io';
 
-import 'package:fitness_storm/Data/Repositories/auth_repository.dart';
 import 'package:fitness_storm/Utils/Routes/app_pages.dart';
 import 'package:fitness_storm/core/app/app_provider.dart';
-import 'package:fitness_storm/core/app/app_widget.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../Data/Api/api_result.dart';
 import '../../Utils/utils.dart';
-import '../../helper/cache_helper.dart';
 import '../../router/app_router.dart';
 
 Future<void> openPage(String url) async {

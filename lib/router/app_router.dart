@@ -1,14 +1,22 @@
 import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/features/profile/bloc/update_profile_cubit/update_profile_cubit.dart';
+import 'package:fitness_storm/features/trainer/data/response/trainer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
-import '../features/appointments/bloc/booked_appointments_cubit/booked_appointments_cubit.dart';
-import '../features/appointments/ui/pages/appointments_page.dart';
-import '../features/profile/ui/pages/update_profile_page.dart';
+import '../features/appointments/bloc/create_bundle_cubit/create_bundle_cubit.dart';
+import '../features/appointments/bloc/create_session_cubit/create_session_cubit.dart';
+import '../features/appointments/data/response/bundles_response.dart';
+import '../features/appointments/ui/pages/book_session_page.dart';
 import '../Utils/Routes/app_pages.dart';
 import '../core/injection/injection_container.dart';
+import '../features/appointments/bloc/available_times_cubit/available_times_cubit.dart';
+import '../features/appointments/bloc/booked_appointments_cubit/booked_appointments_cubit.dart';
+import '../features/appointments/data/request/available_times_request.dart';
+import '../features/appointments/ui/pages/appointments_page.dart';
+import '../features/appointments/ui/pages/bundles_page.dart';
+import '../features/appointments/ui/pages/create_bundle_page.dart';
 import '../features/auth/bloc/confirm_code_cubit/confirm_code_cubit.dart';
 import '../features/auth/bloc/forget_password_cubit/forget_password_cubit.dart';
 import '../features/auth/bloc/login_cubit/login_cubit.dart';
@@ -23,11 +31,11 @@ import '../features/auth/ui/pages/login_page.dart';
 import '../features/auth/ui/pages/otp_password_page.dart';
 import '../features/auth/ui/pages/reset_password_page.dart';
 import '../features/auth/ui/pages/signup_page.dart';
+import '../features/profile/ui/pages/update_profile_page.dart';
 
 Route<dynamic> routes(RouteSettings settings) {
   var screenName = settings.name;
 
-  loggerObject.w(screenName);
   switch (screenName) {
     //region auth
     case RouteName.signup:
@@ -257,4 +265,50 @@ void startUpdateProfile() {
   );
 }
 
-void start(BuildContext context) {}
+void startBookPrivetSession(TrainerModel trainer) {
+  final providers = [
+    BlocProvider(create: (_) => sl<CreateSessionCubit>()),
+    BlocProvider(
+      create: (_) => sl<AvailableTimesCubit>()
+        ..getAvailableTimes(
+          request: AvailableTimesRequest(),
+          trainer: trainer,
+        ),
+    ),
+  ];
+
+  Get.to(
+    () {
+      return MultiBlocProvider(
+        providers: providers,
+        child: const BookPrivateSessionScreen(),
+      );
+    },
+  );
+}
+
+void startBundlesPage(List<Bundle> list) {
+  Get.to(() => BundlesPage(list: list));
+}
+
+void startCreateBundle(Bundle bundle) {
+  final providers = [
+    BlocProvider(create: (_) => sl<CreateBundleCubit>()..setData(bundle: bundle)),
+    BlocProvider(
+      create: (_) => sl<AvailableTimesCubit>()
+        ..getAvailableTimes(
+          request: AvailableTimesRequest(),
+          trainer: bundle.trainer,
+        ),
+    ),
+  ];
+
+  Get.to(
+    () {
+      return MultiBlocProvider(
+        providers: providers,
+        child: const CreateBundlePage(),
+      );
+    },
+  );
+}

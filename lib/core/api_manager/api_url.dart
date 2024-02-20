@@ -85,9 +85,11 @@ class GetUrl {
 
   static const temp = '';
 
-  static var bundles ='bundles';
+  static const bundles ='bundles';
 
   static String plans(int id) => 'trainers/$id/plans';
+
+  static String availableTimes (int id) => 'trainers/$id/availableTimes';
 }
 
 class PostUrl {
@@ -115,6 +117,10 @@ class PostUrl {
   static const loginSocial = 'auth/social_login';
 
   static const resetPassword = 'auth/resetPassword/changePassword';
+
+  static const createBundle ='bundles/join';
+
+  static const createSession = 'bookedAppointments';
 
   static String addFavorite(int id) => 'plans/$id/addToBookmarkedPlans';
 

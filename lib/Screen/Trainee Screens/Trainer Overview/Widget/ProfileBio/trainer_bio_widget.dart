@@ -2,15 +2,18 @@ import 'package:drawable_text/drawable_text.dart';
 import 'package:fitness_storm/Utils/Routes/app_pages.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
+import 'package:fitness_storm/core/util/my_style.dart';
+import 'package:fitness_storm/features/appointments/data/response/bundles_response.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 
-import '../../../../../Model/trainer.dart';
 import '../../../../../features/appointments/bloc/bundles_cubit/bundles_cubit.dart';
+import '../../../../../features/trainer/data/response/trainer.dart';
 import '../../../../../generated/l10n.dart';
+import '../../../../../router/app_router.dart';
 import 'bio_check_widget.dart';
 
 class TrainerBioWidget extends StatelessWidget {
@@ -24,79 +27,32 @@ class TrainerBioWidget extends StatelessWidget {
     return Column(
       children: [
         InkWell(
-          onTap: () => Get.toNamed(AppRoutes.bookPrivateSession, arguments: [
-            trainer.name,
-            trainer.image,
-            trainer.id.toString(),
-          ]),
+          onTap: () => startBookPrivetSession(trainer),
           child: Container(
             height: 45.0.h,
             color: Get.theme.primaryColor,
             padding: EdgeInsets.symmetric(horizontal: Get.width / 18.75),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  'available_session'.tr,
-                  style: const TextStyle(color: Colors.white, fontSize: 14),
+                DrawableText(
+                  text: S.of(context).availableSession,
+                  size: 14.0.sp,
+                  color: Colors.white,
                 ),
-                const SizedBox.shrink(),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Text(
-                      '${trainer.privateSessionPrice} ${'sar/hour'.tr}',
-                      style: const TextStyle(color: Colors.white, fontSize: 14),
-                    ),
-                    IconButton(
-                      padding: EdgeInsets.zero,
-                      onPressed: () => Get.toNamed(AppRoutes.bookPrivateSession,
-                          arguments: [
-                            trainer.name,
-                            trainer.image,
-                            trainer.id.toString()
-                          ]),
-                      icon: const Icon(
-                        Icons.arrow_forward_ios,
-                        color: Colors.white,
-                        size: 14,
-                      ),
-                    ),
-                  ],
+                const Spacer(),
+                DrawableText(
+                  text: '${trainer.privateSessionPrice} ${'sar/hour'.tr}',
+                  color: Colors.white,
+                ),
+                15.0.horizontalSpace,
+                ImageMultiType(
+                  url: Icons.arrow_forward_ios,
+                  color: Colors.white,
+                  width: 15.0.r,
                 ),
               ],
             ),
           ),
-        ),
-        BlocBuilder<BundlesCubit, BundlesInitial>(
-          builder: (context, state) {
-            if (state.statuses.loading) {
-              return 0.0.verticalSpace;
-            }
-            return InkWell(
-              onTap: () {},
-              child: Container(
-                height: 45.0.h,
-                color: AppColorManager.mainColorLight,
-                padding: EdgeInsets.symmetric(horizontal: Get.width / 18.75),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    DrawableText(
-                      text: S.of(context).bundles,
-                      size: 14.0.sp,
-                      color: Colors.white,
-                    ),
-                    ImageMultiType(
-                      url: Icons.arrow_forward_ios,
-                      color: Colors.white,
-                      width: 20.0.r,
-                    ),
-                  ],
-                ),
-              ),
-            );
-          },
         ),
         Container(
           color: const Color(0xFF9F86C1),
@@ -139,7 +95,56 @@ class TrainerBioWidget extends StatelessWidget {
             ],
           ),
         ),
+        BlocBuilder<BundlesCubit, BundlesInitial>(
+          builder: (context, state) {
+            if (state.statuses.loading) {
+              return MyStyle.loadingWidget();
+            }
+            if (state.result.isEmpty) {
+              return 0.0.verticalSpace;
+            }
+            return InkWell(
+              onTap: () => startBundlesPage(state.result),
+              child: Container(
+                height: 45.0.h,
+                color: AppColorManager.mainColorLight,
+                padding: EdgeInsets.symmetric(horizontal: Get.width / 18.75),
+                child: Row(
+                  children: [
+                    DrawableText(
+                      text: S.of(context).bundles,
+                      size: 14.0.sp,
+                      color: Colors.white,
+                    ),
+                    const Spacer(),
+                    DrawableText(
+                      text: '${state.result.length} ${S.of(context).bundles}',
+                      color: Colors.white,
+                    ),
+                    15.0.horizontalSpace,
+                    ImageMultiType(
+                      url: Icons.arrow_forward_ios,
+                      color: Colors.white,
+                      width: 15.0.r,
+                    ),
+                  ],
+                ),
+              ),
+            );
+          },
+        ),
       ],
     );
+  }
+}
+
+class _BundleItem extends StatelessWidget {
+  const _BundleItem({super.key, required this.item});
+
+  final Bundle item;
+
+  @override
+  Widget build(BuildContext context) {
+    return Chip(label: DrawableText(text: 'sa3ed'));
   }
 }

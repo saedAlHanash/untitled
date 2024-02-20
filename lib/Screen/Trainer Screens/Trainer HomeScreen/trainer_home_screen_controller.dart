@@ -1,7 +1,7 @@
 import 'package:fitness_storm/Data/Repositories/Trainer%20Repository/plan_repository.dart';
 import 'package:fitness_storm/Data/Repositories/Trainer%20Repository/trainer_repository.dart';
 import 'package:fitness_storm/Model/subscribed_plan.dart';
-import 'package:fitness_storm/Model/trainer.dart';
+import 'package:fitness_storm/features/trainer/data/response/trainer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

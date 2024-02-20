@@ -2,7 +2,7 @@ import 'package:fitness_storm/Screen/Trainee%20Screens/Trainee_Profile/Widget/pr
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer_Profile/Widget/trainer_profile_card.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer_Profile/trainer_profile_controller.dart';
 import 'package:fitness_storm/Widgets/language_board_widget.dart';
-import 'package:fitness_storm/common/bottom_sheets.dart';
+import 'package:fitness_storm/core/util/bottom_sheets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

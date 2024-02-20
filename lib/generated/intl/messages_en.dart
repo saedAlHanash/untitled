@@ -172,6 +172,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "aboutUs": MessageLookupByLibrary.simpleMessage("About Us"),
         "accountCreated":
             MessageLookupByLibrary.simpleMessage("Account Created!"),
+        "add": MessageLookupByLibrary.simpleMessage("Add"),
         "addToCart": MessageLookupByLibrary.simpleMessage("Add To Cart"),
         "additionalService":
             MessageLookupByLibrary.simpleMessage("Additional service"),
@@ -203,6 +204,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "birthday": MessageLookupByLibrary.simpleMessage("birthday"),
         "bodyWeight": MessageLookupByLibrary.simpleMessage("Body Weight"),
         "bodybuilding": MessageLookupByLibrary.simpleMessage("Body building"),
+        "book": MessageLookupByLibrary.simpleMessage("Book"),
         "bookPrivateSession":
             MessageLookupByLibrary.simpleMessage("Book Private Session"),
         "bookmarked": MessageLookupByLibrary.simpleMessage("Bookmarked"),
@@ -573,6 +575,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "releaseToLoadMore":
             MessageLookupByLibrary.simpleMessage("release to load more"),
         "rememberMe": MessageLookupByLibrary.simpleMessage("Remember Me"),
+        "remove": MessageLookupByLibrary.simpleMessage("Remove"),
         "renewalPrice": MessageLookupByLibrary.simpleMessage("Renewal Price"),
         "repeatThisExercise":
             MessageLookupByLibrary.simpleMessage("Repeat this Exercise"),
@@ -603,6 +606,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "sent6Digit": MessageLookupByLibrary.simpleMessage(
             "We have sent a 5-digit code to your email"),
         "session": MessageLookupByLibrary.simpleMessage("session"),
+        "sessionsCount": MessageLookupByLibrary.simpleMessage("Sessions Count"),
         "set": MessageLookupByLibrary.simpleMessage("Set"),
         "setNewPass": MessageLookupByLibrary.simpleMessage(
             "Set the new password to this account"),

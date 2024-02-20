@@ -1,8 +1,7 @@
 import 'package:fitness_storm/Model/specialties_model.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 
-import '../Screen/Trainer Screens/Trainer Calender/appointments.dart';
-import '../core/models/booked_appointments.dart';
+import '../../../../core/models/booked_appointments.dart';
 
 class TrainerModel {
   TrainerModel({
@@ -34,7 +33,7 @@ class TrainerModel {
   factory TrainerModel.fromJson(Map<String, dynamic> json) {
     return TrainerModel(
       id: json["id"].toString().tryParseOrZeroInt,
-      image: json["image"] ?? "",
+      image: (json["image"] ?? "").toString().fixAvatarImage,
       name: json["name"] ?? "",
       bio: json["bio"] ?? "",
       introductionVideo: json["introduction_video"] ?? "",
@@ -64,5 +63,3 @@ class TrainerModel {
         "appointment": appointment?.toJson(),
       };
 }
-
-

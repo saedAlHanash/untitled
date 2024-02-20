@@ -107,7 +107,7 @@ class TrainerTrainerOverviewScreen extends GetView<TrainerTrainerOverviewControl
                         SizedBox(
                           height: Get.height,
                           child: ImageMultiType(url:
-                            Constants.imageUrl + controller.trainer.image!,
+                             controller.trainer.image!,
                             fit: BoxFit.cover,
                           ),
                         ),

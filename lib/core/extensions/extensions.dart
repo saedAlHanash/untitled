@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 
-import '../../Screen/Trainer Screens/Trainer Calender/appointments.dart';
 import '../error/error_manager.dart';
 import '../models/booked_appointments.dart';
 import '../strings/enum_manager.dart';
@@ -89,12 +88,25 @@ extension SplitByLength on String {
   num get tryParseOrZero => num.tryParse(this) ?? 0;
 
   int get tryParseOrZeroInt => int.tryParse(this) ?? 0;
+
+  String get fixAvatarImage {
+    if (startsWith('http')) return this;
+    final String link = "https://api.fitnessstorm.org/$this";
+    return link;
+  }
 }
 
 extension StringHelper on String? {
   bool get isBlank {
     if (this == null) return true;
     return this!.replaceAll(' ', '').isEmpty;
+  }
+
+  String get fixAvatarImage {
+    if (this == null) return '';
+    if (this!.startsWith('http')) return this!;
+    final String link = "https://api.fitnessstorm.org/$this";
+    return link;
   }
 }
 
@@ -180,7 +192,7 @@ extension DateUtcHelper on DateTime {
 
   String get formatDateAther => DateFormat('yyyy/MM/dd HH:MM', 'en').format(this);
 
-  String get formatTime => DateFormat('h:mm a', 'en').format(this);
+  String get formatTime => DateFormat('hh:mm a', 'en').format(this);
 
   String get dayName => DateFormat('EEEE').format(this);
 

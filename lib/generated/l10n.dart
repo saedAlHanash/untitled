@@ -5200,6 +5200,46 @@ class S {
     );
   }
 
+  /// `Sessions Count`
+  String get sessionsCount {
+    return Intl.message(
+      'Sessions Count',
+      name: 'sessionsCount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Book`
+  String get book {
+    return Intl.message(
+      'Book',
+      name: 'book',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Remove`
+  String get remove {
+    return Intl.message(
+      'Remove',
+      name: 'remove',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add`
+  String get add {
+    return Intl.message(
+      'Add',
+      name: 'add',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Next Session`
   String get nextSession {
     return Intl.message(

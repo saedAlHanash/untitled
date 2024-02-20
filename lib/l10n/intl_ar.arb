@@ -523,6 +523,10 @@
   "videoCall": "Video Call",
   "oldSession": "Old Session",
   "bundles": "Bundles",
+  "sessionsCount": "Sessions Count",
+  "book": "حجز",
+  "remove": "إزالة",
+  "add": "إضافة",
   "nextSession": "Next Session"
 
 }

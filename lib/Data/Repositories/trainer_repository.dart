@@ -1,12 +1,14 @@
  
 
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:fitness_storm/core/api_manager/api_service.dart';
 
-import '../../Model/trainer.dart';
 import '../../Utils/Constants/constants.dart';
 import '../../Utils/utils.dart';
 import '../../core/models/plan_model.dart';
+import '../../features/trainer/data/response/trainer.dart';
 import '../Api/api_result.dart';
 import '../Api/methods.dart';
 import '../Api/urls.dart';
@@ -60,7 +62,7 @@ class TrainerRepository {
 
   Future<List<PlanModel>> getTrainerPlans(String id) async {
     Options options = Utils.getOptions(withToken: true, all: true);
-    loggerObject.w(options);
+
     ApiResult result =
         await Methods.get(url: TRAINEEURLS.getTrainerPlans(id), options: options);
     if (result.type == ApiResultType.success) {
@@ -74,29 +76,6 @@ class TrainerRepository {
     }
   }
 
-  Future<Map<String, dynamic>> getTrainerAvailableTimes(
-      String trainerId, int year, int month, int firstDay, int lastDay) async {
-    final options = Utils.getOptions(withToken: true, all: true);
-    final data = {
-      'year': year,
-      'month': month,
-      'first_day': firstDay,
-      'last_day': lastDay,
-    };
-    final result = await Methods.get(
-      url: TRAINEEURLS.getTrainerAvailableTime(trainerId),
-      options: options,
-      data: data,
-    );
-    if (result.type == ApiResultType.success) {
-      if (result.data.isEmpty) {
-        return {};
-      }
-      return result.data;
-    } else {
-      throw result.message!;
-    }
-  }
 
   Future<ApiResult> bookPrivateSession(String trainerTimeId, String paymentId) async {
     Options options = Utils.getOptions(withToken: true, all: true);

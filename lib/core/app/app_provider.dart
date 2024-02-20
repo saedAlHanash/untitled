@@ -39,7 +39,7 @@ class AppProvider {
     } else {
       await AppSharedPreference.cashUserType(UserType.user);
     }
-    loggerObject.w(AppSharedPreference.getUserType);
+
     _setLoginData();
   }
 

@@ -1,5 +1,4 @@
 import 'package:fitness_storm/Screen/Trainee%20Screens/HomeScreen/home_screen_controller.dart';
-import 'package:fitness_storm/Utils/Constants/constants.dart';
 import 'package:fitness_storm/Utils/Constants/custome_app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -65,7 +64,7 @@ class ContinueTrainingItem extends GetView<HomeScreenController> {
           child: SizedBox(
             width: MediaQuery.of(Get.context!).size.width,
             child: ImageMultiType(url:
-              Constants.imageUrl + planImageUrl,
+               planImageUrl,
               fit: BoxFit.fitWidth,
             ),
           ),

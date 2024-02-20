@@ -9,7 +9,7 @@ class TempInitial extends AbstractCubit<List<TempModel>> {
     // required this.request,
     // required this.tempParam,
     super.statuses,
-  });
+  });//
 
   factory TempInitial.initial() {
     return const TempInitial(

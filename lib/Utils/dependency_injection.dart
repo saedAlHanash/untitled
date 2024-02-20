@@ -7,7 +7,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:fitness_storm/Data/Repositories/plan_repository.dart';
-
 import 'package:fitness_storm/Utils/utils.dart';
 import 'package:fitness_storm/helper/cache_helper.dart';
 import 'package:fitness_storm/helper/lang_helper.dart';
@@ -20,9 +19,9 @@ import 'package:hive_flutter/adapters.dart';
 import '../Data/Api/api_result.dart';
 import '../Data/Api/methods.dart';
 import '../Data/Api/urls.dart';
-import '../Model/trainer.dart';
 import '../Screen/chat/util.dart';
 import '../core/app/app_provider.dart';
+import '../features/trainer/data/response/trainer.dart';
 import '../firebase_options.dart';
 import '../main.dart';
 import 'Constants/constants.dart';

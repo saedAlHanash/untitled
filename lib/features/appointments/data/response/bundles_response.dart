@@ -1,3 +1,7 @@
+import 'package:fitness_storm/core/extensions/extensions.dart';
+import 'package:fitness_storm/features/trainer/data/response/trainer.dart';
+import 'package:fitness_storm/features/trainer/data/response/trainer.dart';
+
 class BundlesResponse {
   BundlesResponse({
     required this.data,
@@ -31,7 +35,7 @@ class Bundle {
   final String name;
   final num price;
   final num sessions;
-  final Trainer trainer;
+  final TrainerModel trainer;
 
   factory Bundle.fromJson(Map<String, dynamic> json) {
     return Bundle(
@@ -39,7 +43,7 @@ class Bundle {
       name: json["name"] ?? "",
       price: json["price"] ?? 0,
       sessions: json["sessions"] ?? 0,
-      trainer: Trainer.fromJson(json["trainer"] ?? {}),
+      trainer: TrainerModel.fromJson(json["trainer"] ?? {}),
     );
   }
 
@@ -52,40 +56,3 @@ class Bundle {
       };
 }
 
-class Trainer {
-  Trainer({
-    required this.id,
-    required this.image,
-    required this.name,
-    required this.bio,
-    required this.gender,
-    required this.status,
-  });
-
-  final String id;
-  final String image;
-  final String name;
-  final String bio;
-  final String gender;
-  final bool status;
-
-  factory Trainer.fromJson(Map<String, dynamic> json) {
-    return Trainer(
-      id: json["id"] ?? "",
-      image: json["image"] ?? "",
-      name: json["name"] ?? "",
-      bio: json["bio"] ?? "",
-      gender: json["gender"] ?? "",
-      status: json["status"] ?? false,
-    );
-  }
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "image": image,
-        "name": name,
-        "bio": bio,
-        "gender": gender,
-        "status": status,
-      };
-}

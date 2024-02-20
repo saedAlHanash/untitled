@@ -181,8 +181,6 @@
   "pleasSetYourAddress": "Pleas Set Your Address",
   "reviewOrder": "Review Order",
   "yourLocation": "Your Location",
-
-
   "AlphabeticalAZ": "Alphabetical A-Z",
   "AlphabeticalZA": "Alphabetical Z-A",
   "MostPopular": "Most Popularً",
@@ -204,7 +202,6 @@
   "signInTrainer": "Sign in as a Trainer",
   "forgotPassword": "Forgot Password ?",
   "notMember": "Not a Member ?",
-
   "bySingingUpYouAreAgreeingToOur": "By signing up, you are agreeing to our policies",
   "termsOfConditions": "Terms Of Conditions",
   "and": "and",
@@ -371,7 +368,6 @@
   "income": "Income",
   "balance": "Balance",
   "downloadInvoice": "Download Invoice",
-
   "alert": "Alert",
   "SEARCHINWORKOUTPLANS": "SEARCH IN WORKOUT PLANS",
   "SEARCHINTRAINER": "Search in Trainer",
@@ -518,5 +514,9 @@
   "videoCall": "Video Call",
   "oldSession": "Old Session",
   "bundles": "Bundles",
+  "sessionsCount": "Sessions Count",
+  "book": "Book",
+  "remove": "Remove",
+  "add": "Add",
   "nextSession": "Next Session"
 }

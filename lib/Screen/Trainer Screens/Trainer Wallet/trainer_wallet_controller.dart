@@ -3,7 +3,6 @@
 import 'package:dio/dio.dart';
 import 'package:fitness_storm/Data/Repositories/Trainer%20Repository/trainer_repository.dart';
 import 'package:fitness_storm/Model/private_session.dart';
-import 'package:fitness_storm/Utils/Constants/constants.dart';
 import 'package:fitness_storm/Utils/utils.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
@@ -47,13 +46,13 @@ class TrainerWalletController extends GetxController {
 
   downloadFile(String path) async {
     Dio dio = Dio();
-    await dio.download(Constants.imageUrl + path, '');
+    await dio.download( path, '');
   }
 
   downlaodImage(String path) async {
     try {
       // Saved with this method.
-      var imageId = await Image.network(Constants.imageUrl + path);
+      var imageId =  Image.network(path);
       if (imageId == null) {
         return;
       }

@@ -1,4 +1,6 @@
 
+import 'package:fitness_storm/core/extensions/extensions.dart';
+
 class Profile {
   Profile({
     required this.id,
@@ -25,7 +27,7 @@ class Profile {
       id: json["id"] ?? "",
       name: json["name"] ?? "",
       email: json["email"] ?? "",
-      image: json["image"] ?? '',
+      image: (json["image"] ?? "").toString().fixAvatarImage,
       mobile: json["mobile"] ?? "",
       birthDate: DateTime.tryParse(json["birth_date"] ?? ""),
       gender: json["gender"] ?? "",

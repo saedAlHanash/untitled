@@ -1,4 +1,3 @@
-import 'package:fitness_storm/Utils/Constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -66,7 +65,7 @@ class SeeAllListItem extends StatelessWidget {
           padding: EdgeInsets.only(top: 3),
           // height: MediaQuery.of(Get.context!).size.height / 3,
           width: MediaQuery.of(Get.context!).size.width,
-          child: ImageMultiType(url: Constants.imageUrl + imageUrl, fit: BoxFit.fitWidth),
+          child: ImageMultiType(url: imageUrl, fit: BoxFit.fitWidth),
         ),
         isBookmarked == null
             ? SizedBox.shrink()

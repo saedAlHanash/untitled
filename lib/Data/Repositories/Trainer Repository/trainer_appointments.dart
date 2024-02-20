@@ -3,9 +3,9 @@ import 'package:fitness_storm/Data/Api/api_result.dart';
 import 'package:fitness_storm/Data/Api/methods.dart';
 import 'package:fitness_storm/Data/Api/urls.dart';
 import 'package:fitness_storm/Utils/utils.dart';
+import 'package:fitness_storm/core/extensions/extensions.dart';
 
 class TrainerAppointmentsRepository {
-
   Future<dynamic> getTrainerAvailableTimes() async {
     Options options = Utils.getOptions(withToken: true, all: true);
     final data = {
@@ -105,8 +105,9 @@ class AppointmentModel {
   factory AppointmentModel.fromJson(Map<String, dynamic> json) {
     return AppointmentModel(
       id: json["id"] ?? 0,
-      startTime: DateTime.tryParse(json["start_time"] ?? "") ?? DateTime(2030),
-      endTime: DateTime.tryParse(json["end_time"] ?? "") ?? DateTime(2030),
+      startTime:
+          DateTime.tryParse(json["start_time"] ?? "")?.fixTimeZone ?? DateTime(2030),
+      endTime: DateTime.tryParse(json["end_time"] ?? "")?.fixTimeZone ?? DateTime(2030),
       videoCallToken: json["video_call_token"] ?? "",
       status: json["status"] ?? "",
       price: json["price"],

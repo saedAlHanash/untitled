@@ -7,8 +7,8 @@ import '../../../Data/Api/api_result.dart';
 import '../../../Data/Repositories/Trainer Repository/plan_repository.dart';
 import '../../../Data/Repositories/Trainer Repository/trainer_repository.dart';
 import '../../../Data/Repositories/plan_repository.dart';
-import '../../../Model/trainer.dart';
 import '../../../core/models/plan_model.dart';
+import '../../../features/trainer/data/response/trainer.dart';
 
 class TrainerSearchResultController extends GetxController {
   final TrainerTrainerRepository _trainerRepository =

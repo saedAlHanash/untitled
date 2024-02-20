@@ -1,4 +1,3 @@
-import 'package:fitness_storm/Screen/Trainee%20Screens/Trainee_Profile/trainee_profile_controller.dart';
 import 'package:fitness_storm/Utils/Routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';

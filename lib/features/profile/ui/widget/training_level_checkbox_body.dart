@@ -1,15 +1,11 @@
 
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:drawable_text/drawable_text.dart';
-
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
 import 'package:fitness_storm/core/widgets/my_checkbox_widget.dart';
 import 'package:fitness_storm/core/widgets/spinner_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../features/profile/bloc/update_profile_cubit/update_profile_cubit.dart';
 import '../../../../../features/profile/data/response/profile_response.dart';

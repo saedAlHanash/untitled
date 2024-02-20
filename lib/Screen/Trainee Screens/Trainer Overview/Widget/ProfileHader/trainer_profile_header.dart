@@ -1,13 +1,12 @@
 import 'package:drawable_text/drawable_text.dart';
-import 'package:fitness_storm/Utils/Constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_multi_type/round_image_widget.dart';
 
-import '../../../../../Model/trainer.dart';
 import '../../../../../core/strings/app_color_manager.dart';
 import '../../../../../core/strings/enum_manager.dart';
 import '../../../../../core/widgets/my_button.dart';
+import '../../../../../features/trainer/data/response/trainer.dart';
 
 class TrainerProfileHeader extends StatelessWidget {
   const TrainerProfileHeader({
@@ -27,7 +26,7 @@ class TrainerProfileHeader extends StatelessWidget {
             height: 160.0.h,
             width: 120.0.w,
             child: RoundImageWidget(
-              url: Constants.imageUrl + (trainer.image ?? ''),
+              url:  trainer.image,
               radios: 12.0.r,
               height: 160.0.h,
               width: 120.0.w,

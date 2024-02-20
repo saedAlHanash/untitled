@@ -8,7 +8,7 @@ import 'package:image_multi_type/image_multi_type.dart';
 
 import '../../../../Utils/Routes/app_pages.dart';
 import '../../../../Widgets/language_board_widget.dart';
-import '../../../../common/bottom_sheets.dart';
+import '../../../../core/util/bottom_sheets.dart';
 import '../../../../core/strings/enum_manager.dart';
 import '../../../../generated/assets.dart';
 import '../../../../generated/l10n.dart';

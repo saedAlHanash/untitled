@@ -1,23 +1,23 @@
 part of 'bundles_cubit.dart';
 
 class BundlesInitial extends AbstractCubit<List<Bundle>> {
-  // final BundlesRequest request;
+  final BundlesRequest request;
   // final bool bundlesParam;
 
   const BundlesInitial({
     required super.result,
     super.error,
-    // required this.request,
+    required this.request,
     // required this.bundlesParam,
     super.statuses,
   });
 
   factory BundlesInitial.initial() {
-    return const BundlesInitial(
-      result: [],
+    return  BundlesInitial(
+      result: const [],
       error: '',
       // bundlesParam: false,
-      // request: BundlesRequest(),
+      request: BundlesRequest(),
       statuses: CubitStatuses.init,
     );
   }
@@ -29,14 +29,14 @@ class BundlesInitial extends AbstractCubit<List<Bundle>> {
     CubitStatuses? statuses,
     List<Bundle>? result,
     String? error,
-    // BundlesRequest? request,
+    BundlesRequest? request,
     // bool? bundlesParam,
   }) {
     return BundlesInitial(
       statuses: statuses ?? this.statuses,
       result: result ?? this.result,
       error: error ?? this.error,
-      // request: request ?? this.request,
+      request: request ?? this.request,
       // bundlesParam: bundlesParam ?? this.bundlesParam,
     );
   }

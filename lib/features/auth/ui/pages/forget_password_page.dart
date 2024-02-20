@@ -10,7 +10,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 
 import '../../../../Widgets/language_board_widget.dart';
-import '../../../../common/bottom_sheets.dart';
+import '../../../../core/util/bottom_sheets.dart';
 import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/my_style.dart';
 import '../../../../generated/l10n.dart';

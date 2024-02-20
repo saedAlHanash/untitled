@@ -25,20 +25,20 @@ class TrainerProfileOverviewScreen
               child: Column(
                 children: [
                   TrainerProfileOverviewHeader(
-                      imageUrl: controller.trainer.image!,
-                      trainerName: controller.trainer.name!),
+                      imageUrl: controller.trainer.image,
+                      trainerName: controller.trainer.name),
                   TrainerProfileOverviewBio(
-                    trainerBio: controller.trainer.bio! +
-                        controller.trainer.bio! +
-                        controller.trainer.bio! +
-                        controller.trainer.bio! +
-                        controller.trainer.bio!,
+                    trainerBio: controller.trainer.bio +
+                        controller.trainer.bio +
+                        controller.trainer.bio +
+                        controller.trainer.bio +
+                        controller.trainer.bio,
                     // privateSessionPrice: controller.trainer.privateSessionPrice!.toString(),
-                    numberOfPlans: controller.trainer.numberOfPlans!.toString(),
+                    numberOfPlans: controller.trainer.numberOfPlans.toString(),
                     numberOfPrivateHours:
-                        controller.trainer.numberOfPrivateHours!.toString(),
+                        controller.trainer.numberOfPrivateHours.toString(),
                     numberOfSubscribers:
-                        controller.trainer.numberOfSubscribers!.toString(),
+                        controller.trainer.numberOfSubscribers.toString(),
                   ),
                 ],
               ),

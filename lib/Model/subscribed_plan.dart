@@ -1,3 +1,5 @@
+import 'package:fitness_storm/core/extensions/extensions.dart';
+
 class SubscribedPlan {
   String? id;
   String? name;
@@ -17,7 +19,7 @@ class SubscribedPlan {
   SubscribedPlan.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
-    image = json['image'];
+    image = json['image'].toString().fixAvatarImage;
     userProgress = double.parse(json['user_progress'].toString());
     currentActivatedPlan = json['current_activated_plan'];
     if (json['days'] != null) {

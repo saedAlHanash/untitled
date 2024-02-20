@@ -1,5 +1,4 @@
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
-import 'package:fitness_storm/extensions/widget_extensions.dart';
 import 'package:fitness_storm/helper/lang_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -23,21 +22,25 @@ class _LanguageBoardWidgetState extends State<LanguageBoardWidget> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Column(
-        children: [
-          LangWidget(
-            title: 'عربي',
-            ontap: () async => await languagesController.setLanguage('ar',
-                fromAuthPage: widget.fromAuthPage),
-          ).padding(const EdgeInsets.symmetric(vertical: 8).r),
-          LangWidget(
-            title: 'English',
-            ontap: () async => await languagesController.setLanguage('en',
-                fromAuthPage: widget.fromAuthPage),
-          ),
-        ],
-      ).padding(
-        const EdgeInsets.symmetric(horizontal: 30).r,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 30).r,
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8).r,
+              child: LangWidget(
+                title: 'عربي',
+                ontap: () async => await languagesController.setLanguage('ar',
+                    fromAuthPage: widget.fromAuthPage),
+              ),
+            ),
+            LangWidget(
+              title: 'English',
+              ontap: () async => await languagesController.setLanguage('en',
+                  fromAuthPage: widget.fromAuthPage),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -55,36 +58,37 @@ class LangWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 60.h,
-      decoration: BoxDecoration(
-        color: AppColorManager.cardColor,
-        borderRadius: BorderRadius.circular(10.r),
-      ),
-      child: Row(
-        children: [
-          Expanded(
-            flex: 1,
-            child: SvgPicture.asset(
-              Assets.imagesLanguage,
-              color: const Color(0xFF565C63),
-              height: 30,
-            ),
-          ),
-          Expanded(
-            flex: 1,
-            child: Text(
-              title,
-              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-            ),
-          )
-        ],
-      ),
-    ).onTap(
-      () {
+    return InkWell(
+      onTap: () {
         ontap.call();
         Get.back();
       },
+      child: Container(
+        height: 60.h,
+        decoration: BoxDecoration(
+          color: AppColorManager.cardColor,
+          borderRadius: BorderRadius.circular(10.r),
+        ),
+        child: Row(
+          children: [
+            Expanded(
+              flex: 1,
+              child: SvgPicture.asset(
+                Assets.imagesLanguage,
+                color: const Color(0xFF565C63),
+                height: 30,
+              ),
+            ),
+            Expanded(
+              flex: 1,
+              child: Text(
+                title,
+                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 }

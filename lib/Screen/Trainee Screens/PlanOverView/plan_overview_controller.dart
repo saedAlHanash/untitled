@@ -3,7 +3,6 @@ import 'package:fitness_storm/Data/Repositories/exercise_repository.dart';
 import 'package:fitness_storm/Data/Repositories/plan_repository.dart';
 import 'package:fitness_storm/Data/Repositories/trainee_repository.dart';
 import 'package:fitness_storm/Data/Repositories/workout_repository.dart';
-import 'package:fitness_storm/Model/plan_overview.dart';
 import 'package:fitness_storm/Model/plan_workout.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/User%20Training/user_training_controller.dart';
 import 'package:fitness_storm/Utils/utils.dart';

@@ -5,7 +5,6 @@ import 'package:webview_flutter/webview_flutter.dart';
 import '../../../Data/Repositories/subscription_repository.dart';
 import '../../../Data/Repositories/trainee_repository.dart';
 import '../../../Model/subscription_model.dart';
-import '../../../Model/user_profile.dart';
 import '../../../Utils/utils.dart';
 import '../../../features/profile/data/response/profile_response.dart';
 import '../coupon/data/request/pay_request.dart';

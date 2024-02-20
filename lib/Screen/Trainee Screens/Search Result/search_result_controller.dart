@@ -10,9 +10,9 @@ import '../../../Data/Api/urls.dart';
 import '../../../Data/Repositories/plan_repository.dart';
 import '../../../Data/Repositories/trainer_repository.dart';
 import '../../../Model/specialties_model.dart';
-import '../../../Model/trainer.dart';
 import '../../../Utils/utils.dart';
 import '../../../core/models/plan_model.dart';
+import '../../../features/trainer/data/response/trainer.dart';
 
 class SearchResultController extends GetxController {
   final TrainerRepository _trainerRepository = TrainerRepository();

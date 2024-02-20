@@ -1,4 +1,3 @@
-import 'package:fitness_storm/Utils/Constants/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:image_multi_type/image_multi_type.dart';
@@ -19,7 +18,7 @@ class FilterResult extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        ImageMultiType(url:Constants.imageUrl + imageUrl),
+        ImageMultiType(url: imageUrl),
         Positioned(
             bottom: Get.height / 35,
             left: Get.width / 20,

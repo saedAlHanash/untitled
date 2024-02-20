@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../../Model/trainer.dart';
+import '../../../../../features/trainer/data/response/trainer.dart';
 
 class TrainerProfileInfowidget extends StatelessWidget {
   final TrainerModel trainer;

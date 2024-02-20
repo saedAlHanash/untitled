@@ -7,9 +7,9 @@ import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 import 'package:flutter_firebase_chat_core/flutter_firebase_chat_core.dart';
 import 'package:get/get.dart';
 
-import '../../Model/trainer.dart';
 import '../../Utils/dependency_injection.dart';
 import '../../core/api_manager/api_service.dart';
+import '../../features/trainer/data/response/trainer.dart';
 import '../../main.dart';
 import 'get_chats_rooms_bloc/get_rooms_cubit.dart';
 
@@ -97,7 +97,7 @@ Future<void> createChatUser(TrainerModel profile) async {
     );
   } on Exception catch (e) {
     if (e.toString().contains('email address is already')) {
-      loginChatUser(profile.id!.toString(), profile.name!);
+      loginChatUser(profile.id.toString(), profile.name);
     }
   }
 }
@@ -138,7 +138,7 @@ Future<void> logoutChatUser() async {
 
 Future<bool> sendNotificationMessage(
     MyRoomObject myRoomObject, ChatNotification message) async {
-  loggerObject.w('message');
+
   if (myRoomObject.fcmToken.isEmpty) return false;
 
   if (message.body.length > 100) {
