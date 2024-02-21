@@ -24,6 +24,7 @@ class AppSharedPreference {
   static const _currency = '17';
   static const _loginData = '19';
   static const _profile = '0';
+  static const _latestRefreshToken = '20';
 
   static late SharedPreferences _prefs;
 
@@ -77,7 +78,7 @@ class AppSharedPreference {
   }
 
   static UserType get getUserType {
-    final index =_prefs.getInt(_toScreen) ?? 0 ;
+    final index = _prefs.getInt(_toScreen) ?? 0;
     return UserType.values[index];
   }
 
@@ -145,6 +146,16 @@ class AppSharedPreference {
   }
 
   static String get getLocal => _prefs.getString(_lang) ?? 'ar';
+
+  static void cashLatestRefreshToken() {
+    _prefs.setString(_latestRefreshToken, DateTime.now().toIso8601String());
+  }
+
+  static DateTime get getLatestRefreshToken {
+    final stringDate = _prefs.getString(_latestRefreshToken);
+    return DateTime.tryParse(stringDate.toString()) ??
+        DateTime.now().copyWith(year: DateTime.now().year - 1);
+  }
 
   static set setCurrency(String langCode) => _prefs.setString(_currency, langCode);
 

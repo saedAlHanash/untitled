@@ -16,6 +16,7 @@ import 'package:pod_player/pod_player.dart';
 import '../../../Utils/Routes/app_pages.dart';
 import '../../../core/app/app_provider.dart';
 import '../../../core/models/plan_model.dart';
+import '../../../features/fire_chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 import '../../chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 import '../HomeScreen/refresh_home_plan_cubit/refresh_home_plan_cubit.dart';
 
@@ -81,7 +82,7 @@ class PlanOverviewController extends GetxController {
     Utils.openLoadingDialog();
     var response = await _traineeRepository.subscribePlan(planId: planOverview.id.toString());
     if (response.type == ApiResultType.success) {
-      Get.context?.read<GetRoomsCubit>().getRoomByUser(planOverview.trainer?.id.toString());
+      Get.context?.read<RoomsCubit>().getRoomByUser(planOverview.trainer?.id.toString());
       Utils.closeDialog();
       GetStorage getStorage = GetStorage();
       await getStorage.write('currentPlan', planOverview.name);

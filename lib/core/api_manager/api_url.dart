@@ -122,6 +122,8 @@ class PostUrl {
 
   static const createSession = 'bookedAppointments';
 
+  static var refreshToken = 'auth/refreshToken';
+
   static String addFavorite(int id) => 'plans/$id/addToBookmarkedPlans';
 
   static const restPass = 'reset-password';

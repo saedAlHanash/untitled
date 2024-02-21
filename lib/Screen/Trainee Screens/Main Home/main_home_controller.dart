@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import '../../../Data/Repositories/notification_repository.dart';
 import '../../../Model/notification_model.dart';
 import '../../../core/strings/enum_manager.dart';
+import '../../../features/fire_chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 import '../../../main.dart';
 import '../../chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 
@@ -24,10 +25,10 @@ class MainHomeController extends GetxController {
 
     super.onInit();
     isLoading = true;
-    final getRoomCubitState = Get.context?.read<GetRoomsCubit>().state.statuses;
+    final getRoomCubitState = Get.context?.read<RoomsCubit>().state.statuses;
     if (getRoomCubitState != CubitStatuses.done &&
         getRoomCubitState != CubitStatuses.loading) {
-      Get.context?.read<GetRoomsCubit>().getChatRooms();
+      Get.context?.read<RoomsCubit>().getChatRooms();
     }
     await getAllNotifications();
     numberOfNotification = notifications.unReadNotification;

@@ -6,10 +6,9 @@ import 'package:get/get.dart';
 
 import '../../../Data/Api/api_result.dart';
 import '../../../core/strings/enum_manager.dart';
+import '../../../features/fire_chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 import '../../../main.dart';
 import '../../chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
-
- 
 
 class TrainerMainHomeController extends GetxController {
   TrainerAppNavigationBarController navController = TrainerAppNavigationBarController();
@@ -20,10 +19,10 @@ class TrainerMainHomeController extends GetxController {
   @override
   Future<void> onInit() async {
     saveFCM();
-    final getRoomCubitState = Get.context?.read<GetRoomsCubit>().state.statuses;
+    final getRoomCubitState = Get.context?.read<RoomsCubit>().state.statuses;
     if (getRoomCubitState != CubitStatuses.done &&
         getRoomCubitState != CubitStatuses.loading) {
-      Get.context?.read<GetRoomsCubit>().getChatRooms();
+      Get.context?.read<RoomsCubit>().getChatRooms();
     }
 
     getToken();

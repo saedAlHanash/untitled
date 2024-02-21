@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
+import '../../../../features/fire_chat/chat_card_widget.dart';
+import '../../../../features/fire_chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 import '../../../chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 import '../../Chat/Widget/chat_card_widget.dart';
 
@@ -24,7 +26,7 @@ class _TrainerButtonState extends State<TrainerButton> {
         onTapFunction: () async {
           if (loading) return;
           loading = true;
-          final room = await context.read<GetRoomsCubit>().getRoomByUser('0');
+          final room = await context.read<RoomsCubit>().getRoomByUser('0');
           loading = false;
           if (context.mounted) {
             openRoomFunction(context, room!);

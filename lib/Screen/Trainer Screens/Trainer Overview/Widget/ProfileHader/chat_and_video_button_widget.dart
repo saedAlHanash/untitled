@@ -59,7 +59,7 @@
 //               myState(() => isLoading = true);
 //
 //               final openRoom = await context
-//                   .read<GetRoomsCubit>()
+//                   .read<RoomsCubit>()
 //                   .getRoomByUser(widget.trainer.id.toString());
 //
 //               myState(() => isLoading = false);

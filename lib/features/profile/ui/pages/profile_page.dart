@@ -21,6 +21,8 @@ import '../../../../core/widgets/app_bar/app_bar_widget.dart';
 import '../../../../generated/assets.dart';
 import '../../../../generated/l10n.dart';
 import '../../../auth/bloc/logout/logout_cubit.dart';
+import '../../../fire_chat/chat_card_widget.dart';
+import '../../../fire_chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 import '../../bloc/profile_cubit/profile_cubit.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -89,7 +91,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                   15.0.verticalSpace,
                 ],
-                BlocBuilder<GetRoomsCubit, GetRoomsInitial>(
+                BlocBuilder<RoomsCubit, RoomsInitial>(
                   builder: (context, state) {
                     if (state.statuses.loading) {
                       return MyStyle.loadingWidget();
@@ -97,7 +99,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     return MyButton(
                       onTap: () async {
                         final room =
-                            await context.read<GetRoomsCubit>().getRoomByUser('0');
+                            await context.read<RoomsCubit>().getRoomByUser('0');
 
                         if (context.mounted) {
                           openRoomFunction(context, room!);

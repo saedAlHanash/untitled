@@ -12,6 +12,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 import '../../../Utils/Routes/app_pages.dart';
+import '../../../features/fire_chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 import '../../chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 import 'Widget/trainer_navigation_bar_widget.dart';
 
@@ -60,7 +61,7 @@ class TrainerMainHomeScreen extends GetView<TrainerMainHomeController> {
                     actions: [
                       IconButton(
                           onPressed: () => Get.toNamed(AppRoutes.chatScreen),
-                          icon: BlocBuilder<GetRoomsCubit, GetRoomsInitial>(
+                          icon: BlocBuilder<RoomsCubit, RoomsInitial>(
                             builder: (context, state) {
                               return Stack(
                                 children: [

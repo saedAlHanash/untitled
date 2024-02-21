@@ -19,6 +19,9 @@ class AppProvider {
   static String get token {
     return _loginData.accessToken;
   }
+  static String get refreshToken {
+    return _loginData.refreshToken;
+  }
 
   static bool get isConfirmed => _loginData.isConfirmed;
 
@@ -57,6 +60,7 @@ class AppProvider {
     await AppSharedPreference.logout();
     _loginData = AppSharedPreference.loginDate;
   }
+
 }
 
 class AppControl {

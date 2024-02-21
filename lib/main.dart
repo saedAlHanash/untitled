@@ -18,22 +18,26 @@ import 'core/api_manager/api_service.dart';
 import 'core/app/app_provider.dart';
 import 'core/app/app_widget.dart';
 import 'core/injection/injection_container.dart' as di;
+import 'features/auth/bloc/refresh_token_cubit/refresh_token_cubit.dart';
+import 'features/fire_chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 
 late Box<String> roomsBox;
-late Box usersBox;
-late Box<String> roomMessage;
+late Box<String> messageBox;
 late Box<int> latestUpdateMessagesBox;
+late Box<String> latestMessagesBox;
+
 
 Future<void> initialHive() async {
   roomsBox = await Hive.openBox('rooms');
   latestUpdateMessagesBox = await Hive.openBox('messages');
-  usersBox = await Hive.openBox('users');
+
+  latestMessagesBox = await Hive.openBox('latestMessagesBox');
 }
 
 Future<void> reInitialHive() async {
   await roomsBox.close();
   await latestUpdateMessagesBox.close();
-  await usersBox.close();
+
   await initialHive();
 }
 
@@ -57,12 +61,13 @@ void main() async {
   saveFCM();
 
   await setLastSeen();
+  await RefreshTokenCubit.refreshTokenApi();
 
   runApp(
     MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => RefreshHomePlanCubit()),
-        BlocProvider(create: (_) => GetRoomsCubit()),
+        BlocProvider(create: (_) => RoomsCubit()),
       ],
       child: const MyApp(),
     ),

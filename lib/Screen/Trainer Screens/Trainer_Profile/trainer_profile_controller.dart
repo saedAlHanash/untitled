@@ -7,6 +7,7 @@ import 'package:fitness_storm/Utils/utils.dart';
 import 'package:fitness_storm/features/trainer/data/response/trainer.dart';
 import 'package:get/get.dart';
 
+import '../../../features/fire_chat/util.dart';
 import '../../chat/util.dart';
 
 class TrainerProfileController extends GetxController {

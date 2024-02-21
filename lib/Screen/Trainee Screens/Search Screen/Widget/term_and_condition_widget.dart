@@ -4,6 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
 import '../../../../Utils/Routes/app_pages.dart';
+import '../../../../features/fire_chat/chat_card_widget.dart';
+import '../../../../features/fire_chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 import '../../../chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 
 class TermAndConditionWidget extends StatefulWidget {
@@ -79,7 +81,7 @@ class _TermAndConditionWidgetState extends State<TermAndConditionWidget> {
                       onPressed: () async {
                         if (loading) return;
                         loading = true;
-                        final room = await context.read<GetRoomsCubit>().getRoomByUser('0');
+                        final room = await context.read<RoomsCubit>().getRoomByUser('0');
                         loading = false;
                         if (context.mounted) {
                           openRoomFunction(context, room!);

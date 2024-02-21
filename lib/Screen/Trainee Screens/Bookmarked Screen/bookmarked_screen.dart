@@ -43,8 +43,8 @@ class BookmarkedScreen extends GetView<BookmarkedScreenController> {
                 index: index,
                 isPressed: controller.addPlanToFavorite,
                 subTitle: PlanTimeFrequency(
-                  totalWeeks: plans[index].totalWeeks!,
-                  workoutFrequency: plans[index].workoutFrequency!,
+                  totalWeeks: plans[index].totalWeeks,
+                  workoutFrequency: plans[index].workoutFrequency,
                   color: Colors.grey,
                 ),
               );

@@ -11,11 +11,12 @@ import '../../features/appointments/bloc/create_session_cubit/create_session_cub
 import '../../features/auth/bloc/confirm_code_cubit/confirm_code_cubit.dart';
 import '../../features/auth/bloc/delete_account_cubit/delete_account_cubit.dart';
 import '../../features/auth/bloc/forget_password_cubit/forget_password_cubit.dart';
-import '../../features/auth/bloc/get_me_cubit/get_me_cubit.dart';
+
 import '../../features/auth/bloc/login_cubit/login_cubit.dart';
 import '../../features/auth/bloc/login_social_cubit/login_social_cubit.dart';
 import '../../features/auth/bloc/logout/logout_cubit.dart';
 import '../../features/auth/bloc/otp_password_cubit/otp_password_cubit.dart';
+import '../../features/auth/bloc/refresh_token_cubit/refresh_token_cubit.dart';
 import '../../features/auth/bloc/resend_code_cubit/resend_code_cubit.dart';
 import '../../features/auth/bloc/reset_password_cubit/reset_password_cubit.dart';
 import '../../features/auth/bloc/signup_cubit/signup_cubit.dart';
@@ -46,7 +47,7 @@ Future<void> init() async {
   sl.registerFactory(() => LogoutCubit());
   sl.registerFactory(() => ForgetPasswordCubit());
   sl.registerFactory(() => ResetPasswordCubit());
-  sl.registerFactory(() => GetMeCubit());
+  sl.registerFactory(() => RefreshTokenCubit());
   sl.registerFactory(() => ConfirmCodeCubit());
   sl.registerFactory(() => ResendCodeCubit());
   sl.registerFactory(() => DeleteAccountCubit());

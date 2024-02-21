@@ -119,7 +119,7 @@ class APIService {
 
     url = (additional ?? additionalConst) + url;
 
-    innerHeader.addAll(header ?? {});
+
     body?.removeWhere((key, value) => (value == null || value.toString().isEmpty));
 
     _fixQuery(query);
@@ -135,7 +135,7 @@ class APIService {
           ..addAll(body ?? {}));
 
     final response = await http
-        .post(uri, body: jsonEncode(body), headers: innerHeader)
+        .post(uri, body: jsonEncode(body), headers:header?? innerHeader)
         .timeout(_connectionTimeOut, onTimeout: () => _timeOut);
 
     logResponse(url, response);

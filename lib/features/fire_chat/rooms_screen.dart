@@ -5,8 +5,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
 import '../../core/strings/enum_manager.dart';
-import '../Trainee Screens/Chat/Widget/customer_service_card_widget.dart';
+import 'chat_card_widget.dart';
 import 'get_chats_rooms_bloc/get_rooms_cubit.dart';
+import '../../Screen/Trainee Screens/Chat/Widget/customer_service_card_widget.dart';
+import '../../Screen/chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 
 class RoomsScreen extends StatefulWidget {
   const RoomsScreen({super.key});
@@ -20,11 +22,14 @@ class _RoomsScreenState extends State<RoomsScreen> {
 
   @override
   void initState() {
-    final getRoomCubitState = Get.context?.read<GetRoomsCubit>().state.statuses;
-    if (getRoomCubitState != CubitStatuses.done &&
-        getRoomCubitState != CubitStatuses.loading) {
-      Get.context?.read<GetRoomsCubit>().getChatRooms();
-    }
+    // final getRoomCubitState = Get.context
+    //     ?.read<RoomsCubit>()
+    //     .state
+    //     .statuses;
+    // if (getRoomCubitState != CubitStatuses.done &&
+    //     getRoomCubitState != CubitStatuses.loading) {
+    // }
+      Get.context?.read<RoomsCubit>().getChatRooms();
 
     super.initState();
   }
@@ -41,7 +46,7 @@ class _RoomsScreenState extends State<RoomsScreen> {
         title: Text('chat'.tr),
         titleTextStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
       ),
-      body: BlocBuilder<GetRoomsCubit, GetRoomsInitial>(
+      body: BlocBuilder<RoomsCubit, RoomsInitial>(
         builder: (context, state) {
           if (state.statuses.loading) {
             return const CircularProgressIndicator.adaptive();

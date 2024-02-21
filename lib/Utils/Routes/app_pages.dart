@@ -73,7 +73,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
 import '../../Screen/Trainee Screens/Provide Information/Terms And Conditions/terms_conditions_screen.dart';
-import '../../Screen/chat/rooms_screen.dart';
+import '../../features/fire_chat/rooms_screen.dart';
 import '../../core/injection/injection_container.dart';
 
 part './app_routes.dart';

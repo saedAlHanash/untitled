@@ -188,34 +188,34 @@ Future<void> initFirebaseChat() async {
 
 var loading = false;
 
-Future<void> getProfileForLoginChat() async {
-  if (loading) return;
-  loading = true;
-  if (AppProvider.token.isEmpty) return;
-
-  if (FirebaseChatCore.instance.firebaseUser != null) return;
-
-  final result = await Methods.get(
-    url:  AppProvider.isTrainer
-        ? TRAINERURLS.trainerPorile
-        : TRAINEEURLS.getUserProfile,
-    options: Utils.getOptions(accept: true, withToken: true),
-  );
-  loading = false;
-
-  if (result.type == ApiResultType.success) {
-    final profile = TrainerModel.fromJson(result.data);
-
-    try {
-      if (await isChatUserFound(profile.id.toString() ?? '')) {
-      await  loginChatUser(profile.id.toString(), profile.name);
-        return;
-      } else {
-        await createChatUser(profile);
-      }
-    } on Exception catch (e) {}
-  } else {}
-}
+// Future<void> getProfileForLoginChat() async {
+//   if (loading) return;
+//   loading = true;
+//   if (AppProvider.token.isEmpty) return;
+//
+//   if (FirebaseChatCore.instance.firebaseUser != null) return;
+//
+//   final result = await Methods.get(
+//     url:  AppProvider.isTrainer
+//         ? TRAINERURLS.trainerPorile
+//         : TRAINEEURLS.getUserProfile,
+//     options: Utils.getOptions(accept: true, withToken: true),
+//   );
+//   loading = false;
+//
+//   if (result.type == ApiResultType.success) {
+//     final profile = TrainerModel.fromJson(result.data);
+//
+//     try {
+//       if (await isChatUserFound(profile.id.toString() ?? '')) {
+//       await  loginChatUser(profile.id.toString(), profile.name);
+//         return;
+//       } else {
+//         await createChatUser(profile);
+//       }
+//     } on Exception catch (e) {}
+//   } else {}
+// }
 
 class Note {
   static Future initialize() async {

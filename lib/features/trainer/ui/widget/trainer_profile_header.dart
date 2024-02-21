@@ -20,6 +20,8 @@ import '../../../../generated/assets.dart';
 import '../../../../generated/l10n.dart';
 import '../../../../router/app_router.dart';
 import '../../../appointments/bloc/booked_appointments_cubit/booked_appointments_cubit.dart';
+import '../../../fire_chat/chat_card_widget.dart';
+import '../../../fire_chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 import '../../data/response/trainer.dart';
 
 class TrainerProfileHeader extends StatelessWidget {
@@ -94,7 +96,7 @@ class TrainerProfileHeader extends StatelessWidget {
                                   ),
                                   onTap: () async {
                                     final openRoom = await context
-                                        .read<GetRoomsCubit>()
+                                        .read<RoomsCubit>()
                                         .getRoomByUser(trainer.id.toString());
 
                                     if (!context.mounted || openRoom == null) return;

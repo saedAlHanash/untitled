@@ -1,4 +1,5 @@
 import 'package:drawable_text/drawable_text.dart';
+import 'package:fitness_storm/features/fire_chat/util.dart';
 import 'package:fitness_storm/helper/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -6,6 +7,8 @@ import 'package:flutter_chat_types/flutter_chat_types.dart';
 import 'package:get/get.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 
+import '../../../../features/fire_chat/chat_card_widget.dart';
+import '../../../../features/fire_chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 import '../../../../generated/assets.dart';
 import '../../../chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 import '../../../chat/util.dart';
@@ -23,7 +26,7 @@ class CustomerServiceCardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () async {
-        final room = await context.read<GetRoomsCubit>().getRoomByUser('0');
+        final room = await context.read<RoomsCubit>().getRoomByUser('0');
         if (context.mounted) openRoomFunction(context, room!);
       },
       child: Container(
