@@ -125,12 +125,15 @@ Future<void> logoutChatUser() async {
   if (firebaseUser != null) {
     await FirebaseFirestore.instance.collection('users').doc(firebaseUser?.uid).update(
       {
-        'metadata': {'fcm': ''}
+        'metadata': {'fcm_web': ''}
       },
     );
   }
+  loggerObject.w('logout');
 
   await roomsBox.clear();
+
+  await reInitialHive();
 
   await FirebaseAuth.instance.signOut();
 
@@ -138,26 +141,22 @@ Future<void> logoutChatUser() async {
 }
 
 Future<void> initFirebaseChat() async {
-  FirebaseAuth.instance.authStateChanges().listen((User? user) async {
-    if (user != null || AppProvider.token.isEmpty) return;
+  final id = AppProvider.profile.id;
+  final name = AppProvider.profile.name;
+  final photo = AppProvider.profile.image;
+  if (id!.isEmpty) return;
 
-    final id = AppProvider.profile.id;
-    final name = AppProvider.profile.name;
-    final photo = AppProvider.profile.image;
-    if (id!.isEmpty) return;
-
-    try {
-      if (await isChatUserFound(id.toString() ?? '')) {
-        loginChatUser(id.toString(), name, photo);
-        return;
-      } else {
-        createChatUser(id.toString(), name, photo);
-      }
-    } on Exception catch (e) {
-      print(e);
+  try {
+    if (await isChatUserFound(id.toString())) {
+      loginChatUser(id.toString(), name, photo);
+      return;
+    } else {
+      createChatUser(id.toString(), name, photo);
     }
-    return;
-  });
+  } on Exception catch (e) {
+    print(e);
+  }
+  return;
 }
 
 Future<void> initFirebaseChatAfterLogin() async {
@@ -193,6 +192,7 @@ Future<bool> sendNotificationMessage(
 
   final result = await APIService().postApi(
     url: 'api/send-notification',
+    additional: '',
     body: {"token": myRoomObject.fcmToken, "message": message.body},
   );
   return result.statusCode == 200;
@@ -211,7 +211,6 @@ Future<void> _initial() async {
 }
 
 class UtilBoxes {
-
   Box<String>? roomsBox;
 
   Box<String>? messageBox;

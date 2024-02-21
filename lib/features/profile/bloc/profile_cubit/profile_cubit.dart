@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/util/abstraction.dart';
+import 'package:fitness_storm/features/fire_chat/util.dart';
 import 'package:fitness_storm/features/profile/data/response/profile_response.dart';
 
 import '../../../../core/api_manager/api_service.dart';
@@ -27,6 +28,7 @@ class ProfileCubit extends Cubit<ProfileInitial> {
       showErrorFromApi(state);
     } else {
       await AppProvider.cashProfile(pair.first!);
+
       emit(state.copyWith(statuses: CubitStatuses.done, result: pair.first));
     }
   }

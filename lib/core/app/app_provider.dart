@@ -1,6 +1,7 @@
 import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:fitness_storm/features/auth/data/response/login_response.dart';
+import 'package:fitness_storm/features/fire_chat/util.dart';
 
 import '../../features/profile/data/response/profile_response.dart';
 import '../util/shared_preferences.dart';
@@ -19,6 +20,7 @@ class AppProvider {
   static String get token {
     return _loginData.accessToken;
   }
+
   static String get refreshToken {
     return _loginData.refreshToken;
   }
@@ -37,7 +39,7 @@ class AppProvider {
   static cashLoginData(LoginData data, {required bool isTrainer}) async {
     await AppSharedPreference.cashLoginData(data);
 
-    if (isTrainer ) {
+    if (isTrainer) {
       await AppSharedPreference.cashUserType(UserType.trainer);
     } else {
       await AppSharedPreference.cashUserType(UserType.user);
@@ -49,6 +51,7 @@ class AppProvider {
   static cashProfile(Profile data, {bool? isTrainer}) async {
     await AppSharedPreference.cashProfile(data);
     _profile = data;
+    await initFirebaseChatAfterLogin();
   }
 
   static cashSetConfirmAccount() async {
@@ -59,8 +62,8 @@ class AppProvider {
   static Future<void> logout() async {
     await AppSharedPreference.logout();
     _loginData = AppSharedPreference.loginDate;
+    await logoutChatUser();
   }
-
 }
 
 class AppControl {

@@ -27,23 +27,19 @@ class RoomsCubit extends Cubit<RoomsInitial> {
 
   /// Returns a stream of messages from Firebase for a given room.
   void rooms() {
-    late final Query<Map<String, dynamic>> query;
-
-    query = FirebaseFirestore.instance
+    var query = FirebaseFirestore.instance
         .collection('rooms')
         .orderBy('updatedAt', descending: true)
         .where(
-          'userIds',
-          arrayContains: firebaseUser!.uid,
-        )
+      'userIds',
+      arrayContains: firebaseUser?.uid,
+    )
         .where(
-          'updatedAt',
-          isGreaterThan: Timestamp.fromMillisecondsSinceEpoch(
-            getLatestUpdatedFromHive,
-          ),
-        );
-
-    loggerObject.w(query);
+      'updatedAt',
+      isGreaterThan: Timestamp.fromMillisecondsSinceEpoch(
+        getLatestUpdatedFromHive,
+      ),
+    );
 
     final stream = query.snapshots().listen((snapshot) async {
       final listRooms = await processRoomsQuery(
@@ -55,7 +51,9 @@ class RoomsCubit extends Cubit<RoomsInitial> {
 
       await storeRoomsInHive(listRooms);
 
-      _setData();
+      if (!isClosed) {
+        _setData();
+      }
     });
 
     emit(state.copyWith(stream: stream));
