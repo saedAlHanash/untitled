@@ -12,8 +12,6 @@ import 'package:fitness_storm/Screen/Auth/User%20Survey/user_survey_binding.dart
 import 'package:fitness_storm/Screen/Auth/User%20Survey/user_survey_screen.dart';
 import 'package:fitness_storm/Screen/Splash/splash_binding.dart';
 import 'package:fitness_storm/Screen/Splash/splash_screen.dart';
-
-import 'package:fitness_storm/features/appointments/ui/pages/book_session_page.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Bookmarked%20Screen/bookmarked_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Bookmarked%20Screen/bookmarked_screen_binding.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/ContinueTrainingPlan/continue_training_binding.dart';
@@ -31,8 +29,6 @@ import 'package:fitness_storm/Screen/Trainee%20Screens/My%20Payment/my_payment_b
 import 'package:fitness_storm/Screen/Trainee%20Screens/My%20Payment/my_payment_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Notification/notification_binding.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Notification/notification_screen.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/Onboarding/onboarding_binding.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/Onboarding/onboarding_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/PlanOverView/plan_overview_binding.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/PlanOverView/plan_overview_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Provide%20Information/About%20us/about_us_screen.dart';
@@ -65,16 +61,11 @@ import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Profile%20Overv
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Wallet/trainer_wallet_binding.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Wallet/trainer_wallet_screen.dart';
 import 'package:fitness_storm/core/app/app_provider.dart';
-import 'package:fitness_storm/core/extensions/extensions.dart';
-import 'package:fitness_storm/features/appointments/bloc/available_times_cubit/available_times_cubit.dart';
-import 'package:fitness_storm/features/appointments/data/request/available_times_request.dart';
 import 'package:fitness_storm/features/profile/ui/pages/update_profile_page.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
 import '../../Screen/Trainee Screens/Provide Information/Terms And Conditions/terms_conditions_screen.dart';
 import '../../features/fire_chat/rooms_screen.dart';
-import '../../core/injection/injection_container.dart';
 
 part './app_routes.dart';
 
@@ -112,10 +103,10 @@ class AppPages {
           name: AppRoutes.dayOverviewScreen,
           page: () => const DayOverviewScreen(),
           binding: DayOverviewBinding()),
-      GetPage(
-          name: AppRoutes.onboardingScreen,
-          page: () => const OnboardingScreen(),
-          binding: OnboardingBinding()),
+      // GetPage(
+      //     name: AppRoutes.onboardingScreen,
+      //     page: () => const OnboardingScreen(),
+      //     binding: OnboardingBinding()),
       GetPage(
           name: AppRoutes.signUp,
           page: () => const SignupScreen(),
