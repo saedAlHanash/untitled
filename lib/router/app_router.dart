@@ -181,15 +181,18 @@ class RouteName {
   static const faq = '/32';
 }
 
-void startSignup(BuildContext context) {
+void startSignup() {
   final providers = [
     BlocProvider(create: (_) => sl<SignupCubit>()),
     BlocProvider(create: (_) => sl<LoginSocialCubit>()),
   ];
-  Get.to(() => MultiBlocProvider(
-        providers: providers,
-        child: const SignupPage(),
-      ));
+
+  final Widget page = MultiBlocProvider(
+    providers: providers,
+    child: const SignupPage(),
+  );
+
+  Get.to(() => page);
 }
 
 void startLogin() {
@@ -205,35 +208,40 @@ void startLogin() {
 }
 
 void startForgetPass(BuildContext context) {
+  final phoneOrEmail = context.read<LoginCubit>().state.request.phoneOrEmail;
   final providers = [
-    BlocProvider(create: (_) => sl<ForgetPasswordCubit>()),
+    BlocProvider(
+        create: (_) => sl<ForgetPasswordCubit>()..setPhoneOrEmail = phoneOrEmail),
   ];
-  Get.to(() => MultiBlocProvider(
-        providers: providers,
-        child: const ForgetPasswordPage(),
-      ));
+  final Widget page = MultiBlocProvider(
+    providers: providers,
+    child: const ForgetPasswordPage(),
+  );
+  Get.to(() => page);
 }
 
 void startAppointment() {
   final providers = [
     BlocProvider(create: (_) => sl<BookedAppointmentsCubit>()..getBookedAppointments()),
   ];
-  Get.to(() => MultiBlocProvider(
-        providers: providers,
-        child: const AppointmentsPage(),
-      ));
+
+  final Widget page = MultiBlocProvider(
+    providers: providers,
+    child: const AppointmentsPage(),
+  );
+  Get.to(() => page);
 }
 
 void startRestPass(BuildContext context) {
   final providers = [
     BlocProvider(create: (_) => sl<ResetPasswordCubit>()),
   ];
-  Get.to(
-    () => MultiBlocProvider(
-      providers: providers,
-      child: const ResetPasswordPage(),
-    ),
+
+  final Widget page = MultiBlocProvider(
+    providers: providers,
+    child: const ResetPasswordPage(),
   );
+  Get.to(() => page);
   //endregion
 }
 
@@ -257,12 +265,11 @@ void startUpdateProfile() {
   final providers = [
     BlocProvider(create: (_) => sl<UpdateProfileCubit>()),
   ];
-  Get.to(
-    () => MultiBlocProvider(
-      providers: providers,
-      child: const TraineeProfileInfoScreen(),
-    ),
+  final Widget page = MultiBlocProvider(
+    providers: providers,
+    child: const TraineeProfileInfoScreen(),
   );
+  Get.to(() => page);
 }
 
 void startBookPrivetSession(TrainerModel trainer) {
@@ -277,14 +284,12 @@ void startBookPrivetSession(TrainerModel trainer) {
     ),
   ];
 
-  Get.to(
-    () {
-      return MultiBlocProvider(
-        providers: providers,
-        child: const BookPrivateSessionScreen(),
-      );
-    },
+  final Widget page = MultiBlocProvider(
+    providers: providers,
+    child: const BookPrivateSessionScreen(),
   );
+
+  Get.to(() => page);
 }
 
 void startBundlesPage(List<Bundle> list) {
@@ -303,12 +308,9 @@ void startCreateBundle(Bundle bundle) {
     ),
   ];
 
-  Get.to(
-    () {
-      return MultiBlocProvider(
-        providers: providers,
-        child: const CreateBundlePage(),
-      );
-    },
+  final Widget page = MultiBlocProvider(
+    providers: providers,
+    child: const CreateBundlePage(),
   );
+  Get.to(() => page);
 }

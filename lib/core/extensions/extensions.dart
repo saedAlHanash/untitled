@@ -198,7 +198,7 @@ extension DateUtcHelper on DateTime {
 
   String get monthName => DateFormat('MMMM').format(this);
 
-  String get formatDateTime => '$formatTime $formatDate';
+  String get formatDateTime => '$formatDate - $formatTime';
 
   DateTime addFromNow({int? year, int? month, int? day, int? hour}) {
     return DateTime(
@@ -273,7 +273,7 @@ extension DateUtcHelper on DateTime {
     return weekNumber - 1;
   }
 
-  DateTime get fixTimeZone => subtract(DateTime.now().timeZoneOffset);
+  DateTime get fixTimeZone => add(DateTime.now().timeZoneOffset);
 }
 
 extension FirstItem<E> on Iterable<E> {

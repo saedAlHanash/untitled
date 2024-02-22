@@ -1,3 +1,5 @@
+import 'package:fitness_storm/core/extensions/extensions.dart';
+
 class NotificationsResponse {
   NotificationsResponse({
     required this.data,
@@ -16,7 +18,7 @@ class NotificationsResponse {
       data: json["data"] == null
           ? []
           : List<NotificationModel>.from(
-          json["data"]!.map((x) => NotificationModel.fromJson(x))),
+              json["data"]!.map((x) => NotificationModel.fromJson(x))),
       numberOfPages: json["number_of_pages"] ?? 0,
       numberOfResults: json["number_of_results"] ?? 0,
       unReadNotification: json["un_read_notification"] ?? 0,
@@ -24,11 +26,11 @@ class NotificationsResponse {
   }
 
   Map<String, dynamic> toJson() => {
-    "data": data.map((x) => x.toJson()).toList(),
-    "number_of_pages": numberOfPages,
-    "number_of_results": numberOfResults,
-    "un_read_notification": unReadNotification,
-  };
+        "data": data.map((x) => x.toJson()).toList(),
+        "number_of_pages": numberOfPages,
+        "number_of_results": numberOfResults,
+        "un_read_notification": unReadNotification,
+      };
 }
 
 class NotificationModel {
@@ -44,7 +46,16 @@ class NotificationModel {
   final String body;
   final String type;
   final Data? data;
-  final String createdAt;
+  final DateTime? createdAt;
+
+  String get getCreatedAt {
+    if (createdAt == null) return '';
+    var date = createdAt!.fixTimeZone;
+    String text = '';
+    text = '${date.formatTime}\n${date.formatDate}';
+
+    return text;
+  }
 
   factory NotificationModel.fromJson(Map<String, dynamic> json) {
     return NotificationModel(
@@ -52,17 +63,17 @@ class NotificationModel {
       body: json["body"] ?? "",
       type: json["type"] ?? "",
       data: json["data"] == null ? null : Data.fromJson(json["data"]),
-      createdAt: json["created_at"] ?? "",
+      createdAt: DateTime.tryParse(json["created_at"] ?? ""),
     );
   }
 
   Map<String, dynamic> toJson() => {
-    "title": title,
-    "body": body,
-    "type": type,
-    "data": data?.toJson(),
-    "created_at": createdAt,
-  };
+        "title": title,
+        "body": body,
+        "type": type,
+        "data": data?.toJson(),
+        "created_at": createdAt,
+      };
 }
 
 class Data {
@@ -79,6 +90,6 @@ class Data {
   }
 
   Map<String, dynamic> toJson() => {
-    "date": date?.toIso8601String(),
-  };
+        "date": date?.toIso8601String(),
+      };
 }

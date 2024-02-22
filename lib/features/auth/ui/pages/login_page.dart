@@ -137,7 +137,7 @@ class _LoginPageState extends State<LoginPage> {
                       drawableAlin: DrawableAlin.between,
                       color: Colors.white,
                       drawableEnd: TextButton(
-                        onPressed: () => startSignup(context),
+                        onPressed: () => startSignup(),
                         child: DrawableText(
                           fontFamily: FontManager.cairoBold.name,
                           color: Colors.white,
