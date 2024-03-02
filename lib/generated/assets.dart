@@ -19,9 +19,11 @@ class Assets {
   static const String imagesCalender = 'asset/Images/calender.svg';
   static const String imagesCallCenter = 'asset/Images/call_center.svg';
   static const String imagesCancel = 'asset/Images/cancel.svg';
+  static const String imagesCertificateO = 'asset/Images/certificateO.svg';
   static const String imagesChat2SVG = 'asset/Images/chat2SVG.svg';
   static const String imagesChat3 = 'asset/Images/chat3.png';
   static const String imagesChatSVG = 'asset/Images/chatSVG.svg';
+  static const String imagesCv = 'asset/Images/cv.svg';
   static const String imagesDambleSVG = 'asset/Images/dambleSVG.svg';
   static const String imagesDrawer = 'asset/Images/drawer.png';
   static const String imagesDrawerSVG = 'asset/Images/drawerSVG.svg';

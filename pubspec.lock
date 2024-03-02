@@ -262,10 +262,10 @@ packages:
     description:
       path: "."
       ref: android
-      resolved-ref: "0f747f4eed913195882524350218d4e0fbaa9ea0"
+      resolved-ref: e155d6f3e68ee00b925a5688d54ea5bce0ab5677
       url: "https://github.com/saedAlHanash/drawable_text"
     source: git
-    version: "0.0.5"
+    version: "0.0.7"
   dropdown_button2:
     dependency: "direct main"
     description:
@@ -646,6 +646,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_widget_from_html_core:
+    dependency: transitive
+    description:
+      name: flutter_widget_from_html_core
+      sha256: "028f4989b9ff4907466af233d50146d807772600d98a3e895662fbdb09c39225"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.14.11"
   font_awesome_flutter:
     dependency: "direct main"
     description:

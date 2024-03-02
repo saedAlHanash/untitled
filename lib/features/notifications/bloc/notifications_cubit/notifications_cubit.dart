@@ -32,7 +32,7 @@ class NotificationsCubit extends Cubit<NotificationsInitial> {
       url: GetUrl.getAllNotifications,
     );
 
-    if (response.statusCode == 200) {
+    if (response.statusCode.success) {
       return Pair(NotificationsResponse.fromJson(response.jsonBody).data, null);
     } else {
       return response.getPairError;

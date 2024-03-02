@@ -78,7 +78,7 @@ class _MyTextFormWidgetState extends State<MyTextFormWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final padding = widget.innerPadding ?? const EdgeInsets.symmetric(horizontal: 20.0).w;
+    final padding = widget.innerPadding ?? const EdgeInsets.symmetric(horizontal: 10.0).w;
 
     var obscureText = widget.obscureText;
     Widget? suffixIcon;
@@ -104,6 +104,7 @@ class _MyTextFormWidgetState extends State<MyTextFormWidget> {
             icon: Icon(obscureText ? Icons.visibility : Icons.visibility_off));
       });
     }
+
     final border = UnderlineInputBorder(
       borderSide: BorderSide(
         color: widget.color,
@@ -133,9 +134,9 @@ class _MyTextFormWidgetState extends State<MyTextFormWidget> {
       enabledBorder: border,
       fillColor: AppColorManager.lightGray,
       label: DrawableText(
-        text: widget.label.toUpperCase(),
+        text: widget.label,
         color: AppColorManager.gray,
-        size: 16.0.sp,
+        size: 14.0.sp,
       ),
       counter: const SizedBox(),
       alignLabelWithHint: true,
@@ -160,7 +161,7 @@ class _MyTextFormWidgetState extends State<MyTextFormWidget> {
     return StatefulBuilder(builder: (context, state) {
       onChangeObscure = () => state(() {});
       return Padding(
-        padding: const EdgeInsets.symmetric(vertical: 15.0).h,
+        padding: const EdgeInsets.symmetric(vertical: 7.0).h,
         child: TextFormField(
           validator: widget.validator,
           decoration: inputDecoration,

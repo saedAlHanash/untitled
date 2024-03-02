@@ -3,11 +3,11 @@ part of './app_pages.dart';
 abstract class AppRoutes {
   static const splash = '/splash';
   // static const onboardingScreen = '/onboarding_screen';
-  static const forgetPassword = "/forget-password";
-  static const forgetPasswordNewPassword = '/forget_password_new_password';
-  static const signUp = "/sign-up";
-  static const signIn = "/log-in";
-  static const otp = "/otp";
+  // static const forgetPassword = "/forget-password";
+  // static const forgetPasswordNewPassword = '/forget_password_new_password';
+  // static const signUp = "/sign-up";
+  // static const signIn = "/log-in";
+  // static const otp = "/otp";
 
   // Trainee Screen
   static const video = '/video';

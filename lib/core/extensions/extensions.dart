@@ -85,6 +85,12 @@ extension SplitByLength on String {
     return DeviceStatus.accepted;
   }
 
+  WalletType get getWalletType {
+    if (toLowerCase() == 'income') return WalletType.income;
+    if (toLowerCase() == 'invoice') return WalletType.invoice;
+    return WalletType.income;
+  }
+
   num get tryParseOrZero => num.tryParse(this) ?? 0;
 
   int get tryParseOrZeroInt => int.tryParse(this) ?? 0;

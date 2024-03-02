@@ -85,11 +85,13 @@ class GetUrl {
 
   static const temp = '';
 
-  static const bundles ='bundles';
+  static const bundles = 'bundles';
+
+  static var wallet = 'wallet';
 
   static String plans(int id) => 'trainers/$id/plans';
 
-  static String availableTimes (int id) => 'trainers/$id/availableTimes';
+  static String availableTimes(int id) => 'trainers/$id/availableTimes';
 }
 
 class PostUrl {
@@ -118,7 +120,7 @@ class PostUrl {
 
   static const resetPassword = 'auth/resetPassword/changePassword';
 
-  static const createBundle ='bundles/join';
+  static const createBundle = 'bundles/join';
 
   static const createSession = 'bookedAppointments';
 
@@ -138,6 +140,7 @@ class PostUrl {
   static const updateProfile = 'profile';
 
   static const addSupportMessage = 'messages/add';
+  static const apply = 'api/application-request';
 
   static String addMessage(int id) {
     return 'drivers/messages/$id/add';

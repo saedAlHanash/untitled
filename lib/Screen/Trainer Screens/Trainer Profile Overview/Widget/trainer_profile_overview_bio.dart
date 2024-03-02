@@ -1,24 +1,13 @@
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Profile%20Overview/Widget/trainer_profile_overview_bio_check.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Profile%20Overview/trainer_profile_overview_controller.dart';
+import 'package:fitness_storm/features/trainer/data/response/trainer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class TrainerProfileOverviewBio
-    extends GetWidget<TrainerProfileOverviewController> {
-  final String trainerBio;
-  final String numberOfPlans;
-  final String numberOfSubscribers;
-  final String numberOfPrivateHours;
+class TrainerProfileOverviewBio extends StatelessWidget {
+  const TrainerProfileOverviewBio({super.key, required this.trainer});
 
-  // final String privateSessionPrice;
-  const TrainerProfileOverviewBio({
-    super.key,
-    required this.trainerBio,
-    required this.numberOfPlans,
-    required this.numberOfSubscribers,
-    required this.numberOfPrivateHours,
-    // required this.privateSessionPrice,
-  });
+  final TrainerModel trainer;
 
   @override
   Widget build(BuildContext context) {
@@ -43,13 +32,14 @@ class TrainerProfileOverviewBio
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     TrainerProfileOverviewBioCheck(
-                        title: 'WORKOUT_PLANS'.tr, value: numberOfPlans),
+                        title: 'WORKOUT_PLANS'.tr,
+                        value: trainer.numberOfPlans.toString()),
                     TrainerProfileOverviewBioCheck(
                         title: 'SUBSCRIBERS_cap'.tr,
-                        value: numberOfSubscribers),
+                        value: trainer.numberOfSubscribers.toString()),
                     TrainerProfileOverviewBioCheck(
                         title: 'private_hours'.tr,
-                        value: '+$numberOfPrivateHours'),
+                        value: '+${trainer.numberOfPrivateHours}'),
                   ],
                 ),
               ),
@@ -61,7 +51,7 @@ class TrainerProfileOverviewBio
                 ),
                 child: Center(
                   child: Text(
-                    trainerBio,
+                    trainer.bio,
                     textAlign: TextAlign.center,
                     style: const TextStyle(fontSize: 14, color: Colors.white),
                   ),

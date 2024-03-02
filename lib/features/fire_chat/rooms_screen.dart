@@ -1,14 +1,11 @@
-import 'package:fitness_storm/Screen/Trainee%20Screens/Chat/Widget/chat_card_widget.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/coupon/coupon_cubit/coupon_cubit.dart';
+import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
-import '../../core/strings/enum_manager.dart';
 import 'chat_card_widget.dart';
 import 'get_chats_rooms_bloc/get_rooms_cubit.dart';
-import '../../Screen/Trainee Screens/Chat/Widget/customer_service_card_widget.dart';
-import '../../Screen/chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
+import 'customer_service_card_widget.dart';
 
 class RoomsScreen extends StatefulWidget {
   const RoomsScreen({super.key});
@@ -29,7 +26,7 @@ class _RoomsScreenState extends State<RoomsScreen> {
     // if (getRoomCubitState != CubitStatuses.done &&
     //     getRoomCubitState != CubitStatuses.loading) {
     // }
-      Get.context?.read<RoomsCubit>().getChatRooms();
+    Get.context?.read<RoomsCubit>().getChatRooms();
 
     super.initState();
   }

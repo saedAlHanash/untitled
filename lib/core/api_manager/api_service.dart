@@ -119,7 +119,6 @@ class APIService {
 
     url = (additional ?? additionalConst) + url;
 
-
     body?.removeWhere((key, value) => (value == null || value.toString().isEmpty));
 
     _fixQuery(query);
@@ -135,7 +134,7 @@ class APIService {
           ..addAll(body ?? {}));
 
     final response = await http
-        .post(uri, body: jsonEncode(body), headers:header?? innerHeader)
+        .post(uri, body: jsonEncode(body), headers: header ?? innerHeader)
         .timeout(_connectionTimeOut, onTimeout: () => _timeOut);
 
     logResponse(url, response);
@@ -149,9 +148,10 @@ class APIService {
     Map<String, dynamic>? query,
     Map<String, String>? header,
     String? path,
+    String? additional,
   }) async {
     if (!await network.isConnected) _noInternet;
-    url = additionalConst + url;
+    url = (additional ?? additionalConst) + url;
 
     innerHeader.addAll(header ?? {});
     body?.removeWhere((key, value) => (value == null || value.toString().isEmpty));
@@ -258,17 +258,17 @@ class APIService {
   Future<http.Response> uploadMultiPart({
     required String url,
     String? path,
+    String? additional,
     String type = 'POST',
     List<UploadFile?>? files,
     Map<String, dynamic>? fields,
     Map<String, String>? header,
   }) async {
-
     Map<String, String> f = {};
     (fields ?? {}).forEach((key, value) => f[key] = value.toString());
 
     innerHeader.addAll(header ?? {});
-    url = additionalConst + url;
+    url = (additional ?? additionalConst) + url;
     final uri = Uri.https(baseUrl, '$url${path != null ? '/$path' : ''}');
     loggerObject.w(uri.toString());
     var request = http.MultipartRequest(type, uri);

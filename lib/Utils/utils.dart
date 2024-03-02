@@ -9,10 +9,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
-import '../Screen/Trainee Screens/coupon/ui/coupon_widget.dart';
+
 import '../core/api_manager/api_service.dart';
 import '../core/app/app_provider.dart';
 import '../core/util/pair_class.dart';
+import '../features/coupon/ui/coupon_widget.dart';
 
 class Utils {
   static final categoryItemWidth = Get.width * 0.44;

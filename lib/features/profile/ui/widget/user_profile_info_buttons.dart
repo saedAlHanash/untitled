@@ -17,17 +17,17 @@ class UserProfileInfoButtons extends StatelessWidget {
       children: [
         Row(
           children: [
-            Expanded(child: _Item(type: ProfileButtonType.about)),
+            const Expanded(child: _Item(type: ProfileButtonType.about)),
             15.0.horizontalSpace,
-            Expanded(child: _Item(type: ProfileButtonType.privacy)),
+            const Expanded(child: _Item(type: ProfileButtonType.privacy)),
           ],
         ),
         10.0.verticalSpace,
         Row(
           children: [
-            Expanded(child: _Item(type: ProfileButtonType.faq)),
+            const Expanded(child: _Item(type: ProfileButtonType.faq)),
             15.0.horizontalSpace,
-            Expanded(flex: 2, child: _Item(type: ProfileButtonType.terms)),
+            const Expanded(flex: 2, child: _Item(type: ProfileButtonType.terms)),
           ],
         ),
       ],

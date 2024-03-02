@@ -1,7 +1,9 @@
 import 'dart:io';
 
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:fitness_storm/core/api_manager/api_url.dart';
 import 'package:fitness_storm/helper/lang_helper.dart';
+import 'package:fitness_storm/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,7 +13,6 @@ import 'package:hive_flutter/adapters.dart';
 import 'Data/Api/methods.dart';
 import 'Data/Api/urls.dart';
 import 'Screen/Trainee Screens/HomeScreen/refresh_home_plan_cubit/refresh_home_plan_cubit.dart';
-import 'Screen/chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 import 'Utils/dependency_injection.dart';
 import 'Utils/utils.dart';
 import 'core/api_manager/api_service.dart';
@@ -25,7 +26,6 @@ late Box<String> roomsBox;
 late Box<String> messageBox;
 late Box<int> latestUpdateMessagesBox;
 late Box<String> latestMessagesBox;
-
 
 Future<void> initialHive() async {
   roomsBox = await Hive.openBox('rooms');
@@ -75,7 +75,11 @@ void main() async {
 }
 
 Future<void> setLastSeen() async {
-  final result = await APIService().patchApi(url: 'profile/last-seen');
+  if (AppProvider.isTrainer) return;
+  final result = await APIService().patchApi(
+    url: 'profile/last-seen',
+    additional: additionalConstUser,
+  );
   if (result.statusCode != 401) return;
   await AppProvider.logout();
 }

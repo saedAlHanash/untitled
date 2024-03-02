@@ -4,9 +4,9 @@ import 'package:intl/intl.dart';
 
 class Wallet {
   int? id;
-  int? price;
+  num? price;
   String? type;
-  int? balance;
+  num? balance;
   String? file;
   String? time;
 

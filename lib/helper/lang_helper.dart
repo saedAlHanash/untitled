@@ -1,4 +1,5 @@
 import 'package:fitness_storm/helper/cache_helper.dart';
+import 'package:fitness_storm/router/app_router.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
@@ -14,6 +15,10 @@ class LanguagesController extends GetxController {
     await CacheHelper.saveData(key: 'lang', value: language);
     _selectedLanguage.value = language;
     Get.updateLocale(Locale(language));
-    Get.offAllNamed(fromAuthPage ? AppRoutes.signIn : AppRoutes.mainHome);
+    if(fromAuthPage){
+      startLogin();
+    }else{
+      startHome();
+    }
   }
 }

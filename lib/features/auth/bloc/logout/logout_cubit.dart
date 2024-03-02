@@ -31,7 +31,7 @@ class LogoutCubit extends Cubit<LogoutInitial> {
 
     await AppProvider.logout();
 
-    if (response.statusCode == 200) {
+    if (response.statusCode.success) {
       return Pair(true, null);
     } else {
       return response.getPairError;

@@ -36,7 +36,7 @@ class ConfirmCodeCubit extends Cubit<ConfirmCodeInitial> {
       body: state.request.toJson(),
     );
 
-    if (response.statusCode == 200) {
+    if (response.statusCode.success) {
       final pair = Pair(true, null);
 
       await AppProvider.cashSetConfirmAccount();

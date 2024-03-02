@@ -16,12 +16,6 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:hive_flutter/adapters.dart';
 
-import '../Data/Api/api_result.dart';
-import '../Data/Api/methods.dart';
-import '../Data/Api/urls.dart';
-import '../Screen/chat/util.dart';
-import '../core/app/app_provider.dart';
-import '../features/trainer/data/response/trainer.dart';
 import '../firebase_options.dart';
 import '../main.dart';
 import 'Constants/constants.dart';
@@ -139,7 +133,7 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   Note.showBigTextNotification(title: title, body: body);
 }
 
-initFirebaseMessaging() async {
+Future<void> initFirebaseMessaging() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -167,7 +161,7 @@ initFirebaseMessaging() async {
   });
 }
 
-requestPermission() async {
+Future<void> requestPermission() async {
   FirebaseMessaging messaging = FirebaseMessaging.instance;
   if (Platform.isIOS) {
     await messaging.requestPermission(

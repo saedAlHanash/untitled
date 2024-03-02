@@ -17,7 +17,7 @@ class ProfileCubit extends Cubit<ProfileInitial> {
   ProfileCubit() : super(ProfileInitial.initial());
 
   Future<void> getProfile({bool? newData}) async {
-    if (state.result.id!.isNotEmpty && newData == null) {
+    if (state.result.id != 0 && newData == null) {
       return;
     }
     emit(state.copyWith(statuses: CubitStatuses.loading));
@@ -38,7 +38,7 @@ class ProfileCubit extends Cubit<ProfileInitial> {
       url: GetUrl.profile,
     );
 
-    if (response.statusCode == 200) {
+    if (response.statusCode.success) {
       return Pair(Profile.fromJson(response.jsonBody), null);
     } else {
       return response.getPairError;

@@ -37,7 +37,7 @@ class Appointment {
 
   factory Appointment.fromJson(Map<String, dynamic> json) {
     return Appointment(
-      id: json["id"] ?? 0,
+      id: json["id"].toString().tryParseOrZeroInt ,
       startTime: DateTime.tryParse(json["start_time"] ?? "") ?? DateTime(2030),
       endTime: DateTime.tryParse(json["end_time"] ?? "") ?? DateTime(2030),
       videoCallToken: json["video_call_token"] ?? "",

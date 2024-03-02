@@ -27,3 +27,5 @@ enum ProfileCardType { profile, fav, payment, lang, appointment }
 enum ProfileButtonType { about, privacy, faq, terms }
 
 enum PrivetSessionState { noEver, active, waiting, needBooking }
+
+enum WalletType { income, invoice }

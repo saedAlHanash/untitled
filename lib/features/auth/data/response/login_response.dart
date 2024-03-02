@@ -28,7 +28,6 @@ class LoginData {
     );
   }
 
-
   Map<String, dynamic> toJson() => {
         "id": id,
         "access_token": accessToken,

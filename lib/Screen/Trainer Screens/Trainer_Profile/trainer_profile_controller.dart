@@ -1,5 +1,3 @@
- 
-
 import 'package:fitness_storm/Data/Api/api_result.dart';
 import 'package:fitness_storm/Data/Repositories/Trainer%20Repository/trainer_auth_repository.dart';
 import 'package:fitness_storm/Utils/Routes/app_pages.dart';
@@ -8,7 +6,6 @@ import 'package:fitness_storm/features/trainer/data/response/trainer.dart';
 import 'package:get/get.dart';
 
 import '../../../features/fire_chat/util.dart';
-import '../../chat/util.dart';
 
 class TrainerProfileController extends GetxController {
   final RxBool _isLoading = false.obs;
@@ -17,7 +14,7 @@ class TrainerProfileController extends GetxController {
 
   set isLoading(value) => _isLoading.value = value;
 
-    TrainerModel? trainerProfile;
+  TrainerModel? trainerProfile;
 
   final TrainerAuthRepository _trainerAuthRepository = TrainerAuthRepository();
 
@@ -32,23 +29,18 @@ class TrainerProfileController extends GetxController {
 
     var res = await _trainerAuthRepository.trainerLogout();
     if (res.type == ApiResultType.success) {
-
-       
       await logoutChatUser();
       ;
       Get.back();
       // Utils.openSnackBar(title: 'Logout Success');
-      Get.offAllNamed(AppRoutes.signIn);
+      /// Get.offAllNamed(AppRoutes.signIn);
     } else {
       if (res.message == 'Unauthenticated.') {
-
-         
         Get.back();
         // Utils.openSnackBar(title: 'Logout Success');
-        Get.offAllNamed(AppRoutes.signIn);
+        /// Get.offAllNamed(AppRoutes.signIn);
       }
       await logoutChatUser();
-      ;
       Get.back();
       Utils.openSnackBar(message: res.message!);
     }
@@ -66,7 +58,7 @@ class TrainerProfileController extends GetxController {
   }
 
   onMyPlansButtonPressed() {
-   //log('message');
+    //log('message');
     Get.toNamed(AppRoutes.trainerPlans);
   }
 

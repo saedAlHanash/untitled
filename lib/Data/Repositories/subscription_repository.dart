@@ -3,8 +3,8 @@ import 'package:fitness_storm/Model/payment_private_session.dart';
 import 'package:fitness_storm/Model/trainee_next_payment.dart';
 
 import '../../Model/subscription_model.dart';
-import '../../Screen/Trainee Screens/coupon/data/request/pay_request.dart';
 import '../../Utils/utils.dart';
+import '../../features/coupon/data/request/pay_request.dart';
 import '../Api/api_result.dart';
 import '../Api/methods.dart';
 import '../Api/urls.dart';

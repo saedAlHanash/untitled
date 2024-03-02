@@ -1,4 +1,5 @@
 import 'package:drawable_text/drawable_text.dart';
+import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
 import 'package:fitness_storm/router/app_router.dart';
 import 'package:flutter/material.dart';
@@ -34,6 +35,10 @@ class _ProfileCardState extends State<ProfileCard> {
         image = Assets.imagesProfileInfo;
         name = S().profileInfo;
         onTap = () {
+          if(AppProvider.isTrainer){
+            Get.toNamed(AppRoutes.trainerProfileOverview);
+            return;
+          }
           startUpdateProfile();
         };
         break;

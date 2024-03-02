@@ -29,7 +29,7 @@
 //   static Future<Pair<List<Fav>?, String?>> _getFavoriteApi() async {
 //     final response = await APIService().getApi(url: GetUrl.favorite);
 //
-//     if (response.statusCode == 200) {
+//     if (response.statusCode.success) {
 //       return Pair(
 //         FavResponse.fromJson(response.jsonBody).data,
 //         null,

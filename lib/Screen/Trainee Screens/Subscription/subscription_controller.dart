@@ -6,8 +6,8 @@ import '../../../Data/Repositories/subscription_repository.dart';
 import '../../../Data/Repositories/trainee_repository.dart';
 import '../../../Model/subscription_model.dart';
 import '../../../Utils/utils.dart';
+import '../../../features/coupon/data/request/pay_request.dart';
 import '../../../features/profile/data/response/profile_response.dart';
-import '../coupon/data/request/pay_request.dart';
 
 class SubscruptionController extends GetxController {
   final RxBool _isLoading = false.obs;

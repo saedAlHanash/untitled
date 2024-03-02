@@ -41,6 +41,7 @@ class LoginCubit extends Cubit<LoginInitial> {
     if (response.statusCode.success) {
       final pair = Pair(LoginData.fromJson(response.jsonBody), null);
 
+      loggerObject.w(state.isTrainer);
       await AppProvider.cashLoginData(pair.first, isTrainer: state.isTrainer);
 
       await AppSharedPreference.removePhoneOrEmail();

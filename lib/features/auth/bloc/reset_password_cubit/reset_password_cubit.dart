@@ -1,6 +1,8 @@
 import 'package:fitness_storm/core/api_manager/api_url.dart';
+import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get.dart';
 
 import '../../../../core/api_manager/api_service.dart';
 import '../../../../core/error/error_manager.dart';
@@ -26,12 +28,12 @@ class ResetPasswordCubit extends Cubit<ResetPasswordInitial> {
       showErrorFromApi(state);
     } else {
       AppSharedPreference.cashRestPassEmail('');
-      await _resetPassword();
+      await _resetPassword(token: pair.first!);
     }
   }
 
-  Future<void> _resetPassword() async {
-    final pair = await _resetPass();
+  Future<void> _resetPassword({required String token}) async {
+    final pair = await _resetPass(token: token);
 
     if (pair.first == null) {
       emit(state.copyWith(statuses: CubitStatuses.error, error: pair.second));
@@ -42,25 +44,29 @@ class ResetPasswordCubit extends Cubit<ResetPasswordInitial> {
     }
   }
 
-  Future<Pair<bool?, String?>> _checkCode() async {
+  Future<Pair<String?, String?>> _checkCode() async {
     final response = await APIService().postApi(
       url: PostUrl.resetPasswordCheckCode,
       body: state.request.toJson(),
     );
-    if (response.statusCode == 200) {
-      final pair = Pair(true, null);
+    if (response.statusCode.success) {
+      final pair = Pair(response.jsonBody['token'].toString(), null);
       return pair;
     } else {
       return response.getPairError;
     }
   }
 
-  Future<Pair<bool?, String?>> _resetPass() async {
-    final response = await APIService().postApi(
-      url: PostUrl.resetPassword,
-      body: state.request.toJson(),
-    );
-    if (response.statusCode == 200) {
+  Future<Pair<bool?, String?>> _resetPass({required String token}) async {
+    final response = await APIService()
+        .postApi(url: PostUrl.resetPassword, body: state.request.toJson(), header: {
+      'Authorization': 'Bearer $token',
+      'Content-Type': 'application/json',
+      'Accept': 'Application/json',
+      'timeZone': DateTime.now().timeZoneName,
+      'lang': Get.locale?.languageCode ?? 'en',
+    });
+    if (response.statusCode.success) {
       final pair = Pair(true, null);
       return pair;
     } else {

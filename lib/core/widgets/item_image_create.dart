@@ -1,7 +1,9 @@
 import 'dart:typed_data';
 
+import 'package:drawable_text/drawable_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:image_multi_type/circle_image_widget.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 
 import '../../../../core/util/pick_image_helper.dart';
@@ -11,9 +13,13 @@ class ItemImageCreate extends StatelessWidget {
     super.key,
     required this.image,
     required this.onLoad,
+    this.name,
+    this.size,
   });
 
   final dynamic image;
+  final String? name;
+  final double? size;
   final Function(Uint8List bytes) onLoad;
 
   @override
@@ -26,21 +32,34 @@ class ItemImageCreate extends StatelessWidget {
           if (image == null) return;
           onLoad.call(image);
         },
-        child: SizedBox(
-          height: 100.0.r,
-          width: 100.0.r,
-          child: Stack(
-            alignment: Alignment.center,
-            children: [
-              ImageMultiType(
-                url: image,
-                height: 100.0.r,
-                width: 100.0.r,
-                fit: BoxFit.fill,
+        child: Column(
+          children: [
+            SizedBox(
+              height: size ?? 100.0.r,
+              width: size ?? 100.0.r,
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  CircleImageWidget(
+                    url: image,
+                    size: size ?? 100.0.r,
+                  ),
+                  if (name == null)
+                    const ImageMultiType(url: Icons.edit, color: Colors.white)
+                ],
               ),
-              const ImageMultiType(url: Icons.edit, color: Colors.white)
-            ],
-          ),
+            ),
+            10.0.verticalSpace,
+            if (name != null)
+              DrawableText(
+                text: name!,
+                matchParent: true,
+                textAlign: TextAlign.center,
+                size: 12.0.sp,
+                color: Colors.white54,
+                fontWeight: FontWeight.bold,
+              )
+          ],
         ),
       ),
     );

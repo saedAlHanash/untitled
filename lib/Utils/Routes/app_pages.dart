@@ -1,15 +1,3 @@
-import 'package:fitness_storm/Screen/Auth/Forget%20Password/Forget%20Password%20Email/forget_password_binding.dart';
-import 'package:fitness_storm/Screen/Auth/Forget%20Password/Forget%20Password%20Email/forget_password_screen.dart';
-import 'package:fitness_storm/Screen/Auth/Forget%20Password/New%20Password/new_password_binding.dart';
-import 'package:fitness_storm/Screen/Auth/Forget%20Password/New%20Password/new_password_screen.dart';
-import 'package:fitness_storm/Screen/Auth/OTP/otp_binding.dart';
-import 'package:fitness_storm/Screen/Auth/OTP/otp_screen.dart';
-import 'package:fitness_storm/Screen/Auth/Signin/signin_binding.dart';
-import 'package:fitness_storm/Screen/Auth/Signin/signin_screen.dart';
-import 'package:fitness_storm/Screen/Auth/Signup/signup_binding.dart';
-import 'package:fitness_storm/Screen/Auth/Signup/signup_screen.dart';
-import 'package:fitness_storm/Screen/Auth/User%20Survey/user_survey_binding.dart';
-import 'package:fitness_storm/Screen/Auth/User%20Survey/user_survey_screen.dart';
 import 'package:fitness_storm/Screen/Splash/splash_binding.dart';
 import 'package:fitness_storm/Screen/Splash/splash_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Bookmarked%20Screen/bookmarked_screen.dart';
@@ -61,6 +49,7 @@ import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Profile%20Overv
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Wallet/trainer_wallet_binding.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Wallet/trainer_wallet_screen.dart';
 import 'package:fitness_storm/core/app/app_provider.dart';
+import 'package:fitness_storm/features/profile/ui/pages/profile_trainer_page.dart';
 import 'package:fitness_storm/features/profile/ui/pages/update_profile_page.dart';
 import 'package:get/get.dart';
 
@@ -107,15 +96,15 @@ class AppPages {
       //     name: AppRoutes.onboardingScreen,
       //     page: () => const OnboardingScreen(),
       //     binding: OnboardingBinding()),
-      GetPage(
-          name: AppRoutes.signUp,
-          page: () => const SignupScreen(),
-          binding: SignupBinding()),
-      GetPage(
-          name: AppRoutes.signIn,
-          page: () => const SigninScreen(),
-          binding: SigninBinding()),
-      GetPage(name: AppRoutes.otp, page: () => const OTPScreen(), binding: OTPBinding()),
+      // GetPage(
+      //     name: AppRoutes.signUp,
+      //     page: () => const SignupScreen(),
+      //     binding: SignupBinding()),
+      // GetPage(
+      //     name: AppRoutes.signIn,
+      //     page: () => const SigninScreen(),
+      //     binding: SigninBinding()),
+      // GetPage(name: AppRoutes.otp, page: () => const OTPScreen(), binding: OTPBinding()),
       GetPage(
           name: AppRoutes.training,
           page: () => const TrainingScreen(),
@@ -137,14 +126,14 @@ class AppPages {
           page: () => const FilterResultScreen(),
           binding: FilterPageBinding()),
 
-      GetPage(
-          name: AppRoutes.forgetPassword,
-          page: () => const ForgetPasswordEmailScreen(),
-          binding: ForgetPasswordEmailBinding()),
-      GetPage(
-          name: AppRoutes.forgetPasswordNewPassword,
-          page: () => const NewPasswordScreen(),
-          binding: NewPasswordBinding()),
+      // GetPage(
+      //     name: AppRoutes.forgetPassword,
+      //     page: () => const ForgetPasswordEmailScreen(),
+      //     binding: ForgetPasswordEmailBinding()),
+      // GetPage(
+      //     name: AppRoutes.forgetPasswordNewPassword,
+      //     page: () => const NewPasswordScreen(),
+      //     binding: NewPasswordBinding()),
       GetPage(
           name: AppRoutes.subscriptionScreen,
           page: () => const SubscriptionScreen(),
@@ -157,10 +146,7 @@ class AppPages {
           name: AppRoutes.searchResultSceen,
           page: () => const SearchResultScreen(),
           binding: SearchResultBinding()),
-      GetPage(
-          name: AppRoutes.surveyScreen,
-          page: () => const UserSurveyScreen(),
-          binding: UserSurveyBinding()),
+
       GetPage(
         name: AppRoutes.traineeProfileInfo,
         page: () => const TraineeProfileInfoScreen(),
@@ -187,9 +173,9 @@ class AppPages {
           page: () => TrainerMainHomeScreen(),
           binding: TrainerMainHomeBinding()),
       GetPage(
-          name: AppRoutes.trainerProfileOverview,
-          page: () => const TrainerProfileOverviewScreen(),
-          binding: TrainerProfileOverviewBinding()),
+        name: AppRoutes.trainerProfileOverview,
+        page: () => const ProfileTrainerPage(),
+      ),
       GetPage(
           name: AppRoutes.trainerPlans,
           page: () => const TrainerPlansScreen(),

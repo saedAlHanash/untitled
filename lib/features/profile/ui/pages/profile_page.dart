@@ -12,8 +12,6 @@ import 'package:get/get.dart';
 import 'package:image_multi_type/circle_image_widget.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 
-import '../../../../Screen/Trainee Screens/Chat/Widget/chat_card_widget.dart';
-import '../../../../Screen/chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 import '../../../../Utils/Routes/app_pages.dart';
 import '../../../../core/app/app_provider.dart';
 import '../../../../core/util/my_style.dart';
@@ -24,6 +22,7 @@ import '../../../auth/bloc/logout/logout_cubit.dart';
 import '../../../fire_chat/chat_card_widget.dart';
 import '../../../fire_chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 import '../../bloc/profile_cubit/profile_cubit.dart';
+import '../../data/response/profile_response.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -42,33 +41,20 @@ class _ProfilePageState extends State<ProfilePage> {
           if (state.statuses.loading) {
             return MyStyle.loadingWidget();
           }
+          final profile = state.result as Profile;
           return SingleChildScrollView(
             padding: const EdgeInsets.only(left: 30.0, right: 30.0, bottom: 100.0).r,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                10.0.verticalSpace,
-                Container(
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    boxShadow: [
-                      BoxShadow(
-                        color: AppColorManager.gray.withOpacity(0.5),
-                        blurRadius: 10.0,
-                        offset: Offset(0, 7.h),
-                      ),
-                    ],
-                  ),
-                  child: CircleImageWidget(
-                    url: Assets.imagesUser,
-                    size: 100.0.r,
-                  ),
+                30.0.verticalSpace,
+                CircleImageWidget(
+                  url: (profile.image ?? '').isEmpty ? Assets.imagesUser : profile.image,
+                  size: 100.0.r,
                 ),
                 10.0.verticalSpace,
                 DrawableText(
-                  text: state.result.name!.isEmpty
-                      ? state.result.email!
-                      : state.result.name!,
+                  text: profile.name!.isEmpty ? profile.email! : profile.name!,
                   color: AppColorManager.mainColor,
                   size: 26.0.sp,
                   fontFamily: FontManager.cairoBold.name,
@@ -85,8 +71,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       size: 15.0.sp,
                       color: Colors.white,
                       drawablePadding: 10.0.w,
-                      drawableStart:
-                      const ImageMultiType(url: Assets.imagesSubscription),
+                      drawableStart: const ImageMultiType(url: Assets.imagesSubscription),
                     ),
                   ),
                   15.0.verticalSpace,
@@ -98,19 +83,17 @@ class _ProfilePageState extends State<ProfilePage> {
                     }
                     return MyButton(
                       onTap: () async {
-                        final room =
-                            await context.read<RoomsCubit>().getRoomByUser('0');
+                        final room = await context.read<RoomsCubit>().getRoomByUser('0');
 
                         if (context.mounted) {
                           openRoomFunction(context, room!);
                         }
                       },
-                      text: S.of(context).JoinUsAsATrainer,
+                      text: S.of(context).joinUsAsATrainer,
                       color: AppColorManager.mainColorLight,
                     );
                   },
                 ),
-
                 20.0.verticalSpace,
                 const UserProfileInfoButtons(),
                 20.0.verticalSpace,

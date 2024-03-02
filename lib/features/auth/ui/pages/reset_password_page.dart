@@ -10,6 +10,7 @@ import 'package:image_multi_type/image_multi_type.dart';
 
 import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/my_style.dart';
+import '../../../../core/util/snack_bar_message.dart';
 import '../../../../core/widgets/verification_code_widget.dart';
 import '../../../../generated/assets.dart';
 import '../../../../generated/l10n.dart';
@@ -18,7 +19,7 @@ import '../../bloc/reset_password_cubit/reset_password_cubit.dart';
 import '../widget/auth_header.dart';
 
 class ResetPasswordPage extends StatefulWidget {
-  const ResetPasswordPage({Key? key}) : super(key: key);
+  const ResetPasswordPage({super.key});
 
   @override
   State<ResetPasswordPage> createState() => _ResetPasswordPageState();
@@ -26,7 +27,6 @@ class ResetPasswordPage extends StatefulWidget {
 
 class _ResetPasswordPageState extends State<ResetPasswordPage> {
   late final ResetPasswordCubit resetPassCubit;
-
 
   final _formKey = GlobalKey<FormState>();
 
@@ -41,6 +41,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
     return BlocListener<ResetPasswordCubit, ResetPasswordInitial>(
       listenWhen: (p, c) => c.statuses == CubitStatuses.done,
       listener: (context, state) {
+        NoteMessage.showSuccessSnackBar(message: S.of(context).done, context: context);
         startLogin();
       },
       child: Stack(

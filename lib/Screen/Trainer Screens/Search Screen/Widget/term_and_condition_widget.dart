@@ -5,8 +5,7 @@ import 'package:get/get.dart';
 import '../../../../Utils/Routes/app_pages.dart';
 import '../../../../features/fire_chat/chat_card_widget.dart';
 import '../../../../features/fire_chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
-import '../../../Trainee Screens/Chat/Widget/chat_card_widget.dart';
-import '../../../chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
+
 
 class TrainerTermAndConditionWidget extends StatefulWidget {
   const TrainerTermAndConditionWidget({super.key});

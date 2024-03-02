@@ -6,7 +6,7 @@
 //
 // import '../../../Widgets/plan_time_freqency.dart';
 // import '../../../Widgets/see_all_list_item.dart';
-// import 'Widget/ProfileHader/trainer_profile_header.dart';
+// import 'Widget/ProfileHader/trainer_header.dart';
 //
 // class TrainerOverviewScreen extends GetView<TrainerOverviewController> {
 //   TrainerOverviewScreen({super.key});

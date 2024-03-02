@@ -22,150 +22,6 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "AlphabeticalAZ":
-            MessageLookupByLibrary.simpleMessage("Alphabetical A-Z"),
-        "AlphabeticalZA":
-            MessageLookupByLibrary.simpleMessage("Alphabetical Z-A"),
-        "ArabicAndSomeExpressionsInEnglish":
-            MessageLookupByLibrary.simpleMessage(
-                "Arabic and some expressions in English"),
-        "AreThereExercisesForBeginners": MessageLookupByLibrary.simpleMessage(
-            "Are there exercises for beginners?"),
-        "BadRequest": MessageLookupByLibrary.simpleMessage("Bad request"),
-        "Book": MessageLookupByLibrary.simpleMessage("Book"),
-        "Bookmarked": MessageLookupByLibrary.simpleMessage("Bookmarked"),
-        "CHOOSETIME": MessageLookupByLibrary.simpleMessage("CHOOSE TIME"),
-        "CURRENTBALANCE":
-            MessageLookupByLibrary.simpleMessage("CURRENT BALANCE"),
-        "CanIContactTheCoachDirectly": MessageLookupByLibrary.simpleMessage(
-            "Can I contact the coach directly?"),
-        "CanISubscribeIfILiveOutsideSaudiArabia":
-            MessageLookupByLibrary.simpleMessage(
-                "Can I Subscribe if I live outside Saudi Arabia?"),
-        "CanITryYourProgramsBeforeSubscribing":
-            MessageLookupByLibrary.simpleMessage(
-                "Can I try your programs before subscribing?"),
-        "ConfirmPassword":
-            MessageLookupByLibrary.simpleMessage("Confirm Password"),
-        "ConfirmPasswordDoesNotMatchPassword":
-            MessageLookupByLibrary.simpleMessage(
-                "Confirm password does not match password"),
-        "Congrats": MessageLookupByLibrary.simpleMessage("Congrats"),
-        "ConnectionRequestTimeout":
-            MessageLookupByLibrary.simpleMessage("Connection request timeout"),
-        "ContactUs": MessageLookupByLibrary.simpleMessage("Contact Us"),
-        "Day4": MessageLookupByLibrary.simpleMessage("Day 4 "),
-        "DidYouFinishYourTraining": MessageLookupByLibrary.simpleMessage(
-            "Did you finish your training? press Done to save your progress to your records."),
-        "Done": MessageLookupByLibrary.simpleMessage("Done"),
-        "ErrorDueToAConflict":
-            MessageLookupByLibrary.simpleMessage("Error due to a conflict"),
-        "FAQ": MessageLookupByLibrary.simpleMessage("FAQ"),
-        "FAQs": MessageLookupByLibrary.simpleMessage("FAQs"),
-        "FITNESSLEVEL": MessageLookupByLibrary.simpleMessage("FITNESS LEVEL"),
-        "HoursDay": MessageLookupByLibrary.simpleMessage("Hours/Day"),
-        "HowCanISubscribeAndPay": MessageLookupByLibrary.simpleMessage(
-            "How can I subscribe and pay?"),
-        "InternalServerError":
-            MessageLookupByLibrary.simpleMessage("Internal Server Error"),
-        "ItIsADynamicApplicationInBothArabic": MessageLookupByLibrary.simpleMessage(
-            "\nIt is a dynamic application in both Arabic and English languages that gives you a chance to train with world class trainers through HD step-by-step instructional videos.\n"),
-        "ItsNotTimeForTheCallYet": MessageLookupByLibrary.simpleMessage(
-            "It\"s not time for the call yet"),
-        "JoinUsAsATrainer":
-            MessageLookupByLibrary.simpleMessage("Join us as a Trainer"),
-        "LEVEL": MessageLookupByLibrary.simpleMessage("LEVEL"),
-        "LOCATION": MessageLookupByLibrary.simpleMessage("LOCATION"),
-        "LateralRoeeetMedialLateral": MessageLookupByLibrary.simpleMessage(
-            "Shoulder Medial Lateral Roeeet Medial Lateral"),
-        "Logout": MessageLookupByLibrary.simpleMessage("Logout"),
-        "MethodAllowed": MessageLookupByLibrary.simpleMessage("Method Allowed"),
-        "Mobile": MessageLookupByLibrary.simpleMessage("Mobile"),
-        "MostPopular": MessageLookupByLibrary.simpleMessage("Most Popularً"),
-        "NEXT": MessageLookupByLibrary.simpleMessage("NEXT"),
-        "NoAvailableSessions":
-            MessageLookupByLibrary.simpleMessage("No available sessions"),
-        "NoInternetConnection":
-            MessageLookupByLibrary.simpleMessage("No internet connection"),
-        "NoThisOptionIsNotAvailableYet": MessageLookupByLibrary.simpleMessage(
-            "No, this option is not available yet."),
-        "NotAcceptable": MessageLookupByLibrary.simpleMessage("Not acceptable"),
-        "NotImplemented":
-            MessageLookupByLibrary.simpleMessage("Not Implemented"),
-        "Okay": MessageLookupByLibrary.simpleMessage("Okay"),
-        "PLANSBYME": MessageLookupByLibrary.simpleMessage("PLANS BY ME"),
-        "PasswordChanged":
-            MessageLookupByLibrary.simpleMessage("Password changed"),
-        "PlayingDays_lessFirst":
-            MessageLookupByLibrary.simpleMessage("Playing Days (less first)"),
-        "PlayingDays_moreFirst":
-            MessageLookupByLibrary.simpleMessage("Playing Days (more first)"),
-        "Private": MessageLookupByLibrary.simpleMessage("Private"),
-        "PrivateTraining":
-            MessageLookupByLibrary.simpleMessage("Private Training"),
-        "Public": MessageLookupByLibrary.simpleMessage("Public"),
-        "Rep": MessageLookupByLibrary.simpleMessage(" Rep"),
-        "RequestCancelled":
-            MessageLookupByLibrary.simpleMessage("Request Cancelled"),
-        "SEARCH": MessageLookupByLibrary.simpleMessage("SEARCH"),
-        "SEARCHINTRAINER":
-            MessageLookupByLibrary.simpleMessage("Search in Trainer"),
-        "SEARCHINWORKOUTPLANS":
-            MessageLookupByLibrary.simpleMessage("SEARCH IN WORKOUT PLANS"),
-        "SETMYAVAILABILITY":
-            MessageLookupByLibrary.simpleMessage("SET MY AVAILABILITY"),
-        "SORTBY": MessageLookupByLibrary.simpleMessage("SORT BY"),
-        "SUBSCRIBERSCap": MessageLookupByLibrary.simpleMessage("SUBSCRIBERS"),
-        "SearchSmall": MessageLookupByLibrary.simpleMessage("Search"),
-        "Sec": MessageLookupByLibrary.simpleMessage(" Sec"),
-        "SendTimeoutinConnectionWithAPIserver":
-            MessageLookupByLibrary.simpleMessage(
-                "Send timeout in connection with API server"),
-        "ServiceUnavailable":
-            MessageLookupByLibrary.simpleMessage("Service unavailable"),
-        "SessionWith": MessageLookupByLibrary.simpleMessage("Session with "),
-        "SomethingWentWrong":
-            MessageLookupByLibrary.simpleMessage("Something Went Wrong"),
-        "Success": MessageLookupByLibrary.simpleMessage("Success"),
-        "SureYouCanSubscribeFromAnywhereInTheGlobe":
-            MessageLookupByLibrary.simpleMessage(
-                "Sure, you can subscribe from anywhere in the globe."),
-        "TRAININGTYPE": MessageLookupByLibrary.simpleMessage("TRAINING TYPE"),
-        "TermsAndCondition":
-            MessageLookupByLibrary.simpleMessage("Terms and Conditions"),
-        "TrainerProfile":
-            MessageLookupByLibrary.simpleMessage("Trainer Profile"),
-        "TypeAnythingToSearchIt":
-            MessageLookupByLibrary.simpleMessage("Type Anything To Search It"),
-        "UnableToProcessThedata":
-            MessageLookupByLibrary.simpleMessage("Unable to process the data"),
-        "UnauthorisedRequest":
-            MessageLookupByLibrary.simpleMessage("Unauthorised request"),
-        "UnexpectedErrorOccurred":
-            MessageLookupByLibrary.simpleMessage("Unexpected error occurred"),
-        "Verify": MessageLookupByLibrary.simpleMessage("Verify"),
-        "Wallet": MessageLookupByLibrary.simpleMessage("Wallet"),
-        "WhatAreYouSearchingFor":
-            MessageLookupByLibrary.simpleMessage("What are you searching for?"),
-        "WhatIsFitnessStorm":
-            MessageLookupByLibrary.simpleMessage("What is Fitness Storm?"),
-        "WhatLanguageIsSpokenInTheVideos": MessageLookupByLibrary.simpleMessage(
-            "What language is spoken in the videos?"),
-        "WhatPlansDoYouOfferToSubscribe": MessageLookupByLibrary.simpleMessage(
-            "What plans do you offer to subscribe?"),
-        "WhatYourTrainingLevel": MessageLookupByLibrary.simpleMessage(
-            "What\"s your training level ?"),
-        "YesSureBasedOnYourPersonal": MessageLookupByLibrary.simpleMessage(
-            " Yes sure. Based on your personal info and physical activity, a list of high-HD exercise videos will show up to you. So, it doesn\"t matter if you are a beginner or a Pro. "),
-        "YesSureThereIs7DaysFreeTrial": MessageLookupByLibrary.simpleMessage(
-            "Yes, sure there is 7 days free trial"),
-        "YesTheyCan": MessageLookupByLibrary.simpleMessage("Yes, they can."),
-        "YouCanSubscribeAndPay": MessageLookupByLibrary.simpleMessage(
-            "You can subscribe and pay online through available payment options available through the application."),
-        "YourSubscriptionToPlan": MessageLookupByLibrary.simpleMessage(
-            "You will be no longer training with plan"),
-        "YourTrainingLevel":
-            MessageLookupByLibrary.simpleMessage("Your training level"),
         "about": MessageLookupByLibrary.simpleMessage("About"),
         "aboutTheCoach":
             MessageLookupByLibrary.simpleMessage("About The Coach"),
@@ -179,6 +35,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "advanced": MessageLookupByLibrary.simpleMessage("Advanced"),
         "alert": MessageLookupByLibrary.simpleMessage("Alert"),
         "allFinished": MessageLookupByLibrary.simpleMessage("All Finished!"),
+        "alphabeticalAZ":
+            MessageLookupByLibrary.simpleMessage("Alphabetical A-Z"),
+        "alphabeticalZA":
+            MessageLookupByLibrary.simpleMessage("Alphabetical Z-A"),
         "alreadyAMember":
             MessageLookupByLibrary.simpleMessage("Already a Member ?"),
         "alreadyHaveAnAccount":
@@ -187,7 +47,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "This day was already finished"),
         "and": MessageLookupByLibrary.simpleMessage("and"),
         "apply": MessageLookupByLibrary.simpleMessage("Apply"),
+        "applyAsTrainer":
+            MessageLookupByLibrary.simpleMessage("apply as Trainer"),
         "applyFilters": MessageLookupByLibrary.simpleMessage("Apply filters"),
+        "arabicAndSomeExpressionsInEnglish":
+            MessageLookupByLibrary.simpleMessage(
+                "Arabic and some expressions in English"),
+        "areThereExercisesForBeginners": MessageLookupByLibrary.simpleMessage(
+            "Are there exercises for beginners?"),
         "areYouSure": MessageLookupByLibrary.simpleMessage("Are you sure?"),
         "at": MessageLookupByLibrary.simpleMessage("At"),
         "availableSession":
@@ -195,12 +62,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "availableSessions":
             MessageLookupByLibrary.simpleMessage("Available sessions"),
         "back": MessageLookupByLibrary.simpleMessage("Back"),
+        "badRequest": MessageLookupByLibrary.simpleMessage("Bad request"),
         "balance": MessageLookupByLibrary.simpleMessage("Balance"),
         "beforeTheNextExercise":
             MessageLookupByLibrary.simpleMessage("before the next exercise"),
         "beforeTheNextSet":
             MessageLookupByLibrary.simpleMessage("before the next set"),
         "beginner": MessageLookupByLibrary.simpleMessage("Beginner"),
+        "birthDate": MessageLookupByLibrary.simpleMessage("Birth Date"),
         "birthday": MessageLookupByLibrary.simpleMessage("birthday"),
         "bodyWeight": MessageLookupByLibrary.simpleMessage("Body Weight"),
         "bodybuilding": MessageLookupByLibrary.simpleMessage("Body building"),
@@ -214,7 +83,18 @@ class MessageLookup extends MessageLookupByLibrary {
         "bundles": MessageLookupByLibrary.simpleMessage("Bundles"),
         "bySingingUpYouAreAgreeingToOur": MessageLookupByLibrary.simpleMessage(
             "By signing up, you are agreeing to our policies"),
+        "cHOOSETIME": MessageLookupByLibrary.simpleMessage("CHOOSE TIME"),
+        "cURRENTBALANCE":
+            MessageLookupByLibrary.simpleMessage("CURRENT BALANCE"),
         "calender": MessageLookupByLibrary.simpleMessage("Calender"),
+        "canIContactTheCoachDirectly": MessageLookupByLibrary.simpleMessage(
+            "Can I contact the coach directly?"),
+        "canISubscribeIfILiveOutsideSaudiArabia":
+            MessageLookupByLibrary.simpleMessage(
+                "Can I Subscribe if I live outside Saudi Arabia?"),
+        "canITryYourProgramsBeforeSubscribing":
+            MessageLookupByLibrary.simpleMessage(
+                "Can I try your programs before subscribing?"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "cancelReason": MessageLookupByLibrary.simpleMessage("Cancel reason"),
         "cancelRenewal": MessageLookupByLibrary.simpleMessage(
@@ -226,6 +106,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "cardNumber": MessageLookupByLibrary.simpleMessage("Card Number"),
         "cart": MessageLookupByLibrary.simpleMessage("Cart"),
         "cashPayment": MessageLookupByLibrary.simpleMessage("Cash Payment"),
+        "certificateOfCourseAttended": MessageLookupByLibrary.simpleMessage(
+            "Certificate Of Course Attended"),
+        "certificateOfGraduation":
+            MessageLookupByLibrary.simpleMessage("Certificate Of Graduation"),
         "change": MessageLookupByLibrary.simpleMessage("Change"),
         "changeAddress": MessageLookupByLibrary.simpleMessage("Change Address"),
         "changeEmail": MessageLookupByLibrary.simpleMessage("Change Email"),
@@ -259,12 +143,19 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("confirm New Password"),
         "confirmPassword":
             MessageLookupByLibrary.simpleMessage("confirm password"),
+        "confirmPasswordDoesNotMatchPassword":
+            MessageLookupByLibrary.simpleMessage(
+                "Confirm password does not match password"),
         "confirmPasswordIsRequired": MessageLookupByLibrary.simpleMessage(
             "Confirm Password Is Required"),
         "confirmation": MessageLookupByLibrary.simpleMessage("Confirmation"),
+        "congrats": MessageLookupByLibrary.simpleMessage("Congrats"),
         "congratulations": MessageLookupByLibrary.simpleMessage(
             "Congratulations on taking the first step towards your fitness journey with Fitness Storm. Now that you\"ve subscribed, you have access to all of our resources. Choose a plan and let\"s get started!"),
+        "connectionRequestTimeout":
+            MessageLookupByLibrary.simpleMessage("Connection request timeout"),
         "contact": MessageLookupByLibrary.simpleMessage("Contact Us"),
+        "contactUs": MessageLookupByLibrary.simpleMessage("Contact Us"),
         "continueSignUp":
             MessageLookupByLibrary.simpleMessage("Continue Sign Up"),
         "continueTo": MessageLookupByLibrary.simpleMessage("Continue"),
@@ -282,8 +173,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Customer Service"),
         "customerServices":
             MessageLookupByLibrary.simpleMessage("Customer Services"),
+        "cv": MessageLookupByLibrary.simpleMessage("CV"),
         "cvc": MessageLookupByLibrary.simpleMessage("Cvc"),
         "day": MessageLookupByLibrary.simpleMessage("Day"),
+        "day4": MessageLookupByLibrary.simpleMessage("Day 4 "),
         "days": MessageLookupByLibrary.simpleMessage("Days"),
         "daysWeek": MessageLookupByLibrary.simpleMessage("Days/Week"),
         "deleteAccount": MessageLookupByLibrary.simpleMessage("Delete Account"),
@@ -293,6 +186,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "You don\"t have any notifications Yet! \nStart your Fitness Storm and we will remind you here with your important sessions"),
         "didNotStartYourFitness": MessageLookupByLibrary.simpleMessage(
             "You didn\"t Start your Fitness Storm Yet! Choose a plan and watch the change in your life."),
+        "didYouFinishYourTraining": MessageLookupByLibrary.simpleMessage(
+            "Did you finish your training? press Done to save your progress to your records."),
         "doYouHaveAnyQuestionInYourMind": MessageLookupByLibrary.simpleMessage(
             "Do you have any question in your mind?"),
         "done": MessageLookupByLibrary.simpleMessage("Done"),
@@ -348,9 +243,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "enterPassword": MessageLookupByLibrary.simpleMessage("Enter Password"),
         "enterYourName":
             MessageLookupByLibrary.simpleMessage("Enter Your Name"),
+        "errorDueToAConflict":
+            MessageLookupByLibrary.simpleMessage("Error due to a conflict"),
         "estimatedFor": MessageLookupByLibrary.simpleMessage("Estimated For"),
         "exercise": MessageLookupByLibrary.simpleMessage("Exercise"),
         "expiration": MessageLookupByLibrary.simpleMessage("Expiration"),
+        "fAQ": MessageLookupByLibrary.simpleMessage("FAQ"),
+        "fAQs": MessageLookupByLibrary.simpleMessage("FAQs"),
+        "fITNESSLEVEL": MessageLookupByLibrary.simpleMessage("FITNESS LEVEL"),
         "failure": MessageLookupByLibrary.simpleMessage("Failure"),
         "faq": MessageLookupByLibrary.simpleMessage("F.A.q"),
         "fav": MessageLookupByLibrary.simpleMessage("Favorites"),
@@ -392,6 +292,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "home": MessageLookupByLibrary.simpleMessage("Home"),
         "homeAddress": MessageLookupByLibrary.simpleMessage("Home Address"),
         "hours": MessageLookupByLibrary.simpleMessage("Hours"),
+        "hoursDay": MessageLookupByLibrary.simpleMessage("Hours/Day"),
+        "howCanISubscribeAndPay": MessageLookupByLibrary.simpleMessage(
+            "How can I subscribe and pay?"),
         "howManyYouTrainingFieldIsRequire":
             MessageLookupByLibrary.simpleMessage(
                 "How many training days field is required"),
@@ -403,18 +306,30 @@ class MessageLookup extends MessageLookupByLibrary {
         "inKg": MessageLookupByLibrary.simpleMessage("in Kg"),
         "income": MessageLookupByLibrary.simpleMessage("Income"),
         "intermediate": MessageLookupByLibrary.simpleMessage("Intermediate"),
+        "internalServerError":
+            MessageLookupByLibrary.simpleMessage("Internal Server Error"),
         "invalidEmail": MessageLookupByLibrary.simpleMessage("Invalid Email"),
         "invalidPhone":
             MessageLookupByLibrary.simpleMessage("Invalid Phone Number"),
         "isRequired": MessageLookupByLibrary.simpleMessage("Required"),
+        "itIsADynamicApplicationInBothArabic": MessageLookupByLibrary.simpleMessage(
+            "\nIt is a dynamic application in both Arabic and English languages that gives you a chance to train with world class trainers through HD step-by-step instructional videos.\n"),
         "itIsAdvisable": MessageLookupByLibrary.simpleMessage(
             "It is advisable to cancel any existing subscription prior to initiating a new one"),
+        "itsNotTimeForTheCallYet": MessageLookupByLibrary.simpleMessage(
+            "It\"s not time for the call yet"),
         "joinFitnessStormForPersonalized": MessageLookupByLibrary.simpleMessage(
             "11+ PLANS\n13+TRAINERS\nUNLIMITED ACCESS "),
+        "joinUsAsATrainer":
+            MessageLookupByLibrary.simpleMessage("Join us as a Trainer"),
+        "lEVEL": MessageLookupByLibrary.simpleMessage("LEVEL"),
+        "lOCATION": MessageLookupByLibrary.simpleMessage("LOCATION"),
         "lang": MessageLookupByLibrary.simpleMessage("Language"),
         "language": MessageLookupByLibrary.simpleMessage("Language"),
         "lastMessage": MessageLookupByLibrary.simpleMessage("Last message"),
         "lastName": MessageLookupByLibrary.simpleMessage("Last name"),
+        "lateralRoeeetMedialLateral": MessageLookupByLibrary.simpleMessage(
+            "Shoulder Medial Lateral Roeeet Medial Lateral"),
         "letsGo": MessageLookupByLibrary.simpleMessage("Let\"s Go"),
         "likeThisSession": MessageLookupByLibrary.simpleMessage(
             "Did you like this Session ? "),
@@ -430,12 +345,15 @@ class MessageLookup extends MessageLookupByLibrary {
             "You should be subscribed with this coach in particular to have a conversation"),
         "male": MessageLookupByLibrary.simpleMessage("Male"),
         "max": MessageLookupByLibrary.simpleMessage("Max"),
+        "methodAllowed": MessageLookupByLibrary.simpleMessage("Method Allowed"),
         "min": MessageLookupByLibrary.simpleMessage("Min"),
         "minute": MessageLookupByLibrary.simpleMessage("minute"),
         "minutes": MessageLookupByLibrary.simpleMessage("Minutes"),
+        "mobile": MessageLookupByLibrary.simpleMessage("Mobile"),
         "mobilityTraining":
             MessageLookupByLibrary.simpleMessage("Mobility Training"),
         "month": MessageLookupByLibrary.simpleMessage("Month"),
+        "mostPopular": MessageLookupByLibrary.simpleMessage("Most Popularً"),
         "myCalender": MessageLookupByLibrary.simpleMessage("My Calender"),
         "myInfo": MessageLookupByLibrary.simpleMessage("My Info"),
         "myLocation": MessageLookupByLibrary.simpleMessage("My Location"),
@@ -444,6 +362,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "myPayments": MessageLookupByLibrary.simpleMessage("My Payments"),
         "myPlans": MessageLookupByLibrary.simpleMessage("My Plans"),
         "myProfile": MessageLookupByLibrary.simpleMessage("My Profile"),
+        "nEXT": MessageLookupByLibrary.simpleMessage("NEXT"),
         "name": MessageLookupByLibrary.simpleMessage("name"),
         "nameEmpty":
             MessageLookupByLibrary.simpleMessage("Name field is required"),
@@ -464,15 +383,24 @@ class MessageLookup extends MessageLookupByLibrary {
         "nextPayment": MessageLookupByLibrary.simpleMessage("NEXT PAYMENT"),
         "nextSession": MessageLookupByLibrary.simpleMessage("Next Session"),
         "nextUp": MessageLookupByLibrary.simpleMessage("Next Up"),
+        "noAvailableSessions":
+            MessageLookupByLibrary.simpleMessage("No available sessions"),
         "noCurrentPlan":
             MessageLookupByLibrary.simpleMessage("No Current Plan"),
         "noInternet": MessageLookupByLibrary.simpleMessage(
             "Please check your internet connection"),
+        "noInternetConnection":
+            MessageLookupByLibrary.simpleMessage("No internet connection"),
         "noMoreData": MessageLookupByLibrary.simpleMessage("No more Data"),
         "noName": MessageLookupByLibrary.simpleMessage("No Name"),
+        "noThisOptionIsNotAvailableYet": MessageLookupByLibrary.simpleMessage(
+            "No, this option is not available yet."),
         "noWallet": MessageLookupByLibrary.simpleMessage("No Wallet"),
+        "notAcceptable": MessageLookupByLibrary.simpleMessage("Not acceptable"),
         "notCompleteProcessPayment": MessageLookupByLibrary.simpleMessage(
             "Payment process not completed"),
+        "notImplemented":
+            MessageLookupByLibrary.simpleMessage("Not Implemented"),
         "notLogin": MessageLookupByLibrary.simpleMessage("Not Login"),
         "notMember": MessageLookupByLibrary.simpleMessage("Not a Member ?"),
         "notSuccessfullySubscription":
@@ -493,7 +421,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "ourPlans": MessageLookupByLibrary.simpleMessage("Our Plans"),
         "ourTrainer": MessageLookupByLibrary.simpleMessage("Our Trainers"),
         "ourWorkout": MessageLookupByLibrary.simpleMessage("Our Workout"),
+        "pLANSBYME": MessageLookupByLibrary.simpleMessage("PLANS BY ME"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "passwordChanged":
+            MessageLookupByLibrary.simpleMessage("Password changed"),
         "passwordDoesntMatch":
             MessageLookupByLibrary.simpleMessage("Password Doesn\"t Match"),
         "passwordEmpty":
@@ -526,6 +457,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "plans": MessageLookupByLibrary.simpleMessage("Plans"),
         "plansByThisTrainer":
             MessageLookupByLibrary.simpleMessage("Plans by this Trainer"),
+        "playingDays_lessFirst":
+            MessageLookupByLibrary.simpleMessage("Playing Days (less first)"),
+        "playingDays_moreFirst":
+            MessageLookupByLibrary.simpleMessage("Playing Days (more first)"),
         "pleasCreateAccount":
             MessageLookupByLibrary.simpleMessage("Please create an account"),
         "pleasSetYourAddress":
@@ -543,6 +478,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "prioritizingYourFitness": MessageLookupByLibrary.simpleMessage(
             "Prioritizing your fitness leads to physical and mental health benefits like improved mood, reduced stress, and better sleep."),
         "privacyPolicy": MessageLookupByLibrary.simpleMessage("Privacy Policy"),
+        "private": MessageLookupByLibrary.simpleMessage("Private"),
         "privateCoatching":
             MessageLookupByLibrary.simpleMessage("PRIVATE COACHING"),
         "privateHours": MessageLookupByLibrary.simpleMessage("Private hours"),
@@ -552,6 +488,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Private Session"),
         "privateSessions":
             MessageLookupByLibrary.simpleMessage("Private Sessions"),
+        "privateTraining":
+            MessageLookupByLibrary.simpleMessage("Private Training"),
         "processing": MessageLookupByLibrary.simpleMessage("Processing"),
         "professional": MessageLookupByLibrary.simpleMessage("Professional"),
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
@@ -559,6 +497,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Profile Details"),
         "profileInfo": MessageLookupByLibrary.simpleMessage("Profile info"),
         "progress": MessageLookupByLibrary.simpleMessage("Progress"),
+        "public": MessageLookupByLibrary.simpleMessage("Public"),
         "pullUpLoad": MessageLookupByLibrary.simpleMessage("pull up load"),
         "reEnterPass":
             MessageLookupByLibrary.simpleMessage("Re-Enter New Password"),
@@ -577,9 +516,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "rememberMe": MessageLookupByLibrary.simpleMessage("Remember Me"),
         "remove": MessageLookupByLibrary.simpleMessage("Remove"),
         "renewalPrice": MessageLookupByLibrary.simpleMessage("Renewal Price"),
+        "rep": MessageLookupByLibrary.simpleMessage(" Rep"),
         "repeatThisExercise":
             MessageLookupByLibrary.simpleMessage("Repeat this Exercise"),
         "reps": MessageLookupByLibrary.simpleMessage("Reps"),
+        "request": MessageLookupByLibrary.simpleMessage("request"),
+        "requestCancelled":
+            MessageLookupByLibrary.simpleMessage("Request Cancelled"),
         "resend": MessageLookupByLibrary.simpleMessage("Resend"),
         "resendCode": MessageLookupByLibrary.simpleMessage("Resend Code"),
         "reset": MessageLookupByLibrary.simpleMessage("Reset"),
@@ -589,12 +532,23 @@ class MessageLookup extends MessageLookupByLibrary {
         "returned": MessageLookupByLibrary.simpleMessage("Returned"),
         "reviewOrder": MessageLookupByLibrary.simpleMessage("Review Order"),
         "reviews": MessageLookupByLibrary.simpleMessage("Reviews"),
+        "sEARCH": MessageLookupByLibrary.simpleMessage("SEARCH"),
+        "sEARCHINTRAINER":
+            MessageLookupByLibrary.simpleMessage("Search in Trainer"),
+        "sEARCHINWORKOUTPLANS":
+            MessageLookupByLibrary.simpleMessage("SEARCH IN WORKOUT PLANS"),
+        "sETMYAVAILABILITY":
+            MessageLookupByLibrary.simpleMessage("SET MY AVAILABILITY"),
+        "sORTBY": MessageLookupByLibrary.simpleMessage("SORT BY"),
+        "sUBSCRIBERSCap": MessageLookupByLibrary.simpleMessage("SUBSCRIBERS"),
         "sar": MessageLookupByLibrary.simpleMessage("SAR"),
         "sarHour": MessageLookupByLibrary.simpleMessage("SAR/hour"),
         "saveChange": MessageLookupByLibrary.simpleMessage("save change"),
         "saveForLater": MessageLookupByLibrary.simpleMessage("Save For Later?"),
         "searchInAll": MessageLookupByLibrary.simpleMessage("Search In All"),
         "searchResults": MessageLookupByLibrary.simpleMessage("Search Results"),
+        "searchSmall": MessageLookupByLibrary.simpleMessage("Search"),
+        "sec": MessageLookupByLibrary.simpleMessage(" Sec"),
         "second": MessageLookupByLibrary.simpleMessage("second"),
         "seconds": MessageLookupByLibrary.simpleMessage("seconds"),
         "seeAll": MessageLookupByLibrary.simpleMessage("SEE ALL"),
@@ -603,9 +557,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "selectFromMap": MessageLookupByLibrary.simpleMessage("From Map"),
         "selectGovernor":
             MessageLookupByLibrary.simpleMessage("Select Governor"),
+        "send": MessageLookupByLibrary.simpleMessage("send"),
+        "sendTimeoutinConnectionWithAPIserver":
+            MessageLookupByLibrary.simpleMessage(
+                "Send timeout in connection with API server"),
         "sent6Digit": MessageLookupByLibrary.simpleMessage(
             "We have sent a 5-digit code to your email"),
+        "serviceUnavailable":
+            MessageLookupByLibrary.simpleMessage("Service unavailable"),
         "session": MessageLookupByLibrary.simpleMessage("session"),
+        "sessionWith": MessageLookupByLibrary.simpleMessage("Session with "),
         "sessionsCount": MessageLookupByLibrary.simpleMessage("Sessions Count"),
         "set": MessageLookupByLibrary.simpleMessage("Set"),
         "setNewPass": MessageLookupByLibrary.simpleMessage(
@@ -631,6 +592,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Slide to start the next Set"),
         "slideToStartTheTimerForThisSet":
             MessageLookupByLibrary.simpleMessage("slide to start timer"),
+        "somethingWentWrong":
+            MessageLookupByLibrary.simpleMessage("Something Went Wrong"),
         "sort": MessageLookupByLibrary.simpleMessage("SORT"),
         "sportsTraining":
             MessageLookupByLibrary.simpleMessage("Sports Training"),
@@ -655,12 +618,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "subscriptionPlans":
             MessageLookupByLibrary.simpleMessage("Subscription Plans"),
         "subtotal": MessageLookupByLibrary.simpleMessage("Subtotal"),
+        "success": MessageLookupByLibrary.simpleMessage("Success"),
         "successfully": MessageLookupByLibrary.simpleMessage("Successfully."),
         "successfullySubscribed":
             MessageLookupByLibrary.simpleMessage("Successfully subscribed"),
         "supTotal": MessageLookupByLibrary.simpleMessage("Subtotal"),
         "support": MessageLookupByLibrary.simpleMessage("Support"),
+        "sureYouCanSubscribeFromAnywhereInTheGlobe":
+            MessageLookupByLibrary.simpleMessage(
+                "Sure, you can subscribe from anywhere in the globe."),
         "surveyInfo": MessageLookupByLibrary.simpleMessage("Survey Info"),
+        "tRAININGTYPE": MessageLookupByLibrary.simpleMessage("TRAINING TYPE"),
         "takeABreak": MessageLookupByLibrary.simpleMessage("Take a break"),
         "takeAPlanMadeCustomizedForYou": MessageLookupByLibrary.simpleMessage(
             "Take a Plan made customized for you!"),
@@ -670,6 +638,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Tap to Expand it"),
         "termAndCondition":
             MessageLookupByLibrary.simpleMessage("Terms And Conditions"),
+        "termsAndCondition":
+            MessageLookupByLibrary.simpleMessage("Terms and Conditions"),
         "termsAndConditions":
             MessageLookupByLibrary.simpleMessage("Terms And Conditions"),
         "termsOfConditions":
@@ -692,12 +662,22 @@ class MessageLookup extends MessageLookupByLibrary {
         "timesWeek": MessageLookupByLibrary.simpleMessage("Times/Week"),
         "trackingOrder": MessageLookupByLibrary.simpleMessage("Tracking Order"),
         "trainer": MessageLookupByLibrary.simpleMessage("TRAINER"),
+        "trainerProfile":
+            MessageLookupByLibrary.simpleMessage("Trainer Profile"),
         "trainers": MessageLookupByLibrary.simpleMessage("TRAINERS"),
         "trainingGoalFieldIsRequire": MessageLookupByLibrary.simpleMessage(
             "Training Goal Field is Require"),
         "trainingLevelFieldIsRequire": MessageLookupByLibrary.simpleMessage(
             "Training Level Field is Require"),
         "trendingPlan": MessageLookupByLibrary.simpleMessage("Trending Plan"),
+        "typeAnythingToSearchIt":
+            MessageLookupByLibrary.simpleMessage("Type Anything To Search It"),
+        "unableToProcessThedata":
+            MessageLookupByLibrary.simpleMessage("Unable to process the data"),
+        "unauthorisedRequest":
+            MessageLookupByLibrary.simpleMessage("Unauthorised request"),
+        "unexpectedErrorOccurred":
+            MessageLookupByLibrary.simpleMessage("Unexpected error occurred"),
         "update": MessageLookupByLibrary.simpleMessage("update"),
         "upgradePlan": MessageLookupByLibrary.simpleMessage("UPGRADE PLAN"),
         "useCurrentLocation":
@@ -710,6 +690,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "videoInitialized":
             MessageLookupByLibrary.simpleMessage("Video initialized"),
         "voucher": MessageLookupByLibrary.simpleMessage("Voucher"),
+        "wallet": MessageLookupByLibrary.simpleMessage("Wallet"),
         "warning": MessageLookupByLibrary.simpleMessage("Warning"),
         "warningDeleteAccount": MessageLookupByLibrary.simpleMessage(
             "Your account will be deleted with all your data, progress, and cancel any ongoing subscription."),
@@ -723,6 +704,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "weightlifting": MessageLookupByLibrary.simpleMessage("Weight lifting"),
         "welcome": MessageLookupByLibrary.simpleMessage("WELCOME"),
         "welcomeBack": MessageLookupByLibrary.simpleMessage("Welcome Back!"),
+        "whatAreYouSearchingFor":
+            MessageLookupByLibrary.simpleMessage("What are you searching for?"),
+        "whatIsFitnessStorm":
+            MessageLookupByLibrary.simpleMessage("What is Fitness Storm?"),
         "whatIsYourBirthday":
             MessageLookupByLibrary.simpleMessage("What is your birthday?"),
         "whatIsYourGender":
@@ -731,9 +716,15 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("What is your height/weight?"),
         "whatIsYourTrainingGoal": MessageLookupByLibrary.simpleMessage(
             "What is your training goal ?"),
+        "whatLanguageIsSpokenInTheVideos": MessageLookupByLibrary.simpleMessage(
+            "What language is spoken in the videos?"),
+        "whatPlansDoYouOfferToSubscribe": MessageLookupByLibrary.simpleMessage(
+            "What plans do you offer to subscribe?"),
         "whatWillYouGetInThisPrivateSession":
             MessageLookupByLibrary.simpleMessage(
                 "WHAT WILL YOU GET IN THIS PRIVATE SESSION ?"),
+        "whatYourTrainingLevel": MessageLookupByLibrary.simpleMessage(
+            "What\"s your training level ?"),
         "whyCancel": MessageLookupByLibrary.simpleMessage(
             "Your Fitness Storm membership will not be renewed. However, you will be able to continue using your membership until its end date.\n Why would you like to cancel your subscription? "),
         "whyToSubscribe":
@@ -750,11 +741,19 @@ class MessageLookup extends MessageLookupByLibrary {
         "workoutPlanPrivate":
             MessageLookupByLibrary.simpleMessage("Workout plan . private"),
         "workoutPlans": MessageLookupByLibrary.simpleMessage("WORKOUT PLANS"),
+        "wrong": MessageLookupByLibrary.simpleMessage("Wrong"),
         "wrongEmail": MessageLookupByLibrary.simpleMessage("Invalid email"),
         "wrongPhone":
             MessageLookupByLibrary.simpleMessage("Invalid phone number"),
+        "yesSureBasedOnYourPersonal": MessageLookupByLibrary.simpleMessage(
+            " Yes sure. Based on your personal info and physical activity, a list of high-HD exercise videos will show up to you. So, it doesn\"t matter if you are a beginner or a Pro. "),
+        "yesSureThereIs7DaysFreeTrial": MessageLookupByLibrary.simpleMessage(
+            "Yes, sure there is 7 days free trial"),
+        "yesTheyCan": MessageLookupByLibrary.simpleMessage("Yes, they can."),
         "youCanDoItThisSet":
             MessageLookupByLibrary.simpleMessage("You can do it!"),
+        "youCanSubscribeAndPay": MessageLookupByLibrary.simpleMessage(
+            "You can subscribe and pay online through available payment options available through the application."),
         "youOftenExercise":
             MessageLookupByLibrary.simpleMessage("You Often exercise"),
         "youPreferToWorkoutIn":
@@ -766,8 +765,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "yourName": MessageLookupByLibrary.simpleMessage("Your Name"),
         "yourOrder": MessageLookupByLibrary.simpleMessage("Your Order"),
         "yourPhone": MessageLookupByLibrary.simpleMessage("Your Phone"),
+        "yourSubscriptionToPlan": MessageLookupByLibrary.simpleMessage(
+            "You will be no longer training with plan"),
         "yourTrainingGoal":
             MessageLookupByLibrary.simpleMessage("Your training goal"),
+        "yourTrainingLevel":
+            MessageLookupByLibrary.simpleMessage("Your training level"),
         "zumba": MessageLookupByLibrary.simpleMessage("Zumba")
       };
 }

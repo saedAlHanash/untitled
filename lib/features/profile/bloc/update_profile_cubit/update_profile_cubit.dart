@@ -1,9 +1,11 @@
 import 'dart:async';
+import 'dart:typed_data';
 
 import 'package:fitness_storm/core/api_manager/api_url.dart';
 import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get_utils/src/extensions/export.dart';
 
 import '../../../../core/api_manager/api_service.dart';
 import '../../../../core/error/error_manager.dart';
@@ -31,15 +33,15 @@ class UpdateProfileCubit extends Cubit<UpdateProfileInitial> {
   }
 
   Future<Pair<bool?, String?>> _updateProfileApi() async {
-
     await APIService().postApi(
       url: PostUrl.survey,
       body: state.request.fitnessSurvey.toJson(),
     );
 
-    final response = await APIService().postApi(
+    final response = await APIService().uploadMultiPart(
       url: PostUrl.updateProfile,
-      body: state.request.toJson(),
+      fields: state.request.toJsonForUpdate(),
+      // files: [state.request.avatar],
     );
 
     if (response.statusCode.success) {
@@ -51,9 +53,18 @@ class UpdateProfileCubit extends Cubit<UpdateProfileInitial> {
 
   set setName(String? val) => state.request.name = val;
 
+  set setAvatar(Uint8List bytes) {
+    state.request.avatar = UploadFile(
+      fileBytes: bytes,
+      nameField: 'image',
+    );
+  }
+
   set setEmail(String? val) => state.request.email = val;
 
   set setPhone(String? val) => state.request.mobile = val;
+
+  set setDate(DateTime? val) => state.request.birthDate = val;
 
   set setGender(String? val) => state.request.gender = val;
 
@@ -80,10 +91,51 @@ class UpdateProfileCubit extends Cubit<UpdateProfileInitial> {
     return null;
   }
 
-  String? get validatePhoneOrEmail {
-    if (state.request.email.isBlank) {
-      return '${S().email} - ${S().phoneNumber}'
-          ' ${S().isRequired}';
+  String? get validateEmail {
+    if (!(state.request.email ?? '').isEmail) {
+      return '${S().wrong} ${S().email}';
+    }
+    return null;
+  }
+
+  String? get validatePhone {
+    if (state.request.mobile.isBlank) {
+      return '${S().wrong} ${S().phone}';
+    }
+    return null;
+  }
+
+  String? get validateDate {
+    if (state.request.birthDate == null) {
+      return '${S().wrong} ${S().birthDate}';
+    }
+    return null;
+  }
+
+  String? get validateWeight {
+    if (state.request.fitnessSurvey.weight.isEmpty) {
+      return '${S().wrong} ${S().weight}';
+    }
+    return null;
+  }
+
+  String? get validateHeight {
+    if (state.request.fitnessSurvey.height.isEmpty) {
+      return '${S().wrong} ${S().height}';
+    }
+    return null;
+  }
+
+  String? get validateDays {
+    if (state.request.fitnessSurvey.dailyExercise.isEmpty) {
+      return '${S().wrong} ${S().hoursDay}';
+    }
+    return null;
+  }
+
+  String? get validateHours {
+    if (state.request.fitnessSurvey.weeklyExercise.isEmpty) {
+      return '${S().wrong} ${S().daysWeek}';
     }
     return null;
   }

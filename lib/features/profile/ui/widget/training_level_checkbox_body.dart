@@ -35,18 +35,18 @@ class _TrainingLevelCheckboxBodyState extends State<TrainingLevelCheckboxBody> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         DrawableText(
-          text: S.of(context).YourTrainingLevel,
+          text: S.of(context).yourTrainingLevel,
           color: AppColorManager.a0,    matchParent: true,
         ),
         MyCheckboxWidget(
           items: [
             SpinnerItem(
-              name: S.of(context).loseWeight,
+              name: S.of(context).beginner,
               isSelected: request.fitnessSurvey.trainingLevelId == 'Beginner',
               item: 'Beginner',
             ),
             SpinnerItem(
-              name: S.of(context).buildMuscle,
+              name: S.of(context).intermediate,
               isSelected: request.fitnessSurvey.trainingLevelId == 'Intermediate',
               item: 'Intermediate',
             ),

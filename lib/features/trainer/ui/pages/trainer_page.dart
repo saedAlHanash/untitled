@@ -12,7 +12,7 @@ import '../../../appointments/bloc/booked_appointments_cubit/booked_appointments
 import '../../../plans/bloc/plans_cubit/plans_cubit.dart';
 import '../../bloc/trainer_cubit/trainer_cubit.dart';
 import '../widget/plans_list.dart';
-import '../widget/trainer_profile_header.dart';
+import '../widget/trainer_header.dart';
 
 class TrainerPage extends StatefulWidget {
   const TrainerPage({super.key});
@@ -45,7 +45,7 @@ class _TrainerPageState extends State<TrainerPage> {
           return SingleChildScrollView(
             child: Column(
               children: [
-                TrainerProfileHeader(trainer: state.result),
+                TrainerHeader(trainer: state.result),
                 TrainerBioWidget(trainer: state.result),
                 10.0.verticalSpace,
                 BlocBuilder<PlansCubit, PlansInitial>(

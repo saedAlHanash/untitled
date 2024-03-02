@@ -36,7 +36,7 @@ class DeleteAccountCubit extends Cubit<DeleteAccountInitial> {
         url: 'destroyAccount',
       );
 
-      if (response.statusCode == 200) {
+      if (response.statusCode.success) {
         return Pair(true, null);
       } else {
           return response.getPairError;

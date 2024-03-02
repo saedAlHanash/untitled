@@ -430,16 +430,6 @@ class S {
     );
   }
 
-  /// `Logout`
-  String get logout {
-    return Intl.message(
-      'Logout',
-      name: 'logout',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Contact Us`
   String get contact {
     return Intl.message(
@@ -1871,50 +1861,50 @@ class S {
   }
 
   /// `Alphabetical A-Z`
-  String get AlphabeticalAZ {
+  String get alphabeticalAZ {
     return Intl.message(
       'Alphabetical A-Z',
-      name: 'AlphabeticalAZ',
+      name: 'alphabeticalAZ',
       desc: '',
       args: [],
     );
   }
 
   /// `Alphabetical Z-A`
-  String get AlphabeticalZA {
+  String get alphabeticalZA {
     return Intl.message(
       'Alphabetical Z-A',
-      name: 'AlphabeticalZA',
+      name: 'alphabeticalZA',
       desc: '',
       args: [],
     );
   }
 
   /// `Most Popularً`
-  String get MostPopular {
+  String get mostPopular {
     return Intl.message(
       'Most Popularً',
-      name: 'MostPopular',
+      name: 'mostPopular',
       desc: '',
       args: [],
     );
   }
 
   /// `Playing Days (more first)`
-  String get PlayingDays_moreFirst {
+  String get playingDays_moreFirst {
     return Intl.message(
       'Playing Days (more first)',
-      name: 'PlayingDays_moreFirst',
+      name: 'playingDays_moreFirst',
       desc: '',
       args: [],
     );
   }
 
   /// `Playing Days (less first)`
-  String get PlayingDays_lessFirst {
+  String get playingDays_lessFirst {
     return Intl.message(
       'Playing Days (less first)',
-      name: 'PlayingDays_lessFirst',
+      name: 'playingDays_lessFirst',
       desc: '',
       args: [],
     );
@@ -2171,10 +2161,10 @@ class S {
   }
 
   /// `What"s your training level ?`
-  String get WhatYourTrainingLevel {
+  String get whatYourTrainingLevel {
     return Intl.message(
       'What"s your training level ?',
-      name: 'WhatYourTrainingLevel',
+      name: 'whatYourTrainingLevel',
       desc: '',
       args: [],
     );
@@ -2291,40 +2281,40 @@ class S {
   }
 
   /// `FITNESS LEVEL`
-  String get FITNESSLEVEL {
+  String get fITNESSLEVEL {
     return Intl.message(
       'FITNESS LEVEL',
-      name: 'FITNESSLEVEL',
+      name: 'fITNESSLEVEL',
       desc: '',
       args: [],
     );
   }
 
   /// `LOCATION`
-  String get LOCATION {
+  String get lOCATION {
     return Intl.message(
       'LOCATION',
-      name: 'LOCATION',
+      name: 'lOCATION',
       desc: '',
       args: [],
     );
   }
 
   /// `TRAINING TYPE`
-  String get TRAININGTYPE {
+  String get tRAININGTYPE {
     return Intl.message(
       'TRAINING TYPE',
-      name: 'TRAININGTYPE',
+      name: 'tRAININGTYPE',
       desc: '',
       args: [],
     );
   }
 
   /// `SORT BY`
-  String get SORTBY {
+  String get sORTBY {
     return Intl.message(
       'SORT BY',
-      name: 'SORTBY',
+      name: 'sORTBY',
       desc: '',
       args: [],
     );
@@ -2361,10 +2351,10 @@ class S {
   }
 
   /// `CHOOSE TIME`
-  String get CHOOSETIME {
+  String get cHOOSETIME {
     return Intl.message(
       'CHOOSE TIME',
-      name: 'CHOOSETIME',
+      name: 'cHOOSETIME',
       desc: '',
       args: [],
     );
@@ -2521,10 +2511,10 @@ class S {
   }
 
   /// `LEVEL`
-  String get LEVEL {
+  String get lEVEL {
     return Intl.message(
       'LEVEL',
-      name: 'LEVEL',
+      name: 'lEVEL',
       desc: '',
       args: [],
     );
@@ -2821,20 +2811,20 @@ class S {
   }
 
   /// `NEXT`
-  String get NEXT {
+  String get nEXT {
     return Intl.message(
       'NEXT',
-      name: 'NEXT',
+      name: 'nEXT',
       desc: '',
       args: [],
     );
   }
 
   /// `No available sessions`
-  String get NoAvailableSessions {
+  String get noAvailableSessions {
     return Intl.message(
       'No available sessions',
-      name: 'NoAvailableSessions',
+      name: 'noAvailableSessions',
       desc: '',
       args: [],
     );
@@ -2941,10 +2931,10 @@ class S {
   }
 
   /// `FAQs`
-  String get FAQs {
+  String get fAQs {
     return Intl.message(
       'FAQs',
-      name: 'FAQs',
+      name: 'fAQs',
       desc: '',
       args: [],
     );
@@ -3361,10 +3351,10 @@ class S {
   }
 
   /// `Did you finish your training? press Done to save your progress to your records.`
-  String get DidYouFinishYourTraining {
+  String get didYouFinishYourTraining {
     return Intl.message(
       'Did you finish your training? press Done to save your progress to your records.',
-      name: 'DidYouFinishYourTraining',
+      name: 'didYouFinishYourTraining',
       desc: '',
       args: [],
     );
@@ -3591,10 +3581,10 @@ class S {
   }
 
   /// `It"s not time for the call yet`
-  String get ItsNotTimeForTheCallYet {
+  String get itsNotTimeForTheCallYet {
     return Intl.message(
       'It"s not time for the call yet',
-      name: 'ItsNotTimeForTheCallYet',
+      name: 'itsNotTimeForTheCallYet',
       desc: '',
       args: [],
     );
@@ -3671,30 +3661,30 @@ class S {
   }
 
   /// `SET MY AVAILABILITY`
-  String get SETMYAVAILABILITY {
+  String get sETMYAVAILABILITY {
     return Intl.message(
       'SET MY AVAILABILITY',
-      name: 'SETMYAVAILABILITY',
+      name: 'sETMYAVAILABILITY',
       desc: '',
       args: [],
     );
   }
 
   /// `PLANS BY ME`
-  String get PLANSBYME {
+  String get pLANSBYME {
     return Intl.message(
       'PLANS BY ME',
-      name: 'PLANSBYME',
+      name: 'pLANSBYME',
       desc: '',
       args: [],
     );
   }
 
   /// `CURRENT BALANCE`
-  String get CURRENTBALANCE {
+  String get cURRENTBALANCE {
     return Intl.message(
       'CURRENT BALANCE',
-      name: 'CURRENTBALANCE',
+      name: 'cURRENTBALANCE',
       desc: '',
       args: [],
     );
@@ -3751,20 +3741,20 @@ class S {
   }
 
   /// `SEARCH IN WORKOUT PLANS`
-  String get SEARCHINWORKOUTPLANS {
+  String get sEARCHINWORKOUTPLANS {
     return Intl.message(
       'SEARCH IN WORKOUT PLANS',
-      name: 'SEARCHINWORKOUTPLANS',
+      name: 'sEARCHINWORKOUTPLANS',
       desc: '',
       args: [],
     );
   }
 
   /// `Search in Trainer`
-  String get SEARCHINTRAINER {
+  String get sEARCHINTRAINER {
     return Intl.message(
       'Search in Trainer',
-      name: 'SEARCHINTRAINER',
+      name: 'sEARCHINTRAINER',
       desc: '',
       args: [],
     );
@@ -3931,10 +3921,10 @@ class S {
   }
 
   /// `Success`
-  String get Success {
+  String get success {
     return Intl.message(
       'Success',
-      name: 'Success',
+      name: 'success',
       desc: '',
       args: [],
     );
@@ -3975,16 +3965,6 @@ class S {
     return Intl.message(
       'Verification Code Has Been Sent Successfully',
       name: 'verificationSentSuccessfully',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Verify`
-  String get Verify {
-    return Intl.message(
-      'Verify',
-      name: 'Verify',
       desc: '',
       args: [],
     );
@@ -4130,16 +4110,6 @@ class S {
     );
   }
 
-  /// `Okay`
-  String get Okay {
-    return Intl.message(
-      'Okay',
-      name: 'Okay',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `The Weeks`
   String get theWeeks {
     return Intl.message(
@@ -4161,30 +4131,30 @@ class S {
   }
 
   /// `Hours/Day`
-  String get HoursDay {
+  String get hoursDay {
     return Intl.message(
       'Hours/Day',
-      name: 'HoursDay',
+      name: 'hoursDay',
       desc: '',
       args: [],
     );
   }
 
   /// `SEARCH`
-  String get SEARCH {
+  String get sEARCH {
     return Intl.message(
       'SEARCH',
-      name: 'SEARCH',
+      name: 'sEARCH',
       desc: '',
       args: [],
     );
   }
 
   /// `Search`
-  String get SearchSmall {
+  String get searchSmall {
     return Intl.message(
       'Search',
-      name: 'SearchSmall',
+      name: 'searchSmall',
       desc: '',
       args: [],
     );
@@ -4331,10 +4301,10 @@ class S {
   }
 
   /// `You will be no longer training with plan`
-  String get YourSubscriptionToPlan {
+  String get yourSubscriptionToPlan {
     return Intl.message(
       'You will be no longer training with plan',
-      name: 'YourSubscriptionToPlan',
+      name: 'yourSubscriptionToPlan',
       desc: '',
       args: [],
     );
@@ -4361,80 +4331,80 @@ class S {
   }
 
   /// `What is Fitness Storm?`
-  String get WhatIsFitnessStorm {
+  String get whatIsFitnessStorm {
     return Intl.message(
       'What is Fitness Storm?',
-      name: 'WhatIsFitnessStorm',
+      name: 'whatIsFitnessStorm',
       desc: '',
       args: [],
     );
   }
 
   /// `\nIt is a dynamic application in both Arabic and English languages that gives you a chance to train with world class trainers through HD step-by-step instructional videos.\n`
-  String get ItIsADynamicApplicationInBothArabic {
+  String get itIsADynamicApplicationInBothArabic {
     return Intl.message(
       '\nIt is a dynamic application in both Arabic and English languages that gives you a chance to train with world class trainers through HD step-by-step instructional videos.\n',
-      name: 'ItIsADynamicApplicationInBothArabic',
+      name: 'itIsADynamicApplicationInBothArabic',
       desc: '',
       args: [],
     );
   }
 
   /// `Can I contact the coach directly?`
-  String get CanIContactTheCoachDirectly {
+  String get canIContactTheCoachDirectly {
     return Intl.message(
       'Can I contact the coach directly?',
-      name: 'CanIContactTheCoachDirectly',
+      name: 'canIContactTheCoachDirectly',
       desc: '',
       args: [],
     );
   }
 
   /// `No, this option is not available yet.`
-  String get NoThisOptionIsNotAvailableYet {
+  String get noThisOptionIsNotAvailableYet {
     return Intl.message(
       'No, this option is not available yet.',
-      name: 'NoThisOptionIsNotAvailableYet',
+      name: 'noThisOptionIsNotAvailableYet',
       desc: '',
       args: [],
     );
   }
 
   /// `Can I Subscribe if I live outside Saudi Arabia?`
-  String get CanISubscribeIfILiveOutsideSaudiArabia {
+  String get canISubscribeIfILiveOutsideSaudiArabia {
     return Intl.message(
       'Can I Subscribe if I live outside Saudi Arabia?',
-      name: 'CanISubscribeIfILiveOutsideSaudiArabia',
+      name: 'canISubscribeIfILiveOutsideSaudiArabia',
       desc: '',
       args: [],
     );
   }
 
   /// `Sure, you can subscribe from anywhere in the globe.`
-  String get SureYouCanSubscribeFromAnywhereInTheGlobe {
+  String get sureYouCanSubscribeFromAnywhereInTheGlobe {
     return Intl.message(
       'Sure, you can subscribe from anywhere in the globe.',
-      name: 'SureYouCanSubscribeFromAnywhereInTheGlobe',
+      name: 'sureYouCanSubscribeFromAnywhereInTheGlobe',
       desc: '',
       args: [],
     );
   }
 
   /// `What plans do you offer to subscribe?`
-  String get WhatPlansDoYouOfferToSubscribe {
+  String get whatPlansDoYouOfferToSubscribe {
     return Intl.message(
       'What plans do you offer to subscribe?',
-      name: 'WhatPlansDoYouOfferToSubscribe',
+      name: 'whatPlansDoYouOfferToSubscribe',
       desc: '',
       args: [],
     );
   }
 
   /// `Are there exercises for beginners?`
-  String get AreThereExercisesForBeginners {
+  String get areThereExercisesForBeginners {
     return Intl.message(
       'Are there exercises for beginners?',
-      name: 'AreThereExercisesForBeginners',
+      name: 'areThereExercisesForBeginners',
       desc: '',
       args: [],
     );
@@ -4451,80 +4421,80 @@ class S {
   }
 
   /// ` Yes sure. Based on your personal info and physical activity, a list of high-HD exercise videos will show up to you. So, it doesn"t matter if you are a beginner or a Pro. `
-  String get YesSureBasedOnYourPersonal {
+  String get yesSureBasedOnYourPersonal {
     return Intl.message(
       ' Yes sure. Based on your personal info and physical activity, a list of high-HD exercise videos will show up to you. So, it doesn"t matter if you are a beginner or a Pro. ',
-      name: 'YesSureBasedOnYourPersonal',
+      name: 'yesSureBasedOnYourPersonal',
       desc: '',
       args: [],
     );
   }
 
   /// `Yes, they can.`
-  String get YesTheyCan {
+  String get yesTheyCan {
     return Intl.message(
       'Yes, they can.',
-      name: 'YesTheyCan',
+      name: 'yesTheyCan',
       desc: '',
       args: [],
     );
   }
 
   /// `Can I try your programs before subscribing?`
-  String get CanITryYourProgramsBeforeSubscribing {
+  String get canITryYourProgramsBeforeSubscribing {
     return Intl.message(
       'Can I try your programs before subscribing?',
-      name: 'CanITryYourProgramsBeforeSubscribing',
+      name: 'canITryYourProgramsBeforeSubscribing',
       desc: '',
       args: [],
     );
   }
 
   /// `Yes, sure there is 7 days free trial`
-  String get YesSureThereIs7DaysFreeTrial {
+  String get yesSureThereIs7DaysFreeTrial {
     return Intl.message(
       'Yes, sure there is 7 days free trial',
-      name: 'YesSureThereIs7DaysFreeTrial',
+      name: 'yesSureThereIs7DaysFreeTrial',
       desc: '',
       args: [],
     );
   }
 
   /// `How can I subscribe and pay?`
-  String get HowCanISubscribeAndPay {
+  String get howCanISubscribeAndPay {
     return Intl.message(
       'How can I subscribe and pay?',
-      name: 'HowCanISubscribeAndPay',
+      name: 'howCanISubscribeAndPay',
       desc: '',
       args: [],
     );
   }
 
   /// `You can subscribe and pay online through available payment options available through the application.`
-  String get YouCanSubscribeAndPay {
+  String get youCanSubscribeAndPay {
     return Intl.message(
       'You can subscribe and pay online through available payment options available through the application.',
-      name: 'YouCanSubscribeAndPay',
+      name: 'youCanSubscribeAndPay',
       desc: '',
       args: [],
     );
   }
 
   /// `What language is spoken in the videos?`
-  String get WhatLanguageIsSpokenInTheVideos {
+  String get whatLanguageIsSpokenInTheVideos {
     return Intl.message(
       'What language is spoken in the videos?',
-      name: 'WhatLanguageIsSpokenInTheVideos',
+      name: 'whatLanguageIsSpokenInTheVideos',
       desc: '',
       args: [],
     );
   }
 
   /// `Arabic and some expressions in English`
-  String get ArabicAndSomeExpressionsInEnglish {
+  String get arabicAndSomeExpressionsInEnglish {
     return Intl.message(
       'Arabic and some expressions in English',
-      name: 'ArabicAndSomeExpressionsInEnglish',
+      name: 'arabicAndSomeExpressionsInEnglish',
       desc: '',
       args: [],
     );
@@ -4541,40 +4511,40 @@ class S {
   }
 
   /// `Type Anything To Search It`
-  String get TypeAnythingToSearchIt {
+  String get typeAnythingToSearchIt {
     return Intl.message(
       'Type Anything To Search It',
-      name: 'TypeAnythingToSearchIt',
+      name: 'typeAnythingToSearchIt',
       desc: '',
       args: [],
     );
   }
 
   /// `What are you searching for?`
-  String get WhatAreYouSearchingFor {
+  String get whatAreYouSearchingFor {
     return Intl.message(
       'What are you searching for?',
-      name: 'WhatAreYouSearchingFor',
+      name: 'whatAreYouSearchingFor',
       desc: '',
       args: [],
     );
   }
 
   /// `FAQ`
-  String get FAQ {
+  String get fAQ {
     return Intl.message(
       'FAQ',
-      name: 'FAQ',
+      name: 'fAQ',
       desc: '',
       args: [],
     );
   }
 
   /// `Something Went Wrong`
-  String get SomethingWentWrong {
+  String get somethingWentWrong {
     return Intl.message(
       'Something Went Wrong',
-      name: 'SomethingWentWrong',
+      name: 'somethingWentWrong',
       desc: '',
       args: [],
     );
@@ -4591,10 +4561,10 @@ class S {
   }
 
   /// `Mobile`
-  String get Mobile {
+  String get mobile {
     return Intl.message(
       'Mobile',
-      name: 'Mobile',
+      name: 'mobile',
       desc: '',
       args: [],
     );
@@ -4611,150 +4581,140 @@ class S {
   }
 
   /// ` Rep`
-  String get Rep {
+  String get rep {
     return Intl.message(
       ' Rep',
-      name: 'Rep',
+      name: 'rep',
       desc: '',
       args: [],
     );
   }
 
   /// ` Sec`
-  String get Sec {
+  String get sec {
     return Intl.message(
       ' Sec',
-      name: 'Sec',
+      name: 'sec',
       desc: '',
       args: [],
     );
   }
 
   /// `Your training level`
-  String get YourTrainingLevel {
+  String get yourTrainingLevel {
     return Intl.message(
       'Your training level',
-      name: 'YourTrainingLevel',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Bookmarked`
-  String get Bookmarked {
-    return Intl.message(
-      'Bookmarked',
-      name: 'Bookmarked',
+      name: 'yourTrainingLevel',
       desc: '',
       args: [],
     );
   }
 
   /// `Contact Us`
-  String get ContactUs {
+  String get contactUs {
     return Intl.message(
       'Contact Us',
-      name: 'ContactUs',
+      name: 'contactUs',
       desc: '',
       args: [],
     );
   }
 
   /// `Join us as a Trainer`
-  String get JoinUsAsATrainer {
+  String get joinUsAsATrainer {
     return Intl.message(
       'Join us as a Trainer',
-      name: 'JoinUsAsATrainer',
+      name: 'joinUsAsATrainer',
       desc: '',
       args: [],
     );
   }
 
   /// `Terms and Conditions`
-  String get TermsAndCondition {
+  String get termsAndCondition {
     return Intl.message(
       'Terms and Conditions',
-      name: 'TermsAndCondition',
+      name: 'termsAndCondition',
       desc: '',
       args: [],
     );
   }
 
   /// `SUBSCRIBERS`
-  String get SUBSCRIBERSCap {
+  String get sUBSCRIBERSCap {
     return Intl.message(
       'SUBSCRIBERS',
-      name: 'SUBSCRIBERSCap',
+      name: 'sUBSCRIBERSCap',
       desc: '',
       args: [],
     );
   }
 
   /// `Congrats`
-  String get Congrats {
+  String get congrats {
     return Intl.message(
       'Congrats',
-      name: 'Congrats',
+      name: 'congrats',
       desc: '',
       args: [],
     );
   }
 
   /// `Public`
-  String get Public {
+  String get public {
     return Intl.message(
       'Public',
-      name: 'Public',
+      name: 'public',
       desc: '',
       args: [],
     );
   }
 
   /// `Private`
-  String get Private {
+  String get private {
     return Intl.message(
       'Private',
-      name: 'Private',
+      name: 'private',
       desc: '',
       args: [],
     );
   }
 
   /// `Book`
-  String get Book {
+  String get book {
     return Intl.message(
       'Book',
-      name: 'Book',
+      name: 'book',
       desc: '',
       args: [],
     );
   }
 
   /// `Private Training`
-  String get PrivateTraining {
+  String get privateTraining {
     return Intl.message(
       'Private Training',
-      name: 'PrivateTraining',
+      name: 'privateTraining',
       desc: '',
       args: [],
     );
   }
 
   /// `Session with `
-  String get SessionWith {
+  String get sessionWith {
     return Intl.message(
       'Session with ',
-      name: 'SessionWith',
+      name: 'sessionWith',
       desc: '',
       args: [],
     );
   }
 
   /// `Wallet`
-  String get Wallet {
+  String get wallet {
     return Intl.message(
       'Wallet',
-      name: 'Wallet',
+      name: 'wallet',
       desc: '',
       args: [],
     );
@@ -4771,200 +4731,180 @@ class S {
   }
 
   /// `Trainer Profile`
-  String get TrainerProfile {
+  String get trainerProfile {
     return Intl.message(
       'Trainer Profile',
-      name: 'TrainerProfile',
+      name: 'trainerProfile',
       desc: '',
       args: [],
     );
   }
 
   /// `Logout`
-  String get Logout {
+  String get logout {
     return Intl.message(
       'Logout',
-      name: 'Logout',
+      name: 'logout',
       desc: '',
       args: [],
     );
   }
 
   /// `Not Implemented`
-  String get NotImplemented {
+  String get notImplemented {
     return Intl.message(
       'Not Implemented',
-      name: 'NotImplemented',
+      name: 'notImplemented',
       desc: '',
       args: [],
     );
   }
 
   /// `Request Cancelled`
-  String get RequestCancelled {
+  String get requestCancelled {
     return Intl.message(
       'Request Cancelled',
-      name: 'RequestCancelled',
+      name: 'requestCancelled',
       desc: '',
       args: [],
     );
   }
 
   /// `Internal Server Error`
-  String get InternalServerError {
+  String get internalServerError {
     return Intl.message(
       'Internal Server Error',
-      name: 'InternalServerError',
+      name: 'internalServerError',
       desc: '',
       args: [],
     );
   }
 
   /// `Service unavailable`
-  String get ServiceUnavailable {
+  String get serviceUnavailable {
     return Intl.message(
       'Service unavailable',
-      name: 'ServiceUnavailable',
+      name: 'serviceUnavailable',
       desc: '',
       args: [],
     );
   }
 
   /// `Method Allowed`
-  String get MethodAllowed {
+  String get methodAllowed {
     return Intl.message(
       'Method Allowed',
-      name: 'MethodAllowed',
+      name: 'methodAllowed',
       desc: '',
       args: [],
     );
   }
 
   /// `Bad request`
-  String get BadRequest {
+  String get badRequest {
     return Intl.message(
       'Bad request',
-      name: 'BadRequest',
+      name: 'badRequest',
       desc: '',
       args: [],
     );
   }
 
   /// `Unauthorised request`
-  String get UnauthorisedRequest {
+  String get unauthorisedRequest {
     return Intl.message(
       'Unauthorised request',
-      name: 'UnauthorisedRequest',
+      name: 'unauthorisedRequest',
       desc: '',
       args: [],
     );
   }
 
   /// `Unexpected error occurred`
-  String get UnexpectedErrorOccurred {
+  String get unexpectedErrorOccurred {
     return Intl.message(
       'Unexpected error occurred',
-      name: 'UnexpectedErrorOccurred',
+      name: 'unexpectedErrorOccurred',
       desc: '',
       args: [],
     );
   }
 
   /// `Connection request timeout`
-  String get ConnectionRequestTimeout {
+  String get connectionRequestTimeout {
     return Intl.message(
       'Connection request timeout',
-      name: 'ConnectionRequestTimeout',
+      name: 'connectionRequestTimeout',
       desc: '',
       args: [],
     );
   }
 
   /// `No internet connection`
-  String get NoInternetConnection {
+  String get noInternetConnection {
     return Intl.message(
       'No internet connection',
-      name: 'NoInternetConnection',
+      name: 'noInternetConnection',
       desc: '',
       args: [],
     );
   }
 
   /// `Error due to a conflict`
-  String get ErrorDueToAConflict {
+  String get errorDueToAConflict {
     return Intl.message(
       'Error due to a conflict',
-      name: 'ErrorDueToAConflict',
+      name: 'errorDueToAConflict',
       desc: '',
       args: [],
     );
   }
 
   /// `Send timeout in connection with API server`
-  String get SendTimeoutinConnectionWithAPIserver {
+  String get sendTimeoutinConnectionWithAPIserver {
     return Intl.message(
       'Send timeout in connection with API server',
-      name: 'SendTimeoutinConnectionWithAPIserver',
+      name: 'sendTimeoutinConnectionWithAPIserver',
       desc: '',
       args: [],
     );
   }
 
   /// `Unable to process the data`
-  String get UnableToProcessThedata {
+  String get unableToProcessThedata {
     return Intl.message(
       'Unable to process the data',
-      name: 'UnableToProcessThedata',
+      name: 'unableToProcessThedata',
       desc: '',
       args: [],
     );
   }
 
   /// `Not acceptable`
-  String get NotAcceptable {
+  String get notAcceptable {
     return Intl.message(
       'Not acceptable',
-      name: 'NotAcceptable',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Done`
-  String get Done {
-    return Intl.message(
-      'Done',
-      name: 'Done',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Confirm Password`
-  String get ConfirmPassword {
-    return Intl.message(
-      'Confirm Password',
-      name: 'ConfirmPassword',
+      name: 'notAcceptable',
       desc: '',
       args: [],
     );
   }
 
   /// `Password changed`
-  String get PasswordChanged {
+  String get passwordChanged {
     return Intl.message(
       'Password changed',
-      name: 'PasswordChanged',
+      name: 'passwordChanged',
       desc: '',
       args: [],
     );
   }
 
   /// `Confirm password does not match password`
-  String get ConfirmPasswordDoesNotMatchPassword {
+  String get confirmPasswordDoesNotMatchPassword {
     return Intl.message(
       'Confirm password does not match password',
-      name: 'ConfirmPasswordDoesNotMatchPassword',
+      name: 'confirmPasswordDoesNotMatchPassword',
       desc: '',
       args: [],
     );
@@ -5011,20 +4951,20 @@ class S {
   }
 
   /// `Shoulder Medial Lateral Roeeet Medial Lateral`
-  String get LateralRoeeetMedialLateral {
+  String get lateralRoeeetMedialLateral {
     return Intl.message(
       'Shoulder Medial Lateral Roeeet Medial Lateral',
-      name: 'LateralRoeeetMedialLateral',
+      name: 'lateralRoeeetMedialLateral',
       desc: '',
       args: [],
     );
   }
 
   /// `Day 4 `
-  String get Day4 {
+  String get day4 {
     return Intl.message(
       'Day 4 ',
-      name: 'Day4',
+      name: 'day4',
       desc: '',
       args: [],
     );
@@ -5210,16 +5150,6 @@ class S {
     );
   }
 
-  /// `Book`
-  String get book {
-    return Intl.message(
-      'Book',
-      name: 'book',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Remove`
   String get remove {
     return Intl.message(
@@ -5235,6 +5165,86 @@ class S {
     return Intl.message(
       'Add',
       name: 'add',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Wrong`
+  String get wrong {
+    return Intl.message(
+      'Wrong',
+      name: 'wrong',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Birth Date`
+  String get birthDate {
+    return Intl.message(
+      'Birth Date',
+      name: 'birthDate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `apply as Trainer`
+  String get applyAsTrainer {
+    return Intl.message(
+      'apply as Trainer',
+      name: 'applyAsTrainer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `CV`
+  String get cv {
+    return Intl.message(
+      'CV',
+      name: 'cv',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `send`
+  String get send {
+    return Intl.message(
+      'send',
+      name: 'send',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `request`
+  String get request {
+    return Intl.message(
+      'request',
+      name: 'request',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Certificate Of Graduation`
+  String get certificateOfGraduation {
+    return Intl.message(
+      'Certificate Of Graduation',
+      name: 'certificateOfGraduation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Certificate Of Course Attended`
+  String get certificateOfCourseAttended {
+    return Intl.message(
+      'Certificate Of Course Attended',
+      name: 'certificateOfCourseAttended',
       desc: '',
       args: [],
     );

@@ -15,7 +15,10 @@ class AppProvider {
 
   static int get myId => _loginData.id;
 
-  static Profile get profile => _profile;
+  // static Profile get profile => _profile ;
+
+  static Profile get profile => _profile ;
+
 
   static String get token {
     return _loginData.accessToken;

@@ -1,4 +1,5 @@
 import 'package:drawable_text/drawable_text.dart';
+import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
 import 'package:fitness_storm/core/widgets/my_button.dart';
@@ -52,7 +53,10 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
         ),
         BlocListener<ForgetPasswordCubit, ForgetPasswordInitial>(
           listenWhen: (p, c) => c.statuses.done,
-          listener: (context, state) => startRestPass(context),
+          listener: (context, state) {
+            loggerObject.w('message');
+            startRestPass();
+          },
           child: SafeArea(
             child: Scaffold(
               backgroundColor: Colors.transparent,

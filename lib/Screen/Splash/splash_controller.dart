@@ -42,7 +42,7 @@ class SplashController extends GetxController {
         return;
       }
 
-      Get.offAllNamed(AppRoutes.mainHome);
+      startHome();
     });
   }
 }

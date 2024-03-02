@@ -1,5 +1,10 @@
-
+import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
+
+import '../../../../Model/specialties_model.dart';
+import '../../../../core/api_manager/api_service.dart';
+import '../../../../generated/assets.dart';
+
 
 class Profile {
   Profile({
@@ -11,9 +16,17 @@ class Profile {
     required this.birthDate,
     required this.gender,
     required this.fitnessSurvey,
+    required this.bio,
+    required this.introductionVideo,
+    required this.numberOfPlans,
+    required this.numberOfPrivateHours,
+    required this.numberOfSubscribers,
+    required this.specialties,
+    required this.privateSessionPrice,
+    required this.wallet,
   });
 
-  String? id;
+  int? id;
   String? name;
   String? email;
   String? image;
@@ -22,29 +35,76 @@ class Profile {
   String? gender;
   FitnessSurvey fitnessSurvey;
 
+  //---------------
+
+  final String bio;
+  final String introductionVideo;
+  final num numberOfPlans;
+  final num numberOfPrivateHours;
+  final num numberOfSubscribers;
+  final List<Specialty> specialties;
+  final num privateSessionPrice;
+  final num? wallet;
+  //---------------
+  UploadFile? avatar;
+
+  dynamic get avatarImage {
+    return avatar?.initialImage ?? avatar?.fileBytes ?? Assets.imagesUser;
+  }
+
   factory Profile.fromJson(Map<String, dynamic> json) {
     return Profile(
-      id: json["id"] ?? "",
+      id: (json["id"] ?? "").toString().tryParseOrZeroInt,
       name: json["name"] ?? "",
       email: json["email"] ?? "",
       image: (json["image"] ?? "").toString().fixAvatarImage,
       mobile: json["mobile"] ?? "",
       birthDate: DateTime.tryParse(json["birth_date"] ?? ""),
       gender: json["gender"] ?? "",
-      fitnessSurvey:  FitnessSurvey.fromJson(json["fitness_survey"]??{}),
+      fitnessSurvey: FitnessSurvey.fromJson(json["fitness_survey"] ?? {}),
+      bio: json["bio"] ?? "",
+      introductionVideo: json["introduction_video"] ?? "",
+      numberOfPlans: json["number_of_plans"].toString().tryParseOrZero,
+      numberOfPrivateHours: json["number_of_private_hours"].toString().tryParseOrZero,
+      numberOfSubscribers: json["number_of_subscribers"].toString().tryParseOrZero,
+      specialties: json["specialties"] == null
+          ? []
+          : List<Specialty>.from(json["specialties"]!.map((x) => Specialty.fromJson(x))),
+      privateSessionPrice: json["private_session_price"].toString().tryParseOrZero,
+      wallet: json["wallet"],
     );
   }
 
   Map<String, dynamic> toJson() => {
+    "id": id,
+    "name": name,
+    "email": email,
+    "image": image,
+    "mobile": mobile,
+    "birth_date": birthDate?.toIso8601String(),
+    "gender": gender,
+    "fitness_survey": fitnessSurvey.toJson(),
+    "bio": bio,
+    "introduction_video": introductionVideo,
+    "number_of_plans": numberOfPlans,
+    "number_of_private_hours": numberOfPrivateHours,
+    "number_of_subscribers": numberOfSubscribers,
+    "specialties": specialties.map((x) => x.toJson()).toList(),
+    "private_session_price": privateSessionPrice,
+    "wallet": wallet,
+  };
+
+  Map<String, dynamic> toJsonForUpdate() => {
         "id": id,
         "name": name,
         "email": email,
         "mobile": mobile,
         "birth_date": birthDate?.toIso8601String(),
-        "gender": gender,
-        "fitness_survey": fitnessSurvey.toJson(),
+        "gender": 'M',
       };
+
 }
+
 
 class FitnessSurvey {
   FitnessSurvey({

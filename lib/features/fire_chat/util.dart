@@ -144,7 +144,7 @@ Future<void> initFirebaseChat() async {
   final id = AppProvider.profile.id;
   final name = AppProvider.profile.name;
   final photo = AppProvider.profile.image;
-  if (id!.isEmpty) return;
+  if (id ==0) return;
 
   try {
     if (await isChatUserFound(id.toString())) {
@@ -163,7 +163,7 @@ Future<void> initFirebaseChatAfterLogin() async {
   final id = AppProvider.profile.id;
   final name = AppProvider.profile.name;
   final photo = AppProvider.profile.image;
-  if (id!.isEmpty) return;
+  if (id ==0) return;
 
   try {
     if (await isChatUserFound(id.toString())) {

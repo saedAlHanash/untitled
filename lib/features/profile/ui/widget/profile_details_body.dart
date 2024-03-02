@@ -28,18 +28,7 @@ class _ProfileDetailsBodyState extends State<ProfileDetailsBody> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          children: [
-            Container(
-              width: Get.width / 47,
-              height: Get.height / 37,
-              color: Get.theme.primaryColor,
-              margin: EdgeInsets.only(right: Get.width / 17),
-            ),
-            Text('profile_details'.tr,
-                style: TextStyle(color: Color(0xFF74569D), fontSize: 18))
-          ],
-        ),
+
         Padding(
           padding: EdgeInsets.symmetric(horizontal: Get.width / 12),
           child: Column(

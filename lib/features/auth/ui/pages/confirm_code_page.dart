@@ -3,6 +3,7 @@ import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
 import 'package:fitness_storm/core/util/snack_bar_message.dart';
 import 'package:fitness_storm/core/widgets/my_button.dart';
+import 'package:fitness_storm/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -44,7 +45,7 @@ class _ConfirmCodePageState extends State<ConfirmCodePage> {
       listeners: [
         BlocListener<ConfirmCodeCubit, ConfirmCodeInitial>(
           listenWhen: (p, current) => current.statuses == CubitStatuses.done,
-          listener: (context, state) {},
+          listener: (context, state) => startHome(),
         ),
         BlocListener<ResendCodeCubit, ResendCodeInitial>(
           listenWhen: (p, c) => c.statuses.done,
@@ -134,7 +135,7 @@ class _ConfirmCodePageState extends State<ConfirmCodePage> {
                       text: S.of(context).changeEmail,
                       color: Colors.grey,
                       onTap: () {
-                        Navigator.pop(context);
+                        startLogin();
                       },
                     ),
                     const Spacer(),

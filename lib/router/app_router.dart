@@ -1,4 +1,5 @@
 import 'package:fitness_storm/core/api_manager/api_service.dart';
+import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/features/profile/bloc/update_profile_cubit/update_profile_cubit.dart';
 import 'package:fitness_storm/features/trainer/data/response/trainer.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +18,7 @@ import '../features/appointments/data/request/available_times_request.dart';
 import '../features/appointments/ui/pages/appointments_page.dart';
 import '../features/appointments/ui/pages/bundles_page.dart';
 import '../features/appointments/ui/pages/create_bundle_page.dart';
+import '../features/auth/bloc/apply_cubit/apply_cubit.dart';
 import '../features/auth/bloc/confirm_code_cubit/confirm_code_cubit.dart';
 import '../features/auth/bloc/forget_password_cubit/forget_password_cubit.dart';
 import '../features/auth/bloc/login_cubit/login_cubit.dart';
@@ -25,6 +27,7 @@ import '../features/auth/bloc/otp_password_cubit/otp_password_cubit.dart';
 import '../features/auth/bloc/resend_code_cubit/resend_code_cubit.dart';
 import '../features/auth/bloc/reset_password_cubit/reset_password_cubit.dart';
 import '../features/auth/bloc/signup_cubit/signup_cubit.dart';
+import '../features/auth/ui/pages/apply_page.dart';
 import '../features/auth/ui/pages/confirm_code_page.dart';
 import '../features/auth/ui/pages/forget_password_page.dart';
 import '../features/auth/ui/pages/login_page.dart';
@@ -196,27 +199,29 @@ void startSignup() {
 }
 
 void startLogin() {
-  Get.offAll(
-    MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (_) => sl<LoginCubit>()),
-        BlocProvider(create: (_) => sl<LoginSocialCubit>()),
-      ],
-      child: const LoginPage(),
-    ),
+  final Widget page = MultiBlocProvider(
+    providers: [
+      BlocProvider(create: (_) => sl<LoginCubit>()),
+      BlocProvider(create: (_) => sl<LoginSocialCubit>()),
+    ],
+    child: const LoginPage(),
   );
+  Get.offAll(page);
 }
 
 void startForgetPass(BuildContext context) {
   final phoneOrEmail = context.read<LoginCubit>().state.request.phoneOrEmail;
+
   final providers = [
     BlocProvider(
         create: (_) => sl<ForgetPasswordCubit>()..setPhoneOrEmail = phoneOrEmail),
   ];
+
   final Widget page = MultiBlocProvider(
     providers: providers,
     child: const ForgetPasswordPage(),
   );
+
   Get.to(() => page);
 }
 
@@ -232,7 +237,7 @@ void startAppointment() {
   Get.to(() => page);
 }
 
-void startRestPass(BuildContext context) {
+void startRestPass() {
   final providers = [
     BlocProvider(create: (_) => sl<ResetPasswordCubit>()),
   ];
@@ -241,6 +246,25 @@ void startRestPass(BuildContext context) {
     providers: providers,
     child: const ResetPasswordPage(),
   );
+
+  loggerObject.w('startForgetPass');
+
+  Get.to(page);
+  //endregion
+}
+
+void startApply() {
+  final providers = [
+    BlocProvider(create: (_) => sl<ApplyCubit>()),
+  ];
+
+  final Widget page = MultiBlocProvider(
+    providers: providers,
+    child: const ApplyPage(),
+  );
+
+  loggerObject.w('startApply');
+
   Get.to(() => page);
   //endregion
 }
@@ -251,14 +275,16 @@ void startConfirmCodeAccount(BuildContext context) {
     BlocProvider(create: (_) => sl<ResendCodeCubit>()),
   ];
 
-  Get.offAll(MultiBlocProvider(
+  final Widget page = MultiBlocProvider(
     providers: providers,
     child: const ConfirmCodePage(),
-  ));
+  );
+  Get.offAll(page);
 }
 
 void startHome() {
-  Get.offAllNamed(AppRoutes.mainHome);
+  loggerObject.w(AppProvider.isTrainer);
+  Get.offAllNamed(AppProvider.isTrainer ? AppRoutes.trainerHomePage : AppRoutes.mainHome);
 }
 
 void startUpdateProfile() {

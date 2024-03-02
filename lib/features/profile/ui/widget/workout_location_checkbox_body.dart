@@ -1,4 +1,3 @@
-
 import 'package:drawable_text/drawable_text.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
 import 'package:fitness_storm/core/widgets/my_checkbox_widget.dart';
@@ -36,18 +35,18 @@ class _WorkoutLocationCheckboxBodyState extends State<WorkoutLocationCheckboxBod
       children: [
         DrawableText(
           text: S.of(context).youWorkoutIn,
-          color: AppColorManager.a0,    matchParent: true,
+          color: AppColorManager.a0,
+          matchParent: true,
         ),
         MyCheckboxWidget(
-
           items: [
             SpinnerItem(
-              name: S.of(context).loseWeight,
+              name: S.of(context).home,
               isSelected: request.fitnessSurvey.preferredWorkoutLocationId == 'home',
               item: 'home',
             ),
             SpinnerItem(
-              name: S.of(context).buildMuscle,
+              name: S.of(context).gym,
               isSelected: request.fitnessSurvey.preferredWorkoutLocationId == 'gym',
               item: 'gym',
             ),

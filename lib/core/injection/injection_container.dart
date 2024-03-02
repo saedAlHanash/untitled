@@ -8,6 +8,7 @@ import '../../features/appointments/bloc/booked_appointments_cubit/booked_appoin
 import '../../features/appointments/bloc/bundles_cubit/bundles_cubit.dart';
 import '../../features/appointments/bloc/create_bundle_cubit/create_bundle_cubit.dart';
 import '../../features/appointments/bloc/create_session_cubit/create_session_cubit.dart';
+import '../../features/auth/bloc/apply_cubit/apply_cubit.dart';
 import '../../features/auth/bloc/confirm_code_cubit/confirm_code_cubit.dart';
 import '../../features/auth/bloc/delete_account_cubit/delete_account_cubit.dart';
 import '../../features/auth/bloc/forget_password_cubit/forget_password_cubit.dart';
@@ -27,6 +28,7 @@ import '../../features/plans/bloc/plans_cubit/plans_cubit.dart';
 import '../../features/profile/bloc/profile_cubit/profile_cubit.dart';
 import '../../features/profile/bloc/update_profile_cubit/update_profile_cubit.dart';
 import '../../features/trainer/bloc/trainer_cubit/trainer_cubit.dart';
+import '../../features/wallet/bloc/wallet_cubit/wallet_cubit.dart';
 import '../network/network_info.dart';
 
 final sl = GetIt.instance;
@@ -54,6 +56,7 @@ Future<void> init() async {
   sl.registerFactory(() => OtpPasswordCubit());
   sl.registerFactory(() => LoginSocialCubit());
   sl.registerFactory(() => SurveyCubit());
+  sl.registerFactory(() => ApplyCubit());
 
   //endregion
 
@@ -68,6 +71,7 @@ Future<void> init() async {
   //region Trainer
 
   sl.registerFactory(() => TrainerCubit());
+  sl.registerFactory(() => WalletCubit());
 
   //endregion
 

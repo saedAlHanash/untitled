@@ -1,4 +1,3 @@
-import 'package:fitness_storm/Screen/Trainee%20Screens/Chat/Widget/chat_card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
@@ -6,7 +5,6 @@ import 'package:get/get.dart';
 import '../../../../Utils/Routes/app_pages.dart';
 import '../../../../features/fire_chat/chat_card_widget.dart';
 import '../../../../features/fire_chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
-import '../../../chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 
 class TermAndConditionWidget extends StatefulWidget {
   const TermAndConditionWidget({super.key});

@@ -93,7 +93,7 @@ class MyCheckboxWidget extends StatelessWidget {
       options: const GroupButtonOptions(
         crossGroupAlignment: CrossGroupAlignment.start,
         mainGroupAlignment: MainGroupAlignment.start,
-        groupingType: GroupingType.column,
+        // groupingType: GroupingType.column,
       ),
       isRadio: isRadio ?? false,
     );

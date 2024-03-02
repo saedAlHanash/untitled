@@ -59,6 +59,7 @@ class _SignupPageState extends State<SignupPage> {
               listenWhen: (p, c) => c.statuses.done,
               listener: (context, state) {
                 if (AppProvider.isConfirmed) {
+                  startHome();
                 } else {
                   startConfirmCodeAccount(context);
                 }
@@ -201,8 +202,7 @@ class _SignupPageState extends State<SignupPage> {
                       },
                     ),
                     30.0.verticalSpace,
-                    const LoginSocialWidget(),
-                    7.0.verticalSpace,
+
                     DrawableText(
                       text: S.of(context).alreadyAMember,
                       drawableAlin: DrawableAlin.between,

@@ -35,7 +35,7 @@ class OtpPasswordCubit extends Cubit<OtpPasswordInitial> {
       body: state.request.toJson(),
     );
 
-    if (response.statusCode == 200) {
+    if (response.statusCode.success) {
       final pair = Pair(true, null);
       AppSharedPreference.cashOtpPassword(state.request.code);
       return pair;

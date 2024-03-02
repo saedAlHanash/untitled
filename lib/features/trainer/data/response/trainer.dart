@@ -1,4 +1,5 @@
 import 'package:fitness_storm/Model/specialties_model.dart';
+import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 
 import '../../../../core/models/booked_appointments.dart';
@@ -15,7 +16,6 @@ class TrainerModel {
     required this.numberOfSubscribers,
     required this.specialties,
     required this.privateSessionPrice,
-    required this.appointment,
   });
 
   final int id;
@@ -28,7 +28,6 @@ class TrainerModel {
   final num numberOfSubscribers;
   final List<Specialty> specialties;
   final num privateSessionPrice;
-  final Appointment? appointment;
 
   factory TrainerModel.fromJson(Map<String, dynamic> json) {
     return TrainerModel(
@@ -44,9 +43,11 @@ class TrainerModel {
           ? []
           : List<Specialty>.from(json["specialties"]!.map((x) => Specialty.fromJson(x))),
       privateSessionPrice: json["private_session_price"].toString().tryParseOrZero,
-      appointment:
-          json["appointment"] == null ? null : Appointment.fromJson(json["appointment"]),
     );
+  }
+
+  factory TrainerModel.fromProfile() {
+    return TrainerModel.fromJson(AppProvider.profile.toJson());
   }
 
   Map<String, dynamic> toJson() => {
@@ -60,6 +61,5 @@ class TrainerModel {
         "number_of_subscribers": numberOfSubscribers,
         "specialties": specialties.map((x) => x.toJson()).toList(),
         "private_session_price": privateSessionPrice,
-        "appointment": appointment?.toJson(),
       };
 }

@@ -58,9 +58,9 @@ class _LoginPageState extends State<LoginPage> {
             BlocListener<LoginCubit, LoginInitial>(
               listenWhen: (p, c) => c.statuses.done,
               listener: (context, state) {
-                if (AppProvider.isConfirmed) {
+                if (AppProvider.isConfirmed || AppProvider.isTrainer) {
                   context.read<ProfileCubit>().getProfile(newData: true);
-                  Get.offAllNamed(AppRoutes.mainHome);
+                  startHome();
                 } else {
                   startConfirmCodeAccount(context);
                 }
@@ -112,7 +112,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     const _ForgetAndRememberWidget(),
-                    60.0.verticalSpace,
+                    30.0.verticalSpace,
                     BlocBuilder<LoginCubit, LoginInitial>(
                       builder: (_, state) {
                         if (state.statuses.loading) {
@@ -128,6 +128,12 @@ class _LoginPageState extends State<LoginPage> {
                           },
                         );
                       },
+                    ),
+                    10.0.verticalSpace,
+                    MyButtonRound(
+                      color: AppColorManager.mainColor,
+                      text: S.of(context).applyAsTrainer,
+                      onTap: () => startApply(),
                     ),
                     30.0.verticalSpace,
                     const LoginSocialWidget(),
