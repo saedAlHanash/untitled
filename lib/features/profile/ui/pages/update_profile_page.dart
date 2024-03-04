@@ -40,7 +40,6 @@ class _TraineeProfileInfoScreenState extends State<TraineeProfileInfoScreen> {
     cubit = context.read<UpdateProfileCubit>();
     request = cubit.state.request;
     controller = TextEditingController(text: request.birthDate?.formatDate);
-    context.read<ProfileCubit>().getProfile(newData: true);
     super.initState();
   }
 

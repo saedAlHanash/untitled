@@ -6,8 +6,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
+import '../features/appointments/bloc/add_time_cubit/add_time_cubit.dart';
+import '../features/appointments/bloc/bundles_cubit/bundles_cubit.dart';
 import '../features/appointments/bloc/create_bundle_cubit/create_bundle_cubit.dart';
 import '../features/appointments/bloc/create_session_cubit/create_session_cubit.dart';
+import '../features/appointments/bloc/remove_time_cubit/remove_time_cubit.dart';
+import '../features/appointments/data/request/bundles_request.dart';
 import '../features/appointments/data/response/bundles_response.dart';
 import '../features/appointments/ui/pages/book_session_page.dart';
 import '../Utils/Routes/app_pages.dart';
@@ -35,6 +39,7 @@ import '../features/auth/ui/pages/otp_password_page.dart';
 import '../features/auth/ui/pages/reset_password_page.dart';
 import '../features/auth/ui/pages/signup_page.dart';
 import '../features/profile/ui/pages/update_profile_page.dart';
+import '../features/trainer/ui/pages/available_time_page.dart';
 
 Route<dynamic> routes(RouteSettings settings) {
   var screenName = settings.name;
@@ -308,11 +313,35 @@ void startBookPrivetSession(TrainerModel trainer) {
           trainer: trainer,
         ),
     ),
+    BlocProvider(
+      create: (_) =>
+          sl<BundlesCubit>()..getBundles(request: BundlesRequest(trainerId: trainer.id)),
+    ),
   ];
 
   final Widget page = MultiBlocProvider(
     providers: providers,
     child: const BookPrivateSessionScreen(),
+  );
+
+  Get.to(() => page);
+}
+
+void startAvailableTimePage() {
+  final providers = [
+    BlocProvider(create: (_) => sl<AddTimeCubit>()),
+    BlocProvider(create: (_) => sl<RemoveTimeCubit>()),
+    BlocProvider(
+      create: (_) => sl<AvailableTimesCubit>()
+        ..getTrainerAvailableTimes(
+          request: AvailableTimesRequest(isBooked: 0),
+        ),
+    ),
+  ];
+
+  final Widget page = MultiBlocProvider(
+    providers: providers,
+    child: const AvailableTimePage(),
   );
 
   Get.to(() => page);

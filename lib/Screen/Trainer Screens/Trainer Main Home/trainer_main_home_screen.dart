@@ -15,6 +15,7 @@ import '../../../Utils/Routes/app_pages.dart';
 import '../../../features/fire_chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 
 import '../../../features/profile/ui/pages/profile_trainer_screen.dart';
+import '../../../features/trainer/ui/pages/calender_screen.dart';
 import 'Widget/trainer_navigation_bar_widget.dart';
 
 class TrainerMainHomeScreen extends GetView<TrainerMainHomeController> {
@@ -24,7 +25,8 @@ class TrainerMainHomeScreen extends GetView<TrainerMainHomeController> {
     const TrainerHomeScreen(),
     const TrainerWalletScreen(),
     const TrainerSearchScreen(),
-    const TrainerCalenderSceen(),
+    const CalenderScreen(),
+    // const TrainerCalenderSceen(),
     const ProfileTrainerScreen(),
   ];
 

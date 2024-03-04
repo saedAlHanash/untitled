@@ -40,24 +40,3 @@ class _ProfileTrainerPageState extends State<ProfileTrainerPage> {
     );
   }
 }
-
-class _ProfileCards extends StatelessWidget {
-  const _ProfileCards();
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          children: [
-            const Expanded(child: ProfileCard(type: ProfileCardType.profile)),
-            15.0.horizontalSpace,
-            const Expanded(child: ProfileCard(type: ProfileCardType.lang)),
-          ],
-        ),
-        25.0.verticalSpace,
-        const ProfileCard(type: ProfileCardType.appointment)
-      ],
-    );
-  }
-}

@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 
+import '../../generated/l10n.dart';
 import '../strings/app_color_manager.dart';
 import '../widgets/my_button.dart';
 import '../widgets/snake_bar_widget.dart';
@@ -266,11 +267,12 @@ class NoteMessage {
     ).show();
   }
 
-  static Future<bool> showCheckDialog(
+  static Future<void> showCheckDialog(
     BuildContext context, {
     required String text,
     required String textButton,
     required dynamic image,
+    Function()? onConfirm,
   }) async {
     // show the dialog
     final result = await showDialog(
@@ -282,6 +284,7 @@ class NoteMessage {
           child: Dialog(
             surfaceTintColor: Colors.white,
             alignment: Alignment.center,
+            backgroundColor: AppColorManager.cardColor,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.all(
                 Radius.circular(20.0.r),
@@ -297,26 +300,28 @@ class NoteMessage {
                   padding: const EdgeInsets.all(15.0).r,
                   clipBehavior: Clip.hardEdge,
                   decoration: BoxDecoration(
-                    color: AppColorManager.f7,
+                    color: AppColorManager.whit,
                     borderRadius: BorderRadius.vertical(top: Radius.circular(20.0.r)),
                   ),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       50.0.verticalSpace,
-                      ImageMultiType(
-                        url: image,
-                        height: 60.0.r,
-                        width: 60.0.r,
-                        color: AppColorManager.mainColor,
-                      ),
+                      image is Widget
+                          ? image
+                          : ImageMultiType(
+                              url: image,
+                              height: 60.0.r,
+                              width: 60.0.r,
+                              color: AppColorManager.mainColor,
+                            ),
                       20.0.verticalSpace,
                       DrawableText(
                         text: text,
                         size: 20.0.sp,
                         textAlign: TextAlign.center,
                         fontFamily: FontManager.cairoSemiBold.name,
-                        color: AppColorManager.c67,
+                        color: AppColorManager.black,
                       ),
                     ],
                   ),
@@ -333,7 +338,8 @@ class NoteMessage {
                           child: DrawableText(
                             padding: const EdgeInsets.symmetric(vertical: 23.0).r,
                             text: textButton,
-                            color: AppColorManager.c99,
+                            color: AppColorManager.black,
+                            fontWeight: FontWeight.bold,
                             fontFamily: FontManager.cairoSemiBold.name,
                             matchParent: true,
                           ),
@@ -346,7 +352,9 @@ class NoteMessage {
                           onTap: () => Navigator.pop(context, false),
                           child: DrawableText(
                             padding: const EdgeInsets.symmetric(vertical: 23.0).r,
-                            text: 'cancel',
+                            color: Colors.grey,
+                            fontWeight: FontWeight.bold,
+                            text: S.of(context).cancel,
                             matchParent: true,
                           ),
                         ),
@@ -360,6 +368,9 @@ class NoteMessage {
         );
       },
     );
-    return (result ?? false);
+
+    if (result == true) {
+      onConfirm?.call();
+    }
   }
 }

@@ -1,8 +1,8 @@
 part of 'available_times_cubit.dart';
 
-class AvailableTimesInitial extends AbstractCubit<List<AvailableTime>> {
+class AvailableTimesInitial extends AbstractCubit<List<Appointment>> {
   final AvailableTimesRequest request;
-  final Map<int, List<AvailableTime>> events;
+  final Map<int, List<Appointment>> events;
 
   final TrainerModel trainer;
 
@@ -31,10 +31,10 @@ class AvailableTimesInitial extends AbstractCubit<List<AvailableTime>> {
 
   AvailableTimesInitial copyWith({
     CubitStatuses? statuses,
-    List<AvailableTime>? result,
+    List<Appointment>? result,
     String? error,
     AvailableTimesRequest? request,
-    Map<int, List<AvailableTime>>? events,
+    Map<int, List<Appointment>>? events,
     TrainerModel? trainer,
   }) {
     return AvailableTimesInitial(

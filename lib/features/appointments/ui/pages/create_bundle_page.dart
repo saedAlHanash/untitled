@@ -14,6 +14,7 @@ import 'package:image_multi_type/circle_image_widget.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 
 import '../../../../Screen/Trainee Screens/Subscription/subscription_controller.dart';
+import '../../../../core/models/booked_appointments.dart';
 import '../../../../core/strings/app_color_manager.dart';
 import '../../../../core/util/my_style.dart';
 import '../../../../core/widgets/my_button.dart';
@@ -111,7 +112,7 @@ class _BundleSelectWidget extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemCount: state.request.timeIds.length,
                 itemBuilder: (_, i) {
-                  AvailableTime? item;
+                  Appointment? item;
                   if (state.request.timeIds.length > i) {
                     item = state.request.timeIds[i];
                   }
@@ -191,7 +192,7 @@ class _BundleSelectWidget extends StatelessWidget {
 class _ItemAvailableTime extends StatefulWidget {
   const _ItemAvailableTime({super.key, required this.value});
 
-  final List<AvailableTime> value;
+  final List<Appointment> value;
 
   @override
   State<_ItemAvailableTime> createState() => _ItemAvailableTimeState();

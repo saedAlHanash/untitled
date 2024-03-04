@@ -118,8 +118,6 @@ class _ProfileCards extends StatelessWidget {
             const Expanded(child: ProfileCard(type: ProfileCardType.lang)),
           ],
         ),
-        25.0.verticalSpace,
-        const ProfileCard(type: ProfileCardType.appointment)
       ],
     );
   }

@@ -196,7 +196,7 @@ extension DateUtcHelper on DateTime {
 
   String get formatDate => DateFormat('yyyy/MM/dd', 'en').format(this);
 
-  String get formatDateAther => DateFormat('yyyy/MM/dd HH:MM', 'en').format(this);
+  String get formatDateAther => DateFormat('yyyy-MM-dd HH:MM', 'en').format(this);
 
   String get formatTime => DateFormat('hh:mm a', 'en').format(this);
 
@@ -319,12 +319,20 @@ extension EnumsH on List<Enum> {
 
 extension AppointmentH on Appointment {
   bool get isNow {
+
     final dateTimeNow = DateTime.now().fixTimeZone;
 
     final b = dateTimeNow.isAfter(startTime);
     final a = dateTimeNow.isBefore(endTime);
 
     return a && b;
+  }
+  bool get isExpired {
+
+    final dateTimeNow = DateTime.now().fixTimeZone;
+    final a = dateTimeNow.isAfter(endTime);
+
+    return a;
   }
 }
 

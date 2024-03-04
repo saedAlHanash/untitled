@@ -5230,6 +5230,36 @@ class S {
     );
   }
 
+  /// `Booked`
+  String get booked {
+    return Intl.message(
+      'Booked',
+      name: 'booked',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Available`
+  String get available {
+    return Intl.message(
+      'Available',
+      name: 'available',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No Plans Found`
+  String get noPlansFound {
+    return Intl.message(
+      'No Plans Found',
+      name: 'noPlansFound',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Certificate Of Graduation`
   String get certificateOfGraduation {
     return Intl.message(

@@ -69,10 +69,6 @@ void startTrainerPage(BuildContext context, int id) {
           providers: [
             BlocProvider(create: (_) => sl<TrainerCubit>()..getTrainer(id: id)),
             BlocProvider(create: (_) => sl<PlansCubit>()..getPlans(id: id)),
-            BlocProvider(
-              create: (_) =>
-                  sl<BundlesCubit>()..getBundles(request: BundlesRequest(trainerId: id)),
-            ),
           ],
           child: const TrainerPage(),
         );

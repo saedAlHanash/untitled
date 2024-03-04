@@ -57,6 +57,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Are there exercises for beginners?"),
         "areYouSure": MessageLookupByLibrary.simpleMessage("Are you sure?"),
         "at": MessageLookupByLibrary.simpleMessage("At"),
+        "available": MessageLookupByLibrary.simpleMessage("Available"),
         "availableSession":
             MessageLookupByLibrary.simpleMessage("Available session"),
         "availableSessions":
@@ -76,6 +77,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "book": MessageLookupByLibrary.simpleMessage("Book"),
         "bookPrivateSession":
             MessageLookupByLibrary.simpleMessage("Book Private Session"),
+        "booked": MessageLookupByLibrary.simpleMessage("Booked"),
         "bookmarked": MessageLookupByLibrary.simpleMessage("Bookmarked"),
         "bookmarkedPlans":
             MessageLookupByLibrary.simpleMessage("Bookmarked Plans"),
@@ -393,6 +395,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("No internet connection"),
         "noMoreData": MessageLookupByLibrary.simpleMessage("No more Data"),
         "noName": MessageLookupByLibrary.simpleMessage("No Name"),
+        "noPlansFound": MessageLookupByLibrary.simpleMessage("No Plans Found"),
         "noThisOptionIsNotAvailableYet": MessageLookupByLibrary.simpleMessage(
             "No, this option is not available yet."),
         "noWallet": MessageLookupByLibrary.simpleMessage("No Wallet"),

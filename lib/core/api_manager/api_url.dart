@@ -2,6 +2,7 @@ import 'package:fitness_storm/core/app/app_provider.dart';
 
 class GetUrl {
   static const getHome = 'home';
+  static const availableTimesTrainer = 'availableTimes';
 
   //--------------
 
@@ -87,7 +88,7 @@ class GetUrl {
 
   static const bundles = 'bundles';
 
-  static var wallet = 'wallet';
+  static const wallet = 'wallet';
 
   static String plans(int id) => 'trainers/$id/plans';
 
@@ -124,7 +125,9 @@ class PostUrl {
 
   static const createSession = 'bookedAppointments';
 
-  static var refreshToken = 'auth/refreshToken';
+  static const refreshToken = 'auth/refreshToken';
+
+  static const addTime = 'availableTimes';
 
   static String addFavorite(int id) => 'plans/$id/addToBookmarkedPlans';
 
@@ -162,6 +165,8 @@ class PutUrl {
 }
 
 class DeleteUrl {
+  static var removeTime = 'availableTimes';
+
   static String removeFavorite(int id) => 'plans/$id/deleteFromBookmarkedPlans';
 
   static const removeFromCart = 'carts/products';

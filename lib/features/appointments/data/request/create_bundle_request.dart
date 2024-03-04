@@ -1,12 +1,14 @@
 import 'package:fitness_storm/features/appointments/data/response/available_times_response.dart';
 
+import '../../../../core/models/booked_appointments.dart';
+
 class CreateBundleRequest {
   CreateBundleRequest({
     this.bundleId,
   });
 
   num? bundleId;
-  final List<AvailableTime> timeIds = [];
+  final List<Appointment> timeIds = [];
 
   factory CreateBundleRequest.fromJson(Map<String, dynamic> json) {
     return CreateBundleRequest(

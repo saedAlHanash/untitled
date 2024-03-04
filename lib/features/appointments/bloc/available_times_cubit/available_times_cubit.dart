@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/api_manager/api_service.dart';
 import '../../../../core/error/error_manager.dart';
+import '../../../../core/models/booked_appointments.dart';
 import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/abstraction.dart';
 import '../../../../core/util/pair_class.dart';
@@ -42,7 +43,7 @@ class AvailableTimesCubit extends Cubit<AvailableTimesInitial> {
     }
   }
 
-  Future<Pair<List<AvailableTime>?, String?>> _bookedAppointmentsApi() async {
+  Future<Pair<List<Appointment>?, String?>> _bookedAppointmentsApi() async {
     final response = await APIService().getApi(
       url: GetUrl.availableTimes(state.trainer.id),
       query: state.request.toJson(),
@@ -56,8 +57,38 @@ class AvailableTimesCubit extends Cubit<AvailableTimesInitial> {
     }
   }
 
-  Map<int, List<AvailableTime>> _getMapEvent(List<AvailableTime> list) {
-    var map = <int, List<AvailableTime>>{};
+  Future<void> getTrainerAvailableTimes({AvailableTimesRequest? request}) async {
+    emit(state.copyWith(statuses: CubitStatuses.loading, request: request));
+    final pair = await _getTrainerAvailableTimes();
+    if (pair.first == null) {
+      emit(state.copyWith(statuses: CubitStatuses.error, error: pair.second));
+      showErrorFromApi(state);
+    } else {
+      emit(
+        state.copyWith(
+          statuses: CubitStatuses.done,
+          result: pair.first?.data,
+          events: _getMapEvent(pair.first!.data),
+        ),
+      );
+    }
+  }
+
+  Future<Pair<AvailableTimesResponseList?, String?>> _getTrainerAvailableTimes() async {
+    final response = await APIService().getApi(
+      url: GetUrl.availableTimesTrainer,
+      query: state.request.toJson(),
+    );
+
+    if (response.statusCode.success) {
+      return Pair(AvailableTimesResponseList.fromJson(response.jsonBodyPure), null);
+    } else {
+      return response.getPairError;
+    }
+  }
+
+  Map<int, List<Appointment>> _getMapEvent(List<Appointment> list) {
+    var map = <int, List<Appointment>>{};
     for (var e in list) {
       var key = e.startTime?.hashDate ?? 0;
 

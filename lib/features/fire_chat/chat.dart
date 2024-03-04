@@ -292,7 +292,7 @@ class _ChatPageState extends State<ChatPage> {
             onMessageTap: _handleMessageTap,
             onPreviewDataFetched: _handlePreviewDataFetched,
             onSendPressed: _handleSendPressed,
-            theme: const DarkChatTheme(),
+            theme: const DarkChatTheme(backgroundColor: Colors.white),
             user: types.User(
               id: firebaseUser?.uid ?? '',
             ),

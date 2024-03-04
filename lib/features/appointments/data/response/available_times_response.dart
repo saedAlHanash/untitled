@@ -1,5 +1,7 @@
 import 'package:fitness_storm/core/extensions/extensions.dart';
 
+import '../../../../core/models/booked_appointments.dart';
+
 class AvailableTimesResponse {
   AvailableTimesResponse({
     required this.thursday,
@@ -11,16 +13,16 @@ class AvailableTimesResponse {
     required this.wednesday,
   });
 
-  final List<AvailableTime> thursday;
-  final List<AvailableTime> friday;
-  final List<AvailableTime> saturday;
-  final List<AvailableTime> sunday;
-  final List<AvailableTime> monday;
-  final List<AvailableTime> tuesday;
-  final List<AvailableTime> wednesday;
+  final List<Appointment> thursday;
+  final List<Appointment> friday;
+  final List<Appointment> saturday;
+  final List<Appointment> sunday;
+  final List<Appointment> monday;
+  final List<Appointment> tuesday;
+  final List<Appointment> wednesday;
 
-  List<AvailableTime> get getAllTimes {
-    final List<AvailableTime> list = [];
+  List<Appointment> get getAllTimes {
+    final List<Appointment> list = [];
 
     for (var e in thursday) {
       list.add(e);
@@ -51,32 +53,32 @@ class AvailableTimesResponse {
     return AvailableTimesResponse(
       thursday: json["Thursday"] == null
           ? []
-          : List<AvailableTime>.from(
-              json["Thursday"]!.map((x) => AvailableTime.fromJson(x))),
+          : List<Appointment>.from(
+              json["Thursday"]!.map((x) => Appointment.fromJson(x))),
       friday: json["Friday"] == null
           ? []
-          : List<AvailableTime>.from(
-              json["Friday"]!.map((x) => AvailableTime.fromJson(x))),
+          : List<Appointment>.from(
+              json["Friday"]!.map((x) => Appointment.fromJson(x))),
       saturday: json["Saturday"] == null
           ? []
-          : List<AvailableTime>.from(
-              json["Saturday"]!.map((x) => AvailableTime.fromJson(x))),
+          : List<Appointment>.from(
+              json["Saturday"]!.map((x) => Appointment.fromJson(x))),
       sunday: json["Sunday"] == null
           ? []
-          : List<AvailableTime>.from(
-              json["Sunday"]!.map((x) => AvailableTime.fromJson(x))),
+          : List<Appointment>.from(
+              json["Sunday"]!.map((x) => Appointment.fromJson(x))),
       monday: json["Monday"] == null
           ? []
-          : List<AvailableTime>.from(
-              json["Monday"]!.map((x) => AvailableTime.fromJson(x))),
+          : List<Appointment>.from(
+              json["Monday"]!.map((x) => Appointment.fromJson(x))),
       tuesday: json["Tuesday"] == null
           ? []
-          : List<AvailableTime>.from(
-              json["Tuesday"]!.map((x) => AvailableTime.fromJson(x))),
+          : List<Appointment>.from(
+              json["Tuesday"]!.map((x) => Appointment.fromJson(x))),
       wednesday: json["Wednesday"] == null
           ? []
-          : List<AvailableTime>.from(
-              json["Wednesday"]!.map((x) => AvailableTime.fromJson(x))),
+          : List<Appointment>.from(
+              json["Wednesday"]!.map((x) => Appointment.fromJson(x))),
     );
   }
 
@@ -91,28 +93,81 @@ class AvailableTimesResponse {
       };
 }
 
-class AvailableTime {
-  AvailableTime({
-    required this.id,
-    required this.startTime,
-    required this.endTime,
+class AvailableTimesResponseList {
+  AvailableTimesResponseList({
+    required this.data,
   });
 
-  final int id;
-  final DateTime? startTime;
-  final DateTime? endTime;
+  final List<Appointment> data;
 
-  factory AvailableTime.fromJson(Map<String, dynamic> json) {
-    return AvailableTime(
-      id: (json["id"] ?? "").toString().tryParseOrZeroInt,
-      startTime: DateTime.tryParse(json["start_time"] ?? "")?.fixTimeZone,
-      endTime: DateTime.tryParse(json["end_time"] ?? "")?.fixTimeZone,
+  factory AvailableTimesResponseList.fromJson(Map<String, dynamic> json) {
+    return AvailableTimesResponseList(
+      data: json["data"] == null
+          ? []
+          : List<Appointment>.from(json["data"]!.map((x) => Appointment.fromJson(x))),
     );
   }
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "start_time": startTime?.toIso8601String(),
-        "end_time": endTime?.toIso8601String(),
-      };
+    "data": data.map((x) => x.toJson()).toList(),
+  };
 }
+
+
+
+// class Appointment {
+//   Appointment({
+//     required this.id,
+//     required this.startTime,
+//     required this.endTime,
+//     required this.user,
+//     required this.videoCallToken,
+//   });
+//
+//   final int id;
+//   final DateTime? startTime;
+//   final DateTime? endTime;
+//   final User user;
+//   final String videoCallToken;
+//
+//   factory Appointment.fromJson(Map<String, dynamic> json) {
+//     return Appointment(
+//       id: (json["id"] ?? "").toString().tryParseOrZeroInt,
+//       startTime:
+//           DateTime.tryParse(json["startAt"] ?? json["start_time"] ?? "")?.fixTimeZone,
+//       endTime: DateTime.tryParse(json["endAt"] ?? json["end_time"] ?? "")?.fixTimeZone,
+//       user: User.fromJson(json["user"]??{}),
+//       videoCallToken: json["video_call_token"] ?? "",
+//     );
+//   }
+//
+//   Map<String, dynamic> toJson() => {
+//         "id": id,
+//         "startTime": startTime?.toIso8601String(),
+//         "endTime": endTime?.toIso8601String(),
+//         "user": user.toJson(),
+//         "video_call_token": videoCallToken,
+//       };
+// }
+//
+// class User {
+//   User({
+//     required this.id,
+//     required this.name,
+//   });
+//
+//   final int id;
+//   final String name;
+//
+//   factory User.fromJson(Map<String, dynamic> json) {
+//     return User(
+//       id: (json["id"] ?? "").toString().tryParseOrZeroInt,
+//       name: json["name"] ?? "",
+//     );
+//   }
+//
+//   Map<String, dynamic> toJson() => {
+//         "id": id,
+//         "name": name,
+//       };
+// }

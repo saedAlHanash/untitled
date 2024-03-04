@@ -1,32 +1,33 @@
-import 'package:drawable_text/drawable_text.dart';
-import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
-import 'package:fitness_storm/core/widgets/my_button.dart';
-import 'package:fitness_storm/features/appointments/data/request/available_times_request.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:image_multi_type/image_multi_type.dart';
 import 'package:table_calendar/table_calendar.dart';
 
+import '../../../../core/models/booked_appointments.dart';
 import '../../../../core/strings/app_color_manager.dart';
 import '../../../../core/util/my_style.dart';
 import '../../../../core/widgets/my_card_widget.dart';
-import '../../../../generated/l10n.dart';
 import '../../bloc/available_times_cubit/available_times_cubit.dart';
-import '../../data/response/available_times_response.dart';
 
 class AvailableTimesWidget extends StatefulWidget {
-  const AvailableTimesWidget({super.key, required this.builder});
+  const AvailableTimesWidget({
+    super.key,
+    required this.builder,
+    this.doteColor = Colors.red,
+    this.onSelectDate,
+  });
 
-  final Widget Function(BuildContext, List<AvailableTime>, Widget?) builder;
+  final Widget Function(BuildContext, List<Appointment>, Widget?) builder;
+  final void Function(DateTime d)? onSelectDate;
+  final Color doteColor;
 
   @override
   State<AvailableTimesWidget> createState() => _AvailableTimesWidgetState();
 }
 
 class _AvailableTimesWidgetState extends State<AvailableTimesWidget> {
-  late final ValueNotifier<List<AvailableTime>> _selectedEvents;
+  late final ValueNotifier<List<Appointment>> _selectedEvents;
 
   late DateTime kToday;
 
@@ -53,12 +54,12 @@ class _AvailableTimesWidgetState extends State<AvailableTimesWidget> {
     super.dispose();
   }
 
-  List<AvailableTime> _getEventsForDay(DateTime day, Map<int, List<AvailableTime>> map) {
+  List<Appointment> _getEventsForDay(DateTime day, Map<int, List<Appointment>> map) {
     return map[day.hashDate] ?? [];
   }
 
   void _onDaySelected(
-      DateTime selectedDay, DateTime focusedDay, Map<int, List<AvailableTime>> map) {
+      DateTime selectedDay, DateTime focusedDay, Map<int, List<Appointment>> map) {
     if (!isSameDay(_selectedDay, selectedDay)) {
       setState(() {
         _selectedDay = selectedDay;
@@ -85,8 +86,8 @@ class _AvailableTimesWidgetState extends State<AvailableTimesWidget> {
           shape: BoxShape.circle,
         ),
         todayTextStyle: const TextStyle(color: Colors.black),
-        markerDecoration: const BoxDecoration(
-          color: Colors.red,
+        markerDecoration: BoxDecoration(
+          color: widget.doteColor,
           shape: BoxShape.circle,
         ),
         markerSize: 5.0.spMin,
@@ -107,6 +108,7 @@ class _AvailableTimesWidgetState extends State<AvailableTimesWidget> {
               height: 270.0.h,
               child: BlocConsumer<AvailableTimesCubit, AvailableTimesInitial>(
                 listener: (context, state) {
+                  widget.onSelectDate?.call(_focusedDay);
                   _onDaySelected(_focusedDay, _focusedDay, state.events);
                 },
                 listenWhen: (p, c) => c.statuses.done,
@@ -114,9 +116,10 @@ class _AvailableTimesWidgetState extends State<AvailableTimesWidget> {
                   if (state.statuses.loading) {
                     return MyStyle.loadingWidget();
                   }
-                  return TableCalendar<AvailableTime>(
+                  return TableCalendar<Appointment>(
                     onDaySelected: (selectedDay, focusedDay) {
                       _onDaySelected(selectedDay, focusedDay, state.events);
+                      widget.onSelectDate?.call(focusedDay);
                     },
                     onPageChanged: (focusedDay) {
                       _focusedDay = focusedDay;
@@ -141,7 +144,7 @@ class _AvailableTimesWidgetState extends State<AvailableTimesWidget> {
             ),
           ),
           10.0.verticalSpace,
-          ValueListenableBuilder<List<AvailableTime>>(
+          ValueListenableBuilder<List<Appointment>>(
             valueListenable: _selectedEvents,
             builder: widget.builder,
           ),

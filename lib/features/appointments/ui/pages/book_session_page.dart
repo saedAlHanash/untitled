@@ -11,13 +11,16 @@ import 'package:image_multi_type/circle_image_widget.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 
 import '../../../../Screen/Trainee Screens/Subscription/subscription_controller.dart';
+import '../../../../core/models/booked_appointments.dart';
 import '../../../../core/strings/app_color_manager.dart';
 import '../../../../core/util/my_style.dart';
 import '../../../../core/widgets/my_button.dart';
 import '../../../../core/widgets/my_card_widget.dart';
 import '../../../../custome_web_page_view.dart';
 import '../../../../generated/l10n.dart';
+import '../../../../router/app_router.dart';
 import '../../bloc/available_times_cubit/available_times_cubit.dart';
+import '../../bloc/bundles_cubit/bundles_cubit.dart';
 import '../../bloc/create_session_cubit/create_session_cubit.dart';
 import '../../data/response/available_times_response.dart';
 
@@ -55,7 +58,30 @@ class _BookPrivateSessionScreenState extends State<BookPrivateSessionScreen> {
         appBar: AppBarWidget(
           titleText: S.of(context).availableSessions,
         ),
+        bottomNavigationBar: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            BlocBuilder<BundlesCubit, BundlesInitial>(
+              builder: (context, state) {
+                if (state.statuses.loading) {
+                  return MyStyle.loadingWidget();
+                }
+                if (state.result.isEmpty) {
+                  return 0.0.verticalSpace;
+                }
+
+                return MyButton(
+                  width: 0.9.sw,
+                  onTap: () => startBundlesPage(state.result),
+                  text: S.of(context).bundles,
+                );
+              },
+            ),
+            10.0.verticalSpace,
+          ],
+        ),
         body: SingleChildScrollView(
+          padding: const EdgeInsets.only(bottom: 100.0).h,
           child: BlocBuilder<AvailableTimesCubit, AvailableTimesInitial>(
             builder: (context, state) {
               return Column(
@@ -91,7 +117,7 @@ class _BookPrivateSessionScreenState extends State<BookPrivateSessionScreen> {
 class _AvailableTimeItem extends StatelessWidget {
   const _AvailableTimeItem({super.key, required this.value});
 
-  final List<AvailableTime> value;
+  final List<Appointment> value;
 
   @override
   Widget build(BuildContext context) {

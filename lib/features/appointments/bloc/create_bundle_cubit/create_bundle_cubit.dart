@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/api_manager/api_service.dart';
 import '../../../../core/error/error_manager.dart';
+import '../../../../core/models/booked_appointments.dart';
 import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/abstraction.dart';
 import '../../../../core/util/pair_class.dart';
@@ -47,7 +48,7 @@ class CreateBundleCubit extends Cubit<CreateBundleInitial> {
     emit(state.copyWith(bundle: bundle));
   }
 
-  void selectTime(AvailableTime time) {
+  void selectTime(Appointment time) {
     if (isFull) {
       return;
     }
@@ -60,7 +61,7 @@ class CreateBundleCubit extends Cubit<CreateBundleInitial> {
     emit(state.copyWith(notify: state.notify + 1));
   }
 
-  void removeTime(AvailableTime time) {
+  void removeTime(Appointment time) {
     state.request.timeIds.removeWhere((e) => e.id == time.id);
 
     emit(state.copyWith(notify: state.notify + 1));
