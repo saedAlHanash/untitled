@@ -15,6 +15,7 @@ import '../../../../../core/widgets/my_button.dart';
 import '../../../../Screen/video/video.dart';
 import '../../../../Utils/Routes/app_pages.dart';
 import '../../../../Utils/utils.dart';
+import '../../../../core/app/app_provider.dart';
 import '../../../../core/util/my_style.dart';
 import '../../../../generated/assets.dart';
 import '../../../../generated/l10n.dart';
@@ -31,7 +32,6 @@ class TrainerHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Container(
       padding: const EdgeInsets.all(20.0).r,
       child: Row(
@@ -68,7 +68,8 @@ class TrainerHeader extends StatelessWidget {
 
                       final pair = state.getSession();
 
-                      if (pair.second == PrivetSessionState.noEver) {
+                      if (pair.second == PrivetSessionState.noEver &&
+                          !AppControl.isAppleAccount) {
                         return Center(
                           child: MyButtonRound(
                             text: 'Book Session',

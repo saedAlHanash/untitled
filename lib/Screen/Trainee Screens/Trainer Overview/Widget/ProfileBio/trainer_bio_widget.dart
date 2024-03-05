@@ -1,5 +1,6 @@
 import 'package:drawable_text/drawable_text.dart';
 import 'package:fitness_storm/Utils/Routes/app_pages.dart';
+import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
 import 'package:fitness_storm/core/util/my_style.dart';
@@ -27,7 +28,10 @@ class TrainerBioWidget extends StatelessWidget {
     return Column(
       children: [
         InkWell(
-          onTap: () => startBookPrivetSession(trainer),
+          onTap: () {
+            if (AppControl.isAppleAccount) return;
+            startBookPrivetSession(trainer);
+          },
           child: Container(
             height: 45.0.h,
             color: Get.theme.primaryColor,

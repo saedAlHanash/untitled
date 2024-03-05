@@ -71,7 +71,7 @@ class AppProvider {
 
 class AppControl {
   //التحكم في إظهار وإخفاء زر تسجيل الدخول ب غوغل
-  static bool get hideGoogleBtn => DateTime.now().isAfter(DateTime(2025, 1, 18));
+  static bool get hideGoogleBtn => DateTime.now().isBefore(DateTime(2024, 3, 9));
 
   static bool get isAppleAccount => AppProvider.myId == 262;
 }

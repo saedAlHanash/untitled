@@ -1,5 +1,4 @@
 import 'package:drawable_text/drawable_text.dart';
-import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/widgets/app_bar/app_bar_widget.dart';
 import 'package:fitness_storm/features/appointments/ui/widget/appointment_calendar.dart';
@@ -22,7 +21,6 @@ import '../../../../router/app_router.dart';
 import '../../bloc/available_times_cubit/available_times_cubit.dart';
 import '../../bloc/bundles_cubit/bundles_cubit.dart';
 import '../../bloc/create_session_cubit/create_session_cubit.dart';
-import '../../data/response/available_times_response.dart';
 
 class BookPrivateSessionScreen extends StatefulWidget {
   const BookPrivateSessionScreen({super.key});
@@ -115,7 +113,7 @@ class _BookPrivateSessionScreenState extends State<BookPrivateSessionScreen> {
 }
 
 class _AvailableTimeItem extends StatelessWidget {
-  const _AvailableTimeItem({super.key, required this.value});
+  const _AvailableTimeItem({required this.value});
 
   final List<Appointment> value;
 
@@ -140,7 +138,7 @@ class _AvailableTimeItem extends StatelessWidget {
                       children: [
                         DrawableText(
                           matchParent: true,
-                          text: e.startTime?.formatTime ?? '-',
+                          text: e.startTime.formatTime,
                           drawablePadding: 10.0.w,
                           drawableStart: ImageMultiType(
                             url: Icons.timer_outlined,
@@ -151,7 +149,7 @@ class _AvailableTimeItem extends StatelessWidget {
                         3.0.verticalSpace,
                         DrawableText(
                           matchParent: true,
-                          text: e.endTime?.formatTime ?? '-',
+                          text: e.endTime.formatTime,
                           drawablePadding: 10.0.w,
                           drawableStart: ImageMultiType(
                             url: Icons.timer_off_outlined,
@@ -163,6 +161,7 @@ class _AvailableTimeItem extends StatelessWidget {
                     ),
                   ),
                   BlocBuilder<CreateSessionCubit, CreateSessionInitial>(
+                    buildWhen: (p, c) => c.id == e.id,
                     builder: (context, state) {
                       if (state.statuses.loading) {
                         return MyStyle.loadingWidget();
