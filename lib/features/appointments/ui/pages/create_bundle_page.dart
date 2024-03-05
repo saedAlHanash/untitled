@@ -1,16 +1,12 @@
 import 'package:drawable_text/drawable_text.dart';
-import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/widgets/app_bar/app_bar_widget.dart';
 import 'package:fitness_storm/core/widgets/my_card_widget.dart';
-import 'package:fitness_storm/features/appointments/data/response/available_times_response.dart';
-import 'package:fitness_storm/features/appointments/data/response/bundles_response.dart';
 import 'package:fitness_storm/features/appointments/ui/widget/appointment_calendar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:image_multi_type/circle_image_widget.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 
 import '../../../../Screen/Trainee Screens/Subscription/subscription_controller.dart';
@@ -20,7 +16,6 @@ import '../../../../core/util/my_style.dart';
 import '../../../../core/widgets/my_button.dart';
 import '../../../../custome_web_page_view.dart';
 import '../../../../generated/l10n.dart';
-import '../../bloc/available_times_cubit/available_times_cubit.dart';
 import '../../bloc/create_bundle_cubit/create_bundle_cubit.dart';
 
 class CreateBundlePage extends StatefulWidget {
@@ -95,7 +90,7 @@ class _CreateBundlePageState extends State<CreateBundlePage> {
 }
 
 class _BundleSelectWidget extends StatelessWidget {
-  const _BundleSelectWidget({super.key});
+  const _BundleSelectWidget();
 
   @override
   Widget build(BuildContext context) {
@@ -129,7 +124,7 @@ class _BundleSelectWidget extends StatelessWidget {
                                   size: 12.0.sp,
                                   matchParent: true,
                                   textAlign: TextAlign.center,
-                                  text: item.startTime?.formatDate ?? '-',
+                                  text: item.startTime.formatDate,
                                   drawablePadding: 10.0.w,
                                   drawableStart: ImageMultiType(
                                     url: Icons.calendar_month_sharp,
@@ -141,7 +136,7 @@ class _BundleSelectWidget extends StatelessWidget {
                                 DrawableText(
                                   size: 12.0.sp,
                                   matchParent: true,
-                                  text: item.startTime?.formatTime ?? '-',
+                                  text: item.startTime.formatTime,
                                   drawablePadding: 10.0.w,
                                   drawableStart: ImageMultiType(
                                     url: Icons.timer_outlined,
@@ -153,7 +148,7 @@ class _BundleSelectWidget extends StatelessWidget {
                                 DrawableText(
                                   size: 12.0.sp,
                                   matchParent: true,
-                                  text: item.endTime?.formatTime ?? '-',
+                                  text: item.endTime.formatTime,
                                   drawablePadding: 10.0.w,
                                   drawableStart: ImageMultiType(
                                     url: Icons.timer_off_outlined,
@@ -190,7 +185,7 @@ class _BundleSelectWidget extends StatelessWidget {
 }
 
 class _ItemAvailableTime extends StatefulWidget {
-  const _ItemAvailableTime({super.key, required this.value});
+  const _ItemAvailableTime({required this.value});
 
   final List<Appointment> value;
 
@@ -227,7 +222,7 @@ class _ItemAvailableTimeState extends State<_ItemAvailableTime> {
                         children: [
                           DrawableText(
                             matchParent: true,
-                            text: e.startTime?.formatTime ?? '-',
+                            text: e.startTime.formatTime,
                             drawablePadding: 10.0.w,
                             drawableStart: ImageMultiType(
                               url: Icons.timer_outlined,
@@ -238,7 +233,7 @@ class _ItemAvailableTimeState extends State<_ItemAvailableTime> {
                           3.0.verticalSpace,
                           DrawableText(
                             matchParent: true,
-                            text: e.endTime?.formatTime ?? '-',
+                            text: e.endTime.formatTime,
                             drawablePadding: 10.0.w,
                             drawableStart: ImageMultiType(
                               url: Icons.timer_off_outlined,
