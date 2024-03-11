@@ -109,12 +109,17 @@ class _ListSessions extends StatelessWidget {
     if (list.isEmpty) {
       return NotFoundWidget(text: S.of(context).noMoreData);
     }
-    return ListView.builder(
-      shrinkWrap: true,
-      itemCount: list.length,
-      itemBuilder: (_, i) {
-        return _ItemAppointment(item: list[i]);
+    return RefreshIndicator(
+      onRefresh: () async {
+        context.read<BookedAppointmentsCubit>().getBookedAppointments();
       },
+      child: ListView.builder(
+        shrinkWrap: true,
+        itemCount: list.length,
+        itemBuilder: (_, i) {
+          return _ItemAppointment(item: list[i]);
+        },
+      ),
     );
   }
 }

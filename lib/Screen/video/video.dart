@@ -5,8 +5,10 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 
 class Video1 extends StatefulWidget {
-  const Video1({Key? key, required this.tempToken}) : super(key: key);
+  const Video1({super.key, required this.tempToken, required this.channelId});
+
   final String tempToken;
+  final String channelId;
 
   @override
   State<Video1> createState() => _Video1State();
@@ -53,7 +55,7 @@ class _Video1State extends State<Video1> {
     _engine = createAgoraRtcEngine();
     await _engine.initialize(const RtcEngineContext(
       appId: 'd3e3ad9bf2a846beb551b003979a2142',
-      channelProfile: ChannelProfileType.channelProfileLiveBroadcasting,
+      channelProfile: ChannelProfileType.channelProfileCommunication,
     ));
 
     _engine.registerEventHandler(eventHandler);
@@ -64,7 +66,7 @@ class _Video1State extends State<Video1> {
 
     await _engine.joinChannel(
       token: widget.tempToken,
-      channelId: 'flutter',
+      channelId: widget.channelId,
       uid: 0,
       options: const ChannelMediaOptions(),
     );
@@ -125,7 +127,7 @@ class _Video1State extends State<Video1> {
         controller: VideoViewController.remote(
           rtcEngine: _engine,
           canvas: VideoCanvas(uid: _remoteUid),
-          connection: const RtcConnection(channelId: 'flutter'),
+          connection: RtcConnection(channelId: widget.channelId),
         ),
       );
     } else {
@@ -140,7 +142,7 @@ class _Video1State extends State<Video1> {
 class CallScreen extends StatefulWidget {
   final RtcEngine engine;
 
-  const CallScreen({Key? key, required this.engine}) : super(key: key);
+  const CallScreen({super.key, required this.engine});
 
   @override
   _CallScreenState createState() => _CallScreenState();

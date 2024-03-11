@@ -347,10 +347,6 @@ void startAvailableTimePage() {
   Get.to(() => page);
 }
 
-void startBundlesPage(List<Bundle> list) {
-  Get.to(() => BundlesPage(list: list));
-}
-
 void startCreateBundle(Bundle bundle) {
   final providers = [
     BlocProvider(create: (_) => sl<CreateBundleCubit>()..setData(bundle: bundle)),

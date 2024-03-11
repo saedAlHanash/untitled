@@ -17,6 +17,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.2"
+  agora_rtc_engine:
+    dependency: "direct main"
+    description:
+      name: agora_rtc_engine
+      sha256: ec84db08cd6727e3e480abe9089df4a9522aa4315f688ac2abf25a82f26c4055
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.3.0"
   archive:
     dependency: transitive
     description:
@@ -604,14 +612,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.2"
-  flutter_native_splash:
-    dependency: "direct main"
-    description:
-      name: flutter_native_splash
-      sha256: "6777a3abb974021a39b5fdd2d46a03ca390e03903b6351f21d10e7ecc969f12d"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.2.16"
   flutter_parsed_text:
     dependency: transitive
     description:
@@ -822,14 +822,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.2"
-  image:
-    dependency: transitive
-    description:
-      name: image
-      sha256: "8e9d133755c3e84c73288363e6343157c383a0c6c56fc51afcc5d4d7180306d6"
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.3.0"
   image_multi_type:
     dependency: "direct main"
     description:
@@ -935,6 +927,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.4"
+  iris_method_channel:
+    dependency: transitive
+    description:
+      name: iris_method_channel
+      sha256: "78caede20be4a1dd258262fb13704aab2f16fd05ef414bed06e7b1e3b95b3413"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.1"
   js:
     dependency: transitive
     description:

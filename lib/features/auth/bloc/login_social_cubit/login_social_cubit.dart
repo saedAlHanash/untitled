@@ -44,6 +44,7 @@ class LoginSocialCubit extends Cubit<LoginSocialInitial> {
       await GoogleSignIn().signOut();
       loggerObject.w('GoogleSignIn signOut');
     } catch (e) {
+      emit(state.copyWith(statuses: CubitStatuses.error, error: e.toString()));
       loggerObject.e(e);
     }
   }
@@ -62,6 +63,7 @@ class LoginSocialCubit extends Cubit<LoginSocialInitial> {
       return await FirebaseAuth.instance.signInWithCredential(credential);
     } catch (e) {
       loggerObject.e(e);
+      emit(state.copyWith(statuses: CubitStatuses.error, error: e.toString()));
       return null;
     }
   }

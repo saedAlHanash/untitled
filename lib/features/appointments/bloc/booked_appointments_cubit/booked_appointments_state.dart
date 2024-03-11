@@ -54,7 +54,7 @@ class BookedAppointmentsInitial extends AbstractCubit<List<Appointment>> {
 
       list.sort((a, b) => a.startTime.compareTo(b.startTime));
 
-      final dateTimeNow = DateTime.now().fixTimeZone;
+      final dateTimeNow = DateTime.now();
 
       for (var e in list) {
         if (!e.isNow) continue;

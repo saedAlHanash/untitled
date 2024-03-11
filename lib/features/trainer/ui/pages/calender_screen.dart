@@ -117,7 +117,10 @@ class _ItemAvailableTimeState extends State<_ItemAvailableTime> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (_) => Video1(tempToken: e.videoCallToken),
+                              builder: (_) => Video1(
+                                tempToken: e.videoCallToken,
+                                channelId: e.channelId,
+                              ),
                             ),
                           );
                         },

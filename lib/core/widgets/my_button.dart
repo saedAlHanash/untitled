@@ -17,7 +17,7 @@ class MyButton extends StatelessWidget {
     this.height,
     this.enable,
     this.toUpper = false,
-    this.padding,
+    this.padding, this.radios,
   });
 
   final Widget? child;
@@ -27,6 +27,7 @@ class MyButton extends StatelessWidget {
   final double? elevation;
   final double? width;
   final double? height;
+  final double? radios;
   final bool? enable;
   final EdgeInsets? padding;
   final Function()? onTap;
@@ -50,7 +51,7 @@ class MyButton extends StatelessWidget {
           shape: MaterialStatePropertyAll(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.all(
-                Radius.circular(15.0.r),
+                Radius.circular(radios??15.0.r),
               ),
             ),
           ),

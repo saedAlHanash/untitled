@@ -5280,6 +5280,26 @@ class S {
     );
   }
 
+  /// `This Coach is Fully Booked!`
+  String get fullyBooked {
+    return Intl.message(
+      'This Coach is Fully Booked!',
+      name: 'fullyBooked',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Notify me when there is an available date`
+  String get noteMe {
+    return Intl.message(
+      'Notify me when there is an available date',
+      name: 'noteMe',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Next Session`
   String get nextSession {
     return Intl.message(

@@ -37,7 +37,6 @@
   "settings": "Settings",
   "policy": "Terms of Use and Privacy Policy",
   "policyJust": "Privacy Policy",
-
   "contact": "Contact Us",
   "changeName": "Change Name",
   "changePhone": "Change Phone Number",
@@ -484,8 +483,6 @@
   "sendTimeoutinConnectionWithAPIserver": "Send timeout in connection with API server",
   "unableToProcessThedata": "Unable to process the data",
   "notAcceptable": "Not acceptable",
-
-
   "passwordChanged": "Password changed",
   "confirmPasswordDoesNotMatchPassword": "Confirm password does not match password",
   "lang": "Language",
@@ -525,5 +522,7 @@
   "noPlansFound": "No Plans Found",
   "certificateOfGraduation": "Certificate Of Graduation",
   "certificateOfCourseAttended": "Certificate Of Course Attended",
+  "fullyBooked": "This Coach is Fully Booked!",
+  "noteMe": "Notify me when there is an available date",
   "nextSession": "Next Session"
 }

@@ -26,7 +26,7 @@ class BookedAppointmentsCubit extends Cubit<BookedAppointmentsInitial> {
       final old = <Appointment>[];
       final next = <Appointment>[];
 
-      final dateTimeNow = DateTime.now().fixTimeZone;
+      final dateTimeNow = DateTime.now();
 
       for (var e in list) {
         if (dateTimeNow.isAfter(e.endTime)) {
@@ -49,12 +49,13 @@ class BookedAppointmentsCubit extends Cubit<BookedAppointmentsInitial> {
 
   Future<Pair<BookedAppointments?, String?>> _bookedAppointmentsApi() async {
     final response = await APIService().getApi(
-        url: GetUrl.bookedAppointments,
-        query: (state.trainerId != 0)
-            ? {
-                'trainer_id': state.trainerId,
-              }
-            : null);
+      url: GetUrl.bookedAppointments,
+      query: (state.trainerId != 0)
+          ? {
+              'trainer_id': state.trainerId,
+            }
+          : null,
+    );
 
     if (response.statusCode.success) {
       return Pair(BookedAppointments.fromJson(response.jsonBodyPure), null);

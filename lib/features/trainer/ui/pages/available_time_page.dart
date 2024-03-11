@@ -163,50 +163,50 @@ class _ItemAvailableTimeState extends State<_ItemAvailableTime> {
                         ],
                       ),
                     ),
-                    BlocBuilder<RemoveTimeCubit, RemoveTimeInitial>(
-                      buildWhen: (p, c) => c.id == e.id,
-                      builder: (context, state) {
-                        if (state.statuses.loading) {
-                          return MyStyle.loadingWidget(color: Colors.white);
-                        }
-                        return InkWell(
-                          onTap: () {
-                            NoteMessage.showCheckDialog(
-                              context,
-                              text: '',
-                              textButton: S.of(context).remove,
-                              image: ImageMultiType(
-                                url: Icons.delete,
-                                color: Colors.red,
-                                height: 60.0.r,
-                                width: 60.0.r,
-                              ),
-                              onConfirm: () {
-                                context.read<RemoveTimeCubit>().removeTime(id: e.id);
-                              },
-                            );
-                          },
-                          child: Container(
-                            margin: const EdgeInsets.all(15.0).r,
-                            padding: const EdgeInsets.all(3.0).r,
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                                color: AppColorManager.red.withOpacity(0.2),
-                                borderRadius: BorderRadius.circular(10.0.r)),
-                            height: 40.0.r,
-                            width: 40.0.r,
-                            child: Center(
-                              child: ImageMultiType(
-                                height: 25.0.r,
-                                width: 25.0.r,
-                                url: Icons.delete,
-                                color: AppColorManager.red,
-                              ),
-                            ),
-                          ),
-                        );
-                      },
-                    ),
+                    // BlocBuilder<RemoveTimeCubit, RemoveTimeInitial>(
+                    //   buildWhen: (p, c) => c.id == e.id,
+                    //   builder: (context, state) {
+                    //     if (state.statuses.loading) {
+                    //       return MyStyle.loadingWidget(color: Colors.white);
+                    //     }
+                    //     return InkWell(
+                    //       onTap: () {
+                    //         NoteMessage.showCheckDialog(
+                    //           context,
+                    //           text: '',
+                    //           textButton: S.of(context).remove,
+                    //           image: ImageMultiType(
+                    //             url: Icons.delete,
+                    //             color: Colors.red,
+                    //             height: 60.0.r,
+                    //             width: 60.0.r,
+                    //           ),
+                    //           onConfirm: () {
+                    //             context.read<RemoveTimeCubit>().removeTime(id: e.id);
+                    //           },
+                    //         );
+                    //       },
+                    //       child: Container(
+                    //         margin: const EdgeInsets.all(15.0).r,
+                    //         padding: const EdgeInsets.all(3.0).r,
+                    //         alignment: Alignment.center,
+                    //         decoration: BoxDecoration(
+                    //             color: AppColorManager.red.withOpacity(0.2),
+                    //             borderRadius: BorderRadius.circular(10.0.r)),
+                    //         height: 40.0.r,
+                    //         width: 40.0.r,
+                    //         child: Center(
+                    //           child: ImageMultiType(
+                    //             height: 25.0.r,
+                    //             width: 25.0.r,
+                    //             url: Icons.delete,
+                    //             color: AppColorManager.red,
+                    //           ),
+                    //         ),
+                    //       ),
+                    //     );
+                    //   },
+                    // ),
                   ],
                 ),
               );

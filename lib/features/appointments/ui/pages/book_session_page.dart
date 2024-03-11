@@ -56,28 +56,6 @@ class _BookPrivateSessionScreenState extends State<BookPrivateSessionScreen> {
         appBar: AppBarWidget(
           titleText: S.of(context).availableSessions,
         ),
-        bottomNavigationBar: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            BlocBuilder<BundlesCubit, BundlesInitial>(
-              builder: (context, state) {
-                if (state.statuses.loading) {
-                  return MyStyle.loadingWidget();
-                }
-                if (state.result.isEmpty) {
-                  return 0.0.verticalSpace;
-                }
-
-                return MyButton(
-                  width: 0.9.sw,
-                  onTap: () => startBundlesPage(state.result),
-                  text: S.of(context).bundles,
-                );
-              },
-            ),
-            10.0.verticalSpace,
-          ],
-        ),
         body: SingleChildScrollView(
           padding: const EdgeInsets.only(bottom: 100.0).h,
           child: BlocBuilder<AvailableTimesCubit, AvailableTimesInitial>(

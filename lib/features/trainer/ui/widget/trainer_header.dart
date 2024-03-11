@@ -131,7 +131,9 @@ class TrainerHeader extends StatelessWidget {
                                       MaterialPageRoute(
                                         builder: (_) {
                                           return Video1(
-                                              tempToken: pair.first!.videoCallToken);
+                                            tempToken: pair.first!.videoCallToken,
+                                            channelId: pair.first!.channelId,
+                                          );
                                         },
                                       ),
                                     );

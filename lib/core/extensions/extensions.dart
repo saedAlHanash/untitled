@@ -320,7 +320,7 @@ extension EnumsH on List<Enum> {
 extension AppointmentH on Appointment {
   bool get isNow {
 
-    final dateTimeNow = DateTime.now().fixTimeZone;
+    final dateTimeNow = DateTime.now();
 
     final b = dateTimeNow.isAfter(startTime);
     final a = dateTimeNow.isBefore(endTime);
@@ -328,10 +328,8 @@ extension AppointmentH on Appointment {
     return a && b;
   }
   bool get isExpired {
-
-    final dateTimeNow = DateTime.now().fixTimeZone;
+    final dateTimeNow = DateTime.now();
     final a = dateTimeNow.isAfter(endTime);
-
     return a;
   }
 }

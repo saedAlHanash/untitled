@@ -273,6 +273,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Forgot Password ?"),
         "fullName": MessageLookupByLibrary.simpleMessage("Full Name"),
+        "fullyBooked":
+            MessageLookupByLibrary.simpleMessage("This Coach is Fully Booked!"),
         "functionalTraining":
             MessageLookupByLibrary.simpleMessage("Functional Training"),
         "gender": MessageLookupByLibrary.simpleMessage("Gender"),
@@ -409,6 +411,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "notSuccessfullySubscription":
             MessageLookupByLibrary.simpleMessage("Unsuccessful subscription"),
         "notYet": MessageLookupByLibrary.simpleMessage("Not Yet"),
+        "noteMe": MessageLookupByLibrary.simpleMessage(
+            "Notify me when there is an available date"),
         "notification": MessageLookupByLibrary.simpleMessage("Notifications"),
         "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
         "nowGoCrushIt": MessageLookupByLibrary.simpleMessage("Now go crush it"),

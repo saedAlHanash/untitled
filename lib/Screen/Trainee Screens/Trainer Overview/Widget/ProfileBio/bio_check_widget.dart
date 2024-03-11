@@ -1,51 +1,44 @@
 import 'package:awesome_icons/awesome_icons.dart';
+import 'package:drawable_text/drawable_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:image_multi_type/image_multi_type.dart';
 
 class BioCheckWidget extends StatelessWidget {
+  const BioCheckWidget({
+    super.key,
+    required this.title,
+    required this.value,
+  });
+
   final String title;
   final String value;
 
-  const BioCheckWidget({super.key, required this.title, required this.value});
-
   @override
   Widget build(BuildContext context) {
-    // Check if the current locale is English
-    bool isEnglish = Get.locale?.languageCode == 'en';
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: isEnglish
-              ? EdgeInsets.only(left: 0)
-              : EdgeInsets.only(right: Get.width / 30.5),
-          child: const Icon(
-            FontAwesomeIcons.checkCircle,
-            color: Colors.white,
-            size: 20,
-          ),
+    return Expanded(
+      child: ListTile(
+        contentPadding: EdgeInsets.zero,
+        horizontalTitleGap: 7.0.w,
+        leading: ImageMultiType(
+          color: Colors.white,
+          url: Icons.check_circle_outline_sharp,
+          height: 35.0.r,
+          width: 35.0.r,
         ),
-        const SizedBox(
-          width: 4,
+        title: DrawableText(
+          text: title,
+          color: Colors.white54,
+          size: 8.0.sp,
         ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              title,
-              style:
-                  TextStyle(color: Colors.white, fontSize: isEnglish ? 12 : 13),
-            ),
-            Text(
-              value,
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: isEnglish ? 24 : 20,
-                  fontWeight: FontWeight.bold),
-            )
-          ],
-        )
-      ],
+        subtitle: DrawableText(
+          text: value,
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+          size: 25.0.sp,
+        ),
+      ),
     );
   }
 }

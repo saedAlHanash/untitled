@@ -521,6 +521,8 @@
   "available": "Available",
   "noPlansFound": "No Plans Found",
   "certificateOfGraduation": "Certificate Of Graduation",
+  "fullyBooked": "This Coach is Fully Booked!",
+  "noteMe": "Notify me when there is an available date",
   "certificateOfCourseAttended": "Certificate Of Course Attended",
   "nextSession": "Next Session"
 }

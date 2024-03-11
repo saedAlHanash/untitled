@@ -1,3 +1,4 @@
+import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 
 class BookedAppointments {
@@ -24,6 +25,7 @@ class Appointment {
     required this.startTime,
     required this.endTime,
     required this.videoCallToken,
+    required this.channelId,
     required this.status,
     required this.user,
   });
@@ -32,6 +34,7 @@ class Appointment {
   final DateTime startTime;
   final DateTime endTime;
   final String videoCallToken;
+  final String channelId;
   final String status;
   final User user;
 
@@ -44,6 +47,9 @@ class Appointment {
       endTime: DateTime.tryParse(json["endAt"] ?? json["end_time"] ?? "")?.fixTimeZone ??
           DateTime(2030),
       videoCallToken: json["video_call_token"] ?? "",
+      channelId: json["channelId"] ?? AppProvider.isTrainer
+          ? '${AppProvider.myId}'
+          : '${User.fromJson(json["trainer"] ?? json["user"] ?? {}).id}',
       status: json["status"] ?? "",
       user: User.fromJson(json["trainer"] ?? json["user"] ?? {}),
     );
@@ -54,6 +60,7 @@ class Appointment {
         "start_time": startTime.toIso8601String(),
         "end_time": endTime.toIso8601String(),
         "video_call_token": videoCallToken,
+        "channelId": channelId,
         "status": status,
       };
 }
