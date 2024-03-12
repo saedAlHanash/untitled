@@ -1,5 +1,8 @@
 import 'package:agora_rtc_engine/agora_rtc_engine.dart';
+import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
@@ -89,6 +92,16 @@ class _Video1State extends State<Video1> {
         title: Text('private_sessions'.tr),
         centerTitle: true,
       ),
+      bottomNavigationBar: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(widget.channelId),
+          5.0.verticalSpace,
+          Text(widget.tempToken),
+          5.0.verticalSpace,
+          Text(_remoteUid.toString()),
+        ],
+      ),
       body: Stack(
         children: [
           Center(child: _remoteVideo()),
@@ -102,7 +115,7 @@ class _Video1State extends State<Video1> {
                     ? AgoraVideoView(
                         controller: VideoViewController(
                           rtcEngine: _engine,
-                          canvas: const VideoCanvas(uid: 0),
+                          canvas: VideoCanvas(uid: 0),
                         ),
                       )
                     : const CircularProgressIndicator.adaptive(),

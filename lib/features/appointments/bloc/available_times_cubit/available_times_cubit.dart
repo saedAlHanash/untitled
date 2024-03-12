@@ -90,7 +90,7 @@ class AvailableTimesCubit extends Cubit<AvailableTimesInitial> {
   Map<int, List<Appointment>> _getMapEvent(List<Appointment> list) {
     var map = <int, List<Appointment>>{};
     for (var e in list) {
-      var key = e.startTime?.hashDate ?? 0;
+      var key = e.startTime.hashDate ?? 0;
 
       if (map[key] == null) {
         map[key] = [e];

@@ -2,6 +2,7 @@ import 'package:drawable_text/drawable_text.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/router/app_router.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 
@@ -11,6 +12,7 @@ import '../../../../core/strings/app_color_manager.dart';
 import '../../../../core/widgets/my_card_widget.dart';
 import '../../../../generated/assets.dart';
 import '../../../../generated/l10n.dart';
+import '../../../appointments/bloc/available_times_cubit/available_times_cubit.dart';
 import '../../../appointments/ui/widget/appointment_calendar.dart';
 
 class CalenderScreen extends StatelessWidget {
@@ -27,14 +29,20 @@ class CalenderScreen extends StatelessWidget {
           url: Icons.settings,
         ),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            10.0.verticalSpace,
-            AvailableTimesWidget(
-              builder: (__, value, _) => _ItemAvailableTime(value: value),
-            ),
-          ],
+
+      body: RefreshIndicator(
+        onRefresh: () async{
+          context.read<AvailableTimesCubit>().getTrainerAvailableTimes();
+        },
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              10.0.verticalSpace,
+              AvailableTimesWidget(
+                builder: (__, value, _) => _ItemAvailableTime(value: value),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -111,7 +119,8 @@ class _ItemAvailableTimeState extends State<_ItemAvailableTime> {
                         ],
                       ),
                     ),
-                    if (e.isNow)
+                    //TODO: change this
+                    if (e.isNow || true)
                       InkWell(
                         onTap: () {
                           Navigator.push(

@@ -8,6 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_multi_type/circle_image_widget.dart';
 
+import '../../../../Screen/video/video.dart';
 import '../../../../core/models/booked_appointments.dart';
 import '../../../../core/util/my_style.dart';
 import '../../../../generated/l10n.dart';
@@ -134,9 +135,37 @@ class _ItemAppointment extends StatelessWidget {
     return Column(
       children: [
         ListTile(
+          //TODO: change this
+          onTap: true ||item.isNow
+              ? () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => Video1(
+                        tempToken: item.videoCallToken,
+                        channelId: item.channelId,
+                      ),
+                    ),
+                  );
+                }
+              : null,
+          trailing: item.isNow
+              ? Container(
+                  height: 10.0.r,
+                  width: 10.0.r,
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.green,
+                  ),
+                )
+              : null,
           leading: CircleImageWidget(url: item.user.image, size: 50.0.r),
           title: DrawableText(text: item.user.name),
-          subtitle: DrawableText(text: item.startTime.formatDateTime, color: Colors.grey),
+          subtitle: DrawableText(
+            text: item.startTime.formatDateTime,
+            color: Colors.grey,
+            size: 12.0.sp,
+          ),
         ),
         Divider(color: AppColorManager.cardColor, indent: 10.0.w, endIndent: 10.0.w),
       ],
