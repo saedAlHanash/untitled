@@ -92,30 +92,22 @@ class _Video1State extends State<Video1> {
         title: Text('private_sessions'.tr),
         centerTitle: true,
       ),
-      bottomNavigationBar: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(widget.channelId),
-          5.0.verticalSpace,
-          Text(widget.tempToken),
-          5.0.verticalSpace,
-          Text(_remoteUid.toString()),
-        ],
-      ),
       body: Stack(
         children: [
           Center(child: _remoteVideo()),
           Align(
             alignment: Alignment.topLeft,
             child: SizedBox(
-              width: 100,
-              height: 150,
+              width: 100.w,
+              height: 150.h,
               child: Center(
                 child: _localUserJoined
                     ? AgoraVideoView(
                         controller: VideoViewController(
                           rtcEngine: _engine,
-                          canvas: VideoCanvas(uid: 0),
+                          canvas: const VideoCanvas(
+                            uid: 0,
+                          ),
                         ),
                       )
                     : const CircularProgressIndicator.adaptive(),
