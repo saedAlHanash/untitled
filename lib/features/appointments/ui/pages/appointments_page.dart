@@ -136,7 +136,7 @@ class _ItemAppointment extends StatelessWidget {
       children: [
         ListTile(
           //TODO: change this
-          onTap: true ||item.isNow
+          onTap: item.isNow
               ? () {
                   Navigator.push(
                     context,

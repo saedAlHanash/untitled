@@ -119,8 +119,7 @@ class _ItemAvailableTimeState extends State<_ItemAvailableTime> {
                         ],
                       ),
                     ),
-                    //TODO: change this
-                    if (e.isNow || true)
+                    if (e.isNow )
                       InkWell(
                         onTap: () {
                           Navigator.push(
