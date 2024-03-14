@@ -82,8 +82,8 @@ class TrainerBioWidget extends StatelessWidget {
                 children: [
                   InkWell(
                     onTap: () {
-                      if (AppControl.isAppleAccount) return;
-                      startBookPrivetSession(trainer);
+                      // if (AppControl.isAppleAccount) return;
+                      // startBookPrivetSession(trainer);
                     },
                     child: Row(
                       children: [
@@ -93,21 +93,21 @@ class TrainerBioWidget extends StatelessWidget {
                           size: 14.0.sp,
                           color: Colors.white,
                         ),
-                        const Spacer(),
-                        DrawableText(
-                          text: '${trainer.privateSessionPrice} ${'sar/hour'.tr}',
-                          color: Colors.white,
-                        ),
-                        15.0.horizontalSpace,
-                        ImageMultiType(
-                          url: Icons.arrow_forward_ios,
-                          color: Colors.white,
-                          width: 15.0.r,
-                        ),
+                        // const Spacer(),
+                        // DrawableText(
+                        //   text: S.of(context).bookPrivateSession,
+                        //   color: Colors.white,
+                        // ),
+                        // 15.0.horizontalSpace,
+                        // ImageMultiType(
+                        //   url: Icons.arrow_forward_ios,
+                        //   color: Colors.white,
+                        //   width: 15.0.r,
+                        // ),
                       ],
                     ),
                   ),
-                  const Divider(color: Colors.white),
+                  // const Divider(color: Colors.white),
                   BlocBuilder<BundlesCubit, BundlesInitial>(
                     builder: (context, state) {
                       if (state.statuses.loading) {
@@ -124,7 +124,7 @@ class TrainerBioWidget extends StatelessWidget {
                           itemCount: state.result.length,
                           itemBuilder: (_, i) => _BundleItem(
                             item: state.result[i],
-                            maxTimesCount: 2,
+                            maxTimesCount: timesState.result.length,
                           ),
                         ),
                       );
@@ -182,6 +182,8 @@ class _BundleItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    loggerObject.wtf(maxTimesCount);
+    loggerObject.w(item.sessions);
     return Opacity(
       opacity: item.sessions > maxTimesCount ? 0.7 : 1,
       child: InkWell(
@@ -205,13 +207,18 @@ class _BundleItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               DrawableText(
-                text: '${item.sessions} ${S.of(context).session}',
-                size: 10.0.sp,
+                text: item.name,
+                size: 11.0.sp,
                 color: AppColorManager.mainColor,
               ),
               DrawableText(
                 text: '${item.price} ${S.of(context).sar}',
                 fontWeight: FontWeight.bold,
+                color: AppColorManager.mainColor,
+              ),
+              DrawableText(
+                text: '${item.sessions} ${S.of(context).session}',
+                size: 10.0.sp,
                 color: AppColorManager.mainColor,
               ),
             ],

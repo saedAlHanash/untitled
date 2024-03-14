@@ -1,4 +1,4 @@
-import 'package:agora_rtc_engine/agora_rtc_engine.dart';
+/*import 'package:agora_rtc_engine/agora_rtc_engine.dart';
 import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -249,20 +249,21 @@ class _CallScreenState extends State<CallScreen> {
       ),
     );
   }
-}
+}*/
 
-/*
 import 'package:flutter/material.dart';
 
-
 class Video1 extends StatelessWidget {
-  const Video1({super.key, required this.tempToken});
+  const Video1({
+    super.key,
+    required this.tempToken, required this.channelId,
+  });
 
   final String tempToken;
+  final String channelId;
 
   @override
   Widget build(BuildContext context) {
     return const Placeholder();
   }
 }
-*/
