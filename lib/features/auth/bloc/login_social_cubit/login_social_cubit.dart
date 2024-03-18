@@ -40,18 +40,19 @@ class LoginSocialCubit extends Cubit<LoginSocialInitial> {
 
   Future<void> _googleSignOut() async {
     try {
-      await GoogleSignIn().disconnect();
-      await GoogleSignIn().signOut();
+      await state.googleSignIn.disconnect();
+      await state.googleSignIn.signOut();
       loggerObject.w('GoogleSignIn signOut');
     } catch (e) {
       emit(state.copyWith(statuses: CubitStatuses.error, error: e.toString()));
+      showErrorFromApi(state);
       loggerObject.e(e);
     }
   }
 
   Future<UserCredential?> _googleSignIn() async {
     try {
-      final googleAccount = await GoogleSignIn().signIn();
+      final googleAccount = await state.googleSignIn.signIn();
 
       final googleAuthentication = await googleAccount!.authentication;
 
@@ -64,6 +65,7 @@ class LoginSocialCubit extends Cubit<LoginSocialInitial> {
     } catch (e) {
       loggerObject.e(e);
       emit(state.copyWith(statuses: CubitStatuses.error, error: e.toString()));
+      showErrorFromApi(state);
       return null;
     }
   }
@@ -82,7 +84,7 @@ class LoginSocialCubit extends Cubit<LoginSocialInitial> {
     if (response.statusCode.success) {
       final pair = Pair(LoginData.fromJson(response.jsonBody), null);
 
-      await AppProvider.cashLoginData(pair.first,isTrainer: false);
+      await AppProvider.cashLoginData(pair.first, isTrainer: false);
       AppSharedPreference.removePhoneOrEmail();
 
       return pair;

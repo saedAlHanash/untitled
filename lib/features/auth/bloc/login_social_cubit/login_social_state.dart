@@ -3,11 +3,13 @@ part of 'login_social_cubit.dart';
 class LoginSocialInitial extends AbstractCubit<LoginData> {
   final LoginRequest request;
  final  bool isTrainer;
-  const LoginSocialInitial({
+ final GoogleSignIn googleSignIn;
+  const LoginSocialInitial( {
     required super.result,
     super.error,
     required this.request,
      required this.isTrainer,
+    required this.googleSignIn,
     super.statuses,
   });
 
@@ -16,6 +18,7 @@ class LoginSocialInitial extends AbstractCubit<LoginData> {
       result: LoginData.fromJson({}),
       error: '',
       isTrainer: false,
+      googleSignIn: GoogleSignIn(),
       request: LoginRequest(),
       statuses: CubitStatuses.init,
     );
@@ -30,6 +33,7 @@ class LoginSocialInitial extends AbstractCubit<LoginData> {
     String? error,
     LoginRequest? request,
     bool? isTrainer,
+    GoogleSignIn? googleSignIn,
   }) {
     return LoginSocialInitial(
       statuses: statuses ?? this.statuses,
@@ -37,6 +41,7 @@ class LoginSocialInitial extends AbstractCubit<LoginData> {
       error: error ?? this.error,
       request: request ?? this.request,
       isTrainer: isTrainer ?? this.isTrainer,
+      googleSignIn: googleSignIn ?? this.googleSignIn,
     );
   }
 }
