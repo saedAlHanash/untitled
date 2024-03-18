@@ -3,7 +3,6 @@ import 'package:get/get_navigation/src/root/internacionalization.dart';
 class LocaleString extends Translations {
   @override
   Map<String, Map<String, String>> get keys => {
-        //ENGLISH LANGUAGE
         'en': {
           'Alphabetical_A-Z': "Alphabetical A-Z",
           "Alphabetical_Z-A": "Alphabetical Z-A",
@@ -18,19 +17,14 @@ class LocaleString extends Translations {
           'pls_enter_email': 'Please Enter Your Email To Receive Activation Code',
           'email': 'Email',
           'emailOrPhone': 'Email',
-          // 'emailOrPhone': 'Email or Phone',
           'reset_password': 'Reset Password',
           'set_new_pass': 'Set the new password to this account',
           'password': 'Password',
           're_enter_pass': 'Re-Enter New Password',
           'email_verification': 'Email Verification',
-          // 'email_verification': 'Email or phone Verification',
           'phone_verification': 'Email Verification',
-          // 'phone_verification': 'Phone Verification',
           'sent_6_digit': 'We have sent a 5-digit code to your email',
-          // 'sent_6_digit': 'We have sent a 5-digit code to your email or phone',
           'change_email': 'Change Email',
-          // 'change_email': 'Change Email or phone',
           'change_phone': 'Change Phone',
           'resend_code': 'Resend Code',
           'sign_in': 'Sign In',
@@ -452,7 +446,6 @@ The application Policies may be changed or updated occasionally to meet the requ
               'Your Fitness Storm membership will not be renewed. However, you will be able to continue using your membership until its end date.\n Why would you like to cancel your subscription? ',
           'cancel_reason': 'Cancel reason',
         },
-        //ARABIC LANGUAGE
         'ar': {
           "Alphabetical_Z-A": "ترتيب أبجدي من الياء للألف",
           'Alphabetical_A-Z': "ترتيب أبجدي من الألف للياء",
@@ -538,10 +531,6 @@ The application Policies may be changed or updated occasionally to meet the requ
           'phone_verification': 'تأكيد البريد',
           'sent_6_digit': 'تم إرسال رمز تفعيل إلى بريدك الإلكتروني ',
           'change_email': 'تغيير البريد الإلكتروني ',
-          // 'email_verification': ' تأكيد البريد الإلكتروني او الهاتف',
-          // 'phone_verification': 'تأكيد رقم الهاتف',
-          // 'sent_6_digit': 'تم إرسال رمز تفعيل إلى بريدك الإلكتروني او هاتفك',
-          // 'change_email': 'تغيير البريد الإلكتروني او الهاتف',
           'change_phone': 'تغيير رقم الهاتف',
           'resend_code': 'إعادة إرسال رمز التفعيل',
           'sign_in': 'تسجيل الدخول',
