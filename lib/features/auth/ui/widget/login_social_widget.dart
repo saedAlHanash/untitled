@@ -22,7 +22,7 @@ class LoginSocialWidget extends StatelessWidget {
         if (state.statuses.loading) {
           return MyStyle.loadingWidget();
         }
-        return GestureDetector(
+        return InkWell(
           onTap: () => context.read<LoginSocialCubit>().loginGoogle(),
           child: ImageMultiType(
             url: Assets.imagesGoogleSVG,
