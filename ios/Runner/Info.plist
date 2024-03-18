@@ -90,9 +90,15 @@
     		<key>CFBundleURLSchemes</key>
     		<array>
     			<string>com.googleusercontent.apps.644714333877-120vrkjeaqnlmihnacereairhcv9i2ih</string>
-    			<string>fb2111600515853572</string>
     		</array>
     	</dict>
+
+    	<dict>
+         <key>CFBundleURLSchemes</key>
+         <array>
+          <string>fb2111600515853572</string>
+         </array>
+         </dict>
     </array>
     <!-- End of the Google Sign-in Section -->
 
