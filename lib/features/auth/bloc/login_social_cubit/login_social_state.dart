@@ -2,13 +2,14 @@ part of 'login_social_cubit.dart';
 
 class LoginSocialInitial extends AbstractCubit<LoginData> {
   final LoginRequest request;
- final  bool isTrainer;
- final GoogleSignIn googleSignIn;
-  const LoginSocialInitial( {
+  final bool isTrainer;
+  final GoogleSignIn googleSignIn;
+
+  const LoginSocialInitial({
     required super.result,
     super.error,
     required this.request,
-     required this.isTrainer,
+    required this.isTrainer,
     required this.googleSignIn,
     super.statuses,
   });
@@ -18,14 +19,15 @@ class LoginSocialInitial extends AbstractCubit<LoginData> {
       result: LoginData.fromJson({}),
       error: '',
       isTrainer: false,
-      googleSignIn: GoogleSignIn(),
+      googleSignIn:
+          GoogleSignIn(clientId: DefaultFirebaseOptions.currentPlatform.iosClientId),
       request: LoginRequest(),
       statuses: CubitStatuses.init,
     );
   }
 
   @override
-  List<Object> get props => [statuses, result, error,isTrainer];
+  List<Object> get props => [statuses, result, error, isTrainer];
 
   LoginSocialInitial copyWith({
     CubitStatuses? statuses,

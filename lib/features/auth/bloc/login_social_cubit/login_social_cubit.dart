@@ -12,6 +12,7 @@ import '../../../../core/error/error_manager.dart';
 import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/abstraction.dart';
 import '../../../../core/util/pair_class.dart';
+import '../../../../firebase_options.dart';
 import '../../data/response/login_response.dart';
 
 part 'login_social_state.dart';
