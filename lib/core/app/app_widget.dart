@@ -49,23 +49,6 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     S.load(Locale(AppSharedPreference.getLocal));
-    FirebaseMessaging.onMessage.listen((message) {
-      final notification = message.notification;
-      String title = '';
-      String body = '';
-
-      if (notification != null) {
-        title = notification.title ?? '';
-        body = notification.body ?? '';
-      } else {
-        title = message.data['title'] ?? '';
-        body = message.data['body'] ?? '';
-      }
-
-      if (AppSharedPreference.getActiveNotification()) {
-        Note.showBigTextNotification(title: title, body: body);
-      }
-    });
     setImageMultiTypeErrorImage(
       const Opacity(
         opacity: 0.3,

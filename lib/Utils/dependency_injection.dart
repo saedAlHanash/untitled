@@ -24,10 +24,9 @@ import 'app_controller.dart';
 
 class DependencyInjection {
   static Future<void> init() async {
-
     await Hive.initFlutter();
 
-    initialHive();
+    await initialHive();
 
     await Note.initialize();
 
@@ -62,7 +61,7 @@ Future<void> initGetStorage() async {
   //log("lang");
   //log(storage.langCode);
   AppController appController = Get.find<AppController>();
-  appController.theme = ( ThemeColor.light).obs;
+  appController.theme = (ThemeColor.light).obs;
   //log('======================================================');
   //log(storage.notification);
 
@@ -129,7 +128,7 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
     title = message.data['title'] ?? '';
     body = message.data['body'] ?? '';
   }
-
+  if (title.isEmpty && body.isEmpty) return;
   Note.showBigTextNotification(title: title, body: body);
 }
 
@@ -143,7 +142,7 @@ Future<void> initFirebaseMessaging() async {
   FirebaseMessaging.instance.subscribeToTopic(Constants.topicUserNotification);
   FirebaseMessaging.instance.subscribeToTopic(Constants.topicTrainerNotification);
 
-  FirebaseMessaging.onMessage.listen((RemoteMessage message) async {
+  FirebaseMessaging.onMessage.listen((RemoteMessage message) {
     final notification = message.notification;
 
     String title = '';
@@ -157,6 +156,7 @@ Future<void> initFirebaseMessaging() async {
       body = message.data['body'] ?? '';
     }
 
+    if (title.isEmpty && body.isEmpty) return;
     Note.showBigTextNotification(title: title, body: body);
   });
 }
