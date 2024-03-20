@@ -134,7 +134,6 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 
 Future<void> initFirebaseMessaging() async {
   await Firebase.initializeApp(
-    name: 'Fitness Strom 1',
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
