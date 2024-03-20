@@ -44,24 +44,28 @@ Future<void> reInitialHive() async {
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  Get.put(LanguagesController());
+  try {
+    Get.put(LanguagesController());
 
-  await DependencyInjection.init();
+    await DependencyInjection.init();
 
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown,
-  ]);
+    await di.init();
 
-  HttpOverrides.global = MyHttpOverrides();
+    HttpOverrides.global = MyHttpOverrides();
 
-  await di.init();
+    saveFCM();
 
-  // ///send FCM to server
-  saveFCM();
+    setLastSeen();
 
-  await setLastSeen();
-  await RefreshTokenCubit.refreshTokenApi();
+    RefreshTokenCubit.refreshTokenApi();
+
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+  } catch (e) {
+    loggerObject.e(e);
+  }
 
   runApp(
     MultiBlocProvider(
