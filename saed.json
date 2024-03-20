@@ -1,134 +1,94 @@
 {
-  "data": [
-    {
-      "id": 21685,
-      "start_time": "2024-03-07 13:00:00",
-      "end_time": "2024-03-07 14:00:00",
-      "video_call_token": null,
-      "status": "pending",
-      "price": 0,
-      "trainer": {
-        "id": 56,
-        "name": "Tamara Emad \u062a\u0645\u0627\u0631\u0627 \u0639\u0645\u0627\u062f",
-        "image": "storage\/app\/public\/trainersImages\/Kvz1SO40ZSDsDWVNCTD5hqnwo9yWUKzw9flIUNqO.png"
-      }
+  "result": {
+    "userName": "Qareeb963933327992@gmail.com",
+    "fullName": "رامي  الحيلوني",
+    "name": "رامي ",
+    "fireBaseToken": "cZdtJZQNQ-iq5hsbdC51Il:APA91bGscatgowdI4WuzGvgOHYjEVflw2hjQZ4neh10CzTGrke2Nr1UozIseSTjCVnqX1kc4pOw54VPstoXGlZKPdvE7sA7OM553lO61Fj6NKRRTtJp4_8iP_VQGrNC0ZC5bA43yHh7s",
+    "carCategoryID": 10,
+    "surname": "الحيلوني",
+    "birthdate": "1980-11-08",
+    "address": "دمشق برزة البلد عش الورور حارة دير ماما",
+    "phoneNumber": "963933327992",
+    "carCategories": {
+      "name": "كلاسيك",
+      "imageUrl": "1700042010601sFSAf7GLX9.jpg",
+      "price": 0.0,
+      "driverRatio": 95.0,
+      "nightKMOverCost": 3500,
+      "dayKMOverCost": 3500,
+      "sharedKMOverCost": 3800,
+      "nightSharedKMOverCost": 3800,
+      "sharedDriverRatio": 95.0,
+      "minimumDayPrice": 11000.0,
+      "minimumNightPrice": 11000.0,
+      "companyLoyaltyRatio": null,
+      "sharedMinimumDistanceInMeters": 1000,
+      "normalOilRatio": 1.0,
+      "normalGoldRatio": 1.0,
+      "normalTiresRatio": 1.0,
+      "normalGasRatio": 43.0,
+      "sharedOilRatio": 1.0,
+      "sharedGoldRatio": 1.0,
+      "sharedTiresRatio": 1.0,
+      "sharedGasRatio": 43.0,
+      "syrianAuthorityRatio": null,
+      "priceVariant": 20,
+      "seatNumber": 4,
+      "planKmCost": 3500,
+      "planDriverRation": 95.0,
+      "planMinimumCost": 11000,
+      "planMinimumDistanceInMeters": 5,
+      "carCategoryType": 0,
+      "waitingMinuetPrice": null,
+      "minimumWaitingMinuets": null,
+      "id": 10
     },
-    {
-      "id": 8539,
-      "start_time": "2024-02-04 07:00:00",
-      "end_time": "2024-02-04 08:00:00",
-      "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IACucqE4BVTd1+IU3csaOtIMvqmLFjId46RFZ8NqMrtqGop+KioAAAAAEACMjwAAcYfAZQEAAQCFR79l",
-      "status": "started",
-      "price": 0,
-      "trainer": {
-        "id": 56,
-        "name": "Tamara Emad \u062a\u0645\u0627\u0631\u0627 \u0639\u0645\u0627\u062f",
-        "image": "storage\/app\/public\/trainersImages\/Kvz1SO40ZSDsDWVNCTD5hqnwo9yWUKzw9flIUNqO.png"
-      }
+    "currentLocation": null,
+    "carType": {
+      "userId": 3634,
+      "carBrand": "سيفيكو سايبا131",
+      "carModel": "سيفيكو سايبا131",
+      "carColor": "فضي",
+      "carNumber": "642894",
+      "seatsNumber": 4,
+      "carGovernorate": "دمشق",
+      "manufacturingYear": "2011",
+      "type": "سياحي"
     },
-    {
-      "id": 8188,
-      "start_time": "2024-02-03 12:00:00",
-      "end_time": "2024-02-03 13:00:00",
-      "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IABWLXTIJmoFpUEPrXh7OK94+s2Fhee1jMu+TEDqMaNcoYp+KioAAAAAEAD2GwAAQ3y\/ZQEAAQBXPL5l",
-      "status": "started",
-      "price": 0,
-      "trainer": {
-        "id": 56,
-        "name": "Tamara Emad \u062a\u0645\u0627\u0631\u0627 \u0639\u0645\u0627\u062f",
-        "image": "storage\/app\/public\/trainersImages\/Kvz1SO40ZSDsDWVNCTD5hqnwo9yWUKzw9flIUNqO.png"
-      }
-    },
-    {
-      "id": 8187,
-      "start_time": "2024-02-03 11:00:00",
-      "end_time": "2024-02-03 12:00:00",
-      "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IABNTgObOfeYt\/tE30By\/vZaHtfMJgmdP6mJHfOw0wuFNYp+KioAAAAAEACiTAAAM26\/ZQEAAQBHLr5l",
-      "status": "started",
-      "price": 0,
-      "trainer": {
-        "id": 56,
-        "name": "Tamara Emad \u062a\u0645\u0627\u0631\u0627 \u0639\u0645\u0627\u062f",
-        "image": "storage\/app\/public\/trainersImages\/Kvz1SO40ZSDsDWVNCTD5hqnwo9yWUKzw9flIUNqO.png"
-      }
-    },
-    {
-      "id": 8055,
-      "start_time": "2024-02-03 10:00:00",
-      "end_time": "2024-02-03 11:00:00",
-      "video_call_token": null,
-      "status": "finished",
-      "price": 0,
-      "trainer": {
-        "id": 56,
-        "name": "Tamara Emad \u062a\u0645\u0627\u0631\u0627 \u0639\u0645\u0627\u062f",
-        "image": "storage\/app\/public\/trainersImages\/Kvz1SO40ZSDsDWVNCTD5hqnwo9yWUKzw9flIUNqO.png"
-      }
-    },
-    {
-      "id": 7027,
-      "start_time": "2024-01-30 11:30:00",
-      "end_time": "2024-01-30 12:30:00",
-      "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IAB3wJS69SGZIOUiE1rLomYLGIOPFD+4GZbQ8aNxyC2IjYp+KioAAAAAEABq3QAAOy+6ZQEAAQBP77hl",
-      "status": "started",
-      "price": 0,
-      "trainer": {
-        "id": 56,
-        "name": "Tamara Emad \u062a\u0645\u0627\u0631\u0627 \u0639\u0645\u0627\u062f",
-        "image": "storage\/app\/public\/trainersImages\/Kvz1SO40ZSDsDWVNCTD5hqnwo9yWUKzw9flIUNqO.png"
-      }
-    },
-    {
-      "id": 6781,
-      "start_time": "2024-01-29 23:35:00",
-      "end_time": "2024-01-30 00:35:00",
-      "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IADnfU93VEkuid0rQKOvK1Y2YXQThHKfdHMH3gCpKBu3cop+KioAAAAAEAApJwEApoe5ZQEAAQC6R7hl",
-      "status": "started",
-      "price": 0,
-      "trainer": {
-        "id": 56,
-        "name": "Tamara Emad \u062a\u0645\u0627\u0631\u0627 \u0639\u0645\u0627\u062f",
-        "image": "storage\/app\/public\/trainersImages\/Kvz1SO40ZSDsDWVNCTD5hqnwo9yWUKzw9flIUNqO.png"
-      }
-    },
-    {
-      "id": 6777,
-      "start_time": "2024-01-29 21:46:00",
-      "end_time": "2024-01-29 22:46:00",
-      "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IABVnWydSZgqpKVAowgw9ncVLFBJ\/7SC5Nnyse8kbSM1o4p+KioAAAAAEACehAEAGW65ZQEAAQAtLrhl",
-      "status": "started",
-      "price": 0,
-      "trainer": {
-        "id": 56,
-        "name": "Tamara Emad \u062a\u0645\u0627\u0631\u0627 \u0639\u0645\u0627\u062f",
-        "image": "storage\/app\/public\/trainersImages\/Kvz1SO40ZSDsDWVNCTD5hqnwo9yWUKzw9flIUNqO.png"
-      }
-    },
-    {
-      "id": 6571,
-      "start_time": "2024-01-29 16:00:00",
-      "end_time": "2024-01-29 17:00:00",
-      "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IAD9aPKos3kICCD+Cztbgz9nwpF4SWImNYj+Bo1ZFU5ceIp+KioAAAAAEAC3cQAAAx25ZQEAAQAX3bdl",
-      "status": "started",
-      "price": 0,
-      "trainer": {
-        "id": 56,
-        "name": "Tamara Emad \u062a\u0645\u0627\u0631\u0627 \u0639\u0645\u0627\u062f",
-        "image": "storage\/app\/public\/trainersImages\/Kvz1SO40ZSDsDWVNCTD5hqnwo9yWUKzw9flIUNqO.png"
-      }
-    },
-    {
-      "id": 6572,
-      "start_time": "2024-01-29 15:00:00",
-      "end_time": "2024-01-29 16:00:00",
-      "video_call_token": null,
-      "status": "finished",
-      "price": 0,
-      "trainer": {
-        "id": 56,
-        "name": "Tamara Emad \u062a\u0645\u0627\u0631\u0627 \u0639\u0645\u0627\u062f",
-        "image": "storage\/app\/public\/trainersImages\/Kvz1SO40ZSDsDWVNCTD5hqnwo9yWUKzw9flIUNqO.png"
-      }
-    }
-  ]
+    "userType": 1,
+    "roleNames": null,
+    "isActive": true,
+    "isLoyaltySupscriper": true,
+    "isGasIncluded": false,
+    "emailConfirmationCode": "984983",
+    "creationTime": "2023-12-24",
+    "emailAddress": "Qareeb963933327992@gmail.com",
+    "imei": null,
+    "qarebDeviceimei": "354778343137165",
+    "gender": 0,
+    "isExaminated": false,
+    "avatar": "1703418827250gjnLILP5xD.jpg",
+    "identity": "1703418827264yUvfLOGn2Y.jpg",
+    "contract": "1703418827269mZ3s6EFCvp.jpg",
+    "examination": null,
+    "drivingLicence": "1703418827254AEFoRmUX9k.jpg",
+    "carMechanic": "1703418827259f2MwC9Av95.jpg",
+    "password": "AQAAAAEAACcQAAAAEJJwEQNb+sZqk1vhlCFU5ae5ed3KuA15H8nbFj+HAW0QQkI0icAzJZnx37qyDCi89A==",
+    "driverStatus": 1,
+    "lastSeen": "2024-03-19T23:36:25.930239",
+    "activeFrom": "2024-03-20T08:30:08.783289",
+    "rejectedTripsCount": 9,
+    "receivedTripsCount": 111,
+    "agency": null,
+    "engineStatus": false,
+    "lastInternetConnection": "2024-03-20T08:30:08.672883",
+    "isPlansDriver": null,
+    "isGPSInstalled": null,
+    "id": 3634
+  },
+  "targetUrl": null,
+  "success": true,
+  "error": null,
+  "unAuthorizedRequest": false,
+  "__abp": true
 }

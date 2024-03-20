@@ -20,7 +20,7 @@ class LoginSocialInitial extends AbstractCubit<LoginData> {
       error: '',
       isTrainer: false,
       googleSignIn:
-          GoogleSignIn(/*clientId: DefaultFirebaseOptions.currentPlatform.iosClientId*/),
+          GoogleSignIn(clientId: DefaultFirebaseOptions.currentPlatform.iosClientId),
       request: LoginRequest(),
       statuses: CubitStatuses.init,
     );

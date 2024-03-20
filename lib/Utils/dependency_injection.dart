@@ -108,9 +108,9 @@ FlutterLocalNotificationsPlugin? flutterLocalNotificationsPlugin;
 
 @pragma('vm:entry-point')
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  // await Firebase.initializeApp(
+  //   options: DefaultFirebaseOptions.currentPlatform,
+  // );
 
   if (flutterLocalNotificationsPlugin == null) {
     await Note.initialize();
@@ -134,6 +134,7 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 
 Future<void> initFirebaseMessaging() async {
   await Firebase.initializeApp(
+    name: 'Fitness Strom 1',
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
