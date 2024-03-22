@@ -66,6 +66,7 @@ class APIService {
   Future<http.Response> getApi({
     required String url,
     Map<String, dynamic>? query,
+    Map<String, String>? headers,
     String? path,
     String? additionalConstParam,
   }) async {
@@ -82,7 +83,7 @@ class APIService {
     logRequest(url, query);
 
     final response = await http
-        .get(uri, headers: innerHeader)
+        .get(uri, headers: innerHeader..addAll(headers ?? {}))
         .timeout(_connectionTimeOut, onTimeout: () => _timeOut);
 
     logResponse(url, response);

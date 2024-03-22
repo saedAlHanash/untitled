@@ -129,15 +129,17 @@ class PlanOverviewScreen extends GetView<PlanOverviewController> {
             ? FloatingActionButtonLocation.centerDocked
             : FloatingActionButtonLocation.centerFloat,
         floatingActionButton: (AppProvider.isTrainer)
-            ? const SizedBox.shrink()
-            : controller.isActivated
-                ? Container()
+            ? null
+            : controller.isActivated ||
+                    GetStorage().read('currentPlan') == controller.planOverview.name
+                ? null
                 : CustomButton(
                     onTapFunction: controller.onSubscribePlan,
                     buttonColor: Get.theme.primaryColor,
                     textColor: Colors.white,
                     padding: 0,
                     radius: 10,
+                    fontSize: 16.0.sp,
                     height: Get.height / 15,
                     width: Get.width,
                     text: GetStorage().read('currentPlan') == null

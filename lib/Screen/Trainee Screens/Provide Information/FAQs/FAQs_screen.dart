@@ -149,7 +149,7 @@ class FAQsScreen extends StatelessWidget {
                       QuestionAndAnswer(
                           question: '-	' +
                               '-What_plans_do_you_offer_to_subscribe?'.tr,
-                          answer: '\n' + 'We_offer_3_basic_plans'.tr + '\n'),
+                          answer: '\n' + 'We_offer_4_basic_plans'.tr + '\n'),
                       QuestionAndAnswer(
                           question:
                               '-	' + 'Are_there_exercises_for_beginners?'.tr,

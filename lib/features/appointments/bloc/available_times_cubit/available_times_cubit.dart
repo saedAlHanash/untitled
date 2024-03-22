@@ -47,6 +47,8 @@ class AvailableTimesCubit extends Cubit<AvailableTimesInitial> {
     final response = await APIService().getApi(
       url: GetUrl.availableTimes(state.trainer.id),
       query: state.request.toJson(),
+      headers: {'lang':'en'}
+
     );
 
     if (response.statusCode.success) {

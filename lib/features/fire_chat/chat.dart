@@ -3,6 +3,8 @@ import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:fitness_storm/core/api_manager/api_service.dart';
+import 'package:fitness_storm/core/helper/launcher_helper.dart';
 import 'package:fitness_storm/features/fire_chat/room_messages_bloc/room_messages_cubit.dart';
 import 'package:fitness_storm/features/fire_chat/util.dart';
 import 'package:flutter/material.dart';
@@ -21,15 +23,17 @@ import '../../main.dart';
 import 'get_chats_rooms_bloc/get_rooms_cubit.dart';
 import 'my_room_object.dart';
 
-
 class ChatPage extends StatefulWidget {
   const ChatPage({
-    super.key, required this.room, required this.name,
+    super.key,
+    required this.room,
+    required this.name,
   });
 
-   final types.Room room;
+  final types.Room room;
 
-   final String name;
+  final String name;
+
   @override
   State<ChatPage> createState() => _ChatPageState();
 }
@@ -39,7 +43,6 @@ class _ChatPageState extends State<ChatPage> {
   List<types.Message>? initialMessage;
 
   late final MyRoomObject myRoomObject;
-
 
   late final MessagesCubit roomMessagesCubit;
 
@@ -71,7 +74,7 @@ class _ChatPageState extends State<ChatPage> {
 
       room = room.copyWith(updatedAt: m.updatedAt);
 
-     await roomsBox.put(roomMessagesCubit.state.roomId, jsonEncode(room));
+      await roomsBox.put(roomMessagesCubit.state.roomId, jsonEncode(room));
 
       if (mounted) {
         context.read<RoomsCubit>().updateRooms();
@@ -290,6 +293,11 @@ class _ChatPageState extends State<ChatPage> {
             messages: state.allMessages,
             onAttachmentPressed: _handleAtachmentPressed,
             onMessageTap: _handleMessageTap,
+            textMessageOptions: TextMessageOptions(
+              onLinkPressed: (p0) {
+                LauncherHelper.openPage(p0);
+              },
+            ),
             onPreviewDataFetched: _handlePreviewDataFetched,
             onSendPressed: _handleSendPressed,
             theme: const DarkChatTheme(backgroundColor: Colors.white),

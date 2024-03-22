@@ -54,8 +54,9 @@ class ItemImageCreate extends StatelessWidget {
               DrawableText(
                 text: name!,
                 matchParent: true,
+                maxLines: 2,
                 textAlign: TextAlign.center,
-                size: 12.0.sp,
+                size: 10.0.sp,
                 color: Colors.white54,
                 fontWeight: FontWeight.bold,
               )

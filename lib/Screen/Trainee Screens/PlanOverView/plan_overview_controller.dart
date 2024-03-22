@@ -82,7 +82,7 @@ class PlanOverviewController extends GetxController {
     Utils.openLoadingDialog();
     var response = await _traineeRepository.subscribePlan(planId: planOverview.id.toString());
     if (response.type == ApiResultType.success) {
-      Get.context?.read<RoomsCubit>().getRoomByUser(planOverview.trainer?.id.toString());
+      Get.context?.read<RoomsCubit>().getRoomByUser(planOverview.trainer.id.toString());
       Utils.closeDialog();
       GetStorage getStorage = GetStorage();
       await getStorage.write('currentPlan', planOverview.name);

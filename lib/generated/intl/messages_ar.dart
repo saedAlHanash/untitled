@@ -22,762 +22,750 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "about": MessageLookupByLibrary.simpleMessage("About"),
+        "about": MessageLookupByLibrary.simpleMessage("حول"),
         "aboutTheCoach":
-            MessageLookupByLibrary.simpleMessage("About The Coach"),
-        "aboutUs": MessageLookupByLibrary.simpleMessage("About Us"),
+            MessageLookupByLibrary.simpleMessage("معلومات حول المدرّب"),
+        "aboutUs": MessageLookupByLibrary.simpleMessage("من نحن "),
         "accountCreated":
-            MessageLookupByLibrary.simpleMessage("Account Created!"),
-        "add": MessageLookupByLibrary.simpleMessage("Add"),
-        "addToCart": MessageLookupByLibrary.simpleMessage("Add To Cart"),
+            MessageLookupByLibrary.simpleMessage("تم إنشاء الحساب"),
+        "add": MessageLookupByLibrary.simpleMessage("إضافة"),
+        "addToCart": MessageLookupByLibrary.simpleMessage("أضف إلى السلة"),
         "additionalService":
-            MessageLookupByLibrary.simpleMessage("Additional service"),
-        "advanced": MessageLookupByLibrary.simpleMessage("Advanced"),
-        "alert": MessageLookupByLibrary.simpleMessage("Alert"),
-        "allFinished": MessageLookupByLibrary.simpleMessage("All Finished!"),
+            MessageLookupByLibrary.simpleMessage("خدمة إضافية"),
+        "advanced": MessageLookupByLibrary.simpleMessage("متقدّم"),
+        "alert": MessageLookupByLibrary.simpleMessage("تحذير"),
+        "allFinished": MessageLookupByLibrary.simpleMessage("كل شيء جاهز!"),
         "alphabeticalAZ":
-            MessageLookupByLibrary.simpleMessage("Alphabetical A-Z"),
+            MessageLookupByLibrary.simpleMessage("ترتيب أبجدي من الألف للياء"),
         "alphabeticalZA":
-            MessageLookupByLibrary.simpleMessage("Alphabetical Z-A"),
+            MessageLookupByLibrary.simpleMessage("ترتيب أبجدي من الياء للألف"),
         "alreadyAMember":
-            MessageLookupByLibrary.simpleMessage("Already a Member ?"),
+            MessageLookupByLibrary.simpleMessage("لديك حساب مسبقاً؟"),
         "alreadyHaveAnAccount":
-            MessageLookupByLibrary.simpleMessage("Already Have An Account?"),
-        "alreadyPlay": MessageLookupByLibrary.simpleMessage(
-            "This day was already finished"),
-        "and": MessageLookupByLibrary.simpleMessage("and"),
-        "apply": MessageLookupByLibrary.simpleMessage("Apply"),
-        "applyAsTrainer":
-            MessageLookupByLibrary.simpleMessage("apply as Trainer"),
-        "applyFilters": MessageLookupByLibrary.simpleMessage("Apply filters"),
+            MessageLookupByLibrary.simpleMessage("هل لديك حساب بالفعل؟"),
+        "alreadyPlay":
+            MessageLookupByLibrary.simpleMessage("تم الانتهاء من هذا اليوم"),
+        "and": MessageLookupByLibrary.simpleMessage("و"),
+        "apply": MessageLookupByLibrary.simpleMessage("تطبيق"),
+        "applyAsTrainer": MessageLookupByLibrary.simpleMessage("التقدم كمدرب"),
+        "applyFilters": MessageLookupByLibrary.simpleMessage("تطبيق الفلاتر"),
         "arabicAndSomeExpressionsInEnglish":
             MessageLookupByLibrary.simpleMessage(
-                "Arabic and some expressions in English"),
-        "areThereExercisesForBeginners": MessageLookupByLibrary.simpleMessage(
-            "Are there exercises for beginners?"),
-        "areYouSure": MessageLookupByLibrary.simpleMessage("Are you sure?"),
-        "at": MessageLookupByLibrary.simpleMessage("At"),
-        "available": MessageLookupByLibrary.simpleMessage("Available"),
-        "availableSession":
-            MessageLookupByLibrary.simpleMessage("Available session"),
+                "العربية وبعض التعابير باللغة الانجليزية"),
+        "areThereExercisesForBeginners":
+            MessageLookupByLibrary.simpleMessage("هل هناك تمارين للمبتدئين ؟"),
+        "areYouSure": MessageLookupByLibrary.simpleMessage("هل أنت متأكد؟"),
+        "at": MessageLookupByLibrary.simpleMessage("في"),
+        "available": MessageLookupByLibrary.simpleMessage("متاح"),
+        "availableSession": MessageLookupByLibrary.simpleMessage("جلسة متاحة"),
         "availableSessions":
-            MessageLookupByLibrary.simpleMessage("Available sessions"),
-        "back": MessageLookupByLibrary.simpleMessage("Back"),
-        "badRequest": MessageLookupByLibrary.simpleMessage("Bad request"),
-        "balance": MessageLookupByLibrary.simpleMessage("Balance"),
+            MessageLookupByLibrary.simpleMessage("الجلسات المتاحة"),
+        "back": MessageLookupByLibrary.simpleMessage("السابق"),
+        "badRequest": MessageLookupByLibrary.simpleMessage("طلب خاطئ"),
+        "balance": MessageLookupByLibrary.simpleMessage("رصيد"),
         "beforeTheNextExercise":
-            MessageLookupByLibrary.simpleMessage("before the next exercise"),
+            MessageLookupByLibrary.simpleMessage("قبل التمرين التالي"),
         "beforeTheNextSet":
-            MessageLookupByLibrary.simpleMessage("before the next set"),
-        "beginner": MessageLookupByLibrary.simpleMessage("Beginner"),
-        "birthDate": MessageLookupByLibrary.simpleMessage("Birth Date"),
-        "birthday": MessageLookupByLibrary.simpleMessage("birthday"),
-        "bodyWeight": MessageLookupByLibrary.simpleMessage("Body Weight"),
-        "bodybuilding": MessageLookupByLibrary.simpleMessage("Body building"),
-        "book": MessageLookupByLibrary.simpleMessage("Book"),
+            MessageLookupByLibrary.simpleMessage("قبل المجموعة التالية"),
+        "beginner": MessageLookupByLibrary.simpleMessage("مبتدئ "),
+        "birthDate": MessageLookupByLibrary.simpleMessage("تاريخ الميلاد"),
+        "birthday": MessageLookupByLibrary.simpleMessage("تاريخ الميلاد"),
+        "bodyWeight": MessageLookupByLibrary.simpleMessage("وزن الجسم"),
+        "bodybuilding": MessageLookupByLibrary.simpleMessage("بناء أجسام"),
+        "book": MessageLookupByLibrary.simpleMessage("حجز"),
         "bookPrivateSession":
-            MessageLookupByLibrary.simpleMessage("Book Private Session"),
-        "booked": MessageLookupByLibrary.simpleMessage("Booked"),
-        "bookmarked": MessageLookupByLibrary.simpleMessage("Bookmarked"),
+            MessageLookupByLibrary.simpleMessage("احجز جلسة خاصّة"),
+        "booked": MessageLookupByLibrary.simpleMessage("حجز"),
+        "bookmarked": MessageLookupByLibrary.simpleMessage("تم الحفظ"),
         "bookmarkedPlans":
-            MessageLookupByLibrary.simpleMessage("Bookmarked Plans"),
-        "buildMuscle": MessageLookupByLibrary.simpleMessage("Build muscle"),
-        "bundles": MessageLookupByLibrary.simpleMessage("Bundles"),
+            MessageLookupByLibrary.simpleMessage("البرامج المحتفظ بها"),
+        "buildMuscle": MessageLookupByLibrary.simpleMessage("بناء عضلات"),
+        "bundles": MessageLookupByLibrary.simpleMessage("الباقات"),
         "bySingingUpYouAreAgreeingToOur": MessageLookupByLibrary.simpleMessage(
-            "By signing up, you are agreeing to our policies"),
-        "cHOOSETIME": MessageLookupByLibrary.simpleMessage("CHOOSE TIME"),
-        "cURRENTBALANCE":
-            MessageLookupByLibrary.simpleMessage("CURRENT BALANCE"),
-        "calender": MessageLookupByLibrary.simpleMessage("Calender"),
+            "بتسجيل الدخول، تعتبر موافقاً على سياستنا"),
+        "cHOOSETIME": MessageLookupByLibrary.simpleMessage("اختر الوقت"),
+        "cURRENTBALANCE": MessageLookupByLibrary.simpleMessage("الرصيد الحالي"),
+        "calender": MessageLookupByLibrary.simpleMessage("تقويم"),
         "canIContactTheCoachDirectly": MessageLookupByLibrary.simpleMessage(
             "Can I contact the coach directly?"),
         "canISubscribeIfILiveOutsideSaudiArabia":
             MessageLookupByLibrary.simpleMessage(
-                "Can I Subscribe if I live outside Saudi Arabia?"),
+                "هل يمكنني الاشتراك إذا كنت أعيش خارج المملكة العربية السعودية ؟"),
         "canITryYourProgramsBeforeSubscribing":
             MessageLookupByLibrary.simpleMessage(
-                "Can I try your programs before subscribing?"),
-        "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
-        "cancelReason": MessageLookupByLibrary.simpleMessage("Cancel reason"),
+                "هل يمكنني تجربة برامجكم قبل الاشتراك ؟"),
+        "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
+        "cancelReason": MessageLookupByLibrary.simpleMessage("سبب الإلغاء"),
         "cancelRenewal": MessageLookupByLibrary.simpleMessage(
-            "Your subscription will NOT be renewed, you will be able to continue your fitness storm until your current subscription ends."),
+            "لن يتم تجديد اشتراكك، لكن بإمكانك الاستفادة وإكمال تمارينك حتى انتهاء دورة اشتراكك الحالية."),
         "cancelSubscription":
-            MessageLookupByLibrary.simpleMessage("Cancel Subscription"),
-        "canceled": MessageLookupByLibrary.simpleMessage("Canceled"),
-        "cardName": MessageLookupByLibrary.simpleMessage("Card Name"),
-        "cardNumber": MessageLookupByLibrary.simpleMessage("Card Number"),
-        "cart": MessageLookupByLibrary.simpleMessage("Cart"),
-        "cashPayment": MessageLookupByLibrary.simpleMessage("Cash Payment"),
-        "certificateOfCourseAttended": MessageLookupByLibrary.simpleMessage(
-            "Certificate Of Course Attended"),
+            MessageLookupByLibrary.simpleMessage("إلغاء الاشتراك"),
+        "canceled": MessageLookupByLibrary.simpleMessage("ملغى"),
+        "cardName": MessageLookupByLibrary.simpleMessage("اسم البطاقة"),
+        "cardNumber": MessageLookupByLibrary.simpleMessage("رقم البطاقة"),
+        "cart": MessageLookupByLibrary.simpleMessage("عربة التسوق"),
+        "cashPayment": MessageLookupByLibrary.simpleMessage("الدفع نقدًا"),
+        "certificateOfCourseAttended":
+            MessageLookupByLibrary.simpleMessage("شهادة حضور الدورة"),
         "certificateOfGraduation":
-            MessageLookupByLibrary.simpleMessage("Certificate Of Graduation"),
-        "change": MessageLookupByLibrary.simpleMessage("Change"),
-        "changeAddress": MessageLookupByLibrary.simpleMessage("Change Address"),
-        "changeEmail": MessageLookupByLibrary.simpleMessage("Change Email"),
-        "changeName": MessageLookupByLibrary.simpleMessage("Change Name"),
-        "changePass": MessageLookupByLibrary.simpleMessage("Change Password"),
+            MessageLookupByLibrary.simpleMessage("شهادة التخرج"),
+        "change": MessageLookupByLibrary.simpleMessage("تغيير"),
+        "changeAddress": MessageLookupByLibrary.simpleMessage("تغيير العنوان"),
+        "changeEmail":
+            MessageLookupByLibrary.simpleMessage("تغيير البريد الإلكتروني "),
+        "changeName": MessageLookupByLibrary.simpleMessage("تغيير الاسم"),
+        "changePass": MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
         "changePassword":
-            MessageLookupByLibrary.simpleMessage("Change Password"),
-        "changePhone":
-            MessageLookupByLibrary.simpleMessage("Change Phone Number"),
-        "chat": MessageLookupByLibrary.simpleMessage("Chat"),
-        "checkOur": MessageLookupByLibrary.simpleMessage("Check our"),
+            MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
+        "changePhone": MessageLookupByLibrary.simpleMessage("تغيير رقم الهاتف"),
+        "chat": MessageLookupByLibrary.simpleMessage("المحادثات"),
+        "checkOur": MessageLookupByLibrary.simpleMessage("ألقي نظرة"),
         "checkYourEmail":
-            MessageLookupByLibrary.simpleMessage("Check Your Email"),
-        "chooseAPlan": MessageLookupByLibrary.simpleMessage("Choose a Plan"),
-        "city": MessageLookupByLibrary.simpleMessage("City"),
+            MessageLookupByLibrary.simpleMessage("تحقق من بريدك الالكتروني"),
+        "chooseAPlan": MessageLookupByLibrary.simpleMessage("اختر البرنامج"),
+        "city": MessageLookupByLibrary.simpleMessage("المدينة"),
         "codeInvalid":
-            MessageLookupByLibrary.simpleMessage("This Code Is Invalid CODE"),
+            MessageLookupByLibrary.simpleMessage("هذا الرمز غير صالح"),
         "codeSentToEmail": MessageLookupByLibrary.simpleMessage(
-            "Confirmation code sent to email: "),
-        "color": MessageLookupByLibrary.simpleMessage("Color"),
-        "colors": MessageLookupByLibrary.simpleMessage("Colors"),
-        "completed": MessageLookupByLibrary.simpleMessage("Completed"),
-        "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
-        "confirmAddress":
-            MessageLookupByLibrary.simpleMessage("Confirm Address"),
-        "confirmCode":
-            MessageLookupByLibrary.simpleMessage("Enter Confirmation Code"),
+            "تم إرسال رمز التأكيد إلى البريد الإلكتروني: "),
+        "color": MessageLookupByLibrary.simpleMessage("اللون"),
+        "colors": MessageLookupByLibrary.simpleMessage("الألوان"),
+        "completed": MessageLookupByLibrary.simpleMessage("مكتمل"),
+        "confirm": MessageLookupByLibrary.simpleMessage("تأكيد"),
+        "confirmAddress": MessageLookupByLibrary.simpleMessage("تأكيد العنوان"),
+        "confirmCode": MessageLookupByLibrary.simpleMessage("أدخل رمز التأكيد"),
         "confirmMethod": MessageLookupByLibrary.simpleMessage(
-            "Please Choose How You Would Like To Send The Verification Code"),
+            "يرجى اختيار كيفية إرسال رمز التحقق"),
         "confirmNewPassword":
-            MessageLookupByLibrary.simpleMessage("confirm New Password"),
-        "confirmPassword":
-            MessageLookupByLibrary.simpleMessage("confirm password"),
+            MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور الجديدة"),
+        "confirmPassword": MessageLookupByLibrary.simpleMessage(
+            "Confirm Password تأكيد كلمة المرور"),
         "confirmPasswordDoesNotMatchPassword":
             MessageLookupByLibrary.simpleMessage(
-                "Confirm password does not match password"),
-        "confirmPasswordIsRequired": MessageLookupByLibrary.simpleMessage(
-            "Confirm Password Is Required"),
-        "confirmation": MessageLookupByLibrary.simpleMessage("Confirmation"),
-        "congrats": MessageLookupByLibrary.simpleMessage("Congrats"),
+                "تأكيد كلمة المرور لا تطابق كلمة المرور"),
+        "confirmPasswordIsRequired":
+            MessageLookupByLibrary.simpleMessage("تأكيد كلمة السر مطلوبة"),
+        "confirmation": MessageLookupByLibrary.simpleMessage("تأكيد"),
+        "congrats": MessageLookupByLibrary.simpleMessage("تهانينا"),
         "congratulations": MessageLookupByLibrary.simpleMessage(
-            "Congratulations on taking the first step towards your fitness journey with Fitness Storm. Now that you\"ve subscribed, you have access to all of our resources. Choose a plan and let\"s get started!"),
+            "تهانينا على اتخاذ الخطوة الأولى نحو رحلة اللياقة البدنية مع Fitness Storm. الآن بعد أن اشتركت، لديك إمكانية الوصول إلى جميع برامجنا. اختر برنامجك المفضل وابدأ الآن !"),
         "connectionRequestTimeout":
-            MessageLookupByLibrary.simpleMessage("Connection request timeout"),
-        "contact": MessageLookupByLibrary.simpleMessage("Contact Us"),
-        "contactUs": MessageLookupByLibrary.simpleMessage("Contact Us"),
+            MessageLookupByLibrary.simpleMessage("خطأ في الاتصال"),
+        "contact": MessageLookupByLibrary.simpleMessage("اتصل بنا"),
+        "contactUs": MessageLookupByLibrary.simpleMessage("اتصل بنا"),
         "continueSignUp":
-            MessageLookupByLibrary.simpleMessage("Continue Sign Up"),
-        "continueTo": MessageLookupByLibrary.simpleMessage("Continue"),
+            MessageLookupByLibrary.simpleMessage("متابعة التسجيل"),
+        "continueTo": MessageLookupByLibrary.simpleMessage("متابعة"),
         "continueTraining":
-            MessageLookupByLibrary.simpleMessage("Continue Training"),
-        "country": MessageLookupByLibrary.simpleMessage("Country"),
-        "coupon": MessageLookupByLibrary.simpleMessage("Coupon Code"),
-        "couponCode": MessageLookupByLibrary.simpleMessage("Coupon Code"),
-        "createAccount": MessageLookupByLibrary.simpleMessage("Create Account"),
-        "currency": MessageLookupByLibrary.simpleMessage("Currency"),
+            MessageLookupByLibrary.simpleMessage("متابعة التمرين"),
+        "country": MessageLookupByLibrary.simpleMessage("البلد"),
+        "coupon": MessageLookupByLibrary.simpleMessage("كود الخصم"),
+        "couponCode": MessageLookupByLibrary.simpleMessage("رمز القسيمة"),
+        "createAccount": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
+        "currency": MessageLookupByLibrary.simpleMessage("العملة"),
         "currentPassword":
-            MessageLookupByLibrary.simpleMessage("Current Password"),
-        "currentPlan": MessageLookupByLibrary.simpleMessage("Current Plan"),
-        "customerService":
-            MessageLookupByLibrary.simpleMessage("Customer Service"),
+            MessageLookupByLibrary.simpleMessage("كلمة المرور الحالية"),
+        "currentPlan": MessageLookupByLibrary.simpleMessage("البرنامج الحالي"),
+        "customerService": MessageLookupByLibrary.simpleMessage("خدمة العملاء"),
         "customerServices":
-            MessageLookupByLibrary.simpleMessage("Customer Services"),
-        "cv": MessageLookupByLibrary.simpleMessage("CV"),
-        "cvc": MessageLookupByLibrary.simpleMessage("Cvc"),
-        "day": MessageLookupByLibrary.simpleMessage("Day"),
-        "day4": MessageLookupByLibrary.simpleMessage("Day 4 "),
-        "days": MessageLookupByLibrary.simpleMessage("Days"),
-        "daysWeek": MessageLookupByLibrary.simpleMessage("Days/Week"),
-        "deleteAccount": MessageLookupByLibrary.simpleMessage("Delete Account"),
-        "deliveryDate": MessageLookupByLibrary.simpleMessage("Delivery Date"),
-        "description": MessageLookupByLibrary.simpleMessage("Description"),
+            MessageLookupByLibrary.simpleMessage("خدمة العملاء"),
+        "cv": MessageLookupByLibrary.simpleMessage("السيرة الذاتية"),
+        "cvc": MessageLookupByLibrary.simpleMessage("رمز CVC"),
+        "day": MessageLookupByLibrary.simpleMessage("اليوم"),
+        "day4": MessageLookupByLibrary.simpleMessage("اليوم 4 "),
+        "days": MessageLookupByLibrary.simpleMessage("أيام"),
+        "daysWeek":
+            MessageLookupByLibrary.simpleMessage("أيام التدريب في الأسبوع"),
+        "deleteAccount": MessageLookupByLibrary.simpleMessage("حذف الحساب"),
+        "deliveryDate": MessageLookupByLibrary.simpleMessage("تاريخ التسليم"),
+        "description": MessageLookupByLibrary.simpleMessage("الوصف"),
         "didNotHaveNotifications": MessageLookupByLibrary.simpleMessage(
-            "You don\"t have any notifications Yet! \nStart your Fitness Storm and we will remind you here with your important sessions"),
+            "ليس لديك أي إشعارات بعد! ابدأ الآن وسنذكرك هنا بجلساتك المهمة"),
         "didNotStartYourFitness": MessageLookupByLibrary.simpleMessage(
-            "You didn\"t Start your Fitness Storm Yet! Choose a plan and watch the change in your life."),
+            "لم تبدأ بعد! اختر برنامجك الرياضى الآن وشاهد التغيير في حياتك."),
         "didYouFinishYourTraining": MessageLookupByLibrary.simpleMessage(
-            "Did you finish your training? press Done to save your progress to your records."),
-        "doYouHaveAnyQuestionInYourMind": MessageLookupByLibrary.simpleMessage(
-            "Do you have any question in your mind?"),
-        "done": MessageLookupByLibrary.simpleMessage("Done"),
-        "doneCanceled": MessageLookupByLibrary.simpleMessage("Order Canceled"),
+            "هل أنهيت تمارينك اليوم؟ اختر نعم ليتم حفظ تقدمك في السجل."),
+        "doYouHaveAnyQuestionInYourMind":
+            MessageLookupByLibrary.simpleMessage("هل لديك أي أسئلة؟"),
+        "done": MessageLookupByLibrary.simpleMessage("نعم"),
+        "doneCanceled": MessageLookupByLibrary.simpleMessage("تم إلغاء الطلب"),
         "doneCompleted":
-            MessageLookupByLibrary.simpleMessage("Order Completed"),
-        "donePaymentFailed":
-            MessageLookupByLibrary.simpleMessage(" PaymentFailed"),
-        "donePending": MessageLookupByLibrary.simpleMessage("Order Created"),
+            MessageLookupByLibrary.simpleMessage("تم استكمال الطلب"),
+        "donePaymentFailed": MessageLookupByLibrary.simpleMessage("فشل الدفع"),
+        "donePending": MessageLookupByLibrary.simpleMessage("تم إنشاء الطلب"),
         "doneProcessing":
-            MessageLookupByLibrary.simpleMessage("Order Processed"),
-        "doneReady": MessageLookupByLibrary.simpleMessage("Order Was Ready"),
+            MessageLookupByLibrary.simpleMessage("تم معالجة الطلب"),
+        "doneReady": MessageLookupByLibrary.simpleMessage("الطلب جاهز"),
         "doneResendCode":
-            MessageLookupByLibrary.simpleMessage("Done resend code"),
-        "doneReturned": MessageLookupByLibrary.simpleMessage("Order Returned"),
-        "doneShipping": MessageLookupByLibrary.simpleMessage("Order Shipped"),
+            MessageLookupByLibrary.simpleMessage("تم إعادة إرسال الرمز"),
+        "doneReturned": MessageLookupByLibrary.simpleMessage("تم إرجاع الطلب"),
+        "doneShipping": MessageLookupByLibrary.simpleMessage("تم شحن الطلب"),
         "downloadInvoice":
-            MessageLookupByLibrary.simpleMessage("Download Invoice"),
+            MessageLookupByLibrary.simpleMessage("تحميل الفاتورة"),
         "dynamicTraining":
-            MessageLookupByLibrary.simpleMessage("Dynamic Training"),
-        "ePayment": MessageLookupByLibrary.simpleMessage("E-Payment"),
-        "editProfile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
-        "email": MessageLookupByLibrary.simpleMessage("Email"),
+            MessageLookupByLibrary.simpleMessage("تدريب ديناميكي"),
+        "ePayment": MessageLookupByLibrary.simpleMessage("الدفع الإلكتروني"),
+        "editProfile":
+            MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),
+        "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
         "emailEmpty":
-            MessageLookupByLibrary.simpleMessage("Email field is required"),
+            MessageLookupByLibrary.simpleMessage("حقل البريد الإلكتروني مطلوب"),
         "emailIsRequired":
-            MessageLookupByLibrary.simpleMessage("Email Is Required"),
-        "emailOrPhone": MessageLookupByLibrary.simpleMessage("Email"),
+            MessageLookupByLibrary.simpleMessage("البريد الإلكتروني مطلوب"),
+        "emailOrPhone": MessageLookupByLibrary.simpleMessage(
+            "البريد الإلكتروني أو رقم الهاتف"),
         "emailVerification":
-            MessageLookupByLibrary.simpleMessage("Email Verification"),
-        "emptyCart": MessageLookupByLibrary.simpleMessage(
-            "Sorry, There Are \nNo Requests"),
-        "emptyFav": MessageLookupByLibrary.simpleMessage(
-            "Sorry, There Are \nNo Requests"),
-        "emptyNotifications": MessageLookupByLibrary.simpleMessage(
-            "Sorry, There Are \nNo Notifications"),
-        "emptyOffers": MessageLookupByLibrary.simpleMessage(
-            "Sorry, There Are \nNo Offers"),
-        "emptyOrders": MessageLookupByLibrary.simpleMessage(
-            "Sorry, There Are \nNo Orders"),
-        "emptySearch": MessageLookupByLibrary.simpleMessage(
-            "Sorry, Your Search Is \nNot Available"),
+            MessageLookupByLibrary.simpleMessage(" تأكيد البريد الإلكتروني "),
+        "emptyCart":
+            MessageLookupByLibrary.simpleMessage("عذرًا ، لا توجد طلبات"),
+        "emptyFav":
+            MessageLookupByLibrary.simpleMessage("عذرًا ، لا توجد طلبات"),
+        "emptyNotifications":
+            MessageLookupByLibrary.simpleMessage("عذرًا ، لا توجد إشعارات"),
+        "emptyOffers":
+            MessageLookupByLibrary.simpleMessage("عذرًا ، لا توجد عروض"),
+        "emptyOrders":
+            MessageLookupByLibrary.simpleMessage("عذرًا ، لا توجد طلبات"),
+        "emptySearch":
+            MessageLookupByLibrary.simpleMessage("عذرًا ، بحثك غير متوفر"),
         "enjoyYourFitnessStorm":
-            MessageLookupByLibrary.simpleMessage("Enjoy your Fitness Storm."),
-        "enterEmailAddress":
-            MessageLookupByLibrary.simpleMessage("Enter Email Address"),
+            MessageLookupByLibrary.simpleMessage("استمتع بتجربتك معنا"),
+        "enterEmailAddress": MessageLookupByLibrary.simpleMessage(
+            "أدخل عنوان البريد الإلكتروني"),
         "enterNewPassword":
-            MessageLookupByLibrary.simpleMessage("Enter New Password"),
+            MessageLookupByLibrary.simpleMessage("أدخل كلمة مرور جديدة"),
         "enterNewPasswordAndConfirm": MessageLookupByLibrary.simpleMessage(
-            "Enter New Password And Confirm."),
+            "أدخل كلمة المرور الجديدة وتأكيدها."),
         "enterOTP":
-            MessageLookupByLibrary.simpleMessage("Enter Your OTP Code Here."),
-        "enterPassword": MessageLookupByLibrary.simpleMessage("Enter Password"),
-        "enterYourName":
-            MessageLookupByLibrary.simpleMessage("Enter Your Name"),
+            MessageLookupByLibrary.simpleMessage("أدخل رمز OTP الخاص بك هنا"),
+        "enterPassword":
+            MessageLookupByLibrary.simpleMessage("أدخل كلمة المرور"),
+        "enterYourName": MessageLookupByLibrary.simpleMessage("أدخل الاسم"),
         "errorDueToAConflict":
-            MessageLookupByLibrary.simpleMessage("Error due to a conflict"),
-        "estimatedFor": MessageLookupByLibrary.simpleMessage("Estimated For"),
-        "exercise": MessageLookupByLibrary.simpleMessage("Exercise"),
-        "expiration": MessageLookupByLibrary.simpleMessage("Expiration"),
-        "fAQ": MessageLookupByLibrary.simpleMessage("FAQ"),
-        "fAQs": MessageLookupByLibrary.simpleMessage("FAQs"),
-        "fITNESSLEVEL": MessageLookupByLibrary.simpleMessage("FITNESS LEVEL"),
-        "failure": MessageLookupByLibrary.simpleMessage("Failure"),
-        "faq": MessageLookupByLibrary.simpleMessage("F.A.q"),
-        "fav": MessageLookupByLibrary.simpleMessage("Favorites"),
-        "female": MessageLookupByLibrary.simpleMessage("Female"),
-        "filter": MessageLookupByLibrary.simpleMessage("Filter"),
-        "filters": MessageLookupByLibrary.simpleMessage("Filters"),
-        "finish": MessageLookupByLibrary.simpleMessage("FINISH"),
-        "finishedThisDay": MessageLookupByLibrary.simpleMessage(
-            "User already finished this day"),
-        "firstName": MessageLookupByLibrary.simpleMessage("first name"),
+            MessageLookupByLibrary.simpleMessage("خطأ نتيجة تضارب في الخادم"),
+        "estimatedFor": MessageLookupByLibrary.simpleMessage("متوقع لـ"),
+        "exercise": MessageLookupByLibrary.simpleMessage("تدريب"),
+        "expiration": MessageLookupByLibrary.simpleMessage("انتهاء الصلاحية"),
+        "fAQ": MessageLookupByLibrary.simpleMessage("الأسئلة الشائعة"),
+        "fAQs": MessageLookupByLibrary.simpleMessage("الأسئلة الشائعة"),
+        "fITNESSLEVEL": MessageLookupByLibrary.simpleMessage("مستوى لياقتك"),
+        "failure": MessageLookupByLibrary.simpleMessage("فشلت العملية"),
+        "faq": MessageLookupByLibrary.simpleMessage("الأسئلة الشائعة"),
+        "fav": MessageLookupByLibrary.simpleMessage("المفضلة"),
+        "female": MessageLookupByLibrary.simpleMessage("أنثى"),
+        "filter": MessageLookupByLibrary.simpleMessage("فلاتر البحث"),
+        "filters": MessageLookupByLibrary.simpleMessage("الفلاتر"),
+        "finish": MessageLookupByLibrary.simpleMessage("تم"),
+        "finishedThisDay":
+            MessageLookupByLibrary.simpleMessage("لقد أنهيت تدريب هذا اليوم"),
+        "firstName": MessageLookupByLibrary.simpleMessage("الاسم الأول"),
         "fitnessStormMessage": MessageLookupByLibrary.simpleMessage(
-            "Fitness Storm is a spirited application encouraging people to exercise anywhere and anytime and have the look they have always dreamed of.\nWhether you are a beginner or a pro, Fitness Storm gives you a golden chance to train with world class trainers through HD step-by-step instructional videos.\nLose weight, build muscle, and stay fit easily with the correct workouts and many effective training programs, designed by your favorite fitness experts. Sign up, answer a few questions, subscribe to one of our programs for 3 months, 6 months or 12 months and let us recommend the best plans that fits you. Get inspired with our amazing trainers and work out daily with step-by-step HD video instruction.\nNot convinced yet? To make every minute you train, play and compete – count, one to one session a unique program will be offered at fitness storm . If you want a more individualized approach to achieve the weight-loss, health, strength, injury prevention, or performance goals you have set for yourself, this program is designed for you where you can have a personal coach/dietitian  focusing on reaching your individual goals.\nIt is time to be stronger, healthier, and happier than ever before with Fitness Storm!"),
-        "fitnessSurvey": MessageLookupByLibrary.simpleMessage("Fitness Survey"),
-        "flashDeal": MessageLookupByLibrary.simpleMessage("Flash Deal"),
-        "folloAlong": MessageLookupByLibrary.simpleMessage("Follow Along"),
+            "Fitness Storm هو تطبيق مفعم بالحيوية يشجع الناس على ممارسة الرياضة في أي مكان وزمان والحصول على المظهر الذي طالما حلموا به. سواء كنت مبتدئا أو محترفا ، تمنحك Fitness Storm فرصة ذهبية للتدريب مع مدربين عالميين من خلال مقاطع فيديو تعليمية عالية الدقة خطوة بخطوة. انقاص وزنك ، وقم ببناء العضلات ، وحافظ على لياقتك بسهولة من خلال التدريبات الصحيحة والعديد من برامج التدريب الفعالة ، التي صممها خبراء اللياقة البدنية المفضلون لديك.  اشترك ، أجب عن بعض الأسئلة ، اشترك في أحد برامجنا لمدة 3 أشهر أو 6 أشهر أو 12 شهرا ودعنا نوصي بأفضل البرامج التي تناسبك. احصل على الإلهام مع مدربينا المذهلين ومارس التمارين يوميا من خلال تعليمات الفيديو عالية الدقة خطوة بخطوة. غير مقتنع بعد؟ لجعل كل دقيقة تتدرب فيها وتلعب وتتنافس - عد ، جلسة واحدة إلى جلسة واحدة سيتم تقديم برنامج فريد في عاصفة اللياقة البدنية. إذا كنت ترغب في اتباع نهج أكثر فردية لتحقيق أهداف إنقاص الوزن أو الصحة أو القوة أو الوقاية من الإصابات أو الأداء التي حددتها لنفسك ، فقد تم تصميم هذا البرنامج لك حيث يمكنك الحصول على مدرب شخصي / اختصاصي تغذية يركز على الوصول إلى أهدافك الفردية. حان الوقت لتكون أقوى وأكثر صحة وسعادة من أي وقت مضى مع Fitness Storm!"),
+        "fitnessSurvey": MessageLookupByLibrary.simpleMessage("إحصائية بدنية"),
+        "flashDeal": MessageLookupByLibrary.simpleMessage("صفقة سريعة"),
+        "folloAlong": MessageLookupByLibrary.simpleMessage("متابعة مع المدرّب"),
         "forgetPassword":
-            MessageLookupByLibrary.simpleMessage("Forgot Password?"),
+            MessageLookupByLibrary.simpleMessage("نسيت كلمة السر؟"),
         "forgotPassword":
-            MessageLookupByLibrary.simpleMessage("Forgot Password ?"),
-        "fullName": MessageLookupByLibrary.simpleMessage("Full Name"),
+            MessageLookupByLibrary.simpleMessage("هل نسيت كلمة السر ؟"),
+        "fullName": MessageLookupByLibrary.simpleMessage("الاسم الكامل"),
         "fullyBooked":
-            MessageLookupByLibrary.simpleMessage("This Coach is Fully Booked!"),
+            MessageLookupByLibrary.simpleMessage("هذا المدرب محجوز بالكامل!"),
         "functionalTraining":
-            MessageLookupByLibrary.simpleMessage("Functional Training"),
-        "gender": MessageLookupByLibrary.simpleMessage("Gender"),
+            MessageLookupByLibrary.simpleMessage("تدريب وظيفي"),
+        "gender": MessageLookupByLibrary.simpleMessage("الجنس"),
         "globalKeysReparent": MessageLookupByLibrary.simpleMessage(
-            "Widgets that have global keys reparent\ntheir subtrees when they are moved from one\nlocation in the tree to another location in \"\nthe tree. In order to reparent its subtree, \na widget must arrive at its new location in \nthe tree in the same animation frame in \nwhich it was removed from its old location \nthe tree."),
-        "governor": MessageLookupByLibrary.simpleMessage("governor"),
-        "greatJob": MessageLookupByLibrary.simpleMessage("Great Job!"),
-        "gym": MessageLookupByLibrary.simpleMessage("Gym"),
-        "handsFree": MessageLookupByLibrary.simpleMessage("Hands-Free"),
-        "haveBeenCreated": MessageLookupByLibrary.simpleMessage(
-            "Your Account Had Been Created"),
-        "height": MessageLookupByLibrary.simpleMessage("Height"),
+            "تمثل الودجات التي تحتوي على مفاتيح عالمية شرائطها الفرعية عند نقلها من موقع واحد في الشجرة إلى موقع آخر في الشجرة. من أجل إعادة رسم خبرتها الفرعية، يجب أن تصل الأداة إلى موقعها الجديد في الشجرة في نفس إطار الرسوم المتحركة الذي تمت فيه إزالتها من موقعها القديم الشجرة."),
+        "governor": MessageLookupByLibrary.simpleMessage("المحافظة"),
+        "greatJob": MessageLookupByLibrary.simpleMessage("أحسنت صنعا!"),
+        "gym": MessageLookupByLibrary.simpleMessage("النادي"),
+        "handsFree":
+            MessageLookupByLibrary.simpleMessage("بدون استخدام اليدين"),
+        "haveBeenCreated":
+            MessageLookupByLibrary.simpleMessage("تم إنشاء حسابك"),
+        "height": MessageLookupByLibrary.simpleMessage("الطول"),
         "helperPhoneText":
-            MessageLookupByLibrary.simpleMessage("start with 07 and 11 digit"),
-        "hight": MessageLookupByLibrary.simpleMessage("Height"),
+            MessageLookupByLibrary.simpleMessage("ابدأ بـ 07 وبـ 11 رقمًا"),
+        "hight": MessageLookupByLibrary.simpleMessage("الطول"),
         "hightFieldIsRequire":
-            MessageLookupByLibrary.simpleMessage("Height Field is Require"),
-        "hiitTraining": MessageLookupByLibrary.simpleMessage("HIIT Training"),
-        "home": MessageLookupByLibrary.simpleMessage("Home"),
-        "homeAddress": MessageLookupByLibrary.simpleMessage("Home Address"),
-        "hours": MessageLookupByLibrary.simpleMessage("Hours"),
-        "hoursDay": MessageLookupByLibrary.simpleMessage("Hours/Day"),
-        "howCanISubscribeAndPay": MessageLookupByLibrary.simpleMessage(
-            "How can I subscribe and pay?"),
+            MessageLookupByLibrary.simpleMessage("حقل الطول مطلوب"),
+        "hiitTraining": MessageLookupByLibrary.simpleMessage("تدريب HIIT"),
+        "home": MessageLookupByLibrary.simpleMessage("المنزل"),
+        "homeAddress": MessageLookupByLibrary.simpleMessage("عنوان المنزل"),
+        "hours": MessageLookupByLibrary.simpleMessage("ساعات"),
+        "hoursDay":
+            MessageLookupByLibrary.simpleMessage("عدد الساعات في اليوم"),
+        "howCanISubscribeAndPay":
+            MessageLookupByLibrary.simpleMessage("كيف يمكنني الاشتراك والدفع؟"),
         "howManyYouTrainingFieldIsRequire":
-            MessageLookupByLibrary.simpleMessage(
-                "How many training days field is required"),
+            MessageLookupByLibrary.simpleMessage("كم عدد أيام التدريب مطلوب"),
         "howOftenDoYouExercise":
-            MessageLookupByLibrary.simpleMessage("How often do you exercise?"),
+            MessageLookupByLibrary.simpleMessage("كم مرة تتدرب عادةً ؟"),
         "iLlComeBackLater":
-            MessageLookupByLibrary.simpleMessage("I\"ll come back later"),
-        "inCm": MessageLookupByLibrary.simpleMessage("in Cm"),
-        "inKg": MessageLookupByLibrary.simpleMessage("in Kg"),
-        "income": MessageLookupByLibrary.simpleMessage("Income"),
-        "intermediate": MessageLookupByLibrary.simpleMessage("Intermediate"),
+            MessageLookupByLibrary.simpleMessage("سأنهيها لاحقاّ"),
+        "inCm": MessageLookupByLibrary.simpleMessage("بالسنتيمتر"),
+        "inKg": MessageLookupByLibrary.simpleMessage("بالكيلوغرام"),
+        "income": MessageLookupByLibrary.simpleMessage("دخل"),
+        "intermediate": MessageLookupByLibrary.simpleMessage("متوسط"),
         "internalServerError":
-            MessageLookupByLibrary.simpleMessage("Internal Server Error"),
-        "invalidEmail": MessageLookupByLibrary.simpleMessage("Invalid Email"),
+            MessageLookupByLibrary.simpleMessage("خطأ في الخادم"),
+        "invalidEmail":
+            MessageLookupByLibrary.simpleMessage("بريد إلكتروني غير صالح"),
         "invalidPhone":
-            MessageLookupByLibrary.simpleMessage("Invalid Phone Number"),
-        "isRequired": MessageLookupByLibrary.simpleMessage("Required"),
+            MessageLookupByLibrary.simpleMessage("رقم جوال غير صالح"),
+        "isRequired": MessageLookupByLibrary.simpleMessage("مطلوب"),
         "itIsADynamicApplicationInBothArabic": MessageLookupByLibrary.simpleMessage(
-            "\nIt is a dynamic application in both Arabic and English languages that gives you a chance to train with world class trainers through HD step-by-step instructional videos.\n"),
+            "إنه تطبيق ديناميكي باللغتين العربية والإنجليزية يمنحك فرصة للتدريب مع مدربين عالميين من خلال مقاطع فيديو تعليمية عالية الدقة خطوة بخطوة."),
         "itIsAdvisable": MessageLookupByLibrary.simpleMessage(
-            "It is advisable to cancel any existing subscription prior to initiating a new one"),
-        "itsNotTimeForTheCallYet": MessageLookupByLibrary.simpleMessage(
-            "It\"s not time for the call yet"),
+            "برجاء إلغاء أي اشتراك موجود قبل بدء اشتراك جديد"),
+        "itsNotTimeForTheCallYet":
+            MessageLookupByLibrary.simpleMessage("«لم يحن وقت المكالمة بعد»"),
         "joinFitnessStormForPersonalized": MessageLookupByLibrary.simpleMessage(
-            "11+ PLANS\n13+TRAINERS\nUNLIMITED ACCESS "),
+            "أكثر من ١١ برنامج رياضى\nأكثر من ١٣ مدرب\n اشتراك غير محدود على جميع البرامج"),
         "joinUsAsATrainer":
-            MessageLookupByLibrary.simpleMessage("Join us as a Trainer"),
-        "lEVEL": MessageLookupByLibrary.simpleMessage("LEVEL"),
-        "lOCATION": MessageLookupByLibrary.simpleMessage("LOCATION"),
-        "lang": MessageLookupByLibrary.simpleMessage("Language"),
-        "language": MessageLookupByLibrary.simpleMessage("Language"),
-        "lastMessage": MessageLookupByLibrary.simpleMessage("Last message"),
-        "lastName": MessageLookupByLibrary.simpleMessage("Last name"),
+            MessageLookupByLibrary.simpleMessage("انضم إلينا كمدرب"),
+        "lEVEL": MessageLookupByLibrary.simpleMessage("المستوى"),
+        "lOCATION": MessageLookupByLibrary.simpleMessage("العنوان"),
+        "lang": MessageLookupByLibrary.simpleMessage("اللغة"),
+        "language": MessageLookupByLibrary.simpleMessage("اللغة"),
+        "lastMessage": MessageLookupByLibrary.simpleMessage("الرسالة الأخيرة"),
+        "lastName": MessageLookupByLibrary.simpleMessage("الاسم الأخير"),
         "lateralRoeeetMedialLateral": MessageLookupByLibrary.simpleMessage(
-            "Shoulder Medial Lateral Roeeet Medial Lateral"),
-        "letsGo": MessageLookupByLibrary.simpleMessage("Let\"s Go"),
-        "likeThisSession": MessageLookupByLibrary.simpleMessage(
-            "Did you like this Session ? "),
-        "likeThisWorkoutPlan": MessageLookupByLibrary.simpleMessage(
-            "Did you like this workout plan ? "),
-        "loadFailedClickRetry":
-            MessageLookupByLibrary.simpleMessage("Load Failed!Click retry!"),
-        "location": MessageLookupByLibrary.simpleMessage("Location"),
-        "login": MessageLookupByLibrary.simpleMessage("Login"),
-        "logout": MessageLookupByLibrary.simpleMessage("Logout"),
-        "loseWeight": MessageLookupByLibrary.simpleMessage("Lose weight"),
+            "الكتف الإنسي الجانبي رويت الإنسي الجانبي"),
+        "letsGo": MessageLookupByLibrary.simpleMessage("هيا نبدأ"),
+        "likeThisSession":
+            MessageLookupByLibrary.simpleMessage("هل أعجبتك هذه الجلسة؟ "),
+        "likeThisWorkoutPlan":
+            MessageLookupByLibrary.simpleMessage("هل أعجبتك هذا البرنامج؟ "),
+        "loadFailedClickRetry": MessageLookupByLibrary.simpleMessage(
+            "فشل التحميل! يرجى المحاولة مرة أخرى"),
+        "location": MessageLookupByLibrary.simpleMessage("الموقع"),
+        "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+        "logout": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
+        "loseWeight": MessageLookupByLibrary.simpleMessage("خسارة الوزن"),
         "makeChat": MessageLookupByLibrary.simpleMessage(
-            "You should be subscribed with this coach in particular to have a conversation"),
-        "male": MessageLookupByLibrary.simpleMessage("Male"),
-        "max": MessageLookupByLibrary.simpleMessage("Max"),
-        "methodAllowed": MessageLookupByLibrary.simpleMessage("Method Allowed"),
-        "min": MessageLookupByLibrary.simpleMessage("Min"),
-        "minute": MessageLookupByLibrary.simpleMessage("minute"),
-        "minutes": MessageLookupByLibrary.simpleMessage("Minutes"),
-        "mobile": MessageLookupByLibrary.simpleMessage("Mobile"),
+            "يجب أن تكون مشتركًا مع هذا المدرب على وجه الخصوص لإجراء محادثة"),
+        "male": MessageLookupByLibrary.simpleMessage("ذكر"),
+        "max": MessageLookupByLibrary.simpleMessage("الحد الأقصى"),
+        "methodAllowed":
+            MessageLookupByLibrary.simpleMessage("الطريقة المسموح بها"),
+        "min": MessageLookupByLibrary.simpleMessage("الحد الأدنى"),
+        "minute": MessageLookupByLibrary.simpleMessage("دقيقة"),
+        "minutes": MessageLookupByLibrary.simpleMessage("دقائق"),
+        "mobile": MessageLookupByLibrary.simpleMessage("رقم الجوال"),
         "mobilityTraining":
-            MessageLookupByLibrary.simpleMessage("Mobility Training"),
-        "month": MessageLookupByLibrary.simpleMessage("Month"),
-        "mostPopular": MessageLookupByLibrary.simpleMessage("Most Popularً"),
-        "myCalender": MessageLookupByLibrary.simpleMessage("My Calender"),
-        "myInfo": MessageLookupByLibrary.simpleMessage("My Info"),
-        "myLocation": MessageLookupByLibrary.simpleMessage("My Location"),
-        "myOrder": MessageLookupByLibrary.simpleMessage("My Orders"),
-        "myOrders": MessageLookupByLibrary.simpleMessage("My Orders"),
-        "myPayments": MessageLookupByLibrary.simpleMessage("My Payments"),
-        "myPlans": MessageLookupByLibrary.simpleMessage("My Plans"),
-        "myProfile": MessageLookupByLibrary.simpleMessage("My Profile"),
-        "nEXT": MessageLookupByLibrary.simpleMessage("NEXT"),
-        "name": MessageLookupByLibrary.simpleMessage("name"),
-        "nameEmpty":
-            MessageLookupByLibrary.simpleMessage("Name field is required"),
-        "nameIsRequired":
-            MessageLookupByLibrary.simpleMessage("Name Is Required"),
+            MessageLookupByLibrary.simpleMessage("التدريب على التنقل"),
+        "month": MessageLookupByLibrary.simpleMessage("الشهر"),
+        "mostPopular": MessageLookupByLibrary.simpleMessage("الأكثر شيوعاً"),
+        "myCalender": MessageLookupByLibrary.simpleMessage("تقويمي"),
+        "myInfo": MessageLookupByLibrary.simpleMessage("معلوماتي"),
+        "myLocation": MessageLookupByLibrary.simpleMessage("موقعي"),
+        "myOrder": MessageLookupByLibrary.simpleMessage("طلباتي"),
+        "myOrders": MessageLookupByLibrary.simpleMessage("طلباتي"),
+        "myPayments": MessageLookupByLibrary.simpleMessage("مدفوعاتي"),
+        "myPlans": MessageLookupByLibrary.simpleMessage("برامجى"),
+        "myProfile": MessageLookupByLibrary.simpleMessage("ملفي الشخصي"),
+        "nEXT": MessageLookupByLibrary.simpleMessage("التالي"),
+        "name": MessageLookupByLibrary.simpleMessage("الاسم"),
+        "nameEmpty": MessageLookupByLibrary.simpleMessage("حقل الاسم مطلوب"),
+        "nameIsRequired": MessageLookupByLibrary.simpleMessage("الاسم مطلوب"),
         "need11": MessageLookupByLibrary.simpleMessage(
-            "The Phone Number Is 11 Digits"),
+            "يجب أن يكون رقم الهاتف مؤلفًا من 11 رقمًا"),
         "need8": MessageLookupByLibrary.simpleMessage(
-            "The Password Is More Than 8 Letters And Numbers"),
+            "يجب أن تحتوي كلمة المرور على أكثر من 8 أحرف وأرقام"),
         "needBookPrivateSession": MessageLookupByLibrary.simpleMessage(
-            "You need to book an appointment to have a private session with the coach"),
-        "netTotal": MessageLookupByLibrary.simpleMessage("Net Total"),
-        "newArrival": MessageLookupByLibrary.simpleMessage("New Arrival"),
+            "يجب عليك حجز موعد للحصول على جلسة خاصة مع المدرب"),
+        "netTotal": MessageLookupByLibrary.simpleMessage("المبلغ بعد الخصم"),
+        "newArrival": MessageLookupByLibrary.simpleMessage("وصول جديد"),
         "newCheckEmail": MessageLookupByLibrary.simpleMessage(
-            "New Check Your Email For\nConfirmation Link"),
-        "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
-        "next": MessageLookupByLibrary.simpleMessage("Next"),
-        "nextPayment": MessageLookupByLibrary.simpleMessage("NEXT PAYMENT"),
-        "nextSession": MessageLookupByLibrary.simpleMessage("Next Session"),
-        "nextUp": MessageLookupByLibrary.simpleMessage("Next Up"),
+            "تحقق من بريدك الإلكتروني للحصول على رابط التأكيد الجديد"),
+        "newPassword":
+            MessageLookupByLibrary.simpleMessage("كلمة المرور الجديدة"),
+        "next": MessageLookupByLibrary.simpleMessage("التالي"),
+        "nextPayment": MessageLookupByLibrary.simpleMessage("الدفعة التالية"),
+        "nextSession": MessageLookupByLibrary.simpleMessage("الجلسة القادمة"),
+        "nextUp": MessageLookupByLibrary.simpleMessage("التالي"),
         "noAvailableSessions":
-            MessageLookupByLibrary.simpleMessage("No available sessions"),
+            MessageLookupByLibrary.simpleMessage("لا يوجد جلسات متاحة"),
         "noCurrentPlan":
-            MessageLookupByLibrary.simpleMessage("No Current Plan"),
+            MessageLookupByLibrary.simpleMessage("لا يوجد خطّة حالية"),
         "noInternet": MessageLookupByLibrary.simpleMessage(
-            "Please check your internet connection"),
+            "يرجى التحقق من اتصالك بالإنترنت"),
         "noInternetConnection":
-            MessageLookupByLibrary.simpleMessage("No internet connection"),
-        "noMoreData": MessageLookupByLibrary.simpleMessage("No more Data"),
-        "noName": MessageLookupByLibrary.simpleMessage("No Name"),
-        "noPlansFound": MessageLookupByLibrary.simpleMessage("No Plans Found"),
+            MessageLookupByLibrary.simpleMessage("لا يوجد اتصال بالانترنت"),
+        "noMoreData":
+            MessageLookupByLibrary.simpleMessage("لا يوجد المزيد من المعلومات"),
+        "noName": MessageLookupByLibrary.simpleMessage("بدون اسم"),
+        "noPlansFound": MessageLookupByLibrary.simpleMessage("لا يوجد خطط"),
         "noThisOptionIsNotAvailableYet": MessageLookupByLibrary.simpleMessage(
             "No, this option is not available yet."),
-        "noWallet": MessageLookupByLibrary.simpleMessage("No Wallet"),
-        "notAcceptable": MessageLookupByLibrary.simpleMessage("Not acceptable"),
-        "notCompleteProcessPayment": MessageLookupByLibrary.simpleMessage(
-            "Payment process not completed"),
-        "notImplemented":
-            MessageLookupByLibrary.simpleMessage("Not Implemented"),
-        "notLogin": MessageLookupByLibrary.simpleMessage("Not Login"),
-        "notMember": MessageLookupByLibrary.simpleMessage("Not a Member ?"),
+        "noWallet": MessageLookupByLibrary.simpleMessage("لا توجد محفظة"),
+        "notAcceptable": MessageLookupByLibrary.simpleMessage("غير مقبول"),
+        "notCompleteProcessPayment":
+            MessageLookupByLibrary.simpleMessage("لم تتم عملية الدفع"),
+        "notImplemented": MessageLookupByLibrary.simpleMessage("لم ينفذ"),
+        "notLogin": MessageLookupByLibrary.simpleMessage("لم يتم تسجيل الدخول"),
+        "notMember": MessageLookupByLibrary.simpleMessage("لست مشترك بعد ؟"),
         "notSuccessfullySubscription":
-            MessageLookupByLibrary.simpleMessage("Unsuccessful subscription"),
-        "notYet": MessageLookupByLibrary.simpleMessage("Not Yet"),
+            MessageLookupByLibrary.simpleMessage("لم يتم الاشتراك "),
+        "notYet": MessageLookupByLibrary.simpleMessage("لم يحين بعد"),
         "noteMe": MessageLookupByLibrary.simpleMessage(
-            "Notify me when there is an available date"),
-        "notification": MessageLookupByLibrary.simpleMessage("Notifications"),
-        "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
-        "nowGoCrushIt": MessageLookupByLibrary.simpleMessage("Now go crush it"),
-        "numberPhone": MessageLookupByLibrary.simpleMessage("Number Phone"),
-        "offer": MessageLookupByLibrary.simpleMessage("Offer"),
-        "okay": MessageLookupByLibrary.simpleMessage("okay"),
-        "oldSession": MessageLookupByLibrary.simpleMessage("Old Session"),
-        "oops": MessageLookupByLibrary.simpleMessage("Oops!"),
-        "orContactOur":
-            MessageLookupByLibrary.simpleMessage("  or contact our"),
-        "orderSummary": MessageLookupByLibrary.simpleMessage("Order summary"),
-        "other": MessageLookupByLibrary.simpleMessage("Other"),
-        "ourPlans": MessageLookupByLibrary.simpleMessage("Our Plans"),
-        "ourTrainer": MessageLookupByLibrary.simpleMessage("Our Trainers"),
-        "ourWorkout": MessageLookupByLibrary.simpleMessage("Our Workout"),
-        "pLANSBYME": MessageLookupByLibrary.simpleMessage("PLANS BY ME"),
-        "password": MessageLookupByLibrary.simpleMessage("Password"),
+            "أرسل إشعارا عندما يتوفر دروس "),
+        "notification": MessageLookupByLibrary.simpleMessage("الإشعارات"),
+        "notifications": MessageLookupByLibrary.simpleMessage("الإشعارات"),
+        "nowGoCrushIt":
+            MessageLookupByLibrary.simpleMessage("الآن اذهب وحقق المستحيل"),
+        "numberPhone": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
+        "offer": MessageLookupByLibrary.simpleMessage("عرض"),
+        "okay": MessageLookupByLibrary.simpleMessage("حسناّ"),
+        "oldSession": MessageLookupByLibrary.simpleMessage("الجلسات السابقة"),
+        "oops": MessageLookupByLibrary.simpleMessage("عفوًا!"),
+        "orContactOur": MessageLookupByLibrary.simpleMessage("أو تواصل مع  "),
+        "orderSummary": MessageLookupByLibrary.simpleMessage("ملخص الطلب"),
+        "other": MessageLookupByLibrary.simpleMessage("آخر"),
+        "ourPlans": MessageLookupByLibrary.simpleMessage("برامجنا"),
+        "ourTrainer": MessageLookupByLibrary.simpleMessage("مدربيننا"),
+        "ourWorkout":
+            MessageLookupByLibrary.simpleMessage(" برامجنا التدريبية"),
+        "pLANSBYME":
+            MessageLookupByLibrary.simpleMessage("البرامج التي وضعتها"),
+        "password": MessageLookupByLibrary.simpleMessage("كلمة السر"),
         "passwordChanged":
-            MessageLookupByLibrary.simpleMessage("Password changed"),
+            MessageLookupByLibrary.simpleMessage("تم تغيير كلمة السر"),
         "passwordDoesntMatch":
-            MessageLookupByLibrary.simpleMessage("Password Doesn\"t Match"),
+            MessageLookupByLibrary.simpleMessage("كلمة السر غير مطابقة"),
         "passwordEmpty":
-            MessageLookupByLibrary.simpleMessage("Password field is required"),
+            MessageLookupByLibrary.simpleMessage("حقل كلمة المرور مطلوب"),
         "passwordIsRequired":
-            MessageLookupByLibrary.simpleMessage("Password Is Required"),
+            MessageLookupByLibrary.simpleMessage("كلمة السر مطلوبة"),
         "passwordNotMatch":
-            MessageLookupByLibrary.simpleMessage("Password does not match"),
+            MessageLookupByLibrary.simpleMessage("كلمة المرور غير متطابقة"),
         "passwordReset": MessageLookupByLibrary.simpleMessage(
-            "Your Password Has\nBeen Reset!"),
-        "payment": MessageLookupByLibrary.simpleMessage("Payment"),
-        "paymentFailed": MessageLookupByLibrary.simpleMessage("Payment Failed"),
-        "paymentMethod": MessageLookupByLibrary.simpleMessage("Payment Method"),
-        "paymentSummary":
-            MessageLookupByLibrary.simpleMessage("Payment Summary"),
-        "pending": MessageLookupByLibrary.simpleMessage("Pending"),
-        "phone": MessageLookupByLibrary.simpleMessage("Phone Number"),
-        "phoneCall": MessageLookupByLibrary.simpleMessage("Phone Call"),
-        "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone Number"),
-        "phoneNumberCanNotBeChange": MessageLookupByLibrary.simpleMessage(
-            "Phone number cannot be changed"),
-        "phoneNumberEmpty": MessageLookupByLibrary.simpleMessage(
-            "Phone number field is required"),
-        "phoneSms": MessageLookupByLibrary.simpleMessage("Phone SMS"),
+            "تمت إعادة تعيين كلمة المرور الخاصة بك!"),
+        "payment": MessageLookupByLibrary.simpleMessage("الدفع"),
+        "paymentFailed": MessageLookupByLibrary.simpleMessage("فشل الدفع"),
+        "paymentMethod": MessageLookupByLibrary.simpleMessage("طريقة الدفع"),
+        "paymentSummary": MessageLookupByLibrary.simpleMessage("ملخص الدفع"),
+        "pending": MessageLookupByLibrary.simpleMessage("قيد الانتظار"),
+        "phone": MessageLookupByLibrary.simpleMessage("رقم الجوال"),
+        "phoneCall": MessageLookupByLibrary.simpleMessage("مكالمة هاتفية"),
+        "phoneNumber": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
+        "phoneNumberCanNotBeChange":
+            MessageLookupByLibrary.simpleMessage("لا يمكن تغيير رقم الهاتف"),
+        "phoneNumberEmpty":
+            MessageLookupByLibrary.simpleMessage("حقل رقم الهاتف مطلوب"),
+        "phoneSms":
+            MessageLookupByLibrary.simpleMessage("رسالة نصية عبر الهاتف"),
         "phoneVerification":
-            MessageLookupByLibrary.simpleMessage("Email Verification"),
-        "pilates": MessageLookupByLibrary.simpleMessage("Pilates"),
-        "plan": MessageLookupByLibrary.simpleMessage("PLAN"),
-        "planProg": MessageLookupByLibrary.simpleMessage("Plan"),
-        "plans": MessageLookupByLibrary.simpleMessage("Plans"),
+            MessageLookupByLibrary.simpleMessage("تأكيد البريد"),
+        "pilates": MessageLookupByLibrary.simpleMessage("بيلاتيس"),
+        "plan": MessageLookupByLibrary.simpleMessage("البرنامج"),
+        "planProg": MessageLookupByLibrary.simpleMessage("برنامج"),
+        "plans": MessageLookupByLibrary.simpleMessage("البرامج"),
         "plansByThisTrainer":
-            MessageLookupByLibrary.simpleMessage("Plans by this Trainer"),
-        "playingDays_lessFirst":
-            MessageLookupByLibrary.simpleMessage("Playing Days (less first)"),
-        "playingDays_moreFirst":
-            MessageLookupByLibrary.simpleMessage("Playing Days (more first)"),
+            MessageLookupByLibrary.simpleMessage("برامج المدرب "),
         "pleasCreateAccount":
-            MessageLookupByLibrary.simpleMessage("Please create an account"),
+            MessageLookupByLibrary.simpleMessage("يرجى إنشاء حساب"),
         "pleasSetYourAddress":
-            MessageLookupByLibrary.simpleMessage("Pleas Set Your Address"),
+            MessageLookupByLibrary.simpleMessage("يرجى تعيين عنوانك"),
         "pleaseEnterOTPCode":
-            MessageLookupByLibrary.simpleMessage("Please Enter OTP Code"),
+            MessageLookupByLibrary.simpleMessage("الرجاء إدخال رمز OTP"),
         "plsEnterEmail": MessageLookupByLibrary.simpleMessage(
-            "Please Enter Your Email To Receive Activation Code"),
+            "يرجى إدخال البريد الإلكتروني لاستقبال رمز التفعيل"),
         "policy": MessageLookupByLibrary.simpleMessage(
-            "Terms of Use and Privacy Policy"),
-        "policyJust": MessageLookupByLibrary.simpleMessage("Privacy Policy"),
+            "شروط الاستخدام وسياسة الخصوصية"),
+        "policyJust": MessageLookupByLibrary.simpleMessage("سياسة الخصوصية"),
         "prenatalTraining":
-            MessageLookupByLibrary.simpleMessage("Prenatal Training"),
-        "price": MessageLookupByLibrary.simpleMessage("Price"),
+            MessageLookupByLibrary.simpleMessage("التدريب قبل الولادة"),
+        "price": MessageLookupByLibrary.simpleMessage("السعر"),
         "prioritizingYourFitness": MessageLookupByLibrary.simpleMessage(
             "Prioritizing your fitness leads to physical and mental health benefits like improved mood, reduced stress, and better sleep."),
-        "privacyPolicy": MessageLookupByLibrary.simpleMessage("Privacy Policy"),
-        "private": MessageLookupByLibrary.simpleMessage("Private"),
+        "privacyPolicy": MessageLookupByLibrary.simpleMessage("سياسة الخصوصية"),
+        "private": MessageLookupByLibrary.simpleMessage("خاص"),
         "privateCoatching":
-            MessageLookupByLibrary.simpleMessage("PRIVATE COACHING"),
-        "privateHours": MessageLookupByLibrary.simpleMessage("Private hours"),
-        "privateSession":
-            MessageLookupByLibrary.simpleMessage("private session"),
-        "privateSessionProg":
-            MessageLookupByLibrary.simpleMessage("Private Session"),
+            MessageLookupByLibrary.simpleMessage("التدريب الشخصى"),
+        "privateHours":
+            MessageLookupByLibrary.simpleMessage("الساعات الخصوصية"),
+        "privateSession": MessageLookupByLibrary.simpleMessage("جلسة خاصّة"),
+        "privateSessionProg": MessageLookupByLibrary.simpleMessage("تدريب خاص"),
         "privateSessions":
-            MessageLookupByLibrary.simpleMessage("Private Sessions"),
-        "privateTraining":
-            MessageLookupByLibrary.simpleMessage("Private Training"),
-        "processing": MessageLookupByLibrary.simpleMessage("Processing"),
-        "professional": MessageLookupByLibrary.simpleMessage("Professional"),
-        "profile": MessageLookupByLibrary.simpleMessage("Profile"),
+            MessageLookupByLibrary.simpleMessage("التدريب الشخصي"),
+        "privateTraining": MessageLookupByLibrary.simpleMessage("تدريب خاص"),
+        "processing": MessageLookupByLibrary.simpleMessage("قيد التجهيز"),
+        "professional": MessageLookupByLibrary.simpleMessage("متقدم"),
+        "profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
         "profileDetails":
-            MessageLookupByLibrary.simpleMessage("Profile Details"),
-        "profileInfo": MessageLookupByLibrary.simpleMessage("Profile info"),
-        "progress": MessageLookupByLibrary.simpleMessage("Progress"),
-        "public": MessageLookupByLibrary.simpleMessage("Public"),
-        "pullUpLoad": MessageLookupByLibrary.simpleMessage("pull up load"),
-        "reEnterPass":
-            MessageLookupByLibrary.simpleMessage("Re-Enter New Password"),
-        "rePassword": MessageLookupByLibrary.simpleMessage("Confirm Password"),
-        "ready": MessageLookupByLibrary.simpleMessage("Ready"),
-        "readyToDeliver":
-            MessageLookupByLibrary.simpleMessage("Ready To Deliver"),
-        "receiverPhone": MessageLookupByLibrary.simpleMessage("receiverPhone"),
-        "region": MessageLookupByLibrary.simpleMessage("Region"),
-        "registeredBefore":
-            MessageLookupByLibrary.simpleMessage("Registered Before"),
+            MessageLookupByLibrary.simpleMessage("تفاصيل الملف الشخصي"),
+        "profileInfo": MessageLookupByLibrary.simpleMessage(" الملف الشخصي"),
+        "progress": MessageLookupByLibrary.simpleMessage("مستوى التقدّم"),
+        "public": MessageLookupByLibrary.simpleMessage("عام"),
+        "pullUpLoad": MessageLookupByLibrary.simpleMessage("تخفيف أوزان"),
+        "reEnterPass": MessageLookupByLibrary.simpleMessage(
+            "إعادة إدخال كلمة السر الجديدة"),
+        "rePassword": MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور"),
+        "ready": MessageLookupByLibrary.simpleMessage("جاهز"),
+        "readyToDeliver": MessageLookupByLibrary.simpleMessage("جاهز للتوصيل"),
+        "receiverPhone": MessageLookupByLibrary.simpleMessage("هاتف المستلم"),
+        "region": MessageLookupByLibrary.simpleMessage("المنطقة"),
+        "registeredBefore": MessageLookupByLibrary.simpleMessage("مسجل سابقًا"),
         "relatedProducts":
-            MessageLookupByLibrary.simpleMessage("Related Products"),
+            MessageLookupByLibrary.simpleMessage("المنتجات المرتبطة"),
         "releaseToLoadMore":
-            MessageLookupByLibrary.simpleMessage("release to load more"),
-        "rememberMe": MessageLookupByLibrary.simpleMessage("Remember Me"),
-        "remove": MessageLookupByLibrary.simpleMessage("Remove"),
-        "renewalPrice": MessageLookupByLibrary.simpleMessage("Renewal Price"),
-        "rep": MessageLookupByLibrary.simpleMessage(" Rep"),
+            MessageLookupByLibrary.simpleMessage("اسحب لتحميل المزيد"),
+        "rememberMe": MessageLookupByLibrary.simpleMessage("تذكرني"),
+        "remove": MessageLookupByLibrary.simpleMessage("حذف"),
+        "renewalPrice": MessageLookupByLibrary.simpleMessage("سعر التجديد"),
+        "rep": MessageLookupByLibrary.simpleMessage("تكرار"),
         "repeatThisExercise":
-            MessageLookupByLibrary.simpleMessage("Repeat this Exercise"),
-        "reps": MessageLookupByLibrary.simpleMessage("Reps"),
-        "request": MessageLookupByLibrary.simpleMessage("request"),
+            MessageLookupByLibrary.simpleMessage("أعد هذا التمرين"),
+        "reps": MessageLookupByLibrary.simpleMessage("تكرار :"),
+        "request": MessageLookupByLibrary.simpleMessage("طلب"),
         "requestCancelled":
-            MessageLookupByLibrary.simpleMessage("Request Cancelled"),
-        "resend": MessageLookupByLibrary.simpleMessage("Resend"),
-        "resendCode": MessageLookupByLibrary.simpleMessage("Resend Code"),
-        "reset": MessageLookupByLibrary.simpleMessage("Reset"),
-        "resetFilters": MessageLookupByLibrary.simpleMessage("Reset Filters"),
-        "resetPassword": MessageLookupByLibrary.simpleMessage("Reset Password"),
-        "result": MessageLookupByLibrary.simpleMessage("Result"),
-        "returned": MessageLookupByLibrary.simpleMessage("Returned"),
-        "reviewOrder": MessageLookupByLibrary.simpleMessage("Review Order"),
-        "reviews": MessageLookupByLibrary.simpleMessage("Reviews"),
-        "sEARCH": MessageLookupByLibrary.simpleMessage("SEARCH"),
+            MessageLookupByLibrary.simpleMessage("تم إلغاء الطلب"),
+        "resend": MessageLookupByLibrary.simpleMessage("إعادة الإرسال"),
+        "resendCode":
+            MessageLookupByLibrary.simpleMessage("إعادة إرسال رمز التفعيل"),
+        "reset": MessageLookupByLibrary.simpleMessage("إعادة تعيين"),
+        "resetFilters":
+            MessageLookupByLibrary.simpleMessage("إعادة تعيين الفلاتر"),
+        "resetPassword":
+            MessageLookupByLibrary.simpleMessage(" إعادة تعيين كلمة السر"),
+        "result": MessageLookupByLibrary.simpleMessage("النتائج"),
+        "returned": MessageLookupByLibrary.simpleMessage("مُرجَع"),
+        "reviewOrder": MessageLookupByLibrary.simpleMessage("مراجعة الطلب"),
+        "reviews": MessageLookupByLibrary.simpleMessage("التقييمات"),
+        "sEARCH": MessageLookupByLibrary.simpleMessage("بحث"),
         "sEARCHINTRAINER":
-            MessageLookupByLibrary.simpleMessage("Search in Trainer"),
+            MessageLookupByLibrary.simpleMessage("البحث عن المدربين"),
         "sEARCHINWORKOUTPLANS":
-            MessageLookupByLibrary.simpleMessage("SEARCH IN WORKOUT PLANS"),
+            MessageLookupByLibrary.simpleMessage("البحث في خطط التمرين"),
         "sETMYAVAILABILITY":
-            MessageLookupByLibrary.simpleMessage("SET MY AVAILABILITY"),
-        "sORTBY": MessageLookupByLibrary.simpleMessage("SORT BY"),
-        "sUBSCRIBERSCap": MessageLookupByLibrary.simpleMessage("SUBSCRIBERS"),
-        "sar": MessageLookupByLibrary.simpleMessage("SAR"),
-        "sarHour": MessageLookupByLibrary.simpleMessage("SAR/hour"),
-        "saveChange": MessageLookupByLibrary.simpleMessage("save change"),
-        "saveForLater": MessageLookupByLibrary.simpleMessage("Save For Later?"),
-        "searchInAll": MessageLookupByLibrary.simpleMessage("Search In All"),
-        "searchResults": MessageLookupByLibrary.simpleMessage("Search Results"),
-        "searchSmall": MessageLookupByLibrary.simpleMessage("Search"),
-        "sec": MessageLookupByLibrary.simpleMessage(" Sec"),
-        "second": MessageLookupByLibrary.simpleMessage("second"),
-        "seconds": MessageLookupByLibrary.simpleMessage("seconds"),
-        "seeAll": MessageLookupByLibrary.simpleMessage("SEE ALL"),
-        "seeMore": MessageLookupByLibrary.simpleMessage("See More"),
-        "seeResult": MessageLookupByLibrary.simpleMessage("See Result"),
-        "selectFromMap": MessageLookupByLibrary.simpleMessage("From Map"),
-        "selectGovernor":
-            MessageLookupByLibrary.simpleMessage("Select Governor"),
-        "send": MessageLookupByLibrary.simpleMessage("send"),
+            MessageLookupByLibrary.simpleMessage("حدد مدى توافري"),
+        "sORTBY": MessageLookupByLibrary.simpleMessage("تصنيف حسب"),
+        "sUBSCRIBERSCap": MessageLookupByLibrary.simpleMessage("المشتركين"),
+        "sar": MessageLookupByLibrary.simpleMessage("ريال سعودي"),
+        "sarHour": MessageLookupByLibrary.simpleMessage("ريال سعودي لكل ساعة"),
+        "saveChange": MessageLookupByLibrary.simpleMessage("حفظ التغيير"),
+        "saveForLater": MessageLookupByLibrary.simpleMessage("حفظ لاحقًا؟"),
+        "searchInAll": MessageLookupByLibrary.simpleMessage("البحث في الكل"),
+        "searchResults": MessageLookupByLibrary.simpleMessage("نتائج البحث"),
+        "searchSmall": MessageLookupByLibrary.simpleMessage("بحث"),
+        "sec": MessageLookupByLibrary.simpleMessage("ثانية"),
+        "second": MessageLookupByLibrary.simpleMessage(" ثانية"),
+        "seconds": MessageLookupByLibrary.simpleMessage(" ثواني"),
+        "seeAll": MessageLookupByLibrary.simpleMessage("رؤية المزيد"),
+        "seeMore": MessageLookupByLibrary.simpleMessage("رؤية المزيد"),
+        "seeResult": MessageLookupByLibrary.simpleMessage("رؤية النتائج"),
+        "selectFromMap": MessageLookupByLibrary.simpleMessage("من الخريطة"),
+        "selectGovernor": MessageLookupByLibrary.simpleMessage("اختر المحافظة"),
+        "send": MessageLookupByLibrary.simpleMessage("أرسال"),
         "sendTimeoutinConnectionWithAPIserver":
-            MessageLookupByLibrary.simpleMessage(
-                "Send timeout in connection with API server"),
+            MessageLookupByLibrary.simpleMessage("انتهى وقتت الاتصال"),
         "sent6Digit": MessageLookupByLibrary.simpleMessage(
-            "We have sent a 5-digit code to your email"),
+            "تم إرسال رمز تفعيل إلى بريدك الإلكتروني "),
         "serviceUnavailable":
-            MessageLookupByLibrary.simpleMessage("Service unavailable"),
-        "session": MessageLookupByLibrary.simpleMessage("session"),
-        "sessionWith": MessageLookupByLibrary.simpleMessage("Session with "),
-        "sessionsCount": MessageLookupByLibrary.simpleMessage("Sessions Count"),
-        "set": MessageLookupByLibrary.simpleMessage("Set"),
-        "setNewPass": MessageLookupByLibrary.simpleMessage(
-            "Set the new password to this account"),
-        "setX": MessageLookupByLibrary.simpleMessage("Set X"),
-        "sets": MessageLookupByLibrary.simpleMessage("sets"),
-        "settings": MessageLookupByLibrary.simpleMessage("Settings"),
-        "sgnIn": MessageLookupByLibrary.simpleMessage("Sign In."),
-        "share": MessageLookupByLibrary.simpleMessage("Share"),
-        "shipping": MessageLookupByLibrary.simpleMessage("Shipping"),
-        "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
+            MessageLookupByLibrary.simpleMessage("الخدمة غير متوفرة"),
+        "session": MessageLookupByLibrary.simpleMessage("جلسة"),
+        "sessionWith": MessageLookupByLibrary.simpleMessage("جلسة مع"),
+        "sessionsCount": MessageLookupByLibrary.simpleMessage("عدد الحصص"),
+        "set": MessageLookupByLibrary.simpleMessage("مجموعة "),
+        "setNewPass":
+            MessageLookupByLibrary.simpleMessage("تعيين كلمة سر جديدة للحساب"),
+        "setX": MessageLookupByLibrary.simpleMessage("مجموعة *"),
+        "sets": MessageLookupByLibrary.simpleMessage("مجموعة"),
+        "settings": MessageLookupByLibrary.simpleMessage("الإعدادات"),
+        "sgnIn": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+        "share": MessageLookupByLibrary.simpleMessage("مشاركة"),
+        "shipping": MessageLookupByLibrary.simpleMessage("جاري الشحن"),
+        "signIn": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "signInToContinue":
-            MessageLookupByLibrary.simpleMessage("Sign In To Continue"),
+            MessageLookupByLibrary.simpleMessage("تسجيل الدخول للمتابعة"),
         "signInTrainer":
-            MessageLookupByLibrary.simpleMessage("Sign in as a Trainer"),
+            MessageLookupByLibrary.simpleMessage("تسجيل الدخول كـ مدرب"),
         "signInWithSocial": MessageLookupByLibrary.simpleMessage(
-            "Sign In With Social Networks:"),
-        "signOut": MessageLookupByLibrary.simpleMessage("Sign Out"),
-        "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
-        "sizes": MessageLookupByLibrary.simpleMessage("Sizes"),
-        "skip": MessageLookupByLibrary.simpleMessage("skip"),
+            "تسجيل الدخول باستخدام الشبكات الاجتماعية:"),
+        "signOut": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
+        "signUp": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
+        "sizes": MessageLookupByLibrary.simpleMessage("الأحجام"),
+        "skip": MessageLookupByLibrary.simpleMessage("تخطّي"),
         "slideToStartTheNextSet":
-            MessageLookupByLibrary.simpleMessage("Slide to start the next Set"),
+            MessageLookupByLibrary.simpleMessage("اسحب للبدء بالتمرين التالي"),
         "slideToStartTheTimerForThisSet":
-            MessageLookupByLibrary.simpleMessage("slide to start timer"),
+            MessageLookupByLibrary.simpleMessage("اسحب لبدء المؤقت"),
         "somethingWentWrong":
-            MessageLookupByLibrary.simpleMessage("Something Went Wrong"),
-        "sort": MessageLookupByLibrary.simpleMessage("SORT"),
-        "sportsTraining":
-            MessageLookupByLibrary.simpleMessage("Sports Training"),
+            MessageLookupByLibrary.simpleMessage("حدث خطأ ما"),
+        "sort": MessageLookupByLibrary.simpleMessage("تصنيف"),
+        "sportsTraining": MessageLookupByLibrary.simpleMessage("تدريب رياضي"),
         "stSet": MessageLookupByLibrary.simpleMessage("st set"),
         "startPrivateSession":
-            MessageLookupByLibrary.simpleMessage("Start private session"),
-        "startSession": MessageLookupByLibrary.simpleMessage("Start session"),
-        "startWithinPlan": MessageLookupByLibrary.simpleMessage(
-            "Start training with this plan"),
-        "startWorkout": MessageLookupByLibrary.simpleMessage("Start Workout"),
-        "startYourJourney": MessageLookupByLibrary.simpleMessage(
-            "Start your journey to a healthier you today!"),
-        "stayFit": MessageLookupByLibrary.simpleMessage("Stay fit"),
-        "strengthTraining":
-            MessageLookupByLibrary.simpleMessage("Strength Training"),
-        "subscribe": MessageLookupByLibrary.simpleMessage("Subscribe"),
-        "subscriber": MessageLookupByLibrary.simpleMessage("Subscriber"),
+            MessageLookupByLibrary.simpleMessage("ابدأ تدريبك الخاص"),
+        "startSession": MessageLookupByLibrary.simpleMessage("بدأ الجلسة"),
+        "startWithinPlan":
+            MessageLookupByLibrary.simpleMessage("ابدأ التدريب بهذا البرنامج"),
+        "startWorkout": MessageLookupByLibrary.simpleMessage("ابدأ التدريب"),
+        "startYourJourney":
+            MessageLookupByLibrary.simpleMessage("ابدأ رحلتك اليوم!"),
+        "stayFit": MessageLookupByLibrary.simpleMessage("المحافظة على اللياقة"),
+        "strengthTraining": MessageLookupByLibrary.simpleMessage("تدريب قوة"),
+        "subscribe": MessageLookupByLibrary.simpleMessage("اشترك"),
+        "subscriber": MessageLookupByLibrary.simpleMessage("المشتركين"),
         "subscriptionFinished": MessageLookupByLibrary.simpleMessage(
-            "Your subscription to Fitness Storm has ended, kindly renew it to continue where you have stopped."),
+            "لقد انتهى اشتراكك في Fitness Storm ، يرجى تجديده للمتابعة من حيث توقفت"),
         "subscriptionPayment":
-            MessageLookupByLibrary.simpleMessage("subscription payment"),
+            MessageLookupByLibrary.simpleMessage("ادفع للاشتراك"),
         "subscriptionPlans":
-            MessageLookupByLibrary.simpleMessage("Subscription Plans"),
-        "subtotal": MessageLookupByLibrary.simpleMessage("Subtotal"),
-        "success": MessageLookupByLibrary.simpleMessage("Success"),
-        "successfully": MessageLookupByLibrary.simpleMessage("Successfully."),
+            MessageLookupByLibrary.simpleMessage("باقات الاشتراك"),
+        "subtotal": MessageLookupByLibrary.simpleMessage("المجموع الفرعي"),
+        "success": MessageLookupByLibrary.simpleMessage("تم التأكيد"),
+        "successfully": MessageLookupByLibrary.simpleMessage("بنجاح"),
         "successfullySubscribed":
-            MessageLookupByLibrary.simpleMessage("Successfully subscribed"),
-        "supTotal": MessageLookupByLibrary.simpleMessage("Subtotal"),
-        "support": MessageLookupByLibrary.simpleMessage("Support"),
+            MessageLookupByLibrary.simpleMessage("تم الاشتراك بنجاح"),
+        "supTotal": MessageLookupByLibrary.simpleMessage("الإجمالي"),
+        "support": MessageLookupByLibrary.simpleMessage("الدعم"),
         "sureYouCanSubscribeFromAnywhereInTheGlobe":
             MessageLookupByLibrary.simpleMessage(
-                "Sure, you can subscribe from anywhere in the globe."),
-        "surveyInfo": MessageLookupByLibrary.simpleMessage("Survey Info"),
-        "tRAININGTYPE": MessageLookupByLibrary.simpleMessage("TRAINING TYPE"),
-        "takeABreak": MessageLookupByLibrary.simpleMessage("Take a break"),
+                "بالتأكيد، يمكنك الاشتراك من أي مكان في العالم."),
+        "surveyInfo": MessageLookupByLibrary.simpleMessage("تفاصيل الاستبيان"),
+        "tRAININGTYPE": MessageLookupByLibrary.simpleMessage("نوع التدريب"),
+        "takeABreak": MessageLookupByLibrary.simpleMessage("خذ استراحة"),
         "takeAPlanMadeCustomizedForYou": MessageLookupByLibrary.simpleMessage(
-            "Take a Plan made customized for you!"),
+            "حقق أهدافك مع برنامج مخصص لك"),
         "takeThisSurvey": MessageLookupByLibrary.simpleMessage(
-            "Take this survey to get more personalized workout plan recommendations."),
+            "الرجاء تعبئة المعلومات للحصول على اقتراحات مناسبة لكم"),
         "tapToExpandIt":
-            MessageLookupByLibrary.simpleMessage("Tap to Expand it"),
+            MessageLookupByLibrary.simpleMessage("انقر لرؤية المزيد"),
         "termAndCondition":
-            MessageLookupByLibrary.simpleMessage("Terms And Conditions"),
+            MessageLookupByLibrary.simpleMessage("الشروط والأحكام"),
         "termsAndCondition":
-            MessageLookupByLibrary.simpleMessage("Terms and Conditions"),
+            MessageLookupByLibrary.simpleMessage("الأحكام والشروط"),
         "termsAndConditions":
-            MessageLookupByLibrary.simpleMessage("Terms And Conditions"),
+            MessageLookupByLibrary.simpleMessage("الأحكام والشروط"),
         "termsOfConditions":
-            MessageLookupByLibrary.simpleMessage("Terms Of Conditions"),
-        "termsconditions": MessageLookupByLibrary.simpleMessage(
-            "Terms & Conditions\nFitness Storm is a dynamic application enables the users to train with world class trainers through HD step-by-step instructional videos.\n\nService description\nThis application is a registered business in Saudi Arabia.\nFitness Storm enables the users to train with world class trainers through HD step-by-step instructional videos and helping them to have the body shape they have always dreamed of.\n\nUsing this application\nYour use of this application is subject to your irrevocable acceptance without modification of these terms of use (the \"Terms\") and you agree to use this application in accordance with and subject to these terms. The Terms as set out hereunder constitute the entire agreement between you and fitness Storm,. If you do not read or accept these Terms, do not use this application. By accessing any part of fitness Storm application, you consent to be bound by these terms. As a condition of your use of this application, you undertake to fitness Storm that you will not use this application for any purpose that is unlawful or prohibited by these terms.\n\nImportant information\nCustomer using the application who are minor /under the age of 18 shall not register as a user of the application and shall not transact on or use the application only under the supervision of their parents.\nCardholder must retain a copy of transaction records and merchant policies and rules.\nYou are responsible for maintaining the confidentiality of his/her account.\nYou should never share your account information with anyone else.\nThe Developer reserves the right to cancel your account in case of finding any misuse of the application.\nYou are responsible for entering your information correctly when signing up to provide you with appropriate exercises that fits your activity level. As we offer exercises for beginners, moderately active and pro.\nUsers are responsible for selecting the right instructor and exercises for their needs. We are not responsible for any injury or harm might occur while exercising or performing inappropriate exercises.\nFitness Storm is targeting the individuals healthy enough to perform different types of exercises. In case you suffer from any injuries or specific health conditions, make sure to consult your physician before registering in our application.\nIf you are pregnant or breastfeeding, make sure that your doctor has specifically approved your use of the application.\n\nTerms and conditions for personal training:\nThe personal training sessions cannot be refunded, and the start and end dates of the sessions must be adhered to\n-Unforeseen circumstances may arise that result in rescheduling sessions, in which case the following policy will apply:\n- If you are forced to cancel the session within 24 days from the date of booking, the session will be compensated for free.\n- In case of canceling the session on the same day, the session will be deducted from the remaining sessions.\n-Personal training sessions are subject to an expiration period of 30 days from the date of participation.\n-The duration of the session is between 45 Mins to one hour\n-The session cannot be recorded via video, as it is subject to confidentiality between the trainer and the trainee.\n-Numbers/emails cannot be exchanged between the trainer and the trainee, and the service is provided through Fitness Storm.\n-Postponement is two sessions per month.\n-The postponement must be notified at least one day before the session, otherwise the session will be considered cancelled.\n-A date must be set to compensate for the postponed session within a week starting from the day of the postponement, or the session is considered cancelled.\n\n\nPayment processing\nWe accept payments through the available options in the application in SAR or USD. \n\nPayment confirmation\nOnce the payment is made, the confirmation notice will be sent to the client via email within 24 hours of receipt of payment.\n\nGoverning Law and Jurisdiction\nAny purchase, dispute or claim arising out of or in connection with this application shall be governed and construed in accordance with the laws of Saudi Arabia.\nThe application Policies and Terms & Conditions may be changed or updated occasionally to meet the requirements and standards. Therefore, the Customers are encouraged to frequently visit these sections in order to be updated about the changes on the application. Modifications will be effective on the day they are posted."),
-        "thatsAllWeNeedForNow": MessageLookupByLibrary.simpleMessage(
-            "That\"s all we need for now."),
-        "theFromIsNotAValidDate": MessageLookupByLibrary.simpleMessage(
-            "The from is not a valid date"),
-        "theWeeks": MessageLookupByLibrary.simpleMessage("The Weeks"),
-        "thereAreNoAppointmentsThisWeek": MessageLookupByLibrary.simpleMessage(
-            "There are no appointments this week"),
+            MessageLookupByLibrary.simpleMessage("شروط الاستخدام"),
+        "thatsAllWeNeedForNow":
+            MessageLookupByLibrary.simpleMessage("هذا كل ما نحتاجه الآن."),
+        "theFromIsNotAValidDate":
+            MessageLookupByLibrary.simpleMessage("التاريخ غير صحيح"),
+        "theWeeks": MessageLookupByLibrary.simpleMessage("الأسابيع"),
+        "thereAreNoAppointmentsThisWeek":
+            MessageLookupByLibrary.simpleMessage("لا توجد مواعيد هذا الأسبوع"),
         "thereAreNoTRAINERS": MessageLookupByLibrary.simpleMessage(
-            "There are no TRAINERS in your search results, you can check our trainers and use FILTERS to find what you are looking for"),
+            "لا يوجد مدربون في نتائج البحث الخاصة بك، يمكنك التحقق من المدربين لدينا واستخدام الفلاتر للعثور على ما تبحث عنه"),
         "thereAreNoWorkout": MessageLookupByLibrary.simpleMessage(
-            "There are no WORKOUT PLANS in your search results, you can check our workouts and use FILTERS to find what you are looking for"),
-        "time": MessageLookupByLibrary.simpleMessage(" time"),
-        "times": MessageLookupByLibrary.simpleMessage(" times"),
-        "timesWeek": MessageLookupByLibrary.simpleMessage("Times/Week"),
-        "trackingOrder": MessageLookupByLibrary.simpleMessage("Tracking Order"),
-        "trainer": MessageLookupByLibrary.simpleMessage("TRAINER"),
+            "لا توجد خطط تمرين في نتائج البحث الخاصة بك، يمكنك التحقق من التدريبات واستخدام الفلاتر للعثور على ما تبحث عنه"),
+        "time": MessageLookupByLibrary.simpleMessage("مرة"),
+        "times": MessageLookupByLibrary.simpleMessage("مرات"),
+        "timesWeek":
+            MessageLookupByLibrary.simpleMessage("عدد مرات التدريب في الأسبوع"),
+        "trackingOrder": MessageLookupByLibrary.simpleMessage("تتبع الطلب"),
+        "trainer": MessageLookupByLibrary.simpleMessage("المدرب"),
         "trainerProfile":
-            MessageLookupByLibrary.simpleMessage("Trainer Profile"),
-        "trainers": MessageLookupByLibrary.simpleMessage("TRAINERS"),
-        "trainingGoalFieldIsRequire": MessageLookupByLibrary.simpleMessage(
-            "Training Goal Field is Require"),
-        "trainingLevelFieldIsRequire": MessageLookupByLibrary.simpleMessage(
-            "Training Level Field is Require"),
-        "trendingPlan": MessageLookupByLibrary.simpleMessage("Trending Plan"),
+            MessageLookupByLibrary.simpleMessage("الملف الشخصي للمدرّب"),
+        "trainers": MessageLookupByLibrary.simpleMessage("مدربين"),
+        "trainingGoalFieldIsRequire":
+            MessageLookupByLibrary.simpleMessage("مجال أهداف التدريب مطلوب"),
+        "trainingLevelFieldIsRequire":
+            MessageLookupByLibrary.simpleMessage("المستوى التدريبي مطلوب"),
+        "trendingPlan":
+            MessageLookupByLibrary.simpleMessage("البرامج الأكثر رواجاً"),
         "typeAnythingToSearchIt":
-            MessageLookupByLibrary.simpleMessage("Type Anything To Search It"),
-        "unableToProcessThedata":
-            MessageLookupByLibrary.simpleMessage("Unable to process the data"),
+            MessageLookupByLibrary.simpleMessage("اكتب أي شيء للبحث عنه"),
+        "unableToProcessThedata": MessageLookupByLibrary.simpleMessage(
+            "غير قادر على معالجة البيانات"),
         "unauthorisedRequest":
-            MessageLookupByLibrary.simpleMessage("Unauthorised request"),
+            MessageLookupByLibrary.simpleMessage("طللب غير مصرّح به"),
         "unexpectedErrorOccurred":
-            MessageLookupByLibrary.simpleMessage("Unexpected error occurred"),
-        "update": MessageLookupByLibrary.simpleMessage("update"),
-        "upgradePlan": MessageLookupByLibrary.simpleMessage("UPGRADE PLAN"),
+            MessageLookupByLibrary.simpleMessage("حدث عطل غير متوقع"),
+        "update": MessageLookupByLibrary.simpleMessage("تحديث"),
+        "upgradePlan": MessageLookupByLibrary.simpleMessage("ترقية البرنامج"),
         "useCurrentLocation":
-            MessageLookupByLibrary.simpleMessage("Use Current Location"),
-        "userName": MessageLookupByLibrary.simpleMessage("Username"),
-        "verificationSentSuccessfully": MessageLookupByLibrary.simpleMessage(
-            "Verification Code Has Been Sent Successfully"),
-        "verify": MessageLookupByLibrary.simpleMessage("verify"),
+            MessageLookupByLibrary.simpleMessage("استخدام الموقع الحالي"),
+        "userName": MessageLookupByLibrary.simpleMessage("اسم المستخدم"),
+        "verificationSentSuccessfully":
+            MessageLookupByLibrary.simpleMessage("تم إرسال رمز التأكيد بنجاح"),
+        "verify": MessageLookupByLibrary.simpleMessage("تأكيد"),
         "videoCall": MessageLookupByLibrary.simpleMessage("Video Call"),
         "videoInitialized":
-            MessageLookupByLibrary.simpleMessage("Video initialized"),
-        "voucher": MessageLookupByLibrary.simpleMessage("Voucher"),
-        "wallet": MessageLookupByLibrary.simpleMessage("Wallet"),
-        "warning": MessageLookupByLibrary.simpleMessage("Warning"),
+            MessageLookupByLibrary.simpleMessage("تم استهلال الفيديو"),
+        "voucher": MessageLookupByLibrary.simpleMessage("قيمة الخصم"),
+        "wallet": MessageLookupByLibrary.simpleMessage("محفظة"),
+        "warning": MessageLookupByLibrary.simpleMessage("تحذير"),
         "warningDeleteAccount": MessageLookupByLibrary.simpleMessage(
-            "Your account will be deleted with all your data, progress, and cancel any ongoing subscription."),
+            "حذف الحساب سيؤدي لحذف كامل بياناتك وتقدمك، وإلغاء أي اشتراك جاري."),
         "warningRenewal": MessageLookupByLibrary.simpleMessage(
-            "Your subscription will be renewed with the new chosen bundle on"),
-        "week": MessageLookupByLibrary.simpleMessage("Week"),
-        "weeks": MessageLookupByLibrary.simpleMessage("Weeks"),
-        "weight": MessageLookupByLibrary.simpleMessage("Weight"),
+            "سيتم تجديد اشتراكك بالباقة الجديدة المختارة بتاريخ"),
+        "week": MessageLookupByLibrary.simpleMessage("اسبوع"),
+        "weeks": MessageLookupByLibrary.simpleMessage("أسابيع"),
+        "weight": MessageLookupByLibrary.simpleMessage("الوزن"),
         "weightFieldIsRequire":
-            MessageLookupByLibrary.simpleMessage("Weight Field is Required"),
-        "weightlifting": MessageLookupByLibrary.simpleMessage("Weight lifting"),
-        "welcome": MessageLookupByLibrary.simpleMessage("WELCOME"),
-        "welcomeBack": MessageLookupByLibrary.simpleMessage("Welcome Back!"),
+            MessageLookupByLibrary.simpleMessage("حقل الوزن مطلوب"),
+        "weightlifting": MessageLookupByLibrary.simpleMessage("رفع الأثقال"),
+        "welcome": MessageLookupByLibrary.simpleMessage("مرحباّ"),
+        "welcomeBack": MessageLookupByLibrary.simpleMessage("مرحبًا بعودتك!"),
         "whatAreYouSearchingFor":
-            MessageLookupByLibrary.simpleMessage("What are you searching for?"),
+            MessageLookupByLibrary.simpleMessage("ما الذي تبحث عنه ؟"),
         "whatIsFitnessStorm":
-            MessageLookupByLibrary.simpleMessage("What is Fitness Storm?"),
+            MessageLookupByLibrary.simpleMessage("ما هو Fitness Storm ؟"),
         "whatIsYourBirthday":
-            MessageLookupByLibrary.simpleMessage("What is your birthday?"),
-        "whatIsYourGender":
-            MessageLookupByLibrary.simpleMessage("What is your gender?"),
+            MessageLookupByLibrary.simpleMessage("ما هو تاريخ ميلادك؟"),
+        "whatIsYourGender": MessageLookupByLibrary.simpleMessage("ما هو جنسك؟"),
         "whatIsYourHeightWeight":
-            MessageLookupByLibrary.simpleMessage("What is your height/weight?"),
-        "whatIsYourTrainingGoal": MessageLookupByLibrary.simpleMessage(
-            "What is your training goal ?"),
+            MessageLookupByLibrary.simpleMessage("ما هو طولك؟"),
+        "whatIsYourTrainingGoal":
+            MessageLookupByLibrary.simpleMessage("ماهو هدفك من التدريب ؟"),
         "whatLanguageIsSpokenInTheVideos": MessageLookupByLibrary.simpleMessage(
-            "What language is spoken in the videos?"),
-        "whatPlansDoYouOfferToSubscribe": MessageLookupByLibrary.simpleMessage(
-            "What plans do you offer to subscribe?"),
+            "ما هي اللغة التي يتم التحدث بها في مقاطع الفيديو ؟"),
         "whatWillYouGetInThisPrivateSession":
             MessageLookupByLibrary.simpleMessage(
-                "WHAT WILL YOU GET IN THIS PRIVATE SESSION ?"),
-        "whatYourTrainingLevel": MessageLookupByLibrary.simpleMessage(
-            "What\"s your training level ?"),
+                "ما الذي  ستحصل عليه في هذه الجلسة؟"),
+        "whatYourTrainingLevel":
+            MessageLookupByLibrary.simpleMessage("ماهو مستواك فى التدريب ؟"),
         "whyCancel": MessageLookupByLibrary.simpleMessage(
-            "Your Fitness Storm membership will not be renewed. However, you will be able to continue using your membership until its end date.\n Why would you like to cancel your subscription? "),
+            "لن يتم تجديد باقتك في فتنس ستورم. ومع ذلك، ستتمكن من الاستمرار في استخدام عضويتك حتى تاريخ انتهائها. \n ما هو سبب الغاء اشتراكك ؟"),
         "whyToSubscribe":
-            MessageLookupByLibrary.simpleMessage("WHY TO SUBSCRIBE?"),
-        "willBeCanceled":
-            MessageLookupByLibrary.simpleMessage("will be canceled"),
+            MessageLookupByLibrary.simpleMessage("لماذا يجب أن اشترك ؟"),
+        "willBeCanceled": MessageLookupByLibrary.simpleMessage("سيتم إلغاء"),
         "willProvidePersonalized": MessageLookupByLibrary.simpleMessage(
-            "will provide personalized guidance and support. You\"ll receive one-on-one attention, and form corrections. Reserve your session today to take your fitness journey to the next level."),
-        "wishList": MessageLookupByLibrary.simpleMessage("WishList"),
-        "wishlist": MessageLookupByLibrary.simpleMessage("Wishlist"),
-        "workout": MessageLookupByLibrary.simpleMessage("Workout"),
-        "workoutLocationFieldIsRequire": MessageLookupByLibrary.simpleMessage(
-            "Workout Location Field is Require"),
+            "سوف نقدم لك متابعة مخصصة لك، بشكل مباشر مع المدرب وتجهيز برنامجك الرياضي وتصحيح الأخطاء، احجز جلستك اليوم لترفع من مستوى تدريبك."),
+        "wishList": MessageLookupByLibrary.simpleMessage("قائمة رغباتي"),
+        "wishlist": MessageLookupByLibrary.simpleMessage("قائمة الرغبات"),
+        "workout": MessageLookupByLibrary.simpleMessage("التدريب"),
+        "workoutLocationFieldIsRequire":
+            MessageLookupByLibrary.simpleMessage("حقل موقع التدريب مطلوب"),
         "workoutPlanPrivate":
-            MessageLookupByLibrary.simpleMessage("Workout plan . private"),
+            MessageLookupByLibrary.simpleMessage("برنامج التمرين / خاص"),
         "workoutPlans": MessageLookupByLibrary.simpleMessage("WORKOUT PLANS"),
-        "wrong": MessageLookupByLibrary.simpleMessage("Wrong"),
-        "wrongEmail": MessageLookupByLibrary.simpleMessage("Invalid email"),
+        "wrong": MessageLookupByLibrary.simpleMessage("خطأ"),
+        "wrongEmail":
+            MessageLookupByLibrary.simpleMessage("بريد الكتروني غير صالح"),
         "wrongPhone":
-            MessageLookupByLibrary.simpleMessage("Invalid phone number"),
+            MessageLookupByLibrary.simpleMessage("رقم الهاتف غير صالح"),
         "yesSureBasedOnYourPersonal": MessageLookupByLibrary.simpleMessage(
-            " Yes sure. Based on your personal info and physical activity, a list of high-HD exercise videos will show up to you. So, it doesn\"t matter if you are a beginner or a Pro. "),
+            "نعم، بالتأكيد. بناءً على معلوماتك الشخصية ونشاطك البدني، ستظهر لك قائمة بمقاطع فيديو تمارين عالية الدقة. لذلك، لا يهم ما إذا كنت مبتدئًا أم محترفًا."),
         "yesSureThereIs7DaysFreeTrial": MessageLookupByLibrary.simpleMessage(
             "Yes, sure there is 7 days free trial"),
-        "yesTheyCan": MessageLookupByLibrary.simpleMessage("Yes, they can."),
+        "yesTheyCan": MessageLookupByLibrary.simpleMessage("نعم، يمكنهم ذلك."),
         "youCanDoItThisSet":
-            MessageLookupByLibrary.simpleMessage("You can do it!"),
+            MessageLookupByLibrary.simpleMessage("انطلق لأنك تستطيع"),
         "youCanSubscribeAndPay": MessageLookupByLibrary.simpleMessage(
-            "You can subscribe and pay online through available payment options available through the application."),
+            "يمكنك الاشتراك والدفع عبر الإنترنت من خلال خيارات الدفع المتاحة من خلال التطبيق."),
         "youOftenExercise":
-            MessageLookupByLibrary.simpleMessage("You Often exercise"),
+            MessageLookupByLibrary.simpleMessage(" تقوم عادةّ بممارسة الرياضة"),
         "youPreferToWorkoutIn":
-            MessageLookupByLibrary.simpleMessage("You Prefer to workout in"),
-        "youWorkoutIn": MessageLookupByLibrary.simpleMessage("You workout in"),
-        "yourAddress": MessageLookupByLibrary.simpleMessage("Your Address"),
-        "yourEmail": MessageLookupByLibrary.simpleMessage("Your Email"),
-        "yourLocation": MessageLookupByLibrary.simpleMessage("Your Location"),
-        "yourName": MessageLookupByLibrary.simpleMessage("Your Name"),
-        "yourOrder": MessageLookupByLibrary.simpleMessage("Your Order"),
-        "yourPhone": MessageLookupByLibrary.simpleMessage("Your Phone"),
-        "yourSubscriptionToPlan": MessageLookupByLibrary.simpleMessage(
-            "You will be no longer training with plan"),
-        "yourTrainingGoal":
-            MessageLookupByLibrary.simpleMessage("Your training goal"),
+            MessageLookupByLibrary.simpleMessage("تفضل التدرب في"),
+        "youWorkoutIn":
+            MessageLookupByLibrary.simpleMessage("أنت تمارس الرياضة في"),
+        "yourAddress": MessageLookupByLibrary.simpleMessage("عنوانك"),
+        "yourEmail": MessageLookupByLibrary.simpleMessage("بريدك الإلكتروني"),
+        "yourLocation": MessageLookupByLibrary.simpleMessage("موقعك"),
+        "yourName": MessageLookupByLibrary.simpleMessage("اسمك"),
+        "yourOrder": MessageLookupByLibrary.simpleMessage("طلبك"),
+        "yourPhone": MessageLookupByLibrary.simpleMessage("رقم هاتفك"),
+        "yourSubscriptionToPlan":
+            MessageLookupByLibrary.simpleMessage("سيتم إلغاء اشتراكك في خطة"),
+        "yourTrainingGoal": MessageLookupByLibrary.simpleMessage(" هدفك"),
         "yourTrainingLevel":
-            MessageLookupByLibrary.simpleMessage("Your training level"),
-        "zumba": MessageLookupByLibrary.simpleMessage("Zumba")
+            MessageLookupByLibrary.simpleMessage("مستوى تمرينك"),
+        "zumba": MessageLookupByLibrary.simpleMessage("زومبا")
       };
 }
