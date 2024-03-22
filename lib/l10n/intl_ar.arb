@@ -514,15 +514,15 @@
   "wrong": "Wrong",
   "birthDate": "Birth Date",
   "applyAsTrainer": "apply as Trainer",
+  "cv": "CV",
   "send": "send",
   "request": "request",
-  "cv": "CV",
   "booked": "Booked",
   "available": "Available",
   "noPlansFound": "No Plans Found",
   "certificateOfGraduation": "Certificate Of Graduation",
+  "certificateOfCourseAttended": "Certificate Of Course Attended",
   "fullyBooked": "This Coach is Fully Booked!",
   "noteMe": "Notify me when there is an available date",
-  "certificateOfCourseAttended": "Certificate Of Course Attended",
   "nextSession": "Next Session"
 }
