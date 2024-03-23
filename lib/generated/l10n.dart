@@ -3630,6 +3630,16 @@ class S {
     );
   }
 
+  /// `Book Session`
+  String get bookSession {
+    return Intl.message(
+      'Book Session',
+      name: 'bookSession',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `private session`
   String get privateSession {
     return Intl.message(

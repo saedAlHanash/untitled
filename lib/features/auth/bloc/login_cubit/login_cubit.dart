@@ -12,6 +12,7 @@ import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/abstraction.dart';
 import '../../../../core/util/pair_class.dart';
 import '../../../../generated/l10n.dart';
+import '../../../../main.dart';
 import '../../data/response/login_response.dart';
 
 part 'login_state.dart';
@@ -27,6 +28,7 @@ class LoginCubit extends Cubit<LoginInitial> {
       emit(state.copyWith(statuses: CubitStatuses.error, error: pair.second));
       showErrorFromApi(state);
     } else {
+      saveFCM();
       emit(state.copyWith(statuses: CubitStatuses.done, result: pair.first));
     }
   }

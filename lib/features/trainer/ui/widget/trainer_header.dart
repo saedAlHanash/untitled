@@ -72,7 +72,7 @@ class TrainerHeader extends StatelessWidget {
                           !AppControl.isAppleAccount) {
                         return Center(
                           child: MyButtonRound(
-                            text: 'Book Session',
+                            text: S.of(context).bookSession,
                             onTap: () => bookSession(trainer),
                           ),
                         );

@@ -75,6 +75,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "book": MessageLookupByLibrary.simpleMessage("حجز"),
         "bookPrivateSession":
             MessageLookupByLibrary.simpleMessage("احجز جلسة خاصّة"),
+        "bookSession": MessageLookupByLibrary.simpleMessage("احجز جلسة"),
         "booked": MessageLookupByLibrary.simpleMessage("حجز"),
         "bookmarked": MessageLookupByLibrary.simpleMessage("تم الحفظ"),
         "bookmarkedPlans":
