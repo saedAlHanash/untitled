@@ -9,6 +9,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:logger/logger.dart';
 
 import 'Data/Api/methods.dart';
 import 'Data/Api/urls.dart';
@@ -101,7 +102,11 @@ class MyHttpOverrides extends HttpOverrides {
 Future<void> saveFCM() async {
   if (AppProvider.token.isEmpty) return;
   final token = await FirebaseMessaging.instance.getToken() ?? '';
-  final option = Utils.getOptions(accept: true, withToken: true);
-  Map<String, String> map = {'device_token': token};
-  await Methods.post(url: TRAINEEURLS.saveFcm, options: option, data: map);
+  final response = await APIService().postApi(
+    url: PostUrl.insertFcmToken,
+    body: {'device_token': token},
+  );
+  if (response.statusCode != 200) {
+    loggerObject.e('error with fcm');
+  }
 }

@@ -70,12 +70,7 @@ class TrainerHeader extends StatelessWidget {
 
                       if (pair.second == PrivetSessionState.noEver &&
                           !AppControl.isAppleAccount) {
-                        return Center(
-                          child: MyButtonRound(
-                            text: S.of(context).bookSession,
-                            onTap: () => bookSession(trainer),
-                          ),
-                        );
+                        return 0.0.verticalSpace;
                       }
                       return Column(
                         children: [
@@ -94,6 +89,7 @@ class TrainerHeader extends StatelessWidget {
                                       width: 15.0.w,
                                       color: Colors.white,
                                     ),
+                                    size: 14.0.sp,
                                     color: Colors.white,
                                   ),
                                   onTap: () async {
@@ -117,6 +113,7 @@ class TrainerHeader extends StatelessWidget {
                                   child: DrawableText(
                                     text: S.of(context).videoCall,
                                     color: Colors.white,
+                                    size: 14.0.sp,
                                     drawablePadding: 3.0.w,
                                     drawableEnd: ImageMultiType(
                                       url: Assets.imagesVideo,
@@ -146,7 +143,7 @@ class TrainerHeader extends StatelessWidget {
                             DrawableText(
                               padding: const EdgeInsets.symmetric(vertical: 5.0).h,
                               text:
-                                  'Next session in ${pair.first?.startTime.formatDateTime}',
+                                  '${S.of(context).nextSession}: ${pair.first?.startTime.formatDateTime}',
                               size: 12.0.sp,
                             ),
                         ],

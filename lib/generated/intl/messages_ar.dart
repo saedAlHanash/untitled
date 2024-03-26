@@ -88,7 +88,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "cURRENTBALANCE": MessageLookupByLibrary.simpleMessage("الرصيد الحالي"),
         "calender": MessageLookupByLibrary.simpleMessage("تقويم"),
         "canIContactTheCoachDirectly": MessageLookupByLibrary.simpleMessage(
-            "Can I contact the coach directly?"),
+            "هل يمكنني التواصل مع المدرب مباشرة؟"),
         "canISubscribeIfILiveOutsideSaudiArabia":
             MessageLookupByLibrary.simpleMessage(
                 "هل يمكنني الاشتراك إذا كنت أعيش خارج المملكة العربية السعودية ؟"),
@@ -139,8 +139,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "يرجى اختيار كيفية إرسال رمز التحقق"),
         "confirmNewPassword":
             MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور الجديدة"),
-        "confirmPassword": MessageLookupByLibrary.simpleMessage(
-            "Confirm Password تأكيد كلمة المرور"),
+        "confirmPassword":
+            MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور"),
         "confirmPasswordDoesNotMatchPassword":
             MessageLookupByLibrary.simpleMessage(
                 "تأكيد كلمة المرور لا تطابق كلمة المرور"),
@@ -399,7 +399,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "noName": MessageLookupByLibrary.simpleMessage("بدون اسم"),
         "noPlansFound": MessageLookupByLibrary.simpleMessage("لا يوجد خطط"),
         "noThisOptionIsNotAvailableYet": MessageLookupByLibrary.simpleMessage(
-            "No, this option is not available yet."),
+            "لا، هذا الخيار غير متاح بعد."),
         "noWallet": MessageLookupByLibrary.simpleMessage("لا توجد محفظة"),
         "notAcceptable": MessageLookupByLibrary.simpleMessage("غير مقبول"),
         "notCompleteProcessPayment":
@@ -465,6 +465,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "plans": MessageLookupByLibrary.simpleMessage("البرامج"),
         "plansByThisTrainer":
             MessageLookupByLibrary.simpleMessage("برامج المدرب "),
+        "playingDays_lessFirst":
+            MessageLookupByLibrary.simpleMessage("Playing Days (less first)"),
+        "playingDays_moreFirst":
+            MessageLookupByLibrary.simpleMessage("Playing Days (more first)"),
         "pleasCreateAccount":
             MessageLookupByLibrary.simpleMessage("يرجى إنشاء حساب"),
         "pleasSetYourAddress":
@@ -685,7 +689,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "verificationSentSuccessfully":
             MessageLookupByLibrary.simpleMessage("تم إرسال رمز التأكيد بنجاح"),
         "verify": MessageLookupByLibrary.simpleMessage("تأكيد"),
-        "videoCall": MessageLookupByLibrary.simpleMessage("Video Call"),
+        "videoCall": MessageLookupByLibrary.simpleMessage("مكالمة فيديو"),
         "videoInitialized":
             MessageLookupByLibrary.simpleMessage("تم استهلال الفيديو"),
         "voucher": MessageLookupByLibrary.simpleMessage("قيمة الخصم"),
@@ -716,6 +720,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ماهو هدفك من التدريب ؟"),
         "whatLanguageIsSpokenInTheVideos": MessageLookupByLibrary.simpleMessage(
             "ما هي اللغة التي يتم التحدث بها في مقاطع الفيديو ؟"),
+        "whatPlansDoYouOfferToSubscribe": MessageLookupByLibrary.simpleMessage(
+            "What plans do you offer to subscribe?"),
         "whatWillYouGetInThisPrivateSession":
             MessageLookupByLibrary.simpleMessage(
                 "ما الذي  ستحصل عليه في هذه الجلسة؟"),
@@ -735,7 +741,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("حقل موقع التدريب مطلوب"),
         "workoutPlanPrivate":
             MessageLookupByLibrary.simpleMessage("برنامج التمرين / خاص"),
-        "workoutPlans": MessageLookupByLibrary.simpleMessage("WORKOUT PLANS"),
+        "workoutPlans": MessageLookupByLibrary.simpleMessage("برامج التدريب"),
         "wrong": MessageLookupByLibrary.simpleMessage("خطأ"),
         "wrongEmail":
             MessageLookupByLibrary.simpleMessage("بريد الكتروني غير صالح"),
@@ -744,7 +750,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "yesSureBasedOnYourPersonal": MessageLookupByLibrary.simpleMessage(
             "نعم، بالتأكيد. بناءً على معلوماتك الشخصية ونشاطك البدني، ستظهر لك قائمة بمقاطع فيديو تمارين عالية الدقة. لذلك، لا يهم ما إذا كنت مبتدئًا أم محترفًا."),
         "yesSureThereIs7DaysFreeTrial": MessageLookupByLibrary.simpleMessage(
-            "Yes, sure there is 7 days free trial"),
+            "نعم، بالتأكيد هناك 7 أيام تجريبية مجانية"),
         "yesTheyCan": MessageLookupByLibrary.simpleMessage("نعم، يمكنهم ذلك."),
         "youCanDoItThisSet":
             MessageLookupByLibrary.simpleMessage("انطلق لأنك تستطيع"),

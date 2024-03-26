@@ -144,6 +144,7 @@ class PostUrl {
 
   static const addSupportMessage = 'messages/add';
   static const apply = 'api/application-request';
+  static const insertFcmToken = 'notifications/storeFcmToken';
 
   static String addMessage(int id) {
     return 'drivers/messages/$id/add';

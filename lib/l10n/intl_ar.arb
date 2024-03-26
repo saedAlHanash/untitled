@@ -24,12 +24,10 @@
   "useCurrentLocation": "استخدام الموقع الحالي",
   "other": "آخر",
   "registeredBefore": "مسجل سابقًا",
-
   "myInfo": "معلوماتي",
   "myOrders": "طلباتي",
   "wishList": "قائمة رغباتي",
   "faq": "الأسئلة الشائعة",
-
   "support": "الدعم",
   "language": "اللغة",
   "currency": "العملة",
@@ -67,7 +65,6 @@
   "relatedProducts": "المنتجات المرتبطة",
   "addToCart": "أضف إلى السلة",
   "next": "التالي",
-
   "newArrival": "وصول جديد",
   "isRequired": "مطلوب",
   "oops": "عفوًا!",
@@ -102,7 +99,6 @@
   "processing": "قيد التجهيز",
   "ready": "جاهز",
   "shipping": "جاري الشحن",
-
   "canceled": "ملغى",
   "paymentFailed": "فشل الدفع",
   "returned": "مُرجَع",
@@ -325,7 +321,6 @@
   "whyToSubscribe": "لماذا يجب أن اشترك ؟",
   "enjoyYourFitnessStorm.": "استمتع برحلتك مع Fitness Storm ",
   "joinFitnessStormForPersonalized": "أكثر من ١١ برنامج رياضى\nأكثر من ١٣ مدرب\n اشتراك غير محدود على جميع البرامج",
-  "prioritizingYourFitness": "Prioritizing your fitness leads to physical and mental health benefits like improved mood, reduced stress, and better sleep.",
   "startYourJourney": "ابدأ رحلتك اليوم!",
   "profileInfo": " الملف الشخصي",
   "editProfile": "تعديل الملف الشخصي",
@@ -500,7 +495,7 @@
   "unexpectedErrorOccurred": "حدث عطل غير متوقع",
   "notAcceptable": "غير مقبول",
   "done": "نعم",
-  "confirmPassword": "Confirm Password تأكيد كلمة المرور",
+  "confirmPassword": "تأكيد كلمة المرور",
   "alreadyPlay": "تم الانتهاء من هذا اليوم",
   "renewalPrice": "سعر التجديد",
   "areYouSure": "هل أنت متأكد؟",
@@ -518,11 +513,11 @@
   "availableSession": "جلسة متاحة",
   "letsGo": "هيا نبدأ",
   "passwordDoesntMatch": "كلمة السر غير مطابقة",
-  "canIContactTheCoachDirectly": "Can I contact the coach directly?",
-  "noThisOptionIsNotAvailableYet": "No, this option is not available yet.",
-  "yesSureThereIs7DaysFreeTrial": "Yes, sure there is 7 days free trial",
-  "workoutPlans": "WORKOUT PLANS",
-  "videoCall": "Video Call",
+  "canIContactTheCoachDirectly": "هل يمكنني التواصل مع المدرب مباشرة؟",
+  "noThisOptionIsNotAvailableYet": "لا، هذا الخيار غير متاح بعد.",
+  "yesSureThereIs7DaysFreeTrial": "نعم، بالتأكيد هناك 7 أيام تجريبية مجانية",
+  "workoutPlans": "برامج التدريب",
+  "videoCall": "مكالمة فيديو",
   "oldSession": "الجلسات السابقة",
   "bundles": "الباقات",
   "sessionsCount": "عدد الحصص",
@@ -541,5 +536,9 @@
   "certificateOfCourseAttended": "شهادة حضور الدورة",
   "fullyBooked": "هذا المدرب محجوز بالكامل!",
   "noteMe": "أرسل إشعارا عندما يتوفر دروس ",
-  "nextSession": "الجلسة القادمة"
+  "nextSession": "الجلسة القادمة",
+  "playingDays_moreFirst": "Playing Days (more first)",
+  "playingDays_lessFirst": "Playing Days (less first)",
+  "prioritizingYourFitness": "Prioritizing your fitness leads to physical and mental health benefits like improved mood, reduced stress, and better sleep.",
+  "whatPlansDoYouOfferToSubscribe": "What plans do you offer to subscribe?"
 }

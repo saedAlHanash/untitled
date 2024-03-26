@@ -24,18 +24,8 @@ class TrainerMainHomeController extends GetxController {
         getRoomCubitState != CubitStatuses.loading) {
       Get.context?.read<RoomsCubit>().getChatRooms();
     }
-
-    getToken();
     super.onInit();
   }
 
-  Future<void> getToken() async {
-    token = await FirebaseMessaging.instance.getToken();
-    if (token != null) await storeFcm(token!);
-  }
 
-  storeFcm(String token) async {
-    ApiResult result = await _authRepository.saveFCM(token);
-    //log(result.type.toString());
-  }
 }

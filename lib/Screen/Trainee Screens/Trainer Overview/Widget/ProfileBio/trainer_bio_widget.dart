@@ -93,17 +93,6 @@ class TrainerBioWidget extends StatelessWidget {
                           size: 14.0.sp,
                           color: Colors.white,
                         ),
-                        // const Spacer(),
-                        // DrawableText(
-                        //   text: S.of(context).bookPrivateSession,
-                        //   color: Colors.white,
-                        // ),
-                        // 15.0.horizontalSpace,
-                        // ImageMultiType(
-                        //   url: Icons.arrow_forward_ios,
-                        //   color: Colors.white,
-                        //   width: 15.0.r,
-                        // ),
                       ],
                     ),
                   ),
@@ -117,7 +106,7 @@ class TrainerBioWidget extends StatelessWidget {
                         return 0.0.verticalSpace;
                       }
                       return SizedBox(
-                        height: 100.0.h,
+                        height: 130.0.h,
                         width: 1.0.sw,
                         child: ListView.builder(
                           scrollDirection: Axis.horizontal,
@@ -182,15 +171,12 @@ class _BundleItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    loggerObject.wtf(maxTimesCount);
-    loggerObject.w(item.sessions);
     return Opacity(
       opacity: item.sessions > maxTimesCount ? 0.7 : 1,
       child: InkWell(
         onTap: item.sessions > maxTimesCount ? null : () => startCreateBundle(item),
         child: Container(
-          height: 80.0.r,
-          width: 100.0.r,
+          width: 110.0.r,
           margin: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0).r,
           padding: const EdgeInsets.symmetric(horizontal: 10.0).r,
           decoration: BoxDecoration(
@@ -209,16 +195,20 @@ class _BundleItem extends StatelessWidget {
               DrawableText(
                 text: item.name,
                 size: 11.0.sp,
+                maxLines: 2,
                 color: AppColorManager.mainColor,
               ),
               DrawableText(
                 text: '${item.price} ${S.of(context).sar}',
                 fontWeight: FontWeight.bold,
+                maxLines: 2,
+                textAlign: TextAlign.center,
                 color: AppColorManager.mainColor,
               ),
               DrawableText(
                 text: '${item.sessions} ${S.of(context).session}',
                 size: 10.0.sp,
+                maxLines: 1,
                 color: AppColorManager.mainColor,
               ),
             ],
