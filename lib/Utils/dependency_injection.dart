@@ -224,7 +224,7 @@ var loading = false;
 class Note {
   static Future initialize() async {
     flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
-    var androidInitialize = const AndroidInitializationSettings('mipmap/launcher_icon');
+    var androidInitialize = const AndroidInitializationSettings('mipmap/ic_launcher');
     var iOSInitialize = const DarwinInitializationSettings();
     var initializationsSettings =
         InitializationSettings(android: androidInitialize, iOS: iOSInitialize);

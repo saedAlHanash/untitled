@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-// import 'package:pod_player/pod_player.dart';
+import 'package:pod_player/pod_player.dart';
 
 import '../../../Utils/Routes/app_pages.dart';
 import '../../../core/app/app_provider.dart';
@@ -36,7 +36,7 @@ class PlanOverviewController extends GetxController {
   final TraineeRepository _traineeRepository = TraineeRepository();
   final WorkoutRepository _workoutRepository = WorkoutRepository();
 
-  // PodPlayerController? videoController;
+  PodPlayerController? videoController;
 
   @override
   Future<void> onInit() async {
@@ -98,7 +98,7 @@ class PlanOverviewController extends GetxController {
       if (response.statusCode == 451) {
         Utils.closeDialog();
         if (AppControl.isAppleAccount) return;
-        // videoController?.pause();
+        videoController?.pause();
         Get.toNamed(AppRoutes.subscriptionScreen)!.then((value) async {
           if (HelperClass.successfullySubscription) {
             Utils.openLoadingDialog();
@@ -142,7 +142,7 @@ class PlanOverviewController extends GetxController {
         apiResult.statusCode == 402) {
       Get.back();
       Get.delete<UserTrainingController>();
-      // videoController?.pause();
+      videoController?.pause();
       Get.toNamed(AppRoutes.userTraining, arguments: [
         i + 1,
         planWorkouts[i].name,

@@ -39,9 +39,9 @@ class PlanOverviewScreen extends GetView<PlanOverviewController> {
                   children: [
                     VimeoPlayer(
                       videoId: controller.planOverview.introductionVideo,
-                      // onInitController: (videoController) {
-                      //   controller.videoController = videoController;
-                      // },
+                      onInitController: (videoController) {
+                        controller.videoController = videoController;
+                      },
                     ),
                     const VideoTailWidget(),
                     Padding(
@@ -103,7 +103,7 @@ class PlanOverviewScreen extends GetView<PlanOverviewController> {
                       itemBuilder: (_, i) {
                         return GestureDetector(
                           onTap: () {
-                            // controller.videoController?.pause();
+                            controller.videoController?.pause();
                             controller.planWorkouts[i].name!.toLowerCase() !=
                                     'Rest day'.toLowerCase()
                                 ? controller.startTraining(i)

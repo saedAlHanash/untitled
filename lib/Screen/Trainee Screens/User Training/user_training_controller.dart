@@ -6,7 +6,7 @@ import 'package:fitness_storm/Model/exercise.dart';
 import 'package:fitness_storm/Utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-// import 'package:pod_player/pod_player.dart';
+import 'package:pod_player/pod_player.dart';
 
 import '../../../Data/Repositories/get_url_video.dart';
 import '../../../Utils/protact_screen_service.dart';
@@ -38,7 +38,7 @@ class UserTrainingController extends GetxController {
   late RxDouble _progress = 0.0.obs;
   final RxInt _start = 0.obs;
   final RxList<int> _trainingSets = <int>[].obs;
-  // late final Rx<PodPlayerController> _videoController;
+  late final Rx<PodPlayerController> _videoController;
   final Rx<String> _videoId = ''.obs;
 
   @override
@@ -46,7 +46,7 @@ class UserTrainingController extends GetxController {
     ProtectScreenService().stopProtect();
 
     try {
-      // videoController.dispose();
+      videoController.dispose();
     } on Exception {}
 
     super.onClose();
@@ -106,9 +106,9 @@ class UserTrainingController extends GetxController {
 
   List<bool> get completedExercises => _completedExercises.value;
 
-  // PodPlayerController get videoController => _videoController.value;
-  //
-  // set videoController(value) => _videoController.value = value;
+  PodPlayerController get videoController => _videoController.value;
+
+  set videoController(value) => _videoController.value = value;
 
   set exercises(value) => _exercises.value = value;
 
@@ -362,7 +362,7 @@ class UserTrainingController extends GetxController {
     const oneSec = Duration(seconds: 1);
     Timer.periodic(
       oneSec,
-      (Timer timer) {
+          (Timer timer) {
         if (startTime == 0) {
           timer.cancel();
           if (callback != null) {

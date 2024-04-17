@@ -331,6 +331,7 @@ class SettingResult {
     required this.minAndroidVersion,
     required this.minAppleVersion,
     required this.isIosTest,
+    required this.isWebViewPlayer,
     required this.terms,
     required this.about,
     required this.faq,
@@ -340,6 +341,7 @@ class SettingResult {
   final num minAndroidVersion;
   final num minAppleVersion;
   final bool isIosTest;
+  final bool isWebViewPlayer;
   final String terms;
   final String about;
   final String faq;
@@ -358,6 +360,12 @@ class SettingResult {
               "1000") ??
           1000,
       isIosTest: (json.firstWhereOrNull((e) => (e)['label'] == 'is_ios_test')['value'] ??
+                  "false") ==
+              'true'
+          ? true
+          : false,
+
+      isWebViewPlayer: (json.firstWhereOrNull((e) => (e)['label'] == 'is_web_view_player')['value'] ??
                   "false") ==
               'true'
           ? true
@@ -382,6 +390,7 @@ class SettingResult {
         "min_android_version": minAndroidVersion,
         "min_apple_version": minAppleVersion,
         "is_ios_test": isIosTest,
+        "is_web_view_player": isWebViewPlayer,
       };
 }
 

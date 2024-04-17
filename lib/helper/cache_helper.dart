@@ -6,7 +6,7 @@ class CacheHelper {
 
   static init() async {
     _pref = await SharedPreferences.getInstance();
-    AppSharedPreference.init(_pref!);
+    await AppSharedPreference.init(_pref!);
   }
 
   static Future<void> clearData() async => await _pref?.clear();
