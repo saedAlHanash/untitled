@@ -26,7 +26,7 @@ dependencies:
   bloc: ^8.1.2
   flutter_bloc: ^8.1.1
   intl:
-  package_info_plus: ^4.2.0
+  package_info_plus: ^7.0.0
   bottom_picker: ^1.8.0
   pod_player: ^0.2.2
   readmore: ^2.2.0
