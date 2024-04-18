@@ -15,7 +15,6 @@ dependencies:
   http: ^1.2.1
   get: ^4.6.6
   wakelock_plus:
-    path: wakelock_plus
 #  package_info_plus: ^4.2.0
   universal_html:
   youtube_explode_dart: ^2.2.0
