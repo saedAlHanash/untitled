@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="43c414a0-a0aa-41d9-b6a1-9df3dcc6d755" name="Changes" comment="fix pod and wakelock_plus" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2fEms8Aob4C6rrAcSNYM3mmSXj0" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "ignore.virus.scanning.warn.message": "true",
+    "io.flutter.reload.alreadyRun": "true",
+    "last_opened_file_path": "C:/Users/saed/AndroidStudioProjects/New/untitled",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "show.migrate.to.gradle.popup": "false"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\saed\AndroidStudioProjects\New\fitness_storm\pod_player" />
+      <recent name="C:\Users\saed\AndroidStudioProjects\New\fitness_storm" />
+      <recent name="C:\Users\saed\AndroidStudioProjects\New\fitness_storm\ios" />
+      <recent name="C:\Users\saed\AndroidStudioProjects\New\fitness_storm\android\app\src" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
+      <option name="filePath" value="$PROJECT_DIR$/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="43c414a0-a0aa-41d9-b6a1-9df3dcc6d755" name="Changes" comment="" />
+      <created>1713374825994</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1713374825994</updated>
+    </task>
+    <task id="LOCAL-00001" summary="refactor new plugens and new project with update project">
+      <option name="closed" value="true" />
+      <created>1713375328125</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1713375328125</updated>
+    </task>
+    <task id="LOCAL-00002" summary="refactor new plugens and new project with update project">
+      <option name="closed" value="true" />
+      <created>1713391499667</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1713391499667</updated>
+    </task>
+    <task id="LOCAL-00003" summary="refactor new plugens and new project with update project">
+      <option name="closed" value="true" />
+      <created>1713392273629</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1713392273629</updated>
+    </task>
+    <task id="LOCAL-00004" summary="refactor new plugens and new project with update project">
+      <option name="closed" value="true" />
+      <created>1713395206964</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1713395206964</updated>
+    </task>
+    <task id="LOCAL-00005" summary="refactor new plugens and new project with update project">
+      <option name="closed" value="true" />
+      <created>1713414181527</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1713414181527</updated>
+    </task>
+    <task id="LOCAL-00006" summary="refactor new plugens and new project with update project">
+      <option name="closed" value="true" />
+      <created>1713416021112</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1713416021112</updated>
+    </task>
+    <task id="LOCAL-00007" summary="fix pod and wakelock_plus">
+      <option name="closed" value="true" />
+      <created>1713439703686</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1713439703686</updated>
+    </task>
+    <task id="LOCAL-00008" summary="fix pod and wakelock_plus">
+      <option name="closed" value="true" />
+      <created>1713439742518</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1713439742518</updated>
+    </task>
+    <task id="LOCAL-00009" summary="fix pod and wakelock_plus">
+      <option name="closed" value="true" />
+      <created>1713440570111</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1713440570111</updated>
+    </task>
+    <task id="LOCAL-00010" summary="fix pod and wakelock_plus">
+      <option name="closed" value="true" />
+      <created>1713440668120</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1713440668120</updated>
+    </task>
+    <task id="LOCAL-00011" summary="fix pod and wakelock_plus">
+      <option name="closed" value="true" />
+      <created>1713441693083</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1713441693083</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="refactor new plugens and new project with update project" />
+    <MESSAGE value="fix pod and wakelock_plus" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix pod and wakelock_plus" />
+  </component>
+</project>
