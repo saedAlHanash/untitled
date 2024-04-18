@@ -320,7 +320,10 @@ Future<Pair<SettingResult?, String?>> _apiSettings() async {
   );
 
   if (response.statusCode == 200) {
-    return Pair(SettingResult.fromJson(jsonDecode(response.body)), null);
+    final data = SettingResult.fromJson(jsonDecode(response.body));
+    final appData = await PackageInfo.fromPlatform();
+    data.buildNumber = int.tryParse(appData.buildNumber) ?? 0;
+    return Pair(data, null);
   } else {
     return Pair(null, '');
   }
@@ -336,6 +339,7 @@ class SettingResult {
     required this.about,
     required this.faq,
     required this.policy,
+    this.buildNumber = 0,
   });
 
   final num minAndroidVersion;
@@ -346,6 +350,7 @@ class SettingResult {
   final String about;
   final String faq;
   final String policy;
+  int buildNumber;
 
   factory SettingResult.fromJson(List<dynamic> json) {
     final lang = Get.find<LanguagesController>().selectedLanguage;
@@ -364,13 +369,12 @@ class SettingResult {
               'true'
           ? true
           : false,
-
-      isWebViewPlayer: (json.firstWhereOrNull((e) => (e)['label'] == 'is_web_view_player')['value'] ??
-                  "false") ==
-              'true'
-          ? true
-          : false,
-
+      isWebViewPlayer:
+          (json.firstWhereOrNull((e) => (e)['label'] == 'is_web_view_player')['value'] ??
+                      "false") ==
+                  'true'
+              ? true
+              : false,
       terms: (json.firstWhereOrNull(
               (e) => (e)['label'] == 'terms${isEn ? '_e' : '_a'}')['value'] ??
           ""),
@@ -391,6 +395,7 @@ class SettingResult {
         "min_apple_version": minAppleVersion,
         "is_ios_test": isIosTest,
         "is_web_view_player": isWebViewPlayer,
+        "buildNumber": buildNumber,
       };
 }
 

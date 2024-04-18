@@ -139,28 +139,25 @@ class _VimeoPlayerPodState extends State<VimeoPlayerPod> {
 
   @override
   void initState() {
-    getVimeoToken().then((value) {
-      loggerObject.w(value);
-      token = value;
-
-      controller = PodPlayerController(
-        podPlayerConfig: const PodPlayerConfig(
-          wakelockEnabled: true,
-          videoQualityPriority: [360],
-        ),
-        playVideoFrom: PlayVideoFrom.vimeo(
-          widget.videoId,
-          // '784930773',
-          httpHeaders: {'Authorization': 'Bearer $token'},
-          videoPlayerOptions: VideoPlayerOptions(
-            mixWithOthers: true,
-          ),
-        ),
-      )..initialise();
-
-      widget.onInitController?.call(controller);
-      setState(() {});
+    controller = PodPlayerController(
+    podPlayerConfig: const PodPlayerConfig(
+      wakelockEnabled: true,
+      videoQualityPriority: [360],
+    ),
+    playVideoFrom: PlayVideoFrom.vimeo(
+      widget.videoId,
+      // '784930773',
+      // httpHeaders: {'Authorization': 'Bearer $token'},
+      videoPlayerOptions: VideoPlayerOptions(
+        mixWithOthers: true,
+      ),
+    ),
+  )..initialise().then((value) {
+    setState(() {
     });
+    });
+
+
 
     super.initState();
   }
@@ -175,9 +172,7 @@ class _VimeoPlayerPodState extends State<VimeoPlayerPod> {
   Widget build(BuildContext context) {
     return Directionality(
       textDirection: TextDirection.ltr,
-      child: token.isEmpty
-          ? const CircularProgressIndicator()
-          : Stack(
+      child: Stack(
               alignment: Alignment.center,
               children: [
                 PodVideoPlayer(

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:fitness_storm/features/auth/data/response/login_response.dart';
@@ -81,7 +83,10 @@ class AppProvider {
 
 class AppControl {
   //التحكم في إظهار وإخفاء زر تسجيل الدخول ب غوغل
-  static bool get hideGoogleBtn => AppProvider.systemParams.isIosTest;
+  static bool get hideGoogleBtn =>
+      Platform.isIOS &&
+      AppProvider.systemParams.isIosTest &&
+      (AppProvider.systemParams.buildNumber > AppProvider.systemParams.minAppleVersion);
 
   static bool get isAppleAccount => AppProvider.myId == 262;
 }
