@@ -345,7 +345,7 @@ class UserTrainingController extends GetxController {
   }
 
   Future<void> authenticateWithVimeo() async {
-    accessToken = await GetUrlVideo().authrizationWithVimeo();
+    accessToken = await getVimeoToken();
   }
 
   void startNextExercise() {

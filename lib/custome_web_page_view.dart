@@ -25,7 +25,7 @@ class _MyCustomeWebPageState extends State<MyCustomeWebPage> {
   @override
   void initState() {
     super.initState();
-    loggerObject.w(widget.urlWebPage);
+
     controller = Completer<WebViewController>();
   }
 

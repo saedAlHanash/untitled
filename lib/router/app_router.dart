@@ -261,7 +261,7 @@ void startRestPass() {
     child: const ResetPasswordPage(),
   );
 
-  loggerObject.w('startForgetPass');
+  //loggerObject.w('startForgetPass');
 
   Get.to(page);
   sl<FirebaseAnalyticService>().screenView(name: 'rest_password');
@@ -278,7 +278,7 @@ void startApply() {
     child: const ApplyPage(),
   );
 
-  loggerObject.w('startApply');
+  //loggerObject.w('startApply');
 
   Get.to(() => page);
   sl<FirebaseAnalyticService>().screenView(name: 'apply_as_trainer');
@@ -300,7 +300,7 @@ void startConfirmCodeAccount(BuildContext context) {
 }
 
 void startHome() {
-  loggerObject.w(AppProvider.isTrainer);
+  //loggerObject.w(AppProvider.isTrainer);
   Get.offAllNamed(AppProvider.isTrainer ? AppRoutes.trainerHomePage : AppRoutes.mainHome);
   sl<FirebaseAnalyticService>().screenView(name: 'home');
 }

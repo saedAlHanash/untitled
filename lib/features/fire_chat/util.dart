@@ -23,7 +23,7 @@ extension TypesRoom on types.Room {
   bool get isNotReed {
     if (createdAt == updatedAt) return false;
     final result = (updatedAt ?? 0) - (latestUpdateMessagesBox.get(id) ?? 0);
-    // loggerObject.w('$id $updatedAt - ${(latestUpdateMessagesBox.get(id))} = $result');
+    // //loggerObject.w('$id $updatedAt - ${(latestUpdateMessagesBox.get(id))} = $result');
     return result > 2000;
   }
 }
@@ -129,7 +129,7 @@ Future<void> logoutChatUser() async {
       },
     );
   }
-  loggerObject.w('logout');
+  //loggerObject.w('logout');
 
   await roomsBox.clear();
 

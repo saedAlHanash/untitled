@@ -54,7 +54,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
         BlocListener<ForgetPasswordCubit, ForgetPasswordInitial>(
           listenWhen: (p, c) => c.statuses.done,
           listener: (context, state) {
-            loggerObject.w('message');
+            //loggerObject.w('message');
             startRestPass();
           },
           child: SafeArea(

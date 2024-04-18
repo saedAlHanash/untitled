@@ -35,7 +35,7 @@ class ProfileTrainerScreen extends StatefulWidget {
 class _ProfileTrainerScreenState extends State<ProfileTrainerScreen> {
   @override
   Widget build(BuildContext context) {
-    loggerObject.w(AppProvider.token);
+    //loggerObject.w(AppProvider.token);
     return Scaffold(
       appBar: const AppBarWidget(zeroHeight: true),
       body: BlocBuilder<ProfileCubit, ProfileInitial>(

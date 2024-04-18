@@ -1,0 +1,9 @@
+{
+  "access_token": "9482a0f43d497acc6e536fb8fa6643ca",
+  "token_type": "bearer",
+  "scope": "private public",
+  "app": {
+    "name": "Fitness Storm",
+    "uri": "/apps/267889"
+  }
+}

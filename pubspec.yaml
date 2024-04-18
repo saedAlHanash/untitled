@@ -26,11 +26,12 @@ dependencies:
   bloc: ^8.1.2
   flutter_bloc: ^8.1.1
   intl:
-  package_info_plus: ^7.0.0
+  package_info_plus: ^4.2.0
   bottom_picker: ^1.8.0
-  pod_player: ^0.2.2
+  pod_player:
+    path: pod_player
   readmore: ^2.2.0
-  wakelock_plus: ^1.0.0
+#  wakelock_plus: ^1.1.4
   #  flutter_native_splash: ^2.2.5
   google_sign_in:
   agora_rtc_engine: ^6.3.0
@@ -119,7 +120,6 @@ flutter:
   assets:
     - asset/Images/
     - asset/lotties/
-    - asset/pdf/
 
   fonts:
     - family: Roboto

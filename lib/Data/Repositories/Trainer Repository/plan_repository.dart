@@ -12,7 +12,7 @@ class TrainerPlanRepository {
   Future<List<PlanModel>> getTrendingPlan(Map<String, dynamic>? queryParameter) async {
     //log(queryParameter.toString());
     final  option = Utils.getOptions(withToken: true, all: true);
-    loggerObject.w(AppProvider.token);
+    //loggerObject.w(AppProvider.token);
     try {
       ApiResult result = await Methods.get(
         url: TRAINERURLS.getTrendingPlns,

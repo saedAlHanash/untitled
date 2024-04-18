@@ -46,7 +46,7 @@ class LoginSocialCubit extends Cubit<LoginSocialInitial> {
     try {
       await state.googleSignIn.disconnect();
       await state.googleSignIn.signOut();
-      loggerObject.w('GoogleSignIn signOut');
+      //loggerObject.w('GoogleSignIn signOut');
     } catch (e) {
       emit(state.copyWith(statuses: CubitStatuses.error, error: e.toString()));
       showErrorFromApi(state);

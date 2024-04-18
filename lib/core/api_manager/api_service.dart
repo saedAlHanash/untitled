@@ -271,7 +271,7 @@ class APIService {
     innerHeader.addAll(header ?? {});
     url = (additional ?? additionalConst) + url;
     final uri = Uri.https(baseUrl, '$url${path != null ? '/$path' : ''}');
-    loggerObject.w(uri.toString());
+
     var request = http.MultipartRequest(type, uri);
 
     ///log

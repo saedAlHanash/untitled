@@ -59,7 +59,7 @@ class _RoomsScreenState extends State<RoomsScreen> {
                 return CustomerServiceCardWidget(room: state.getCostumerRoom());
               }
               final openRoom = state.allRooms[i - 1];
-              // loggerObject.w(openRoom.toJson());
+              // //loggerObject.w(openRoom.toJson());
               return ChatCardWidget(
                 room: openRoom,
               );
