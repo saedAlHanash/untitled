@@ -1,5 +1,6 @@
 import 'package:fitness_storm/Data/Api/api_result.dart';
 import 'package:fitness_storm/Data/Repositories/trainer_repository.dart';
+import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/features/trainer/data/response/trainer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -114,6 +115,9 @@ class YourTrainerController extends GetxController {
   @override
   void onInit() async {
     trainers.value = Get.arguments;
+    for(var e  in trainers){
+    loggerObject.w(e.toJson());
+    }
     trainingTypes = [
       'Weightlifting',
       'Body Weight',
@@ -153,6 +157,7 @@ class YourTrainerController extends GetxController {
 
   onLoading() async {
     ApiResult result = await _trainerRepository.getSearchTrainer(pageNumber.value, data);
+    loggerObject.w(result.data);
     if (result.type == ApiResultType.success) {
       if (result.data.isNotEmpty) {
         trainers.addAll(result.data);

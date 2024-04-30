@@ -1,3 +1,4 @@
+import 'package:drawable_text/drawable_text.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
 import 'package:fitness_storm/core/widgets/my_button.dart';
@@ -11,8 +12,10 @@ import 'package:get/get.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 
 import '../../../../core/util/my_style.dart';
+import '../../../../core/util/snack_bar_message.dart';
 import '../../../../core/widgets/title_with_dote.dart';
 import '../../../../generated/l10n.dart';
+import '../../../auth/bloc/delete_account_cubit/delete_account_cubit.dart';
 import '../../bloc/profile_cubit/profile_cubit.dart';
 import '../../bloc/update_profile_cubit/update_profile_cubit.dart';
 import '../../data/response/profile_response.dart';
@@ -45,11 +48,21 @@ class _TraineeProfileInfoScreenState extends State<TraineeProfileInfoScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<UpdateProfileCubit, UpdateProfileInitial>(
-      listenWhen: (p, c) => c.statuses.done,
-      listener: (context, state) {
-        context.read<ProfileCubit>().getProfile(newData: true);
-      },
+    return MultiBlocListener(
+      listeners: [
+        BlocListener<UpdateProfileCubit, UpdateProfileInitial>(
+          listenWhen: (p, c) => c.statuses.done,
+          listener: (context, state) {
+            context.read<ProfileCubit>().getProfile(newData: true);
+          },
+        ),
+        BlocListener<DeleteAccountCubit, DeleteAccountInitial>(
+          listenWhen: (p, c) => c.statuses.done,
+          listener: (context, state) {
+
+          },
+        ),
+      ],
       child: Scaffold(
         appBar: AppBar(
           elevation: 0,
@@ -203,14 +216,27 @@ class _TraineeProfileInfoScreenState extends State<TraineeProfileInfoScreen> {
                     },
                   ),
                   10.0.verticalSpace,
-                  BlocBuilder<UpdateProfileCubit, UpdateProfileInitial>(
+                  BlocBuilder<DeleteAccountCubit, DeleteAccountInitial>(
                     builder: (context, state) {
+                      if (state.statuses.loading) {
+                        return MyStyle.loadingWidget();
+                      }
                       return MyButton(
                         height: 45.0.h,
                         text: S.of(context).deleteAccount,
                         color: Colors.red,
                         textColor: Colors.white,
-                        onTap: () async {},
+                        onTap: () async {
+                          NoteMessage.showCheckDialog(
+                            context,
+                            text: S.of(context).areYouSure,
+                            image: Icons.delete_forever,
+                            textButton: S.of(context).deleteAccount,
+                            onConfirm: () {
+                              context.read<DeleteAccountCubit>().deleteAccount(context);
+                            },
+                          );
+                        },
                       );
                     },
                   ),

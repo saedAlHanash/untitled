@@ -38,8 +38,8 @@ class PlansList extends StatelessWidget {
           buildItemInformation(
             planTitle: plan.name,
             subTitle: subTitle,
-            trainerImageUrl: plan.trainer!.image,
-            trainerName: plan.trainer!.name,
+            trainerImageUrl: plan.trainer.image,
+            trainerName: plan.trainer.name,
             trainingLevel: plan.level,
             trainingLocation: plan.trainingLocation,
             trainingType: plan.trainingType,

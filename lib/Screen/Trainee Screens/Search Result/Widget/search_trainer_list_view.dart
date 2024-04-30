@@ -52,11 +52,7 @@ class SearchTrainerListView extends GetWidget<SearchResultController> {
                         return GestureDetector(
                           onTap: () => startTrainerPage(context, controller.trainers[i].id),
                           child: TrainerWidget(
-                            trainerName: trainer.name,
-                            imageUrl: trainer.image,
-                            numberOfPlans: trainer.numberOfPlans.toString(),
-                            numberOfPrivateHours: trainer.numberOfPrivateHours.toString(),
-                            numberOfSubscribers: trainer.numberOfSubscribers.toString(),
+                            trainer:trainer,
                           ),
                         );
                       },

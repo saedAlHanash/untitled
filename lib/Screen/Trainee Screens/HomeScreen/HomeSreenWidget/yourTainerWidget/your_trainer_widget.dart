@@ -7,6 +7,7 @@ import 'package:fitness_storm/features/appointments/data/request/bundles_request
 import 'package:fitness_storm/features/trainer/data/response/trainer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../../../core/injection/injection_container.dart';
@@ -23,8 +24,7 @@ class YourTrainersWidget extends GetWidget<HomeScreenController> {
 
   Widget _buildYourTrainersList({required List<TrainerModel> trainers}) {
     return SizedBox(
-      width: MediaQuery.of(Get.context!).size.width,
-      height: MediaQuery.of(Get.context!).size.height / 3,
+      height: .3.sh,
       child: ListView.builder(
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
@@ -32,11 +32,7 @@ class YourTrainersWidget extends GetWidget<HomeScreenController> {
         itemBuilder: (context, i) {
           return GestureDetector(
             onTap: () => startTrainerPage(context, trainers[i].id),
-            child: YourTrainersItem(
-              trainerImageUrl: trainers[i].image,
-              trainerName: trainers[i].name,
-              numberOfPlans: trainers[i].numberOfPlans.toString(),
-            ),
+            child: YourTrainersItem(trainer: trainers[i]),
           );
         },
       ),

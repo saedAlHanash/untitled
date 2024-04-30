@@ -708,7 +708,7 @@ The application Policies may be changed or updated occasionally to meet the requ
           "slide_to_start_the_next_set": "اسحب للبدء بالتمرين التالي",
           "slide_to_start_the_timer_for_this_set": "اسحب لبدء المؤقت",
           "no_current_plan": "لا يوجد خطّة حالية",
-          "our_trainer": "مدربيننا",
+          "our_trainer": "مدربينا",
           "plans": "البرامج",
           "subscriber": "المشتركين",
           "private_hours": "الساعات الخصوصية",

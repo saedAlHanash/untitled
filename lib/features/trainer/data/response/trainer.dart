@@ -34,6 +34,7 @@ class TrainerModel {
   final num privateSessionPrice;
 
   factory TrainerModel.fromJson(Map<String, dynamic> json) {
+    final rating = json["rating"].toString().tryParseOrZero;
     return TrainerModel(
       id: json["id"].toString().tryParseOrZeroInt,
       image: (json["image"] ?? "").toString().fixAvatarImage,
@@ -42,7 +43,7 @@ class TrainerModel {
       agreement: (json["agreement"] ?? "").toString().fixAvatarImage,
       introductionVideo: json["introduction_video"] ?? "",
       numberOfPlans: json["number_of_plans"].toString().tryParseOrZero,
-      rating: json["rating"].toString().tryParseOrZero,
+      rating: rating == 0 ? 4 : rating,
       numberOfPrivateHours: json["number_of_private_hours"].toString().tryParseOrZero,
       numberOfSubscribers: json["number_of_subscribers"].toString().tryParseOrZero,
       specialties: json["specialties"] == null

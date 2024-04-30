@@ -56,6 +56,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "areThereExercisesForBeginners":
             MessageLookupByLibrary.simpleMessage("هل هناك تمارين للمبتدئين ؟"),
         "areYouSure": MessageLookupByLibrary.simpleMessage("هل أنت متأكد؟"),
+        "areYouSureFore":
+            MessageLookupByLibrary.simpleMessage("هل أنت متأكد من انك تريد\n"),
         "at": MessageLookupByLibrary.simpleMessage("في"),
         "available": MessageLookupByLibrary.simpleMessage("متاح"),
         "availableSession": MessageLookupByLibrary.simpleMessage("جلسة متاحة"),
@@ -429,7 +431,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "orderSummary": MessageLookupByLibrary.simpleMessage("ملخص الطلب"),
         "other": MessageLookupByLibrary.simpleMessage("آخر"),
         "ourPlans": MessageLookupByLibrary.simpleMessage("برامجنا"),
-        "ourTrainer": MessageLookupByLibrary.simpleMessage("مدربيننا"),
+        "ourTrainer": MessageLookupByLibrary.simpleMessage("مدربينا"),
         "ourWorkout":
             MessageLookupByLibrary.simpleMessage(" برامجنا التدريبية"),
         "pLANSBYME":
@@ -664,7 +666,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "لا يوجد مدربون في نتائج البحث الخاصة بك، يمكنك التحقق من المدربين لدينا واستخدام الفلاتر للعثور على ما تبحث عنه"),
         "thereAreNoWorkout": MessageLookupByLibrary.simpleMessage(
             "لا توجد خطط تمرين في نتائج البحث الخاصة بك، يمكنك التحقق من التدريبات واستخدام الفلاتر للعثور على ما تبحث عنه"),
+        "thxForApplyAsTrainer": MessageLookupByLibrary.simpleMessage(
+            "نشكرك على اهتمامك للإنضمام معنا! لقد تلقينا طلبك ونقوم حاليًا بم مراجعته."),
         "time": MessageLookupByLibrary.simpleMessage("مرة"),
+        "timeLeftToEndCall": MessageLookupByLibrary.simpleMessage(
+            "الوقت المتبقي لإنهاء المكالمة "),
         "times": MessageLookupByLibrary.simpleMessage("مرات"),
         "timesWeek":
             MessageLookupByLibrary.simpleMessage("عدد مرات التدريب في الأسبوع"),

@@ -13,6 +13,7 @@ import '../../../../../core/strings/app_color_manager.dart';
 import '../../../../../core/strings/enum_manager.dart';
 import '../../../../../core/widgets/my_button.dart';
 
+import '../../../../Screen/Trainee Screens/Trainer Overview/Widget/ProfileBio/bio_check_widget.dart';
 import '../../../../Screen/video/video.dart';
 import '../../../../Utils/Routes/app_pages.dart';
 import '../../../../Utils/utils.dart';
@@ -72,6 +73,9 @@ class TrainerHeader extends StatelessWidget {
                     ),
                   ),
                   15.0.verticalSpace,
+                  BioCheckWidget(
+                      title: S.of(context).privateHours,
+                      value: '+${trainer.numberOfPrivateHours}'),
                   BlocBuilder<BookedAppointmentsCubit, BookedAppointmentsInitial>(
                     builder: (context, state) {
                       if (state.statuses.loading) {

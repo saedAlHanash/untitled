@@ -53,6 +53,7 @@ class PlanOverviewController extends GetxController {
     planWorkouts.value = await _workoutRepository.getPlanWorkout(id);
     keys = List.generate(planWorkouts.length, (i) => GlobalKey());
     isActivated = planOverview.isActive;
+
     isLoading = false;
   }
 

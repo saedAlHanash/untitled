@@ -338,7 +338,7 @@ class NoteMessage {
                           child: DrawableText(
                             padding: const EdgeInsets.symmetric(vertical: 23.0).r,
                             text: textButton,
-                            color: AppColorManager.black,
+                            color: AppColorManager.red,
                             fontWeight: FontWeight.bold,
                             fontFamily: FontManager.cairoSemiBold.name,
                             matchParent: true,
@@ -373,4 +373,5 @@ class NoteMessage {
       onConfirm?.call();
     }
   }
+
 }

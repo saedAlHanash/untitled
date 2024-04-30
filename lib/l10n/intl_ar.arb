@@ -358,7 +358,7 @@
   "slideToStartTheNextSet": "اسحب للبدء بالتمرين التالي",
   "slideToStartTheTimerForThisSet": "اسحب لبدء المؤقت",
   "noCurrentPlan": "لا يوجد خطّة حالية",
-  "ourTrainer": "مدربيننا",
+  "ourTrainer": "مدربينا",
   "plans": "البرامج",
   "subscriber": "المشتركين",
   "privateHours": "الساعات الخصوصية",
@@ -527,6 +527,7 @@
   "wrong": "خطأ",
   "birthDate": "تاريخ الميلاد",
   "applyAsTrainer": "التقدم كمدرب",
+
   "cv": "السيرة الذاتية",
   "send": "أرسال",
   "request": "طلب",
@@ -543,8 +544,12 @@
   "review": "مراجعة",
   "date": "تاريخ",
   "agreement": "الاتفاقية",
+  "areYouSureFore": "هل أنت متأكد من انك تريد\n",
   "playingDays_moreFirst": "Playing Days (more first)",
   "playingDays_lessFirst": "Playing Days (less first)",
   "prioritizingYourFitness": "Prioritizing your fitness leads to physical and mental health benefits like improved mood, reduced stress, and better sleep.",
-  "whatPlansDoYouOfferToSubscribe": "What plans do you offer to subscribe?"
+  "whatPlansDoYouOfferToSubscribe": "What plans do you offer to subscribe?",
+  "timeLeftToEndCall": "الوقت المتبقي لإنهاء المكالمة ",
+
+  "thxForApplyAsTrainer": "نشكرك على اهتمامك للإنضمام معنا! لقد تلقينا طلبك ونقوم حاليًا بم مراجعته."
 }

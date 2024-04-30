@@ -9,8 +9,7 @@ import '../../../../Utils/Routes/app_pages.dart';
 import '../search_result_controller.dart';
 import 'empty_search_result.dart';
 
-class TrainerSearchTrainerListView
-    extends GetWidget<TrainerSearchResultController> {
+class TrainerSearchTrainerListView extends GetWidget<TrainerSearchResultController> {
   const TrainerSearchTrainerListView({super.key});
 
   @override
@@ -51,16 +50,9 @@ class TrainerSearchTrainerListView
                       itemBuilder: (context, index) {
                         TrainerModel trainer = controller.trainers[index];
                         return GestureDetector(
-                          onTap: () => Get.toNamed(
-                              AppRoutes.trainerTrainerOverviewScreen,
+                          onTap: () => Get.toNamed(AppRoutes.trainerTrainerOverviewScreen,
                               arguments: controller.trainers[index].id.toString()),
-                          child: TrainerWidget(
-                            trainerName: trainer.name,
-                            imageUrl: trainer.image,
-                            numberOfPlans: trainer.numberOfPlans.toString(),
-                            numberOfPrivateHours: trainer.numberOfPrivateHours.toString(),
-                            numberOfSubscribers: trainer.numberOfSubscribers.toString(),
-                          ),
+                          child: TrainerWidget(trainer: trainer),
                         );
                       },
                     ),

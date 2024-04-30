@@ -1,5 +1,6 @@
 import 'package:fitness_storm/Screen/Trainee%20Screens/HomeScreen/home_screen_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -16,7 +17,7 @@ class FeaturedPlanWidget extends GetWidget<HomeScreenController> {
     return Column(
       children: [
         SizedBox(
-          height: MediaQuery.of(Get.context!).size.height / 2,
+          height: 0.5.sh,
           child: PageView.builder(
             controller: controller,
             itemCount: plans.length,

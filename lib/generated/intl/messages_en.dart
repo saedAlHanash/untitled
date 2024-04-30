@@ -57,6 +57,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "areThereExercisesForBeginners": MessageLookupByLibrary.simpleMessage(
             "Are there exercises for beginners?"),
         "areYouSure": MessageLookupByLibrary.simpleMessage("Are you sure?"),
+        "areYouSureFore":
+            MessageLookupByLibrary.simpleMessage("Are you sure you want to\n"),
         "at": MessageLookupByLibrary.simpleMessage("At"),
         "available": MessageLookupByLibrary.simpleMessage("Available"),
         "availableSession":
@@ -671,7 +673,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "There are no TRAINERS in your search results, you can check our trainers and use FILTERS to find what you are looking for"),
         "thereAreNoWorkout": MessageLookupByLibrary.simpleMessage(
             "There are no WORKOUT PLANS in your search results, you can check our workouts and use FILTERS to find what you are looking for"),
+        "thxForApplyAsTrainer": MessageLookupByLibrary.simpleMessage(
+            "Thank you for your interest in joining us! We have received your application and are currently reviewing it."),
         "time": MessageLookupByLibrary.simpleMessage(" time"),
+        "timeLeftToEndCall":
+            MessageLookupByLibrary.simpleMessage("Time Left to end call "),
         "times": MessageLookupByLibrary.simpleMessage(" times"),
         "timesWeek": MessageLookupByLibrary.simpleMessage("Times/Week"),
         "trackingOrder": MessageLookupByLibrary.simpleMessage("Tracking Order"),

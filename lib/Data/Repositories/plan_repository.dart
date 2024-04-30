@@ -148,9 +148,8 @@ class PlanRepository {
 
     ApiResult result = await Methods.get(url: url, options: option);
 
-
-
     var x = PlanModel.fromJson(result.data);
+    loggerObject.w(result.data);
     return x;
   }
 

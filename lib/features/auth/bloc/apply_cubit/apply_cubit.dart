@@ -52,6 +52,8 @@ class ApplyCubit extends Cubit<ApplyInitial> {
 
   set setPhone(String? phone) => state.request.phone = phone;
 
+  set setEmail(String? email) => state.request.email = email;
+
   set setCv(Uint8List bytes) {
     state.request.cv = UploadFile(
       fileBytes: bytes,
@@ -85,6 +87,13 @@ class ApplyCubit extends Cubit<ApplyInitial> {
 
   String? get validatePhone {
     if (state.request.phone.isBlank) {
+      return '';
+    }
+    return null;
+  }
+
+  String? get validateEmail {
+    if (state.request.email.isBlank) {
       return '';
     }
     return null;

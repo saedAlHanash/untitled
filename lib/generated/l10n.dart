@@ -5370,11 +5370,41 @@ class S {
     );
   }
 
+  /// `Are you sure you want to\n`
+  String get areYouSureFore {
+    return Intl.message(
+      'Are you sure you want to\n',
+      name: 'areYouSureFore',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Have a coupon ?`
   String get haveCoupon {
     return Intl.message(
       'Have a coupon ?',
       name: 'haveCoupon',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Time Left to end call `
+  String get timeLeftToEndCall {
+    return Intl.message(
+      'Time Left to end call ',
+      name: 'timeLeftToEndCall',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Thank you for your interest in joining us! We have received your application and are currently reviewing it.`
+  String get thxForApplyAsTrainer {
+    return Intl.message(
+      'Thank you for your interest in joining us! We have received your application and are currently reviewing it.',
+      name: 'thxForApplyAsTrainer',
       desc: '',
       args: [],
     );

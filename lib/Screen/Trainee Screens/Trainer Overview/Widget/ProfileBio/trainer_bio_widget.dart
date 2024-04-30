@@ -9,6 +9,7 @@ import 'package:fitness_storm/core/util/snack_bar_message.dart';
 import 'package:fitness_storm/core/widgets/my_button.dart';
 import 'package:fitness_storm/features/appointments/data/response/bundles_response.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -127,32 +128,15 @@ class TrainerBioWidget extends StatelessWidget {
         Container(
           color: AppColorManager.topBarColor,
           padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 20.0).r,
-          child: Column(
-            children: [
-              15.0.verticalSpace,
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  BioCheckWidget(
-                      title: S.of(context).workoutPlans,
-                      value: trainer.numberOfPlans.toString()),
-                  BioCheckWidget(
-                      title: S.of(context).sUBSCRIBERSCap,
-                      value: trainer.numberOfSubscribers.toString()),
-                  BioCheckWidget(
-                      title: S.of(context).privateHours,
-                      value: '+${trainer.numberOfPrivateHours}'),
-                ],
-              ),
-              DrawableText(
-                text: trainer.bio,
-                color: Colors.white,
-                size: 14.0.sp,
-                matchParent: true,
-                textAlign: TextAlign.center,
-                padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0).r,
-              ),
-            ],
+          child: DrawableText(
+            text: trainer.bio,
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontFamily: FontManager.cairoBold.name,
+            size: 16.0.sp,
+            matchParent: true,
+            textAlign: TextAlign.center,
+            padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0).r,
           ),
         ),
       ],

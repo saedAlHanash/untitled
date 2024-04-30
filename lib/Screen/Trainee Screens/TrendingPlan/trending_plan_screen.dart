@@ -21,8 +21,8 @@ class TrendingPlansScreen extends GetView<TrendingPlanController> {
                 isPressed: controller.addPlanToFavorite,
                 index: index,
                 subTitle: PlanTimeFrequency(
-                  totalWeeks: plans[index].totalWeeks!,
-                  workoutFrequency: plans[index].workoutFrequency!,
+                  totalWeeks: plans[index].totalWeeks,
+                  workoutFrequency: plans[index].workoutFrequency,
                   color: Colors.grey,
                 ),
               );
@@ -40,8 +40,7 @@ class TrendingPlansScreen extends GetView<TrendingPlanController> {
             onPressed: () => Get.back(),
           ),
           title: Text('trending_plan'.tr),
-          titleTextStyle:
-              const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          titleTextStyle: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           // centerTitle: true,
         ),
         body: Column(

@@ -6,6 +6,8 @@ import 'package:fitness_storm/core/util/shared_preferences.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/api_manager/api_service.dart';
+import '../../../../core/api_manager/api_url.dart';
+import '../../../../core/app/app_provider.dart';
 import '../../../../core/util/pair_class.dart';
 import '../../../../core/util/snack_bar_message.dart';
 
@@ -13,11 +15,10 @@ part 'delete_account_state.dart';
 
 class DeleteAccountCubit extends Cubit<DeleteAccountInitial> {
   DeleteAccountCubit() : super(DeleteAccountInitial.initial());
-  
 
   Future<void> deleteAccount(BuildContext context) async {
     emit(state.copyWith(statuses: CubitStatuses.loading));
-    final pair = await _logoutApi();
+    final pair = await _deleteAccount();
 
     if (pair.first == null) {
       if (context.mounted) {
@@ -30,17 +31,30 @@ class DeleteAccountCubit extends Cubit<DeleteAccountInitial> {
     }
   }
 
-  Future<Pair<bool?, String?>> _logoutApi() async {
-     
-      final response = await APIService().postApi(
-        url: 'destroyAccount',
-      );
+  Future<Pair<bool?, String?>> _deleteAccount() async {
+    final response = await APIService().postApi(
+      url: 'destroyAccount',
+    );
 
-      if (response.statusCode.success) {
-        return Pair(true, null);
-      } else {
-          return response.getPairError;
-      }
-     
+    await _logoutApi();
+    if (response.statusCode.success) {
+      return Pair(true, null);
+    } else {
+      return response.getPairError;
+    }
+  }
+
+  Future<Pair<bool?, String?>> _logoutApi() async {
+    final response = await APIService().postApi(
+      url: PostUrl.logout,
+    );
+
+    await AppProvider.logout();
+
+    if (response.statusCode.success) {
+      return Pair(true, null);
+    } else {
+      return response.getPairError;
+    }
   }
 }

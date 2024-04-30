@@ -1,6 +1,12 @@
+import 'dart:async';
+
 import 'package:agora_rtc_engine/agora_rtc_engine.dart';
+import 'package:drawable_text/drawable_text.dart';
+import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/core/app/app_provider.dart';
+import 'package:fitness_storm/core/strings/app_color_manager.dart';
 import 'package:fitness_storm/core/util/firebase_analytics_service.dart';
+import 'package:fitness_storm/core/util/snack_bar_message.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -11,6 +17,7 @@ import 'package:wakelock_plus/wakelock_plus.dart';
 import '../../Utils/protact_screen_service.dart';
 import '../../core/injection/injection_container.dart';
 import '../../core/models/booked_appointments.dart';
+import '../../generated/l10n.dart';
 
 class Video1 extends StatefulWidget {
   const Video1({super.key, required this.appointment});
@@ -27,8 +34,37 @@ class _Video1State extends State<Video1> {
   late RtcEngine _engine;
   late RtcEngineEventHandler eventHandler;
 
+  late final Timer timer;
+  var showWarning = false;
+
+  var timeLift = 0;
+
+  void calculateTimeLeft(bool firstTime) {
+    final d = widget.appointment.endTime.difference(DateTime.now());
+    loggerObject.w(d.inMinutes);
+
+    if (d.inMinutes <= 10) {
+      setState(() {
+        timeLift = d.inMinutes;
+        showWarning = true;
+      });
+    }
+
+    if (d.inMinutes <= 0) {
+      if (firstTime) {
+        Navigator.pop(context);
+      } else {
+        _engine.leaveChannel();
+        Navigator.pop(context);
+      }
+    }
+  }
+
   @override
   void initState() {
+    calculateTimeLeft(true);
+    timer = Timer.periodic(const Duration(minutes: 1), (v) => calculateTimeLeft(false));
+
     WakelockPlus.enable();
     ProtectScreenService().startProtect(Get.context);
 
@@ -50,7 +86,8 @@ class _Video1State extends State<Video1> {
       },
       onTokenPrivilegeWillExpire: (RtcConnection connection, String token) {
         debugPrint(
-            '[onTokenPrivilegeWillExpire] connection: ${connection.toJson()}, token: $token');
+            '[onTokenPrivilegeWillExpire] connection: ${connection
+                .toJson()}, token: $token');
       },
     );
     sl<FirebaseAnalyticService>()
@@ -86,6 +123,7 @@ class _Video1State extends State<Video1> {
   @override
   void dispose() {
     WakelockPlus.disable();
+    timer.cancel();
     ProtectScreenService().stopProtect();
     _engine.leaveChannel();
     _engine.unregisterEventHandler(eventHandler);
@@ -101,6 +139,24 @@ class _Video1State extends State<Video1> {
         title: Text('private_sessions'.tr),
         centerTitle: true,
       ),
+      bottomNavigationBar: showWarning
+          ? Container(
+        height: 33.0.h,
+        width: 1.0.sw,
+        color: AppColorManager.ampere,
+        alignment: Alignment.center,
+        child: DrawableText(
+          text: '${S
+              .of(context)
+              .timeLeftToEndCall}'
+              ' $timeLift ${S
+              .of(context)
+              .minutes}',
+          fontWeight: FontWeight.w700,
+          color: Colors.black,
+        ),
+      )
+          : null,
       body: Stack(
         children: [
           Center(child: _remoteVideo()),
@@ -112,22 +168,22 @@ class _Video1State extends State<Video1> {
               child: Center(
                 child: _localUserJoined
                     ? AgoraVideoView(
-                        controller: VideoViewController(
-                          rtcEngine: _engine,
-                          canvas: const VideoCanvas(
-                            uid: 0,
-                          ),
-                        ),
-                      )
+                  controller: VideoViewController(
+                    rtcEngine: _engine,
+                    canvas: const VideoCanvas(
+                      uid: 0,
+                    ),
+                  ),
+                )
                     : const CircularProgressIndicator.adaptive(),
               ),
             ),
           ),
           _localUserJoined
               ? Positioned(
-                  bottom: 20.0,
-                  child: CallScreen(engine: _engine),
-                )
+            bottom: 20.0,
+            child: CallScreen(engine: _engine),
+          )
               : const SizedBox(),
         ],
       ),
@@ -197,7 +253,10 @@ class _CallScreenState extends State<CallScreen> {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      width: MediaQuery.of(context).size.width,
+      width: MediaQuery
+          .of(context)
+          .size
+          .width,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

@@ -41,7 +41,7 @@ class _ProfilePageState extends State<ProfilePage> {
           if (state.statuses.loading) {
             return MyStyle.loadingWidget();
           }
-          final profile = state.result as Profile;
+          final profile = state.result;
           return SingleChildScrollView(
             padding: const EdgeInsets.only(left: 30.0, right: 30.0, bottom: 100.0).r,
             child: Column(

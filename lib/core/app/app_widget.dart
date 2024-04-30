@@ -21,6 +21,7 @@ import '../../Utils/themes.dart';
 import '../../features/appointments/bloc/available_times_cubit/available_times_cubit.dart';
 import '../../features/appointments/bloc/booked_appointments_cubit/booked_appointments_cubit.dart';
 import '../../features/appointments/bloc/bundles_cubit/bundles_cubit.dart';
+import '../../features/auth/bloc/delete_account_cubit/delete_account_cubit.dart';
 import '../../features/auth/bloc/refresh_token_cubit/refresh_token_cubit.dart';
 import '../../features/auth/bloc/survey_cubit/survey_cubit.dart';
 import '../../features/coupon/coupon_cubit/coupon_cubit.dart';
@@ -108,12 +109,13 @@ class _MyAppState extends State<MyApp> {
           builder: (_, child) {
             return bloc.MultiBlocProvider(
               providers: [
+                bloc.BlocProvider(create: (_) => sl<LogoutCubit>()),
                 bloc.BlocProvider(create: (_) => sl<CouponCubit>()),
                 bloc.BlocProvider(create: (_) => sl<SurveyCubit>()),
                 bloc.BlocProvider(create: (_) => sl<BundlesCubit>()),
-                bloc.BlocProvider(create: (_) => sl<LogoutCubit>()),
-                bloc.BlocProvider(create: (_) => sl<WalletCubit>()..getWallet()),
                 bloc.BlocProvider(create: (_) => sl<AddFavoriteCubit>()),
+                bloc.BlocProvider(create: (_) => sl<DeleteAccountCubit>()),
+                bloc.BlocProvider(create: (_) => sl<WalletCubit>()..getWallet()),
                 bloc.BlocProvider(create: (_) => sl<RefreshTokenCubit>()..refreshToken()),
                 bloc.BlocProvider(create: (_) => sl<ProfileCubit>()..getProfile()),
                 bloc.BlocProvider(

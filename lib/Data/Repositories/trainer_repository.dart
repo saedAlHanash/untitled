@@ -40,7 +40,7 @@ class TrainerRepository {
         url: '${Constants.userBaseUrl}/trainers?fitness_level[0]=intermediate',
         options: option,
         data: queryParameters);
-    int y;
+
     return j;
   }
 

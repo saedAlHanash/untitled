@@ -23,9 +23,8 @@ class YourTrainersScreen extends GetView<YourTrainerController> {
             icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
             onPressed: () => Get.back(),
           ),
-          title:  Text(S.of(context).ourTrainer),
-          titleTextStyle:
-              const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          title: Text(S.of(context).ourTrainer),
+          titleTextStyle: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
         body: Column(
           children: [
@@ -74,15 +73,7 @@ class YourTrainersScreen extends GetView<YourTrainerController> {
               itemBuilder: (context, i) {
                 return GestureDetector(
                   onTap: () => startTrainerPage(context, controller.trainers[i].id),
-                  child: TrainerWidget(
-                    imageUrl: controller.trainers[i].image,
-                    numberOfPlans: controller.trainers[i].numberOfPlans.toString(),
-                    trainerName: controller.trainers[i].name,
-                    numberOfSubscribers:
-                        controller.trainers[i].numberOfSubscribers.toString(),
-                    numberOfPrivateHours:
-                        controller.trainers[i].numberOfPrivateHours.toString(),
-                  ),
+                  child: TrainerWidget(trainer: controller.trainers[i]),
                 );
               },
             ),

@@ -55,8 +55,8 @@ class _ApplyPageState extends State<ApplyPage> {
               listener: (context, state) {
                 NoteMessage.showAwesomeDoneDialog(
                   context,
-                  message: '${S.of(context).done} ${S.of(context).send} '
-                      '${S.of(context).applyAsTrainer} ${S.of(context).request} ',
+                  message: '${S.of(context).done} ${S.of(context).send} \n'
+                      '${S.of(context).thxForApplyAsTrainer}',
                   onCancel: () => Get.back(),
                 );
               },
@@ -79,6 +79,15 @@ class _ApplyPageState extends State<ApplyPage> {
                       initialValue: applyCubit.state.request.name,
                       keyBordType: TextInputType.name,
                       onChanged: (val) => applyCubit.setName = val,
+                    ),
+                    10.0.verticalSpace,
+                    MyTextFormOutLineWidget(
+                      validator: (p0) => applyCubit.validateEmail,
+                      label: S.of(context).email,
+                      hint: S.of(context).email,
+                      initialValue: applyCubit.state.request.email,
+                      keyBordType: TextInputType.emailAddress,
+                      onChanged: (val) => applyCubit.setEmail = val,
                     ),
                     10.0.verticalSpace,
                     MyPhoneForm(
