@@ -1,6 +1,6 @@
+import 'dart:async';
 import 'dart:io';
 
-import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:fitness_storm/features/auth/data/response/login_response.dart';
 import 'package:fitness_storm/features/fire_chat/util.dart';
@@ -10,6 +10,8 @@ import '../../features/profile/data/response/profile_response.dart';
 import '../util/shared_preferences.dart';
 
 class AppProvider {
+
+
   static LoginData _loginData = AppSharedPreference.loginDate;
 
   static UserType _userType = AppSharedPreference.getUserType;
@@ -70,7 +72,8 @@ class AppProvider {
   }
 
   static cashSetConfirmAccount() async {
-    await AppSharedPreference.cashLoginData(_loginData.copyWith(isConfirmed: true));
+    await AppSharedPreference.cashLoginData(
+        _loginData.copyWith(isConfirmed: true));
     _setLoginData();
   }
 
@@ -79,6 +82,8 @@ class AppProvider {
     _loginData = AppSharedPreference.loginDate;
     await logoutChatUser();
   }
+
+
 }
 
 class AppControl {
@@ -86,7 +91,8 @@ class AppControl {
   static bool get hideGoogleBtn =>
       Platform.isIOS &&
       AppProvider.systemParams.isIosTest &&
-      (AppProvider.systemParams.buildNumber > AppProvider.systemParams.minAppleVersion);
+      (AppProvider.systemParams.buildNumber >
+          AppProvider.systemParams.minAppleVersion);
 
   static bool get isAppleAccount => AppProvider.myId == 262;
 }

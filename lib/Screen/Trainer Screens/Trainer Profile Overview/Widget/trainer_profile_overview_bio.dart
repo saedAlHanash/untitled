@@ -1,5 +1,4 @@
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Profile%20Overview/Widget/trainer_profile_overview_bio_check.dart';
-import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Profile%20Overview/trainer_profile_overview_controller.dart';
 import 'package:fitness_storm/features/trainer/data/response/trainer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

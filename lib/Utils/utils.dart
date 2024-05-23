@@ -13,7 +13,6 @@ import '../core/api_manager/api_service.dart';
 import '../core/app/app_provider.dart';
 import '../core/util/pair_class.dart';
 import '../core/widgets/my_text_form_widget.dart';
-import '../features/coupon/ui/coupon_widget.dart';
 import '../helper/lang_helper.dart';
 
 class Utils {

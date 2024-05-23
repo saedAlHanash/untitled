@@ -17,9 +17,7 @@ import '../../../../core/widgets/my_button.dart';
 import '../../../../core/widgets/my_card_widget.dart';
 import '../../../../custome_web_page_view.dart';
 import '../../../../generated/l10n.dart';
-import '../../../../router/app_router.dart';
 import '../../bloc/available_times_cubit/available_times_cubit.dart';
-import '../../bloc/bundles_cubit/bundles_cubit.dart';
 import '../../bloc/create_session_cubit/create_session_cubit.dart';
 
 class BookPrivateSessionScreen extends StatefulWidget {

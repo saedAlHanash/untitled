@@ -16,7 +16,6 @@ import 'package:image_multi_type/circle_image_widget.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 
 import '../../../../main.dart';
-
 import 'get_chats_rooms_bloc/get_rooms_cubit.dart';
 
 class ChatCardWidget extends StatefulWidget {

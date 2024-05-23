@@ -3,12 +3,9 @@ import 'dart:async';
 import 'package:agora_rtc_engine/agora_rtc_engine.dart';
 import 'package:drawable_text/drawable_text.dart';
 import 'package:fitness_storm/core/api_manager/api_service.dart';
-import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
 import 'package:fitness_storm/core/util/firebase_analytics_service.dart';
-import 'package:fitness_storm/core/util/snack_bar_message.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -40,7 +37,9 @@ class _Video1State extends State<Video1> {
   var timeLift = 0;
 
   void calculateTimeLeft(bool firstTime) {
+
     final d = widget.appointment.endTime.difference(DateTime.now());
+
     loggerObject.w(d.inMinutes);
 
     if (d.inMinutes <= 10) {

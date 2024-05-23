@@ -1,8 +1,5 @@
 import 'package:fitness_storm/core/app/app_provider.dart';
 
-import '../../../../core/api_manager/api_service.dart';
-import '../../../../core/strings/enum_manager.dart';
-
 class UpdateProfileRequest {
   UpdateProfileRequest({
     this.name,

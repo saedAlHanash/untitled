@@ -17,7 +17,6 @@ import '../../../Utils/Routes/app_pages.dart';
 import '../../../core/app/app_provider.dart';
 import '../../../core/models/plan_model.dart';
 import '../../../features/fire_chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
-
 import '../HomeScreen/refresh_home_plan_cubit/refresh_home_plan_cubit.dart';
 
 class PlanOverviewController extends GetxController {

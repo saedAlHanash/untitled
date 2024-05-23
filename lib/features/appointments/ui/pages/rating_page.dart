@@ -1,5 +1,4 @@
 import 'package:drawable_text/drawable_text.dart';
-import 'package:fitness_storm/Utils/dependency_injection.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/models/booked_appointments.dart';
 import 'package:fitness_storm/core/util/snack_bar_message.dart';

@@ -3,7 +3,6 @@ import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/core/helper/launcher_helper.dart';
 import 'package:fitness_storm/core/util/firebase_analytics_service.dart';
 import 'package:fitness_storm/features/fire_chat/room_messages_bloc/room_messages_cubit.dart';

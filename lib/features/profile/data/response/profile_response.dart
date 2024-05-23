@@ -1,8 +1,7 @@
-import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 
 import '../../../../Model/specialties_model.dart';
-import '../../../../core/api_manager/api_service.dart';
+import '../../../../core/api_manager/api_helper.dart';
 import '../../../../generated/assets.dart';
 
 

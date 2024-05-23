@@ -22,7 +22,6 @@ import '../../../auth/bloc/logout/logout_cubit.dart';
 import '../../../fire_chat/chat_card_widget.dart';
 import '../../../fire_chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 import '../../bloc/profile_cubit/profile_cubit.dart';
-import '../../data/response/profile_response.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});

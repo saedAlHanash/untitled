@@ -44,8 +44,6 @@ import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Overview/traine
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Overview/trainer_overview_screen.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Plans/trainer_plans_binding.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Plans/trainer_plans_screen.dart';
-import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Profile%20Overview/trainer_profile_overview_binding.dart';
-import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Profile%20Overview/trainer_profile_overview_screen.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Wallet/trainer_wallet_binding.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Wallet/trainer_wallet_screen.dart';
 import 'package:fitness_storm/core/app/app_provider.dart';

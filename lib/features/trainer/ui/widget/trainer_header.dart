@@ -1,5 +1,4 @@
 import 'package:drawable_text/drawable_text.dart';
-import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,10 +11,8 @@ import 'package:image_multi_type/round_image_widget.dart';
 import '../../../../../core/strings/app_color_manager.dart';
 import '../../../../../core/strings/enum_manager.dart';
 import '../../../../../core/widgets/my_button.dart';
-
 import '../../../../Screen/Trainee Screens/Trainer Overview/Widget/ProfileBio/bio_check_widget.dart';
 import '../../../../Screen/video/video.dart';
-import '../../../../Utils/Routes/app_pages.dart';
 import '../../../../Utils/utils.dart';
 import '../../../../core/app/app_provider.dart';
 import '../../../../core/util/my_style.dart';

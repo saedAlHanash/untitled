@@ -1,5 +1,4 @@
 import 'package:drawable_text/drawable_text.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
 import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:fitness_storm/features/auth/bloc/logout/logout_cubit.dart';
@@ -14,9 +13,7 @@ import 'package:get/get.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 
 import '../../Screen/Splash/splash_binding.dart';
-
 import '../../Utils/Routes/app_pages.dart';
-import '../../Utils/dependency_injection.dart';
 import '../../Utils/themes.dart';
 import '../../features/appointments/bloc/available_times_cubit/available_times_cubit.dart';
 import '../../features/appointments/bloc/booked_appointments_cubit/booked_appointments_cubit.dart';
@@ -26,7 +23,6 @@ import '../../features/auth/bloc/refresh_token_cubit/refresh_token_cubit.dart';
 import '../../features/auth/bloc/survey_cubit/survey_cubit.dart';
 import '../../features/coupon/coupon_cubit/coupon_cubit.dart';
 import '../../features/plans/bloc/add_favorite/add_favorite_cubit.dart';
-import '../../features/trainer/bloc/available_times_trainer_cubit/available_times_trainer_cubit.dart';
 import '../../features/wallet/bloc/wallet_cubit/wallet_cubit.dart';
 import '../../generated/l10n.dart';
 import '../../helper/lang_helper.dart';

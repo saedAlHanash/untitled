@@ -1,13 +1,9 @@
 import 'package:drawable_text/drawable_text.dart';
 import 'package:fitness_storm/Model/notification_model.dart';
-import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
-import 'package:fitness_storm/helper/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
-import 'package:image_multi_type/circle_image_widget.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 
 class NotificationWidget extends StatelessWidget {

@@ -4,8 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
 import 'chat_card_widget.dart';
-import 'get_chats_rooms_bloc/get_rooms_cubit.dart';
 import 'customer_service_card_widget.dart';
+import 'get_chats_rooms_bloc/get_rooms_cubit.dart';
 
 class RoomsScreen extends StatefulWidget {
   const RoomsScreen({super.key});

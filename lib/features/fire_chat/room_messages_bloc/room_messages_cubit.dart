@@ -10,7 +10,6 @@ import 'package:flutter_chat_types/flutter_chat_types.dart';
 
 import '../../../core/strings/enum_manager.dart';
 import '../../../main.dart';
-
 import '../util.dart';
 
 part 'room_messages_state.dart';

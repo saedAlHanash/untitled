@@ -15,7 +15,6 @@ import '../../features/auth/bloc/apply_cubit/apply_cubit.dart';
 import '../../features/auth/bloc/confirm_code_cubit/confirm_code_cubit.dart';
 import '../../features/auth/bloc/delete_account_cubit/delete_account_cubit.dart';
 import '../../features/auth/bloc/forget_password_cubit/forget_password_cubit.dart';
-
 import '../../features/auth/bloc/login_cubit/login_cubit.dart';
 import '../../features/auth/bloc/login_social_cubit/login_social_cubit.dart';
 import '../../features/auth/bloc/logout/logout_cubit.dart';
@@ -31,7 +30,6 @@ import '../../features/plans/bloc/add_favorite/add_favorite_cubit.dart';
 import '../../features/plans/bloc/plans_cubit/plans_cubit.dart';
 import '../../features/profile/bloc/profile_cubit/profile_cubit.dart';
 import '../../features/profile/bloc/update_profile_cubit/update_profile_cubit.dart';
-import '../../features/trainer/bloc/available_times_trainer_cubit/available_times_trainer_cubit.dart';
 import '../../features/trainer/bloc/trainer_cubit/trainer_cubit.dart';
 import '../../features/wallet/bloc/wallet_cubit/wallet_cubit.dart';
 import '../network/network_info.dart';

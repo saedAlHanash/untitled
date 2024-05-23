@@ -1,7 +1,6 @@
 // ignore: must_be_immutable
 import 'dart:async';
 
-import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:webview_flutter/webview_flutter.dart';

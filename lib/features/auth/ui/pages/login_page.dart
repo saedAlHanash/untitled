@@ -10,10 +10,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 
-import '../../../../Utils/Routes/app_pages.dart';
 import '../../../../core/app/app_provider.dart';
 import '../../../../core/util/my_style.dart';
 import '../../../../generated/assets.dart';
@@ -84,6 +82,7 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     AuthHeader(name: S.of(context).login),
                     AutofillGroup(
+
                       child: Column(
                         children: [
                           MyTextFormOutLineWidget(

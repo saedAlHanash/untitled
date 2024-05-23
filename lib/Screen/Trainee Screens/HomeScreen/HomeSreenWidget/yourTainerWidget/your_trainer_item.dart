@@ -3,7 +3,6 @@ import 'package:fitness_storm/features/trainer/data/response/trainer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:image_multi_type/image_multi_type.dart';
 import 'package:image_multi_type/round_image_widget.dart';
 
 class YourTrainersItem extends GetWidget {

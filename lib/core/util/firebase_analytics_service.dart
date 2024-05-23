@@ -6,8 +6,6 @@ import '../../features/auth/data/request/signup_request.dart';
 import '../../features/auth/data/response/login_response.dart';
 import '../../features/profile/data/response/profile_response.dart';
 import '../../features/trainer/data/response/trainer.dart';
-import '../api_manager/api_service.dart';
-import '../api_manager/api_url.dart';
 
 class FirebaseAnalyticService {
   final analytics = FirebaseAnalytics.instance;

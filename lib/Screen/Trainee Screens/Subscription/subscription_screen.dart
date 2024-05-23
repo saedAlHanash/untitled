@@ -2,12 +2,10 @@ import 'package:fitness_storm/Screen/Trainee%20Screens/Subscription/Widget/payme
 import 'package:fitness_storm/Screen/Trainee%20Screens/Subscription/Widget/success_subscribed.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Subscription/Widget/without_subscribed.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Subscription/subscription_controller.dart';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../custome_web_page_view.dart';
-
 import '../../../features/coupon/data/request/pay_request.dart';
 import '../../../features/coupon/ui/coupon_widget.dart';
 import 'Widget/current_payment_card.dart';

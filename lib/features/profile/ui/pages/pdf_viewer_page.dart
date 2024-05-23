@@ -1,5 +1,3 @@
-import 'package:drawable_text/drawable_text.dart';
-import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cached_pdfview/flutter_cached_pdfview.dart';
 

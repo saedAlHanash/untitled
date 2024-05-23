@@ -3,8 +3,6 @@ import 'package:fitness_storm/router/app_router.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
-import '../Utils/Routes/app_pages.dart';
-
 class LanguagesController extends GetxController {
   final RxString _selectedLanguage = RxString('en');
 

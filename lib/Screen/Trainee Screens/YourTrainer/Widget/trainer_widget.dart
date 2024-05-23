@@ -3,14 +3,11 @@ import 'package:fitness_storm/core/strings/app_color_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 import 'package:image_multi_type/round_image_widget.dart';
 
 import '../../../../features/trainer/data/response/trainer.dart';
 import '../../../../generated/l10n.dart';
-import '../Widget/trainer_image_widget.dart';
-import '../Widget/trainer_info_widget.dart';
 
 class TrainerWidget extends StatelessWidget {
   const TrainerWidget({

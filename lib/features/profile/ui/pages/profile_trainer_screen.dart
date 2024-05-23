@@ -1,5 +1,4 @@
 import 'package:drawable_text/drawable_text.dart';
-import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
 import 'package:fitness_storm/core/strings/enum_manager.dart';
@@ -14,16 +13,12 @@ import 'package:image_multi_type/circle_image_widget.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 
 import '../../../../Utils/Routes/app_pages.dart';
-import '../../../../core/app/app_provider.dart';
 import '../../../../core/util/my_style.dart';
 import '../../../../core/widgets/app_bar/app_bar_widget.dart';
 import '../../../../generated/assets.dart';
 import '../../../../generated/l10n.dart';
 import '../../../auth/bloc/logout/logout_cubit.dart';
-import '../../../fire_chat/chat_card_widget.dart';
-import '../../../fire_chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 import '../../bloc/profile_cubit/profile_cubit.dart';
-import '../../data/response/profile_response.dart';
 
 class ProfileTrainerScreen extends StatefulWidget {
   const ProfileTrainerScreen({super.key});

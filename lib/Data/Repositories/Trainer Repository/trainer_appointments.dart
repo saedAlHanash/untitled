@@ -3,7 +3,6 @@ import 'package:fitness_storm/Data/Api/api_result.dart';
 import 'package:fitness_storm/Data/Api/methods.dart';
 import 'package:fitness_storm/Data/Api/urls.dart';
 import 'package:fitness_storm/Utils/utils.dart';
-import 'package:fitness_storm/core/extensions/extensions.dart';
 
 import '../../../core/models/booked_appointments.dart';
 

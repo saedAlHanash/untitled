@@ -1,11 +1,9 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:fitness_storm/Screen/Trainer%20Screens/Search%20Screen/search_screen.dart';
-import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Calender/trainer_calender_screen.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20HomeScreen/trainer_home_screen.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Main%20Home/trainer_main_home_controller.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Wallet/trainer_wallet_screen.dart';
-import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer_Profile/trainer_profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -13,7 +11,6 @@ import 'package:get/get.dart';
 
 import '../../../Utils/Routes/app_pages.dart';
 import '../../../features/fire_chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
-
 import '../../../features/profile/ui/pages/profile_trainer_screen.dart';
 import '../../../features/trainer/ui/pages/calender_screen.dart';
 import 'Widget/trainer_navigation_bar_widget.dart';

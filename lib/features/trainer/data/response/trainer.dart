@@ -2,8 +2,6 @@ import 'package:fitness_storm/Model/specialties_model.dart';
 import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 
-import '../../../../core/models/booked_appointments.dart';
-
 class TrainerModel {
   TrainerModel({
     required this.id,

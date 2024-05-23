@@ -3,7 +3,6 @@ import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
-import 'package:image_multi_type/image_multi_type.dart';
 
 import '../../../../Widgets/custom_button.dart';
 import '../../../../core/strings/enum_manager.dart';

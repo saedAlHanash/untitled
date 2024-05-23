@@ -1,16 +1,15 @@
 import 'package:drawable_text/drawable_text.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/features/fire_chat/util.dart';
-import 'package:fitness_storm/helper/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart';
 import 'package:get/get.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 
+import '../../generated/assets.dart';
 import 'chat_card_widget.dart';
 import 'get_chats_rooms_bloc/get_rooms_cubit.dart';
-import '../../generated/assets.dart';
 
 
 class CustomerServiceCardWidget extends StatelessWidget {

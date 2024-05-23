@@ -9,7 +9,22 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="43c414a0-a0aa-41d9-b6a1-9df3dcc6d755" name="Changes" comment="fix pod and wakelock_plus" />
+    <list default="true" id="43c414a0-a0aa-41d9-b6a1-9df3dcc6d755" name="Changes" comment="fix pod and wakelock_plus">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Data/Api/urls.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Data/Api/urls.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/video/video.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/video/video.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/api_manager/api_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/api_manager/api_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/api_manager/api_url.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/api_manager/api_url.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/app/app_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/app/app_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/appointments/data/response/bundles_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/appointments/data/response/bundles_response.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/auth/ui/pages/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/ui/pages/login_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/generated/intl/messages_all.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/intl/messages_all.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/saed.json" beforeDir="false" afterPath="$PROJECT_DIR$/saed.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,7 +61,7 @@
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/saed/AndroidStudioProjects/Bandtech/ali_shihab&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/LENOVO/StudioProjects/coretech/pop&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
@@ -224,7 +239,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714761694349</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="fix pod and wakelock_plus">
+      <option name="closed" value="true" />
+      <created>1714762049682</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1714762049682</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">

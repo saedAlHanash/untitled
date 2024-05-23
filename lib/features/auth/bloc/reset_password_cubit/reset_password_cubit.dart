@@ -1,5 +1,4 @@
 import 'package:fitness_storm/core/api_manager/api_url.dart';
-import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';

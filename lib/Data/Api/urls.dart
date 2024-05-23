@@ -1,52 +1,54 @@
 import '../../Utils/Constants/constants.dart';
 
 abstract class TRAINEEURLS {
-  static const String traineeSignup = '${Constants.userBaseUrl}/auth/register';
-  static const String submitUserOTP = '${Constants.userBaseUrl}/auth/confirmAccount';
-  static const String submitForgetPasswordOtp =
+  static const traineeSignup = '${Constants.userBaseUrl}/auth/register';
+  static const submitUserOTP = '${Constants.userBaseUrl}/auth/confirmAccount';
+  static const submitForgetPasswordOtp =
       '${Constants.userBaseUrl}/auth/resetPassword/checkCode';
-  static const String setNewPassword =
+  static const setNewPassword =
       '${Constants.userBaseUrl}/auth/resetPassword/changePassword';
-  static const String resendOTP = '${Constants.userBaseUrl}/auth/resendConfirmationCode';
-  static const String traineeLogin = '${Constants.userBaseUrl}/auth/login';
-  static const String traineeAuthenticationByGoogleAccount =
+  static const resendOTP =
+      '${Constants.userBaseUrl}/auth/resendConfirmationCode';
+  static const traineeLogin = '${Constants.userBaseUrl}/auth/login';
+  static const traineeAuthenticationByGoogleAccount =
       '${Constants.userBaseUrl}/auth/social_login';
-  static const String traineeLogout = '${Constants.userBaseUrl}/auth/logout';
-  static const String forgetPassword = '${Constants.userBaseUrl}/auth/resetPassword';
-  static const String plans = '${Constants.userBaseUrl}/plans?page=';
-  static const String getUserSubscribedPlans =
+  static const traineeLogout = '${Constants.userBaseUrl}/auth/logout';
+  static const forgetPassword = '${Constants.userBaseUrl}/auth/resetPassword';
+  static const plans = '${Constants.userBaseUrl}/plans?page=';
+  static const getUserSubscribedPlans =
       '${Constants.userBaseUrl}/userSubscribedPlans';
-  static const String getTrendingPlns = '${Constants.userBaseUrl}/plans/trending';
-  static const String getFeaturedPlans = '${Constants.userBaseUrl}/plans/featured';
-  static const String getOurPlans = '${Constants.userBaseUrl}/plans/ourPlans';
-  static const String getPlanById = '${Constants.userBaseUrl}/plans/';
-  static const String getYourTrainer = '${Constants.userBaseUrl}/trainers?page=';
-  static const String getTrainerById = '${Constants.userBaseUrl}/trainers/';
-  static const String subscribeToPlan = '${Constants.userBaseUrl}/subscribeToPlan';
-  static const String completeDay = '${Constants.userBaseUrl}/completeDay';
+  static const getTrendingPlns = '${Constants.userBaseUrl}/plans/trending';
+  static const getFeaturedPlans = '${Constants.userBaseUrl}/plans/featured';
+  static const getOurPlans = '${Constants.userBaseUrl}/plans/ourPlans';
+  static const getPlanById = '${Constants.userBaseUrl}/plans/';
+  static const getYourTrainer = '${Constants.userBaseUrl}/trainers?page=';
+  static const getTrainerById = '${Constants.userBaseUrl}/trainers/';
+  static const subscribeToPlan = '${Constants.userBaseUrl}/subscribeToPlan';
+  static const completeDay = '${Constants.userBaseUrl}/completeDay';
 
-  static const String filter = '${Constants.userBaseUrl}/plans';
-  static const String subscribePaymentPlan = '${Constants.userBaseUrl}/subscriptions';
-  static const String confirmSubscription =
+  static const filter = '${Constants.userBaseUrl}/plans';
+  static const subscribePaymentPlan = '${Constants.userBaseUrl}/subscriptions';
+  static const confirmSubscription =
       '${Constants.userBaseUrl}/subscriptions/confirm';
-  static const String cancelSubscription =
+  static const cancelSubscription =
       '${Constants.userBaseUrl}/subscriptions/cancel';
 
-  static const String subscribtionPay = '${Constants.userBaseUrl}/subscriptions/pay';
-  static const String survey = '${Constants.userBaseUrl}/fitness-survey';
-  static const String getUserProfile = '${Constants.userBaseUrl}/profile';
-  static const String saveFcm = '${Constants.userBaseUrl}/notifications/storeFcmToken';
-  static const String getCurrentWorkouts = '${Constants.userBaseUrl}/currentWorkout';
-  static const String getBookmarkPlan = '${Constants.userBaseUrl}/plans/bookmarked';
-  static const String getMyPayment = '${Constants.userBaseUrl}/myPayments';
-  static const String getMyPaymentPrivateSession =
+  static const subscribtionPay = '${Constants.userBaseUrl}/subscriptions/pay';
+  static const survey = '${Constants.userBaseUrl}/fitness-survey';
+  static const getUserProfile = '${Constants.userBaseUrl}/profile';
+  static const saveFcm = '${Constants.userBaseUrl}/notifications/storeFcmToken';
+  static const getCurrentWorkouts = '${Constants.userBaseUrl}/currentWorkout';
+  static const getBookmarkPlan = '${Constants.userBaseUrl}/plans/bookmarked';
+  static const getMyPayment = '${Constants.userBaseUrl}/myPayments';
+  static const getMyPaymentPrivateSession =
       '${Constants.userBaseUrl}/myAppointmentWithTrainer';
-  static const String allChats = '${Constants.userBaseUrl}/chats';
-  static const String allNotifications = '${Constants.userBaseUrl}/notifications';
-  static const String restAllNotification =
+  static const allChats = '${Constants.userBaseUrl}/chats';
+  static const allNotifications = '${Constants.userBaseUrl}/notifications';
+  static const restAllNotification =
       '${Constants.userBaseUrl}/notifications/resetCount';
-  static const String bookedAppointments = '${Constants.userBaseUrl}/bookedAppointments';
-  static const String getTrainingType = '${Constants.userBaseUrl}/plans/types';
+  static const bookedAppointments =
+      '${Constants.userBaseUrl}/bookedAppointments';
+  static const getTrainingType = '${Constants.userBaseUrl}/plans/types';
 
   static String getConversation(String channelId) =>
       '${Constants.userBaseUrl}/chats/$channelId';
@@ -73,26 +75,27 @@ abstract class TRAINEEURLS {
       '${Constants.userBaseUrl}/trainers/$trainerId/availableTimes';
 
   //add Workout after id
-  static const String getWorkoutsByPlanId = '${Constants.userBaseUrl}/plans/';
+  static const getWorkoutsByPlanId = '${Constants.userBaseUrl}/plans/';
 
   // add exercises after id
-  static const String getExerciesByWorkoutId = '${Constants.userBaseUrl}/workouts/';
-  static const String getTraineeProgress = '${Constants.userBaseUrl}/myProgress';
+  static const getExerciesByWorkoutId = '${Constants.userBaseUrl}/workouts/';
+  static const getTraineeProgress = '${Constants.userBaseUrl}/myProgress';
 }
 
 abstract class TRAINERURLS {
-  static const String getExerciesByWorkoutId = '${Constants.trainerBaseUrl}/workouts/';
-  static const String getWorkoutsByPlanId = '${Constants.trainerBaseUrl}/plans/';
-  static const String restAllNotification =
+  static const getExerciesByWorkoutId = '${Constants.trainerBaseUrl}/workouts/';
+  static const getWorkoutsByPlanId = '${Constants.trainerBaseUrl}/plans/';
+  static const restAllNotification =
       '${Constants.trainerBaseUrl}/notifications/resetCount';
-  static const String trainerSignup = '${Constants.trainerBaseUrl}/auth/register';
-  static const String submitOTP = '${Constants.trainerBaseUrl}/auth/confirmAccount';
-  static const String trainerLogin = '${Constants.trainerBaseUrl}/auth/login';
-  static const String logout = '${Constants.trainerBaseUrl}/auth/logout';
-  static const String trainerPorile = '${Constants.trainerBaseUrl}/profile';
-  static const String trainerAvailableTime = '${Constants.trainerBaseUrl}/availableTimes';
-  static const String getTrendingPlns = '${Constants.trainerBaseUrl}/plans/trending';
-  static const String getOurPlans = '${Constants.trainerBaseUrl}/plans/ourPlans';
+  static const trainerSignup = '${Constants.trainerBaseUrl}/auth/register';
+  static const submitOTP = '${Constants.trainerBaseUrl}/auth/confirmAccount';
+  static const trainerLogin = '${Constants.trainerBaseUrl}/auth/login';
+  static const logout = '${Constants.trainerBaseUrl}/auth/logout';
+  static const trainerPorile = '${Constants.trainerBaseUrl}/profile';
+  static const trainerAvailableTime =
+      '${Constants.trainerBaseUrl}/availableTimes';
+  static const getTrendingPlns = '${Constants.trainerBaseUrl}/plans/trending';
+  static const getOurPlans = '${Constants.trainerBaseUrl}/plans/ourPlans';
 
   static String getConversation(String channelId) =>
       '${Constants.trainerBaseUrl}/chats/$channelId';
@@ -103,17 +106,17 @@ abstract class TRAINERURLS {
   static String sendMessage(String channelId) =>
       '${Constants.trainerBaseUrl}/chats/$channelId/sendMessage';
 
-  static const String allChatsTrainer = '${Constants.trainerBaseUrl}/chats';
+  static const allChatsTrainer = '${Constants.trainerBaseUrl}/chats';
 
-  static const String getPlanById = '${Constants.trainerBaseUrl}/plans/';
+  static const getPlanById = '${Constants.trainerBaseUrl}/plans/';
 
-  static const String allNotifications = '${Constants.trainerBaseUrl}/notifications';
+  static const allNotifications = '${Constants.trainerBaseUrl}/notifications';
 
-  static const String getMyPlans =
+  static const getMyPlans =
       '${Constants.trainerBaseUrl}/plans/myPlans?training_level[0]=Beginner';
-  static const String getYourTrainer = '${Constants.trainerBaseUrl}/trainers';
-  static const String getTrainerPrivateSession = '${Constants.trainerBaseUrl}/wallet';
-  static const String plans = '${Constants.trainerBaseUrl}/plans/ourPlans';
+  static const getYourTrainer = '${Constants.trainerBaseUrl}/trainers';
+  static const getTrainerPrivateSession = '${Constants.trainerBaseUrl}/wallet';
+  static const plans = '${Constants.trainerBaseUrl}/plans/ourPlans';
 
-  static const String trainerPlans = '${Constants.trainerBaseUrl}/plans/myPlans';
+  static const trainerPlans = '${Constants.trainerBaseUrl}/plans/myPlans';
 }

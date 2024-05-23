@@ -1,18 +1,9 @@
-import 'dart:convert';
-
-import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
-
-import '../Data/Repositories/get_url_video.dart';
-
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:pod_player/pod_player.dart';
 
-import '../Data/Repositories/get_url_video.dart';
 import '../generated/assets.dart';
 
 class VimeoPlayer extends StatelessWidget {

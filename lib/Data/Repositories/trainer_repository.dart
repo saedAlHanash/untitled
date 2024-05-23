@@ -1,9 +1,6 @@
  
 
-import 'dart:convert';
-
 import 'package:dio/dio.dart';
-import 'package:fitness_storm/core/api_manager/api_service.dart';
 
 import '../../Utils/Constants/constants.dart';
 import '../../Utils/utils.dart';

@@ -1,5 +1,3 @@
-import 'package:fitness_storm/core/extensions/extensions.dart';
-
 import '../../../../core/models/booked_appointments.dart';
 
 class AvailableTimesResponse {

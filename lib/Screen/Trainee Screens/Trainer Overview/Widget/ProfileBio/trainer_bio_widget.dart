@@ -1,7 +1,4 @@
 import 'package:drawable_text/drawable_text.dart';
-import 'package:fitness_storm/Utils/Routes/app_pages.dart';
-import 'package:fitness_storm/core/api_manager/api_service.dart';
-import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
 import 'package:fitness_storm/core/util/my_style.dart';
@@ -9,10 +6,8 @@ import 'package:fitness_storm/core/util/snack_bar_message.dart';
 import 'package:fitness_storm/core/widgets/my_button.dart';
 import 'package:fitness_storm/features/appointments/data/response/bundles_response.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 
 import '../../../../../features/appointments/bloc/available_times_cubit/available_times_cubit.dart';
@@ -21,7 +16,6 @@ import '../../../../../features/trainer/data/response/trainer.dart';
 import '../../../../../generated/assets.dart';
 import '../../../../../generated/l10n.dart';
 import '../../../../../router/app_router.dart';
-import 'bio_check_widget.dart';
 
 class TrainerBioWidget extends StatelessWidget {
   const TrainerBioWidget({required this.trainer, super.key});

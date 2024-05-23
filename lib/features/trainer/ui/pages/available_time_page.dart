@@ -1,17 +1,14 @@
+import 'package:day_night_time_picker/lib/daynight_timepicker.dart';
+import 'package:day_night_time_picker/lib/state/time.dart';
 import 'package:drawable_text/drawable_text.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
-import 'package:fitness_storm/core/util/snack_bar_message.dart';
 import 'package:fitness_storm/core/widgets/app_bar/app_bar_widget.dart';
-import 'package:fitness_storm/features/appointments/bloc/available_times_cubit/available_times_cubit.dart';
 import 'package:fitness_storm/features/appointments/bloc/available_times_cubit/available_times_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_multi_type/image_multi_type.dart';
-import 'package:day_night_time_picker/lib/daynight_timepicker.dart';
-import 'package:day_night_time_picker/lib/state/time.dart';
 
-import '../../../../core/api_manager/api_service.dart';
 import '../../../../core/models/booked_appointments.dart';
 import '../../../../core/strings/app_color_manager.dart';
 import '../../../../core/util/my_style.dart';

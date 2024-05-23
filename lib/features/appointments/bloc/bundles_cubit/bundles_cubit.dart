@@ -7,8 +7,8 @@ import '../../../../core/error/error_manager.dart';
 import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/abstraction.dart';
 import '../../../../core/util/pair_class.dart';
-import '../../data/response/bundles_response.dart';
 import '../../data/request/bundles_request.dart';
+import '../../data/response/bundles_response.dart';
 
 part 'bundles_state.dart';
 

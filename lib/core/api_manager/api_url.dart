@@ -182,7 +182,8 @@ class PatchUrl {}
 const additionalConstTrainer = 'mobile/trainer/';
 const additionalConstUser = 'mobile/user/';
 
+const baseUrl = 'api.fitnessstorm.org';
+
 String get additionalConst =>
     AppProvider.isTrainer ? additionalConstTrainer : additionalConstUser;
 
-const baseUrl = 'api.fitnessstorm.org';
