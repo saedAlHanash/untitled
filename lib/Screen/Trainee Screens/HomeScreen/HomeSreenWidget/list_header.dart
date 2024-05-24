@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../Utils/Constants/custome_app_theme.dart';
+
 
 class ListHeader extends StatefulWidget {
   const ListHeader(
-      {Key? key, required this.headerTitle, required this.seeAllFunction})
-      : super(key: key);
+      {    super.key, required this.headerTitle, required this.seeAllFunction})
+      ;
 
   final String headerTitle;
   final Function seeAllFunction;
@@ -44,7 +44,11 @@ class _ListHeaderState extends State<ListHeader> {
   Widget _buildHeaderTitleText({required String headerTitle}) {
     return Text(
       widget.headerTitle,
-      style: CustomeAppTheme.textStyleTitleInHomePage,
+      style: TextStyle(
+        color: Get.theme.primaryColor,
+        fontSize: 18,
+        fontWeight: FontWeight.w500,
+      ),
     );
   }
 

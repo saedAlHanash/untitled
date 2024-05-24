@@ -7,6 +7,7 @@ import '../core/api_manager/api_url.dart';
 
 class ServerTimeService {
   static Timer? timer;
+
   static DateTime? _serverDate;
 
   static DateTime get getServerTime => _serverDate ?? DateTime.now();

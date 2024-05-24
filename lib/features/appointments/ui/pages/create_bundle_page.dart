@@ -63,7 +63,8 @@ class _CreateBundlePageState extends State<CreateBundlePage> {
                 if (state.statuses.loading) {
                   return MyStyle.loadingWidget();
                 }
-                if (!context.read<CreateBundleCubit>().isFull) return 0.0.verticalSpace;
+                if (!context.read<CreateBundleCubit>().isFull)
+                  return 0.0.verticalSpace;
 
                 return Row(
                   mainAxisSize: MainAxisSize.min,
@@ -83,9 +84,7 @@ class _CreateBundlePageState extends State<CreateBundlePage> {
                           ),
                         );
 
-
-
-                        if (result is PayRequest &&context.mounted) {
+                        if (result is PayRequest && context.mounted) {
                           context.read<CreateBundleCubit>()
                             ..setCoupon((result).code)
                             ..createBundle();
@@ -115,6 +114,14 @@ class _CreateBundlePageState extends State<CreateBundlePage> {
         body: SingleChildScrollView(
           child: Column(
             children: [
+              BlocBuilder<CreateBundleCubit, CreateBundleInitial>(
+                builder: (context, state) {
+                  return DrawableText(
+                    text: state.bundle.description,
+                    color: Colors.grey,
+                  );
+                },
+              ),
               10.0.verticalSpace,
               const _BundleSelectWidget(),
               AvailableTimesWidget(
@@ -198,7 +205,9 @@ class _BundleSelectWidget extends StatelessWidget {
                                 3.0.verticalSpace,
                                 InkWell(
                                   onTap: () {
-                                    context.read<CreateBundleCubit>().removeTime(item!);
+                                    context
+                                        .read<CreateBundleCubit>()
+                                        .removeTime(item!);
                                   },
                                   child: const ImageMultiType(
                                     url: Icons.cancel,
@@ -300,7 +309,9 @@ class _ItemAvailableTimeState extends State<_ItemAvailableTime> {
                               ? Colors.grey
                               : null,
                       child: DrawableText(
-                        text: isItemSelected ? S.of(context).remove : S.of(context).add,
+                        text: isItemSelected
+                            ? S.of(context).remove
+                            : S.of(context).add,
                         color: Colors.white,
                       ),
                     ),

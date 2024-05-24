@@ -4,11 +4,11 @@ import 'package:image_multi_type/image_multi_type.dart';
 
 class SearchResult extends StatelessWidget {
   const SearchResult(
-      {Key? key,
+      {    super.key,
       required this.imageUrl,
       required this.planName,
       required this.trainerName})
-      : super(key: key);
+      ;
 
   final String imageUrl;
   final String planName;

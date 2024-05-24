@@ -10,12 +10,12 @@ class BookedAppointments {
     return BookedAppointments(
       data: json["data"] == null
           ? []
-          : List<Appointment>.from(json["data"]!.map((x) => Appointment.fromJson(x))),
+          : List<Appointment>.from(
+              json["data"]!.map((x) => Appointment.fromJson(x))),
     );
   }
 
-  Map<String, dynamic> toJson() =>
-      {
+  Map<String, dynamic> toJson() => {
         "data": data.map((x) => x.toJson()).toList(),
       };
 }
@@ -45,35 +45,25 @@ class Appointment {
 
   factory Appointment.fromJson(Map<String, dynamic> json) {
     return Appointment(
-      id: json["id"]
-          .toString()
-          .tryParseOrZeroInt,
-      startTime:
-      DateTime
-          .tryParse(json["startAt"] ?? json["start_time"] ?? "")
-          ?.fixTimeZone ??
+      id: json["id"].toString().tryParseOrZeroInt,
+      startTime: DateTime.tryParse(json["startAt"] ?? json["start_time"] ?? "")
+              ?.fixTimeZone ??
           DateTime(2030),
-      endTime: DateTime
-          .tryParse(json["endAt"] ?? json["end_time"] ?? "")
-          ?.fixTimeZone ??
+      endTime: DateTime.tryParse(json["endAt"] ?? json["end_time"] ?? "")
+              ?.fixTimeZone ??
           DateTime(2030),
       videoCallToken: json["video_call_token"] ?? "",
       rate: json["rate"] == null ? null : Rate.fromJson(json["rate"]),
-      appointmentId: json["appointment_id"]
-          .toString()
-          .tryParseOrZeroInt,
+      appointmentId: json["appointment_id"].toString().tryParseOrZeroInt,
       channelId: json["channelId"] ?? AppProvider.isTrainer
           ? '${AppProvider.myId}'
-          : '${User
-          .fromJson(json["trainer"] ?? json["user"] ?? {})
-          .id}',
+          : '${User.fromJson(json["trainer"] ?? json["user"] ?? {}).id}',
       status: json["status"] ?? "",
       user: User.fromJson(json["trainer"] ?? json["user"] ?? {}),
     );
   }
 
-  Map<String, dynamic> toJson() =>
-      {
+  Map<String, dynamic> toJson() => {
         "id": id,
         "start_time": startTime.toIso8601String(),
         "end_time": endTime.toIso8601String(),
@@ -98,12 +88,8 @@ class User {
 
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
-      id: json["id"]
-          .toString()
-          .tryParseOrZeroInt,
-      image: (json["image"] ?? "")
-          .toString()
-          .fixAvatarImage,
+      id: json["id"].toString().tryParseOrZeroInt,
+      image: (json["image"] ?? "").toString().fixAvatarImage,
       name: json["name"] ?? "",
     );
   }
@@ -120,7 +106,7 @@ class Rate {
   final String review;
   final DateTime? date;
 
-  factory Rate.fromJson(Map<String, dynamic> json){
+  factory Rate.fromJson(Map<String, dynamic> json) {
     return Rate(
       rating: json["rating"] ?? 0,
       review: json["review"] ?? "",
@@ -128,11 +114,8 @@ class Rate {
     );
   }
 
-  Map<String, dynamic> toJson() =>
-      {
+  Map<String, dynamic> toJson() => {
         "rating": rating,
         "review": review,
       };
-
 }
-

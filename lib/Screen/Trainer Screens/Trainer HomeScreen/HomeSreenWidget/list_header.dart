@@ -6,8 +6,8 @@ class ListHeader extends StatefulWidget {
   final Function seeAllFunction;
 
   const ListHeader(
-      {Key? key, required this.headerTitle, required this.seeAllFunction})
-      : super(key: key);
+      {    super.key, required this.headerTitle, required this.seeAllFunction})
+      ;
 
   @override
   State<ListHeader> createState() => _ListHeaderState();

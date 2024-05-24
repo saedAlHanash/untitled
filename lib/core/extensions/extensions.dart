@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:fitness_storm/services/server_time_service.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
@@ -319,7 +320,7 @@ extension EnumsH on List<Enum> {
 
 extension AppointmentH on Appointment {
   bool get isNow {
-    final dateTimeNow = DateTime.now();
+    final dateTimeNow = ServerTimeService.getServerTime;
 
     final b = dateTimeNow.isAfter(startTime);
     final a = dateTimeNow.isBefore(endTime);
@@ -328,7 +329,7 @@ extension AppointmentH on Appointment {
   }
 
   bool get isExpired {
-    final dateTimeNow = DateTime.now();
+    final dateTimeNow = ServerTimeService.getServerTime;
     final a = dateTimeNow.isAfter(endTime);
     return a;
   }
@@ -348,4 +349,23 @@ class FormatDateTime {
     required this.minutes,
     required this.seconds,
   });
+}
+
+
+extension NeedUpdateEnumH on NeedUpdateEnum {
+  bool get loading => this == NeedUpdateEnum.withLoading;
+
+  bool get haveData =>
+      this == NeedUpdateEnum.no || this == NeedUpdateEnum.noLoading;
+
+  CubitStatuses get getState {
+    switch (this) {
+      case NeedUpdateEnum.no:
+        return CubitStatuses.done;
+      case NeedUpdateEnum.withLoading:
+        return CubitStatuses.loading;
+      case NeedUpdateEnum.noLoading:
+        return CubitStatuses.done;
+    }
+  }
 }

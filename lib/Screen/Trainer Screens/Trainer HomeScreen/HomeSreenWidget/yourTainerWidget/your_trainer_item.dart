@@ -8,11 +8,11 @@ class YourTrainersItem extends GetWidget {
   final String numberOfPlans;
 
   const YourTrainersItem({
-    Key? key,
+        super.key,
     required this.trainerImageUrl,
     required this.trainerName,
     required this.numberOfPlans,
-  }) : super(key: key);
+  }) ;
 
   @override
   Widget build(BuildContext context) {

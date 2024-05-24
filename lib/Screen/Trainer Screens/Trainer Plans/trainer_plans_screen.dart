@@ -1,8 +1,7 @@
-import 'package:fitness_storm/Widgets/see_all_list_item.dart';
+import 'package:fitness_storm/features/bookmarked/ui/widget/see_all_list_item.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../Widgets/plan_time_freqency.dart';
 import '../../../core/widgets/not_found_widget.dart';
 import '../../../generated/l10n.dart';
 import '../Trainer HomeScreen/trainer_home_screen_controller.dart';
@@ -32,13 +31,7 @@ class TrainerPlansScreen extends GetView<TrainerHomeScreenController> {
                     itemBuilder: (context, i) {
                       return SeeAllListItem(
                         plan: controller.trainerPlans[i],
-                        isPressed: () {},
-                        index: -1,
-                        subTitle: PlanTimeFrequency(
-                          totalWeeks: controller.trainerPlans[i].totalWeeks!,
-                          workoutFrequency: controller.trainerPlans[i].workoutFrequency,
-                          color: Colors.grey,
-                        ),
+
                       );
                     },
                   ),

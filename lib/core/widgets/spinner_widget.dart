@@ -8,7 +8,7 @@ import '../strings/app_color_manager.dart';
 
 class SpinnerWidget<T> extends StatefulWidget {
   const SpinnerWidget({
-    Key? key,
+        super.key,
     required this.items,
     this.hint,
     this.hintText,
@@ -20,7 +20,7 @@ class SpinnerWidget<T> extends StatefulWidget {
     this.expanded,
     this.isOverButton,
     this.decoration,
-  }) : super(key: key);
+  }) ;
 
   final List<SpinnerItem> items;
   final Widget? hint;

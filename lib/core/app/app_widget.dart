@@ -21,6 +21,7 @@ import '../../features/appointments/bloc/bundles_cubit/bundles_cubit.dart';
 import '../../features/auth/bloc/delete_account_cubit/delete_account_cubit.dart';
 import '../../features/auth/bloc/refresh_token_cubit/refresh_token_cubit.dart';
 import '../../features/auth/bloc/survey_cubit/survey_cubit.dart';
+import '../../features/bookmarked/bloc/bookmarked_cubit/bookmarked_cubit.dart';
 import '../../features/coupon/coupon_cubit/coupon_cubit.dart';
 import '../../features/plans/bloc/add_favorite/add_favorite_cubit.dart';
 import '../../features/wallet/bloc/wallet_cubit/wallet_cubit.dart';
@@ -111,11 +112,18 @@ class _MyAppState extends State<MyApp> {
                 bloc.BlocProvider(create: (_) => sl<BundlesCubit>()),
                 bloc.BlocProvider(create: (_) => sl<AddFavoriteCubit>()),
                 bloc.BlocProvider(create: (_) => sl<DeleteAccountCubit>()),
-                bloc.BlocProvider(create: (_) => sl<WalletCubit>()..getWallet()),
-                bloc.BlocProvider(create: (_) => sl<RefreshTokenCubit>()..refreshToken()),
-                bloc.BlocProvider(create: (_) => sl<ProfileCubit>()..getProfile()),
                 bloc.BlocProvider(
-                  create: (_) => sl<AvailableTimesCubit>()..getTrainerAvailableTimes(),
+                    create: (_) => sl<WalletCubit>()..getWallet()),
+                bloc.BlocProvider(
+                    create: (_) => sl<RefreshTokenCubit>()..refreshToken()),
+                bloc.BlocProvider(
+                    create: (_) => sl<ProfileCubit>()..getProfile()),
+                bloc.BlocProvider(
+                  create: (_) => sl<BookmarkedCubit>()..getBookmarked(),
+                ),
+                bloc.BlocProvider(
+                  create: (_) =>
+                      sl<AvailableTimesCubit>()..getTrainerAvailableTimes(),
                 ),
                 bloc.BlocProvider(
                   create: (_) => sl<BookedAppointmentsCubit>(),

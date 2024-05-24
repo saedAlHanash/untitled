@@ -1,11 +1,10 @@
-import 'package:fitness_storm/Screen/Trainee%20Screens/Trainer%20Overview/Widget/ProfileBio/trainer_bio_widget.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Overview/trainer_overview_controller.dart';
+import 'package:fitness_storm/features/trainer/ui/widget/trainer_bio_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:readmore/readmore.dart';
 
-import '../../../Widgets/plan_time_freqency.dart';
-import '../../../Widgets/see_all_list_item.dart';
+import '../../../features/bookmarked/ui/widget/see_all_list_item.dart';
 import 'Widget/ProfileHader/trainer_profile_header.dart';
 
 class TrainerTrainerOverviewScreen extends GetView<TrainerTrainerOverviewController> {
@@ -66,14 +65,6 @@ class TrainerTrainerOverviewScreen extends GetView<TrainerTrainerOverviewControl
                       itemBuilder: (context, index) {
                         return SeeAllListItem(
                           plan: controller.trainerPlans[index],
-                          isPressed: controller.addPlanToFavorite,
-                          index: index,
-                          subTitle: PlanTimeFrequency(
-                            totalWeeks: controller.trainerPlans[index].totalWeeks!,
-                            workoutFrequency:
-                                controller.trainerPlans[index].workoutFrequency,
-                            color: Colors.grey,
-                          ),
                         );
                       },
                     )

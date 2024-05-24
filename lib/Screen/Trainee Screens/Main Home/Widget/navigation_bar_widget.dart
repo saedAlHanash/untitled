@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 import 'navigation_bar_controller.dart';
 
 class AppNavigationBar extends StatelessWidget {
-  AppNavigationBar({Key? key, required this.controller}) : super(key: key);
+  AppNavigationBar({    super.key, required this.controller}) ;
 
   AppNavigationBarController controller;
 

@@ -24,6 +24,7 @@ import '../../features/auth/bloc/resend_code_cubit/resend_code_cubit.dart';
 import '../../features/auth/bloc/reset_password_cubit/reset_password_cubit.dart';
 import '../../features/auth/bloc/signup_cubit/signup_cubit.dart';
 import '../../features/auth/bloc/survey_cubit/survey_cubit.dart';
+import '../../features/bookmarked/bloc/bookmarked_cubit/bookmarked_cubit.dart';
 import '../../features/coupon/coupon_cubit/coupon_cubit.dart';
 import '../../features/notifications/bloc/notifications_cubit/notifications_cubit.dart';
 import '../../features/plans/bloc/add_favorite/add_favorite_cubit.dart';
@@ -40,7 +41,8 @@ final sl = GetIt.instance;
 Future<void> init() async {
   //region Core
 
-  sl.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(connectionChecker: sl()));
+  sl.registerLazySingleton<NetworkInfo>(
+      () => NetworkInfoImpl(connectionChecker: sl()));
   sl.registerLazySingleton(() => InternetConnectionChecker());
 
   sl.registerLazySingleton(() => GlobalKey<NavigatorState>());
@@ -87,6 +89,7 @@ Future<void> init() async {
   //region plans
   sl.registerFactory(() => PlansCubit());
   sl.registerFactory(() => AddFavoriteCubit());
+  sl.registerFactory(() => BookmarkedCubit());
 
   //endregion
 

@@ -9,13 +9,13 @@ import 'item_expansion.dart';
 
 class MyExpansionWidget extends StatefulWidget {
   const MyExpansionWidget({
-    Key? key,
+        super.key,
     required this.items,
     this.onTapItem,
     this.elevation,
     this.onExpansion,
        this.decoration,
-  }) : super(key: key);
+  }) ;
 
   final List<ItemExpansion> items;
   final double? elevation;

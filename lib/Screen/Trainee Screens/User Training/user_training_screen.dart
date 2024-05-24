@@ -59,7 +59,7 @@ class UserTrainingScreen extends GetView<UserTrainingController> {
                 ),
                 TextButton(
                   onPressed: () => Navigator.pop(context, true),
-                  child: Text("i\'ll_come_back_later".tr),
+                  child: Text("i_ll_come_back_later".tr),
                 ),
               ],
             );

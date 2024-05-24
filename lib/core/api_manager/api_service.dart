@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:logger/logger.dart';
 
+import '../../services/server_time_service.dart';
 import '../injection/injection_container.dart';
 import '../network/network_info.dart';
 import 'api_helper.dart';
@@ -32,7 +33,6 @@ class APIService {
   static final APIService _singleton = APIService._internal();
 
   final network = sl<NetworkInfo>();
-
 
   factory APIService() => _singleton;
 
@@ -71,6 +71,7 @@ class APIService {
 
     logResponse(url, response);
 
+    if (response.statusCode.success) ServerTimeService.setServerDate = response;
     return response;
   }
 
@@ -87,6 +88,7 @@ class APIService {
         .get(uri, headers: innerHeader)
         .timeout(connectionTimeOut, onTimeout: () => timeOut);
 
+    if (response.statusCode.success) ServerTimeService.setServerDate = response;
     logResponse(url, response);
     return response;
   }
@@ -124,6 +126,7 @@ class APIService {
 
     logResponse(url, response);
 
+    if (response.statusCode.success) ServerTimeService.setServerDate = response;
     return response;
   }
 
@@ -160,6 +163,7 @@ class APIService {
 
     logResponse(url, response);
 
+    if (response.statusCode.success) ServerTimeService.setServerDate = response;
     return response;
   }
 
@@ -186,6 +190,7 @@ class APIService {
 
     logResponse(url, response);
 
+    if (response.statusCode.success) ServerTimeService.setServerDate = response;
     return response;
   }
 
@@ -212,6 +217,7 @@ class APIService {
 
     logResponse(url, response);
 
+    if (response.statusCode.success) ServerTimeService.setServerDate = response;
     return response;
   }
 
@@ -241,6 +247,7 @@ class APIService {
 
     logResponse(url, response);
 
+    if (response.statusCode.success) ServerTimeService.setServerDate = response;
     return response;
   }
 
@@ -292,10 +299,9 @@ class APIService {
     ///log
     logResponse(url, response);
 
+    if (response.statusCode.success) ServerTimeService.setServerDate = response;
     return response;
   }
-
-
 
   void logRequest(String url, Map<String, dynamic>? q, {String? additional}) {
     var msg = url;
@@ -320,4 +326,3 @@ class APIService {
     loggerObject.t('${response.statusCode} \n $res');
   }
 }
-

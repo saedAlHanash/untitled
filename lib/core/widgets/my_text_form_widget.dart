@@ -602,7 +602,7 @@ class _MyTextFormOutLineWidgetState extends State<MyTextFormOutLineWidget> {
 
 class MyTextFormWhiteWidget extends StatelessWidget {
   const MyTextFormWhiteWidget({
-    Key? key,
+        super.key,
     this.label = '',
     this.hint = '',
     this.maxLines = 1,
@@ -619,7 +619,7 @@ class MyTextFormWhiteWidget extends StatelessWidget {
     this.labelColor,
     this.initialValue,
     this.textDirection,
-  }) : super(key: key);
+  }) ;
   final bool? enable;
   final String label;
   final String hint;

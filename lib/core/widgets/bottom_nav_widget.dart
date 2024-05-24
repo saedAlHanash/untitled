@@ -10,10 +10,10 @@
 //
 // class NewNav extends StatefulWidget {
 //   const NewNav({
-//     Key? key,
+//         super.key,
 //     required this.controller,
 //     required this.onChange,
-//   }) : super(key: key);
+//   }) ;
 //
 //   final PageController controller;
 //   final Function(int) onChange;

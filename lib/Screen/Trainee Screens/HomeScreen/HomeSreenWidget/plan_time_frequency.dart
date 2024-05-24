@@ -3,12 +3,12 @@ import 'package:get/get.dart';
 
 class PlanTimeFrequency extends StatelessWidget {
   const PlanTimeFrequency({
-    Key? key,
+        super.key,
     required this.totalWeeks,
     required this.workoutFrequency,
     required this.trainingType,
     required this.color,
-  }) : super(key: key);
+  }) ;
 
   final Color? color;
   final int totalWeeks;

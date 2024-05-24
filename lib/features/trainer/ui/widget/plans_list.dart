@@ -1,7 +1,4 @@
-import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 
@@ -9,9 +6,7 @@ import '../../../../Utils/Routes/app_pages.dart';
 import '../../../../Widgets/custom_chip.dart';
 import '../../../../Widgets/trainer_profile_image.dart';
 import '../../../../core/models/plan_model.dart';
-import '../../../../core/util/my_style.dart';
-import '../../../../generated/assets.dart';
-import '../../../plans/bloc/add_favorite/add_favorite_cubit.dart';
+import '../../../bookmarked/ui/widget/bookmarked_btn.dart';
 
 class PlansList extends StatelessWidget {
   const PlansList({
@@ -126,16 +121,11 @@ class PlansList extends StatelessWidget {
   }
 }
 
-class _PlanImage extends StatefulWidget {
+class _PlanImage extends StatelessWidget {
   const _PlanImage({required this.plan});
 
   final PlanModel plan;
 
-  @override
-  State<_PlanImage> createState() => _PlanImageState();
-}
-
-class _PlanImageState extends State<_PlanImage> {
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -144,39 +134,11 @@ class _PlanImageState extends State<_PlanImage> {
         Container(
           padding: const EdgeInsets.only(top: 3),
           width: MediaQuery.of(Get.context!).size.width,
-          child: ImageMultiType(
-              url: widget.plan.image, fit: BoxFit.fitWidth),
+          child: ImageMultiType(url: plan.image, fit: BoxFit.fitWidth),
         ),
         Align(
           alignment: Alignment.topRight,
-          child: SizedBox(
-            height: 50.0.r,
-            width: 50.0.r,
-            child: BlocConsumer<AddFavoriteCubit, AddFavoriteInitial>(
-              listenWhen: (p, c) => (c.plan.id == widget.plan.id) && (c.statuses.done),
-              listener: (context, state) {
-                setState(() => widget.plan.isBookmark = !widget.plan.isBookmark);
-              },
-              buildWhen: (p, c) => c.plan.id == widget.plan.id,
-              builder: (context, state) {
-                if (state.statuses.loading) {
-                  return MyStyle.loadingWidget();
-                }
-                return IconButton(
-                  onPressed: () {
-                    context.read<AddFavoriteCubit>().changeFavorite(plan: widget.plan);
-                  },
-                  icon: ImageMultiType(
-                    url: state.plan.isBookmark
-                        ? Assets.imagesActiveFav
-                        : Assets.imagesBookmark,
-                    height: 30.0.r,
-                    width: 30.0.r,
-                  ),
-                );
-              },
-            ),
-          ),
+          child: BookMarkedBtn(plan: plan),
         )
       ],
     );

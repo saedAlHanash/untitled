@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 
-import '../../../../../Widgets/plan_time_freqency.dart';
-
 class FeaturedPlanItem extends GetWidget {
   final String planImageUrl;
   final String planName;
@@ -16,7 +14,7 @@ class FeaturedPlanItem extends GetWidget {
   // final String trainingType;
 
   const FeaturedPlanItem({
-    Key? key,
+        super.key,
     required this.planImageUrl,
     required this.planName,
     required this.totalWeeks,
@@ -24,7 +22,7 @@ class FeaturedPlanItem extends GetWidget {
     required this.trainerProfileImageUrl,
     required this.trainerName,
     // required this.trainingType,
-  }) : super(key: key);
+  }) ;
 
   @override
   Widget build(BuildContext context) {
@@ -145,12 +143,6 @@ class FeaturedPlanItem extends GetWidget {
                 ),
               ),
             ),
-            PlanTimeFrequency(
-              totalWeeks: totalWeeks,
-              workoutFrequency: planFrequency,
-              // trainingType: trainingType,
-              color: Colors.white,
-            )
           ],
         ),
       ),

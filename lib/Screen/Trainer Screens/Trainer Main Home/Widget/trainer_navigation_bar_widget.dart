@@ -9,8 +9,8 @@ import 'trainer_navigation_bar_controller.dart';
 class TrainerAppNavigationBar extends StatelessWidget {
   TrainerAppNavigationBarController controller;
 
-  TrainerAppNavigationBar({Key? key, required this.controller})
-      : super(key: key);
+  TrainerAppNavigationBar({    super.key, required this.controller})
+      ;
 
   @override
   Widget build(BuildContext context) {

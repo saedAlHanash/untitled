@@ -11,7 +11,6 @@ import 'package:image_multi_type/round_image_widget.dart';
 import '../../../../../core/strings/app_color_manager.dart';
 import '../../../../../core/strings/enum_manager.dart';
 import '../../../../../core/widgets/my_button.dart';
-import '../../../../Screen/Trainee Screens/Trainer Overview/Widget/ProfileBio/bio_check_widget.dart';
 import '../../../../Screen/video/video.dart';
 import '../../../../Utils/utils.dart';
 import '../../../../core/app/app_provider.dart';
@@ -170,5 +169,42 @@ class TrainerHeader extends StatelessWidget {
     Utils.showAlertDialog(() {
       startBookPrivetSession(trainer);
     }, '''needBookPrivateSession'''.tr, textContinue: 'Book'.tr);
+  }
+}
+
+
+class BioCheckWidget extends StatelessWidget {
+  const BioCheckWidget({
+    super.key,
+    required this.title,
+    required this.value,
+  });
+
+  final String title;
+  final String value;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      contentPadding: EdgeInsets.zero,
+      horizontalTitleGap: 7.0.w,
+      leading: ImageMultiType(
+        color: AppColorManager.mainColor,
+        url: Icons.check_circle_outline_sharp,
+        height: 35.0.r,
+        width: 35.0.r,
+      ),
+      title: DrawableText(
+        text: title,
+        color: AppColorManager.black,
+        size: 10.0.sp,
+      ),
+      subtitle: DrawableText(
+        text: value,
+        color: AppColorManager.mainColor,
+        fontWeight: FontWeight.bold,
+        size: 25.0.sp,
+      ),
+    );
   }
 }

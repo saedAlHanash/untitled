@@ -931,10 +931,10 @@ class S {
     );
   }
 
-  /// `F.A.q`
+  /// `F.A.Q`
   String get faq {
     return Intl.message(
-      'F.A.q',
+      'F.A.Q',
       name: 'faq',
       desc: '',
       args: [],

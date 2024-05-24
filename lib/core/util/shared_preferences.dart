@@ -141,7 +141,7 @@ class AppSharedPreference {
 
   static int get getMyId => _prefs?.getInt(_myId) ?? 0;
 
-  static void cashLocal(String langCode) {
+  static Future<void> cashLocal(String langCode) async {
     _prefs?.setString(_lang, langCode);
   }
 
@@ -176,4 +176,6 @@ class AppSharedPreference {
   static Profile get profile {
     return Profile.fromJson(jsonDecode(_prefs?.getString(_profile) ?? '{}'));
   }
+
+
 }

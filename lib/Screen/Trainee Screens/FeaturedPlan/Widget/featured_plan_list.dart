@@ -1,11 +1,9 @@
 import 'package:fitness_storm/Screen/Trainee%20Screens/FeaturedPlan/featured_plan_controller.dart';
-import 'package:fitness_storm/Widgets/see_all_list_item.dart';
+import 'package:fitness_storm/features/bookmarked/ui/widget/see_all_list_item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-
-import '../../../../Widgets/plan_time_freqency.dart';
 
 class FeaturedPlanList extends GetWidget<FeaturedPlanController> {
   @override
@@ -43,14 +41,6 @@ class FeaturedPlanList extends GetWidget<FeaturedPlanController> {
                 itemBuilder: (context, index) {
                   return SeeAllListItem(
                     plan: controller.plans[index],
-                    isPressed: controller.addPlanToFavorite,
-                    index: index,
-                    subTitle: PlanTimeFrequency(
-                      totalWeeks: controller.plans[index].totalWeeks,
-                      workoutFrequency:
-                          controller.plans[index].workoutFrequency,
-                      color: Colors.grey,
-                    ),
                   );
                 },
               ),

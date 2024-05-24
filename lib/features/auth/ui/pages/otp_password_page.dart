@@ -18,7 +18,7 @@ import '../../bloc/otp_password_cubit/otp_password_cubit.dart';
 import '../../bloc/resend_code_cubit/resend_code_cubit.dart';
 
 class OtpPasswordPage extends StatefulWidget {
-  const OtpPasswordPage({Key? key}) : super(key: key);
+  const OtpPasswordPage({super.key});
 
   @override
   State<OtpPasswordPage> createState() => _OtpPasswordPageState();

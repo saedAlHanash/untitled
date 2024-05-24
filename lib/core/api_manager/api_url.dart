@@ -90,6 +90,8 @@ class GetUrl {
 
   static const wallet = 'wallet';
 
+  static var bookmarked = 'plans/bookmarked';
+
   static String plans(int id) => 'trainers/$id/plans';
 
   static String availableTimes(int id) => 'trainers/$id/availableTimes';

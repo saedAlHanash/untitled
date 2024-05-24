@@ -1,8 +1,7 @@
- 
-
 import 'package:dio/dio.dart';
 
-import '../../Utils/Constants/constants.dart';
+
+import '../../Utils/dependency_injection.dart';
 import '../../Utils/utils.dart';
 import '../../core/models/plan_model.dart';
 import '../../features/trainer/data/response/trainer.dart';
@@ -34,7 +33,7 @@ class TrainerRepository {
       int pageNumber, Map<String, dynamic>? queryParameters) async {
     Options option = Utils.getOptions(withToken: true, all: true);
     var j = await Methods.get(
-        url: '${Constants.userBaseUrl}/trainers?fitness_level[0]=intermediate',
+        url: '$userBaseUrl/trainers?fitness_level[0]=intermediate',
         options: option,
         data: queryParameters);
 
@@ -46,8 +45,8 @@ class TrainerRepository {
       withToken: true,
       all: true,
     );
-    ApiResult result =
-        await Methods.get(url: '${TRAINEEURLS.getTrainerById}$id', options: option);
+    ApiResult result = await Methods.get(
+        url: '${TRAINEEURLS.getTrainerById}$id', options: option);
     if (result.type == ApiResultType.success) {
       //log(result.data.toString());
       return TrainerModel.fromJson(result.data);
@@ -60,8 +59,8 @@ class TrainerRepository {
   Future<List<PlanModel>> getTrainerPlans(String id) async {
     Options options = Utils.getOptions(withToken: true, all: true);
 
-    ApiResult result =
-        await Methods.get(url: TRAINEEURLS.getTrainerPlans(id), options: options);
+    ApiResult result = await Methods.get(
+        url: TRAINEEURLS.getTrainerPlans(id), options: options);
     if (result.type == ApiResultType.success) {
       List<PlanModel> plans = [];
       for (var element in result.data) {
@@ -73,8 +72,8 @@ class TrainerRepository {
     }
   }
 
-
-  Future<ApiResult> bookPrivateSession(String trainerTimeId, String paymentId) async {
+  Future<ApiResult> bookPrivateSession(
+      String trainerTimeId, String paymentId) async {
     Options options = Utils.getOptions(withToken: true, all: true);
     var data = {};
     if (paymentId != "") {

@@ -11,18 +11,18 @@ class MyPayments {
     if (json['payments'] != null) {
       payments = <Payments>[];
       json['payments'].forEach((v) {
-        payments!.add(new Payments.fromJson(v));
+        payments!.add(Payments.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.nextPayment != null) {
-      data['next_payment'] = this.nextPayment!.toJson();
+    final Map<String, dynamic> data  = <String, dynamic>{};
+    if (nextPayment != null) {
+      data['next_payment'] = nextPayment!.toJson();
     }
-    if (this.payments != null) {
-      data['payments'] = this.payments!.map((v) => v.toJson()).toList();
+    if (payments != null) {
+      data['payments'] = payments!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -40,9 +40,9 @@ class NextPayment {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['amount'] = this.amount;
-    data['description'] = this.description;
+    final Map<String, dynamic> data  = <String, dynamic>{};
+    data['amount'] = amount;
+    data['description'] = description;
     return data;
   }
 }
@@ -61,10 +61,10 @@ class Payments {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['payment'] = this.payment;
-    data['paid_at'] = this.paidAt;
-    data['description'] = this.description;
+    final Map<String, dynamic> data  = <String, dynamic>{};
+    data['payment'] = payment;
+    data['paid_at'] = paidAt;
+    data['description'] = description;
     return data;
   }
 }

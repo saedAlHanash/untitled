@@ -7,12 +7,12 @@ import 'package:image_multi_type/image_multi_type.dart';
 
 class TopTitleWidget extends StatelessWidget {
   const TopTitleWidget({
-    Key? key,
+        super.key,
     required this.text,
     required this.icon,
     this.iconSize,
     this.safeArea,
-  }) : super(key: key);
+  }) ;
 
   final String text;
   final String icon;

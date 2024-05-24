@@ -1,16 +1,7 @@
 import 'package:fitness_storm/Screen/Splash/splash_binding.dart';
 import 'package:fitness_storm/Screen/Splash/splash_screen.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/Bookmarked%20Screen/bookmarked_screen.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/Bookmarked%20Screen/bookmarked_screen_binding.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/ContinueTrainingPlan/continue_training_binding.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/ContinueTrainingPlan/continue_training_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/FeaturedPlan/featured_plan_binding.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/FeaturedPlan/featured_plan_screen.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/FilterPage/filter_page_binding.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/FilterPage/filter_page_screen.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/FilterResultPage/filter_result_screen.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/Loading%20Start%20Training/loading_start_training_binding.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/Loading%20Start%20Training/loading_start_training_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Main%20Home/main_home_binding.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Main%20Home/main_home_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/My%20Payment/my_payment_binding.dart';
@@ -19,23 +10,16 @@ import 'package:fitness_storm/Screen/Trainee%20Screens/Notification/notification
 import 'package:fitness_storm/Screen/Trainee%20Screens/Notification/notification_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/PlanOverView/plan_overview_binding.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/PlanOverView/plan_overview_screen.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/Provide%20Information/About%20us/about_us_screen.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/Provide%20Information/FAQs/FAQs_screen.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/Provide%20Information/Privacy%20Policy/privacy_policy_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Search%20Result/search_result_bindings.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Search%20Result/search_result_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Subscription/subscription_binding.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Subscription/subscription_screen.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/Training/training_binding.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/Training/training_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/TrendingPlan/trending_plan_binding.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/TrendingPlan/trending_plan_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/User%20Training/user_training_binding.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/User%20Training/user_training_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/YourTrainer/your_trainer_binding.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/YourTrainer/your_trainer_screen.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/day_overview/day_overview_binding.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/day_overview/day_overview_screen.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Search%20Result/search_result_bindings.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Search%20Result/search_result_screen.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Main%20Home/trainer_main_home_binding.dart';
@@ -46,12 +30,9 @@ import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Plans/trainer_p
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Plans/trainer_plans_screen.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Wallet/trainer_wallet_binding.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Wallet/trainer_wallet_screen.dart';
-import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/features/profile/ui/pages/profile_trainer_page.dart';
-import 'package:fitness_storm/features/profile/ui/pages/update_profile_page.dart';
 import 'package:get/get.dart';
 
-import '../../Screen/Trainee Screens/Provide Information/Terms And Conditions/terms_conditions_screen.dart';
 import '../../core/injection/injection_container.dart';
 import '../../core/util/firebase_analytics_service.dart';
 import '../../features/fire_chat/rooms_screen.dart';
@@ -83,13 +64,7 @@ class AppPages {
             return const PlanOverviewScreen();
           },
           binding: PlanOverviewBinding()),
-      GetPage(
-          name: AppRoutes.continueTrainingPlanScreen,
-          page: () {
-            sl<FirebaseAnalyticService>().screenView(name: 'continue_training_plan');
-            return const ContinueTrainingScreen();
-          },
-          binding: ContinueTrainingBinding()),
+
       GetPage(
           name: AppRoutes.trendingPlanScreen,
           page: () {
@@ -100,7 +75,8 @@ class AppPages {
       GetPage(
           name: AppRoutes.featuredPlamScreen,
           page: () {
-            sl<FirebaseAnalyticService>().screenView(name: 'featured_plan_creen');
+            sl<FirebaseAnalyticService>()
+                .screenView(name: 'featured_plan_creen');
             return const FeaturedPlanScreen();
           },
           binding: FeaturedPlanBinding()),
@@ -111,20 +87,14 @@ class AppPages {
             return const YourTrainersScreen();
           },
           binding: YourTrainerBinding()),
-      GetPage(
-          name: AppRoutes.dayOverviewScreen,
-          page: () {
-            sl<FirebaseAnalyticService>().screenView(name: 'day_overview');
-            return const DayOverviewScreen();
-          },
-          binding: DayOverviewBinding()),
-      GetPage(
-          name: AppRoutes.training,
-          page: () {
-            sl<FirebaseAnalyticService>().screenView(name: 'training');
-            return const TrainingScreen();
-          },
-          binding: TrainingBinding()),
+
+      // GetPage(
+      //     name: AppRoutes.training,
+      //     page: () {
+      //       sl<FirebaseAnalyticService>().screenView(name: 'training');
+      //       return const TrainingScreen();
+      //     },
+      //     binding: TrainingBinding()),
       GetPage(
           name: AppRoutes.userTraining,
           page: () {
@@ -132,27 +102,28 @@ class AppPages {
             return const UserTrainingScreen();
           },
           binding: UserTrainingBinding()),
-      GetPage(
-          name: AppRoutes.loadingStartTrainginScreen,
-          page: () {
-            sl<FirebaseAnalyticService>().screenView(name: 'loading_start_training');
-            return const LoadingStartTrainginScreen();
-          },
-          binding: LoadingStartTraingingBinding()),
-      GetPage(
-          name: AppRoutes.filterScreen,
-          page: () {
-            sl<FirebaseAnalyticService>().screenView(name: 'filter');
-            return const FilterPageScreen();
-          },
-          binding: FilterPageBinding()),
-      GetPage(
-          name: AppRoutes.filterResult,
-          page: () {
-            sl<FirebaseAnalyticService>().screenView(name: 'filter_result');
-            return const FilterResultScreen();
-          },
-          binding: FilterPageBinding()),
+      // GetPage(
+      //     name: AppRoutes.loadingStartTrainginScreen,
+      //     page: () {
+      //       sl<FirebaseAnalyticService>()
+      //           .screenView(name: 'loading_start_training');
+      //       return const LoadingStartTrainginScreen();
+      //     },
+      //     binding: LoadingStartTraingingBinding()),
+      // GetPage(
+      //     name: AppRoutes.filterScreen,
+      //     page: () {
+      //       sl<FirebaseAnalyticService>().screenView(name: 'filter');
+      //       return const FilterPageScreen();
+      //     },
+      //     binding: FilterPageBinding()),
+      // GetPage(
+      //     name: AppRoutes.filterResult,
+      //     page: () {
+      //       sl<FirebaseAnalyticService>().screenView(name: 'filter_result');
+      //       return const FilterResultScreen();
+      //     },
+      //     binding: FilterPageBinding()),
       GetPage(
           name: AppRoutes.subscriptionScreen,
           page: () {
@@ -174,20 +145,15 @@ class AppPages {
             return const SearchResultScreen();
           },
           binding: SearchResultBinding()),
-      GetPage(
-        name: AppRoutes.traineeProfileInfo,
-        page: () {
-          sl<FirebaseAnalyticService>().screenView(name: 'trainee_profile_info');
-          return const TraineeProfileInfoScreen();
-        },
-      ),
-      GetPage(
-          name: AppRoutes.bookmarkedScreen,
-          page: () {
-            sl<FirebaseAnalyticService>().screenView(name: 'bookmarked');
-            return const BookmarkedScreen();
-          },
-          binding: BookmarkedScreenBinding()),
+      // GetPage(
+      //   name: AppRoutes.traineeProfileInfo,
+      //   page: () {
+      //     sl<FirebaseAnalyticService>()
+      //         .screenView(name: 'trainee_profile_info');
+      //     return const TraineeProfileInfoScreen();
+      //   },
+      // ),
+
       GetPage(
           name: AppRoutes.myPaymentScreen,
           page: () {
@@ -212,7 +178,8 @@ class AppPages {
       GetPage(
         name: AppRoutes.trainerProfileOverview,
         page: () {
-          sl<FirebaseAnalyticService>().screenView(name: 'trainer_profile_overview');
+          sl<FirebaseAnalyticService>()
+              .screenView(name: 'trainer_profile_overview');
           return const ProfileTrainerPage();
         },
       ),
@@ -233,59 +200,25 @@ class AppPages {
       GetPage(
           name: AppRoutes.trainerSearchResultSceen,
           page: () {
-            sl<FirebaseAnalyticService>().screenView(name: 'trainer_search_result');
+            sl<FirebaseAnalyticService>()
+                .screenView(name: 'trainer_search_result');
             return const TrainerSearchResultScreen();
           },
           binding: TrainerSearchResultBinding()),
       GetPage(
           name: AppRoutes.trainerTrainerOverviewScreen,
           page: () {
-            sl<FirebaseAnalyticService>().screenView(name: 'trainer_trainer_overview');
+            sl<FirebaseAnalyticService>()
+                .screenView(name: 'trainer_trainer_overview');
             return const TrainerTrainerOverviewScreen();
           },
           binding: TrainerTrainerOverviewBinding()),
-      GetPage(
-        name: AppRoutes.aboutAs,
-        page: () {
-          sl<FirebaseAnalyticService>().screenView(name: 'about_us');
-          return const AboutUsScreen();
-        },
-        // binding: AboutUsBindings(),
-      ),
-      GetPage(
-        name: AppRoutes.FAQs,
-        page: () {
-          sl<FirebaseAnalyticService>().screenView(name: 'faq');
-          return const FAQsScreen();
-        },
-        // binding: AboutUsBindings(),
-      ),
-      GetPage(
-        name: AppRoutes.termsAndCondition,
-        page: () {
-          sl<FirebaseAnalyticService>().screenView(name: 'terms_and_condition');
-          return const TermsAndConditionsScreen();
-        },
 
-        // binding: AboutUsBindings(),
-      ),
-      GetPage(
-        name: AppRoutes.privacyPolicy,
-        page: () {
-          sl<FirebaseAnalyticService>().screenView(name: 'privacy_policy');
-          return const PrivacyPolicy();
-        },
 
-        // binding: AboutUsBindings(),
-      ),
+
+
     ];
   }
 
-  Future<String> getInitPage() async {
-    if (AppProvider.token.isEmpty) {
-      return AppRoutes.authScreen;
-    } else {
-      return AppRoutes.mainHome;
-    }
-  }
+
 }

@@ -5,11 +5,11 @@ import 'package:image_multi_type/image_multi_type.dart';
 
 class TrendingPlanItem extends GetView<HomeScreenController> {
   const TrendingPlanItem({
-    Key? key,
+        super.key,
     required this.planImageUrl,
     required this.planName,
     required this.trainerName,
-  }) : super(key: key);
+  }) ;
 
   final String planImageUrl;
   final String planName;

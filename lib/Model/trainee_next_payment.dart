@@ -87,12 +87,12 @@ class TraineeNextPayment {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['duration'] = this.duration;
-    data['price'] = this.price;
-    data['ends_at'] = this.endsAt;
-    data['type'] = this.type;
+    final Map<String, dynamic> data  = <String, dynamic>{};
+    data['id'] = id;
+    data['duration'] = duration;
+    data['price'] = price;
+    data['ends_at'] = endsAt;
+    data['type'] = type;
     return data;
   }
 }

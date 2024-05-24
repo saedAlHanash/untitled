@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class FeaturedPlanScreen extends GetView<FeaturedPlanController> {
-  const FeaturedPlanScreen({Key? key}) : super(key: key);
+  const FeaturedPlanScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

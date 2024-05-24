@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
-import '../../../../Utils/Routes/app_pages.dart';
+import '../../../../core/app/app_provider.dart';
 import '../../../../features/fire_chat/chat_card_widget.dart';
 import '../../../../features/fire_chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
+import '../../../../generated/l10n.dart';
+import '../../../../router/app_router.dart';
 
 
 class TrainerTermAndConditionWidget extends StatefulWidget {
@@ -45,7 +47,7 @@ class _TrainerTermAndConditionWidgetState extends State<TrainerTermAndConditionW
                     width: 40,
                     child: TextButton(
                       onPressed: () {
-                        Get.toNamed(AppRoutes.FAQs);
+                        startPdf(AppProvider.systemParams.faq, S().faq);
                       },
                       style: TextButton.styleFrom(
                         padding: const EdgeInsets.all(0),

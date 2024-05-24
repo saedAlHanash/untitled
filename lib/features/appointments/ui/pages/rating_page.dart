@@ -49,29 +49,6 @@ class RatingPage extends StatelessWidget {
         ),
         child: Scaffold(
           backgroundColor: Colors.transparent,
-          bottomNavigationBar: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              BlocBuilder<RatingCubit, RatingInitial>(
-                builder: (context, state) {
-                  if (state.statuses.loading) {
-                    return MyStyle.loadingWidget();
-                  }
-                  return MyButton(
-                    text: S.of(context).rating,
-                    onTap: () {
-                      request.rating ??= 1;
-                      request.review ??= 'Empty Review';
-                      request.appointmentId = appointment.appointmentId;
-
-                      context.read<RatingCubit>().rate(request: request);
-                    },
-                  );
-                },
-              ),
-              20.0.verticalSpace,
-            ],
-          ),
           appBar: AppBarWidget(
               titleText:
                   '${S.of(context).rating} ${S.of(context).and} ${S.of(context).review}'),
@@ -112,6 +89,24 @@ class RatingPage extends StatelessWidget {
                     onChanged: (val) => request.review = val,
                   ),
                   20.0.verticalSpace,
+                  BlocBuilder<RatingCubit, RatingInitial>(
+                    builder: (context, state) {
+                      if (state.statuses.loading) {
+                        return MyStyle.loadingWidget();
+                      }
+                      return MyButton(
+                        text: S.of(context).rating,
+                        onTap: () {
+                          request.rating ??= 1;
+                          request.review ??= 'Empty Review';
+                          request.appointmentId = appointment.appointmentId;
+
+                          context.read<RatingCubit>().rate(request: request);
+                        },
+                      );
+                    },
+                  ),
+                  20.0.verticalSpace,
                 ],
               ),
             ),
@@ -123,7 +118,7 @@ class RatingPage extends StatelessWidget {
 }
 
 class RatingBarWidget extends StatelessWidget {
-  const RatingBarWidget({Key? key, required this.onRatingUpdate}) : super(key: key);
+  const RatingBarWidget({    super.key, required this.onRatingUpdate}) ;
   final Function(double) onRatingUpdate;
 
   @override

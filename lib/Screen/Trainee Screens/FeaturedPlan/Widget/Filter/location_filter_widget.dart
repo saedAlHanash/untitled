@@ -15,7 +15,7 @@ class LocationFilterWidget extends GetWidget<FeaturedPlanController> {
         children: [
           Text(
             'LOCATION'.tr,
-            style: TextStyle(
+            style: const TextStyle(
                 color: Color(0xFFA8A5A5),
                 fontSize: 14,
                 fontWeight: FontWeight.bold),

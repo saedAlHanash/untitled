@@ -11,7 +11,7 @@ import '../../../../../core/models/plan_model.dart';
 import '../list_header.dart';
 
 class TrendingPlanWidget extends GetView<HomeScreenController> {
-  const TrendingPlanWidget({Key? key}) : super(key: key);
+  const TrendingPlanWidget({super.key});
 
   Widget _buildTrendingPlanHeader({required List<PlanModel> plans}) {
     return ListHeader(
@@ -33,15 +33,15 @@ class TrendingPlanWidget extends GetView<HomeScreenController> {
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
         itemCount: plans.length,
-        itemBuilder: (context1, index) {
+        itemBuilder: (context1, i) {
           return GestureDetector(
             onTap: () {
-              Get.toNamed(AppRoutes.planOverview, arguments: plans[index].id);
+              Get.toNamed(AppRoutes.planOverview, arguments: plans[i].id);
             },
             child: TrendingPlanItem(
-              planImageUrl: plans[index].image,
-              planName: plans[index].name,
-              trainerName: plans[index].trainer!.name,
+              planImageUrl: plans[i].image,
+              planName: plans[i].name,
+              trainerName: plans[i].trainer.name,
             ),
           );
         },

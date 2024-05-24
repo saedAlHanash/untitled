@@ -4,6 +4,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:fitness_storm/core/api_manager/api_url.dart';
 import 'package:fitness_storm/core/util/firebase_analytics_service.dart';
 import 'package:fitness_storm/helper/lang_helper.dart';
+import 'package:fitness_storm/services/caching_service/caching_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -44,6 +45,9 @@ void main() async {
 
   try {
     await di.init();
+
+    await CachingService.initial();
+
     Get.put(LanguagesController());
 
     await DependencyInjection.init();
@@ -62,7 +66,6 @@ void main() async {
     ]);
 
     sl<FirebaseAnalyticService>().initialApp();
-
   } catch (e) {
     loggerObject.e(e);
   }

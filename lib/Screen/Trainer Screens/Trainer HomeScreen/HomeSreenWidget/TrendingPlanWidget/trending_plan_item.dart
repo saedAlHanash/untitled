@@ -9,11 +9,11 @@ class TrendingPlanItem extends GetView<HomeScreenController> {
   final String trainerName;
 
   const TrendingPlanItem({
-    Key? key,
+        super.key,
     required this.planImageUrl,
     required this.planName,
     required this.trainerName,
-  }) : super(key: key);
+  }) ;
 
   @override
   Widget build(BuildContext context) {

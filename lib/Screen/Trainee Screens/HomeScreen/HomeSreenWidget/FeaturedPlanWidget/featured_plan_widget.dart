@@ -10,7 +10,7 @@ import '../list_header.dart';
 import 'featured_plan_item.dart';
 
 class FeaturedPlanWidget extends GetWidget<HomeScreenController> {
-  const FeaturedPlanWidget({Key? key}) : super(key: key);
+  const FeaturedPlanWidget({super.key});
 
   Widget _buildFeaturedPlanItemWidget(
       {required PageController controller, required List<PlanModel> plans}) {

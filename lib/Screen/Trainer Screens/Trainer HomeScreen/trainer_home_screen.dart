@@ -1,13 +1,9 @@
-import 'package:fitness_storm/Data/Repositories/plan_repository.dart';
-import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20HomeScreen/HomeSreenWidget/search_result.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20HomeScreen/trainer_home_screen_controller.dart';
 import 'package:fitness_storm/core/widgets/not_found_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../Utils/Routes/app_pages.dart';
-import '../../../Widgets/plan_time_freqency.dart';
-import '../../../Widgets/see_all_list_item.dart';
+import '../../../features/bookmarked/ui/widget/see_all_list_item.dart';
 import '../../../generated/l10n.dart';
 
 class TrainerHomeScreen extends GetView<TrainerHomeScreenController> {
@@ -27,13 +23,6 @@ class TrainerHomeScreen extends GetView<TrainerHomeScreenController> {
                     children: controller.trainerPlans.map((plan) {
                       return SeeAllListItem(
                         plan: plan,
-                        isPressed: () {},
-                        index: -1,
-                        subTitle: PlanTimeFrequency(
-                          totalWeeks: plan.totalWeeks,
-                          workoutFrequency: plan.workoutFrequency,
-                          color: Colors.grey,
-                        ),
                       );
                     }).toList(),
                   ),

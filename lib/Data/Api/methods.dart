@@ -2,12 +2,11 @@
 
 import 'package:dio/dio.dart' as dio;
 import 'package:dio/dio.dart';
+import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:get/get.dart';
 
-import '../../helper/loging_service.dart';
 import 'api_result.dart';
 import 'handling_errors.dart';
-
 
 abstract class Methods {
   static final _dio = Get.find<Dio>();
@@ -32,10 +31,12 @@ abstract class Methods {
       if (response.statusCode == 200 || response.statusCode == 201) {
         return ApiResult.successFromJson(response.data);
       } else {
-        return ApiResult.failureFromJson(response.data, statusCode: response.statusCode);
+        return ApiResult.failureFromJson(response.data,
+            statusCode: response.statusCode);
       }
     } catch (e) {
-      LogService().e(e.toString());
+      loggerObject.e(e);
+
       return ApiResult.failure(NetworkExceptions.getErrorMessage(e));
     }
   }
@@ -47,9 +48,12 @@ abstract class Methods {
     bool? isNotification,
   }) async {
     try {
-      var response = await _dio.get(url, options: options, queryParameters: data);
+      var response =
+          await _dio.get(url, options: options, queryParameters: data);
       if (response.statusCode == 200) {
-        if (response.data == '' || response.data is String || response.data.isEmpty) {
+        if (response.data == '' ||
+            response.data is String ||
+            response.data.isEmpty) {
           response.data = {};
         }
         return ApiResult.successFromJson(response.data);
@@ -62,7 +66,8 @@ abstract class Methods {
         return error;
       }
     } catch (e) {
-      LogService().e(e.toString());
+      loggerObject.e(e);
+
       return ApiResult.failure(NetworkExceptions.getErrorMessage(e));
     }
   }
@@ -76,6 +81,7 @@ abstract class Methods {
     try {
       return await _dio.get(url, options: options, queryParameters: data);
     } catch (e) {
+      loggerObject.e(e);
       return null;
     }
   }
@@ -91,14 +97,14 @@ abstract class Methods {
         return ApiResult.failureFromJson(response.data);
       }
     } catch (e) {
-      LogService().e(e.toString());
+      loggerObject.e(e);
+
       return ApiResult.failure(NetworkExceptions.getErrorMessage(e));
     }
   }
 
   static Future<ApiResult> delete(
       {required String url, required Options options, data}) async {
-    LogService().wtf(url);
     try {
       var response = await _dio.delete(url, options: options, data: data);
       //   print('response ${url.split('').last}: ${response.data}');
@@ -108,14 +114,14 @@ abstract class Methods {
         return ApiResult.failureFromJson(response.data);
       }
     } catch (e) {
-      LogService().e(e.toString());
+      loggerObject.e(e);
+
       return ApiResult.failure(NetworkExceptions.getErrorMessage(e));
     }
   }
 
-  static Future<void> download({required String url, required String dir}) async {
-    LogService().wtf(url);
-    LogService().wtf(dir);
+  static Future<void> download(
+      {required String url, required String dir}) async {
     //   print(url);
     //   print(dir);
     // dir = dir[1];
@@ -126,7 +132,7 @@ abstract class Methods {
         //   print("Rec: $rec , Total: $total");
       });
     } catch (e) {
-      LogService().e(e.toString());
+      loggerObject.e(e);
     }
   }
 }

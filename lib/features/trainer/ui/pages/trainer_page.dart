@@ -6,12 +6,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../Screen/Trainee Screens/HomeScreen/HomeSreenWidget/plan_time_frequency.dart';
-import '../../../../Screen/Trainee Screens/Trainer Overview/Widget/ProfileBio/trainer_bio_widget.dart';
 import '../../../../core/util/my_style.dart';
 import '../../../appointments/bloc/booked_appointments_cubit/booked_appointments_cubit.dart';
 import '../../../plans/bloc/plans_cubit/plans_cubit.dart';
 import '../../bloc/trainer_cubit/trainer_cubit.dart';
 import '../widget/plans_list.dart';
+import '../widget/trainer_bio_widget.dart';
 import '../widget/trainer_header.dart';
 
 class TrainerPage extends StatefulWidget {

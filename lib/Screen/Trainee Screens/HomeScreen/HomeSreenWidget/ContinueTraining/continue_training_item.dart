@@ -1,5 +1,5 @@
 import 'package:fitness_storm/Screen/Trainee%20Screens/HomeScreen/home_screen_controller.dart';
-import 'package:fitness_storm/Utils/Constants/custome_app_theme.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_multi_type/image_multi_type.dart';
@@ -8,13 +8,13 @@ class ContinueTrainingItem extends GetView<HomeScreenController> {
   // final String trainerName;
 
   const ContinueTrainingItem({
-    Key? key,
+        super.key,
     required this.planImageUrl,
     required this.planName,
     required this.planProgress,
     required this.nextDayNumber,
     // required this.trainerName,
-  }) : super(key: key);
+  }) ;
 
   final int nextDayNumber;
   final String planImageUrl;
@@ -42,7 +42,7 @@ class ContinueTrainingItem extends GetView<HomeScreenController> {
               planName,
               style: TextStyle(
                 color: Get.theme.colorScheme.secondary,
-                fontSize: CustomeAppTheme.fontSizeMedium,
+                fontSize: 14.0,
               ),
             ),
           ),

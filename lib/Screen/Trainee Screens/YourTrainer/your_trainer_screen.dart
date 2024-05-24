@@ -11,7 +11,7 @@ import 'Widget/trainer_widget.dart';
 import 'your_trainer_controller.dart';
 
 class YourTrainersScreen extends GetView<YourTrainerController> {
-  const YourTrainersScreen({Key? key}) : super(key: key);
+  const YourTrainersScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

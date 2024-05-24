@@ -40,6 +40,7 @@ import '../features/auth/ui/pages/login_page.dart';
 import '../features/auth/ui/pages/otp_password_page.dart';
 import '../features/auth/ui/pages/reset_password_page.dart';
 import '../features/auth/ui/pages/signup_page.dart';
+import '../features/bookmarked/ui/pages/bookmarked_page.dart';
 import '../features/profile/ui/pages/pdf_viewer_page.dart';
 import '../features/profile/ui/pages/update_profile_page.dart';
 import '../features/trainer/ui/pages/available_time_page.dart';
@@ -151,7 +152,8 @@ Route<dynamic> routes(RouteSettings settings) {
     //endregion
   }
 
-  return MaterialPageRoute(builder: (_) => const Scaffold(backgroundColor: Colors.red));
+  return MaterialPageRoute(
+      builder: (_) => const Scaffold(backgroundColor: Colors.red));
 }
 
 class RouteName {
@@ -224,7 +226,8 @@ void startForgetPass(BuildContext context) {
 
   final providers = [
     BlocProvider(
-        create: (_) => sl<ForgetPasswordCubit>()..setPhoneOrEmail = phoneOrEmail),
+        create: (_) =>
+            sl<ForgetPasswordCubit>()..setPhoneOrEmail = phoneOrEmail),
   ];
 
   final Widget page = MultiBlocProvider(
@@ -238,7 +241,8 @@ void startForgetPass(BuildContext context) {
 
 void startAppointment() {
   final providers = [
-    BlocProvider(create: (_) => sl<BookedAppointmentsCubit>()..getBookedAppointments()),
+    BlocProvider(
+        create: (_) => sl<BookedAppointmentsCubit>()..getBookedAppointments()),
   ];
 
   final Widget page = MultiBlocProvider(
@@ -299,7 +303,8 @@ void startConfirmCodeAccount(BuildContext context) {
 
 void startHome() {
   //loggerObject.w(AppProvider.isTrainer);
-  Get.offAllNamed(AppProvider.isTrainer ? AppRoutes.trainerHomePage : AppRoutes.mainHome);
+  Get.offAllNamed(
+      AppProvider.isTrainer ? AppRoutes.trainerHomePage : AppRoutes.mainHome);
   sl<FirebaseAnalyticService>().screenView(name: 'home');
 }
 
@@ -326,8 +331,8 @@ void startBookPrivetSession(TrainerModel trainer) {
         ),
     ),
     BlocProvider(
-      create: (_) =>
-          sl<BundlesCubit>()..getBundles(request: BundlesRequest(trainerId: trainer.id)),
+      create: (_) => sl<BundlesCubit>()
+        ..getBundles(request: BundlesRequest(trainerId: trainer.id)),
     ),
   ];
 
@@ -361,9 +366,18 @@ void startAvailableTimePage() {
   sl<FirebaseAnalyticService>().screenView(name: 'available_time');
 }
 
+void startBookMarked() {
+  sl<FirebaseAnalyticService>().screenView(name: 'bookmarked');
+
+  const Widget page = BookmarkedPage();
+
+  Get.to(() => page);
+}
+
 void startCreateBundle(Bundle bundle) {
   final providers = [
-    BlocProvider(create: (_) => sl<CreateBundleCubit>()..setData(bundle: bundle)),
+    BlocProvider(
+        create: (_) => sl<CreateBundleCubit>()..setData(bundle: bundle)),
     BlocProvider(
       create: (_) => sl<AvailableTimesCubit>()
         ..getAvailableTimes(

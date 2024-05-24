@@ -21,7 +21,7 @@ import '../../bloc/login_social_cubit/login_social_cubit.dart';
 import '../../bloc/signup_cubit/signup_cubit.dart';
 
 class SignupPage extends StatefulWidget {
-  const SignupPage({Key? key}) : super(key: key);
+  const SignupPage({super.key});
 
   @override
   State<SignupPage> createState() => _SignupPageState();

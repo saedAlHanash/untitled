@@ -9,20 +9,88 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="43c414a0-a0aa-41d9-b6a1-9df3dcc6d755" name="Changes" comment="fix pod and wakelock_plus">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
+    <list default="true" id="43c414a0-a0aa-41d9-b6a1-9df3dcc6d755" name="Changes" comment="add ServerTimeService">
+      <change afterPath="$PROJECT_DIR$/lib/features/bookmarked/data/response/bookmarked_response.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/features/bookmarked/ui/widget/bookmarked_btn.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/features/bookmarked/ui/widget/see_all_list_item.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Data/Api/urls.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Data/Api/urls.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Data/Repositories/Trainer Repository/trainer_appointments.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Data/Repositories/Trainer Repository/trainer_auth_repository.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Bookmarked Screen/Widget/Filter/filter_sheet_widget.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Bookmarked Screen/Widget/Filter/filtness_level_filter_widget.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Bookmarked Screen/Widget/Filter/location_filter_widget.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Bookmarked Screen/Widget/Filter/plan_filter_button.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Bookmarked Screen/Widget/Filter/training_type_filter_widget.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Bookmarked Screen/Widget/Sort/sort_bottom_sheet.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Bookmarked Screen/Widget/Sort/sort_botton_widget.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Bookmarked Screen/Widget/bookmark_filter_row.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Bookmarked Screen/Widget/filter_button.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Bookmarked Screen/bookmarked_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/bookmarked/ui/pages/bookmarked_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Bookmarked Screen/bookmarked_screen_binding.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Bookmarked Screen/bookmarked_screen_controller.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/ContinueTrainingPlan/continue_training_binding.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/ContinueTrainingPlan/continue_training_binding.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/ContinueTrainingPlan/continue_training_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/ContinueTrainingPlan/continue_training_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/ContinueTrainingPlan/continue_training_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/ContinueTrainingPlan/continue_training_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Conversation/Widget/conversation_list.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Conversation/Widget/conversation_text_feild.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Conversation/conversation_binding.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Conversation/conversation_controller.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Conversation/conversation_screen.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/FeaturedPlan/Widget/Filter/training_type_filter_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/FeaturedPlan/Widget/Filter/training_type_filter_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/FeaturedPlan/Widget/featured_plan_list.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/FeaturedPlan/Widget/featured_plan_list.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/HomeScreen/HomeSreenWidget/FeaturedPlanWidget/featured_plan_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/HomeScreen/HomeSreenWidget/FeaturedPlanWidget/featured_plan_item.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Search Result/Widget/search_plan_list_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Search Result/Widget/search_plan_list_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/TrendingPlan/trending_plan_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/TrendingPlan/trending_plan_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/User Training/user_training_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/User Training/user_training_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/day_overview/day_overview_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/day_overview/day_overview_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Search Result/Widget/search_plan_list_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Search Result/Widget/search_plan_list_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Trainer Calender/appointments.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Trainer Calender/trainer_calender_binding.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Trainer Calender/trainer_calender_controller.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Trainer Calender/trainer_calender_screen.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Trainer HomeScreen/HomeSreenWidget/ContinueTraining/continue_training_item.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Trainer HomeScreen/HomeSreenWidget/ContinueTraining/continue_training_widget.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Trainer HomeScreen/HomeSreenWidget/FeaturedPlanWidget/featured_plan_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Trainer HomeScreen/HomeSreenWidget/FeaturedPlanWidget/featured_plan_item.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Trainer HomeScreen/trainer_home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Trainer HomeScreen/trainer_home_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Trainer Main Home/trainer_main_home_binding.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Trainer Main Home/trainer_main_home_binding.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Trainer Overview/trainer_overview_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Trainer Overview/trainer_overview_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Trainer Plans/trainer_plans_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Trainer Plans/trainer_plans_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Trainer_Profile/Widget/trainer_info_button.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Trainer_Profile/Widget/trainer_plans_button.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Trainer_Profile/Widget/trainer_profile_body.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Trainer_Profile/Widget/trainer_profile_card.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Trainer_Profile/Widget/trainer_profile_header.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Trainer_Profile/Widget/trainer_profile_info_button.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Trainer_Profile/trainer_profile_binding.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Trainer_Profile/trainer_profile_controller.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Trainer_Profile/trainer_profile_screen.dart" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Screen/video/video.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/video/video.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Utils/Routes/app_pages.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Utils/Routes/app_pages.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Utils/Routes/app_routes.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Utils/Routes/app_routes.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Widgets/plan_time_freqency.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Widgets/plan_time_freqency.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Widgets/see_all_list_item.dart" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/core/api_manager/api_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/api_manager/api_service.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/core/api_manager/api_url.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/api_manager/api_url.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/app/app_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/app/app_provider.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/appointments/data/response/bundles_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/appointments/data/response/bundles_response.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/auth/ui/pages/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/ui/pages/login_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/generated/intl/messages_all.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/intl/messages_all.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/app/app_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/app/app_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/extensions/extensions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/extensions/extensions.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/injection/injection_container.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/injection/injection_container.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/models/booked_appointments.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/models/booked_appointments.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/translations.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/translations.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/util/abstraction.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/util/abstraction.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/appointments/ui/pages/bundles_page.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/appointments/ui/pages/create_bundle_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/appointments/ui/pages/create_bundle_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/appointments/ui/pages/rating_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/appointments/ui/pages/rating_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/bookmarked/bloc/bookmarked_cubit/bookmarked_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/bookmarked/bloc/bookmarked_cubit/bookmarked_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/bookmarked/bloc/bookmarked_cubit/bookmarked_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/bookmarked/bloc/bookmarked_cubit/bookmarked_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/profile/ui/widget/card_profile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/profile/ui/widget/card_profile.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/trainer/ui/widget/plans_list.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/trainer/ui/widget/plans_list.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/z_temp/bloc/temp1_cubit/temp_t_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/z_temp/bloc/temp1_cubit/temp_t_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/z_temp/bloc/temp_cubit/temp_t_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/z_temp/bloc/temp_cubit/temp_t_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/generated/intl/messages_ar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/intl/messages_ar.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/router/app_router.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/router/app_router.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/services/server_time_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/server_time_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/signin_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/signin_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/saed.json" beforeDir="false" afterPath="$PROJECT_DIR$/saed.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,6 +100,13 @@
   </component>
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dart File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -48,33 +123,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Flutter.main.dart.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/LENOVO/StudioProjects/coretech/pop&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;flutter.settings&quot;,
-    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Flutter.main.dart.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "ignore.virus.scanning.warn.message": "true",
+    "io.flutter.reload.alreadyRun": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/LENOVO/StudioProjects/New/fitness_storm/lib/features/bookmarked/ui/pages",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "flutter.settings",
+    "show.migrate.to.gradle.popup": "false"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\LENOVO\StudioProjects\New\fitness_storm\lib\features\bookmarked\ui\pages" />
+      <recent name="C:\Users\LENOVO\StudioProjects\New\fitness_storm\lib\features" />
+      <recent name="C:\Users\LENOVO\StudioProjects\New\fitness_storm\lib" />
       <recent name="C:\Users\saed\AndroidStudioProjects\New\fitness_storm\pod_player" />
       <recent name="C:\Users\saed\AndroidStudioProjects\New\fitness_storm" />
-      <recent name="C:\Users\saed\AndroidStudioProjects\New\fitness_storm\ios" />
-      <recent name="C:\Users\saed\AndroidStudioProjects\New\fitness_storm\android\app\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\LENOVO\StudioProjects\New\fitness_storm\lib\features\bookmarked\ui\widget" />
     </key>
   </component>
   <component name="RunManager">
@@ -247,7 +326,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714762049682</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="add ServerTimeService">
+      <option name="closed" value="true" />
+      <created>1716485672651</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1716485672651</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -274,6 +361,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="refactor new plugens and new project with update project" />
     <MESSAGE value="fix pod and wakelock_plus" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix pod and wakelock_plus" />
+    <MESSAGE value="add ServerTimeService" />
+    <option name="LAST_COMMIT_MESSAGE" value="add ServerTimeService" />
   </component>
 </project>

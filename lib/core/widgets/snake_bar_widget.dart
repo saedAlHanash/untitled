@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SnakeBarWidget extends StatelessWidget {
-  const SnakeBarWidget({Key? key, required this.text}) : super(key: key);
+  const SnakeBarWidget({    super.key, required this.text}) ;
 
   final String text;
 

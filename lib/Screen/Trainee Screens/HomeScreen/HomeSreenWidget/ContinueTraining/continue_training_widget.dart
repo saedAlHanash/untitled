@@ -1,5 +1,5 @@
 import 'package:fitness_storm/Screen/Trainee%20Screens/HomeScreen/home_screen_controller.dart';
-import 'package:fitness_storm/Utils/Constants/custome_app_theme.dart';
+
 import 'package:fitness_storm/Utils/Routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -22,7 +22,11 @@ class ContinueTrainingWidget extends GetView<HomeScreenController> {
         children: [
           Text(
             'continue_training'.tr,
-            style: CustomeAppTheme.textStyleTitleInHomePage,
+            style: TextStyle(
+              color: Get.theme.primaryColor,
+              fontSize: 18,
+              fontWeight: FontWeight.w500,
+            ),
           ),
         ],
       ),

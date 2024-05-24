@@ -2,12 +2,11 @@ import 'package:fitness_storm/Screen/Trainee%20Screens/TrendingPlan/trending_pla
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../Widgets/plan_time_freqency.dart';
-import '../../../Widgets/see_all_list_item.dart';
 import '../../../core/models/plan_model.dart';
+import '../../../features/bookmarked/ui/widget/see_all_list_item.dart';
 
 class TrendingPlansScreen extends GetView<TrendingPlanController> {
-  const TrendingPlansScreen({Key? key}) : super(key: key);
+  const TrendingPlansScreen({super.key});
 
   Widget _buildTrendsPlansList(List<PlanModel> plans) {
     return controller.isLoading
@@ -18,13 +17,6 @@ class TrendingPlansScreen extends GetView<TrendingPlanController> {
             itemBuilder: (context, index) {
               return SeeAllListItem(
                 plan: controller.plans[index],
-                isPressed: controller.addPlanToFavorite,
-                index: index,
-                subTitle: PlanTimeFrequency(
-                  totalWeeks: plans[index].totalWeeks,
-                  workoutFrequency: plans[index].workoutFrequency,
-                  color: Colors.grey,
-                ),
               );
             },
           );

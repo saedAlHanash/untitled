@@ -10,7 +10,7 @@ import '../../../../../core/models/plan_model.dart';
 import '../list_header.dart';
 
 class TrendingPlanWidget extends GetView<TrainerHomeScreenController> {
-  const TrendingPlanWidget({Key? key}) : super(key: key);
+  const TrendingPlanWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

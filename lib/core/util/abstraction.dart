@@ -1,5 +1,7 @@
+import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
+import '../../services/caching_service/caching_service.dart';
 import '../api_manager/request_models/command.dart';
 import '../strings/enum_manager.dart';
 
@@ -19,7 +21,41 @@ abstract class AbstractCubit<T> extends Equatable {
 
 abstract class AbstractMeta {
   final Meta meta;
+
   AbstractMeta({
     required this.meta,
   });
+}
+
+abstract class AbstractJson {
+  AbstractJson fromJson(Map<String, dynamic> json);
+
+  Map<String, dynamic> toJson();
+}
+
+abstract class MCubit<T> extends Cubit<T> {
+  MCubit(super.initialState);
+
+  String get nameCache => '';
+
+  String get filter => '';
+
+  Future<NeedUpdateEnum> needGetData() async {
+    if (nameCache.isEmpty) return NeedUpdateEnum.withLoading;
+    return await CachingService.needGetData(nameCache, filter: filter);
+  }
+
+  Future<void> storeData(dynamic data) async {
+    await CachingService.sortData(data: data, name: nameCache, filter: filter);
+  }
+
+  Future<Iterable<dynamic>> getListCached() async {
+    final data = await CachingService.getList(nameCache, filter: filter);
+    return data;
+  }
+
+  Future<dynamic> getDataCached() async {
+    return (await CachingService.getData(nameCache, filter: filter)) ??
+        <String, dynamic>{};
+  }
 }

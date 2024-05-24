@@ -6,10 +6,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MyTableWidget extends StatelessWidget {
   const MyTableWidget({
-    Key? key,
+        super.key,
     required this.children,
     required this.title,
-  }) : super(key: key);
+  }) ;
 
   final Map<String, String> children;
   final String title;

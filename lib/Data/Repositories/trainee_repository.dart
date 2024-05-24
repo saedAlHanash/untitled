@@ -1,10 +1,9 @@
  
 
 import 'package:dio/dio.dart';
-import 'package:fitness_storm/Model/about_us.dart';
 import 'package:fitness_storm/Model/progress_model.dart';
 
-import '../../Utils/Constants/constants.dart';
+import '../../Utils/dependency_injection.dart';
 import '../../Utils/utils.dart';
 import '../Api/api_result.dart';
 import '../Api/methods.dart';
@@ -51,7 +50,7 @@ class TraineeRepository {
     Options options = Utils.getOptions(withToken: true, all: false);
     try {
       return await Methods.delete(
-        url: "${Constants.userBaseUrl}/profile",
+        url: "$userBaseUrl/profile",
         options: options,
       );
     } catch (error) {
@@ -64,7 +63,7 @@ class TraineeRepository {
     Options options = Utils.getOptions(withToken: true, all: false);
     try {
       return await Methods.post(
-        url: "${Constants.userBaseUrl}/profile",
+        url: "$userBaseUrl/profile",
         data: json,
         options: options,
       );
@@ -104,18 +103,5 @@ class TraineeRepository {
     return [];
   }
 
-  Future<AboutUsModel> about_us() async {
-    Options option = Utils.getOptions(withToken: true, all: true);
-    try {
-      ApiResult result = await Methods.get(
-          url: TRAINEEURLS.getTraineeProgress, options: option);
-      if (result.type == ApiResultType.success) {
-        AboutUsModel aboutUsModel = AboutUsModel(text: result.data);
-        return aboutUsModel;
-      }
-    } catch (error) {
-      
-    }
-    return AboutUsModel();
-  }
+
 }

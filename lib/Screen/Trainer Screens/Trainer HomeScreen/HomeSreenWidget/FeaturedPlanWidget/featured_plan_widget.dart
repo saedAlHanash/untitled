@@ -9,7 +9,7 @@ import '../list_header.dart';
 import 'featured_plan_item.dart';
 
 class FeaturedPlanWidget extends GetWidget<TrainerHomeScreenController> {
-  const FeaturedPlanWidget({Key? key}) : super(key: key);
+  const FeaturedPlanWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

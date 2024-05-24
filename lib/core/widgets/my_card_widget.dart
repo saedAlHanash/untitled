@@ -5,14 +5,14 @@ import '../util/my_style.dart';
 
 class MyCardWidget extends StatelessWidget {
   const MyCardWidget({
-    Key? key,
+        super.key,
     this.margin,
     this.padding,
     this.cardColor = AppColorManager.cardColor,
     required this.child,
     this.elevation = 2,
     this.radios,
-  }) : super(key: key);
+  }) ;
 
   final EdgeInsets? margin;
   final EdgeInsets? padding;

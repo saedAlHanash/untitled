@@ -9,7 +9,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:fitness_storm/Data/Repositories/plan_repository.dart';
 import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/core/util/firebase_analytics_service.dart';
-import 'package:fitness_storm/helper/cache_helper.dart';
+
 import 'package:fitness_storm/helper/lang_helper.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
@@ -17,10 +17,10 @@ import 'package:get_storage/get_storage.dart';
 import 'package:hive_flutter/adapters.dart';
 
 import '../core/injection/injection_container.dart';
+import '../core/strings/enum_manager.dart';
 import '../firebase_options.dart';
 import '../main.dart';
-import 'Constants/constants.dart';
-import 'Constants/enums.dart';
+
 import 'app_controller.dart';
 
 class DependencyInjection {
@@ -31,7 +31,6 @@ class DependencyInjection {
 
     await Note.initialize();
 
-    await CacheHelper.init();
 
     await initDio();
 
@@ -48,6 +47,11 @@ class DependencyInjection {
     await requestPermission();
   }
 }
+
+ const String baseUrl = 'https://api.fitnessstorm.org';
+
+ const String userBaseUrl = '$baseUrl/mobile/user';
+ const String trainerBaseUrl = '$baseUrl/mobile/trainer';
 
 initRepositories() {
   Get.put(PlanRepository(), permanent: true);
@@ -72,7 +76,7 @@ Future<void> initGetStorage() async {
 Future<void> initDio() async {
   //log('init Dio');
   BaseOptions baseOptions = BaseOptions(
-    baseUrl: Constants.baseUrl,
+    baseUrl: baseUrl,
     contentType: 'application/json',
     connectTimeout: const Duration(seconds: 60 * 1000),
     receiveTimeout: const Duration(seconds: 60 * 1000),
@@ -144,9 +148,9 @@ Future<void> initFirebaseMessaging() async {
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 
   if (AppProvider.isTrainer) {
-    FirebaseMessaging.instance.subscribeToTopic(Constants.topicTrainerNotification);
+    FirebaseMessaging.instance.subscribeToTopic('trainer');
   } else {
-    FirebaseMessaging.instance.subscribeToTopic(Constants.topicUserNotification);
+    FirebaseMessaging.instance.subscribeToTopic('users');
   }
 
   FirebaseMessaging.onMessage.listen((RemoteMessage message) {

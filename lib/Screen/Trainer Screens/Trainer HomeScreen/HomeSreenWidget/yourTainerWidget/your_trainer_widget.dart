@@ -11,7 +11,7 @@
 // import '../list_header.dart';
 //
 // class YourTrainersWidget extends GetWidget<TrainerHomeScreenController> {
-//   const YourTrainersWidget({Key? key}) : super(key: key);
+//   const YourTrainersWidget({super.key});
 //
 //   @override
 //   Widget build(BuildContext context) {

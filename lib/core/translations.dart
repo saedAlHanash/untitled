@@ -13,7 +13,7 @@ class LocaleString extends Translations {
           "minute": "minute",
           "plan_prog": "Plan",
           "private_session_prog": "Private Session",
-          "subscription_payment": "subscription payment",
+          "subscription_payment": "Subscription payment",
           "forget_password": "Forget Password",
           "pls_enter_email": "Please Enter Your Email To Receive Activation Code",
           "email": "Email",
@@ -187,7 +187,7 @@ class LocaleString extends Translations {
           "trending_plan": "Trending Plan",
           "Did_you_finish_your_training":
           "Did you finish your training? press Done to save your progress to your records.",
-          "i\"ll_come_back_later": "I\"ll come back later",
+          "i_ll_come_back_later": "I\"ll come back later",
           "set_x": "Set X",
           "let\"s_go": "Let\"s Go",
           "you_can_do_it_this_set": "You can do it!",
@@ -693,7 +693,7 @@ The application Policies may be changed or updated occasionally to meet the requ
           "FITNESS LEVEL": "مستوى لياقتك",
           "Did_you_finish_your_training":
           "هل أنهيت تمارينك اليوم؟ اختر نعم ليتم حفظ تقدمك في السجل.",
-          "i\"ll_come_back_later": "سأنهيها لاحقاّ",
+          "i_ll_come_back_later": "سأنهيها لاحقاّ",
           "set_x": "مجموعة *",
           "Your_subscription_to_plan": "سيتم إلغاء اشتراكك في خطة",
           "trainers": "مدربين",

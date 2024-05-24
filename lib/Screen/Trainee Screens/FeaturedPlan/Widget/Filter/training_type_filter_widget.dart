@@ -37,7 +37,7 @@ class TrainingTypeFilterWidget extends GetWidget<FeaturedPlanController> {
                 return Obx(
                   () => PlanFilterButton(
                     controller: controller.trainingTypesControllers[index],
-                    text: controller.appController.trainingTypes[index].type!,
+                    text: controller.appController.trainingTypes[index].type,
                     onTap: () => controller.toggleTrainingType(index),
                     isTrainingType: true,
                   ),

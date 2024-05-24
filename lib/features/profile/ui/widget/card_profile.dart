@@ -35,7 +35,7 @@ class _ProfileCardState extends State<ProfileCard> {
         image = Assets.imagesProfileInfo;
         name = S().profileInfo;
         onTap = () {
-          if(AppProvider.isTrainer){
+          if (AppProvider.isTrainer) {
             Get.toNamed(AppRoutes.trainerProfileOverview);
             return;
           }
@@ -46,7 +46,7 @@ class _ProfileCardState extends State<ProfileCard> {
         image = Assets.imagesBookmark;
         name = S().bookmarked;
         onTap = () {
-          Get.toNamed(AppRoutes.bookmarkedScreen);
+          startBookMarked();
         };
         break;
       case ProfileCardType.payment:

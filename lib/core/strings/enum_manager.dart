@@ -31,3 +31,5 @@ enum PrivetSessionState { noEver, active, waiting, needBooking }
 enum WalletType { income, invoice }
 
 enum NeedUpdateEnum { no, withLoading, noLoading }
+
+enum ThemeColor { dark, light }

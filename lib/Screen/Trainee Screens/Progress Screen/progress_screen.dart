@@ -85,9 +85,9 @@ class ProgressScreen extends GetView<ProgressScreenController> {
 
 class Log extends StatefulWidget {
   const Log({
-    Key? key,
+        super.key,
     required this.progressModel,
-  }) : super(key: key);
+  }) ;
 
   final ProgressModel progressModel;
 

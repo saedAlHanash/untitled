@@ -43,7 +43,7 @@ class CustomTextField extends StatelessWidget {
 
   const CustomTextField(
     this.labelText, {
-    Key? key,
+        super.key,
     this.keyboardType = TextInputType.text,
     this.height = 60,
     this.required = false,
@@ -63,7 +63,7 @@ class CustomTextField extends StatelessWidget {
     this.suffixText,
     this.onTap,
     required this.controller,
-  }) : super(key: key);
+  }) ;
 
   @override
   Widget build(BuildContext context) {

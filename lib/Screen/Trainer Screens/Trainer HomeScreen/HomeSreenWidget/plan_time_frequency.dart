@@ -8,12 +8,12 @@ class PlanTimeFrequency extends StatelessWidget {
   final Color? color;
 
   const PlanTimeFrequency({
-    Key? key,
+        super.key,
     required this.totalWeeks,
     required this.workoutFrequency,
     required this.trainingType,
     required this.color,
-  }) : super(key: key);
+  }) ;
 
   @override
   Widget build(BuildContext context) {
