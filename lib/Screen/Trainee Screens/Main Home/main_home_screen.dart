@@ -3,6 +3,7 @@ import 'package:fitness_storm/Screen/Trainee%20Screens/Main%20Home/main_home_con
 import 'package:fitness_storm/Screen/Trainee%20Screens/Progress%20Screen/progress_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Search%20Screen/search_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Workout%20Screen/workout_screen.dart';
+import 'package:fitness_storm/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -83,9 +84,9 @@ class MainHomeScreen extends GetView<MainHomeController> {
                     alignment: isEnglish ? Alignment.topRight : Alignment.topLeft,
                     children: [
                       IconButton(
-                          onPressed: () => Get.toNamed(AppRoutes.notificationScreen,
-                                  arguments: [false])!
-                              .then((value) => controller.numberOfNotification = 0),
+                          onPressed: () {
+                            startNotificationsPage();
+                          },
                           icon: const Icon(
                             Icons.notifications,
                             size: 30,

@@ -6,7 +6,6 @@ import 'package:fitness_storm/Screen/Trainee%20Screens/PlanOverView/Widget/video
 import 'package:fitness_storm/Screen/Trainee%20Screens/PlanOverView/plan_overview_controller.dart';
 import 'package:fitness_storm/Widgets/custom_button.dart';
 import 'package:fitness_storm/Widgets/read_more_text_widget.dart';
-import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -23,11 +22,7 @@ class PlanOverviewScreen extends GetView<PlanOverviewController> {
 
   @override
   Widget build(BuildContext context) {
-    loggerObject.w(
-        '${controller.isActivated}\n'
-        '${GetStorage().read('currentPlan')}\n'
-        '${controller.planOverview.name}\n'
-    );
+
     return Obx(
       () => Scaffold(
         key: controller.scaffoldKey,

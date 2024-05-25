@@ -1,19 +1,23 @@
 part of 'notifications_cubit.dart';
 
 class NotificationsInitial extends AbstractCubit<List<NotificationModel>> {
-  final int mId;
-
+  // final NotificationRequest request;
+  // final  bool notificationParam;
   const NotificationsInitial({
     required super.result,
     super.error,
+    // required this.request,
+    // required this.notificationParam,
     super.statuses,
-    required this.mId,
-  });
+  });//
 
   factory NotificationsInitial.initial() {
     return const NotificationsInitial(
       result: [],
-      mId: 0,
+      error: '',
+      // notificationParam: false,
+      // request: NotificationRequest(),
+      statuses: CubitStatuses.init,
     );
   }
 
@@ -24,13 +28,15 @@ class NotificationsInitial extends AbstractCubit<List<NotificationModel>> {
     CubitStatuses? statuses,
     List<NotificationModel>? result,
     String? error,
-    int? mId,
+    // NotificationRequest? request,
+    // bool? notificationParam,
   }) {
     return NotificationsInitial(
       statuses: statuses ?? this.statuses,
       result: result ?? this.result,
       error: error ?? this.error,
-      mId: mId ?? this.mId,
+      // request: request ?? this.request,
+      // notificationParam: notificationParam ?? this.notificationParam,
     );
   }
 }

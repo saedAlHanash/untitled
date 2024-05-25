@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:fitness_storm/core/api_manager/api_url.dart';
 import 'package:fitness_storm/core/util/firebase_analytics_service.dart';
+import 'package:fitness_storm/core/util/shared_preferences.dart';
 import 'package:fitness_storm/helper/lang_helper.dart';
 import 'package:fitness_storm/services/caching_service/caching_service.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +11,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'Screen/Trainee Screens/HomeScreen/refresh_home_plan_cubit/refresh_home_plan_cubit.dart';
 import 'Utils/dependency_injection.dart';
@@ -45,6 +47,10 @@ void main() async {
 
   try {
     await di.init();
+
+    await SharedPreferences.getInstance().then((value) {
+      AppSharedPreference.init(value);
+    });
 
     await CachingService.initial();
 

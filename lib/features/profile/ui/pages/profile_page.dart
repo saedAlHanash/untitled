@@ -23,14 +23,9 @@ import '../../../fire_chat/chat_card_widget.dart';
 import '../../../fire_chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 import '../../bloc/profile_cubit/profile_cubit.dart';
 
-class ProfilePage extends StatefulWidget {
+class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
 
-  @override
-  State<ProfilePage> createState() => _ProfilePageState();
-}
-
-class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -145,7 +140,15 @@ class _ProfileCards extends StatelessWidget {
           ],
         ),
         25.0.verticalSpace,
-        const ProfileCard(type: ProfileCardType.appointment)
+        Row(
+          children: [
+            if (!AppControl.isAppleAccount)
+              const Expanded(child: ProfileCard(type: ProfileCardType.appointment)),
+            if (!AppControl.isAppleAccount) 15.0.horizontalSpace,
+            const Expanded(child: ProfileCard(type: ProfileCardType.welcome)),
+          ],
+        ),
+
       ],
     );
   }

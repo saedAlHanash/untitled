@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../features/appointments/bloc/add_time_cubit/add_time_cubit.dart';
 import '../../features/appointments/bloc/available_times_cubit/available_times_cubit.dart';
@@ -33,6 +32,8 @@ import '../../features/profile/bloc/profile_cubit/profile_cubit.dart';
 import '../../features/profile/bloc/update_profile_cubit/update_profile_cubit.dart';
 import '../../features/trainer/bloc/trainer_cubit/trainer_cubit.dart';
 import '../../features/wallet/bloc/wallet_cubit/wallet_cubit.dart';
+import '../../features/welcome_message/bloc/welcome_message_cubit/welcome_message_cubit.dart';
+import '../../features/welcome_message/bloc/welcome_messages_cubit/welcome_messages_cubit.dart';
 import '../network/network_info.dart';
 import '../util/firebase_analytics_service.dart';
 
@@ -108,14 +109,6 @@ Future<void> init() async {
   sl.registerFactory(() => BundlesCubit());
   //endregion
 
-  //region Cart
-
-  //endregion
-
-  //region category
-
-  //endregion
-
   //region Governors
 
   //endregion
@@ -132,12 +125,11 @@ Future<void> init() async {
 
   //endregion
 
-  //region order
-
+  //region WelcomeMessage
+  sl.registerFactory(() => WelcomeMessageCubit());
+  sl.registerFactory(() => WelcomeMessagesCubit());
   //endregion
 
 //! External
 
-  final sharedPreferences = await SharedPreferences.getInstance();
-  sl.registerLazySingleton(() => sharedPreferences);
 }

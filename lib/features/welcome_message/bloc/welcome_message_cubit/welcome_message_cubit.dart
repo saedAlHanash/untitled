@@ -6,20 +6,20 @@ import '../../../../core/error/error_manager.dart';
 import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/abstraction.dart';
 import '../../../../core/util/pair_class.dart';
-import '../../data/temp.dart';
+import '../../data/response/welcome_message_response.dart';
 
-part 'temp_t_state.dart';
+part 'welcome_message_state.dart';
 
-class TempCubit extends MCubit<TempInitial> {
-  TempCubit() : super(TempInitial.initial());
+class WelcomeMessageCubit extends MCubit<WelcomeMessageInitial> {
+  WelcomeMessageCubit() : super(WelcomeMessageInitial.initial());
 
   @override
-  String get nameCache => 'temp';
+  String get nameCache => 'welcomeMessage';
 
-  Future<void> getTemp() async {
+  Future<void> getWelcomeMessage() async {
     if (await checkCashed()) return;
 
-    final pair = await _bookedAppointmentsApi();
+    final pair = await _getWelcomeMessage();
     if (pair.first == null) {
       emit(state.copyWith(statuses: CubitStatuses.error, error: pair.second));
       showErrorFromApi(state);
@@ -29,11 +29,11 @@ class TempCubit extends MCubit<TempInitial> {
     }
   }
 
-  Future<Pair<TempModel?, String?>> _bookedAppointmentsApi() async {
-    final response = await APIService().getApi(url: GetUrl.temp);
+  Future<Pair<WelcomeMessage?, String?>> _getWelcomeMessage() async {
+    final response = await APIService().getApi(url: GetUrl.welcomeMessage);
 
     if (response.statusCode.success) {
-      return Pair(TempModel.fromJson(response.jsonBody), null);
+      return Pair(WelcomeMessage.fromJson(response.jsonBody), null);
     } else {
       return response.getPairError;
     }
@@ -45,7 +45,7 @@ class TempCubit extends MCubit<TempInitial> {
     emit(
       state.copyWith(
         statuses: cacheType.getState,
-        result: TempModel.fromJson(await getDataCached()),
+        result: WelcomeMessage.fromJson(await getDataCached()),
       ),
     );
 

@@ -1,13 +1,13 @@
-class TempModel {
+class Temp {
 
-  TempModel();
+  Temp();
 
   Map<String, dynamic> toJson() {
     return {};
   }
 
-  factory TempModel.fromJson(Map<String, dynamic> map) {
-    return TempModel();
+  factory Temp.fromJson(Map<String, dynamic> map) {
+    return Temp();
   }
 
 //</editor-fold>
@@ -15,7 +15,7 @@ class TempModel {
 
 class TempList {
 
-  final List<TempModel> data;
+  final List<Temp> data;
 
 //<editor-fold desc="Data Methods">
   const TempList({
@@ -30,7 +30,7 @@ class TempList {
 
   factory TempList.fromJson(Map<String, dynamic> map) {
     return TempList(
-      data: map['data'] as List<TempModel>,
+      data: map['data'] as List<Temp>,
     );
   }
 

@@ -6,8 +6,6 @@ import 'package:fitness_storm/Screen/Trainee%20Screens/Main%20Home/main_home_bin
 import 'package:fitness_storm/Screen/Trainee%20Screens/Main%20Home/main_home_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/My%20Payment/my_payment_binding.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/My%20Payment/my_payment_screen.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/Notification/notification_binding.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/Notification/notification_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/PlanOverView/plan_overview_binding.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/PlanOverView/plan_overview_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Search%20Result/search_result_bindings.dart';
@@ -131,13 +129,6 @@ class AppPages {
             return const SubscriptionScreen();
           },
           binding: SubscriptionBinding()),
-      GetPage(
-          name: AppRoutes.notificationScreen,
-          page: () {
-            sl<FirebaseAnalyticService>().screenView(name: 'notification');
-            return const NotificationScreen();
-          },
-          binding: NotificationBindings()),
       GetPage(
           name: AppRoutes.searchResultSceen,
           page: () {

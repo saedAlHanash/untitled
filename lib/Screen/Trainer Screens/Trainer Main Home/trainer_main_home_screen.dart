@@ -4,6 +4,7 @@ import 'package:fitness_storm/Screen/Trainer%20Screens/Search%20Screen/search_sc
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20HomeScreen/trainer_home_screen.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Main%20Home/trainer_main_home_controller.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Wallet/trainer_wallet_screen.dart';
+import 'package:fitness_storm/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -29,7 +30,6 @@ class TrainerMainHomeScreen extends GetView<TrainerMainHomeController> {
 
   @override
   Widget build(BuildContext context) {
-
     var scaffoldKey = GlobalKey<ScaffoldState>();
     // Check if the current locale is English
     bool isEnglish = Get.locale?.languageCode == 'en';
@@ -40,7 +40,7 @@ class TrainerMainHomeScreen extends GetView<TrainerMainHomeController> {
             ? null
             : controller.navController.index == 3
                 ? AppBar(
-          //saedsaed
+                    //saedsaed
                     title: Text('my_calender'.tr,
                         style: const TextStyle(
                             fontSize: 22, fontWeight: FontWeight.bold)))
@@ -84,9 +84,9 @@ class TrainerMainHomeScreen extends GetView<TrainerMainHomeController> {
                           )),
                       Builder(builder: (context) {
                         return IconButton(
-                          onPressed: () => Get.toNamed(
-                              AppRoutes.notificationScreen,
-                              arguments: [true]),
+                          onPressed: () {
+                            startNotificationsPage();
+                          },
                           tooltip: MaterialLocalizations.of(context)
                               .openAppDrawerTooltip,
                           icon: SvgPicture.asset(

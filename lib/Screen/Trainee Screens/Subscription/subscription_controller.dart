@@ -12,7 +12,8 @@ import '../../../features/profile/data/response/profile_response.dart';
 class SubscruptionController extends GetxController {
   final RxBool _isLoading = false.obs;
   final RxBool _isBuy = false.obs;
-  final Rx<SubscriptionsModel> _subscriptionsModel = SubscriptionsModel.fromJson({}).obs;
+  final Rx<SubscriptionsModel> _subscriptionsModel =
+      SubscriptionsModel.fromJson({}).obs;
   final TraineeRepository _traineeRepository = TraineeRepository();
   late Profile userProfile;
   late Rx<bool> _isSubscribe = false.obs;
@@ -108,7 +109,8 @@ class SubscruptionController extends GetxController {
 
   cancelSubscribtion({required String? cancelReason}) async {
     try {
-      return await _subscriptionRepository.cancelSubscription(cancelReason ?? '');
+      return await _subscriptionRepository
+          .cancelSubscription(cancelReason ?? '');
     } catch (err) {
       //log('err charging user: ${err.toString()}');
     }

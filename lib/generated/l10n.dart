@@ -5401,6 +5401,16 @@ class S {
     );
   }
 
+  /// `Welcome Message`
+  String get welcomeMessage {
+    return Intl.message(
+      'Welcome Message',
+      name: 'welcomeMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Thank you for your interest in joining us! We have received your application and are currently reviewing it.`
   String get thxForApplyAsTrainer {
     return Intl.message(

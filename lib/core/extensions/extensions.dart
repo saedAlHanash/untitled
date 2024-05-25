@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 
+import '../api_manager/api_service.dart';
 import '../error/error_manager.dart';
 import '../models/booked_appointments.dart';
 import '../strings/enum_manager.dart';
@@ -152,6 +153,20 @@ extension ResponseHelper on http.Response {
       return jsonDecode('{}');
     }
   }
+  Map<String, dynamic> get jsonBodyData {
+    try {
+      if (body.startsWith('[')) {
+        final convertString = '{"data": $body}';
+        final json = jsonDecode(convertString);
+        return json;
+      }
+      return jsonDecode(body);
+    } catch (e) {
+      loggerObject.e(e);
+      return jsonDecode('{}');
+    }
+  }
+
 
   // Pair<T?, String?> getPairError<T>() {
   //   return Pair(null, ErrorManager.getApiError(this));

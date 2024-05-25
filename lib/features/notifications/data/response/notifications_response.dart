@@ -1,3 +1,5 @@
+import 'package:fitness_storm/core/extensions/extensions.dart';
+
 class NotificationsResponse {
   NotificationsResponse({
     required this.data,
@@ -32,6 +34,15 @@ class NotificationsResponse {
 }
 
 class NotificationModel {
+  String get getCreatedAt {
+    if (createdAt == null) return '';
+    var date = createdAt!.fixTimeZone;
+    String text = '';
+    text = '${date.formatTime}\n${date.formatDate}';
+
+    return text;
+  }
+
   NotificationModel({
     required this.title,
     required this.body,
@@ -44,7 +55,7 @@ class NotificationModel {
   final String body;
   final String type;
   final Data? data;
-  final String createdAt;
+  final DateTime? createdAt;
 
   factory NotificationModel.fromJson(Map<String, dynamic> json) {
     return NotificationModel(
@@ -52,7 +63,7 @@ class NotificationModel {
       body: json["body"] ?? "",
       type: json["type"] ?? "",
       data: json["data"] == null ? null : Data.fromJson(json["data"]),
-      createdAt: json["created_at"] ?? "",
+      createdAt: DateTime.tryParse(json["created_at"] ?? ""),
     );
   }
 
@@ -61,7 +72,7 @@ class NotificationModel {
         "body": body,
         "type": type,
         "data": data?.toJson(),
-        "created_at": createdAt,
+        "created_at": createdAt?.toIso8601String(),
       };
 }
 

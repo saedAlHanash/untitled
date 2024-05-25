@@ -1,7 +1,6 @@
  
 
 import 'package:dio/dio.dart';
-import 'package:fitness_storm/core/api_manager/api_service.dart';
 
 import '../../Model/subscribed_plan.dart';
 import '../../Utils/utils.dart';
@@ -149,7 +148,7 @@ class PlanRepository {
     ApiResult result = await Methods.get(url: url, options: option);
 
     var x = PlanModel.fromJson(result.data);
-    loggerObject.w(result.data);
+
     return x;
   }
 

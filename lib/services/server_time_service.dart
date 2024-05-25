@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 
@@ -47,7 +48,13 @@ class ServerTimeService {
   }
 
   static DateTime _parseGMTDate(String dateString) {
-    final formatter = DateFormat('EEE, dd MMM yyyy HH:mm:ss \'GMT\'');
-    return formatter.parseUTC(dateString);
+    try {
+      final dateFormat = DateFormat('E, d MMM yyyy hh:mm:ss Z', 'en_US');
+      final d = dateFormat.parse(dateString);
+      return d;
+    } catch (e) {
+      loggerObject.e(e);
+      return DateTime.now().toUtc();
+    }
   }
 }

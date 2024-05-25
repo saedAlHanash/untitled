@@ -90,7 +90,12 @@ class GetUrl {
 
   static const wallet = 'wallet';
 
-  static var bookmarked = 'plans/bookmarked';
+  static const bookmarked = 'plans/bookmarked';
+
+  static const welcomeMessage = '';
+  static const welcomeMessages = 'welcomeMsgs';
+
+  static const notification = 'notifications';
 
   static String plans(int id) => 'trainers/$id/plans';
 
@@ -170,7 +175,7 @@ class PutUrl {
 }
 
 class DeleteUrl {
-  static var removeTime = 'availableTimes';
+  static const removeTime = 'availableTimes';
 
   static String removeFavorite(int id) => 'plans/$id/deleteFromBookmarkedPlans';
 
@@ -188,4 +193,3 @@ const baseUrl = 'api.fitnessstorm.org';
 
 String get additionalConst =>
     AppProvider.isTrainer ? additionalConstTrainer : additionalConstUser;
-

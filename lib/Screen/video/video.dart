@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:agora_rtc_engine/agora_rtc_engine.dart';
 import 'package:drawable_text/drawable_text.dart';
-import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
 import 'package:fitness_storm/core/util/firebase_analytics_service.dart';
 import 'package:fitness_storm/services/server_time_service.dart';
@@ -41,7 +40,6 @@ class _Video1State extends State<Video1> {
 
     final d = widget.appointment.endTime.difference(ServerTimeService.getServerTime);
 
-    loggerObject.w(d.inMinutes);
 
     if (d.inMinutes <= 10) {
       setState(() {

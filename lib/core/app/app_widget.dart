@@ -111,6 +111,7 @@ class _MyAppState extends State<MyApp> {
                 bloc.BlocProvider(create: (_) => sl<SurveyCubit>()),
                 bloc.BlocProvider(create: (_) => sl<BundlesCubit>()),
                 bloc.BlocProvider(create: (_) => sl<AddFavoriteCubit>()),
+
                 bloc.BlocProvider(create: (_) => sl<DeleteAccountCubit>()),
                 bloc.BlocProvider(
                     create: (_) => sl<WalletCubit>()..getWallet()),

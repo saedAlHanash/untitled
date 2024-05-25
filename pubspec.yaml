@@ -103,6 +103,7 @@ dependencies:
   awesome_dialog: ^3.2.0
   flutter_rating_bar:
   flutter_cached_pdfview: ^0.4.2
+  linkfy_text: ^1.1.6
 #  agora_chat_sdk: ^1.2.0
 #  ------------------------------------------------
 

@@ -5,6 +5,8 @@ import 'package:fitness_storm/Model/notification_model.dart';
 import 'package:fitness_storm/Utils/utils.dart';
 import 'package:get/get.dart';
 
+import '../../features/notifications/data/response/notifications_response.dart';
+
 class NotificationRepository {
   static final _dio = Get.find<Dio>();
 

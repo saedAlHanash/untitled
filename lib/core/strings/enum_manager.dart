@@ -22,7 +22,7 @@ enum StartPage { login, home, otp }
 
 enum FontFamily { roboto, robotoSimBold, robotoBold }
 
-enum ProfileCardType { profile, fav, payment, lang, appointment }
+enum ProfileCardType { profile, fav, payment, lang, appointment ,welcome}
 
 enum ProfileButtonType { about, privacy, faq, terms }
 

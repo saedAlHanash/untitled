@@ -13,7 +13,7 @@
 import 'package:intl/intl.dart';
 import 'package:intl/message_lookup_by_library.dart';
 
-final messages  = MessageLookup();
+final messages = new MessageLookup();
 
 typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 
@@ -719,6 +719,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "weightlifting": MessageLookupByLibrary.simpleMessage("رفع الأثقال"),
         "welcome": MessageLookupByLibrary.simpleMessage("مرحباّ"),
         "welcomeBack": MessageLookupByLibrary.simpleMessage("مرحبًا بعودتك!"),
+        "welcomeMessage": MessageLookupByLibrary.simpleMessage("رسالة الترحيب"),
         "whatAreYouSearchingFor":
             MessageLookupByLibrary.simpleMessage("ما الذي تبحث عنه ؟"),
         "whatIsFitnessStorm":

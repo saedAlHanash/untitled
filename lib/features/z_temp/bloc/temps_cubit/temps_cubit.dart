@@ -8,18 +8,18 @@ import '../../../../core/util/abstraction.dart';
 import '../../../../core/util/pair_class.dart';
 import '../../data/temp.dart';
 
-part 'temp_t_state.dart';
+part 'temps_state.dart';
 
-class TempCubit extends MCubit<TempInitial> {
-  TempCubit() : super(TempInitial.initial());
+class TempsCubit extends MCubit<TempsInitial> {
+  TempsCubit() : super(TempsInitial.initial());
 
   @override
-  String get nameCache => 'temp';
+  String get nameCache => 'temps';
 
-  Future<void> getTemp() async {
+  Future<void> getTemps() async {
     if (await checkCashed()) return;
 
-    final pair = await _bookedAppointmentsApi();
+    final pair = await _getTemps();
 
     if (pair.first == null) {
       emit(state.copyWith(statuses: CubitStatuses.error, error: pair.second));
@@ -27,15 +27,15 @@ class TempCubit extends MCubit<TempInitial> {
     } else {
       await storeData(pair.first!);
       emit(state.copyWith(
-          statuses: CubitStatuses.done, result: pair.first?.data));
+          statuses: CubitStatuses.done, result: pair.first));
     }
   }
 
-  Future<Pair<TempList?, String?>> _bookedAppointmentsApi() async {
+  Future<Pair<List<Temp>?, String?>> _getTemps() async {
     final response = await APIService().getApi(url: GetUrl.temp);
 
     if (response.statusCode.success) {
-      return Pair(TempList.fromJson(response.jsonBodyPure), null);
+      return Pair([], null);
     } else {
       return response.getPairError;
     }
@@ -48,7 +48,7 @@ class TempCubit extends MCubit<TempInitial> {
       state.copyWith(
         statuses: cacheType.getState,
         result:
-            (await getListCached()).map((e) => TempModel.fromJson(e)).toList(),
+            (await getListCached()).map((e) => Temp.fromJson(e)).toList(),
       ),
     );
 

@@ -45,7 +45,9 @@ class CurrentPaymentCardWidget extends StatelessWidget {
           Text(
             '${plan.priceAfterDiscount} SAR',
             style: const TextStyle(
-                color: Color(0xFF565C63), fontSize: 20, fontWeight: FontWeight.bold),
+                color: Color(0xFF565C63),
+                fontSize: 20,
+                fontWeight: FontWeight.bold),
           ),
           if (plan.price != plan.priceAfterDiscount)
             Text(
@@ -59,9 +61,11 @@ class CurrentPaymentCardWidget extends StatelessWidget {
               onPressed: () {
                 Utils.showCancelSubscriptionAlertDialog(
                   (cancelReason) {
-                    Get.find<SubscruptionController>().cancelSubscribtion(cancelReason: cancelReason);
+                    Get.find<SubscruptionController>()
+                        .cancelSubscribtion(cancelReason: cancelReason);
                     Get.find<SubscruptionController>().changeIsSubscrip();
-                    Get.find<SubscruptionController>().getSubscribtionPaymentPlan();
+                    Get.find<SubscruptionController>()
+                        .getSubscribtionPaymentPlan();
                   },
                   'why_cancel'.tr,
                 );

@@ -9,7 +9,6 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:fitness_storm/Data/Repositories/plan_repository.dart';
 import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/core/util/firebase_analytics_service.dart';
-
 import 'package:fitness_storm/helper/lang_helper.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
@@ -20,7 +19,6 @@ import '../core/injection/injection_container.dart';
 import '../core/strings/enum_manager.dart';
 import '../firebase_options.dart';
 import '../main.dart';
-
 import 'app_controller.dart';
 
 class DependencyInjection {

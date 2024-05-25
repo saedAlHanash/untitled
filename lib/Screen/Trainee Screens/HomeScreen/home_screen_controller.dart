@@ -27,9 +27,9 @@ class HomeScreenController extends GetxController {
   Future<void> onInit() async {
     isLoading.value = true;
     await fillContinueTrainingPlans();
-    GetStorage getStorage = GetStorage();
+
     if (continueTrainingPlans.isNotEmpty) {
-      await getStorage.write(
+      await GetStorage().write(
           'currentPlan', continueTrainingPlans.value[0].name);
     }
     Get.back();
@@ -43,9 +43,8 @@ class HomeScreenController extends GetxController {
   Future<void> reInitial() async {
     isLoading.value = true;
     await fillContinueTrainingPlans();
-    GetStorage getStorage = GetStorage();
     if (continueTrainingPlans.isNotEmpty) {
-      await getStorage.write(
+      await GetStorage().write(
           'currentPlan', continueTrainingPlans.value[0].name);
     }
     Get.back();

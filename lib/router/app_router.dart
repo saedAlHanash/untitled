@@ -1,5 +1,7 @@
 import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/features/appointments/bloc/rating_cubit/rating_cubit.dart';
+import 'package:fitness_storm/features/notifications/bloc/notifications_cubit/notifications_cubit.dart';
+import 'package:fitness_storm/features/notifications/ui/pages/notifications_page.dart';
 import 'package:fitness_storm/features/profile/bloc/update_profile_cubit/update_profile_cubit.dart';
 import 'package:fitness_storm/features/trainer/data/response/trainer.dart';
 import 'package:flutter/material.dart';
@@ -44,6 +46,8 @@ import '../features/bookmarked/ui/pages/bookmarked_page.dart';
 import '../features/profile/ui/pages/pdf_viewer_page.dart';
 import '../features/profile/ui/pages/update_profile_page.dart';
 import '../features/trainer/ui/pages/available_time_page.dart';
+import '../features/welcome_message/bloc/welcome_messages_cubit/welcome_messages_cubit.dart';
+import '../features/welcome_message/ui/pages/welcome_page.dart';
 
 Route<dynamic> routes(RouteSettings settings) {
   var screenName = settings.name;
@@ -370,6 +374,37 @@ void startBookMarked() {
   sl<FirebaseAnalyticService>().screenView(name: 'bookmarked');
 
   const Widget page = BookmarkedPage();
+
+  Get.to(() => page);
+}
+
+void startWelcomePage() {
+  final providers = [
+    BlocProvider(
+      create: (_) => sl<WelcomeMessagesCubit>()..getWelcomeMessages(),
+    ),
+  ];
+
+  final Widget page = MultiBlocProvider(
+    providers: providers,
+    child: const WelcomePage(),
+  );
+
+  Get.to(() => page);
+}
+
+
+void startNotificationsPage() {
+  final providers = [
+    BlocProvider(
+      create: (_) => sl<NotificationsCubit>()..getNotifications(),
+    ),
+  ];
+
+  final Widget page = MultiBlocProvider(
+    providers: providers,
+    child: const NotificationsPage(),
+  );
 
   Get.to(() => page);
 }

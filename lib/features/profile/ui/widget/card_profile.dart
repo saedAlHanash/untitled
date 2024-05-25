@@ -72,6 +72,13 @@ class _ProfileCardState extends State<ProfileCard> {
         };
 
         break;
+      case ProfileCardType.welcome:
+        image = Assets.imagesWelcomeMessage;
+        name = S().welcomeMessage;
+        onTap = () {
+          startWelcomePage();
+        };
+        break;
     }
     super.initState();
   }
