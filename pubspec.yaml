@@ -34,7 +34,7 @@ dependencies:
   wakelock_plus: ^1.1.4
   #  flutter_native_splash: ^2.2.5
   google_sign_in:
-  agora_rtc_engine: ^6.3.0
+  agora_rtc_engine: ^6.3.1
   permission_handler:
   flutter_app_badger:
   firebase_auth: ^4.17.6
