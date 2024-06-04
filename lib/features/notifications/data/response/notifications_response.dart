@@ -9,9 +9,9 @@ class NotificationsResponse {
   });
 
   final List<NotificationModel> data;
-  final num numberOfPages;
-  final num numberOfResults;
-  final num unReadNotification;
+  final int numberOfPages;
+  final int numberOfResults;
+  final int unReadNotification;
 
   factory NotificationsResponse.fromJson(Map<String, dynamic> json) {
     return NotificationsResponse(
@@ -26,7 +26,7 @@ class NotificationsResponse {
   }
 
   Map<String, dynamic> toJson() => {
-        "data": data.map((x) => x?.toJson()).toList(),
+        "data": data.map((x) => x.toJson()).toList(),
         "number_of_pages": numberOfPages,
         "number_of_results": numberOfResults,
         "un_read_notification": unReadNotification,

@@ -67,7 +67,8 @@ class _AppointmentsPageState extends State<AppointmentsPage>
                     controller: _tabController,
                     indicator: BoxDecoration(
                         color: AppColorManager.mainColor,
-                        borderRadius: BorderRadius.all(Radius.circular(12.0.r))),
+                        borderRadius:
+                            BorderRadius.all(Radius.circular(12.0.r))),
                     labelStyle: TextStyle(
                       fontSize: 16.0.sp,
                       fontFamily: FontManager.cairoBold.name,
@@ -142,18 +143,20 @@ class _ItemAppointment extends StatelessWidget {
       children: [
         ListTile(
           //TODO: change this
-          onTap: item.isNow
-              ? () async {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) => Video1(
-                        appointment: item,
-                      ),
-                    ),
-                  );
-                }
-              : null,
+          onTap: () {
+            if (item.videoCallToken.isEmpty) {
+              context.read<BookedAppointmentsCubit>().getBookedAppointments();
+              return;
+            }
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => Video1(
+                  appointment: item,
+                ),
+              ),
+            );
+          },
           trailing: item.isNow
               ? Container(
                   height: 10.0.r,
@@ -201,7 +204,10 @@ class _ItemAppointment extends StatelessWidget {
             size: 12.0.sp,
           ),
         ),
-        Divider(color: AppColorManager.cardColor, indent: 10.0.w, endIndent: 10.0.w),
+        Divider(
+            color: AppColorManager.cardColor,
+            indent: 10.0.w,
+            endIndent: 10.0.w),
       ],
     );
   }

@@ -11,7 +11,7 @@ class ServerTimeService {
 
   static DateTime? _serverDate;
 
-  static DateTime get getServerTime => _serverDate ?? DateTime.now();
+  static DateTime get getServerTime => /*_serverDate ??*/ DateTime.now();
 
   static set setServerDate(http.Response response) =>
       _serverDate = _getDateTimeFromHeaders(response);
@@ -23,9 +23,11 @@ class ServerTimeService {
 
     _serverDate = await _getServerTime();
 
-    timer = Timer(
+    timer = Timer.periodic(
       const Duration(seconds: 1),
-      () => _serverDate = _serverDate?.add(const Duration(seconds: 1)),
+      (v) {
+        _serverDate = _serverDate?.add(const Duration(seconds: 1));
+      },
     );
   }
 

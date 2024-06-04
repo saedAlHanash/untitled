@@ -21,7 +21,7 @@ class AvailableTimesCubit extends Cubit<AvailableTimesInitial> {
 
   Future<void> getAvailableTimes({
     TrainerModel? trainer,
-    required AvailableTimesRequest request,
+     AvailableTimesRequest? request,
   }) async {
     emit(
       state.copyWith(

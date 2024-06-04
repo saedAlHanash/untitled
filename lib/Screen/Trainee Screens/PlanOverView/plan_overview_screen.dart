@@ -61,29 +61,29 @@ class PlanOverviewScreen extends GetView<PlanOverviewController> {
                             style: TextStyle(
                                 color: Get.theme.colorScheme.secondary, fontSize: 14),
                           ),
-                          SizedBox(
-                            width: Get.width,
-                            height: Get.height / 20,
-                            child: ListView(
-                              shrinkWrap: true,
-                              scrollDirection: Axis.horizontal,
-                              // mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Row(
-                                    children: controller.planOverview.trainingLocation
-                                        .map((e) => CustomChip(text: e.type))
-                                        .toList()),
-                                Row(
-                                    children: controller.planOverview.level
-                                        .map((e) => CustomChip(text: e.type))
-                                        .toList()),
-                                Row(
-                                    children: controller.planOverview.trainingType
-                                        .map((e) => CustomChip(text: e.type))
-                                        .toList()),
-                              ],
-                            ),
-                          ),
+                          // SizedBox(
+                          //   width: Get.width,
+                          //   height: Get.height / 20,
+                          //   child: ListView(
+                          //     shrinkWrap: true,
+                          //     scrollDirection: Axis.horizontal,
+                          //     // mainAxisAlignment: MainAxisAlignment.center,
+                          //     children: [
+                          //       Row(
+                          //           children: controller.planOverview.trainingLocation
+                          //               .map((e) => CustomChip(text: e.type))
+                          //               .toList()),
+                          //       Row(
+                          //           children: controller.planOverview.level
+                          //               .map((e) => CustomChip(text: e.type))
+                          //               .toList()),
+                          //       Row(
+                          //           children: controller.planOverview.trainingType
+                          //               .map((e) => CustomChip(text: e.type))
+                          //               .toList()),
+                          //     ],
+                          //   ),
+                          // ),
                           30.0.verticalSpace,
                           ReadMoreTextWidget(text: controller.planOverview.description),
                           30.0.verticalSpace,

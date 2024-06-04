@@ -2,6 +2,10 @@ import 'dart:async';
 
 import 'package:agora_rtc_engine/agora_rtc_engine.dart';
 import 'package:drawable_text/drawable_text.dart';
+import 'package:fitness_storm/core/api_manager/api_service.dart';
+import 'package:fitness_storm/core/api_manager/api_service.dart';
+import 'package:fitness_storm/core/api_manager/api_service.dart';
+import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
 import 'package:fitness_storm/core/util/firebase_analytics_service.dart';
 import 'package:fitness_storm/services/server_time_service.dart';
@@ -31,15 +35,15 @@ class _Video1State extends State<Video1> {
   late RtcEngine _engine;
   late RtcEngineEventHandler eventHandler;
 
-  late final Timer timer;
+   Timer? timer;
   var showWarning = false;
 
   var timeLift = 0;
 
   void calculateTimeLeft(bool firstTime) {
-
-    final d = widget.appointment.endTime.difference(ServerTimeService.getServerTime);
-
+    final d = widget.appointment.endTime
+        .toUtc()
+        .difference(ServerTimeService.getServerTime);
 
     if (d.inMinutes <= 10) {
       setState(() {
@@ -60,8 +64,12 @@ class _Video1State extends State<Video1> {
 
   @override
   void initState() {
-    calculateTimeLeft(true);
-    timer = Timer.periodic(const Duration(minutes: 1), (v) => calculateTimeLeft(false));
+    loggerObject.w(widget.appointment.id);
+    // calculateTimeLeft(true);
+    // timer = Timer.periodic(
+    //     const Duration(minutes: 1), (v) => calculateTimeLeft(false));
+
+
 
     WakelockPlus.enable();
     ProtectScreenService().startProtect(Get.context);
@@ -69,27 +77,26 @@ class _Video1State extends State<Video1> {
     initAgora();
     eventHandler = RtcEngineEventHandler(
       onJoinChannelSuccess: (RtcConnection connection, int elapsed) {
-        debugPrint("local user ${connection.localUid} joined");
+        loggerObject.e("local user ${connection.localUid} joined");
         if (mounted) setState(() => _localUserJoined = true);
       },
       onUserJoined: (RtcConnection connection, int remoteUid, int elapsed) {
-        debugPrint("remote user $remoteUid joined");
+        loggerObject.e("remote user $remoteUid joined");
 
         if (mounted) setState(() => _remoteUid = remoteUid);
       },
-      onUserOffline:
-          (RtcConnection connection, int remoteUid, UserOfflineReasonType reason) {
-        debugPrint("remote user $remoteUid left channel");
+      onUserOffline: (RtcConnection connection, int remoteUid,
+          UserOfflineReasonType reason) {
+        loggerObject.e("remote user $remoteUid left channel");
         if (mounted) setState(() => _remoteUid = null);
       },
       onTokenPrivilegeWillExpire: (RtcConnection connection, String token) {
-        debugPrint(
-            '[onTokenPrivilegeWillExpire] connection: ${connection
-                .toJson()}, token: $token');
+        loggerObject.e(
+            '[onTokenPrivilegeWillExpire] connection: ${connection.toJson()}, token: $token');
       },
     );
-    sl<FirebaseAnalyticService>()
-        .contactTrainerOrUser(name: widget.appointment.user.name, method: 'video_call');
+    sl<FirebaseAnalyticService>().contactTrainerOrUser(
+        name: widget.appointment.user.name, method: 'video_call');
     super.initState();
   }
 
@@ -110,6 +117,7 @@ class _Video1State extends State<Video1> {
     await _engine.enableVideo();
     await _engine.startPreview();
 
+    loggerObject.w(widget.appointment.id);
     await _engine.joinChannel(
       token: widget.appointment.videoCallToken,
       channelId: widget.appointment.channelId,
@@ -121,7 +129,7 @@ class _Video1State extends State<Video1> {
   @override
   void dispose() {
     WakelockPlus.disable();
-    timer.cancel();
+    timer?.cancel();
     ProtectScreenService().stopProtect();
     _engine.leaveChannel();
     _engine.unregisterEventHandler(eventHandler);
@@ -139,21 +147,17 @@ class _Video1State extends State<Video1> {
       ),
       bottomNavigationBar: showWarning
           ? Container(
-        height: 33.0.h,
-        width: 1.0.sw,
-        color: AppColorManager.ampere,
-        alignment: Alignment.center,
-        child: DrawableText(
-          text: '${S
-              .of(context)
-              .timeLeftToEndCall}'
-              ' $timeLift ${S
-              .of(context)
-              .minutes}',
-          fontWeight: FontWeight.w700,
-          color: Colors.black,
-        ),
-      )
+              height: 33.0.h,
+              width: 1.0.sw,
+              color: AppColorManager.ampere,
+              alignment: Alignment.center,
+              child: DrawableText(
+                text: '${S.of(context).timeLeftToEndCall}'
+                    ' $timeLift ${S.of(context).minutes}',
+                fontWeight: FontWeight.w700,
+                color: Colors.black,
+              ),
+            )
           : null,
       body: Stack(
         children: [
@@ -166,22 +170,22 @@ class _Video1State extends State<Video1> {
               child: Center(
                 child: _localUserJoined
                     ? AgoraVideoView(
-                  controller: VideoViewController(
-                    rtcEngine: _engine,
-                    canvas: const VideoCanvas(
-                      uid: 0,
-                    ),
-                  ),
-                )
+                        controller: VideoViewController(
+                          rtcEngine: _engine,
+                          canvas: const VideoCanvas(
+                            uid: 0,
+                          ),
+                        ),
+                      )
                     : const CircularProgressIndicator.adaptive(),
               ),
             ),
           ),
           _localUserJoined
               ? Positioned(
-            bottom: 20.0,
-            child: CallScreen(engine: _engine),
-          )
+                  bottom: 20.0,
+                  child: CallScreen(engine: _engine),
+                )
               : const SizedBox(),
         ],
       ),
@@ -251,10 +255,7 @@ class _CallScreenState extends State<CallScreen> {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      width: MediaQuery
-          .of(context)
-          .size
-          .width,
+      width: MediaQuery.of(context).size.width,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

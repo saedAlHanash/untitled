@@ -49,7 +49,8 @@ extension SplitByLength on String {
   int get numberOnly {
     final regex = RegExp(r'\d+');
 
-    final numbers = regex.allMatches(this).map((match) => match.group(0)).join();
+    final numbers =
+        regex.allMatches(this).map((match) => match.group(0)).join();
 
     try {
       return int.parse(numbers);
@@ -153,6 +154,7 @@ extension ResponseHelper on http.Response {
       return jsonDecode('{}');
     }
   }
+
   Map<String, dynamic> get jsonBodyData {
     try {
       if (body.startsWith('[')) {
@@ -166,7 +168,6 @@ extension ResponseHelper on http.Response {
       return jsonDecode('{}');
     }
   }
-
 
   // Pair<T?, String?> getPairError<T>() {
   //   return Pair(null, ErrorManager.getApiError(this));
@@ -212,7 +213,8 @@ extension DateUtcHelper on DateTime {
 
   String get formatDate => DateFormat('yyyy/MM/dd', 'en').format(this);
 
-  String get formatDateAther => DateFormat('yyyy-MM-dd HH:MM', 'en').format(this);
+  String get formatDateAther =>
+      DateFormat('yyyy-MM-dd HH:MM', 'en').format(this);
 
   String get formatTime => DateFormat('hh:mm a', 'en').format(this);
 
@@ -231,7 +233,8 @@ extension DateUtcHelper on DateTime {
     );
   }
 
-  DateTime initialFromDateTime({required DateTime date, required TimeOfDay time}) {
+  DateTime initialFromDateTime(
+      {required DateTime date, required TimeOfDay time}) {
     return DateTime(date.year, date.month, date.day, time.hour, time.minute);
   }
 
@@ -336,10 +339,14 @@ extension EnumsH on List<Enum> {
 extension AppointmentH on Appointment {
   bool get isNow {
     final dateTimeNow = ServerTimeService.getServerTime;
-
+// loggerObject.w(
+//     '${ServerTimeService.getServerTime}\n'
+//     '${startTime}\n'
+//     '${endTime}');
     final b = dateTimeNow.isAfter(startTime);
     final a = dateTimeNow.isBefore(endTime);
 
+    // loggerObject.e('$a $b');
     return a && b;
   }
 
@@ -365,7 +372,6 @@ class FormatDateTime {
     required this.seconds,
   });
 }
-
 
 extension NeedUpdateEnumH on NeedUpdateEnum {
   bool get loading => this == NeedUpdateEnum.withLoading;

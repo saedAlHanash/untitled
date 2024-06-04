@@ -4,12 +4,16 @@ import 'dart:convert';
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
+import 'package:fitness_storm/core/api_manager/api_service.dart';
+import 'package:fitness_storm/features/welcome_message/bloc/welcome_messages_cubit/welcome_messages_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 import 'package:flutter_chat_types/flutter_chat_types.dart';
 
+import '../../../core/app/app_widget.dart';
 import '../../../core/strings/enum_manager.dart';
 import '../../../main.dart';
+import '../../welcome_message/data/response/welcome_message_response.dart';
 import '../util.dart';
 
 part 'room_messages_state.dart';
@@ -34,6 +38,39 @@ class MessagesCubit extends Cubit<MessagesInitial> {
             getLatestUpdatedFromHive,
           ),
         );
+
+    loggerObject.w(getChatMember(room.users).firstName);
+    if (getChatMember(room.users).firstName == '0') {
+      final list = ctx?.read<WelcomeMessagesCubit>().state.result ?? [];
+
+      var user = getChatMember(room.users);
+
+      final deletedKeys = messageBox.keys.where(
+        (e) => (e as String).startsWith('_welcome'),
+      );
+      await messageBox.deleteAll(deletedKeys);
+      for (var e in list) {
+        var message = types.TextMessage(
+          author: user,
+          id: e.id.toString(),
+          text: e.message,
+          createdAt: e.id,
+        );
+        await messageBox.put('_welcome${e.id}_', jsonEncode(message));
+
+        if (e.image.isNotEmpty) {
+          var message = types.ImageMessage(
+            author: user,
+            createdAt: e.id,
+            id: '_welcome${e.id}image_',
+            name: 'image',
+            size: 100,
+            uri: e.image,
+          );
+          await messageBox.put(e.id.toString(), jsonEncode(message));
+        }
+      }
+    }
 
     final stream = query.snapshots().listen((snapshot) async {
       final newMessages = <types.Message>[];

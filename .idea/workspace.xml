@@ -9,60 +9,38 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="43c414a0-a0aa-41d9-b6a1-9df3dcc6d755" name="Changes" comment="clean code">
-      <change afterPath="$PROJECT_DIR$/asset/Images/welcome_message.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/notifications/bloc/temp_cubit/temp_cubit.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/notifications/bloc/temp_cubit/temp_state.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/notifications/bloc/temps_cubit/temps_cubit.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/notifications/bloc/temps_cubit/temps_state.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/notifications/data/temp.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/welcome_message/bloc/welcome_message_cubit/welcome_message_cubit.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/welcome_message/bloc/welcome_message_cubit/welcome_message_state.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/welcome_message/bloc/welcome_messages_cubit/welcome_messages_cubit.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/welcome_message/bloc/welcome_messages_cubit/welcome_messages_state.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/welcome_message/data/response/welcome_message_response.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/welcome_message/ui/pages/welcome_page.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/welcome_message/ui/widget/item_message.dart" afterDir="false" />
+    <list default="true" id="43c414a0-a0aa-41d9-b6a1-9df3dcc6d755" name="Changes" comment="add welcome message &#10;fix notifications">
+      <change afterPath="$PROJECT_DIR$/lib/Screen/video/video_call_widget.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Screen/video/video_temp.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Data/Repositories/plan_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Data/Repositories/plan_repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Data/Repositories/trainer_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Data/Repositories/trainer_repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/HomeScreen/HomeSreenWidget/ContinueTraining/continue_training_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/HomeScreen/HomeSreenWidget/ContinueTraining/continue_training_item.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/HomeScreen/HomeSreenWidget/ContinueTraining/continue_training_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/HomeScreen/HomeSreenWidget/ContinueTraining/continue_training_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/HomeScreen/home_screen_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/HomeScreen/home_screen_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Main Home/main_home_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Main Home/main_home_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Main Home/main_home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Main Home/main_home_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/PlanOverView/plan_overview_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/PlanOverView/plan_overview_controller.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/PlanOverView/plan_overview_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/PlanOverView/plan_overview_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Subscription/Widget/current_payment_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Subscription/Widget/current_payment_card.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Subscription/subscription_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Subscription/subscription_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/YourTrainer/your_trainer_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/YourTrainer/your_trainer_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/User Training/user_training_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/User Training/user_training_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Screen/video/video.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/video/video.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Utils/dependency_injection.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Utils/dependency_injection.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/api_manager/api_url.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/api_manager/api_url.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/core/app/app_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/app/app_widget.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/core/extensions/extensions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/extensions/extensions.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/injection/injection_container.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/injection/injection_container.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/strings/enum_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/strings/enum_manager.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/profile/ui/pages/profile_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/profile/ui/pages/profile_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/profile/ui/widget/card_profile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/profile/ui/widget/card_profile.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/z_temp/bloc/temp1_cubit/temp_t_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/z_temp/bloc/temps_cubit/temps_cubit.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/z_temp/bloc/temp1_cubit/temp_t_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/z_temp/bloc/temps_cubit/temps_state.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/z_temp/bloc/temp_cubit/temp_t_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/z_temp/bloc/temp_cubit/temp_cubit.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/z_temp/bloc/temp_cubit/temp_t_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/z_temp/bloc/temp_cubit/temp_state.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/z_temp/data/temp.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/z_temp/data/temp.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/generated/assets.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/assets.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/generated/intl/messages_ar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/intl/messages_ar.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/generated/intl/messages_en.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/intl/messages_en.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/generated/l10n.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/l10n.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/helper/lang_helper.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/helper/lang_helper.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/l10n/intl_ar.arb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/l10n/intl_ar.arb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/l10n/intl_en.arb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/l10n/intl_en.arb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/util/shared_preferences.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/util/shared_preferences.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/appointments/bloc/available_times_cubit/available_times_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/appointments/bloc/available_times_cubit/available_times_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/appointments/ui/pages/appointments_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/appointments/ui/pages/appointments_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/fire_chat/room_messages_bloc/room_messages_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/fire_chat/room_messages_bloc/room_messages_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/fire_chat/room_messages_bloc/room_messages_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/fire_chat/room_messages_bloc/room_messages_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/notifications/bloc/notifications_cubit/notifications_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/notifications/bloc/notifications_cubit/notifications_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/notifications/bloc/notifications_cubit/notifications_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/notifications/bloc/notifications_cubit/notifications_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/notifications/data/response/notifications_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/notifications/data/response/notifications_response.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/notifications/ui/pages/notifications_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/notifications/ui/pages/notifications_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/trainer/ui/pages/calender_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/trainer/ui/pages/calender_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/trainer/ui/widget/trainer_header.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/trainer/ui/widget/trainer_header.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/router/app_router.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/router/app_router.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/services/caching_service/caching_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/caching_service/caching_service.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/services/server_time_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/server_time_service.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/saed.json" beforeDir="false" afterPath="$PROJECT_DIR$/saed.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +86,7 @@
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/LENOVO/StudioProjects/New/fitness_storm/lib/features&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/LENOVO/StudioProjects/New/fitness_storm/lib/Screen/video&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
@@ -118,13 +96,14 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\LENOVO\StudioProjects\New\fitness_storm\lib\Screen\video" />
       <recent name="C:\Users\LENOVO\StudioProjects\New\fitness_storm\lib\features" />
       <recent name="C:\Users\LENOVO\StudioProjects\New\fitness_storm\lib\features\welcome_message\ui\widget" />
       <recent name="C:\Users\LENOVO\StudioProjects\New\fitness_storm\asset\Images" />
       <recent name="C:\Users\LENOVO\StudioProjects\New\fitness_storm\lib\features\bookmarked\ui\pages" />
-      <recent name="C:\Users\LENOVO\StudioProjects\New\fitness_storm\lib" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\LENOVO\StudioProjects\New\fitness_storm\lib\features\notifications\ui\widget" />
       <recent name="C:\Users\LENOVO\StudioProjects\New\fitness_storm\lib\features\welcome_message\data\response" />
       <recent name="C:\Users\LENOVO\StudioProjects\New\fitness_storm\lib\features\trainer\ui\widget" />
       <recent name="C:\Users\LENOVO\StudioProjects\New\fitness_storm\lib\features\bookmarked\ui\widget" />
@@ -316,7 +295,39 @@
       <option name="project" value="LOCAL" />
       <updated>1716587872879</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="add welcome message &#10;fix notifications">
+      <option name="closed" value="true" />
+      <created>1716628358190</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1716628358190</updated>
+    </task>
+    <task id="LOCAL-00023" summary="add welcome message &#10;fix notifications">
+      <option name="closed" value="true" />
+      <created>1716628417869</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1716628417869</updated>
+    </task>
+    <task id="LOCAL-00024" summary="add welcome message &#10;fix notifications">
+      <option name="closed" value="true" />
+      <created>1716628702777</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1716628702777</updated>
+    </task>
+    <task id="LOCAL-00025" summary="add welcome message &#10;fix notifications">
+      <option name="closed" value="true" />
+      <created>1716628952736</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1716628952736</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -345,17 +356,31 @@
     <MESSAGE value="fix pod and wakelock_plus" />
     <MESSAGE value="add ServerTimeService" />
     <MESSAGE value="clean code" />
-    <option name="LAST_COMMIT_MESSAGE" value="clean code" />
+    <MESSAGE value="add welcome message &#10;fix notifications" />
+    <option name="LAST_COMMIT_MESSAGE" value="add welcome message &#10;fix notifications" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/features/auth/bloc/login_cubit/login_cubit.dart</url>
-          <line>49</line>
-          <option name="timeStamp" value="1" />
+          <url>file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/agora_rtc_engine-6.3.1/lib/src/impl/agora_rtc_engine_impl.dart</url>
+          <line>823</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/agora_rtc_engine-6.3.1/lib/src/impl/agora_rtc_engine_impl.dart</url>
+          <line>821</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/agora_rtc_engine-6.3.1/lib/src/impl/agora_rtc_engine_impl.dart</url>
+          <line>817</line>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="dart-exception" />
+      </default-breakpoints>
     </breakpoint-manager>
   </component>
 </project>

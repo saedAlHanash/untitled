@@ -8,6 +8,7 @@ import 'package:get/get.dart';
 import 'package:shimmer_animation/shimmer_animation.dart';
 
 import '../../../core/app/app_provider.dart';
+import '../../../generated/l10n.dart';
 import 'Widget/slide_widget.dart';
 
 class UserTrainingScreen extends GetView<UserTrainingController> {
@@ -59,7 +60,8 @@ class UserTrainingScreen extends GetView<UserTrainingController> {
                 ),
                 TextButton(
                   onPressed: () => Navigator.pop(context, true),
-                  child: Text("i_ll_come_back_later".tr),
+                  child: Text(
+                      S.of(context).iLlComeBackLater),
                 ),
               ],
             );

@@ -12,13 +12,10 @@ import '../../../main.dart';
 
 class MainHomeController extends GetxController {
   AppNavigationBarController navController = AppNavigationBarController();
-  late NotificationsResponse notifications = NotificationsResponse.fromJson({});
+
   String? token;
 
   final RxBool _isLoading = false.obs;
-  final NotificationRepository _notificationRepository = NotificationRepository();
-
-  final RxInt _numberOfNotification = 0.obs;
 
   @override
   Future<void> onInit() async {
@@ -31,8 +28,8 @@ class MainHomeController extends GetxController {
         getRoomCubitState != CubitStatuses.loading) {
       Get.context?.read<RoomsCubit>().getChatRooms();
     }
-    await getAllNotifications();
-    numberOfNotification = notifications.unReadNotification;
+
+
     isLoading = false;
   }
 
@@ -40,14 +37,5 @@ class MainHomeController extends GetxController {
 
   set isLoading(value) => _isLoading.value = value;
 
-  int get numberOfNotification => _numberOfNotification.value;
 
-  set numberOfNotification(value) => _numberOfNotification.value = value;
-
-  Future<void> getAllNotifications() async {
-    notifications = await _notificationRepository.getAllNotifications(false);
-    numberOfNotification = notifications.unReadNotification;
-    //   print('dfsdfsadf');
-    //   print(numberOfNotification);
-  }
 }

@@ -9,17 +9,20 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:fitness_storm/Data/Repositories/plan_repository.dart';
 import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/core/util/firebase_analytics_service.dart';
+import 'package:fitness_storm/features/notifications/bloc/notifications_cubit/notifications_cubit.dart';
 import 'package:fitness_storm/helper/lang_helper.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:hive_flutter/adapters.dart';
 
+import '../core/app/app_widget.dart';
 import '../core/injection/injection_container.dart';
 import '../core/strings/enum_manager.dart';
 import '../firebase_options.dart';
 import '../main.dart';
 import 'app_controller.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DependencyInjection {
   static Future<void> init() async {
@@ -28,7 +31,6 @@ class DependencyInjection {
     await initialHive();
 
     await Note.initialize();
-
 
     await initDio();
 
@@ -46,10 +48,10 @@ class DependencyInjection {
   }
 }
 
- const String baseUrl = 'https://api.fitnessstorm.org';
+const String baseUrl = 'https://api.fitnessstorm.org';
 
- const String userBaseUrl = '$baseUrl/mobile/user';
- const String trainerBaseUrl = '$baseUrl/mobile/trainer';
+const String userBaseUrl = '$baseUrl/mobile/user';
+const String trainerBaseUrl = '$baseUrl/mobile/trainer';
 
 initRepositories() {
   Get.put(PlanRepository(), permanent: true);
@@ -88,8 +90,10 @@ Future<void> initDio() async {
     },
   );
   Dio dio = Dio(baseOptions);
-  (dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate = (client) {
-    client.badCertificateCallback = (X509Certificate cert, String host, int port) {
+  (dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
+      (client) {
+    client.badCertificateCallback =
+        (X509Certificate cert, String host, int port) {
       return true;
     };
     return null;
@@ -168,6 +172,7 @@ Future<void> initFirebaseMessaging() async {
     if (title.isEmpty && body.isEmpty) return;
     sl<FirebaseAnalyticService>().receivedNotification(type: 'notification');
     Note.showBigTextNotification(title: title, body: body);
+    ctx?.read<NotificationsCubit>().getNotifications();
   });
 }
 
@@ -224,7 +229,8 @@ var loading = false;
 class Note {
   static Future initialize() async {
     flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
-    var androidInitialize = const AndroidInitializationSettings('mipmap/ic_launcher');
+    var androidInitialize =
+        const AndroidInitializationSettings('mipmap/ic_launcher');
     var iOSInitialize = const DarwinInitializationSettings();
     var initializationsSettings =
         InitializationSettings(android: androidInitialize, iOS: iOSInitialize);
@@ -251,7 +257,10 @@ class Note {
       iOS: DarwinNotificationDetails(),
     );
 
-    await flutterLocalNotificationsPlugin!
-        .show((DateTime.now().millisecondsSinceEpoch.toUnsigned(31)), title, body, not);
+    await flutterLocalNotificationsPlugin!.show(
+        (DateTime.now().millisecondsSinceEpoch.toUnsigned(31)),
+        title,
+        body,
+        not);
   }
 }

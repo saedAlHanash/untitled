@@ -17,6 +17,12 @@ class NotificationsPage extends StatefulWidget {
 
 class _NotificationsPageState extends State<NotificationsPage> {
   @override
+  void initState() {
+    context.read<NotificationsCubit>().setCount();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBarWidget(titleText: S.of(context).notifications),
@@ -34,9 +40,9 @@ class _NotificationsPageState extends State<NotificationsPage> {
               child: ListView.builder(
                 shrinkWrap: true,
                 padding: const EdgeInsets.only(bottom: 200.0),
-                itemCount: state.result.length,
+                itemCount: state.result.data.length,
                 itemBuilder: (context, i) {
-                  return NotificationWidget(item: state.result[i]);
+                  return NotificationWidget(item: state.result.data[i]);
                 },
               ),
             );

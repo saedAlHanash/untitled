@@ -29,9 +29,8 @@ class CalenderScreen extends StatelessWidget {
           url: Icons.settings,
         ),
       ),
-
       body: RefreshIndicator(
-        onRefresh: () async{
+        onRefresh: () async {
           context.read<AvailableTimesCubit>().getTrainerAvailableTimes();
         },
         child: SingleChildScrollView(
@@ -119,9 +118,15 @@ class _ItemAvailableTimeState extends State<_ItemAvailableTime> {
                         ],
                       ),
                     ),
-                    if (e.isNow )
+                    if (e.isNow)
                       InkWell(
                         onTap: () {
+                          if (e.videoCallToken.isEmpty) {
+                            context
+                                .read<AvailableTimesCubit>()
+                                .getAvailableTimes();
+                            return;
+                          }
                           Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -134,7 +139,8 @@ class _ItemAvailableTimeState extends State<_ItemAvailableTime> {
                           padding: const EdgeInsets.all(10.0).r,
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
-                              color: AppColorManager.mainColor.withOpacity(0.15),
+                              color:
+                                  AppColorManager.mainColor.withOpacity(0.15),
                               borderRadius: BorderRadius.circular(10.0.r)),
                           height: 60.0.r,
                           width: 60.0.r,
@@ -149,7 +155,8 @@ class _ItemAvailableTimeState extends State<_ItemAvailableTime> {
                                 height: 5.0.r,
                                 width: 5.0.r,
                                 decoration: const BoxDecoration(
-                                    color: Colors.green, shape: BoxShape.circle),
+                                    color: Colors.green,
+                                    shape: BoxShape.circle),
                               )
                             ],
                           ),

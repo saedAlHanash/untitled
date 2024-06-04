@@ -12,7 +12,9 @@ import 'package:get/get.dart';
 import '../../../Utils/Routes/app_pages.dart';
 import '../../../core/app/app_provider.dart';
 import '../../../features/fire_chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
+import '../../../features/notifications/bloc/notifications_cubit/notifications_cubit.dart';
 import '../../../features/profile/ui/pages/profile_page.dart';
+import '../../../features/welcome_message/bloc/welcome_messages_cubit/welcome_messages_cubit.dart';
 import '../HomeScreen/home_screen.dart';
 import 'Widget/navigation_bar_widget.dart';
 
@@ -35,99 +37,113 @@ class MainHomeScreen extends GetView<MainHomeController> {
     // bool isArabic = Get.locale?.languageCode == 'ar';
     bool isEnglish = Get.locale?.languageCode == 'en';
     return Obx(
-      () => Scaffold(
-        key: scaffoldKey,
-        appBar: controller.navController.index == 4
-            ? null
-            : AppBar(
-                leadingWidth: Get.width / 8,
-                leading: Padding(
-                  padding: isEnglish
-                      ? EdgeInsets.only(left: Get.width / 20)
-                      : EdgeInsets.only(right: Get.width / 20),
-                  child: GestureDetector(
-                    onTap: () {
-                      if (AppControl.isAppleAccount) return;
-                      Get.toNamed(AppRoutes.subscriptionScreen);
-                    },
-                    child: Image.asset(
-                      'asset/Images/logo_light.png',
-                      height: 5,
+      () => BlocListener<WelcomeMessagesCubit, WelcomeMessagesInitial>(
+        listener: (context, state) {},
+        child: Scaffold(
+          key: scaffoldKey,
+          appBar: controller.navController.index == 4
+              ? null
+              : AppBar(
+                  leadingWidth: Get.width / 8,
+                  leading: Padding(
+                    padding: isEnglish
+                        ? EdgeInsets.only(left: Get.width / 20)
+                        : EdgeInsets.only(right: Get.width / 20),
+                    child: GestureDetector(
+                      onTap: () {
+                        if (AppControl.isAppleAccount) return;
+                        Get.toNamed(AppRoutes.subscriptionScreen);
+                      },
+                      child: Image.asset(
+                        'asset/Images/logo_light.png',
+                        height: 5,
+                      ),
                     ),
                   ),
-                ),
-                actions: [
-                  IconButton(
-                      onPressed: () => Get.toNamed(AppRoutes.chatScreen),
-                      icon: BlocBuilder<RoomsCubit, RoomsInitial>(
-                        builder: (context, state) {
-                          return Stack(
-                            children: [
-                              SvgPicture.asset(
-                                'asset/Images/chatSVG.svg',
-                                color: Get.theme.scaffoldBackgroundColor,
-                              ),
-                              if (state.noReadMessages)
-                                Container(
-                                  height: 7.0,
-                                  width: 7.0,
-                                  decoration: const BoxDecoration(
-                                    color: Colors.red,
-                                    shape: BoxShape.circle,
-                                  ),
-                                )
-                            ],
-                          );
-                        },
-                      )),
-                  Stack(
-                    alignment: isEnglish ? Alignment.topRight : Alignment.topLeft,
-                    children: [
-                      IconButton(
-                          onPressed: () {
-                            startNotificationsPage();
-                          },
-                          icon: const Icon(
-                            Icons.notifications,
-                            size: 30,
-                          )),
-                      controller.numberOfNotification != 0
-                          ? Container(
-                              padding: const EdgeInsets.all(2),
-                              decoration: BoxDecoration(
-                                color: Colors.red,
-                                borderRadius: BorderRadius.circular(6),
-                              ),
-                              constraints: const BoxConstraints(
-                                minWidth: 15,
-                                minHeight: 15,
-                              ),
-                              child: Text(
-                                controller.numberOfNotification > 9
-                                    ? "+9"
-                                    : controller.numberOfNotification.toString(),
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 8,
+                  actions: [
+                    IconButton(
+                        onPressed: () => Get.toNamed(AppRoutes.chatScreen),
+                        icon: BlocBuilder<RoomsCubit, RoomsInitial>(
+                          builder: (context, state) {
+                            return Stack(
+                              children: [
+                                SvgPicture.asset(
+                                  'asset/Images/chatSVG.svg',
+                                  color: Get.theme.scaffoldBackgroundColor,
                                 ),
-                                textAlign: TextAlign.center,
-                              ),
-                            )
-                          : const SizedBox.shrink()
-                    ],
-                  ),
-                  const SizedBox(width: 10),
-                ],
-              ),
-        body: tabs[controller.navController.index],
-        bottomNavigationBar: Container(
-          decoration: const BoxDecoration(
-            boxShadow: <BoxShadow>[
-              BoxShadow(color: Colors.black38, blurRadius: 20),
-            ],
-          ),
-          child: AppNavigationBar(
-            controller: controller.navController,
+                                if (state.noReadMessages)
+                                  Container(
+                                    height: 7.0,
+                                    width: 7.0,
+                                    decoration: const BoxDecoration(
+                                      color: Colors.red,
+                                      shape: BoxShape.circle,
+                                    ),
+                                  )
+                              ],
+                            );
+                          },
+                        )),
+                    BlocBuilder<NotificationsCubit, NotificationsInitial>(
+                      builder: (context, state) {
+                        return Stack(
+                          alignment: isEnglish
+                              ? Alignment.topRight
+                              : Alignment.topLeft,
+                          children: [
+                            IconButton(
+                                onPressed: () {
+                                  startNotificationsPage();
+                                },
+                                icon: const Icon(
+                                  Icons.notifications,
+                                  size: 30,
+                                )),
+                            (state.result.numberOfResults - state.numOfRead) !=
+                                    0
+                                ? Container(
+                                    padding: const EdgeInsets.all(2),
+                                    decoration: BoxDecoration(
+                                      color: Colors.red,
+                                      borderRadius: BorderRadius.circular(6),
+                                    ),
+                                    constraints: const BoxConstraints(
+                                      minWidth: 15,
+                                      minHeight: 15,
+                                    ),
+                                    child: Text(
+                                      (state.result.numberOfResults -
+                                                  state.numOfRead) >
+                                              9
+                                          ? "+9"
+                                          : (state.result.numberOfResults -
+                                                  state.numOfRead)
+                                              .toString(),
+                                      style: const TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 8,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  )
+                                : const SizedBox.shrink()
+                          ],
+                        );
+                      },
+                    ),
+                    const SizedBox(width: 10),
+                  ],
+                ),
+          body: tabs[controller.navController.index],
+          bottomNavigationBar: Container(
+            decoration: const BoxDecoration(
+              boxShadow: <BoxShadow>[
+                BoxShadow(color: Colors.black38, blurRadius: 20),
+              ],
+            ),
+            child: AppNavigationBar(
+              controller: controller.navController,
+            ),
           ),
         ),
       ),

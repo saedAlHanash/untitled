@@ -19,9 +19,10 @@ class MessagesInitial  {
 
   factory MessagesInitial.initial() {
     return MessagesInitial(
-      allMessages:
-          messageBox.values.map((e) => types.Message.fromJson(jsonDecode(e))).toList()
-            ..sort((a, b) => (b.createdAt ?? 0).compareTo(a.createdAt ?? 0)),
+      // allMessages:
+      //     messageBox.values.map((e) => types.Message.fromJson(jsonDecode(e))).toList()
+      //       ..sort((a, b) => (b.createdAt ?? 0).compareTo(a.createdAt ?? 0)),
+      allMessages: [],
       roomId: '',
       room: const types.Room(id: '0', type: RoomType.direct, users: []),
       oldLength: messageBox.length,

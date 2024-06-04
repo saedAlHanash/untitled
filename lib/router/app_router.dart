@@ -395,16 +395,9 @@ void startWelcomePage() {
 
 
 void startNotificationsPage() {
-  final providers = [
-    BlocProvider(
-      create: (_) => sl<NotificationsCubit>()..getNotifications(),
-    ),
-  ];
 
-  final Widget page = MultiBlocProvider(
-    providers: providers,
-    child: const NotificationsPage(),
-  );
+
+  final Widget page = const NotificationsPage();
 
   Get.to(() => page);
 }

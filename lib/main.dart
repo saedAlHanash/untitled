@@ -6,6 +6,7 @@ import 'package:fitness_storm/core/util/firebase_analytics_service.dart';
 import 'package:fitness_storm/core/util/shared_preferences.dart';
 import 'package:fitness_storm/helper/lang_helper.dart';
 import 'package:fitness_storm/services/caching_service/caching_service.dart';
+import 'package:fitness_storm/services/server_time_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -44,7 +45,7 @@ Future<void> reInitialHive() async {
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  await ServerTimeService.initialServerDate(reInitial: true);
   try {
     await di.init();
 
@@ -57,8 +58,6 @@ void main() async {
     Get.put(LanguagesController());
 
     await DependencyInjection.init();
-
-    HttpOverrides.global = MyHttpOverrides();
 
     saveFCM();
 
@@ -75,6 +74,8 @@ void main() async {
   } catch (e) {
     loggerObject.e(e);
   }
+
+  HttpOverrides.global = MyHttpOverrides();
 
   runApp(
     MultiBlocProvider(
@@ -97,13 +98,11 @@ Future<void> setLastSeen() async {
   await AppProvider.logout();
 }
 
-class MyHttpOverrides extends HttpOverrides {
+class MyHttpOverrides extends HttpOverrides{
   @override
-  HttpClient createHttpClient(SecurityContext? context) {
+  HttpClient createHttpClient(SecurityContext? context){
     return super.createHttpClient(context)
-      ..badCertificateCallback = (X509Certificate cert, String host, int port) {
-        return true;
-      };
+      ..badCertificateCallback = (X509Certificate cert, String host, int port)=> true;
   }
 }
 

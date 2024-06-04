@@ -23,8 +23,10 @@ import '../../features/auth/bloc/refresh_token_cubit/refresh_token_cubit.dart';
 import '../../features/auth/bloc/survey_cubit/survey_cubit.dart';
 import '../../features/bookmarked/bloc/bookmarked_cubit/bookmarked_cubit.dart';
 import '../../features/coupon/coupon_cubit/coupon_cubit.dart';
+import '../../features/notifications/bloc/notifications_cubit/notifications_cubit.dart';
 import '../../features/plans/bloc/add_favorite/add_favorite_cubit.dart';
 import '../../features/wallet/bloc/wallet_cubit/wallet_cubit.dart';
+import '../../features/welcome_message/bloc/welcome_messages_cubit/welcome_messages_cubit.dart';
 import '../../generated/l10n.dart';
 import '../../helper/lang_helper.dart';
 import '../injection/injection_container.dart';
@@ -110,8 +112,13 @@ class _MyAppState extends State<MyApp> {
                 bloc.BlocProvider(create: (_) => sl<CouponCubit>()),
                 bloc.BlocProvider(create: (_) => sl<SurveyCubit>()),
                 bloc.BlocProvider(create: (_) => sl<BundlesCubit>()),
+                bloc.BlocProvider(
+                    create: (_) =>
+                        sl<WelcomeMessagesCubit>()..getWelcomeMessages()),
+                bloc.BlocProvider(
+                    create: (_) =>
+                        sl<NotificationsCubit>()..getNotifications()),
                 bloc.BlocProvider(create: (_) => sl<AddFavoriteCubit>()),
-
                 bloc.BlocProvider(create: (_) => sl<DeleteAccountCubit>()),
                 bloc.BlocProvider(
                     create: (_) => sl<WalletCubit>()..getWallet()),

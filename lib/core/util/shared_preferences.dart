@@ -13,7 +13,7 @@ class AppSharedPreference {
   static const _policy = '5';
 
   static const _fireToken = '8';
-  static const _notificationCount = '9';
+
   static const _social = '10';
   static const _activeNoti = '11';
   static const _myId = '12';
@@ -24,9 +24,15 @@ class AppSharedPreference {
   static const _currency = '17';
   static const _loginData = '19';
   static const _profile = '0';
-  static const _latestRefreshToken = '20';
+  static const _notificationsRead = '20';
 
-  static  SharedPreferences? _prefs;
+  static SharedPreferences? _prefs;
+
+  static int get getNotificationsRead =>
+      _prefs?.getInt(_notificationsRead) ?? 0;
+
+  static Future<void> setNotificationsRead(int n) async =>
+      await _prefs?.setInt(_notificationsRead, n);
 
   static init(SharedPreferences preferences) async {
     _prefs = preferences;
@@ -104,18 +110,6 @@ class AppSharedPreference {
     return _prefs?.getString(_fireToken) ?? '';
   }
 
-  static void addNotificationCount() {
-    var count = getNotificationCount() + 1;
-    _prefs?.setInt(_notificationCount, count);
-  }
-
-  static int getNotificationCount() {
-    return _prefs?.getInt(_notificationCount) ?? 0;
-  }
-
-  static void clearNotificationCount() {
-    _prefs?.setInt(_notificationCount, 0);
-  }
 
   static bool isCachedSocial() {
     return (_prefs?.getString(_social) ?? '').length > 10;
@@ -137,7 +131,8 @@ class AppSharedPreference {
     _prefs?.setStringList(_cart, jsonCart);
   }
 
-  static List<String> getJsonListCart() => _prefs?.getStringList(_cart) ?? <String>[];
+  static List<String> getJsonListCart() =>
+      _prefs?.getStringList(_cart) ?? <String>[];
 
   static int get getMyId => _prefs?.getInt(_myId) ?? 0;
 
@@ -147,17 +142,8 @@ class AppSharedPreference {
 
   static String get getLocal => _prefs?.getString(_lang) ?? 'ar';
 
-  static void cashLatestRefreshToken() {
-    _prefs?.setString(_latestRefreshToken, DateTime.now().toIso8601String());
-  }
-
-  static DateTime get getLatestRefreshToken {
-    final stringDate = _prefs?.getString(_latestRefreshToken);
-    return DateTime.tryParse(stringDate.toString()) ??
-        DateTime.now().copyWith(year: DateTime.now().year - 1);
-  }
-
-  static set setCurrency(String langCode) => _prefs?.setString(_currency, langCode);
+  static set setCurrency(String langCode) =>
+      _prefs?.setString(_currency, langCode);
 
   static String get currency => _prefs?.getString(_currency) ?? '\$';
 
@@ -166,7 +152,8 @@ class AppSharedPreference {
   }
 
   static LoginData get loginDate {
-    return LoginData.fromJson(jsonDecode(_prefs?.getString(_loginData) ?? '{}'));
+    return LoginData.fromJson(
+        jsonDecode(_prefs?.getString(_loginData) ?? '{}'));
   }
 
   static cashProfile(Profile profile) async {
@@ -176,6 +163,4 @@ class AppSharedPreference {
   static Profile get profile {
     return Profile.fromJson(jsonDecode(_prefs?.getString(_profile) ?? '{}'));
   }
-
-
 }

@@ -107,7 +107,8 @@ class TrainerHeader extends StatelessWidget {
                                       .read<RoomsCubit>()
                                       .getRoomByUser(trainer.id.toString());
 
-                                  if (!context.mounted || openRoom == null) return;
+                                  if (!context.mounted || openRoom == null)
+                                    return;
 
                                   openRoomFunction(context, openRoom);
                                   return;
@@ -119,7 +120,8 @@ class TrainerHeader extends StatelessWidget {
                               flex: 4,
                               child: MyButtonRound(
                                 color: AppColorManager.mainColorLight,
-                                enable: pair.second == PrivetSessionState.active,
+                                enable:
+                                    pair.second == PrivetSessionState.active,
                                 child: DrawableText(
                                   text: S.of(context).videoCall,
                                   color: Colors.white,
@@ -133,6 +135,12 @@ class TrainerHeader extends StatelessWidget {
                                   ),
                                 ),
                                 onTap: () {
+                                  if (pair.first!.videoCallToken.isEmpty) {
+                                    context
+                                        .read<BookedAppointmentsCubit>()
+                                        .getBookedAppointments();
+                                    return;
+                                  }
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
@@ -148,7 +156,8 @@ class TrainerHeader extends StatelessWidget {
                         ),
                         if (pair.second == PrivetSessionState.waiting)
                           DrawableText(
-                            padding: const EdgeInsets.symmetric(vertical: 5.0).h,
+                            padding:
+                                const EdgeInsets.symmetric(vertical: 5.0).h,
                             text:
                                 '${S.of(context).nextSession}: ${pair.first?.startTime.formatDateTime}',
                             size: 12.0.sp,
@@ -171,7 +180,6 @@ class TrainerHeader extends StatelessWidget {
     }, '''needBookPrivateSession'''.tr, textContinue: 'Book'.tr);
   }
 }
-
 
 class BioCheckWidget extends StatelessWidget {
   const BioCheckWidget({

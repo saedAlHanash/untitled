@@ -43,7 +43,7 @@ class PlanOverviewController extends GetxController {
     // if (ConstantData.idPlan != null) {
     //   id = ConstantData.idPlan!;
     // } else {
-    id = (Get.arguments??'').toString();
+    id = (Get.arguments ?? '').toString();
     // }
 
     //log('plan overview id ${id}');
@@ -69,20 +69,17 @@ class PlanOverviewController extends GetxController {
   set planOverview(value) => _planOverview.value = value;
 
   onSubscribePlan() async {
-    GetStorage getStorage = GetStorage();
-    String? prevPlan = getStorage.read('currentPlan');
-    if (prevPlan != null) {
-      Utils.showAlertDialog(subscribeToPlan, '''${'Your_subscription_to_plan'.tr} $prevPlan''');
-    } else {
-      subscribeToPlan();
-    }
+    subscribeToPlan();
   }
 
   subscribeToPlan() async {
     Utils.openLoadingDialog();
-    var response = await _traineeRepository.subscribePlan(planId: planOverview.id.toString());
+    var response = await _traineeRepository.subscribePlan(
+        planId: planOverview.id.toString());
     if (response.type == ApiResultType.success) {
-      Get.context?.read<RoomsCubit>().getRoomByUser(planOverview.trainer.id.toString());
+      Get.context
+          ?.read<RoomsCubit>()
+          .getRoomByUser(planOverview.trainer.id.toString());
       Utils.closeDialog();
       GetStorage getStorage = GetStorage();
       await getStorage.write('currentPlan', planOverview.name);
@@ -92,7 +89,7 @@ class PlanOverviewController extends GetxController {
           second: 5);
       // Get.offAllNamed(AppRoutes.mainHome);
       Get.context?.read<RefreshHomePlanCubit>().refresh();
-      Get.offNamed(AppRoutes.planOverview, arguments:id);
+      Get.offNamed(AppRoutes.planOverview, arguments: id);
       isActivated = true;
     } else {
       if (response.statusCode == 451) {
@@ -114,10 +111,9 @@ class PlanOverviewController extends GetxController {
                   second: 5);
               // Get.offAllNamed(AppRoutes.mainHome);
               Get.context?.read<RefreshHomePlanCubit>().refresh();
-              Get.offNamed(AppRoutes.planOverview, arguments:id);
+              Get.offNamed(AppRoutes.planOverview, arguments: id);
               isActivated = true;
-            }
-            else {
+            } else {
               Utils.closeDialog();
             }
           } else {
@@ -137,7 +133,7 @@ class PlanOverviewController extends GetxController {
     Utils.openLoadingDialog();
     final apiResult = await _exerciseRepository.startDay(planWorkouts[i].id!);
 
-    if (( AppProvider.isTrainer) ||
+    if ((AppProvider.isTrainer) ||
         apiResult.type == ApiResultType.success ||
         apiResult.statusCode == 402) {
       Get.back();
@@ -160,10 +156,11 @@ class PlanOverviewController extends GetxController {
         GetStorage getStorage = GetStorage();
         String? prevPlan = getStorage.read('currentPlan');
         if (prevPlan != null) {
-          Utils.showAlertDialog(
-              subscribeToPlan, '''${'Your_subscription_to_plan'.tr} $prevPlan''');
+          Utils.showAlertDialog(subscribeToPlan,
+              '''${'Your_subscription_to_plan'.tr} $prevPlan''');
         } else {
-          Utils.showAlertDialog(() {}, apiResult.message!, textContinue: 'okay'.tr);
+          Utils.showAlertDialog(() {}, apiResult.message!,
+              textContinue: 'okay'.tr);
         }
       } else if (apiResult.statusCode == 451) {
         if (AppControl.isAppleAccount) return;
@@ -172,7 +169,8 @@ class PlanOverviewController extends GetxController {
         }, '''subscription_finished'''.tr, textContinue: 'subscribe'.tr);
       } else if (apiResult.statusCode == 402) {
         //TODO: saed see mahmood form server to fix it
-        Utils.showAlertDialog(() {}, "finished_this_day".tr, textContinue: 'okay'.tr);
+        Utils.showAlertDialog(() {}, "finished_this_day".tr,
+            textContinue: 'okay'.tr);
       }
     }
   }
