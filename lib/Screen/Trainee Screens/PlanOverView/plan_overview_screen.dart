@@ -22,7 +22,6 @@ class PlanOverviewScreen extends GetView<PlanOverviewController> {
 
   @override
   Widget build(BuildContext context) {
-
     return Obx(
       () => Scaffold(
         key: controller.scaffoldKey,
@@ -30,7 +29,8 @@ class PlanOverviewScreen extends GetView<PlanOverviewController> {
             leading: IconButton(
                 icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
                 onPressed: () => Get.back()),
-            title: Text(controller.isLoading ? '' : controller.planOverview.name,
+            title: Text(
+                controller.isLoading ? '' : controller.planOverview.name,
                 style: const TextStyle(fontWeight: FontWeight.bold))),
         body: controller.isLoading
             ? const Center(child: CircularProgressIndicator.adaptive())
@@ -53,13 +53,14 @@ class PlanOverviewScreen extends GetView<PlanOverviewController> {
                           30.0.verticalSpace,
                           Text(
                             controller.planOverview.name,
-                            style:
-                                const TextStyle(color: Color(0xFF565C63), fontSize: 26),
+                            style: const TextStyle(
+                                color: Color(0xFF565C63), fontSize: 26),
                           ),
                           Text(
                             controller.planOverview.trainer.name,
                             style: TextStyle(
-                                color: Get.theme.colorScheme.secondary, fontSize: 14),
+                                color: Get.theme.colorScheme.secondary,
+                                fontSize: 14),
                           ),
                           // SizedBox(
                           //   width: Get.width,
@@ -85,7 +86,8 @@ class PlanOverviewScreen extends GetView<PlanOverviewController> {
                           //   ),
                           // ),
                           30.0.verticalSpace,
-                          ReadMoreTextWidget(text: controller.planOverview.description),
+                          ReadMoreTextWidget(
+                              text: controller.planOverview.description),
                           30.0.verticalSpace,
                           TrainerProfile(controller.planOverview.trainer.name,
                               controller.planOverview.trainer.image),
@@ -114,7 +116,8 @@ class PlanOverviewScreen extends GetView<PlanOverviewController> {
                             key: controller.keys[i],
                             imageUrl: controller.planWorkouts[i].image!,
                             dayNumber: controller.planWorkouts[i].name!,
-                            totalMinutes: controller.planWorkouts[i].totalMinutes!,
+                            totalMinutes:
+                                controller.planWorkouts[i].totalMinutes!,
                             exercises: controller.planWorkouts[i].exercises!,
                             type: controller.planWorkouts[i].type!,
 
@@ -132,7 +135,8 @@ class PlanOverviewScreen extends GetView<PlanOverviewController> {
         floatingActionButton: (AppProvider.isTrainer)
             ? null
             : controller.isActivated ||
-                    GetStorage().read('currentPlan') == controller.planOverview.name
+                    GetStorage().read('currentPlan') ==
+                        controller.planOverview.name
                 ? null
                 : CustomButton(
                     onTapFunction: controller.onSubscribePlan,

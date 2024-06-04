@@ -8,7 +8,10 @@ import '../generated/assets.dart';
 
 class VimeoPlayer extends StatelessWidget {
   const VimeoPlayer(
-      {super.key, required this.videoId, this.isPrivet = false, this.onInitController});
+      {super.key,
+      required this.videoId,
+      this.isPrivet = false,
+      this.onInitController});
 
   final String videoId;
   final bool isPrivet;
@@ -78,7 +81,8 @@ class _VimeoPlayerWebViewState extends State<VimeoPlayerWebView> {
                 webView = controller;
               },
               onLoadStop: (controller1, url) {},
-              onProgressChanged: (InAppWebViewController controller, int progress) {
+              onProgressChanged:
+                  (InAppWebViewController controller, int progress) {
                 setState(() {
                   this.progress = progress / 100;
                 });
@@ -113,7 +117,10 @@ class _VimeoPlayerWebViewState extends State<VimeoPlayerWebView> {
 
 class VimeoPlayerPod extends StatefulWidget {
   const VimeoPlayerPod(
-      {super.key, required this.videoId, this.isPrivet = false, this.onInitController});
+      {super.key,
+      required this.videoId,
+      this.isPrivet = false,
+      this.onInitController});
 
   final String videoId;
   final bool isPrivet;
@@ -131,24 +138,22 @@ class _VimeoPlayerPodState extends State<VimeoPlayerPod> {
   @override
   void initState() {
     controller = PodPlayerController(
-    podPlayerConfig: const PodPlayerConfig(
-      wakelockEnabled: true,
-      videoQualityPriority: [360],
-    ),
-    playVideoFrom: PlayVideoFrom.vimeo(
-      widget.videoId,
-      // '784930773',
-      // httpHeaders: {'Authorization': 'Bearer $token'},
-      videoPlayerOptions: VideoPlayerOptions(
-        mixWithOthers: true,
+      podPlayerConfig: const PodPlayerConfig(
+        wakelockEnabled: true,
+        videoQualityPriority: [360],
       ),
-    ),
-  )..initialise().then((value) {
-    setState(() {
-    });
-    });
-
-
+      playVideoFrom: PlayVideoFrom.vimeo(
+        widget.videoId,
+        // '784930773',
+        // httpHeaders: {'Authorization': 'Bearer $token'},
+        videoPlayerOptions: VideoPlayerOptions(
+          mixWithOthers: true,
+        ),
+      ),
+    )..initialise().then((value) {
+        setState(() {});
+      });
+    widget.onInitController?.call(controller);
 
     super.initState();
   }
@@ -164,42 +169,42 @@ class _VimeoPlayerPodState extends State<VimeoPlayerPod> {
     return Directionality(
       textDirection: TextDirection.ltr,
       child: Stack(
-              alignment: Alignment.center,
-              children: [
-                PodVideoPlayer(
-                  controller: controller,
-                  onToggleFullScreen: (isFullScreen) async {
-                    if (isFullScreen) {
-                      SystemChrome.setPreferredOrientations([
-                        DeviceOrientation.landscapeLeft,
-                        DeviceOrientation.landscapeRight,
-                      ]);
-                    } else {
-                      SystemChrome.setPreferredOrientations([
-                        DeviceOrientation.portraitUp,
-                        DeviceOrientation.portraitDown,
-                      ]);
-                    }
-                  },
-                  videoThumbnail: const DecorationImage(
-                    image: AssetImage(Assets.imagesLogo),
-                  ),
-                ),
-                Positioned(
-                  bottom: 5.0,
-                  right: 15.0,
-                  child: IgnorePointer(
-                    child: Opacity(
-                      opacity: 0.4,
-                      child: Image.asset(
-                        Assets.imagesFs2,
-                        height: 40.0,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
+        alignment: Alignment.center,
+        children: [
+          PodVideoPlayer(
+            controller: controller,
+            onToggleFullScreen: (isFullScreen) async {
+              if (isFullScreen) {
+                SystemChrome.setPreferredOrientations([
+                  DeviceOrientation.landscapeLeft,
+                  DeviceOrientation.landscapeRight,
+                ]);
+              } else {
+                SystemChrome.setPreferredOrientations([
+                  DeviceOrientation.portraitUp,
+                  DeviceOrientation.portraitDown,
+                ]);
+              }
+            },
+            videoThumbnail: const DecorationImage(
+              image: AssetImage(Assets.imagesLogo),
             ),
+          ),
+          Positioned(
+            bottom: 5.0,
+            right: 15.0,
+            child: IgnorePointer(
+              child: Opacity(
+                opacity: 0.4,
+                child: Image.asset(
+                  Assets.imagesFs2,
+                  height: 40.0,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
