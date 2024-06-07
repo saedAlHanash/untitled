@@ -104,6 +104,7 @@ class GetUrl {
 
 class PostUrl {
   static const loginUrl = 'auth/login';
+  static const loginGuest = 'auth/guest_register';
 
   static const signup = 'auth/register';
 

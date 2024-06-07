@@ -284,6 +284,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "تمثل الودجات التي تحتوي على مفاتيح عالمية شرائطها الفرعية عند نقلها من موقع واحد في الشجرة إلى موقع آخر في الشجرة. من أجل إعادة رسم خبرتها الفرعية، يجب أن تصل الأداة إلى موقعها الجديد في الشجرة في نفس إطار الرسوم المتحركة الذي تمت فيه إزالتها من موقعها القديم الشجرة."),
         "governor": MessageLookupByLibrary.simpleMessage("المحافظة"),
         "greatJob": MessageLookupByLibrary.simpleMessage("أحسنت صنعا!"),
+        "guest": MessageLookupByLibrary.simpleMessage("المتابعة كضيف"),
+        "guestUser": MessageLookupByLibrary.simpleMessage("مستخدم ضيف"),
         "gym": MessageLookupByLibrary.simpleMessage("النادي"),
         "handsFree":
             MessageLookupByLibrary.simpleMessage("بدون استخدام اليدين"),
@@ -382,6 +384,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "يجب أن تحتوي كلمة المرور على أكثر من 8 أحرف وأرقام"),
         "needBookPrivateSession": MessageLookupByLibrary.simpleMessage(
             "يجب عليك حجز موعد للحصول على جلسة خاصة مع المدرب"),
+        "needLogin": MessageLookupByLibrary.simpleMessage("يجب تسجيل الدخول!"),
         "netTotal": MessageLookupByLibrary.simpleMessage("المبلغ بعد الخصم"),
         "newArrival": MessageLookupByLibrary.simpleMessage("وصول جديد"),
         "newCheckEmail": MessageLookupByLibrary.simpleMessage(

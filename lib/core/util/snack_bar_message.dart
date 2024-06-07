@@ -60,7 +60,8 @@ class NoteMessage {
     );
   }
 
-  static Future<bool> showBottomSheet1(BuildContext context, Widget child) async {
+  static Future<bool> showBottomSheet1(
+      BuildContext context, Widget child) async {
     final result = await showModalBottomSheet(
       isScrollControlled: true,
       context: context,
@@ -77,7 +78,8 @@ class NoteMessage {
     return result ?? false;
   }
 
-  static Future<bool> showConfirm(BuildContext context, {required String text}) async {
+  static Future<bool> showConfirm(BuildContext context,
+      {required String text}) async {
     // show the dialog
     final result = await showDialog(
       context: context,
@@ -219,7 +221,8 @@ class NoteMessage {
     );
   }
 
-  static Future<bool> showMyDialog(BuildContext context, {required Widget child}) async {
+  static Future<bool> showMyDialog(BuildContext context,
+      {required Widget child}) async {
     // show the dialog
     final result = await showDialog(
       context: context,
@@ -245,7 +248,8 @@ class NoteMessage {
     return (result ?? false);
   }
 
-  static void showAwesomeError({required BuildContext context, required String message}) {
+  static void showAwesomeError(
+      {required BuildContext context, required String message}) {
     AwesomeDialog(
       context: context,
       dialogType: DialogType.error,
@@ -267,13 +271,12 @@ class NoteMessage {
     ).show();
   }
 
-  static Future<void> showCheckDialog(
-    BuildContext context, {
-    required String text,
-    required String textButton,
-    required dynamic image,
-    Function()? onConfirm,
-  }) async {
+  static Future<void> showCheckDialog(BuildContext context,
+      {required String text,
+      required String textButton,
+      required dynamic image,
+      Function()? onConfirm,
+      Color? color}) async {
     // show the dialog
     final result = await showDialog(
       context: context,
@@ -301,7 +304,8 @@ class NoteMessage {
                   clipBehavior: Clip.hardEdge,
                   decoration: BoxDecoration(
                     color: AppColorManager.whit,
-                    borderRadius: BorderRadius.vertical(top: Radius.circular(20.0.r)),
+                    borderRadius:
+                        BorderRadius.vertical(top: Radius.circular(20.0.r)),
                   ),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
@@ -336,9 +340,10 @@ class NoteMessage {
                           splashColor: Colors.transparent,
                           onTap: () => Navigator.pop(context, true),
                           child: DrawableText(
-                            padding: const EdgeInsets.symmetric(vertical: 23.0).r,
+                            padding:
+                                const EdgeInsets.symmetric(vertical: 23.0).r,
                             text: textButton,
-                            color: AppColorManager.red,
+                            color: color ?? AppColorManager.red,
                             fontWeight: FontWeight.bold,
                             fontFamily: FontManager.cairoSemiBold.name,
                             matchParent: true,
@@ -351,7 +356,8 @@ class NoteMessage {
                           splashColor: Colors.transparent,
                           onTap: () => Navigator.pop(context, false),
                           child: DrawableText(
-                            padding: const EdgeInsets.symmetric(vertical: 23.0).r,
+                            padding:
+                                const EdgeInsets.symmetric(vertical: 23.0).r,
                             color: Colors.grey,
                             fontWeight: FontWeight.bold,
                             text: S.of(context).cancel,
@@ -373,5 +379,4 @@ class NoteMessage {
       onConfirm?.call();
     }
   }
-
 }

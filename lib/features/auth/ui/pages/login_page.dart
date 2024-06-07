@@ -1,6 +1,7 @@
 import 'package:drawable_text/drawable_text.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
+import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:fitness_storm/core/widgets/my_button.dart';
 import 'package:fitness_storm/core/widgets/my_text_form_widget.dart';
 import 'package:fitness_storm/features/auth/ui/widget/auth_header.dart';
@@ -28,15 +29,9 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  late final LoginCubit loginCubit;
+  LoginCubit get loginCubit => context.read<LoginCubit>();
 
   final _formKey = GlobalKey<FormState>();
-
-  @override
-  void initState() {
-    loginCubit = context.read<LoginCubit>();
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +77,6 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     AuthHeader(name: S.of(context).login),
                     AutofillGroup(
-
                       child: Column(
                         children: [
                           MyTextFormOutLineWidget(
@@ -95,7 +89,8 @@ class _LoginPageState extends State<LoginPage> {
                             hint: S.of(context).enterEmailAddress,
                             initialValue: loginCubit.state.request.phoneOrEmail,
                             keyBordType: TextInputType.emailAddress,
-                            onChanged: (val) => loginCubit.setPhoneOrEmail = val,
+                            onChanged: (val) =>
+                                loginCubit.setPhoneOrEmail = val,
                           ),
                           10.0.verticalSpace,
                           MyTextFormOutLineWidget(
@@ -111,7 +106,6 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     const _ForgetAndRememberWidget(),
-                    30.0.verticalSpace,
                     BlocBuilder<LoginCubit, LoginInitial>(
                       builder: (_, state) {
                         if (state.statuses.loading) {
@@ -128,11 +122,34 @@ class _LoginPageState extends State<LoginPage> {
                         );
                       },
                     ),
-                    10.0.verticalSpace,
-                    MyButtonRound(
-                      color: AppColorManager.mainColor,
-                      text: S.of(context).applyAsTrainer,
-                      onTap: () => startApply(),
+                    30.0.verticalSpace,
+                    Row(
+                      children: [
+                        Expanded(
+                          child: MyButton(
+                            padding: EdgeInsets.zero,
+                            height: 45.0.h,
+                            radios: 12.0.r,
+                            color: AppColorManager.priceColor,
+                            text: S.of(context).guest,
+                            onTap: () {
+                              loginCubit.changeUserType = UserType.guest;
+                              loginCubit.login();
+                            },
+                          ),
+                        ),
+                        30.0.horizontalSpace,
+                        Expanded(
+                          child: MyButton(
+                            padding: EdgeInsets.zero,
+                            height: 45.0.h,
+                            radios: 12.0.r,
+                            color: AppColorManager.mainColorDark,
+                            text: S.of(context).applyAsTrainer,
+                            onTap: () => startApply(),
+                          ),
+                        ),
+                      ],
                     ),
                     30.0.verticalSpace,
                     const LoginSocialWidget(),
@@ -165,17 +182,12 @@ class _ForgetAndRememberWidget extends StatefulWidget {
   const _ForgetAndRememberWidget();
 
   @override
-  State<_ForgetAndRememberWidget> createState() => _ForgetAndRememberWidgetState();
+  State<_ForgetAndRememberWidget> createState() =>
+      _ForgetAndRememberWidgetState();
 }
 
 class _ForgetAndRememberWidgetState extends State<_ForgetAndRememberWidget> {
-  late final LoginCubit loginCubit;
-
-  @override
-  void initState() {
-    loginCubit = context.read<LoginCubit>();
-    super.initState();
-  }
+  LoginCubit get loginCubit => context.read<LoginCubit>();
 
   @override
   Widget build(BuildContext context) {
@@ -191,7 +203,8 @@ class _ForgetAndRememberWidgetState extends State<_ForgetAndRememberWidget> {
                 checkColor: AppColorManager.mainColor,
                 value: loginCubit.isTrainer,
                 onChanged: (value) {
-                  loginCubit.changeIsTrainer = value;
+                  loginCubit.changeUserType =
+                      (value == true) ? UserType.trainer : UserType.user;
                 },
                 title: DrawableText(
                   text: S.of(context).signInTrainer,

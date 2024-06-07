@@ -417,7 +417,7 @@ void startCreateBundle(Bundle bundle) {
 
   final Widget page = MultiBlocProvider(
     providers: providers,
-    child: const CreateBundlePage(),
+    child:  CreateBundlePage(bundle:bundle),
   );
   Get.to(() => page);
   sl<FirebaseAnalyticService>().screenView(name: 'create_bundle');

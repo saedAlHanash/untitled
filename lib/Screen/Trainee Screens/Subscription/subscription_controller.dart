@@ -6,6 +6,7 @@ import '../../../Data/Repositories/subscription_repository.dart';
 import '../../../Data/Repositories/trainee_repository.dart';
 import '../../../Model/subscription_model.dart';
 import '../../../Utils/utils.dart';
+import '../../../core/app/app_provider.dart';
 import '../../../features/coupon/data/request/pay_request.dart';
 import '../../../features/profile/data/response/profile_response.dart';
 
@@ -84,6 +85,7 @@ class SubscruptionController extends GetxController {
   Future<String> makePayment({
     required PayRequest request,
   }) async {
+
     try {
       isLoading = true;
       var d1 = await createPaymentIntent(request);

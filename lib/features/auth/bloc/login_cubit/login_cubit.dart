@@ -32,22 +32,26 @@ class LoginCubit extends Cubit<LoginInitial> {
     } else {
       saveFCM();
       emit(state.copyWith(statuses: CubitStatuses.done, result: pair.first));
-      sl<FirebaseAnalyticService>().login(data: pair.first!,loginMethod: 'email_and_password');
+      sl<FirebaseAnalyticService>()
+          .login(data: pair.first!, loginMethod: 'email_and_password');
     }
   }
 
   Future<Pair<LoginData?, String?>> _loginApi() async {
     final response = await APIService().postApi(
-      additional: state.isTrainer ? additionalConstTrainer : additionalConstUser,
-      url: PostUrl.loginUrl,
+      additional: state.userType == UserType.trainer
+          ? additionalConstTrainer
+          : additionalConstUser,
+      url: state.userType == UserType.guest
+          ? PostUrl.loginGuest
+          : PostUrl.loginUrl,
       body: state.request.toJson(),
     );
 
     if (response.statusCode.success) {
       final pair = Pair(LoginData.fromJson(response.jsonBody), null);
 
-      //loggerObject.w(state.isTrainer);
-      await AppProvider.cashLoginData(pair.first, isTrainer: state.isTrainer);
+      await AppProvider.cashLoginData(pair.first, userType: state.userType);
 
       await AppSharedPreference.removePhoneOrEmail();
 
@@ -57,14 +61,15 @@ class LoginCubit extends Cubit<LoginInitial> {
     }
   }
 
-  set setPhoneOrEmail(String? phoneOrEmail) => state.request.phoneOrEmail = phoneOrEmail;
+  set setPhoneOrEmail(String? phoneOrEmail) =>
+      state.request.phoneOrEmail = phoneOrEmail;
 
   set setPassword(String? password) => state.request.password = password;
 
-  bool get isTrainer => state.isTrainer;
+  bool get isTrainer => state.userType == UserType.trainer;
 
-  set changeIsTrainer(bool? isTrainer) {
-    emit(state.copyWith(isTrainer: isTrainer));
+  set changeUserType(UserType? userType) {
+    emit(state.copyWith(userType: userType));
   }
 
   String? get validatePhoneOrEmail {

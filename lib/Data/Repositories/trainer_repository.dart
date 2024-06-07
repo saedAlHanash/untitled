@@ -10,9 +10,11 @@ import '../Api/urls.dart';
 
 class TrainerRepository {
   Future<List<TrainerModel>> getYourTrainer(int pageNumber) async {
+
     Options option = Utils.getOptions(withToken: true, all: true);
-    ApiResult result = await Methods.get(
-        url: '${TRAINEEURLS.getYourTrainer}$pageNumber', options: option);
+
+    ApiResult result = await Methods.get(url: TRAINEEURLS.getYourTrainer, options: option);
+
     if (result.type == ApiResultType.success) {
       List<TrainerModel> trainers = [];
       for (var element in result.data) {

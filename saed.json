@@ -1,153 +1,434 @@
 {
   "data": [
     {
-      "title": null,
-      "body": "\u0627\u0644\u062d\u0635\u0648\u0644 \u0639\u0644\u0649 \u0633\u0627\u0639\u0627\u062a \u0643\u0627\u0641\u064a\u0629 \u0645\u0646 \u0627\u0644\u0646\u0648\u0645 \u0648\u0634\u0631\u0628 \u0643\u0645\u064a\u0629 \u0643\u0627\u0641\u064a\u0629 \u0645\u0646 \u0627\u0644\u0645\u0627\u0621 \u064a\u0624\u062b\u0631\u0627\u0646 \u0628\u0634\u0643\u0644 \u0643\u0628\u064a\u0631 \u0639\u0644\u0649 \u0623\u062f\u0627\u0626\u0643 \u062e\u0644\u0627\u0644 \u0627\u0644\u062a\u0645\u0631\u064a\u0646 \u0648\u0639\u0644\u0649 \u0646\u062a\u0627\u0626\u062c\u0643 \u0627\u0644\u0646\u0647\u0627\u0626\u064a\u0629 \ud83d\udca4",
-      "type": null,
-      "data": null,
-      "created_at": "2024-06-03 19:00"
+      "id": "59",
+      "image": "storage/app/public/trainersImages/gN0VDcK1GjiUoQGHc8Wh7gIy1YGBR2NswOf4zeI7.png",
+      "agreement": "storage/app/public/trainersImages/BRnKdECfzXpairTJ6ffiYh8TzqgYAwWDlog9H3Go.pdf",
+      "rating": 5,
+      "name": "Ahmed Abdelghany أحمد عبد الغنى",
+      "bio": "خبره اكثر من ١١ سنه في تدريب الفتنس و تمارين المقاومه والكروس فيت والبوكسينج وتأهيل الاصابات الرياضية",
+      "introduction_video": null,
+      "number_of_plans": "0",
+      "number_of_private_hours": 197,
+      "number_of_subscribers": 0,
+      "specialties": [],
+      "private_session_price": 100,
+      "appointment": {
+        "id": 52938,
+        "status": "started",
+        "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IAAhltpB5QtvaQOfwujS2Tl/NpmOlX6LjnRf4IDAnHLRMEFY7bwAAAAAEACM8AAAgaMqZgEAAQCVYylm",
+        "time": null
+      }
     },
     {
-      "title": null,
-      "body": "\u0644\u0623\u0646\u0646\u0627 \u0645\u0647\u062a\u0645\u064a\u0646 \u0628\u0635\u062d\u062a\u0643\ud83d\udc9a\n\u0644\u0643 \u0643\u0648\u062f \u062e\u0635\u0645 50% \u0645\u0646 \u0628\u0627\u0642\u0629 \u0627\u0644\u0640 3 \u0634\u0647\u0648\u0631 \u062a\u0633\u062a\u0631\u062c\u0639 \u0645\u0639\u0647\u0627 \u0644\u064a\u0627\u0642\u062a\u0643 \u0648\u0646\u0638\u0627\u0645\u0643 \u0627\u0644\u0635\u062d\u064a \u0628\u0640 99 \u0631\u064a\u0627\u0644 \u0628\u0633 \n\u0643\u0648\u062f \u0627\u0644\u062e\u0635\u0645 Summer50",
-      "type": null,
-      "data": null,
-      "created_at": "2024-05-29 17:15"
+      "id": "57",
+      "image": "storage/app/public/trainersImages/ZLhh0xYCgYt8x8iuQatFtbjRR4bnuGVe08D5MB8f.png",
+      "agreement": "storage/app/public/trainersImages/whkm9aJVhnE5PU9IvgAFAKX2JDHhjE0u9OWZmgzU.pdf",
+      "rating": 5,
+      "name": "Rahaf Mohanned رهف مهند",
+      "bio": "كوتش رهف مهند ٣ سنوات من الخبرة في المجال الرياضي ومختصة في كلاسات الزومبا والرقص الافريقي والبودى كومبات والكارديو والمقاومة",
+      "introduction_video": null,
+      "number_of_plans": "0",
+      "number_of_private_hours": 456,
+      "number_of_subscribers": 0,
+      "specialties": [],
+      "private_session_price": 100,
+      "appointment": {
+        "id": 14891,
+        "status": "started",
+        "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IAAJY/kw8i7zMilqk29F6wgsKtB66CNvjNA9oraImN/Mnop+KioAAAAAEACsJwAA417TZQEAAQD3HtJl",
+        "time": null
+      }
     },
     {
-      "title": null,
-      "body": "Your private session with coach Dietitian Doaa Dahdoli \u062f\u0639\u0627\u0621 \u062f\u062d\u062f\u0648\u0644\u0649 has started, JOIN NOW!",
-      "type": null,
-      "data": null,
-      "created_at": "2024-05-29 02:22"
+      "id": "56",
+      "image": "storage/app/public/trainersImages/Kvz1SO40ZSDsDWVNCTD5hqnwo9yWUKzw9flIUNqO.png",
+      "agreement": "storage/app/public/trainersImages/deiUY0i4RDXYQaKsUfDiwJJMJm3VITfgXBsocVnW.pdf",
+      "rating": 4.666666666666667,
+      "name": "Tamara Emad تمارا عماد",
+      "bio": "كوتش تمارا عماد 8 سنوات خبرة فى تدريب الزومبا والبيلاتس والتدريب الشخصى وحصص الكارديو",
+      "introduction_video": null,
+      "number_of_plans": "0",
+      "number_of_private_hours": 258,
+      "number_of_subscribers": 0,
+      "specialties": [],
+      "private_session_price": 1,
+      "appointment": {
+        "id": 6571,
+        "status": "started",
+        "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IAD9aPKos3kICCD+Cztbgz9nwpF4SWImNYj+Bo1ZFU5ceIp+KioAAAAAEAC3cQAAAx25ZQEAAQAX3bdl",
+        "time": null
+      }
     },
     {
-      "title": null,
-      "body": "Your private session with coach Dietitian Doaa Dahdoli \u062f\u0639\u0627\u0621 \u062f\u062d\u062f\u0648\u0644\u0649 has started, JOIN NOW!",
-      "type": null,
-      "data": null,
-      "created_at": "2024-05-28 20:57"
+      "id": "55",
+      "image": "storage/app/public/trainersImages/vj7tA9Xc4HdJ3PVySC856JfhgSEjvVdIwwAS4EjQ.jpg",
+      "agreement": null,
+      "rating": 5,
+      "name": "Reema Salman ريما سلمان",
+      "bio": "ريما سلمان أخصائية التغذية العلاجية والرياضية خبرة 25 عام",
+      "introduction_video": null,
+      "number_of_plans": "0",
+      "number_of_private_hours": 8,
+      "number_of_subscribers": 0,
+      "specialties": [],
+      "private_session_price": 2000,
+      "appointment": {
+        "id": 26483,
+        "status": "started",
+        "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IAAZ2ylYYwnfNwdby1kNOh37XNTwQ/dJLZLWZDqphz1I32oUW7UAAAAAEACzRgEAE2vxZQEAAQAnK/Bl",
+        "time": null
+      }
     },
     {
-      "title": null,
-      "body": "Your private session with coach Dietitian Doaa Dahdoli \u062f\u0639\u0627\u0621 \u062f\u062d\u062f\u0648\u0644\u0649 has started, JOIN NOW!",
-      "type": null,
-      "data": null,
-      "created_at": "2024-05-28 20:22"
+      "id": "54",
+      "image": "storage/app/public/trainersImages/wrVSSuhF9fMFSsb8WWAX7ukNNnhXfuJ8r9Mb0LMG.png",
+      "agreement": null,
+      "rating": 4,
+      "name": "Dietitian Doaa Dahdoli دعاء دحدولى",
+      "bio": "اختصاصية تغذية واختصاصية نفسية متخصصة بتعديل السلوك الغذائي للتحكم بالوزن والتغذية الرياضية وعلاج اضطرابات الاكل النفسية خبرة 15 عام",
+      "introduction_video": null,
+      "number_of_plans": "0",
+      "number_of_private_hours": 106,
+      "number_of_subscribers": 0,
+      "specialties": [],
+      "private_session_price": 150,
+      "appointment": {
+        "id": 545,
+        "status": "started",
+        "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IABsegoEcuR/FVpLAOGxFgQvo06oH17aXAPI/BByGR+LpYp+KioAAAAAEABmJwEAxYfaZAEAAQDZR9lk",
+        "time": null
+      }
     },
     {
-      "title": null,
-      "body": "Your private session with coach Dietitian Doaa Dahdoli \u062f\u0639\u0627\u0621 \u062f\u062d\u062f\u0648\u0644\u0649 has started, JOIN NOW!",
-      "type": null,
-      "data": null,
-      "created_at": "2024-05-28 16:39"
+      "id": "53",
+      "image": "storage/app/public/trainersImages/pkyWvObPCWJm16twuh2rgWzdWkfWtT2mLRwY00bW.jpg",
+      "agreement": null,
+      "rating": null,
+      "name": "Isabeal إيزابيل",
+      "bio": "كوتش إيزابيل مدربة لياقة بدنية خبرة 10 سنوات تتحدث الأسبانية فقط",
+      "introduction_video": null,
+      "number_of_plans": "0",
+      "number_of_private_hours": 7,
+      "number_of_subscribers": 0,
+      "specialties": [],
+      "private_session_price": 100,
+      "appointment": null
     },
     {
-      "title": null,
-      "body": "Your private session with coach Dietitian Doaa Dahdoli \u062f\u0639\u0627\u0621 \u062f\u062d\u062f\u0648\u0644\u0649 has started, JOIN NOW!",
-      "type": null,
-      "data": null,
-      "created_at": "2024-05-28 16:26"
+      "id": "52",
+      "image": "storage/app/public/trainersImages/yEAbtQZlu1eBnR2RxyG2yTUiB6GqQvZBzci4GZxs.jpg",
+      "agreement": null,
+      "rating": 5,
+      "name": "Hiba هبه",
+      "bio": "كوتش هبه مدربة لياقة بدنية خبرة 15 عام تتحدث الأسبانية والعربية",
+      "introduction_video": null,
+      "number_of_plans": "0",
+      "number_of_private_hours": 4,
+      "number_of_subscribers": 0,
+      "specialties": [],
+      "private_session_price": 250,
+      "appointment": {
+        "id": 818,
+        "status": "finished",
+        "video_call_token": null,
+        "time": null
+      }
     },
     {
-      "title": null,
-      "body": "Your private session with coach Dietitian Doaa Dahdoli \u062f\u0639\u0627\u0621 \u062f\u062d\u062f\u0648\u0644\u0649 has started, JOIN NOW!",
-      "type": null,
-      "data": null,
-      "created_at": "2024-05-28 16:16"
+      "id": "51",
+      "image": "storage/app/public/trainersImages/73HeMh0YyaBGf6jufn7ExFqKx655IqKkBvKgPE4g.png",
+      "agreement": null,
+      "rating": 4.666666666666667,
+      "name": "Salma سلمى",
+      "bio": "كوتش سلمى مدربة لياقة بدنية مختصة فى التدريبات بوزن الجسم و الهييت خبرة 5 سنوات",
+      "introduction_video": null,
+      "number_of_plans": "0",
+      "number_of_private_hours": 354,
+      "number_of_subscribers": 0,
+      "specialties": [],
+      "private_session_price": 100,
+      "appointment": {
+        "id": 715,
+        "status": "started",
+        "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IACw+yRl99quUdKqN/bSwZGOYOnPsxPo+PqmPcIYGYD4z4p+KioAAAAAEACtLQEA9FX6ZAEAAQAHFvlk",
+        "time": null
+      }
     },
     {
-      "title": null,
-      "body": "Your private session with coach Dietitian Doaa Dahdoli \u062f\u0639\u0627\u0621 \u062f\u062d\u062f\u0648\u0644\u0649 has started, JOIN NOW!",
-      "type": null,
-      "data": null,
-      "created_at": "2024-05-28 16:10"
+      "id": "50",
+      "image": "storage/app/public/trainersImages/4LSMwDOZEeCjuziUu7ELkh6MkORTmku5duvg4p1l.jpg",
+      "agreement": "storage/app/public/trainersImages/krWo6jFgLr7xEpJ0p03NshvLFcshfxXLZ6xEtZmb.pdf",
+      "rating": 3.875,
+      "name": "Sabrin صابرين",
+      "bio": "كوتش صابرين مدربة لياقة بدنية مختصة فى التدريبات بوزن الجسم و المات بيلاتس خبرة 10 سنوات",
+      "introduction_video": null,
+      "number_of_plans": "0",
+      "number_of_private_hours": 568,
+      "number_of_subscribers": 0,
+      "specialties": [],
+      "private_session_price": 100,
+      "appointment": {
+        "id": 1054,
+        "status": "started",
+        "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IAC6DL5zjNfOD4Pb2BSeMmwklLdBi+YuYS3JlJV9LYV87op+KioAAAAAEADBHwEAlAkBZQEAAQCoyf9k",
+        "time": null
+      }
     },
     {
-      "title": null,
-      "body": "Your private session with coach Dietitian Doaa Dahdoli \u062f\u0639\u0627\u0621 \u062f\u062d\u062f\u0648\u0644\u0649 has started, JOIN NOW!",
-      "type": null,
-      "data": null,
-      "created_at": "2024-05-28 16:09"
+      "id": "49",
+      "image": "storage/app/public/trainersImages/1sUmPMBeno5CDVdbNr1wpqxTXWZLH1PpA4EejlJr.png",
+      "agreement": null,
+      "rating": 5,
+      "name": "Hawraa Alhashimi حوراء الهاشمى",
+      "bio": "حوراء يحيى الهاشمى مدربة حياة معتمدة خبرة 10 سنوات فى الايف كوتشينج",
+      "introduction_video": null,
+      "number_of_plans": "0",
+      "number_of_private_hours": 139,
+      "number_of_subscribers": 0,
+      "specialties": [],
+      "private_session_price": 150,
+      "appointment": {
+        "id": 131,
+        "status": "started",
+        "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IACbQWmZlrp+FcVW4WhFnLRZuE8i946obpei7sEMV/GgWYp+KioAAAAAEABflQAAh228ZAEAAQCbLbtk",
+        "time": null
+      }
     },
     {
-      "title": null,
-      "body": " \u062a\u0645 \u062d\u062c\u0632 \u0645\u0648\u0639\u062f \u0645\u0639 \u0627\u0644\u0643\u0648\u062a\u0634 Dietitian Doaa Dahdoli \u062f\u0639\u0627\u0621 \u062f\u062d\u062f\u0648\u0644\u0649",
-      "type": "appointment",
-      "data": {
-        "date": "2024-05-28T18:10:00.000000Z"
-      },
-      "created_at": "2024-05-28 16:06"
+      "id": "48",
+      "image": "storage/app/public/trainersImages/t3kRsDkQF1uy4goOgH2DoWFVZGhoQFOFsSPGKyzh.png",
+      "agreement": null,
+      "rating": 5,
+      "name": "Khouloud zaguia خلود زقية",
+      "bio": "كوتش خلود زقية خبرة 7 سنوات فى تدريب الزومبا والبيلاتس والتدريب الشخصى وحصص الكارديو",
+      "introduction_video": null,
+      "number_of_plans": "0",
+      "number_of_private_hours": 364,
+      "number_of_subscribers": 0,
+      "specialties": [],
+      "private_session_price": 250,
+      "appointment": {
+        "id": 53049,
+        "status": "started",
+        "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IADJI1tZjthZWoYVpmJDPFZ/6JEHbD+27vfkuxlfIvtEb5ZZ8dIAAAAAEACSTgEAQ7YqZgEAAQBXdilm",
+        "time": null
+      }
     },
     {
-      "title": null,
-      "body": "Your private session with coach Dietitian Doaa Dahdoli \u062f\u0639\u0627\u0621 \u062f\u062d\u062f\u0648\u0644\u0649 has started, JOIN NOW!",
-      "type": null,
-      "data": null,
-      "created_at": "2024-05-28 15:56"
+      "id": "31",
+      "image": "storage/app/public/trainersImages/plzYOgjKEk3UL61WNeFTn9axvvrFBzUY2F4w7uON.jpg",
+      "agreement": null,
+      "rating": 4,
+      "name": "Ismail Lagdashi اسماعيل الكضاشى",
+      "bio": "اسماعيل الكضاشي بطل المغرب في الملاكمة  وبطل المملكة العربية السعودية في الملاكمة والكيك بوكسين والمواي تاي حاصل على الحزام الاسود في الكيك بوكسين",
+      "introduction_video": null,
+      "number_of_plans": "1",
+      "number_of_private_hours": 9,
+      "number_of_subscribers": 1,
+      "specialties": [
+        {
+          "id": "10",
+          "type": "Body building",
+          "type_id": "10",
+          "plan_id": "68"
+        }
+      ],
+      "private_session_price": 100,
+      "appointment": {
+        "id": 988,
+        "status": "started",
+        "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IABg7wdDC8ACeqgKUZnEJAv11TEv6vTaRKWgnVw0LUTit4p+KioAAAAAEABm7AAA48v9ZAEAAQD3i/xk",
+        "time": null
+      }
     },
     {
-      "title": null,
-      "body": " \u062a\u0645 \u062d\u062c\u0632 \u0645\u0648\u0639\u062f \u0645\u0639 \u0627\u0644\u0643\u0648\u062a\u0634 Dietitian Doaa Dahdoli \u062f\u0639\u0627\u0621 \u062f\u062d\u062f\u0648\u0644\u0649",
-      "type": "appointment",
-      "data": {
-        "date": "2024-05-28T18:00:00.000000Z"
-      },
-      "created_at": "2024-05-28 15:53"
+      "id": "30",
+      "image": "storage/app/public/trainersImages/76ojdOJPB99Y2qIssenI6Lhc3st46EUHea0pfn98.png",
+      "agreement": null,
+      "rating": 4,
+      "name": "Rashad Kazaz رشاد قزاز",
+      "bio": "كوتش رشاد خبرة 8 سنوات متخصص في:  برامج رفع الأثقال للمبتدئين والمتوسطين والمتقدمين, برامج لزيادة القوة العضلية والكتلة العضلية, برامج لتعزيز اللياقة البدنية وحرق السعرات الحرارية, برامج إعادة التأهيل من الإصابات",
+      "introduction_video": null,
+      "number_of_plans": "1",
+      "number_of_private_hours": 5,
+      "number_of_subscribers": 2,
+      "specialties": [
+        {
+          "id": "1",
+          "type": "Weightlifting",
+          "type_id": "1",
+          "plan_id": "46"
+        }
+      ],
+      "private_session_price": 100,
+      "appointment": {
+        "id": 53082,
+        "status": "started",
+        "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IAA2iYe6m2ASHfcLQeu4heNlblJVfv9zy3Az9OHfJ/HntWNHa5MAAAAAEAAVMwAAk90rZgEAAQCnnSpm",
+        "time": null
+      }
     },
     {
-      "title": null,
-      "body": "Your private session with coach Dietitian Doaa Dahdoli \u062f\u0639\u0627\u0621 \u062f\u062d\u062f\u0648\u0644\u0649 has started, JOIN NOW!",
-      "type": null,
-      "data": null,
-      "created_at": "2024-05-28 15:35"
+      "id": "29",
+      "image": "storage/app/public/trainersImages/GBwT0GB2f4VosuLrfdxPzRGPv86ldn2kpmqAu01c.png",
+      "agreement": null,
+      "rating": 4,
+      "name": "Doha Dergham ضحى درغام",
+      "bio": "كوتش ضحى خبرة 6 سنوات في: تصميم برامج تدريبية منزلية تناسب جميع مستويات اللياقة البدنية, تقديم نصائح غذائية صحية لتحسين الأداء, متابعة تقدمك وتقديم الدعم والتحفيز",
+      "introduction_video": null,
+      "number_of_plans": "1",
+      "number_of_private_hours": 10,
+      "number_of_subscribers": 26,
+      "specialties": [
+        {
+          "id": "3",
+          "type": "Body weight",
+          "type_id": "3",
+          "plan_id": "43"
+        }
+      ],
+      "private_session_price": 100,
+      "appointment": {
+        "id": 53104,
+        "status": "started",
+        "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IACyKDM8snWTwbtL68mBY574/0h/1eDQAFhEeYetBQEw+IbOrPMAAAAAEADl8AAAs/krZgEAAQDHuSpm",
+        "time": null
+      }
     },
     {
-      "title": null,
-      "body": "Your private session with coach Dietitian Doaa Dahdoli \u062f\u0639\u0627\u0621 \u062f\u062d\u062f\u0648\u0644\u0649 has started, JOIN NOW!",
-      "type": null,
-      "data": null,
-      "created_at": "2024-05-28 15:34"
+      "id": "28",
+      "image": "storage/app/public/trainersImages/yppSt4zOSRm3YIPGvuKeVmOVYo0YXQM3a94XXgL4.png",
+      "agreement": null,
+      "rating": 4,
+      "name": "Abdelazim Mohamed عبد العظيم محمد",
+      "bio": "كوتش عبد العظيم خبرة 7 سنوات متخصص فى برامج رفع الأثقال مساعدة العملاء على تحقيق أهدافهم اللياقة البدنية, تعليم تقنيات رفع الأثقال الصحيحة, تقديم النصائح الغذائية لتحسين الأداء.",
+      "introduction_video": null,
+      "number_of_plans": "2",
+      "number_of_private_hours": 24,
+      "number_of_subscribers": 16,
+      "specialties": [
+        {
+          "id": "1",
+          "type": "Weightlifting",
+          "type_id": "1",
+          "plan_id": "45"
+        },
+        {
+          "id": "4",
+          "type": "Strength training",
+          "type_id": "4",
+          "plan_id": "73"
+        }
+      ],
+      "private_session_price": 100,
+      "appointment": {
+        "id": 53154,
+        "status": "started",
+        "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IACSFW32UvRlVjJyysEszJDcnT2m7eirP6i7sI5343otyRD+q4QAAAAAEAAYLQEAyg4sZgEAAQDezipm",
+        "time": null
+      }
     },
     {
-      "title": null,
-      "body": "Your private session with coach Dietitian Doaa Dahdoli \u062f\u0639\u0627\u0621 \u062f\u062d\u062f\u0648\u0644\u0649 Starts in 1 minutes",
-      "type": null,
-      "data": null,
-      "created_at": "2024-05-28 15:33"
+      "id": "26",
+      "image": "storage/app/public/trainersImages/NJMWUKTkEPMagUXhM4DlJTE0IOXozYVDk3Hiba86.png",
+      "agreement": null,
+      "rating": 5,
+      "name": "Rita Kamar ريتا كمار",
+      "bio": "كوتش ريتا كمار خبرة 10 سنوات في: برامج زيادة الكتلة العضلية, برامج الزومبا, برامج التدريب بوزن الجسم.",
+      "introduction_video": null,
+      "number_of_plans": "4",
+      "number_of_private_hours": 6,
+      "number_of_subscribers": 14,
+      "specialties": [
+        {
+          "id": "2",
+          "type": "HIIT training",
+          "type_id": "2",
+          "plan_id": "42"
+        },
+        {
+          "id": "17",
+          "type": "Zumba",
+          "type_id": "17",
+          "plan_id": "72"
+        },
+        {
+          "id": "4",
+          "type": "Strength training",
+          "type_id": "4",
+          "plan_id": "75"
+        },
+        {
+          "id": "6",
+          "type": "Mobility training",
+          "type_id": "6",
+          "plan_id": "76"
+        }
+      ],
+      "private_session_price": 100,
+      "appointment": {
+        "id": 3248,
+        "status": "started",
+        "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IABz3Fukm6DJx0y+Te6AHgtYmAo+IWoCkY2is9jKWvdkzop+KioAAAAAEAAFQAAAZpeiZQEAAQB6V6Fl",
+        "time": null
+      }
     },
     {
-      "title": null,
-      "body": " \u062a\u0645 \u062d\u062c\u0632 \u0645\u0648\u0639\u062f \u0645\u0639 \u0627\u0644\u0643\u0648\u062a\u0634 Dietitian Doaa Dahdoli \u062f\u0639\u0627\u0621 \u062f\u062d\u062f\u0648\u0644\u0649",
-      "type": "appointment",
-      "data": {
-        "date": "2024-05-28T15:35:00.000000Z"
-      },
-      "created_at": "2024-05-28 15:31"
+      "id": "25",
+      "image": "storage/app/public/trainersImages/dKJPZFIN4hUGZVwGnMHQY1x6gwaQMBjnlPWeNm50.png",
+      "agreement": null,
+      "rating": 4,
+      "name": "Nisrine Khoury نسرين خورى",
+      "bio": "كوتش نسرين مدربة يوغا لديها 10 سنوات من الخبرة في اليوغا المنزلية وغيرها من تقنيات الاسترخاء والتأمل الرياضية تتيح برامج اليوغا لجميع المستويات",
+      "introduction_video": null,
+      "number_of_plans": "3",
+      "number_of_private_hours": 11,
+      "number_of_subscribers": 8,
+      "specialties": [
+        {
+          "id": "16",
+          "type": "yoga",
+          "type_id": "16",
+          "plan_id": "41"
+        }
+      ],
+      "private_session_price": 100,
+      "appointment": {
+        "id": 53180,
+        "status": "started",
+        "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IAB2Z2+wNbMIzBvVL2d6JjAsmbxG1US5XXN0QIgexaDy9q2CGvoAAAAAEAA+OwAAE04sZgEAAQAnDitm",
+        "time": null
+      }
     },
     {
-      "title": null,
-      "body": "Your private session with coach Dietitian Doaa Dahdoli \u062f\u0639\u0627\u0621 \u062f\u062d\u062f\u0648\u0644\u0649 has started, JOIN NOW!",
-      "type": null,
-      "data": null,
-      "created_at": "2024-05-28 13:30"
-    },
-    {
-      "title": null,
-      "body": "Your private session with coach Dietitian Doaa Dahdoli \u062f\u0639\u0627\u0621 \u062f\u062d\u062f\u0648\u0644\u0649 has started, JOIN NOW!",
-      "type": null,
-      "data": null,
-      "created_at": "2024-05-28 13:29"
-    },
-    {
-      "title": null,
-      "body": "Your private session with coach Dietitian Doaa Dahdoli \u062f\u0639\u0627\u0621 \u062f\u062d\u062f\u0648\u0644\u0649 Starts in 1 minutes",
-      "type": null,
-      "data": null,
-      "created_at": "2024-05-28 13:28"
+      "id": "24",
+      "image": "storage/app/public/trainersImages/4GfGCIYQ1SrdlcQ6bsv6jI6PKRsAS5fEMuRjvAcv.png",
+      "agreement": null,
+      "rating": 5,
+      "name": "Mariam khaled مريم خالد",
+      "bio": "كوتش مريم خبرة 6 سنوات متخصصة في:  برامج تدريبية منزلية لنحت جميع مناطق الجسم, برامج لزيادة القوة العضلية واللياقة البدنية, برامج لتعزيز حرق الدهون, برامج لشدّ الترهلات.",
+      "introduction_video": null,
+      "number_of_plans": "1",
+      "number_of_private_hours": 134,
+      "number_of_subscribers": 37,
+      "specialties": [
+        {
+          "id": "19",
+          "type": "Body Weight Workout",
+          "type_id": "19",
+          "plan_id": "44"
+        }
+      ],
+      "private_session_price": 100,
+      "appointment": {
+        "id": 201,
+        "status": "started",
+        "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IAA5KDvS+VP9JuzlIr10LVbIwWYB7iJQs6J2qxL1XfDaeYp+KioAAAAAEAA1mgAAE4+/ZAEAAQAnT75k",
+        "time": null
+      }
     }
   ],
-  "number_of_pages": 2,
-  "number_of_results": 36,
-  "un_read_notification": 32
+  "number_of_pages": 1,
+  "number_of_results": 18
 }

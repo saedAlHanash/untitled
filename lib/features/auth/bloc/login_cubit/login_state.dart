@@ -2,12 +2,12 @@ part of 'login_cubit.dart';
 
 class LoginInitial extends AbstractCubit<LoginData> {
   final LoginRequest request;
- final  bool isTrainer;
+ final  UserType userType;
   const LoginInitial({
     required super.result,
     super.error,
     required this.request,
-     required this.isTrainer,
+     required this.userType,
     super.statuses,
   });
 
@@ -15,28 +15,28 @@ class LoginInitial extends AbstractCubit<LoginData> {
     return LoginInitial(
       result: LoginData.fromJson({}),
       error: '',
-      isTrainer: false,
+      userType: UserType.user,
       request: LoginRequest(),
       statuses: CubitStatuses.init,
     );
   }
 
   @override
-  List<Object> get props => [statuses, result, error,isTrainer];
+  List<Object> get props => [statuses, result, error,userType];
 
   LoginInitial copyWith({
     CubitStatuses? statuses,
     LoginData? result,
     String? error,
     LoginRequest? request,
-    bool? isTrainer,
+    UserType? userType,
   }) {
     return LoginInitial(
       statuses: statuses ?? this.statuses,
       result: result ?? this.result,
       error: error ?? this.error,
       request: request ?? this.request,
-      isTrainer: isTrainer ?? this.isTrainer,
+      userType: userType ?? this.userType,
     );
   }
 }

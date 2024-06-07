@@ -3,9 +3,11 @@ import 'package:fitness_storm/Screen/Trainee%20Screens/Main%20Home/main_home_con
 import 'package:fitness_storm/Screen/Trainee%20Screens/Progress%20Screen/progress_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Search%20Screen/search_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Workout%20Screen/workout_screen.dart';
+import 'package:fitness_storm/features/profile/ui/pages/guest_profile_page.dart';
 import 'package:fitness_storm/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
@@ -23,117 +25,108 @@ class MainHomeScreen extends GetView<MainHomeController> {
 
   List<Widget> tabs = [
     const HomeScreen(),
-    const WorkoutScreen(),
+    if (!AppProvider.isGuest) const WorkoutScreen(),
     const SearchScreen(),
-    const ProgressScreen(),
-    const ProfilePage(),
+    if (!AppProvider.isGuest) const ProgressScreen(),
+    if (AppProvider.isGuest) const GuestProfilePage() else const ProfilePage(),
   ];
 
   @override
   Widget build(BuildContext context) {
-    var scaffoldKey = GlobalKey<ScaffoldState>();
 
-    // Check if the current locale is English
-    // bool isArabic = Get.locale?.languageCode == 'ar';
-    bool isEnglish = Get.locale?.languageCode == 'en';
     return Obx(
       () => BlocListener<WelcomeMessagesCubit, WelcomeMessagesInitial>(
         listener: (context, state) {},
         child: Scaffold(
-          key: scaffoldKey,
-          appBar: controller.navController.index == 4
-              ? null
-              : AppBar(
-                  leadingWidth: Get.width / 8,
-                  leading: Padding(
-                    padding: isEnglish
-                        ? EdgeInsets.only(left: Get.width / 20)
-                        : EdgeInsets.only(right: Get.width / 20),
-                    child: GestureDetector(
-                      onTap: () {
-                        if (AppControl.isAppleAccount) return;
-                        Get.toNamed(AppRoutes.subscriptionScreen);
-                      },
-                      child: Image.asset(
-                        'asset/Images/logo_light.png',
-                        height: 5,
-                      ),
-                    ),
-                  ),
-                  actions: [
-                    IconButton(
-                        onPressed: () => Get.toNamed(AppRoutes.chatScreen),
-                        icon: BlocBuilder<RoomsCubit, RoomsInitial>(
-                          builder: (context, state) {
-                            return Stack(
-                              children: [
-                                SvgPicture.asset(
-                                  'asset/Images/chatSVG.svg',
-                                  color: Get.theme.scaffoldBackgroundColor,
-                                ),
-                                if (state.noReadMessages)
-                                  Container(
-                                    height: 7.0,
-                                    width: 7.0,
-                                    decoration: const BoxDecoration(
-                                      color: Colors.red,
-                                      shape: BoxShape.circle,
-                                    ),
-                                  )
-                              ],
-                            );
-                          },
-                        )),
-                    BlocBuilder<NotificationsCubit, NotificationsInitial>(
+
+          appBar: AppBar(
+            leading: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10).r,
+              child: GestureDetector(
+                onTap: () {
+                  if (AppControl.isAppleAccount) return;
+                  Get.toNamed(AppRoutes.subscriptionScreen);
+                },
+                child: Image.asset(
+                  'asset/Images/logo_light.png',
+                  height: 5,
+                ),
+              ),
+            ),
+            actions: [
+              if (!AppProvider.isGuest)
+                IconButton(
+                    onPressed: () => Get.toNamed(AppRoutes.chatScreen),
+                    icon: BlocBuilder<RoomsCubit, RoomsInitial>(
                       builder: (context, state) {
                         return Stack(
-                          alignment: isEnglish
-                              ? Alignment.topRight
-                              : Alignment.topLeft,
                           children: [
-                            IconButton(
-                                onPressed: () {
-                                  startNotificationsPage();
-                                },
-                                icon: const Icon(
-                                  Icons.notifications,
-                                  size: 30,
-                                )),
-                            (state.result.numberOfResults - state.numOfRead) !=
-                                    0
-                                ? Container(
-                                    padding: const EdgeInsets.all(2),
-                                    decoration: BoxDecoration(
-                                      color: Colors.red,
-                                      borderRadius: BorderRadius.circular(6),
-                                    ),
-                                    constraints: const BoxConstraints(
-                                      minWidth: 15,
-                                      minHeight: 15,
-                                    ),
-                                    child: Text(
-                                      (state.result.numberOfResults -
-                                                  state.numOfRead) >
-                                              9
-                                          ? "+9"
-                                          : (state.result.numberOfResults -
-                                                  state.numOfRead)
-                                              .toString(),
-                                      style: const TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 8,
-                                      ),
-                                      textAlign: TextAlign.center,
-                                    ),
-                                  )
-                                : const SizedBox.shrink()
+                            SvgPicture.asset(
+                              'asset/Images/chatSVG.svg',
+                              color: Get.theme.scaffoldBackgroundColor,
+                            ),
+                            if (state.noReadMessages)
+                              Container(
+                                height: 7.0,
+                                width: 7.0,
+                                decoration: const BoxDecoration(
+                                  color: Colors.red,
+                                  shape: BoxShape.circle,
+                                ),
+                              )
                           ],
                         );
                       },
-                    ),
-                    const SizedBox(width: 10),
-                  ],
-                ),
+                    )),
+
+              BlocBuilder<NotificationsCubit, NotificationsInitial>(
+                builder: (context, state) {
+                  return Stack(
+                    alignment:
+                    Get.locale?.languageCode == 'en' ? Alignment.topRight : Alignment.topLeft,
+                    children: [
+                      IconButton(
+                          onPressed: () {
+                            startNotificationsPage();
+                          },
+                          icon: const Icon(
+                            Icons.notifications,
+                            size: 30,
+                          )),
+                      (state.result.numberOfResults - state.numOfRead) != 0
+                          ? Container(
+                              padding: const EdgeInsets.all(2),
+                              decoration: BoxDecoration(
+                                color: Colors.red,
+                                borderRadius: BorderRadius.circular(6),
+                              ),
+                              constraints: const BoxConstraints(
+                                minWidth: 15,
+                                minHeight: 15,
+                              ),
+                              child: Text(
+                                (state.result.numberOfResults -
+                                            state.numOfRead) >
+                                        9
+                                    ? "+9"
+                                    : (state.result.numberOfResults -
+                                            state.numOfRead)
+                                        .toString(),
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 8,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            )
+                          : const SizedBox.shrink()
+                    ],
+                  );
+                },
+              ),
+              const SizedBox(width: 10),
+            ],
+          ),
           body: tabs[controller.navController.index],
           bottomNavigationBar: Container(
             decoration: const BoxDecoration(

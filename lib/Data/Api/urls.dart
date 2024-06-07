@@ -20,7 +20,7 @@ abstract class TRAINEEURLS {
   static const getFeaturedPlans = '$userBaseUrl/plans/featured';
   static const getOurPlans = '$userBaseUrl/plans/ourPlans';
   static const getPlanById = '$userBaseUrl/plans/';
-  static const getYourTrainer = '$userBaseUrl/trainers?page=';
+  static const getYourTrainer = '$userBaseUrl/trainers';
   static const getTrainerById = '$userBaseUrl/trainers/';
   static const subscribeToPlan = '$userBaseUrl/subscribeToPlan';
   static const completeDay = '$userBaseUrl/completeDay';

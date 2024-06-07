@@ -288,6 +288,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Widgets that have global keys reparent\ntheir subtrees when they are moved from one\nlocation in the tree to another location in \"\nthe tree. In order to reparent its subtree, \na widget must arrive at its new location in \nthe tree in the same animation frame in \nwhich it was removed from its old location \nthe tree."),
         "governor": MessageLookupByLibrary.simpleMessage("governor"),
         "greatJob": MessageLookupByLibrary.simpleMessage("Great Job!"),
+        "guest": MessageLookupByLibrary.simpleMessage("Continue as Guest"),
+        "guestUser": MessageLookupByLibrary.simpleMessage("Guest User"),
         "gym": MessageLookupByLibrary.simpleMessage("Gym"),
         "handsFree": MessageLookupByLibrary.simpleMessage("Hands-Free"),
         "haveBeenCreated": MessageLookupByLibrary.simpleMessage(
@@ -385,6 +387,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "The Password Is More Than 8 Letters And Numbers"),
         "needBookPrivateSession": MessageLookupByLibrary.simpleMessage(
             "You need to book an appointment to have a private session with the coach"),
+        "needLogin": MessageLookupByLibrary.simpleMessage("Need login!"),
         "netTotal": MessageLookupByLibrary.simpleMessage("Net Total"),
         "newArrival": MessageLookupByLibrary.simpleMessage("New Arrival"),
         "newCheckEmail": MessageLookupByLibrary.simpleMessage(

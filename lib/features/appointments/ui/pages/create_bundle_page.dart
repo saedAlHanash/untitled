@@ -1,4 +1,5 @@
 import 'package:drawable_text/drawable_text.dart';
+import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/widgets/app_bar/app_bar_widget.dart';
 import 'package:fitness_storm/core/widgets/my_card_widget.dart';
@@ -21,9 +22,12 @@ import '../../../../generated/l10n.dart';
 import '../../../coupon/data/request/pay_request.dart';
 import '../../../coupon/ui/coupon_bundle.dart';
 import '../../bloc/create_bundle_cubit/create_bundle_cubit.dart';
+import '../../data/response/bundles_response.dart';
 
 class CreateBundlePage extends StatefulWidget {
-  const CreateBundlePage({super.key});
+  const CreateBundlePage({super.key, required this.bundle});
+
+  final Bundle bundle;
 
   @override
   State<CreateBundlePage> createState() => _CreateBundlePageState();
@@ -63,8 +67,9 @@ class _CreateBundlePageState extends State<CreateBundlePage> {
                 if (state.statuses.loading) {
                   return MyStyle.loadingWidget();
                 }
-                if (!context.read<CreateBundleCubit>().isFull)
+                if (!context.read<CreateBundleCubit>().isFull) {
                   return 0.0.verticalSpace;
+                }
 
                 return Row(
                   mainAxisSize: MainAxisSize.min,
@@ -114,13 +119,9 @@ class _CreateBundlePageState extends State<CreateBundlePage> {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              BlocBuilder<CreateBundleCubit, CreateBundleInitial>(
-                builder: (context, state) {
-                  return DrawableText(
-                    text: state.bundle.description,
-                    color: Colors.grey,
-                  );
-                },
+              DrawableText(
+                text: widget.bundle.description,
+                color: Colors.grey,
               ),
               10.0.verticalSpace,
               const _BundleSelectWidget(),

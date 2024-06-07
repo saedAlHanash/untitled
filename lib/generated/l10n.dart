@@ -5410,6 +5410,36 @@ class S {
     );
   }
 
+  /// `Continue as Guest`
+  String get guest {
+    return Intl.message(
+      'Continue as Guest',
+      name: 'guest',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Guest User`
+  String get guestUser {
+    return Intl.message(
+      'Guest User',
+      name: 'guestUser',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Need login!`
+  String get needLogin {
+    return Intl.message(
+      'Need login!',
+      name: 'needLogin',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Thank you for your interest in joining us! We have received your application and are currently reviewing it.`
   String get thxForApplyAsTrainer {
     return Intl.message(

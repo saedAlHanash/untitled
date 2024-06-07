@@ -154,7 +154,7 @@ class _BundleItem extends StatelessWidget {
       child: InkWell(
         onTap: item.sessions > maxTimesCount ? null : () => startCreateBundle(item),
         child: Container(
-          width: 110.0.r,
+          width: 99.0.r,
           margin: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0).r,
           padding: const EdgeInsets.symmetric(horizontal: 10.0).r,
           decoration: BoxDecoration(

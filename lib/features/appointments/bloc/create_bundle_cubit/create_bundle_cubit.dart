@@ -4,6 +4,7 @@ import 'package:fitness_storm/core/util/firebase_analytics_service.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/api_manager/api_service.dart';
+import '../../../../core/app/app_provider.dart';
 import '../../../../core/error/error_manager.dart';
 import '../../../../core/injection/injection_container.dart';
 import '../../../../core/models/booked_appointments.dart';
@@ -19,6 +20,11 @@ class CreateBundleCubit extends Cubit<CreateBundleInitial> {
   CreateBundleCubit() : super(CreateBundleInitial.initial());
 
   Future<void> createBundle({String? code}) async {
+    if (AppProvider.isGuest) {
+      AppProvider.showLoginDialog();
+      return;
+    }
+
     emit(state.copyWith(statuses: CubitStatuses.loading));
     final pair = await _createBundle();
     if (pair.first == null) {
@@ -31,6 +37,7 @@ class CreateBundleCubit extends Cubit<CreateBundleInitial> {
   }
 
   Future<Pair<String?, String?>> _createBundle() async {
+
     final response = await APIService().postApi(
       url: PostUrl.createBundle,
       body: state.request.toJson(),

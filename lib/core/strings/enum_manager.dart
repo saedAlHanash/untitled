@@ -6,7 +6,7 @@ enum AttachmentType { image, youtube, video, d3 }
 
 enum PricingMatrixType { day, date }
 
-enum UserType { user, trainer }
+enum UserType { user, trainer,guest }
 
 enum FilterItem { activity, group, country, city }
 
@@ -22,7 +22,7 @@ enum StartPage { login, home, otp }
 
 enum FontFamily { roboto, robotoSimBold, robotoBold }
 
-enum ProfileCardType { profile, fav, payment, lang, appointment ,welcome}
+enum ProfileCardType { profile, fav, payment, lang, appointment }
 
 enum ProfileButtonType { about, privacy, faq, terms }
 

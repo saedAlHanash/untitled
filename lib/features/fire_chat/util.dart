@@ -80,7 +80,8 @@ Future<bool> isChatUserFound(String id) async {
 
 Future<void> createChatUser(String id, String? name, String? photo) async {
   try {
-    final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+    final credential =
+        await FirebaseAuth.instance.createUserWithEmailAndPassword(
       email: 'fitnes.$id@fitnes.com',
       password: '98898$id!@qweDSAFCA',
     );
@@ -119,7 +120,10 @@ Future<void> loginChatUser(String id, String? name, String? photo) async {
 
 Future<void> logoutChatUser() async {
   if (firebaseUser != null) {
-    await FirebaseFirestore.instance.collection('users').doc(firebaseUser?.uid).update(
+    await FirebaseFirestore.instance
+        .collection('users')
+        .doc(firebaseUser?.uid)
+        .update(
       {
         'metadata': {'fcm_web': ''}
       },
@@ -137,10 +141,11 @@ Future<void> logoutChatUser() async {
 }
 
 Future<void> initFirebaseChat() async {
+  if (AppProvider.isGuest) return;
   final id = AppProvider.profile.id;
   final name = AppProvider.profile.name;
   final photo = AppProvider.profile.image;
-  if (id ==0) return;
+  if (id == 0) return;
 
   try {
     if (await isChatUserFound(id.toString())) {
@@ -156,10 +161,11 @@ Future<void> initFirebaseChat() async {
 }
 
 Future<void> initFirebaseChatAfterLogin() async {
+  if (AppProvider.isGuest) return;
   final id = AppProvider.profile.id;
   final name = AppProvider.profile.name;
   final photo = AppProvider.profile.image;
-  if (id ==0) return;
+  if (id == 0) return;
 
   try {
     if (await isChatUserFound(id.toString())) {

@@ -72,19 +72,20 @@ class _ProfileCardState extends State<ProfileCard> {
         };
 
         break;
-      case ProfileCardType.welcome:
-        image = Assets.imagesWelcomeMessage;
-        name = S().welcomeMessage;
-        onTap = () {
-          startWelcomePage();
-        };
-        break;
+      // case ProfileCardType.welcome:
+      //   image = Assets.imagesWelcomeMessage;
+      //   name = S().welcomeMessage;
+      //   onTap = () {
+      //     startWelcomePage();
+      //   };
+      //   break;
     }
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+
     return GestureDetector(
       onTap: () => onTap.call(),
       child: Container(

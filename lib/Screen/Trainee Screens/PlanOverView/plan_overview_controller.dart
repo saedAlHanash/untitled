@@ -164,9 +164,9 @@ class PlanOverviewController extends GetxController {
         }
       } else if (apiResult.statusCode == 451) {
         if (AppControl.isAppleAccount) return;
-        Utils.showAlertDialog(() {
-          Get.toNamed(AppRoutes.subscriptionScreen);
-        }, '''subscription_finished'''.tr, textContinue: 'subscribe'.tr);
+
+        Get.toNamed(AppRoutes.subscriptionScreen);
+
       } else if (apiResult.statusCode == 402) {
         //TODO: saed see mahmood form server to fix it
         Utils.showAlertDialog(() {}, "finished_this_day".tr,

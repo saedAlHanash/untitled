@@ -2,12 +2,19 @@ import 'package:fitness_storm/Screen/Trainee%20Screens/Subscription/Widget/payme
 import 'package:fitness_storm/Screen/Trainee%20Screens/Subscription/Widget/success_subscribed.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Subscription/Widget/without_subscribed.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Subscription/subscription_controller.dart';
+import 'package:fitness_storm/core/strings/app_color_manager.dart';
+import 'package:fitness_storm/core/util/snack_bar_message.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../core/app/app_provider.dart';
+import '../../../core/util/shared_preferences.dart';
 import '../../../custome_web_page_view.dart';
 import '../../../features/coupon/data/request/pay_request.dart';
 import '../../../features/coupon/ui/coupon_widget.dart';
+import '../../../generated/assets.dart';
+import '../../../generated/l10n.dart';
+import '../../../router/app_router.dart';
 import 'Widget/current_payment_card.dart';
 
 class SubscriptionScreen extends GetView<SubscruptionController> {
@@ -24,7 +31,8 @@ class SubscriptionScreen extends GetView<SubscruptionController> {
             onPressed: () => Get.back(),
           ),
           title: Text('subscription_plans'.tr),
-          titleTextStyle: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          titleTextStyle:
+              const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
         body: Container(
           height: MediaQuery.of(context).size.height,
@@ -46,7 +54,8 @@ class SubscriptionScreen extends GetView<SubscruptionController> {
               : SingleChildScrollView(
                   child: Container(
                     padding: EdgeInsets.symmetric(
-                        horizontal: Get.width / 18.75, vertical: Get.height / 20.3),
+                        horizontal: Get.width / 18.75,
+                        vertical: Get.height / 20.3),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
@@ -61,16 +70,18 @@ class SubscriptionScreen extends GetView<SubscruptionController> {
                         GridView.builder(
                           physics: const NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
-                          itemCount: controller.subscriptions.subscriptions.length,
-                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          itemCount:
+                              controller.subscriptions.subscriptions.length,
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
                             crossAxisSpacing: Get.width / 19.7,
                             childAspectRatio: 2 / 2.2,
                             mainAxisSpacing: Get.height / 40.6,
                           ),
                           itemBuilder: (_, i) {
-                            if (controller
-                                .subscriptions.subscriptions[i].currentSubscription) {
+                            if (controller.subscriptions.subscriptions[i]
+                                .currentSubscription) {
                               return CurrentPaymentCardWidget(
                                 plan: controller.subscriptions.subscriptions[i],
                               );
@@ -91,6 +102,11 @@ class SubscriptionScreen extends GetView<SubscruptionController> {
   }
 
   void onTapSubscrip(BuildContext context, int i) async {
+    if (AppProvider.isGuest) {
+      AppProvider.showLoginDialog();
+      return;
+    }
+
     if (!controller.isSubscribe) {
       final result = await Navigator.push(
         context,

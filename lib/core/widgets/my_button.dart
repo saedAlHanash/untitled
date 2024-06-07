@@ -57,11 +57,13 @@ class MyButton extends StatelessWidget {
               ),
             ),
           ),
-          shadowColor: MaterialStatePropertyAll(const Color(0xFF4C2E84).withOpacity(0.2)),
+          shadowColor: MaterialStatePropertyAll(
+              const Color(0xFF4C2E84).withOpacity(0.2)),
           elevation: MaterialStatePropertyAll(elevation ?? 10.0.r),
-          backgroundColor: MaterialStatePropertyAll(color ?? AppColorManager.mainColor),
-          // padding: MaterialStatePropertyAll(padding),
-          padding: MaterialStatePropertyAll(const EdgeInsets.symmetric(vertical: 0.0).r),
+          backgroundColor:
+              MaterialStatePropertyAll(color ?? AppColorManager.mainColor),
+          padding: MaterialStatePropertyAll(
+              padding ?? const EdgeInsets.symmetric(vertical: 0.0).r),
           alignment: Alignment.center,
         ),
         onPressed: !(enable ?? true) ? null : onTap,
@@ -122,9 +124,11 @@ class MyButtonOutLine extends StatelessWidget {
           ),
 
           elevation: const MaterialStatePropertyAll(0.0),
-          backgroundColor: MaterialStatePropertyAll(color ?? AppColorManager.whit),
+          backgroundColor:
+              MaterialStatePropertyAll(color ?? AppColorManager.whit),
           // padding: MaterialStatePropertyAll(padding),
-          padding: MaterialStatePropertyAll(const EdgeInsets.symmetric(vertical: 0.0).r),
+          padding: MaterialStatePropertyAll(
+              const EdgeInsets.symmetric(vertical: 0.0).r),
           alignment: Alignment.center,
         ),
         onPressed: !(enable ?? true) ? null : onTap,
@@ -183,12 +187,15 @@ class MyButtonRound extends StatelessWidget {
               ),
             ),
           ),
-          shadowColor: MaterialStatePropertyAll(const Color(0xFF4C2E84).withOpacity(0.2)),
+          shadowColor: MaterialStatePropertyAll(
+              const Color(0xFF4C2E84).withOpacity(0.2)),
           elevation: MaterialStatePropertyAll(enable ? elevation ?? 10.0.r : 0),
-          backgroundColor: MaterialStatePropertyAll(
-              enable ? color ?? AppColorManager.mainColor : AppColorManager.gray),
+          backgroundColor: MaterialStatePropertyAll(enable
+              ? color ?? AppColorManager.mainColor
+              : AppColorManager.gray),
           // padding: MaterialStatePropertyAll(padding),
-          padding: MaterialStatePropertyAll(const EdgeInsets.symmetric(vertical: 3.0).r),
+          padding: MaterialStatePropertyAll(
+              const EdgeInsets.symmetric(vertical: 3.0).r),
           alignment: Alignment.center,
         ),
         onPressed: !enable ? null : onTap,

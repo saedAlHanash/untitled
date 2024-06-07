@@ -551,6 +551,9 @@
   "whatPlansDoYouOfferToSubscribe": "What plans do you offer to subscribe?",
   "timeLeftToEndCall": "الوقت المتبقي لإنهاء المكالمة ",
   "welcomeMessage": "رسالة الترحيب",
+  "guest": "المتابعة كضيف",
+  "guestUser": "مستخدم ضيف",
+  "needLogin": "يجب تسجيل الدخول!",
 
   "thxForApplyAsTrainer": "نشكرك على اهتمامك للإنضمام معنا! لقد تلقينا طلبك ونقوم حاليًا بم مراجعته."
 }

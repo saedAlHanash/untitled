@@ -37,7 +37,6 @@ class RefreshTokenCubit extends Cubit<RefreshTokenInitial> {
       final token = (response.jsonBody['access_token'] ?? '').toString();
       AppProvider.cashLoginData(
         AppSharedPreference.loginDate.copyWith(accessToken: token),
-        isTrainer: AppProvider.isTrainer,
       );
       return Pair(true, null);
     } else {

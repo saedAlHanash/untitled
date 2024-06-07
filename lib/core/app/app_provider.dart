@@ -7,11 +7,15 @@ import 'package:fitness_storm/features/fire_chat/util.dart';
 
 import '../../Utils/utils.dart';
 import '../../features/profile/data/response/profile_response.dart';
+import '../../generated/assets.dart';
+import '../../generated/l10n.dart';
+import '../../router/app_router.dart';
+import '../strings/app_color_manager.dart';
 import '../util/shared_preferences.dart';
+import '../util/snack_bar_message.dart';
+import 'app_widget.dart';
 
 class AppProvider {
-
-
   static LoginData _loginData = AppSharedPreference.loginDate;
 
   static UserType _userType = AppSharedPreference.getUserType;
@@ -42,24 +46,23 @@ class AppProvider {
 
   static bool get isTrainer => _userType == UserType.trainer;
 
+  static bool get isGuest => _userType == UserType.guest;
+
   static _setLoginData() {
     _loginData = AppSharedPreference.loginDate;
     _userType = AppSharedPreference.getUserType;
   }
 
-  static cashLoginData(LoginData data, {required bool isTrainer}) async {
+  static cashLoginData(LoginData data, { UserType? userType}) async {
     await AppSharedPreference.cashLoginData(data);
-
-    if (isTrainer) {
-      await AppSharedPreference.cashUserType(UserType.trainer);
-    } else {
-      await AppSharedPreference.cashUserType(UserType.user);
+    if (userType != null) {
+      await AppSharedPreference.cashUserType(userType);
     }
 
     _setLoginData();
   }
 
-  static cashProfile(Profile data, {bool? isTrainer}) async {
+  static cashProfile(Profile data) async {
     await AppSharedPreference.cashProfile(data);
     _profile = data;
     await initFirebaseChatAfterLogin();
@@ -83,7 +86,20 @@ class AppProvider {
     await logoutChatUser();
   }
 
-
+  static void showLoginDialog(){
+    NoteMessage.showCheckDialog(ctx!,
+      text: S.of(ctx!).needLogin,
+      textButton: S
+          .of(ctx!)
+          .login,
+      image: Assets.imagesLogo,
+      color: AppColorManager.mainColor,
+      onConfirm:() {
+        AppSharedPreference.logout();
+        startLogin();
+      },
+    );
+  }
 }
 
 class AppControl {

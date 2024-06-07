@@ -37,13 +37,16 @@ class ProfilePage extends StatelessWidget {
           }
           final profile = state.result;
           return SingleChildScrollView(
-            padding: const EdgeInsets.only(left: 30.0, right: 30.0, bottom: 100.0).r,
+            padding:
+                const EdgeInsets.only(left: 30.0, right: 30.0, bottom: 100.0).r,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 30.0.verticalSpace,
                 CircleImageWidget(
-                  url: (profile.image ?? '').isEmpty ? Assets.imagesUser : profile.image,
+                  url: (profile.image ?? '').isEmpty
+                      ? Assets.imagesUser
+                      : profile.image,
                   size: 100.0.r,
                 ),
                 10.0.verticalSpace,
@@ -54,7 +57,7 @@ class ProfilePage extends StatelessWidget {
                   fontFamily: FontManager.cairoBold.name,
                 ),
                 20.0.verticalSpace,
-                const _ProfileCards(),
+                const ProfileCards(),
                 20.0.verticalSpace,
                 if (!AppControl.isAppleAccount) ...[
                   MyButton(
@@ -65,7 +68,8 @@ class ProfilePage extends StatelessWidget {
                       size: 15.0.sp,
                       color: Colors.white,
                       drawablePadding: 10.0.w,
-                      drawableStart: const ImageMultiType(url: Assets.imagesSubscription),
+                      drawableStart:
+                          const ImageMultiType(url: Assets.imagesSubscription),
                     ),
                   ),
                   15.0.verticalSpace,
@@ -77,7 +81,8 @@ class ProfilePage extends StatelessWidget {
                     }
                     return MyButton(
                       onTap: () async {
-                        final room = await context.read<RoomsCubit>().getRoomByUser('0');
+                        final room =
+                            await context.read<RoomsCubit>().getRoomByUser('0');
 
                         if (context.mounted) {
                           openRoomFunction(context, room!);
@@ -102,7 +107,8 @@ class ProfilePage extends StatelessWidget {
                         text: S.of(context).logout,
                         color: Colors.grey,
                         drawablePadding: 10.0.w,
-                        drawableEnd: const ImageMultiType(url: Assets.imagesLogout),
+                        drawableEnd:
+                            const ImageMultiType(url: Assets.imagesLogout),
                       ),
                     );
                   },
@@ -116,8 +122,8 @@ class ProfilePage extends StatelessWidget {
   }
 }
 
-class _ProfileCards extends StatelessWidget {
-  const _ProfileCards();
+class ProfileCards extends StatelessWidget {
+  const ProfileCards({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -140,15 +146,14 @@ class _ProfileCards extends StatelessWidget {
           ],
         ),
         25.0.verticalSpace,
-        Row(
-          children: [
-            if (!AppControl.isAppleAccount)
-              const Expanded(child: ProfileCard(type: ProfileCardType.appointment)),
-            if (!AppControl.isAppleAccount) 15.0.horizontalSpace,
-            const Expanded(child: ProfileCard(type: ProfileCardType.welcome)),
-          ],
-        ),
-
+        if (!AppControl.isAppleAccount)
+          const Row(
+            children: [
+              Expanded(child: ProfileCard(type: ProfileCardType.appointment)),
+              // if (!AppControl.isAppleAccount) 15.0.horizontalSpace,
+              // const Expanded(child: ProfileCard(type: ProfileCardType.welcome)),
+            ],
+          ),
       ],
     );
   }
