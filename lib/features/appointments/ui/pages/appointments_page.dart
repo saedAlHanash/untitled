@@ -148,14 +148,7 @@ class _ItemAppointment extends StatelessWidget {
               context.read<BookedAppointmentsCubit>().getBookedAppointments();
               return;
             }
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (_) => Video1(
-                  appointment: item,
-                ),
-              ),
-            );
+            startVideoCall(item);
           },
           trailing: item.isNow
               ? Container(
@@ -183,13 +176,7 @@ class _ItemAppointment extends StatelessWidget {
                             backgroundColor: MaterialStateProperty.all<Color>(
                                 AppColorManager.cardColor),
                           ),
-                          onPressed: () async {
-                            if (await startRating(item) && context.mounted) {
-                              context
-                                  .read<BookedAppointmentsCubit>()
-                                  .getBookedAppointments();
-                            }
-                          },
+                          onPressed: () => startRating(item),
                           icon: const ImageMultiType(
                             url: Icons.star,
                             color: AppColorManager.mainColor,

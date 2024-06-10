@@ -9,37 +9,14 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="43c414a0-a0aa-41d9-b6a1-9df3dcc6d755" name="Changes" comment="add welcome message &#10;fix notifications">
-      <change afterPath="$PROJECT_DIR$/lib/features/profile/ui/pages/guest_profile_page.dart" afterDir="false" />
+    <list default="true" id="43c414a0-a0aa-41d9-b6a1-9df3dcc6d755" name="Changes" comment="add guest user">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Data/Repositories/trainer_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Data/Repositories/trainer_repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Main Home/Widget/navigation_bar_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Main Home/Widget/navigation_bar_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Main Home/main_home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Main Home/main_home_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/PlanOverView/plan_overview_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/PlanOverView/plan_overview_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Subscription/subscription_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Subscription/subscription_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Subscription/subscription_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Subscription/subscription_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/api_manager/api_url.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/api_manager/api_url.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/app/app_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/app/app_provider.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/strings/enum_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/strings/enum_manager.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/util/snack_bar_message.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/util/snack_bar_message.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/widgets/my_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/widgets/my_button.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/appointments/bloc/create_bundle_cubit/create_bundle_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/appointments/bloc/create_bundle_cubit/create_bundle_cubit.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/appointments/ui/pages/create_bundle_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/appointments/ui/pages/create_bundle_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/auth/bloc/login_cubit/login_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/bloc/login_cubit/login_cubit.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/auth/bloc/login_cubit/login_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/bloc/login_cubit/login_state.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/auth/bloc/login_social_cubit/login_social_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/bloc/login_social_cubit/login_social_cubit.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/auth/bloc/refresh_token_cubit/refresh_token_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/bloc/refresh_token_cubit/refresh_token_cubit.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/auth/bloc/signup_cubit/signup_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/bloc/signup_cubit/signup_cubit.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/auth/ui/pages/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/ui/pages/login_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/fire_chat/util.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/fire_chat/util.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/profile/ui/pages/profile_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/profile/ui/pages/profile_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/video/video.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/video/video.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/appointments/ui/pages/appointments_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/appointments/ui/pages/appointments_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/appointments/ui/pages/rating_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/appointments/ui/pages/rating_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/features/profile/ui/widget/card_profile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/profile/ui/widget/card_profile.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/trainer/ui/widget/trainer_bio_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/trainer/ui/widget/trainer_bio_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/generated/intl/messages_ar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/intl/messages_ar.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/generated/intl/messages_en.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/intl/messages_en.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/generated/l10n.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/l10n.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/l10n/intl_ar.arb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/l10n/intl_ar.arb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/l10n/intl_en.arb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/l10n/intl_en.arb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/trainer/ui/pages/calender_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/trainer/ui/pages/calender_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/trainer/ui/widget/trainer_header.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/trainer/ui/widget/trainer_header.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/router/app_router.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/router/app_router.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -90,7 +67,7 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "flutter.settings",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "show.migrate.to.gradle.popup": "false"
   }
 }]]></component>
@@ -351,7 +328,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717542506132</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="add guest user">
+      <option name="closed" value="true" />
+      <created>1717752072348</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1717752072348</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -381,7 +366,8 @@
     <MESSAGE value="add ServerTimeService" />
     <MESSAGE value="clean code" />
     <MESSAGE value="add welcome message &#10;fix notifications" />
-    <option name="LAST_COMMIT_MESSAGE" value="add welcome message &#10;fix notifications" />
+    <MESSAGE value="add guest user" />
+    <option name="LAST_COMMIT_MESSAGE" value="add guest user" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

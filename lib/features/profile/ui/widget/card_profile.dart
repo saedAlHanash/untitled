@@ -85,7 +85,6 @@ class _ProfileCardState extends State<ProfileCard> {
 
   @override
   Widget build(BuildContext context) {
-
     return GestureDetector(
       onTap: () => onTap.call(),
       child: Container(

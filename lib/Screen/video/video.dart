@@ -3,9 +3,6 @@ import 'dart:async';
 import 'package:agora_rtc_engine/agora_rtc_engine.dart';
 import 'package:drawable_text/drawable_text.dart';
 import 'package:fitness_storm/core/api_manager/api_service.dart';
-import 'package:fitness_storm/core/api_manager/api_service.dart';
-import 'package:fitness_storm/core/api_manager/api_service.dart';
-import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
 import 'package:fitness_storm/core/util/firebase_analytics_service.dart';
 import 'package:fitness_storm/services/server_time_service.dart';
@@ -19,6 +16,7 @@ import '../../Utils/protact_screen_service.dart';
 import '../../core/injection/injection_container.dart';
 import '../../core/models/booked_appointments.dart';
 import '../../generated/l10n.dart';
+import '../../router/app_router.dart';
 
 class Video1 extends StatefulWidget {
   const Video1({super.key, required this.appointment});
@@ -35,7 +33,7 @@ class _Video1State extends State<Video1> {
   late RtcEngine _engine;
   late RtcEngineEventHandler eventHandler;
 
-   Timer? timer;
+  Timer? timer;
   var showWarning = false;
 
   var timeLift = 0;
@@ -54,10 +52,10 @@ class _Video1State extends State<Video1> {
 
     if (d.inMinutes <= 0) {
       if (firstTime) {
-        Navigator.pop(context);
+        Navigator.pop(context, false);
       } else {
         _engine.leaveChannel();
-        Navigator.pop(context);
+        Navigator.pop(context, true);
       }
     }
   }
@@ -68,8 +66,6 @@ class _Video1State extends State<Video1> {
     // calculateTimeLeft(true);
     // timer = Timer.periodic(
     //     const Duration(minutes: 1), (v) => calculateTimeLeft(false));
-
-
 
     WakelockPlus.enable();
     ProtectScreenService().startProtect(Get.context);
@@ -230,7 +226,7 @@ class _CallScreenState extends State<CallScreen> {
     setState(() {
       _isInChannel = false;
     });
-    Navigator.pop(context);
+    Navigator.pop(context, true);
   }
 
   void _muteLocalAudioStream() {

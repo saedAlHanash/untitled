@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
+import '../Screen/video/video.dart';
 import '../Utils/Routes/app_pages.dart';
 import '../core/injection/injection_container.dart';
 import '../core/models/booked_appointments.dart';
@@ -393,10 +394,7 @@ void startWelcomePage() {
   Get.to(() => page);
 }
 
-
 void startNotificationsPage() {
-
-
   final Widget page = const NotificationsPage();
 
   Get.to(() => page);
@@ -417,7 +415,7 @@ void startCreateBundle(Bundle bundle) {
 
   final Widget page = MultiBlocProvider(
     providers: providers,
-    child:  CreateBundlePage(bundle:bundle),
+    child: CreateBundlePage(bundle: bundle),
   );
   Get.to(() => page);
   sl<FirebaseAnalyticService>().screenView(name: 'create_bundle');
@@ -434,6 +432,15 @@ Future<bool> startRating(Appointment appointment) async {
   );
   final b = await Get.to(page);
   return b is bool;
+}
+
+Future<void> startVideoCall(Appointment appointment) async {
+  final Widget page = Video1(appointment: appointment);
+  Get.to(page)?.then((value) {
+    if (value == true) {
+      startRating(appointment);
+    }
+  });
 }
 
 void startPdf(String url, String name) {

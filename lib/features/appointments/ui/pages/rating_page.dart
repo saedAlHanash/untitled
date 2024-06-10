@@ -19,6 +19,7 @@ import '../../../../core/widgets/my_card_widget.dart';
 import '../../../../core/widgets/my_text_form_widget.dart';
 import '../../../../generated/assets.dart';
 import '../../../../generated/l10n.dart';
+import '../../bloc/booked_appointments_cubit/booked_appointments_cubit.dart';
 import '../../bloc/rating_cubit/rating_cubit.dart';
 
 class RatingPage extends StatelessWidget {
@@ -33,7 +34,11 @@ class RatingPage extends StatelessWidget {
     return BlocListener<RatingCubit, RatingInitial>(
       listenWhen: (p, c) => c.statuses.done,
       listener: (context, state) {
-        NoteMessage.showSuccessSnackBar(message: S.of(context).done, context: context);
+        NoteMessage.showSuccessSnackBar(
+            message: S.of(context).done, context: context);
+        context
+            .read<BookedAppointmentsCubit>()
+            .getBookedAppointments();
         Navigator.pop(context, true);
       },
       child: Container(
@@ -52,62 +57,64 @@ class RatingPage extends StatelessWidget {
           appBar: AppBarWidget(
               titleText:
                   '${S.of(context).rating} ${S.of(context).and} ${S.of(context).review}'),
-          body: Center(
-            child: MyCardWidget(
-              elevation: 10.0,
-              margin: margin,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  10.0.verticalSpace,
-                  CircleImageWidget(url: appointment.user.image),
-                  5.0.verticalSpace,
-                  DrawableText(
-                    text: appointment.user.name,
-                    fontWeight: FontWeight.bold,
-                    size: 18.0.sp,
-                  ),
-                  DrawableText(
-                    text: '${S.of(context).session} ${S.of(context).date}: ',
-                    drawablePadding: 5.0.w,
-                    drawableEnd: DrawableText(
-                      text: appointment.startTime.formatDateTime,
+          body: SingleChildScrollView(
+            child: Center(
+              child: MyCardWidget(
+                elevation: 10.0,
+                margin: margin,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    10.0.verticalSpace,
+                    CircleImageWidget(url: appointment.user.image),
+                    5.0.verticalSpace,
+                    DrawableText(
+                      text: appointment.user.name,
                       fontWeight: FontWeight.bold,
-                      color: AppColorManager.mainColor,
+                      size: 18.0.sp,
                     ),
-                  ),
-                  30.0.verticalSpace,
-                  RatingBarWidget(
-                    onRatingUpdate: (p0) => request.rating = p0,
-                  ),
-                  30.0.verticalSpace,
-                  MyEditTextWidget(
-                    backgroundColor: Colors.white,
-                    maxLines: 5,
-                    innerPadding: const EdgeInsets.all(10.0).r,
-                    hint: S.of(context).review,
-                    onChanged: (val) => request.review = val,
-                  ),
-                  20.0.verticalSpace,
-                  BlocBuilder<RatingCubit, RatingInitial>(
-                    builder: (context, state) {
-                      if (state.statuses.loading) {
-                        return MyStyle.loadingWidget();
-                      }
-                      return MyButton(
-                        text: S.of(context).rating,
-                        onTap: () {
-                          request.rating ??= 1;
-                          request.review ??= 'Empty Review';
-                          request.appointmentId = appointment.appointmentId;
+                    DrawableText(
+                      text: '${S.of(context).session} ${S.of(context).date}: ',
+                      drawablePadding: 5.0.w,
+                      drawableEnd: DrawableText(
+                        text: appointment.startTime.formatDateTime,
+                        fontWeight: FontWeight.bold,
+                        color: AppColorManager.mainColor,
+                      ),
+                    ),
+                    30.0.verticalSpace,
+                    RatingBarWidget(
+                      onRatingUpdate: (p0) => request.rating = p0,
+                    ),
+                    30.0.verticalSpace,
+                    MyEditTextWidget(
+                      backgroundColor: Colors.white,
+                      maxLines: 3,
+                      innerPadding: const EdgeInsets.all(10.0).r,
+                      hint: S.of(context).review,
+                      onChanged: (val) => request.review = val,
+                    ),
+                    20.0.verticalSpace,
+                    BlocBuilder<RatingCubit, RatingInitial>(
+                      builder: (context, state) {
+                        if (state.statuses.loading) {
+                          return MyStyle.loadingWidget();
+                        }
+                        return MyButton(
+                          text: S.of(context).rating,
+                          onTap: () {
+                            request.rating ??= 1;
+                            request.review ??= 'Empty Review';
+                            request.appointmentId = appointment.appointmentId;
 
-                          context.read<RatingCubit>().rate(request: request);
-                        },
-                      );
-                    },
-                  ),
-                  20.0.verticalSpace,
-                ],
+                            context.read<RatingCubit>().rate(request: request);
+                          },
+                        );
+                      },
+                    ),
+                    20.0.verticalSpace,
+                  ],
+                ),
               ),
             ),
           ),
@@ -118,14 +125,12 @@ class RatingPage extends StatelessWidget {
 }
 
 class RatingBarWidget extends StatelessWidget {
-  const RatingBarWidget({    super.key, required this.onRatingUpdate}) ;
+  const RatingBarWidget({super.key, required this.onRatingUpdate});
+
   final Function(double) onRatingUpdate;
 
   @override
   Widget build(BuildContext context) {
-    //region listener
-
-    //endregion
     final startSize = 27.0.spMin;
 
     final emptyStar = ImageMultiType(
@@ -140,7 +145,8 @@ class RatingBarWidget extends StatelessWidget {
     );
 
     return RatingBar(
-      ratingWidget: RatingWidget(full: fullStar, half: fullStar, empty: emptyStar),
+      ratingWidget:
+          RatingWidget(full: fullStar, half: fullStar, empty: emptyStar),
       onRatingUpdate: onRatingUpdate,
       glow: false,
       initialRating: 1.0,

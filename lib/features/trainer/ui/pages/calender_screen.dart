@@ -127,12 +127,7 @@ class _ItemAvailableTimeState extends State<_ItemAvailableTime> {
                                 .getAvailableTimes();
                             return;
                           }
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) => Video1(appointment: e),
-                            ),
-                          );
+                          startVideoCall(e);
                         },
                         child: Container(
                           margin: const EdgeInsets.all(15.0).r,

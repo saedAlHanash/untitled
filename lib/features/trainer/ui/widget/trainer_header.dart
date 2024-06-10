@@ -141,14 +141,8 @@ class TrainerHeader extends StatelessWidget {
                                         .getBookedAppointments();
                                     return;
                                   }
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (_) {
-                                        return Video1(appointment: pair.first!);
-                                      },
-                                    ),
-                                  );
+
+                                  startVideoCall(pair.first!);
                                 },
                               ),
                             ),
