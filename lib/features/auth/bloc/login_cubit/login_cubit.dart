@@ -38,7 +38,7 @@ class LoginCubit extends Cubit<LoginInitial> {
   }
 
   Future<Pair<LoginData?, String?>> _loginApi() async {
-    final response = await APIService().postApi(
+    final response = await APIService().callApi(type: ApiType.post,
       additional: state.userType == UserType.trainer
           ? additionalConstTrainer
           : additionalConstUser,

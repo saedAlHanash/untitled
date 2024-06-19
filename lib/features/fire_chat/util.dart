@@ -11,6 +11,7 @@ import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import '../../core/api_manager/api_service.dart';
+import '../../core/strings/enum_manager.dart';
 import '../../main.dart';
 import 'get_chats_rooms_bloc/get_rooms_cubit.dart';
 import 'my_room_object.dart';
@@ -192,7 +193,7 @@ Future<bool> sendNotificationMessage(
     message.body = message.body.substring(0, 99);
   }
 
-  final result = await APIService().postApi(
+  final result = await APIService().callApi(type: ApiType.post,
     url: 'api/send-notification',
     additional: '',
     body: {"token": myRoomObject.fcmToken, "message": message.body},

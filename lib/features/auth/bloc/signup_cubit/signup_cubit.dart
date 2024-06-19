@@ -34,7 +34,7 @@ class SignupCubit extends Cubit<SignupInitial> {
   }
 
   Future<Pair<bool?, String?>> _signupApi() async {
-    final response = await APIService().postApi(
+    final response = await APIService().callApi(type: ApiType.post,
       url: PostUrl.signup,
       body: state.request.toJson(),
     );

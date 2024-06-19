@@ -139,6 +139,12 @@ class PostUrl {
 
   static const rate = 'bookedAppointments/rate';
 
+  static var createTemp = '';
+
+  static var temps ='';
+
+  static var trainers = 'trainers';
+
   static String addFavorite(int id) => 'plans/$id/addToBookmarkedPlans';
 
   static const restPass = 'reset-password';
@@ -173,10 +179,14 @@ class PutUrl {
   static const updateName = 'update-name';
   static const updatePhone = 'update-phone';
   static const updateAddress = 'update-address';
+
+  static var updateTemp='';
 }
 
 class DeleteUrl {
   static const removeTime = 'availableTimes';
+
+  static var deleteTemp='';
 
   static String removeFavorite(int id) => 'plans/$id/deleteFromBookmarkedPlans';
 

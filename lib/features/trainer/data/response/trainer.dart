@@ -2,6 +2,27 @@ import 'package:fitness_storm/Model/specialties_model.dart';
 import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 
+class Trainers {
+  Trainers({
+    required this.data,
+  });
+
+  final List<TrainerModel> data;
+
+  factory Trainers.fromJson(Map<String, dynamic> json) {
+    return Trainers(
+      data: json["data"] == null
+          ? []
+          : List<TrainerModel>.from(
+              json["data"]!.map((x) => TrainerModel.fromJson(x))),
+    );
+  }
+
+  Map<String, dynamic> toJson() => {
+        "data": data.map((x) => x.toJson()).toList(),
+      };
+}
+
 class TrainerModel {
   TrainerModel({
     required this.id,
@@ -42,12 +63,16 @@ class TrainerModel {
       introductionVideo: json["introduction_video"] ?? "",
       numberOfPlans: json["number_of_plans"].toString().tryParseOrZero,
       rating: rating == 0 ? 4 : rating,
-      numberOfPrivateHours: json["number_of_private_hours"].toString().tryParseOrZero,
-      numberOfSubscribers: json["number_of_subscribers"].toString().tryParseOrZero,
+      numberOfPrivateHours:
+          json["number_of_private_hours"].toString().tryParseOrZero,
+      numberOfSubscribers:
+          json["number_of_subscribers"].toString().tryParseOrZero,
       specialties: json["specialties"] == null
           ? []
-          : List<Specialty>.from(json["specialties"]!.map((x) => Specialty.fromJson(x))),
-      privateSessionPrice: json["private_session_price"].toString().tryParseOrZero,
+          : List<Specialty>.from(
+              json["specialties"]!.map((x) => Specialty.fromJson(x))),
+      privateSessionPrice:
+          json["private_session_price"].toString().tryParseOrZero,
     );
   }
 

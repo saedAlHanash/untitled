@@ -35,7 +35,7 @@ class ProfileCubit extends Cubit<ProfileInitial> {
   }
 
   Future<Pair<Profile?, String?>> _getProfileApi() async {
-    final response = await APIService().getApi(
+    final response = await APIService().callApi(type: ApiType.get,
       url: GetUrl.profile,
     );
 

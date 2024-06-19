@@ -33,3 +33,11 @@ enum WalletType { income, invoice }
 enum NeedUpdateEnum { no, withLoading, noLoading }
 
 enum ThemeColor { dark, light }
+
+enum ApiType {
+  get,
+  post,
+  put,
+  patch,
+  delete,
+}

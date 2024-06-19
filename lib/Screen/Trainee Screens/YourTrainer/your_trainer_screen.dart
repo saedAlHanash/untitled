@@ -1,3 +1,4 @@
+import 'package:fitness_storm/core/widgets/app_bar/app_bar_widget.dart';
 import 'package:fitness_storm/features/trainer/data/response/trainer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +8,7 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import '../../../generated/l10n.dart';
 import '../HomeScreen/HomeSreenWidget/yourTainerWidget/your_trainer_widget.dart';
 import 'Widget/filter_row.dart';
-import 'Widget/trainer_widget.dart';
+import '../../../features/trainer/ui/widget/trainer_widget.dart';
 import 'your_trainer_controller.dart';
 
 class YourTrainersScreen extends GetView<YourTrainerController> {
@@ -18,14 +19,7 @@ class YourTrainersScreen extends GetView<YourTrainerController> {
     return Obx(
       () => Scaffold(
         backgroundColor: const Color(0xFFF5F5F5),
-        appBar: AppBar(
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
-            onPressed: () => Get.back(),
-          ),
-          title: Text(S.of(context).ourTrainer),
-          titleTextStyle: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-        ),
+        appBar: AppBarWidget(titleText: S.of(context).ourTrainer),
         body: Column(
           children: [
             FilterRow(

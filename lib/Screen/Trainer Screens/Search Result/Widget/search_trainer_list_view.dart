@@ -1,4 +1,4 @@
-import 'package:fitness_storm/Screen/Trainee%20Screens/YourTrainer/Widget/trainer_widget.dart';
+import 'package:fitness_storm/features/trainer/ui/widget/trainer_widget.dart';
 import 'package:fitness_storm/features/trainer/data/response/trainer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

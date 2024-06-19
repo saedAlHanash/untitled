@@ -1,6 +1,6 @@
 part of 'add_time_cubit.dart';
 
-class AddTimeInitial extends AbstractCubit<bool> {
+class AddTimeInitial extends AbstractState<bool> {
   final DateTime request;
   // final bool addTimeParam;
 

@@ -1,6 +1,6 @@
 part of 'apply_cubit.dart';
 
-class ApplyInitial extends AbstractCubit<bool> {
+class ApplyInitial extends AbstractState<bool> {
   final ApplyRequest request;
   final int tempParam;
 

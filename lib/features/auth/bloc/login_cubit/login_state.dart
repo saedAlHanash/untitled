@@ -1,6 +1,6 @@
 part of 'login_cubit.dart';
 
-class LoginInitial extends AbstractCubit<LoginData> {
+class LoginInitial extends AbstractState<LoginData> {
   final LoginRequest request;
  final  UserType userType;
   const LoginInitial({

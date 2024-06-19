@@ -38,7 +38,7 @@ class CreateBundleCubit extends Cubit<CreateBundleInitial> {
 
   Future<Pair<String?, String?>> _createBundle() async {
 
-    final response = await APIService().postApi(
+    final response = await APIService().callApi(type: ApiType.post,
       url: PostUrl.createBundle,
       body: state.request.toJson(),
     );

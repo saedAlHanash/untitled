@@ -27,11 +27,13 @@ class RefreshTokenCubit extends Cubit<RefreshTokenInitial> {
   }
 
   static Future<Pair<bool?, String?>> refreshTokenApi() async {
-    final response = await APIService().postApi(url: PostUrl.refreshToken, header: {
-      'Content-Type': 'application/json',
-      'Accept': 'Application/json',
-      'Authorization': 'Bearer ${AppProvider.refreshToken}',
-    });
+    final response = await APIService().callApi(
+      type: ApiType.post,
+      url: PostUrl.refreshToken,
+      header: innerHeader..addAll({
+        'Authorization': 'Bearer ${AppProvider.refreshToken}',
+      }),
+    );
 
     if (response.statusCode.success) {
       final token = (response.jsonBody['access_token'] ?? '').toString();

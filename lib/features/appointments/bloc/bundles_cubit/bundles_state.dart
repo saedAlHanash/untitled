@@ -1,6 +1,6 @@
 part of 'bundles_cubit.dart';
 
-class BundlesInitial extends AbstractCubit<List<Bundle>> {
+class BundlesInitial extends AbstractState<List<Bundle>> {
   final BundlesRequest request;
   // final bool bundlesParam;
 

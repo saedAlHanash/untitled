@@ -78,13 +78,13 @@ class AppPages {
             return const FeaturedPlanScreen();
           },
           binding: FeaturedPlanBinding()),
-      GetPage(
-          name: AppRoutes.yourTrainerScreen,
-          page: () {
-            sl<FirebaseAnalyticService>().screenView(name: 'your_trainer');
-            return const YourTrainersScreen();
-          },
-          binding: YourTrainerBinding()),
+      // GetPage(
+      //     name: AppRoutes.yourTrainerScreen,
+      //     page: () {
+      //       sl<FirebaseAnalyticService>().screenView(name: 'your_trainer');
+      //       return const YourTrainersScreen();
+      //     },
+      //     binding: YourTrainerBinding()),
 
       // GetPage(
       //     name: AppRoutes.training,

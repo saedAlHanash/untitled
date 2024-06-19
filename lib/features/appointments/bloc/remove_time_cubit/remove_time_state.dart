@@ -1,6 +1,6 @@
 part of 'remove_time_cubit.dart';
 
-class RemoveTimeInitial extends AbstractCubit<bool> {
+class RemoveTimeInitial extends AbstractState<bool> {
   final int id;
   // final bool removeTimeParam;
 

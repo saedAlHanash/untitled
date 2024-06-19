@@ -59,7 +59,7 @@ class _AvailableTimePageState extends State<AvailableTimePage> {
                 showPicker(
                   context: context,
                   is24HrFormat: false,
-                  themeData: ThemeData(backgroundColor: Colors.white),
+                  themeData: ThemeData(cardColor: Colors.white),
                   cancelText: S.of(context).cancel,
                   okText: S.of(context).done,
                   value: Time(hour: request.hour, minute: request.minute),

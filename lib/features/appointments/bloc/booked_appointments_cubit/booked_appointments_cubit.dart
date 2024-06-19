@@ -48,7 +48,7 @@ class BookedAppointmentsCubit extends Cubit<BookedAppointmentsInitial> {
   }
 
   Future<Pair<BookedAppointments?, String?>> _bookedAppointmentsApi() async {
-    final response = await APIService().getApi(
+    final response = await APIService().callApi(type: ApiType.get,
       url: GetUrl.bookedAppointments,
       query: (state.trainerId != 0)
           ? {

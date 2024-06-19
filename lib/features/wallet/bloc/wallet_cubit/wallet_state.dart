@@ -1,6 +1,6 @@
 part of 'wallet_cubit.dart';
 
-class WalletInitial extends AbstractCubit<List<Wallet>> {
+class WalletInitial extends AbstractState<List<Wallet>> {
   // final WalletRequest request;
   // final  bool walletParam;
   const WalletInitial({

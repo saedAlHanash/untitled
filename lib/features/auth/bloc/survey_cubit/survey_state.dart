@@ -1,6 +1,6 @@
 part of 'survey_cubit.dart';
 
-class SurveyInitial extends AbstractCubit<bool> {
+class SurveyInitial extends AbstractState<bool> {
   final FitnessSurvey request;
   // final bool surveyParam;
 

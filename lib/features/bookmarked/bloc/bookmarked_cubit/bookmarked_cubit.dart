@@ -32,7 +32,7 @@ class BookmarkedCubit extends MCubit<BookmarkedInitial> {
   }
 
   Future<Pair<List<PlanModel>?, String?>> _getBookmarked() async {
-    final response = await APIService().getApi(url: GetUrl.bookmarked);
+    final response = await APIService().callApi(type: ApiType.get,url: GetUrl.bookmarked);
 
     if (response.statusCode.success) {
       return Pair(

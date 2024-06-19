@@ -33,7 +33,7 @@ class AddFavoriteCubit extends Cubit<AddFavoriteInitial> {
   }
 
   Future<Pair<bool?, String?>> _addFavoriteApi() async {
-    final response = await APIService().postApi(url: PostUrl.addFavorite(state.plan.id));
+    final response = await APIService().callApi(type: ApiType.post,url: PostUrl.addFavorite(state.plan.id));
 
     if (response.statusCode.success) {
       state.plan.isBookmark = true;
@@ -44,7 +44,7 @@ class AddFavoriteCubit extends Cubit<AddFavoriteInitial> {
   }
 
   Future<Pair<bool?, String?>> _removeFavoriteApi() async {
-    final response = await APIService().postApi(
+    final response = await APIService().callApi(type: ApiType.post,
       url: DeleteUrl.removeFavorite(state.plan.id),
     );
 

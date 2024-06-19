@@ -1,6 +1,6 @@
 part of 'available_times_cubit.dart';
 
-class AvailableTimesInitial extends AbstractCubit<List<Appointment>> {
+class AvailableTimesInitial extends AbstractState<List<Appointment>> {
   final AvailableTimesRequest request;
   final Map<int, List<Appointment>> events;
 

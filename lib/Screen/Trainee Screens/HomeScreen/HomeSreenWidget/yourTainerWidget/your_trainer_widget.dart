@@ -5,6 +5,7 @@ import 'package:fitness_storm/Screen/Trainee%20Screens/HomeScreen/home_screen_co
 import 'package:fitness_storm/Utils/Routes/app_pages.dart';
 import 'package:fitness_storm/features/appointments/data/request/bundles_request.dart';
 import 'package:fitness_storm/features/trainer/data/response/trainer.dart';
+import 'package:fitness_storm/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -45,8 +46,9 @@ class YourTrainersWidget extends GetWidget<HomeScreenController> {
       children: [
         ListHeader(
             headerTitle: 'private_sessions'.tr,
-            seeAllFunction: () => Get.toNamed(AppRoutes.yourTrainerScreen,
-                arguments: controller.yourTrainer)),
+            seeAllFunction: () {
+              startTrainersPage();
+            }),
         _buildYourTrainersList(
           trainers: controller.yourTrainer.value
               .getRange(0,

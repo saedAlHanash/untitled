@@ -1,6 +1,6 @@
 part of 'booked_appointments_cubit.dart';
 
-class BookedAppointmentsInitial extends AbstractCubit<List<Appointment>> {
+class BookedAppointmentsInitial extends AbstractState<List<Appointment>> {
   final int trainerId;
   final List<Appointment> old;
   final List<Appointment> next;

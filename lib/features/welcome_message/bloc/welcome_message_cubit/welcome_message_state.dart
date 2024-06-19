@@ -1,6 +1,6 @@
 part of 'welcome_message_cubit.dart';
 
-class WelcomeMessageInitial extends AbstractCubit<WelcomeMessage> {
+class WelcomeMessageInitial extends AbstractState<WelcomeMessage> {
   // final WelcomeMessageRequest request;
   // final bool welcomeMessageParam;
 

@@ -44,7 +44,7 @@ class ResetPasswordCubit extends Cubit<ResetPasswordInitial> {
   }
 
   Future<Pair<String?, String?>> _checkCode() async {
-    final response = await APIService().postApi(
+    final response = await APIService().callApi(type: ApiType.post,
       url: PostUrl.resetPasswordCheckCode,
       body: state.request.toJson(),
     );
@@ -58,7 +58,7 @@ class ResetPasswordCubit extends Cubit<ResetPasswordInitial> {
 
   Future<Pair<bool?, String?>> _resetPass({required String token}) async {
     final response = await APIService()
-        .postApi(url: PostUrl.resetPassword, body: state.request.toJson(), header: {
+        .callApi(type: ApiType.post,url: PostUrl.resetPassword, body: state.request.toJson(), header: {
       'Authorization': 'Bearer $token',
       'Content-Type': 'application/json',
       'Accept': 'Application/json',

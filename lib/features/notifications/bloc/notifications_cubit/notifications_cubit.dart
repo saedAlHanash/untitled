@@ -32,7 +32,7 @@ class NotificationsCubit extends MCubit<NotificationsInitial> {
   }
 
   Future<Pair<NotificationsResponse?, String?>> _getNotifications() async {
-    final response = await APIService().getApi(url: GetUrl.notification);
+    final response = await APIService().callApi(type: ApiType.get,url: GetUrl.notification);
 
     if (response.statusCode.success) {
       return Pair(NotificationsResponse.fromJson(response.jsonBodyPure), null);

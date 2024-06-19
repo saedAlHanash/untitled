@@ -1,6 +1,6 @@
 part of 'profile_cubit.dart';
 
-class ProfileInitial extends AbstractCubit<Profile> {
+class ProfileInitial extends AbstractState<Profile> {
   final int id;
 
   const ProfileInitial({

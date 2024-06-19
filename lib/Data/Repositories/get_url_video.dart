@@ -25,7 +25,6 @@ Future<String> getVimeoToken() async {
   final response = await http.post(Uri.parse(urlAuthentication),
       headers: headers, body: jsonEncode(body));
 
-  APIService().logResponse(urlAuthentication, response);
 
   final accessToken = jsonDecode(response.body)['access_token'] ?? '';
 

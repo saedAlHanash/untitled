@@ -42,7 +42,7 @@ class CouponCubit extends Cubit<CouponInitial> {
     String? subscriptionId,
     String? bundleId,
   }) async {
-    final response = await APIService().postApi(
+    final response = await APIService().callApi(type: ApiType.post,
       url: 'coupons/checkCoupon',
       query: {
         'code': couponCode,

@@ -28,7 +28,7 @@
 //   }
 //
 //   Future<Pair<AvailableTimesResponseList?, String?>> _bookedAppointmentsApi() async {
-//     final response = await APIService().getApi(
+//     final response = await APIService().callApi(type: ApiType.get,
 //       url: GetUrl.availableTimesTrainer,
 //       query: state.request.toJson(),
 //     );

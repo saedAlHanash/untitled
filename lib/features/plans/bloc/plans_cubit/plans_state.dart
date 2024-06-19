@@ -1,6 +1,6 @@
 part of 'plans_cubit.dart';
 
-class PlansInitial extends AbstractCubit<List<PlanModel>> {
+class PlansInitial extends AbstractState<List<PlanModel>> {
   // final PlansRequest request;
   final int id;
 

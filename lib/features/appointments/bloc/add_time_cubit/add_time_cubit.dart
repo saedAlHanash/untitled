@@ -29,7 +29,7 @@ class AddTimeCubit extends Cubit<AddTimeInitial> {
   }
 
   Future<Pair<bool?, String?>> _addTimeApi() async {
-    final response = await APIService().postApi(
+    final response = await APIService().callApi(type: ApiType.post,
       url: PostUrl.addTime,
       body: {
         'start_time': state.request.toUtc().formatDateAther,

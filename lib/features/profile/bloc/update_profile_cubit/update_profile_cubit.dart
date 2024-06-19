@@ -7,7 +7,6 @@ import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get_utils/src/extensions/export.dart';
 
-import '../../../../core/api_manager/api_helper.dart';
 import '../../../../core/api_manager/api_service.dart';
 import '../../../../core/error/error_manager.dart';
 import '../../../../core/strings/enum_manager.dart';
@@ -34,7 +33,7 @@ class UpdateProfileCubit extends Cubit<UpdateProfileInitial> {
   }
 
   Future<Pair<bool?, String?>> _updateProfileApi() async {
-    await APIService().postApi(
+    await APIService().callApi(type: ApiType.post,
       url: PostUrl.survey,
       body: state.request.fitnessSurvey.toJson(),
     );

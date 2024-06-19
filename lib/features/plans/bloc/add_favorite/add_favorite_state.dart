@@ -1,6 +1,6 @@
 part of 'add_favorite_cubit.dart';
 
-class AddFavoriteInitial extends AbstractCubit<bool> {
+class AddFavoriteInitial extends AbstractState<bool> {
   final bool isFav;
   final PlanModel plan;
 

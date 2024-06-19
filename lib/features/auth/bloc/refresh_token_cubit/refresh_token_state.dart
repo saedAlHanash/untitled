@@ -1,6 +1,6 @@
 part of 'refresh_token_cubit.dart';
 
-class RefreshTokenInitial extends AbstractCubit<bool> {
+class RefreshTokenInitial extends AbstractState<bool> {
 
 
   const RefreshTokenInitial({

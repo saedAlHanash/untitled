@@ -25,7 +25,7 @@ class RemoveTimeCubit extends Cubit<RemoveTimeInitial> {
   }
 
   Future<Pair<bool?, String?>> _removeApi() async {
-    final response = await APIService().deleteApi(
+    final response = await APIService().callApi(type: ApiType.delete,
       url: DeleteUrl.removeTime,
       path: state.id.toString(),
     );

@@ -30,7 +30,7 @@ class WelcomeMessageCubit extends MCubit<WelcomeMessageInitial> {
   }
 
   Future<Pair<WelcomeMessage?, String?>> _getWelcomeMessage() async {
-    final response = await APIService().getApi(url: GetUrl.welcomeMessage);
+    final response = await APIService().callApi(type: ApiType.get,url: GetUrl.welcomeMessage);
 
     if (response.statusCode.success) {
       return Pair(WelcomeMessage.fromJson(response.jsonBody), null);

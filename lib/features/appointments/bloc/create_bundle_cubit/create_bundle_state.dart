@@ -1,6 +1,6 @@
 part of 'create_bundle_cubit.dart';
 
-class CreateBundleInitial extends AbstractCubit<String> {
+class CreateBundleInitial extends AbstractState<String> {
   final Bundle bundle;
   final CreateBundleRequest request;
   final int notify;

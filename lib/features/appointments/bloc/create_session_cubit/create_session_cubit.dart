@@ -25,7 +25,7 @@ class CreateSessionCubit extends Cubit<CreateSessionInitial> {
   }
 
   Future<Pair<String?, String?>> _bookedAppointmentsApi() async {
-    final response = await APIService().postApi(
+    final response = await APIService().callApi(type: ApiType.post,
       url: PostUrl.createSession,
       query: {'trainer_time_id': state.id},
     );

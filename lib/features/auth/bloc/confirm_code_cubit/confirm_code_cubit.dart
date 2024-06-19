@@ -31,7 +31,7 @@ class ConfirmCodeCubit extends Cubit<ConfirmCodeInitial> {
   }
 
   Future<Pair<bool?, String?>> _confirmCodeApi() async {
-    final response = await APIService().postApi(
+    final response = await APIService().callApi(type: ApiType.post,
       url: PostUrl.confirmCode,
       body: state.request.toJson(),
     );

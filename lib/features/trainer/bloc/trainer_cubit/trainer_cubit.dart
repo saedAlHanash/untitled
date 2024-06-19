@@ -29,7 +29,7 @@ class TrainerCubit extends Cubit<TrainerInitial> {
   }
 
   Future<Pair<TrainerModel?, String?>> _bookedAppointmentsApi() async {
-    final response = await APIService().getApi(
+    final response = await APIService().callApi(type: ApiType.get,
       url: GetUrl.getTrainer,
       path: state.id.toString(),
     );

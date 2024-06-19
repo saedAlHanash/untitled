@@ -76,7 +76,7 @@ class LoginSocialCubit extends Cubit<LoginSocialInitial> {
 
   Future<Pair<LoginData?, String?>> _loginSocialApi(
       {required UserCredential user}) async {
-    final response = await APIService().postApi(
+    final response = await APIService().callApi(type: ApiType.post,
       url: PostUrl.loginSocial,
       body: {
         "email": user.user?.email,

@@ -1,6 +1,6 @@
 part of 'confirm_code_cubit.dart';
 
-class ConfirmCodeInitial extends AbstractCubit<bool> {
+class ConfirmCodeInitial extends AbstractState<bool> {
   final LoginRequest request;
   final bool isPassReset;
 

@@ -1,6 +1,6 @@
 part of 'create_session_cubit.dart';
 
-class CreateSessionInitial extends AbstractCubit<String> {
+class CreateSessionInitial extends AbstractState<String> {
   // final CreateSessionRequest request;
   final int id;
 

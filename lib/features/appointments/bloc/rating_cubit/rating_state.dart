@@ -1,6 +1,6 @@
 part of 'rating_cubit.dart';
 
-class RatingInitial extends AbstractCubit<bool> {
+class RatingInitial extends AbstractState<bool> {
   final RatingRequest request;
 
   // final bool tempParam;

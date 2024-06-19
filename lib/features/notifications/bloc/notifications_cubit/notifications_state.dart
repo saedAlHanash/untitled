@@ -1,6 +1,6 @@
 part of 'notifications_cubit.dart';
 
-class NotificationsInitial extends AbstractCubit<NotificationsResponse> {
+class NotificationsInitial extends AbstractState<NotificationsResponse> {
   // final NotificationRequest request;
   final  int numOfRead;
   const NotificationsInitial({

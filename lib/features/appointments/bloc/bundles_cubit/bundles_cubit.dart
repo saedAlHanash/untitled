@@ -27,7 +27,7 @@ class BundlesCubit extends Cubit<BundlesInitial> {
   }
 
   Future<Pair<List<Bundle>?, String?>> _bookedAppointmentsApi() async {
-    final response = await APIService().getApi(
+    final response = await APIService().callApi(type: ApiType.get,
       url: GetUrl.bundles,
       query: state.request.toJson(),
     );

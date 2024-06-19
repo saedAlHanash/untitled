@@ -26,7 +26,7 @@ class WalletCubit extends Cubit<WalletInitial> {
   }
 
   Future<Pair<List<Wallet>?, String?>> _bookedAppointmentsApi() async {
-    final response = await APIService().getApi(url: GetUrl.wallet);
+    final response = await APIService().callApi(type: ApiType.get,url: GetUrl.wallet);
 
     if (response.statusCode.success) {
       return Pair(WalletResponse.fromJson(response.jsonBodyPure).data, null);

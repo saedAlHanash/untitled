@@ -1,6 +1,6 @@
 part of 'login_social_cubit.dart';
 
-class LoginSocialInitial extends AbstractCubit<LoginData> {
+class LoginSocialInitial extends AbstractState<LoginData> {
   final LoginRequest request;
   final bool isTrainer;
   final GoogleSignIn googleSignIn;

@@ -1,6 +1,6 @@
 part of 'resend_code_cubit.dart';
 
-class ResendCodeInitial extends AbstractCubit<bool> {
+class ResendCodeInitial extends AbstractState<bool> {
 
 
   const ResendCodeInitial({

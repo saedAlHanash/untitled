@@ -1,6 +1,6 @@
 part of 'trainer_cubit.dart';
 
-class TrainerInitial extends AbstractCubit<TrainerModel> {
+class TrainerInitial extends AbstractState<TrainerModel> {
   final int id;
   final bool isTrainer;
 

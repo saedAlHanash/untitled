@@ -31,6 +31,7 @@ import '../../features/plans/bloc/plans_cubit/plans_cubit.dart';
 import '../../features/profile/bloc/profile_cubit/profile_cubit.dart';
 import '../../features/profile/bloc/update_profile_cubit/update_profile_cubit.dart';
 import '../../features/trainer/bloc/trainer_cubit/trainer_cubit.dart';
+import '../../features/trainer/bloc/trainers_cubit/trainers_cubit.dart';
 import '../../features/wallet/bloc/wallet_cubit/wallet_cubit.dart';
 import '../../features/welcome_message/bloc/welcome_message_cubit/welcome_message_cubit.dart';
 import '../../features/welcome_message/bloc/welcome_messages_cubit/welcome_messages_cubit.dart';
@@ -83,6 +84,7 @@ Future<void> init() async {
   //region Trainer
 
   sl.registerFactory(() => TrainerCubit());
+  sl.registerFactory(() => TrainersCubit());
   sl.registerFactory(() => WalletCubit());
 
   //endregion

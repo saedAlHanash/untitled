@@ -21,6 +21,7 @@ import 'core/app/app_provider.dart';
 import 'core/app/app_widget.dart';
 import 'core/injection/injection_container.dart' as di;
 import 'core/injection/injection_container.dart';
+import 'core/strings/enum_manager.dart';
 import 'features/auth/bloc/refresh_token_cubit/refresh_token_cubit.dart';
 import 'features/fire_chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 
@@ -90,7 +91,7 @@ void main() async {
 
 Future<void> setLastSeen() async {
   if (AppProvider.isTrainer) return;
-  final result = await APIService().patchApi(
+  final result = await APIService().callApi(type: ApiType.patch,
     url: 'profile/last-seen',
     additional: additionalConstUser,
   );
@@ -109,7 +110,7 @@ class MyHttpOverrides extends HttpOverrides{
 Future<void> saveFCM() async {
   if (AppProvider.token.isEmpty) return;
   final token = await FirebaseMessaging.instance.getToken() ?? '';
-  final response = await APIService().postApi(
+  final response = await APIService().callApi(type: ApiType.post,
     url: PostUrl.insertFcmToken,
     body: {'device_token': token},
   );

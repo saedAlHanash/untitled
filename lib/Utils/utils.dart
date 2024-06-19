@@ -11,6 +11,7 @@ import 'package:package_info_plus/package_info_plus.dart';
 
 import '../core/api_manager/api_service.dart';
 import '../core/app/app_provider.dart';
+import '../core/strings/enum_manager.dart';
 import '../core/util/pair_class.dart';
 import '../core/widgets/my_text_form_widget.dart';
 import '../helper/lang_helper.dart';
@@ -170,7 +171,9 @@ class Utils {
             Text(
               isTrainer ? 'SEARCH_IN_TRAINER'.tr : 'SEARCH_IN_WORKOUT_PLANS'.tr,
               style: const TextStyle(
-                  color: Color(0xFFA8A5A5), fontSize: 16, fontWeight: FontWeight.bold),
+                  color: Color(0xFFA8A5A5),
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold),
             ),
             Container(
               height: Get.height / 21,
@@ -180,7 +183,8 @@ class Utils {
                 controller: searchTerm,
                 decoration: InputDecoration(
                   hintText: 'What_are_you_searching_for?'.tr,
-                  hintStyle: const TextStyle(fontSize: 12, color: Color(0xFFD1D1D1)),
+                  hintStyle:
+                      const TextStyle(fontSize: 12, color: Color(0xFFD1D1D1)),
                   suffixIcon: GestureDetector(
                     onTap: () => onTap(),
                     child: Container(
@@ -189,7 +193,8 @@ class Utils {
                       padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
                           color: Get.theme.primaryColor,
-                          borderRadius: const BorderRadius.all(Radius.circular(500))),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(500))),
                       child: SvgPicture.asset(
                         'asset/Images/search_bar.svg',
                         color: Colors.white,
@@ -208,7 +213,8 @@ class Utils {
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
-                    borderSide: BorderSide(color: Get.theme.primaryColor, width: 2.0),
+                    borderSide:
+                        BorderSide(color: Get.theme.primaryColor, width: 2.0),
                   ),
                 ),
               ),
@@ -243,7 +249,8 @@ class Utils {
     bool withRefreshToken = false,
     String customToken = '',
   }) {
-    Options options = Options(headers: {'lang': Get.locale?.languageCode ?? 'en'});
+    Options options =
+        Options(headers: {'lang': Get.locale?.languageCode ?? 'en'});
 
     /* if (contentType || all) {
        options.contentType = 'application/x-www-form-urlencoded';
@@ -313,10 +320,8 @@ Future<bool> checkForceUpdate() async {
 }
 
 Future<Pair<SettingResult?, String?>> _apiSettings() async {
-  final response = await APIService().getApi(
-    url: 'api/terms',
-    additionalConstParam: '',
-  );
+  final response = await APIService()
+      .callApi(type: ApiType.get, url: 'api/terms', additional: '');
 
   if (response.statusCode == 200) {
     final data = SettingResult.fromJson(jsonDecode(response.body));
@@ -363,17 +368,18 @@ class SettingResult {
                   (e) => (e)['label'] == 'min_apple_version')['value'] ??
               "1000") ??
           1000,
-      isIosTest: (json.firstWhereOrNull((e) => (e)['label'] == 'is_ios_test')['value'] ??
+      isIosTest: (json.firstWhereOrNull(
+                      (e) => (e)['label'] == 'is_ios_test')['value'] ??
                   "false") ==
               'true'
           ? true
           : false,
-      isWebViewPlayer:
-          (json.firstWhereOrNull((e) => (e)['label'] == 'is_web_view_player')['value'] ??
-                      "false") ==
-                  'true'
-              ? true
-              : false,
+      isWebViewPlayer: (json.firstWhereOrNull(
+                      (e) => (e)['label'] == 'is_web_view_player')['value'] ??
+                  "false") ==
+              'true'
+          ? true
+          : false,
       terms: (json.firstWhereOrNull(
               (e) => (e)['label'] == 'terms${isEn ? '_e' : '_a'}')['value'] ??
           ""),

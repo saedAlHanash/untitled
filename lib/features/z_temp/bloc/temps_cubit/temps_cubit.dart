@@ -6,7 +6,7 @@ import '../../../../core/error/error_manager.dart';
 import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/abstraction.dart';
 import '../../../../core/util/pair_class.dart';
-import '../../data/temp.dart';
+import '../../data/response/temp_response.dart';
 
 part 'temps_state.dart';
 
@@ -16,8 +16,15 @@ class TempsCubit extends MCubit<TempsInitial> {
   @override
   String get nameCache => 'temps';
 
-  Future<void> getTemps() async {
-    if (await checkCashed()) return;
+  @override
+  String get filter =>   state.request ?? '';
+
+  Future<void> getTemps({bool newData = false}) async {
+
+    final checkData = await checkCashed1(
+        state: state, fromJson: Temp.fromJson, newData: newData);
+
+    if (checkData) return;
 
     final pair = await _getTemps();
 
@@ -26,33 +33,21 @@ class TempsCubit extends MCubit<TempsInitial> {
       showErrorFromApi(state);
     } else {
       await storeData(pair.first!);
-      emit(state.copyWith(
-          statuses: CubitStatuses.done, result: pair.first));
+      emit(state.copyWith(statuses: CubitStatuses.done, result: pair.first));
     }
   }
 
   Future<Pair<List<Temp>?, String?>> _getTemps() async {
-    final response = await APIService().getApi(url: GetUrl.temp);
+    final response = await APIService().callApi(
+      type: ApiType.get,
+      url: PostUrl.temps,
+    );
 
     if (response.statusCode.success) {
-      return Pair([], null);
+      return Pair(Temps.fromJson(response.jsonBodyPure).items, null);
     } else {
       return response.getPairError;
     }
   }
 
-  Future<bool> checkCashed() async {
-    final cacheType = await needGetData();
-
-    emit(
-      state.copyWith(
-        statuses: cacheType.getState,
-        result:
-            (await getListCached()).map((e) => Temp.fromJson(e)).toList(),
-      ),
-    );
-
-    if (cacheType == NeedUpdateEnum.no) return true;
-    return false;
-  }
 }

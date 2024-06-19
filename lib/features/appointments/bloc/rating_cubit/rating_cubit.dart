@@ -26,7 +26,7 @@ class RatingCubit extends Cubit<RatingInitial> {
   }
 
   Future<Pair<bool?, String?>> _bookedAppointmentsApi() async {
-    final response = await APIService().postApi(
+    final response = await APIService().callApi(type: ApiType.post,
       url: PostUrl.rate,
       body: state.request.toJson(),
     );

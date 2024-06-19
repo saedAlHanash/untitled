@@ -1,4 +1,5 @@
-import '../../../../core/api_manager/api_helper.dart';
+
+import '../../../../core/api_manager/api_service.dart';
 
 class ApplyRequest {
   String? name;

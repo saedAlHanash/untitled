@@ -27,7 +27,7 @@
 //   }
 //
 //   static Future<Pair<List<Fav>?, String?>> _getFavoriteApi() async {
-//     final response = await APIService().getApi(url: GetUrl.favorite);
+//     final response = await APIService().callApi(type: ApiType.get,url: GetUrl.favorite);
 //
 //     if (response.statusCode.success) {
 //       return Pair(

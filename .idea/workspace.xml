@@ -10,14 +10,115 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="43c414a0-a0aa-41d9-b6a1-9df3dcc6d755" name="Changes" comment="add guest user">
+      <change afterPath="$PROJECT_DIR$/lib/core/api_manager/helpers_api/helper_api_service.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/api_manager/helpers_api/log_api.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/features/trainer/bloc/trainers_cubit/trainers_cubit.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/features/trainer/bloc/trainers_cubit/trainers_state.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/features/trainer/ui/pages/trainers_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/features/z_temp/bloc/create_temp_cubit/create_temp_cubit.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/features/z_temp/bloc/create_temp_cubit/create_temp_state.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/features/z_temp/bloc/delete_temp_cubit/delete_temp_cubit.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/features/z_temp/bloc/delete_temp_cubit/delete_temp_state.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/features/z_temp/data/request/create_temp_request.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/features/z_temp/data/response/temp_response.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/video/video.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/video/video.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/appointments/ui/pages/appointments_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/appointments/ui/pages/appointments_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/appointments/ui/pages/rating_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/appointments/ui/pages/rating_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/profile/ui/widget/card_profile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/profile/ui/widget/card_profile.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/trainer/ui/pages/calender_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/trainer/ui/pages/calender_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/trainer/ui/widget/trainer_header.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/trainer/ui/widget/trainer_header.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Data/Repositories/get_url_video.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Data/Repositories/get_url_video.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/HomeScreen/HomeSreenWidget/yourTainerWidget/your_trainer_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/HomeScreen/HomeSreenWidget/yourTainerWidget/your_trainer_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Search Result/Widget/search_trainer_list_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Search Result/Widget/search_trainer_list_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/YourTrainer/Widget/trainer_image_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/YourTrainer/Widget/trainer_image_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/YourTrainer/Widget/trainer_info_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/YourTrainer/Widget/trainer_info_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/YourTrainer/Widget/trainer_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/trainer/ui/widget/trainer_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/YourTrainer/your_trainer_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/YourTrainer/your_trainer_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Search Result/Widget/search_trainer_list_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Search Result/Widget/search_trainer_list_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Utils/Routes/app_pages.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Utils/Routes/app_pages.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Utils/Routes/app_routes.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Utils/Routes/app_routes.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Utils/utils.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Utils/utils.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/api_manager/api_helper.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/api_manager/api_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/api_manager/api_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/api_manager/api_url.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/api_manager/api_url.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/error/error_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/error/error_manager.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/injection/injection_container.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/injection/injection_container.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/strings/enum_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/strings/enum_manager.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/util/abstraction.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/util/abstraction.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/appointments/bloc/add_time_cubit/add_time_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/appointments/bloc/add_time_cubit/add_time_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/appointments/bloc/add_time_cubit/add_time_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/appointments/bloc/add_time_cubit/add_time_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/appointments/bloc/available_times_cubit/available_times_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/appointments/bloc/available_times_cubit/available_times_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/appointments/bloc/available_times_cubit/available_times_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/appointments/bloc/available_times_cubit/available_times_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/appointments/bloc/booked_appointments_cubit/booked_appointments_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/appointments/bloc/booked_appointments_cubit/booked_appointments_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/appointments/bloc/booked_appointments_cubit/booked_appointments_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/appointments/bloc/booked_appointments_cubit/booked_appointments_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/appointments/bloc/bundles_cubit/bundles_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/appointments/bloc/bundles_cubit/bundles_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/appointments/bloc/bundles_cubit/bundles_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/appointments/bloc/bundles_cubit/bundles_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/appointments/bloc/create_bundle_cubit/create_bundle_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/appointments/bloc/create_bundle_cubit/create_bundle_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/appointments/bloc/create_bundle_cubit/create_bundle_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/appointments/bloc/create_bundle_cubit/create_bundle_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/appointments/bloc/create_session_cubit/create_session_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/appointments/bloc/create_session_cubit/create_session_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/appointments/bloc/create_session_cubit/create_session_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/appointments/bloc/create_session_cubit/create_session_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/appointments/bloc/rating_cubit/rating_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/appointments/bloc/rating_cubit/rating_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/appointments/bloc/rating_cubit/rating_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/appointments/bloc/rating_cubit/rating_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/appointments/bloc/remove_time_cubit/remove_time_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/appointments/bloc/remove_time_cubit/remove_time_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/appointments/bloc/remove_time_cubit/remove_time_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/appointments/bloc/remove_time_cubit/remove_time_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/auth/bloc/apply_cubit/apply_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/bloc/apply_cubit/apply_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/auth/bloc/apply_cubit/apply_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/bloc/apply_cubit/apply_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/auth/bloc/confirm_code_cubit/confirm_code_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/bloc/confirm_code_cubit/confirm_code_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/auth/bloc/confirm_code_cubit/confirm_code_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/bloc/confirm_code_cubit/confirm_code_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/auth/bloc/delete_account_cubit/delete_account_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/bloc/delete_account_cubit/delete_account_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/auth/bloc/forget_password_cubit/forget_password_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/bloc/forget_password_cubit/forget_password_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/auth/bloc/forget_password_cubit/forget_password_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/bloc/forget_password_cubit/forget_password_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/auth/bloc/login_cubit/login_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/bloc/login_cubit/login_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/auth/bloc/login_cubit/login_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/bloc/login_cubit/login_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/auth/bloc/login_social_cubit/login_social_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/bloc/login_social_cubit/login_social_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/auth/bloc/login_social_cubit/login_social_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/bloc/login_social_cubit/login_social_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/auth/bloc/logout/logout_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/bloc/logout/logout_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/auth/bloc/otp_password_cubit/otp_password_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/bloc/otp_password_cubit/otp_password_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/auth/bloc/otp_password_cubit/otp_password_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/bloc/otp_password_cubit/otp_password_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/auth/bloc/refresh_token_cubit/refresh_token_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/bloc/refresh_token_cubit/refresh_token_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/auth/bloc/refresh_token_cubit/refresh_token_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/bloc/refresh_token_cubit/refresh_token_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/auth/bloc/resend_code_cubit/resend_code_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/bloc/resend_code_cubit/resend_code_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/auth/bloc/resend_code_cubit/resend_code_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/bloc/resend_code_cubit/resend_code_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/auth/bloc/reset_password_cubit/reset_password_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/bloc/reset_password_cubit/reset_password_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/auth/bloc/reset_password_cubit/reset_password_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/bloc/reset_password_cubit/reset_password_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/auth/bloc/signup_cubit/signup_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/bloc/signup_cubit/signup_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/auth/bloc/signup_cubit/signup_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/bloc/signup_cubit/signup_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/auth/bloc/survey_cubit/survey_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/bloc/survey_cubit/survey_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/auth/bloc/survey_cubit/survey_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/bloc/survey_cubit/survey_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/auth/data/request/apply_request.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/data/request/apply_request.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/bookmarked/bloc/bookmarked_cubit/bookmarked_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/bookmarked/bloc/bookmarked_cubit/bookmarked_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/bookmarked/bloc/bookmarked_cubit/bookmarked_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/bookmarked/bloc/bookmarked_cubit/bookmarked_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/coupon/coupon_cubit/coupon_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/coupon/coupon_cubit/coupon_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/fire_chat/util.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/fire_chat/util.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/notifications/bloc/notifications_cubit/notifications_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/notifications/bloc/notifications_cubit/notifications_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/notifications/bloc/notifications_cubit/notifications_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/notifications/bloc/notifications_cubit/notifications_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/plans/bloc/add_favorite/add_favorite_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/plans/bloc/add_favorite/add_favorite_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/plans/bloc/add_favorite/add_favorite_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/plans/bloc/add_favorite/add_favorite_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/plans/bloc/get_favorite/get_favorite_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/plans/bloc/get_favorite/get_favorite_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/plans/bloc/plans_cubit/plans_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/plans/bloc/plans_cubit/plans_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/plans/bloc/plans_cubit/plans_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/plans/bloc/plans_cubit/plans_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/profile/bloc/profile_cubit/profile_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/profile/bloc/profile_cubit/profile_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/profile/bloc/profile_cubit/profile_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/profile/bloc/profile_cubit/profile_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/profile/bloc/update_profile_cubit/update_profile_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/profile/bloc/update_profile_cubit/update_profile_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/profile/bloc/update_profile_cubit/update_profile_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/profile/bloc/update_profile_cubit/update_profile_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/profile/data/response/profile_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/profile/data/response/profile_response.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/trainer/bloc/available_times_trainer_cubit/available_times_trainer_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/trainer/bloc/available_times_trainer_cubit/available_times_trainer_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/trainer/bloc/trainer_cubit/trainer_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/trainer/bloc/trainer_cubit/trainer_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/trainer/bloc/trainer_cubit/trainer_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/trainer/bloc/trainer_cubit/trainer_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/trainer/data/response/trainer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/trainer/data/response/trainer.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/trainer/ui/pages/available_time_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/trainer/ui/pages/available_time_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/wallet/bloc/wallet_cubit/wallet_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/wallet/bloc/wallet_cubit/wallet_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/wallet/bloc/wallet_cubit/wallet_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/wallet/bloc/wallet_cubit/wallet_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/welcome_message/bloc/welcome_message_cubit/welcome_message_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/welcome_message/bloc/welcome_message_cubit/welcome_message_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/welcome_message/bloc/welcome_message_cubit/welcome_message_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/welcome_message/bloc/welcome_message_cubit/welcome_message_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/welcome_message/bloc/welcome_messages_cubit/welcome_messages_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/welcome_message/bloc/welcome_messages_cubit/welcome_messages_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/welcome_message/bloc/welcome_messages_cubit/welcome_messages_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/welcome_message/bloc/welcome_messages_cubit/welcome_messages_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/z_temp/bloc/temp_cubit/temp_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/z_temp/bloc/temp_cubit/temp_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/z_temp/bloc/temp_cubit/temp_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/z_temp/bloc/temp_cubit/temp_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/z_temp/bloc/temps_cubit/temps_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/z_temp/bloc/temps_cubit/temps_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/z_temp/bloc/temps_cubit/temps_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/z_temp/bloc/temps_cubit/temps_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/z_temp/data/temp.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/router/app_router.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/router/app_router.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/saed.json" beforeDir="false" afterPath="$PROJECT_DIR$/saed.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +164,7 @@
     "ignore.virus.scanning.warn.message": "true",
     "io.flutter.reload.alreadyRun": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/LENOVO/StudioProjects/New/fitness_storm/lib/features/profile/ui/pages",
+    "last_opened_file_path": "C:/Users/LENOVO/StudioProjects/New/fitness_storm/lib/features/trainer/ui/pages",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -73,16 +174,16 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\LENOVO\StudioProjects\New\fitness_storm\lib\features\profile\ui\pages" />
-      <recent name="C:\Users\LENOVO\StudioProjects\New\fitness_storm\lib\Screen\video" />
+      <recent name="C:\Users\LENOVO\StudioProjects\New\fitness_storm\lib\features\trainer\ui\pages" />
+      <recent name="C:\Users\LENOVO\StudioProjects\New\fitness_storm\lib\features\trainer\bloc" />
+      <recent name="C:\Users\LENOVO\StudioProjects\New\fitness_storm\lib\features\trainer" />
       <recent name="C:\Users\LENOVO\StudioProjects\New\fitness_storm\lib\features" />
-      <recent name="C:\Users\LENOVO\StudioProjects\New\fitness_storm\lib\features\welcome_message\ui\widget" />
-      <recent name="C:\Users\LENOVO\StudioProjects\New\fitness_storm\asset\Images" />
+      <recent name="C:\Users\LENOVO\StudioProjects\New\fitness_storm\lib\core\api_manager" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\LENOVO\StudioProjects\New\fitness_storm\lib\features\trainer\ui\widget" />
       <recent name="C:\Users\LENOVO\StudioProjects\New\fitness_storm\lib\features\notifications\ui\widget" />
       <recent name="C:\Users\LENOVO\StudioProjects\New\fitness_storm\lib\features\welcome_message\data\response" />
-      <recent name="C:\Users\LENOVO\StudioProjects\New\fitness_storm\lib\features\trainer\ui\widget" />
       <recent name="C:\Users\LENOVO\StudioProjects\New\fitness_storm\lib\features\bookmarked\ui\widget" />
     </key>
   </component>
@@ -336,7 +437,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717752072348</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="add guest user">
+      <option name="closed" value="true" />
+      <created>1718004097051</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1718004097051</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">

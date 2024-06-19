@@ -3,6 +3,7 @@ import 'package:fitness_storm/features/appointments/bloc/rating_cubit/rating_cub
 import 'package:fitness_storm/features/notifications/bloc/notifications_cubit/notifications_cubit.dart';
 import 'package:fitness_storm/features/notifications/ui/pages/notifications_page.dart';
 import 'package:fitness_storm/features/profile/bloc/update_profile_cubit/update_profile_cubit.dart';
+import 'package:fitness_storm/features/trainer/bloc/trainers_cubit/trainers_cubit.dart';
 import 'package:fitness_storm/features/trainer/data/response/trainer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -47,6 +48,7 @@ import '../features/bookmarked/ui/pages/bookmarked_page.dart';
 import '../features/profile/ui/pages/pdf_viewer_page.dart';
 import '../features/profile/ui/pages/update_profile_page.dart';
 import '../features/trainer/ui/pages/available_time_page.dart';
+import '../features/trainer/ui/pages/trainers_page.dart';
 import '../features/welcome_message/bloc/welcome_messages_cubit/welcome_messages_cubit.dart';
 import '../features/welcome_message/ui/pages/welcome_page.dart';
 
@@ -419,6 +421,19 @@ void startCreateBundle(Bundle bundle) {
   );
   Get.to(() => page);
   sl<FirebaseAnalyticService>().screenView(name: 'create_bundle');
+}
+
+void startTrainersPage() {
+  final providers = [
+    BlocProvider(create: (_) => sl<TrainersCubit>()..getTrainers()),
+  ];
+
+  final Widget page = MultiBlocProvider(
+    providers: providers,
+    child: const TrainersPage(),
+  );
+  Get.to(() => page);
+  sl<FirebaseAnalyticService>().screenView(name: 'your_trainer');
 }
 
 Future<bool> startRating(Appointment appointment) async {

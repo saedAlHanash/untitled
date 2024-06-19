@@ -21,7 +21,7 @@ class AvailableTimesCubit extends Cubit<AvailableTimesInitial> {
 
   Future<void> getAvailableTimes({
     TrainerModel? trainer,
-     AvailableTimesRequest? request,
+    AvailableTimesRequest? request,
   }) async {
     emit(
       state.copyWith(
@@ -50,20 +50,23 @@ class AvailableTimesCubit extends Cubit<AvailableTimesInitial> {
   }
 
   Future<Pair<List<Appointment>?, String?>> _bookedAppointmentsApi() async {
-    final response = await APIService().getApi(
+    final response = await APIService().callApi(
+        type: ApiType.get,
         url: GetUrl.availableTimes(state.trainer.id),
         query: state.request.toJson(),
-        headers: {'lang': 'en'});
+        header: innerHeader..addAll({'lang': 'en'}));
 
     if (response.statusCode.success) {
-      final model = AvailableTimesResponse.fromJson(response.jsonBody).getAllTimes;
+      final model =
+          AvailableTimesResponse.fromJson(response.jsonBody).getAllTimes;
       return Pair(model, null);
     } else {
       return response.getPairError;
     }
   }
 
-  Future<void> getTrainerAvailableTimes({AvailableTimesRequest? request}) async {
+  Future<void> getTrainerAvailableTimes(
+      {AvailableTimesRequest? request}) async {
     emit(state.copyWith(statuses: CubitStatuses.loading, request: request));
     final pair = await _getTrainerAvailableTimes();
     if (pair.first == null) {
@@ -80,14 +83,17 @@ class AvailableTimesCubit extends Cubit<AvailableTimesInitial> {
     }
   }
 
-  Future<Pair<AvailableTimesResponseList?, String?>> _getTrainerAvailableTimes() async {
-    final response = await APIService().getApi(
+  Future<Pair<AvailableTimesResponseList?, String?>>
+      _getTrainerAvailableTimes() async {
+    final response = await APIService().callApi(
+      type: ApiType.get,
       url: GetUrl.availableTimesTrainer,
       query: state.request.toJson(),
     );
 
     if (response.statusCode.success) {
-      return Pair(AvailableTimesResponseList.fromJson(response.jsonBodyPure), null);
+      return Pair(
+          AvailableTimesResponseList.fromJson(response.jsonBodyPure), null);
     } else {
       return response.getPairError;
     }

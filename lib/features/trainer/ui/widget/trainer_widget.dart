@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 import 'package:image_multi_type/round_image_widget.dart';
 
-import '../../../../features/trainer/data/response/trainer.dart';
+import '../../data/response/trainer.dart';
 import '../../../../generated/l10n.dart';
 
 class TrainerWidget extends StatelessWidget {
