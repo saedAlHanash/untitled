@@ -141,7 +141,7 @@ class PostUrl {
 
   static var createTemp = '';
 
-  static var temps ='';
+  static var temps = '';
 
   static var trainers = 'trainers';
 
@@ -180,13 +180,13 @@ class PutUrl {
   static const updatePhone = 'update-phone';
   static const updateAddress = 'update-address';
 
-  static var updateTemp='';
+  static var updateTemp = '';
 }
 
 class DeleteUrl {
   static const removeTime = 'availableTimes';
 
-  static var deleteTemp='';
+  static var deleteTemp = '';
 
   static String removeFavorite(int id) => 'plans/$id/deleteFromBookmarkedPlans';
 
@@ -200,7 +200,13 @@ class PatchUrl {}
 const additionalConstTrainer = 'mobile/trainer/';
 const additionalConstUser = 'mobile/user/';
 
-const baseUrl = 'api.fitnessstorm.org';
+String get baseUrl {
+  // return _live;
+  return _test;
+}
+
+const _live = 'api.fitnessstorm.org';
+const _test = 'api-test.fitnessstorm.org';
 
 String get additionalConst =>
     AppProvider.isTrainer ? additionalConstTrainer : additionalConstUser;
