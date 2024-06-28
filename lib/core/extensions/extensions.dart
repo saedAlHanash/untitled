@@ -223,6 +223,7 @@ extension DateUtcHelper on DateTime {
   String get monthName => DateFormat('MMMM').format(this);
 
   String get formatDateTime => '$formatDate - $formatTime';
+  String get formatDateTimeVertical => '$formatDate\n$formatTime';
 
   DateTime addFromNow({int? year, int? month, int? day, int? hour}) {
     return DateTime(

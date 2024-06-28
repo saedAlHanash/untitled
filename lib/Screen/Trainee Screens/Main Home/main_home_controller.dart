@@ -20,22 +20,10 @@ class MainHomeController extends GetxController {
   @override
   Future<void> onInit() async {
     saveFCM();
-
     super.onInit();
-    isLoading = true;
-    final getRoomCubitState = Get.context?.read<RoomsCubit>().state.statuses;
-    if (getRoomCubitState != CubitStatuses.done &&
-        getRoomCubitState != CubitStatuses.loading) {
-      Get.context?.read<RoomsCubit>().getChatRooms();
-    }
-
-
-    isLoading = false;
   }
 
   bool get isLoading => _isLoading.value;
-
-  set isLoading(value) => _isLoading.value = value;
 
 
 }

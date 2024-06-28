@@ -10,8 +10,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="43c414a0-a0aa-41d9-b6a1-9df3dcc6d755" name="Changes" comment="add guest user">
+      <change afterPath="$PROJECT_DIR$/lib/features/fire_chat/open_room_cubit/open_room_cubit.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/features/fire_chat/open_room_cubit/open_room_state.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/services/chat_service/chat_service_core.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/services/chat_service/core/firebase_chat_core.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/services/chat_service/core/firebase_chat_core_config.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/services/chat_service/core/util.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/services/chat_service/create_or_login.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Main Home/main_home_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Main Home/main_home_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Main Home/main_home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Main Home/main_home_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/PlanOverView/plan_overview_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/PlanOverView/plan_overview_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Search Screen/Widget/term_and_condition_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Search Screen/Widget/term_and_condition_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Search Screen/Widget/term_and_condition_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Search Screen/Widget/term_and_condition_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Trainer Main Home/trainer_main_home_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Trainer Main Home/trainer_main_home_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Trainer Main Home/trainer_main_home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Trainer Main Home/trainer_main_home_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/core/api_manager/api_url.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/api_manager/api_url.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/app/app_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/app/app_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/app/app_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/app/app_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/extensions/extensions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/extensions/extensions.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/fire_chat/chat.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/fire_chat/chat.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/fire_chat/chat_card_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/fire_chat/chat_card_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/fire_chat/customer_service_card_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/fire_chat/customer_service_card_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/fire_chat/get_chats_rooms_bloc/get_rooms_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/fire_chat/get_chats_rooms_bloc/get_rooms_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/fire_chat/get_chats_rooms_bloc/get_rooms_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/fire_chat/get_chats_rooms_bloc/get_rooms_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/fire_chat/room_messages_bloc/room_messages_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/fire_chat/room_messages_bloc/room_messages_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/fire_chat/room_messages_bloc/room_messages_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/fire_chat/room_messages_bloc/room_messages_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/fire_chat/rooms_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/fire_chat/rooms_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/fire_chat/util.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/fire_chat/util.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/profile/data/response/profile_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/profile/data/response/profile_response.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/profile/ui/pages/profile_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/profile/ui/pages/profile_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/trainer/ui/pages/calender_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/trainer/ui/pages/calender_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/trainer/ui/widget/trainer_header.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/trainer/ui/widget/trainer_header.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/router/app_router.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/router/app_router.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/saed.json" beforeDir="false" afterPath="$PROJECT_DIR$/saed.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,34 +79,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Flutter.main.dart.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/LENOVO/StudioProjects/New/fitness_storm/lib/features/trainer/ui/pages&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Flutter.main.dart.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "ignore.virus.scanning.warn.message": "true",
+    "io.flutter.reload.alreadyRun": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/LENOVO/StudioProjects/New/fitness_storm/lib/features/fire_chat",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "show.migrate.to.gradle.popup": "false"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\LENOVO\StudioProjects\New\fitness_storm\lib\features\fire_chat" />
+      <recent name="C:\Users\LENOVO\StudioProjects\New\fitness_storm\lib\services" />
       <recent name="C:\Users\LENOVO\StudioProjects\New\fitness_storm\lib\features\trainer\ui\pages" />
       <recent name="C:\Users\LENOVO\StudioProjects\New\fitness_storm\lib\features\trainer\bloc" />
       <recent name="C:\Users\LENOVO\StudioProjects\New\fitness_storm\lib\features\trainer" />
-      <recent name="C:\Users\LENOVO\StudioProjects\New\fitness_storm\lib\features" />
-      <recent name="C:\Users\LENOVO\StudioProjects\New\fitness_storm\lib\core\api_manager" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\LENOVO\StudioProjects\New\fitness_storm\lib\features\trainer\ui\widget" />
@@ -346,7 +381,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718811803204</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="add guest user">
+      <option name="closed" value="true" />
+      <created>1719220562247</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1719220562247</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">

@@ -9,12 +9,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:image_multi_type/image_multi_type.dart';
 
 import '../../../Utils/Routes/app_pages.dart';
 import '../../../features/fire_chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 import '../../../features/profile/ui/pages/profile_trainer_screen.dart';
 import '../../../features/trainer/ui/pages/calender_screen.dart';
+import '../../../generated/assets.dart';
+import '../../../services/chat_service/core/firebase_chat_core.dart';
 import 'Widget/trainer_navigation_bar_widget.dart';
+import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 
 class TrainerMainHomeScreen extends GetView<TrainerMainHomeController> {
   TrainerMainHomeScreen({super.key});
@@ -61,15 +65,20 @@ class TrainerMainHomeScreen extends GetView<TrainerMainHomeController> {
                     actions: [
                       IconButton(
                           onPressed: () => Get.toNamed(AppRoutes.chatScreen),
-                          icon: BlocBuilder<RoomsCubit, RoomsInitial>(
+                          icon: StreamBuilder<List<types.Room>>(
+                            stream: FirebaseChatCore.instance.rooms(),
+                            initialData: const [],
                             builder: (context, state) {
                               return Stack(
                                 children: [
-                                  SvgPicture.asset(
-                                    'asset/Images/chatSVG.svg',
+                                  ImageMultiType(
+                                    url: Assets.imagesChatSVG,
                                     color: Get.theme.scaffoldBackgroundColor,
                                   ),
-                                  if (state.noReadMessages)
+                                  if (state.data != null &&
+                                      state.data!.firstWhereOrNull(
+                                              (e) => e.isNotRead) !=
+                                          null)
                                     Container(
                                       height: 7.0,
                                       width: 7.0,

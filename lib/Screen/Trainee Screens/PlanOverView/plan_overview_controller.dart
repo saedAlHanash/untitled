@@ -6,7 +6,10 @@ import 'package:fitness_storm/Data/Repositories/workout_repository.dart';
 import 'package:fitness_storm/Model/plan_workout.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/User%20Training/user_training_controller.dart';
 import 'package:fitness_storm/Utils/utils.dart';
+import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/helperClass.dart';
+import 'package:fitness_storm/services/chat_service/chat_service_core.dart';
+import 'package:fitness_storm/services/chat_service/core/firebase_chat_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
@@ -77,9 +80,15 @@ class PlanOverviewController extends GetxController {
     var response = await _traineeRepository.subscribePlan(
         planId: planOverview.id.toString());
     if (response.type == ApiResultType.success) {
-      Get.context
-          ?.read<RoomsCubit>()
-          .getRoomByUser(planOverview.trainer.id.toString());
+      try {
+        final chatUser =
+            await ChatServiceCore.getUser(planOverview.trainer.id.toString());
+        if (chatUser != null) {
+          await FirebaseChatCore.instance.createRoom(chatUser);
+        }
+      } catch (e) {
+        loggerObject.e(e);
+      }
       Utils.closeDialog();
       GetStorage getStorage = GetStorage();
       await getStorage.write('currentPlan', planOverview.name);
@@ -166,7 +175,6 @@ class PlanOverviewController extends GetxController {
         if (AppControl.isAppleAccount) return;
 
         Get.toNamed(AppRoutes.subscriptionScreen);
-
       } else if (apiResult.statusCode == 402) {
         //TODO: saed see mahmood form server to fix it
         Utils.showAlertDialog(() {}, "finished_this_day".tr,

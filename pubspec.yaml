@@ -66,7 +66,7 @@ dependencies:
   flutter_chat_types: ^3.6.1
   cloud_firestore: ^4.15.6
   flutter_chat_ui: ^1.6.8
-  flutter_firebase_chat_core: ^1.6.7
+#  flutter_firebase_chat_core: ^1.6.7
   image_picker:
   mime: ^1.0.4
   collection: any

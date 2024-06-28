@@ -7,6 +7,7 @@ import 'package:fitness_storm/features/trainer/bloc/trainers_cubit/trainers_cubi
 import 'package:fitness_storm/features/trainer/data/response/trainer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_chat_types/flutter_chat_types.dart';
 import 'package:get/get.dart';
 
 import '../Screen/video/video.dart';
@@ -45,12 +46,14 @@ import '../features/auth/ui/pages/otp_password_page.dart';
 import '../features/auth/ui/pages/reset_password_page.dart';
 import '../features/auth/ui/pages/signup_page.dart';
 import '../features/bookmarked/ui/pages/bookmarked_page.dart';
+import '../features/fire_chat/chat.dart';
 import '../features/profile/ui/pages/pdf_viewer_page.dart';
 import '../features/profile/ui/pages/update_profile_page.dart';
 import '../features/trainer/ui/pages/available_time_page.dart';
 import '../features/trainer/ui/pages/trainers_page.dart';
 import '../features/welcome_message/bloc/welcome_messages_cubit/welcome_messages_cubit.dart';
 import '../features/welcome_message/ui/pages/welcome_page.dart';
+import '../services/chat_service/chat_service_core.dart';
 
 Route<dynamic> routes(RouteSettings settings) {
   var screenName = settings.name;
@@ -434,6 +437,12 @@ void startTrainersPage() {
   );
   Get.to(() => page);
   sl<FirebaseAnalyticService>().screenView(name: 'your_trainer');
+}
+
+void startChatPage(Room room) {
+  Get.to(() => ChatPage(room: room));
+
+  ChatServiceCore.latestSeenRoom(room.id);
 }
 
 Future<bool> startRating(Appointment appointment) async {

@@ -1,4 +1,3 @@
-// ignore_for_file: must_be_immutable
 import 'package:fitness_storm/Screen/Trainee%20Screens/Main%20Home/main_home_controller.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Progress%20Screen/progress_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Search%20Screen/search_screen.dart';
@@ -7,9 +6,11 @@ import 'package:fitness_storm/features/profile/ui/pages/guest_profile_page.dart'
 import 'package:fitness_storm/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_chat_ui/flutter_chat_ui.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:image_multi_type/image_multi_type.dart';
 
 import '../../../Utils/Routes/app_pages.dart';
 import '../../../core/app/app_provider.dart';
@@ -17,8 +18,11 @@ import '../../../features/fire_chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 import '../../../features/notifications/bloc/notifications_cubit/notifications_cubit.dart';
 import '../../../features/profile/ui/pages/profile_page.dart';
 import '../../../features/welcome_message/bloc/welcome_messages_cubit/welcome_messages_cubit.dart';
+import '../../../generated/assets.dart';
+import '../../../services/chat_service/core/firebase_chat_core.dart';
 import '../HomeScreen/home_screen.dart';
 import 'Widget/navigation_bar_widget.dart';
+import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 
 class MainHomeScreen extends GetView<MainHomeController> {
   MainHomeScreen({super.key});
@@ -33,12 +37,10 @@ class MainHomeScreen extends GetView<MainHomeController> {
 
   @override
   Widget build(BuildContext context) {
-
     return Obx(
       () => BlocListener<WelcomeMessagesCubit, WelcomeMessagesInitial>(
         listener: (context, state) {},
         child: Scaffold(
-
           appBar: AppBar(
             leading: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10).r,
@@ -57,15 +59,20 @@ class MainHomeScreen extends GetView<MainHomeController> {
               if (!AppProvider.isGuest)
                 IconButton(
                     onPressed: () => Get.toNamed(AppRoutes.chatScreen),
-                    icon: BlocBuilder<RoomsCubit, RoomsInitial>(
+                    icon: StreamBuilder<List<types.Room>>(
+                      stream: FirebaseChatCore.instance.rooms(),
+                      initialData: const [],
                       builder: (context, state) {
                         return Stack(
                           children: [
-                            SvgPicture.asset(
-                              'asset/Images/chatSVG.svg',
+                            ImageMultiType(
+                              url: Assets.imagesChatSVG,
                               color: Get.theme.scaffoldBackgroundColor,
                             ),
-                            if (state.noReadMessages)
+                            if (state.data != null &&
+                                state.data!
+                                        .firstWhereOrNull((e) => e.isNotRead) !=
+                                    null)
                               Container(
                                 height: 7.0,
                                 width: 7.0,
@@ -78,12 +85,12 @@ class MainHomeScreen extends GetView<MainHomeController> {
                         );
                       },
                     )),
-
               BlocBuilder<NotificationsCubit, NotificationsInitial>(
                 builder: (context, state) {
                   return Stack(
-                    alignment:
-                    Get.locale?.languageCode == 'en' ? Alignment.topRight : Alignment.topLeft,
+                    alignment: Get.locale?.languageCode == 'en'
+                        ? Alignment.topRight
+                        : Alignment.topLeft,
                     children: [
                       IconButton(
                           onPressed: () {

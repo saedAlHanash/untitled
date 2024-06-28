@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:fitness_storm/features/auth/data/response/login_response.dart';
 import 'package:fitness_storm/features/fire_chat/util.dart';
+import 'package:fitness_storm/services/chat_service/chat_service_core.dart';
 
 import '../../Utils/utils.dart';
 import '../../features/profile/data/response/profile_response.dart';
@@ -24,7 +25,12 @@ class AppProvider {
 
   static SettingResult _systemParams = SettingResult.fromJson([]);
 
-  static int get myId => _loginData.id;
+  static int _myId = 0;
+
+  static int get myId {
+    if (_myId == 0) _myId = _loginData.id;
+    return _myId;
+  }
 
   // static Profile get profile => _profile ;
 
@@ -53,7 +59,7 @@ class AppProvider {
     _userType = AppSharedPreference.getUserType;
   }
 
-  static cashLoginData(LoginData data, { UserType? userType}) async {
+  static cashLoginData(LoginData data, {UserType? userType}) async {
     await AppSharedPreference.cashLoginData(data);
     if (userType != null) {
       await AppSharedPreference.cashUserType(userType);
@@ -65,7 +71,8 @@ class AppProvider {
   static cashProfile(Profile data) async {
     await AppSharedPreference.cashProfile(data);
     _profile = data;
-    await initFirebaseChatAfterLogin();
+
+    await ChatServiceCore.loginChatUser();
   }
 
   static cashSetting(
@@ -83,18 +90,18 @@ class AppProvider {
   static Future<void> logout() async {
     await AppSharedPreference.logout();
     _loginData = AppSharedPreference.loginDate;
-    await logoutChatUser();
+    _myId = 0;
+    await ChatServiceCore.logoutChatUser();
   }
 
-  static void showLoginDialog(){
-    NoteMessage.showCheckDialog(ctx!,
+  static void showLoginDialog() {
+    NoteMessage.showCheckDialog(
+      ctx!,
       text: S.of(ctx!).needLogin,
-      textButton: S
-          .of(ctx!)
-          .login,
+      textButton: S.of(ctx!).login,
       image: Assets.imagesLogo,
       color: AppColorManager.mainColor,
-      onConfirm:() {
+      onConfirm: () {
         AppSharedPreference.logout();
         startLogin();
       },

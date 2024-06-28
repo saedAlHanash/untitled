@@ -1,10 +1,13 @@
+import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
 import '../../../../core/app/app_provider.dart';
+import '../../../../core/util/my_style.dart';
 import '../../../../features/fire_chat/chat_card_widget.dart';
 import '../../../../features/fire_chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
+import '../../../../features/fire_chat/open_room_cubit/open_room_cubit.dart';
 import '../../../../generated/l10n.dart';
 import '../../../../router/app_router.dart';
 
@@ -17,7 +20,7 @@ class TrainerTermAndConditionWidget extends StatefulWidget {
 }
 
 class _TrainerTermAndConditionWidgetState extends State<TrainerTermAndConditionWidget> {
-  bool loading = false;
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -81,31 +84,34 @@ class _TrainerTermAndConditionWidgetState extends State<TrainerTermAndConditionW
                   ),
                   SizedBox(
                     height: 25,
-                    child: TextButton(
-                      onPressed: () async{
-                                if (loading) return;
-                        loading = true;
-                        final room = await context.read<RoomsCubit>().getRoomByUser('0');
-                         loading = false;
-                        if (context.mounted) {
-                          openRoomFunction(context, room!);
+                    child: BlocBuilder<OpenRoomCubit, OpenRoomInitial>(
+                      builder: (context, state) {
+                        if (state.statuses.loading) {
+                          return MyStyle.loadingWidget();
                         }
-                      },
-                      style: TextButton.styleFrom(
-                        padding: const EdgeInsets.all(0),
-                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        textStyle:
+                        return TextButton(
+                          onPressed: () {
+                            context
+                                .read<OpenRoomCubit>()
+                                .openRoomCustomerService();
+                          },
+                          style: TextButton.styleFrom(
+                            padding: const EdgeInsets.all(0),
+                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                            textStyle:
                             const TextStyle(fontWeight: FontWeight.normal),
-                      ),
-                      child: Text(
-                        'customer_services'.tr,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 12,
-                          decoration: TextDecoration.underline,
-                        ),
-                      ),
+                          ),
+                          child: Text(
+                            'customer_services'.tr,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 12,
+                              decoration: TextDecoration.underline,
+                            ),
+                          ),
+                        );
+                      },
                     ),
                   )
                 ],

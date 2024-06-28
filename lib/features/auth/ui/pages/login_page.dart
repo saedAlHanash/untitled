@@ -62,6 +62,7 @@ class _LoginPageState extends State<LoginPage> {
             BlocListener<LoginSocialCubit, LoginSocialInitial>(
               listenWhen: (p, c) => c.statuses.done,
               listener: (context, state) {
+                context.read<ProfileCubit>().getProfile(newData: true);
                 startHome();
               },
             ),

@@ -21,6 +21,7 @@ import '../../../../generated/l10n.dart';
 import '../../../auth/bloc/logout/logout_cubit.dart';
 import '../../../fire_chat/chat_card_widget.dart';
 import '../../../fire_chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
+import '../../../fire_chat/open_room_cubit/open_room_cubit.dart';
 import '../../bloc/profile_cubit/profile_cubit.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -74,19 +75,14 @@ class ProfilePage extends StatelessWidget {
                   ),
                   15.0.verticalSpace,
                 ],
-                BlocBuilder<RoomsCubit, RoomsInitial>(
+                BlocBuilder<OpenRoomCubit, OpenRoomInitial>(
                   builder: (context, state) {
                     if (state.statuses.loading) {
                       return MyStyle.loadingWidget();
                     }
                     return MyButton(
-                      onTap: () async {
-                        final room =
-                            await context.read<RoomsCubit>().getRoomByUser('0');
-
-                        if (context.mounted) {
-                          openRoomFunction(context, room!);
-                        }
+                      onTap: ()  {
+                        context.read<OpenRoomCubit>().openRoomCustomerService();
                       },
                       text: S.of(context).joinUsAsATrainer,
                       color: AppColorManager.mainColorLight,

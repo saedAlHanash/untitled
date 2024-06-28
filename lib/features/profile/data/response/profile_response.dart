@@ -1,3 +1,4 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 
 import '../../../../Model/specialties_model.dart';
@@ -95,6 +96,27 @@ class Profile {
     "specialties": specialties.map((x) => x.toJson()).toList(),
     "private_session_price": privateSessionPrice,
     "wallet": wallet,
+  };
+
+  Future<Map<String, dynamic>> toJsonChatApp() async => {
+    "id": id,
+    "name": name,
+    "email": email,
+    "image": image,
+    "mobile": mobile,
+    "birth_date": birthDate?.toIso8601String(),
+    "gender": gender,
+    "fitness_survey": fitnessSurvey.toJson(),
+    "bio": bio,
+    "agreement": agreement,
+    "introduction_video": introductionVideo,
+    "number_of_plans": numberOfPlans,
+    "number_of_private_hours": numberOfPrivateHours,
+    "number_of_subscribers": numberOfSubscribers,
+    "specialties": specialties.map((x) => x.toJson()).toList(),
+    "private_session_price": privateSessionPrice,
+    "wallet": wallet,
+    'fcm': await FirebaseMessaging.instance.getToken(),
   };
 
   Map<String, dynamic> toJsonForUpdate() => {

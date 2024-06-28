@@ -17,11 +17,7 @@ class TrainerMainHomeController extends GetxController {
   @override
   Future<void> onInit() async {
     saveFCM();
-    final getRoomCubitState = Get.context?.read<RoomsCubit>().state.statuses;
-    if (getRoomCubitState != CubitStatuses.done &&
-        getRoomCubitState != CubitStatuses.loading) {
-      Get.context?.read<RoomsCubit>().getChatRooms();
-    }
+
     super.onInit();
   }
 

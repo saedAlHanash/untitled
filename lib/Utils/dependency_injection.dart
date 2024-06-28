@@ -3,7 +3,7 @@ import 'dart:io';
 // import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:fitness_storm/Data/Repositories/plan_repository.dart';
@@ -41,8 +41,6 @@ class DependencyInjection {
     await initGetStorage();
 
     await initFirebaseMessaging();
-
-    await initFirebaseChat();
 
     await requestPermission();
   }
@@ -191,11 +189,8 @@ Future<void> requestPermission() async {
   }
 }
 
-Future<void> initFirebaseChat() async {
-  FirebaseAuth.instance.authStateChanges().listen((User? user) {});
-}
 
-var loading = false;
+
 
 // Future<void> getProfileForLoginChat() async {
 //   if (loading) return;

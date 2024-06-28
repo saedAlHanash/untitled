@@ -1,12 +1,15 @@
 import 'package:drawable_text/drawable_text.dart';
+import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
 import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:fitness_storm/features/auth/bloc/logout/logout_cubit.dart';
 import 'package:fitness_storm/features/profile/bloc/profile_cubit/profile_cubit.dart';
 import 'package:fitness_storm/generated/assets.dart';
+import 'package:fitness_storm/router/app_router.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart' as bloc;
+
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -23,6 +26,7 @@ import '../../features/auth/bloc/refresh_token_cubit/refresh_token_cubit.dart';
 import '../../features/auth/bloc/survey_cubit/survey_cubit.dart';
 import '../../features/bookmarked/bloc/bookmarked_cubit/bookmarked_cubit.dart';
 import '../../features/coupon/coupon_cubit/coupon_cubit.dart';
+import '../../features/fire_chat/open_room_cubit/open_room_cubit.dart';
 import '../../features/notifications/bloc/notifications_cubit/notifications_cubit.dart';
 import '../../features/plans/bloc/add_favorite/add_favorite_cubit.dart';
 import '../../features/wallet/bloc/wallet_cubit/wallet_cubit.dart';
@@ -70,80 +74,86 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      designSize: MediaQuery.of(context).size,
-      // designSize: const Size(14440, 972),
-      minTextAdapt: true,
-      // splitScreenMode: true,
-      builder: (context, child) {
-        DrawableText.initial(
-          headerSizeText: 28.0.sp,
-          initialHeightText: 1.5.sp,
-          titleSizeText: 20.0.sp,
-          initialSize: 16.0.sp,
-          selectable: false,
-          initialFont: FontFamily.roboto.name,
-          initialColor: AppColorManager.black,
-        );
-
-        return GetMaterialApp(
-          color: Colors.white,
-          title: "Fitness Storm",
-          initialBinding: SplashBinding(),
-          initialRoute: AppRoutes.splash,
-          debugShowCheckedModeBanner: false,
-          defaultTransition: Transition.fade,
-          getPages: AppPages().getPages(),
-          theme: lightTheme,
-          translations: LocaleString(),
-          locale: Locale(Get.find<LanguagesController>().selectedLanguage),
-          navigatorKey: sl<GlobalKey<NavigatorState>>(),
-          localizationsDelegates: const [
-            S.delegate,
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
-          supportedLocales: S.delegate.supportedLocales,
-          builder: (_, child) {
-            return bloc.MultiBlocProvider(
-              providers: [
-                bloc.BlocProvider(create: (_) => sl<LogoutCubit>()),
-                bloc.BlocProvider(create: (_) => sl<CouponCubit>()),
-                bloc.BlocProvider(create: (_) => sl<SurveyCubit>()),
-                bloc.BlocProvider(create: (_) => sl<BundlesCubit>()),
-                bloc.BlocProvider(
-                    create: (_) =>
-                        sl<WelcomeMessagesCubit>()..getWelcomeMessages()),
-                bloc.BlocProvider(
-                    create: (_) =>
-                        sl<NotificationsCubit>()..getNotifications()),
-                bloc.BlocProvider(create: (_) => sl<AddFavoriteCubit>()),
-                bloc.BlocProvider(create: (_) => sl<DeleteAccountCubit>()),
-                bloc.BlocProvider(
-                    create: (_) => sl<WalletCubit>()..getWallet()),
-                bloc.BlocProvider(
-                    create: (_) => sl<RefreshTokenCubit>()..refreshToken()),
-                bloc.BlocProvider(
-                    create: (_) => sl<ProfileCubit>()..getProfile()),
-                bloc.BlocProvider(
-                  create: (_) => sl<BookmarkedCubit>()..getBookmarked(),
-                ),
-                bloc.BlocProvider(
-                  create: (_) =>
-                      sl<AvailableTimesCubit>()..getTrainerAvailableTimes(),
-                ),
-                bloc.BlocProvider(
-                  create: (_) => sl<BookedAppointmentsCubit>(),
-                ),
-              ],
-              child: child!,
-            );
-          },
-          scrollBehavior: MyCustomScrollBehavior(),
-          // onGenerateRoute: routes,
-        );
+    return bloc.BlocListener<OpenRoomCubit, OpenRoomInitial>(
+      listenWhen: (p, c) => c.statuses.done && c.result != null,
+      listener: (context, state) {
+        startChatPage(state.result!);
       },
+      child: ScreenUtilInit(
+        designSize: MediaQuery.of(context).size,
+        // designSize: const Size(14440, 972),
+        minTextAdapt: true,
+        // splitScreenMode: true,
+        builder: (context, child) {
+          DrawableText.initial(
+            headerSizeText: 28.0.sp,
+            initialHeightText: 1.5.sp,
+            titleSizeText: 20.0.sp,
+            initialSize: 16.0.sp,
+            selectable: false,
+            initialFont: FontFamily.roboto.name,
+            initialColor: AppColorManager.black,
+          );
+
+          return GetMaterialApp(
+            color: Colors.white,
+            title: "Fitness Storm",
+            initialBinding: SplashBinding(),
+            initialRoute: AppRoutes.splash,
+            debugShowCheckedModeBanner: false,
+            defaultTransition: Transition.fade,
+            getPages: AppPages().getPages(),
+            theme: lightTheme,
+            translations: LocaleString(),
+            locale: Locale(Get.find<LanguagesController>().selectedLanguage),
+            navigatorKey: sl<GlobalKey<NavigatorState>>(),
+            localizationsDelegates: const [
+              S.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: S.delegate.supportedLocales,
+            builder: (_, child) {
+              return bloc.MultiBlocProvider(
+                providers: [
+                  bloc.BlocProvider(create: (_) => sl<LogoutCubit>()),
+                  bloc.BlocProvider(create: (_) => sl<CouponCubit>()),
+                  bloc.BlocProvider(create: (_) => sl<SurveyCubit>()),
+                  bloc.BlocProvider(create: (_) => sl<BundlesCubit>()),
+                  bloc.BlocProvider(
+                      create: (_) =>
+                          sl<WelcomeMessagesCubit>()..getWelcomeMessages()),
+                  bloc.BlocProvider(
+                      create: (_) =>
+                          sl<NotificationsCubit>()..getNotifications()),
+                  bloc.BlocProvider(create: (_) => sl<AddFavoriteCubit>()),
+                  bloc.BlocProvider(create: (_) => sl<DeleteAccountCubit>()),
+                  bloc.BlocProvider(
+                      create: (_) => sl<WalletCubit>()..getWallet()),
+                  bloc.BlocProvider(
+                      create: (_) => sl<RefreshTokenCubit>()..refreshToken()),
+                  bloc.BlocProvider(
+                      create: (_) => sl<ProfileCubit>()..getProfile()),
+                  bloc.BlocProvider(
+                    create: (_) => sl<BookmarkedCubit>()..getBookmarked(),
+                  ),
+                  bloc.BlocProvider(
+                    create: (_) =>
+                        sl<AvailableTimesCubit>()..getTrainerAvailableTimes(),
+                  ),
+                  bloc.BlocProvider(
+                    create: (_) => sl<BookedAppointmentsCubit>(),
+                  ),
+                ],
+                child: child!,
+              );
+            },
+            scrollBehavior: MyCustomScrollBehavior(),
+            // onGenerateRoute: routes,
+          );
+        },
+      ),
     );
   }
 }

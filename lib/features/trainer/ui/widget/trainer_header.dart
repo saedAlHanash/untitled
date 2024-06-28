@@ -11,7 +11,6 @@ import 'package:image_multi_type/round_image_widget.dart';
 import '../../../../../core/strings/app_color_manager.dart';
 import '../../../../../core/strings/enum_manager.dart';
 import '../../../../../core/widgets/my_button.dart';
-import '../../../../Screen/video/video.dart';
 import '../../../../Utils/utils.dart';
 import '../../../../core/app/app_provider.dart';
 import '../../../../core/util/my_style.dart';
@@ -19,8 +18,7 @@ import '../../../../generated/assets.dart';
 import '../../../../generated/l10n.dart';
 import '../../../../router/app_router.dart';
 import '../../../appointments/bloc/booked_appointments_cubit/booked_appointments_cubit.dart';
-import '../../../fire_chat/chat_card_widget.dart';
-import '../../../fire_chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
+import '../../../fire_chat/open_room_cubit/open_room_cubit.dart';
 import '../../data/response/trainer.dart';
 
 class TrainerHeader extends StatelessWidget {
@@ -88,30 +86,33 @@ class TrainerHeader extends StatelessWidget {
                           children: [
                             Expanded(
                               flex: 3,
-                              child: MyButtonRound(
-                                color: AppColorManager.mainColor,
-                                child: DrawableText(
-                                  text: S.of(context).chat,
-                                  drawablePadding: 3.0.w,
-                                  drawableEnd: ImageMultiType(
-                                    url: Assets.imagesChatSVG,
-                                    height: 15.0.w,
-                                    width: 15.0.w,
-                                    color: Colors.white,
-                                  ),
-                                  size: 14.0.sp,
-                                  color: Colors.white,
-                                ),
-                                onTap: () async {
-                                  final openRoom = await context
-                                      .read<RoomsCubit>()
-                                      .getRoomByUser(trainer.id.toString());
-
-                                  if (!context.mounted || openRoom == null)
-                                    return;
-
-                                  openRoomFunction(context, openRoom);
-                                  return;
+                              child:
+                                  BlocBuilder<OpenRoomCubit, OpenRoomInitial>(
+                                builder: (context, state) {
+                                  if (state.statuses.loading) {
+                                    return MyStyle.loadingWidget();
+                                  }
+                                  return MyButtonRound(
+                                    color: AppColorManager.mainColor,
+                                    child: DrawableText(
+                                      text: S.of(context).chat,
+                                      drawablePadding: 3.0.w,
+                                      drawableEnd: ImageMultiType(
+                                        url: Assets.imagesChatSVG,
+                                        height: 15.0.w,
+                                        width: 15.0.w,
+                                        color: Colors.white,
+                                      ),
+                                      size: 14.0.sp,
+                                      color: Colors.white,
+                                    ),
+                                    onTap: () {
+                                      context
+                                          .read<OpenRoomCubit>()
+                                          .openRoomByUserId(
+                                              trainer.id.toString());
+                                    },
+                                  );
                                 },
                               ),
                             ),

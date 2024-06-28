@@ -124,7 +124,7 @@ class _ItemAvailableTimeState extends State<_ItemAvailableTime> {
                           if (e.videoCallToken.isEmpty) {
                             context
                                 .read<AvailableTimesCubit>()
-                                .getAvailableTimes();
+                                .getTrainerAvailableTimes();
                             return;
                           }
                           startVideoCall(e);

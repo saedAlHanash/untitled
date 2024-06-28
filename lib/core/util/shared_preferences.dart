@@ -25,8 +25,16 @@ class AppSharedPreference {
   static const _loginData = '19';
   static const _profile = '0';
   static const _notificationsRead = '20';
+  static const _isLoginToChatApp = '21';
 
+  static cashLoginToChatApp(bool b) {
+    _prefs?.setBool(_isLoginToChatApp, b);
+  }
+
+  static bool get getIsLoginToChatApp =>
+      _prefs?.getBool(_isLoginToChatApp) ?? false;
   static SharedPreferences? _prefs;
+
 
   static int get getNotificationsRead =>
       _prefs?.getInt(_notificationsRead) ?? 0;
