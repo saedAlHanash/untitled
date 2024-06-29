@@ -16,6 +16,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:hive_flutter/adapters.dart';
 
+import '../core/api_manager/api_url.dart';
 import '../core/app/app_widget.dart';
 import '../core/injection/injection_container.dart';
 import '../core/strings/enum_manager.dart';
@@ -46,10 +47,9 @@ class DependencyInjection {
   }
 }
 
-const String baseUrl = 'https://api.fitnessstorm.org';
 
-const String userBaseUrl = '$baseUrl/mobile/user';
-const String trainerBaseUrl = '$baseUrl/mobile/trainer';
+ String userBaseUrl = 'https://$baseUrl/mobile/user';
+ String trainerBaseUrl = 'https://$baseUrl/mobile/trainer';
 
 initRepositories() {
   Get.put(PlanRepository(), permanent: true);
@@ -74,7 +74,7 @@ Future<void> initGetStorage() async {
 Future<void> initDio() async {
   //log('init Dio');
   BaseOptions baseOptions = BaseOptions(
-    baseUrl: baseUrl,
+    baseUrl: 'https://$baseUrl',
     contentType: 'application/json',
     connectTimeout: const Duration(seconds: 60 * 1000),
     receiveTimeout: const Duration(seconds: 60 * 1000),

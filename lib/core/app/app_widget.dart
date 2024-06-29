@@ -74,86 +74,80 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return bloc.BlocListener<OpenRoomCubit, OpenRoomInitial>(
-      listenWhen: (p, c) => c.statuses.done && c.result != null,
-      listener: (context, state) {
-        startChatPage(state.result!);
-      },
-      child: ScreenUtilInit(
-        designSize: MediaQuery.of(context).size,
-        // designSize: const Size(14440, 972),
-        minTextAdapt: true,
-        // splitScreenMode: true,
-        builder: (context, child) {
-          DrawableText.initial(
-            headerSizeText: 28.0.sp,
-            initialHeightText: 1.5.sp,
-            titleSizeText: 20.0.sp,
-            initialSize: 16.0.sp,
-            selectable: false,
-            initialFont: FontFamily.roboto.name,
-            initialColor: AppColorManager.black,
-          );
+    return ScreenUtilInit(
+      designSize: MediaQuery.of(context).size,
+      // designSize: const Size(14440, 972),
+      minTextAdapt: true,
+      // splitScreenMode: true,
+      builder: (context, child) {
+        DrawableText.initial(
+          headerSizeText: 28.0.sp,
+          initialHeightText: 1.5.sp,
+          titleSizeText: 20.0.sp,
+          initialSize: 16.0.sp,
+          selectable: false,
+          initialFont: FontFamily.roboto.name,
+          initialColor: AppColorManager.black,
+        );
 
-          return GetMaterialApp(
-            color: Colors.white,
-            title: "Fitness Storm",
-            initialBinding: SplashBinding(),
-            initialRoute: AppRoutes.splash,
-            debugShowCheckedModeBanner: false,
-            defaultTransition: Transition.fade,
-            getPages: AppPages().getPages(),
-            theme: lightTheme,
-            translations: LocaleString(),
-            locale: Locale(Get.find<LanguagesController>().selectedLanguage),
-            navigatorKey: sl<GlobalKey<NavigatorState>>(),
-            localizationsDelegates: const [
-              S.delegate,
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-            ],
-            supportedLocales: S.delegate.supportedLocales,
-            builder: (_, child) {
-              return bloc.MultiBlocProvider(
-                providers: [
-                  bloc.BlocProvider(create: (_) => sl<LogoutCubit>()),
-                  bloc.BlocProvider(create: (_) => sl<CouponCubit>()),
-                  bloc.BlocProvider(create: (_) => sl<SurveyCubit>()),
-                  bloc.BlocProvider(create: (_) => sl<BundlesCubit>()),
-                  bloc.BlocProvider(
-                      create: (_) =>
-                          sl<WelcomeMessagesCubit>()..getWelcomeMessages()),
-                  bloc.BlocProvider(
-                      create: (_) =>
-                          sl<NotificationsCubit>()..getNotifications()),
-                  bloc.BlocProvider(create: (_) => sl<AddFavoriteCubit>()),
-                  bloc.BlocProvider(create: (_) => sl<DeleteAccountCubit>()),
-                  bloc.BlocProvider(
-                      create: (_) => sl<WalletCubit>()..getWallet()),
-                  bloc.BlocProvider(
-                      create: (_) => sl<RefreshTokenCubit>()..refreshToken()),
-                  bloc.BlocProvider(
-                      create: (_) => sl<ProfileCubit>()..getProfile()),
-                  bloc.BlocProvider(
-                    create: (_) => sl<BookmarkedCubit>()..getBookmarked(),
-                  ),
-                  bloc.BlocProvider(
+        return GetMaterialApp(
+          color: Colors.white,
+          title: "Fitness Storm",
+          initialBinding: SplashBinding(),
+          initialRoute: AppRoutes.splash,
+          debugShowCheckedModeBanner: false,
+          defaultTransition: Transition.fade,
+          getPages: AppPages().getPages(),
+          theme: lightTheme,
+          translations: LocaleString(),
+          locale: Locale(Get.find<LanguagesController>().selectedLanguage),
+          navigatorKey: sl<GlobalKey<NavigatorState>>(),
+          localizationsDelegates: const [
+            S.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          supportedLocales: S.delegate.supportedLocales,
+          builder: (_, child) {
+            return bloc.MultiBlocProvider(
+              providers: [
+                bloc.BlocProvider(create: (_) => sl<LogoutCubit>()),
+                bloc.BlocProvider(create: (_) => sl<CouponCubit>()),
+                bloc.BlocProvider(create: (_) => sl<SurveyCubit>()),
+                bloc.BlocProvider(create: (_) => sl<BundlesCubit>()),
+                bloc.BlocProvider(
                     create: (_) =>
-                        sl<AvailableTimesCubit>()..getTrainerAvailableTimes(),
-                  ),
-                  bloc.BlocProvider(
-                    create: (_) => sl<BookedAppointmentsCubit>(),
-                  ),
-                ],
-                child: child!,
-              );
-            },
-            scrollBehavior: MyCustomScrollBehavior(),
-            // onGenerateRoute: routes,
-          );
-        },
-      ),
+                        sl<WelcomeMessagesCubit>()..getWelcomeMessages()),
+                bloc.BlocProvider(
+                    create: (_) =>
+                        sl<NotificationsCubit>()..getNotifications()),
+                bloc.BlocProvider(create: (_) => sl<AddFavoriteCubit>()),
+                bloc.BlocProvider(create: (_) => sl<DeleteAccountCubit>()),
+                bloc.BlocProvider(
+                    create: (_) => sl<WalletCubit>()..getWallet()),
+                bloc.BlocProvider(
+                    create: (_) => sl<RefreshTokenCubit>()..refreshToken()),
+                bloc.BlocProvider(
+                    create: (_) => sl<ProfileCubit>()..getProfile()),
+                bloc.BlocProvider(
+                  create: (_) => sl<BookmarkedCubit>()..getBookmarked(),
+                ),
+                bloc.BlocProvider(
+                  create: (_) =>
+                      sl<AvailableTimesCubit>()..getTrainerAvailableTimes(),
+                ),
+                bloc.BlocProvider(
+                  create: (_) => sl<BookedAppointmentsCubit>(),
+                ),
+              ],
+              child: child!,
+            );
+          },
+          scrollBehavior: MyCustomScrollBehavior(),
+          // onGenerateRoute: routes,
+        );
+      },
     );
   }
 }

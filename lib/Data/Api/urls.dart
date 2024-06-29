@@ -2,48 +2,48 @@
 import '../../Utils/dependency_injection.dart';
 
 abstract class TRAINEEURLS {
-  static const traineeSignup = '$userBaseUrl/auth/register';
-  static const submitUserOTP = '$userBaseUrl/auth/confirmAccount';
-  static const submitForgetPasswordOtp =
+  static String traineeSignup = '$userBaseUrl/auth/register';
+  static String submitUserOTP = '$userBaseUrl/auth/confirmAccount';
+  static String submitForgetPasswordOtp =
       '$userBaseUrl/auth/resetPassword/checkCode';
-  static const setNewPassword =
+  static String setNewPassword =
       '$userBaseUrl/auth/resetPassword/changePassword';
-  static const resendOTP = '$userBaseUrl/auth/resendConfirmationCode';
-  static const traineeLogin = '$userBaseUrl/auth/login';
-  static const traineeAuthenticationByGoogleAccount =
+  static String resendOTP = '$userBaseUrl/auth/resendConfirmationCode';
+  static String traineeLogin = '$userBaseUrl/auth/login';
+  static String traineeAuthenticationByGoogleAccount =
       '$userBaseUrl/auth/social_login';
-  static const traineeLogout = '$userBaseUrl/auth/logout';
-  static const forgetPassword = '$userBaseUrl/auth/resetPassword';
-  static const plans = '$userBaseUrl/plans?page=';
-  static const getUserSubscribedPlans = '$userBaseUrl/userSubscribedPlans';
-  static const getTrendingPlns = '$userBaseUrl/plans/trending';
-  static const getFeaturedPlans = '$userBaseUrl/plans/featured';
-  static const getOurPlans = '$userBaseUrl/plans/ourPlans';
-  static const getPlanById = '$userBaseUrl/plans/';
-  static const getYourTrainer = '$userBaseUrl/trainers';
-  static const getTrainerById = '$userBaseUrl/trainers/';
-  static const subscribeToPlan = '$userBaseUrl/subscribeToPlan';
-  static const completeDay = '$userBaseUrl/completeDay';
+  static String traineeLogout = '$userBaseUrl/auth/logout';
+  static String forgetPassword = '$userBaseUrl/auth/resetPassword';
+  static String plans = '$userBaseUrl/plans?page=';
+  static String getUserSubscribedPlans = '$userBaseUrl/userSubscribedPlans';
+  static String getTrendingPlns = '$userBaseUrl/plans/trending';
+  static String getFeaturedPlans = '$userBaseUrl/plans/featured';
+  static String getOurPlans = '$userBaseUrl/plans/ourPlans';
+  static String getPlanById = '$userBaseUrl/plans/';
+  static String getYourTrainer = '$userBaseUrl/trainers';
+  static String getTrainerById = '$userBaseUrl/trainers/';
+  static String subscribeToPlan = '$userBaseUrl/subscribeToPlan';
+  static String completeDay = '$userBaseUrl/completeDay';
 
-  static const filter = '$userBaseUrl/plans';
-  static const subscribePaymentPlan = '$userBaseUrl/subscriptions';
-  static const confirmSubscription = '$userBaseUrl/subscriptions/confirm';
-  static const cancelSubscription = '$userBaseUrl/subscriptions/cancel';
+  static String filter = '$userBaseUrl/plans';
+  static String subscribePaymentPlan = '$userBaseUrl/subscriptions';
+  static String confirmSubscription = '$userBaseUrl/subscriptions/confirm';
+  static String cancelSubscription = '$userBaseUrl/subscriptions/cancel';
 
-  static const subscribtionPay = '$userBaseUrl/subscriptions/pay';
-  static const survey = '$userBaseUrl/fitness-survey';
-  static const getUserProfile = '$userBaseUrl/profile';
-  static const saveFcm = '$userBaseUrl/notifications/storeFcmToken';
-  static const getCurrentWorkouts = '$userBaseUrl/currentWorkout';
-  static const getBookmarkPlan = '$userBaseUrl/plans/bookmarked';
-  static const getMyPayment = '$userBaseUrl/myPayments';
-  static const getMyPaymentPrivateSession =
+  static String subscribtionPay = '$userBaseUrl/subscriptions/pay';
+  static String survey = '$userBaseUrl/fitness-survey';
+  static String getUserProfile = '$userBaseUrl/profile';
+  static String saveFcm = '$userBaseUrl/notifications/storeFcmToken';
+  static String getCurrentWorkouts = '$userBaseUrl/currentWorkout';
+  static String getBookmarkPlan = '$userBaseUrl/plans/bookmarked';
+  static String getMyPayment = '$userBaseUrl/myPayments';
+  static String getMyPaymentPrivateSession =
       '$userBaseUrl/myAppointmentWithTrainer';
-  static const allChats = '$userBaseUrl/chats';
-  static const allNotifications = '$userBaseUrl/notifications';
-  static const restAllNotification = '$userBaseUrl/notifications/resetCount';
-  static const bookedAppointments = '$userBaseUrl/bookedAppointments';
-  static const getTrainingType = '$userBaseUrl/plans/types';
+  static String allChats = '$userBaseUrl/chats';
+  static String allNotifications = '$userBaseUrl/notifications';
+  static String restAllNotification = '$userBaseUrl/notifications/resetCount';
+  static String bookedAppointments = '$userBaseUrl/bookedAppointments';
+  static String getTrainingType = '$userBaseUrl/plans/types';
 
   static String getConversation(String channelId) =>
       '$userBaseUrl/chats/$channelId';
@@ -68,25 +68,25 @@ abstract class TRAINEEURLS {
       '$userBaseUrl/trainers/$trainerId/availableTimes';
 
   //add Workout after id
-  static const getWorkoutsByPlanId = '$userBaseUrl/plans/';
+  static String getWorkoutsByPlanId = '$userBaseUrl/plans/';
 
   // add exercises after id
-  static const getExerciesByWorkoutId = '$userBaseUrl/workouts/';
-  static const getTraineeProgress = '$userBaseUrl/myProgress';
+  static String getExerciesByWorkoutId = '$userBaseUrl/workouts/';
+  static String getTraineeProgress = '$userBaseUrl/myProgress';
 }
 
 abstract class TRAINERURLS {
-  static const getExerciesByWorkoutId = '$trainerBaseUrl/workouts/';
-  static const getWorkoutsByPlanId = '$trainerBaseUrl/plans/';
-  static const restAllNotification = '$trainerBaseUrl/notifications/resetCount';
-  static const trainerSignup = '$trainerBaseUrl/auth/register';
-  static const submitOTP = '$trainerBaseUrl/auth/confirmAccount';
-  static const trainerLogin = '$trainerBaseUrl/auth/login';
-  static const logout = '$trainerBaseUrl/auth/logout';
-  static const trainerPorile = '$trainerBaseUrl/profile';
-  static const trainerAvailableTime = '$trainerBaseUrl/availableTimes';
-  static const getTrendingPlns = '$trainerBaseUrl/plans/trending';
-  static const getOurPlans = '$trainerBaseUrl/plans/ourPlans';
+  static String getExerciesByWorkoutId = '$trainerBaseUrl/workouts/';
+  static String getWorkoutsByPlanId = '$trainerBaseUrl/plans/';
+  static String restAllNotification = '$trainerBaseUrl/notifications/resetCount';
+  static String trainerSignup = '$trainerBaseUrl/auth/register';
+  static String submitOTP = '$trainerBaseUrl/auth/confirmAccount';
+  static String trainerLogin = '$trainerBaseUrl/auth/login';
+  static String logout = '$trainerBaseUrl/auth/logout';
+  static String trainerPorile = '$trainerBaseUrl/profile';
+  static String trainerAvailableTime = '$trainerBaseUrl/availableTimes';
+  static String getTrendingPlns = '$trainerBaseUrl/plans/trending';
+  static String getOurPlans = '$trainerBaseUrl/plans/ourPlans';
 
   static String getConversation(String channelId) =>
       '$trainerBaseUrl/chats/$channelId';
@@ -97,17 +97,17 @@ abstract class TRAINERURLS {
   static String sendMessage(String channelId) =>
       '$trainerBaseUrl/chats/$channelId/sendMessage';
 
-  static const allChatsTrainer = '$trainerBaseUrl/chats';
+  static String allChatsTrainer = '$trainerBaseUrl/chats';
 
-  static const getPlanById = '$trainerBaseUrl/plans/';
+  static String getPlanById = '$trainerBaseUrl/plans/';
 
-  static const allNotifications = '$trainerBaseUrl/notifications';
+  static String allNotifications = '$trainerBaseUrl/notifications';
 
-  static const getMyPlans =
+  static String getMyPlans =
       '$trainerBaseUrl/plans/myPlans?training_level[0]=Beginner';
-  static const getYourTrainer = '$trainerBaseUrl/trainers';
-  static const getTrainerPrivateSession = '$trainerBaseUrl/wallet';
-  static const plans = '$trainerBaseUrl/plans/ourPlans';
+  static String getYourTrainer = '$trainerBaseUrl/trainers';
+  static String getTrainerPrivateSession = '$trainerBaseUrl/wallet';
+  static String plans = '$trainerBaseUrl/plans/ourPlans';
 
-  static const trainerPlans = '$trainerBaseUrl/plans/myPlans';
+  static String trainerPlans = '$trainerBaseUrl/plans/myPlans';
 }

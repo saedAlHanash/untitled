@@ -1,4 +1,5 @@
 import 'package:fitness_storm/core/app/app_provider.dart';
+import 'package:fitness_storm/core/util/shared_preferences.dart';
 import 'package:fitness_storm/features/appointments/bloc/rating_cubit/rating_cubit.dart';
 import 'package:fitness_storm/features/notifications/bloc/notifications_cubit/notifications_cubit.dart';
 import 'package:fitness_storm/features/notifications/ui/pages/notifications_page.dart';
@@ -312,7 +313,9 @@ void startConfirmCodeAccount(BuildContext context) {
 }
 
 void startHome() {
-  //loggerObject.w(AppProvider.isTrainer);
+
+  ChatServiceCore.initFirebaseChat();
+
   Get.offAllNamed(
       AppProvider.isTrainer ? AppRoutes.trainerHomePage : AppRoutes.mainHome);
   sl<FirebaseAnalyticService>().screenView(name: 'home');

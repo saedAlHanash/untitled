@@ -3,7 +3,9 @@
 import 'package:dio/dio.dart';
 import 'package:fitness_storm/Model/plan_workout.dart';
 
+import '../../Utils/dependency_injection.dart';
 import '../../Utils/utils.dart';
+import '../../core/api_manager/api_url.dart';
 import '../../core/app/app_provider.dart';
 import '../Api/api_result.dart';
 import '../Api/methods.dart';
@@ -35,7 +37,7 @@ class WorkoutRepository {
   Future<List<WorkoutModel>> getCurrentPlanWorkout() async {
     Options option = Utils.getOptions(withToken: true, all: true);
     ApiResult result = await Methods.get(
-        url: 'https://api.fitnessstorm.org/mobile/user/currentWorkout',
+        url: 'https://$baseUrl/mobile/user/currentWorkout',
         options: option);
 
    //log(result.data.toString());

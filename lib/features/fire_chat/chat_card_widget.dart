@@ -116,10 +116,3 @@
 //   }
 // }
 //
-import 'package:flutter_chat_types/flutter_chat_types.dart';
-
-Future<void> openRoomFunction( Room room) async {
-
-
-
-}

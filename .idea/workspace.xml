@@ -9,44 +9,21 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="43c414a0-a0aa-41d9-b6a1-9df3dcc6d755" name="Changes" comment="add guest user">
-      <change afterPath="$PROJECT_DIR$/lib/features/fire_chat/open_room_cubit/open_room_cubit.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/fire_chat/open_room_cubit/open_room_state.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/services/chat_service/chat_service_core.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/services/chat_service/core/firebase_chat_core.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/services/chat_service/core/firebase_chat_core_config.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/services/chat_service/core/util.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/services/chat_service/create_or_login.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+    <list default="true" id="43c414a0-a0aa-41d9-b6a1-9df3dcc6d755" name="Changes" comment="new chat app">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Main Home/main_home_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Main Home/main_home_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Main Home/main_home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Main Home/main_home_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/PlanOverView/plan_overview_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/PlanOverView/plan_overview_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Search Screen/Widget/term_and_condition_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Search Screen/Widget/term_and_condition_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Search Screen/Widget/term_and_condition_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Search Screen/Widget/term_and_condition_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Trainer Main Home/trainer_main_home_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Trainer Main Home/trainer_main_home_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Trainer Main Home/trainer_main_home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Trainer Main Home/trainer_main_home_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Data/Api/urls.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Data/Api/urls.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Data/Repositories/workout_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Data/Repositories/workout_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/HomeScreen/HomeSreenWidget/FeaturedPlanWidget/featured_plan_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/HomeScreen/HomeSreenWidget/FeaturedPlanWidget/featured_plan_item.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Utils/dependency_injection.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Utils/dependency_injection.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/core/api_manager/api_url.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/api_manager/api_url.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/core/app/app_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/app/app_provider.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/core/app/app_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/app/app_widget.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/core/extensions/extensions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/extensions/extensions.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/fire_chat/chat.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/fire_chat/chat.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/features/fire_chat/chat_card_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/fire_chat/chat_card_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/fire_chat/customer_service_card_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/fire_chat/customer_service_card_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/fire_chat/get_chats_rooms_bloc/get_rooms_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/fire_chat/get_chats_rooms_bloc/get_rooms_cubit.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/fire_chat/get_chats_rooms_bloc/get_rooms_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/fire_chat/get_chats_rooms_bloc/get_rooms_state.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/fire_chat/room_messages_bloc/room_messages_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/fire_chat/room_messages_bloc/room_messages_cubit.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/fire_chat/room_messages_bloc/room_messages_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/fire_chat/room_messages_bloc/room_messages_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/fire_chat/open_room_cubit/open_room_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/fire_chat/open_room_cubit/open_room_cubit.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/features/fire_chat/rooms_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/fire_chat/rooms_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/fire_chat/util.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/fire_chat/util.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/profile/data/response/profile_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/profile/data/response/profile_response.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/profile/ui/pages/profile_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/profile/ui/pages/profile_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/trainer/ui/pages/calender_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/trainer/ui/pages/calender_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/trainer/ui/widget/trainer_header.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/trainer/ui/widget/trainer_header.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/router/app_router.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/router/app_router.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/saed.json" beforeDir="false" afterPath="$PROJECT_DIR$/saed.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/services/chat_service/chat_service_core.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/chat_service/chat_service_core.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -389,7 +366,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719220562247</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="new chat app">
+      <option name="closed" value="true" />
+      <created>1719614103718</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1719614103718</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -420,7 +405,8 @@
     <MESSAGE value="clean code" />
     <MESSAGE value="add welcome message &#10;fix notifications" />
     <MESSAGE value="add guest user" />
-    <option name="LAST_COMMIT_MESSAGE" value="add guest user" />
+    <MESSAGE value="new chat app" />
+    <option name="LAST_COMMIT_MESSAGE" value="new chat app" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -439,6 +425,11 @@
           <url>file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/agora_rtc_engine-6.3.1/lib/src/impl/agora_rtc_engine_impl.dart</url>
           <line>817</line>
           <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/features/fire_chat/rooms_screen.dart</url>
+          <line>60</line>
+          <option name="timeStamp" value="14" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

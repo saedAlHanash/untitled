@@ -4,9 +4,11 @@ import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 
 import '../../core/api_manager/api_service.dart';
 import '../../core/app/app_provider.dart';
+import '../../core/util/shared_preferences.dart';
 import 'core/firebase_chat_core.dart';
 
 class ChatServiceCore {
+
   static Future<void> initFirebaseChat() async {
     if (AppProvider.isGuest || AppProvider.token.isEmpty) return;
     loginChatUser();
@@ -14,6 +16,7 @@ class ChatServiceCore {
   }
 
   static Future<bool> loginChatUser() async {
+    if (AppSharedPreference.getIsLoginToChatApp) return true;
     final profile = AppProvider.profile;
     try {
       await FirebaseChatCore.instance.createUserInFirestore(
@@ -26,6 +29,7 @@ class ChatServiceCore {
           metadata: await profile.toJsonChatApp(),
         ),
       );
+      await AppSharedPreference.cashLoginToChatApp(true);
       return true;
     } catch (e) {
       loggerObject.e(e);
@@ -65,11 +69,13 @@ class ChatServiceCore {
   }
 
   static Future<bool> logoutChatUser() async {
+    if (!AppSharedPreference.getIsLoginToChatApp) return true;
     try {
       await FirebaseFirestore.instance
           .collection('users')
           .doc(AppProvider.myId.toString())
           .update({'metadata': {}});
+      await AppSharedPreference.cashLoginToChatApp(false);
       return true;
     } catch (e) {
       loggerObject.e(e);

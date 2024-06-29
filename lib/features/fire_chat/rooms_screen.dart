@@ -1,5 +1,7 @@
 import 'package:drawable_text/drawable_text.dart';
+import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
+import 'package:fitness_storm/features/fire_chat/open_room_cubit/open_room_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart';
@@ -8,6 +10,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:image_multi_type/circle_image_widget.dart';
 
+import '../../generated/assets.dart';
+import '../../generated/l10n.dart';
 import '../../services/chat_service/chat_service_core.dart';
 import '../../services/chat_service/core/firebase_chat_core.dart';
 import 'chat.dart';
@@ -35,12 +39,15 @@ class RoomsScreen extends StatelessWidget {
         initialData: const [],
         builder: (context, snapshot) {
           if (!snapshot.hasData || snapshot.data!.isEmpty) {
-            return Container(
-              alignment: Alignment.center,
-              margin: const EdgeInsets.only(
-                bottom: 200,
+            return ListTile(
+              onTap: () async {
+                context.read<OpenRoomCubit>().openRoomCustomerService();
+              },
+              leading: CircleImageWidget(
+                url: Assets.imagesCallCenter,
+                size: 40.0.r,
               ),
-              child: const Text('No rooms'),
+              title: DrawableText(text: S.of(context).support),
             );
           }
 
@@ -48,9 +55,11 @@ class RoomsScreen extends StatelessWidget {
             itemCount: snapshot.data!.length,
             itemBuilder: (context, index) {
               final room = snapshot.data![index];
-
+              loggerObject.w(room.users.toString());
               return ListTile(
-                onTap: () async {},
+                onTap: () async {
+                  context.read<OpenRoomCubit>().openRoomByRoom(room);
+                },
                 leading: CircleImageWidget(
                   url: room.otherUser.imageUrl,
                   size: 40.0.r,

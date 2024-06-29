@@ -72,7 +72,7 @@ class AppProvider {
     await AppSharedPreference.cashProfile(data);
     _profile = data;
 
-    await ChatServiceCore.loginChatUser();
+    await ChatServiceCore.updateChatUser();
   }
 
   static cashSetting(

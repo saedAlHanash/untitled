@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 
@@ -75,37 +76,41 @@ class FeaturedPlanItem extends GetWidget {
   }) {
     var width = MediaQuery.of(Get.context!).size.width - 30;
     if (width < 0) width = 0;// add by saed
-    return ClipRRect(
-      borderRadius: const BorderRadius.only(
-        bottomRight: Radius.circular(15),
-        bottomLeft: Radius.circular(15),
-      ),
-      child: Container(
-        width: width,
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.bottomCenter,
-            end: Alignment.topCenter,
-            colors: [Colors.black, Colors.black54, Colors.black26, Colors.black12],
-          ),
+    return SizedBox(
+      width: width,
+      height: 0.3.sh,
+      child: ClipRRect(
+        borderRadius: const BorderRadius.only(
+          bottomRight: Radius.circular(15),
+          bottomLeft: Radius.circular(15),
         ),
-        // color: Colors.grey.withOpacity(0.5),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            _buildTrainerInfo(
-              trainerImageUrl: trainerImageUrl,
-              trainerName: trainerName,
-              width: width,
+        child: Container(
+          width: width,
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.bottomCenter,
+              end: Alignment.topCenter,
+              colors: [Colors.black, Colors.black54, Colors.black26, Colors.black12],
             ),
-            _buildPlanInfoWidget(
-              planName: planName,
-              totalWeeks: totalWeeks,
-              planFrequency: planFrequency,
-              // trainingType: trainingType,
-              width: width,
-            )
-          ],
+          ),
+          // color: Colors.grey.withOpacity(0.5),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              _buildTrainerInfo(
+                trainerImageUrl: trainerImageUrl,
+                trainerName: trainerName,
+                width: width,
+              ),
+              _buildPlanInfoWidget(
+                planName: planName,
+                totalWeeks: totalWeeks,
+                planFrequency: planFrequency,
+                // trainingType: trainingType,
+                width: width,
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -198,5 +203,3 @@ class FeaturedPlanItem extends GetWidget {
     );
   }
 }
-
-//• ●

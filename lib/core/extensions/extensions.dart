@@ -6,6 +6,7 @@ import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 
 import '../api_manager/api_service.dart';
+import '../api_manager/api_url.dart';
 import '../error/error_manager.dart';
 import '../models/booked_appointments.dart';
 import '../strings/enum_manager.dart';
@@ -100,7 +101,7 @@ extension SplitByLength on String {
 
   String get fixAvatarImage {
     if (startsWith('http') || isEmpty) return this;
-    final String link = "https://api.fitnessstorm.org/$this";
+    final String link = "https://$baseUrl/$this";
     return link;
   }
 }
@@ -114,7 +115,7 @@ extension StringHelper on String? {
   String get fixAvatarImage {
     if (this == null) return '';
     if (this!.startsWith('http')) return this!;
-    final String link = "https://api.fitnessstorm.org/$this";
+    final String link = "https://$baseUrl/$this";
     return link;
   }
 }
