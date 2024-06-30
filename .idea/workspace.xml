@@ -10,14 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="43c414a0-a0aa-41d9-b6a1-9df3dcc6d755" name="Changes" comment="new chat app">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Data/Repositories/get_url_video.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Data/Repositories/get_url_video.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Utils/utils.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Utils/utils.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Widgets/vimeo_player.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Widgets/vimeo_player.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pod_player/lib/src/controllers/pod_getx_video_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/pod_player/lib/src/controllers/pod_getx_video_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pod_player/lib/src/controllers/pod_player_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/pod_player/lib/src/controllers/pod_player_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pod_player/lib/src/utils/video_apis.dart" beforeDir="false" afterPath="$PROJECT_DIR$/pod_player/lib/src/utils/video_apis.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/saed.json" beforeDir="false" afterPath="$PROJECT_DIR$/saed.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -400,7 +393,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719729529466</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="new chat app">
+      <option name="closed" value="true" />
+      <created>1719750546190</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1719750546190</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -461,16 +462,6 @@
           <url>file://$PROJECT_DIR$/pod_player/lib/src/controllers/pod_player_controller.dart</url>
           <line>59</line>
           <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/pod_player/lib/src/controllers/pod_getx_video_controller.dart</url>
-          <line>73</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/pod_player/lib/src/controllers/pod_getx_video_controller.dart</url>
-          <line>70</line>
-          <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="Dart">
           <url>file://$PROJECT_DIR$/pod_player/lib/src/controllers/pod_player_controller.dart</url>
