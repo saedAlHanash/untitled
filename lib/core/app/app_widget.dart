@@ -1,4 +1,6 @@
 import 'package:drawable_text/drawable_text.dart';
+import 'package:fitness_storm/core/api_manager/api_service.dart';
+import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
 import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:fitness_storm/features/auth/bloc/logout/logout_cubit.dart';
@@ -70,6 +72,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    loggerObject.w(AppProvider.myId);
     return ScreenUtilInit(
       designSize: MediaQuery.of(context).size,
       // designSize: const Size(14440, 972),

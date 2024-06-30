@@ -1,3 +1,4 @@
+import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/router/app_router.dart';
 import 'package:http/http.dart';
@@ -9,12 +10,10 @@ import '../util/snack_bar_message.dart';
 
 class ErrorManager {
   static String getApiError(Response response) {
+
     switch (response.statusCode) {
       case 401:
-
-        AppSharedPreference.logout();
-        startLogin();
-
+        AppProvider.logout();
         return ' المستخدم الحالي لم يسجل الدخول ' '${response.statusCode}';
 
       case 503:

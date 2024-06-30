@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:fitness_storm/core/api_manager/api_url.dart';
+import 'package:fitness_storm/core/error/error_manager.dart';
 import 'package:fitness_storm/core/util/firebase_analytics_service.dart';
 import 'package:fitness_storm/core/util/shared_preferences.dart';
 import 'package:fitness_storm/features/fire_chat/open_room_cubit/open_room_cubit.dart';
@@ -23,7 +24,6 @@ import 'core/injection/injection_container.dart' as di;
 import 'core/injection/injection_container.dart';
 import 'core/strings/enum_manager.dart';
 import 'features/auth/bloc/refresh_token_cubit/refresh_token_cubit.dart';
-
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -100,5 +100,6 @@ Future<void> saveFCM() async {
   );
   if (response.statusCode != 200) {
     loggerObject.e('error with fcm');
+    ErrorManager.getApiError(response);
   }
 }
