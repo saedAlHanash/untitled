@@ -9,83 +9,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="43c414a0-a0aa-41d9-b6a1-9df3dcc6d755" name="Changes" comment="new chat app">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Data/Api/urls.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Data/Api/urls.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Data/Repositories/Trainer Repository/plan_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Data/Repositories/Trainer Repository/plan_repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Data/Repositories/auth_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Data/Repositories/auth_repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Data/Repositories/get_url_video.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Data/Repositories/get_url_video.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Data/Repositories/notification_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Data/Repositories/notification_repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Data/Repositories/plan_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Data/Repositories/plan_repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Data/Repositories/workout_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Data/Repositories/workout_repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Model/private_session.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Model/private_session.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/HomeScreen/HomeSreenWidget/ContinueTraining/continue_training_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/HomeScreen/HomeSreenWidget/ContinueTraining/continue_training_item.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/HomeScreen/HomeSreenWidget/ContinueTraining/continue_training_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/HomeScreen/HomeSreenWidget/ContinueTraining/continue_training_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/HomeScreen/HomeSreenWidget/FeaturedPlanWidget/featured_plan_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/HomeScreen/HomeSreenWidget/FeaturedPlanWidget/featured_plan_item.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/HomeScreen/HomeSreenWidget/FeaturedPlanWidget/featured_plan_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/HomeScreen/HomeSreenWidget/FeaturedPlanWidget/featured_plan_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/HomeScreen/HomeSreenWidget/yourTainerWidget/your_trainer_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/HomeScreen/HomeSreenWidget/yourTainerWidget/your_trainer_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/HomeScreen/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/HomeScreen/home_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Main Home/main_home_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Main Home/main_home_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Main Home/main_home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Main Home/main_home_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/PlanOverView/plan_overview_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/PlanOverView/plan_overview_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/PlanOverView/plan_overview_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/PlanOverView/plan_overview_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Search Result/Widget/search_trainer_list_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Search Result/Widget/search_trainer_list_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Subscription/subscription_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Subscription/subscription_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Subscription/subscription_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Subscription/subscription_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/YourTrainer/your_trainer_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/YourTrainer/your_trainer_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Search Result/Widget/search_trainer_list_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Search Result/Widget/search_trainer_list_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Search Screen/Widget/term_and_condition_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Search Screen/Widget/term_and_condition_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Trainer Main Home/trainer_main_home_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Trainer Main Home/trainer_main_home_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Trainer Main Home/trainer_main_home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainer Screens/Trainer Main Home/trainer_main_home_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/video/video.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/video/video.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/video/video_temp.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/video/video_temp.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Utils/Routes/app_pages.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Utils/Routes/app_pages.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Utils/dependency_injection.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Utils/dependency_injection.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/api_manager/api_url.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/api_manager/api_url.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/app/app_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/app/app_provider.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/app/app_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/app/app_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/extensions/extensions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/extensions/extensions.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/models/plan_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/models/plan_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/appointments/ui/pages/appointments_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/appointments/ui/pages/appointments_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/appointments/ui/pages/create_bundle_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/appointments/ui/pages/create_bundle_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/auth/bloc/apply_cubit/apply_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/bloc/apply_cubit/apply_cubit.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/auth/bloc/login_social_cubit/login_social_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/bloc/login_social_cubit/login_social_cubit.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/auth/ui/pages/forget_password_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/ui/pages/forget_password_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/fire_chat/chat.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/fire_chat/chat.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/fire_chat/chat_card_widget.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/fire_chat/customer_service_card_widget.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/fire_chat/extensions.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/fire_chat/get_chats_rooms_bloc/get_rooms_cubit.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/fire_chat/get_chats_rooms_bloc/get_rooms_state.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/fire_chat/login.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/fire_chat/open_room_cubit/open_room_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/fire_chat/open_room_cubit/open_room_cubit.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/fire_chat/room_messages_bloc/room_messages_cubit.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/fire_chat/room_messages_bloc/room_messages_state.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/fire_chat/rooms_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/fire_chat/rooms_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/fire_chat/util.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/fire_chat/util.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/notifications/ui/widget/notification_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/notifications/ui/widget/notification_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/profile/ui/pages/guest_profile_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/profile/ui/pages/guest_profile_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/profile/ui/pages/pdf_viewer_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/profile/ui/pages/pdf_viewer_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/profile/ui/pages/profile_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/profile/ui/pages/profile_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/profile/ui/pages/profile_trainer_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/profile/ui/pages/profile_trainer_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/profile/ui/widget/trainer_profile_header.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/profile/ui/widget/trainer_profile_header.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/trainer/bloc/trainers_cubit/trainers_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/trainer/bloc/trainers_cubit/trainers_cubit.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/trainer/ui/pages/calender_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/trainer/ui/pages/calender_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/trainer/ui/pages/trainers_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/trainer/ui/pages/trainers_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/trainer/ui/widget/trainer_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/trainer/ui/widget/trainer_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/generated/l10n.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/l10n.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/router/app_router.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/router/app_router.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/services/caching_service/caching_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/caching_service/caching_service.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/services/chat_service/chat_service_core.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/chat_service/chat_service_core.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/services/server_time_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/server_time_service.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/saed.json" beforeDir="false" afterPath="$PROJECT_DIR$/saed.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/widget_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/test/widget_test.dart" afterDir="false" />
-    </list>
+    <list default="true" id="43c414a0-a0aa-41d9-b6a1-9df3dcc6d755" name="Changes" comment="new chat app" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -443,7 +367,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719675714433</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="new chat app">
+      <option name="closed" value="true" />
+      <created>1719724518255</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1719724518255</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
