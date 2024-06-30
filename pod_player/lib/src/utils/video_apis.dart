@@ -93,6 +93,7 @@ class VideoApis {
           (jsonDecode(response.body)['files'] as List<dynamic>?) ?? [];
 
       final List<VideoQalityUrls> list = [];
+
       for (int i = 0; i < jsonData.length; i++) {
         final String quality =
             (jsonData[i]['rendition'] as String?)?.split('p').first ?? '0';

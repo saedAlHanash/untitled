@@ -1,9 +1,13 @@
+import 'dart:convert';
+
 import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:pod_player/pod_player.dart';
 
+import '../Data/Repositories/get_url_video.dart';
+import '../core/util/my_style.dart';
 import '../generated/assets.dart';
 
 class VimeoPlayer extends StatelessWidget {
@@ -133,17 +137,35 @@ class VimeoPlayerPod extends StatefulWidget {
 class _VimeoPlayerPodState extends State<VimeoPlayerPod> {
   late PodPlayerController controller;
 
-  String token = '';
+  bool isInitial = false;
+  late final VideoPlayerController vc;
 
   @override
   void initState() {
+    // vc = VideoPlayerController.networkUrl(Uri.parse(
+    //     'https://player.vimeo.com/progressive_redirect/playback/739932290/rendition/540p/file.mp4?loc=external&oauth2_token_id=1770106234&signature=e1c48a7068bd338603c6c0213099b6258fc6dd04396674ec08ea3dc7ff99c725'));
+    // vc.initialize().then(
+    //   (value) {
+    //
+    //     setState(() {
+    //       isInitial = true;
+    //     });
+    //
+    //     vc.play();
+    //   },
+    // );
     controller = PodPlayerController(
       podPlayerConfig: const PodPlayerConfig(
         wakelockEnabled: true,
         videoQualityPriority: [360],
       ),
-      playVideoFrom: PlayVideoFrom.vimeo(
+      playVideoFrom: PlayVideoFrom.vimeoPrivateVideos(
         widget.videoId,
+        httpHeaders: {
+          'Authorization': 'Bearer 021e33294bd3accb2c957b2a406b6c30',
+          'Content-Type': 'application/json',
+          'Accept': "application/vnd.vimeo.*+json;version=3.4",
+        },
         // '784930773',
         // httpHeaders: {'Authorization': 'Bearer $token'},
         videoPlayerOptions: VideoPlayerOptions(
@@ -171,25 +193,35 @@ class _VimeoPlayerPodState extends State<VimeoPlayerPod> {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          PodVideoPlayer(
-            controller: controller,
-            onToggleFullScreen: (isFullScreen) async {
-              if (isFullScreen) {
-                SystemChrome.setPreferredOrientations([
-                  DeviceOrientation.landscapeLeft,
-                  DeviceOrientation.landscapeRight,
-                ]);
-              } else {
-                SystemChrome.setPreferredOrientations([
-                  DeviceOrientation.portraitUp,
-                  DeviceOrientation.portraitDown,
-                ]);
-              }
-            },
-            videoThumbnail: const DecorationImage(
-              image: AssetImage(Assets.imagesLogo),
+          if (false)
+            isInitial
+                ? Center(
+                    child: AspectRatio(
+                      aspectRatio: 16 / 9,
+                      child: VideoPlayer(vc),
+                    ),
+                  )
+                : MyStyle.loadingWidget()
+          else
+            PodVideoPlayer(
+              controller: controller,
+              onToggleFullScreen: (isFullScreen) async {
+                if (isFullScreen) {
+                  SystemChrome.setPreferredOrientations([
+                    DeviceOrientation.landscapeLeft,
+                    DeviceOrientation.landscapeRight,
+                  ]);
+                } else {
+                  SystemChrome.setPreferredOrientations([
+                    DeviceOrientation.portraitUp,
+                    DeviceOrientation.portraitDown,
+                  ]);
+                }
+              },
+              videoThumbnail: const DecorationImage(
+                image: AssetImage(Assets.imagesLogo),
+              ),
             ),
-          ),
           Positioned(
             bottom: 5.0,
             right: 15.0,

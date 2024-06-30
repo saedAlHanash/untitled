@@ -11,7 +11,7 @@ const clientSecrute =
 
 Future<String> getVimeoToken() async {
   final headers = {
-    'Authorization': 'basic ${base64Encode(utf8.encode("$clientId:$clientSecrute"))}',
+    'Authorization': 'Bearer c79520bceb82e95c2ab64845dce45b69',
     'Content-Type': 'application/json',
     'Accept': "application/vnd.vimeo.*+json;version=3.4",
   };

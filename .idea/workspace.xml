@@ -10,12 +10,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="43c414a0-a0aa-41d9-b6a1-9df3dcc6d755" name="Changes" comment="new chat app">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/app/app_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/app/app_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/error/error_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/error/error_manager.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Data/Repositories/get_url_video.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Data/Repositories/get_url_video.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Utils/utils.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Utils/utils.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Widgets/vimeo_player.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Widgets/vimeo_player.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pod_player/lib/src/controllers/pod_getx_video_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/pod_player/lib/src/controllers/pod_getx_video_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pod_player/lib/src/controllers/pod_player_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/pod_player/lib/src/controllers/pod_player_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pod_player/lib/src/utils/video_apis.dart" beforeDir="false" afterPath="$PROJECT_DIR$/pod_player/lib/src/utils/video_apis.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/saed.json" beforeDir="false" afterPath="$PROJECT_DIR$/saed.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +63,7 @@
     "ignore.virus.scanning.warn.message": "true",
     "io.flutter.reload.alreadyRun": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/LENOVO/StudioProjects/New/fitness_storm/lib/features/fire_chat",
+    "last_opened_file_path": "C:/Users/LENOVO/StudioProjects/Bandtech/basmah_project/basmah",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -390,7 +392,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719724686422</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="new chat app">
+      <option name="closed" value="true" />
+      <created>1719729529466</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1719729529466</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -441,6 +451,31 @@
           <url>file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/agora_rtc_engine-6.3.1/lib/src/impl/agora_rtc_engine_impl.dart</url>
           <line>817</line>
           <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/pod_player/lib/src/controllers/pod_player_controller.dart</url>
+          <line>58</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/pod_player/lib/src/controllers/pod_player_controller.dart</url>
+          <line>59</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/pod_player/lib/src/controllers/pod_getx_video_controller.dart</url>
+          <line>73</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/pod_player/lib/src/controllers/pod_getx_video_controller.dart</url>
+          <line>70</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/pod_player/lib/src/controllers/pod_player_controller.dart</url>
+          <line>55</line>
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

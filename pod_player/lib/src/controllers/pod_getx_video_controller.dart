@@ -66,7 +66,6 @@ class PodGetXVideoController extends _PodGesturesController {
       checkAutoPlayVideo();
       controllerInitialized = true;
       update();
-
       update(['update-all']);
       // ignore: unawaited_futures
       Future<void>.delayed(const Duration(milliseconds: 600))

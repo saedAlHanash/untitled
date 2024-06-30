@@ -264,20 +264,12 @@ class Utils {
     }
     if (withToken || all || customToken.isNotEmpty) {
       //log(StorageController().token);
-      options.headers!.addAll({
-        'Authorization': 'Bearer ${AppProvider.token}',
-        'timeZone': DateTime.now().timeZoneName,
-        'lang': Get.locale?.languageCode ?? 'en',
-      });
+      options.headers!.addAll(innerHeader);
     }
     if (withRefreshToken) {
       //log('RefreshToken');
       //log(StorageController().rememberToken);
-      options.headers!.addAll({
-        'Authorization': 'Bearer ${AppProvider.token}',
-        'lang': Get.locale!.languageCode,
-        'timeZone': DateTime.now().timeZoneName,
-      });
+      options.headers!.addAll(innerHeader);
     }
     // if (customToken.isNotEmpty) {
     //   log('Custom Token');
