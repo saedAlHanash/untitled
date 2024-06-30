@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:fitness_storm/Data/Api/methods.dart';
 import 'package:fitness_storm/Data/Api/urls.dart';
-import 'package:fitness_storm/Model/notification_model.dart';
 import 'package:fitness_storm/Utils/utils.dart';
 import 'package:get/get.dart';
 

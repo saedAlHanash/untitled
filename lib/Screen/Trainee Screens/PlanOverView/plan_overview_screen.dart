@@ -1,21 +1,22 @@
 import 'dart:io';
 
+import 'package:drawable_text/drawable_text.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/PlanOverView/Widget/day_bar.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/PlanOverView/Widget/trainer_bio.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/PlanOverView/Widget/video_tail_widget.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/PlanOverView/plan_overview_controller.dart';
 import 'package:fitness_storm/Widgets/custom_button.dart';
 import 'package:fitness_storm/Widgets/read_more_text_widget.dart';
+import 'package:fitness_storm/core/util/my_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:image_multi_type/circle_image_widget.dart';
 
 import '../../../Widgets/Exercise/day_widget.dart';
-import '../../../Widgets/custom_chip.dart';
 import '../../../Widgets/vimeo_player.dart';
 import '../../../core/app/app_provider.dart';
-import 'Widget/trainer_profile.dart';
 
 class PlanOverviewScreen extends GetView<PlanOverviewController> {
   const PlanOverviewScreen({super.key});
@@ -33,7 +34,7 @@ class PlanOverviewScreen extends GetView<PlanOverviewController> {
                 controller.isLoading ? '' : controller.planOverview.name,
                 style: const TextStyle(fontWeight: FontWeight.bold))),
         body: controller.isLoading
-            ? const Center(child: CircularProgressIndicator.adaptive())
+            ? MyStyle.loadingWidget()
             : SingleChildScrollView(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -45,56 +46,29 @@ class PlanOverviewScreen extends GetView<PlanOverviewController> {
                       },
                     ),
                     const VideoTailWidget(),
-                    Padding(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: MediaQuery.of(context).size.width / 20),
-                      child: Column(
-                        children: [
-                          30.0.verticalSpace,
-                          Text(
-                            controller.planOverview.name,
-                            style: const TextStyle(
-                                color: Color(0xFF565C63), fontSize: 26),
+                    Column(
+                      children: [
+                        30.0.verticalSpace,
+                        Text(
+                          controller.planOverview.name,
+                          style: const TextStyle(
+                              color: Color(0xFF565C63), fontSize: 26),
+                        ),
+                        30.0.verticalSpace,
+                        ReadMoreTextWidget(
+                            text: controller.planOverview.description),
+                        30.0.verticalSpace,
+                        ListTile(
+                          leading: CircleImageWidget(
+                            url: controller.planOverview.trainer.image,
+                            size: 70.0.r,
                           ),
-                          Text(
-                            controller.planOverview.trainer.name,
-                            style: TextStyle(
-                                color: Get.theme.colorScheme.secondary,
-                                fontSize: 14),
-                          ),
-                          // SizedBox(
-                          //   width: Get.width,
-                          //   height: Get.height / 20,
-                          //   child: ListView(
-                          //     shrinkWrap: true,
-                          //     scrollDirection: Axis.horizontal,
-                          //     // mainAxisAlignment: MainAxisAlignment.center,
-                          //     children: [
-                          //       Row(
-                          //           children: controller.planOverview.trainingLocation
-                          //               .map((e) => CustomChip(text: e.type))
-                          //               .toList()),
-                          //       Row(
-                          //           children: controller.planOverview.level
-                          //               .map((e) => CustomChip(text: e.type))
-                          //               .toList()),
-                          //       Row(
-                          //           children: controller.planOverview.trainingType
-                          //               .map((e) => CustomChip(text: e.type))
-                          //               .toList()),
-                          //     ],
-                          //   ),
-                          // ),
-                          30.0.verticalSpace,
-                          ReadMoreTextWidget(
-                              text: controller.planOverview.description),
-                          30.0.verticalSpace,
-                          TrainerProfile(controller.planOverview.trainer.name,
-                              controller.planOverview.trainer.image),
-                          30.0.verticalSpace,
-                          TrainerBio(controller.planOverview.trainer.bio),
-                        ],
-                      ),
+                          title: DrawableText(
+                              text: controller.planOverview.trainer.name),
+                        ),
+                        30.0.verticalSpace,
+                        TrainerBio(controller.planOverview.trainer.bio),
+                      ],
                     ),
                     const DayBar(),
                     SizedBox(height: Get.height / 25),
@@ -139,7 +113,7 @@ class PlanOverviewScreen extends GetView<PlanOverviewController> {
                         controller.planOverview.name
                 ? null
                 : CustomButton(
-                    onTapFunction: controller.onSubscribePlan,
+                    onTapFunction: controller.subscribeToPlan,
                     buttonColor: Get.theme.primaryColor,
                     textColor: Colors.white,
                     padding: 0,

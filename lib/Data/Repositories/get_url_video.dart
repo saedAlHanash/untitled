@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:http/http.dart' as http;
 
 const urlAuthentication = 'https://api.vimeo.com/oauth/authorize/client';

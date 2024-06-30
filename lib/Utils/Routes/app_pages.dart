@@ -16,8 +16,6 @@ import 'package:fitness_storm/Screen/Trainee%20Screens/TrendingPlan/trending_pla
 import 'package:fitness_storm/Screen/Trainee%20Screens/TrendingPlan/trending_plan_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/User%20Training/user_training_binding.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/User%20Training/user_training_screen.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/YourTrainer/your_trainer_binding.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/YourTrainer/your_trainer_screen.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Search%20Result/search_result_bindings.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Search%20Result/search_result_screen.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Main%20Home/trainer_main_home_binding.dart';

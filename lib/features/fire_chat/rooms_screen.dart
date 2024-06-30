@@ -5,19 +5,14 @@ import 'package:fitness_storm/features/fire_chat/open_room_cubit/open_room_cubit
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart';
-
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:image_multi_type/circle_image_widget.dart';
 
 import '../../generated/assets.dart';
 import '../../generated/l10n.dart';
-import '../../services/chat_service/chat_service_core.dart';
 import '../../services/chat_service/core/firebase_chat_core.dart';
-import 'chat.dart';
-import 'chat_card_widget.dart';
-import 'customer_service_card_widget.dart';
-import 'get_chats_rooms_bloc/get_rooms_cubit.dart';
+
 
 class RoomsScreen extends StatelessWidget {
   const RoomsScreen({super.key});
@@ -55,7 +50,7 @@ class RoomsScreen extends StatelessWidget {
             itemCount: snapshot.data!.length,
             itemBuilder: (context, index) {
               final room = snapshot.data![index];
-              loggerObject.w(room.users.toString());
+
               return ListTile(
                 onTap: () async {
                   context.read<OpenRoomCubit>().openRoomByRoom(room);

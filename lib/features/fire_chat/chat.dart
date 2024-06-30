@@ -60,43 +60,44 @@ class _ChatPageState extends State<ChatPage> {
   void _handleAtachmentPressed() {
     showModalBottomSheet<void>(
       context: context,
-      builder: (BuildContext context) => SafeArea(
-        child: SizedBox(
-          height: 144,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              TextButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                  _handleImageSelection();
-                },
-                child: const Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text('Photo'),
-                ),
+      builder: (BuildContext context) =>
+          SafeArea(
+            child: SizedBox(
+              height: 144,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                      _handleImageSelection();
+                    },
+                    child: const Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text('Photo'),
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                      _handleFileSelection();
+                    },
+                    child: const Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text('File'),
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () => Navigator.pop(context),
+                    child: const Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text('Cancel'),
+                    ),
+                  ),
+                ],
               ),
-              TextButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                  _handleFileSelection();
-                },
-                child: const Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text('File'),
-                ),
-              ),
-              TextButton(
-                onPressed: () => Navigator.pop(context),
-                child: const Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text('Cancel'),
-                ),
-              ),
-            ],
+            ),
           ),
-        ),
-      ),
     );
   }
 
@@ -205,10 +206,8 @@ class _ChatPageState extends State<ChatPage> {
     }
   }
 
-  void _handlePreviewDataFetched(
-    types.TextMessage message,
-    types.PreviewData previewData,
-  ) {
+  void _handlePreviewDataFetched(types.TextMessage message,
+      types.PreviewData previewData,) {
     final updatedMessage = message.copyWith(previewData: previewData);
 
     FirebaseChatCore.instance.updateMessage(updatedMessage, widget.room.id);
@@ -225,7 +224,7 @@ class _ChatPageState extends State<ChatPage> {
           fcmWeb: myRoomObject.fcmTokenWeb,
         ),
       ).then(
-        (value) {
+            (value) {
           if (value) {
             ///for send notification to first message
             myRoomObject.needToSendNotification = false;
@@ -247,12 +246,14 @@ class _ChatPageState extends State<ChatPage> {
   }
 
   @override
-  Widget build(BuildContext context) => Scaffold(
+  Widget build(BuildContext context) =>
+      Scaffold(
         appBar: AppBarWidget(
           actions: [
             Row(
               children: [
-                DrawableText(text: widget.room.otherUser.name),
+                DrawableText(
+                  text: widget.room.otherUser.name, color: Colors.white,),
                 10.0.horizontalSpace,
                 CircleImageWidget(
                   url: widget.room.otherUser.imageUrl,
@@ -266,30 +267,32 @@ class _ChatPageState extends State<ChatPage> {
         body: StreamBuilder<types.Room>(
           initialData: widget.room,
           stream: FirebaseChatCore.instance.room(widget.room.id),
-          builder: (context, snapshot) => StreamBuilder<List<types.Message>>(
-            initialData: const [],
-            stream: FirebaseChatCore.instance.messages(snapshot.data!),
+          builder: (context, snapshot) =>
+              StreamBuilder<List<types.Message>>(
+                initialData: const [],
+                stream: FirebaseChatCore.instance.messages(snapshot.data!),
 
-            builder: (context, snapshot) => Chat(
-              textMessageOptions: TextMessageOptions(
-                onLinkPressed: (p0) {
-                  LauncherHelper.openPage(p0);
-                },
+                builder: (context, snapshot) =>
+                    Chat(
+                      textMessageOptions: TextMessageOptions(
+                        onLinkPressed: (p0) {
+                          LauncherHelper.openPage(p0);
+                        },
+                      ),
+                      isAttachmentUploading: _isAttachmentUploading,
+                      messages: snapshot.data ?? [],
+                      onAttachmentPressed: _handleAtachmentPressed,
+                      onMessageTap: _handleMessageTap,
+                      onPreviewDataFetched: _handlePreviewDataFetched,
+                      onSendPressed: _handleSendPressed,
+                      theme: const DarkChatTheme(
+                          backgroundColor: Colors.white,
+                          primaryColor: AppColorManager.mainColor,
+                          secondaryColor: AppColorManager.mainColorDark,
+                          inputBackgroundColor: AppColorManager.mainColor),
+                      user: types.User(id: AppProvider.myId.toString()),
+                    ),
               ),
-              isAttachmentUploading: _isAttachmentUploading,
-              messages: snapshot.data ?? [],
-              onAttachmentPressed: _handleAtachmentPressed,
-              onMessageTap: _handleMessageTap,
-              onPreviewDataFetched: _handlePreviewDataFetched,
-              onSendPressed: _handleSendPressed,
-              theme: const DarkChatTheme(
-                  backgroundColor: Colors.white,
-                  primaryColor: AppColorManager.mainColor,
-                  secondaryColor: AppColorManager.mainColorDark,
-                  inputBackgroundColor: AppColorManager.mainColor),
-              user: types.User(id: AppProvider.myId.toString()),
-            ),
-          ),
         ),
       );
 }

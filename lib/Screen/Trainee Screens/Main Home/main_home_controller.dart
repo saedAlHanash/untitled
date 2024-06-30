@@ -1,12 +1,6 @@
 import 'package:fitness_storm/Screen/Trainee%20Screens/Main%20Home/Widget/navigation_bar_controller.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
-import '../../../Data/Repositories/notification_repository.dart';
-import '../../../Model/notification_model.dart';
-import '../../../core/strings/enum_manager.dart';
-import '../../../features/fire_chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
-import '../../../features/notifications/data/response/notifications_response.dart';
 import '../../../main.dart';
 
 

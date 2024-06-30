@@ -3,7 +3,6 @@ import 'dart:io';
 
 import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:fitness_storm/features/auth/data/response/login_response.dart';
-import 'package:fitness_storm/features/fire_chat/util.dart';
 import 'package:fitness_storm/services/chat_service/chat_service_core.dart';
 
 import '../../Utils/utils.dart';
@@ -89,9 +88,11 @@ class AppProvider {
 
   static Future<void> logout() async {
     await AppSharedPreference.logout();
+
     _loginData = AppSharedPreference.loginDate;
-    _myId = 0;
     await ChatServiceCore.logoutChatUser();
+    _myId = 0;
+    startLogin();
   }
 
   static void showLoginDialog() {

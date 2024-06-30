@@ -340,11 +340,8 @@ extension EnumsH on List<Enum> {
 
 extension AppointmentH on Appointment {
   bool get isNow {
-    final dateTimeNow = ServerTimeService.getServerTime;
-// loggerObject.w(
-//     '${ServerTimeService.getServerTime}\n'
-//     '${startTime}\n'
-//     '${endTime}');
+    final dateTimeNow = DateTime.now().toUtc();
+
     final b = dateTimeNow.isAfter(startTime);
     final a = dateTimeNow.isBefore(endTime);
 
@@ -353,7 +350,7 @@ extension AppointmentH on Appointment {
   }
 
   bool get isExpired {
-    final dateTimeNow = ServerTimeService.getServerTime;
+    final dateTimeNow = DateTime.now().toUtc();
     final a = dateTimeNow.isAfter(endTime);
     return a;
   }

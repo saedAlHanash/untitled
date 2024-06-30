@@ -11,7 +11,7 @@ class PdfViewerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //loggerObject.w(url);
+
     return Scaffold(
       appBar: AppBarWidget(
         titleText: title,

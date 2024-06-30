@@ -19,8 +19,6 @@ import '../../../../core/widgets/app_bar/app_bar_widget.dart';
 import '../../../../generated/assets.dart';
 import '../../../../generated/l10n.dart';
 import '../../../auth/bloc/logout/logout_cubit.dart';
-import '../../../fire_chat/chat_card_widget.dart';
-import '../../../fire_chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 import '../../../fire_chat/open_room_cubit/open_room_cubit.dart';
 import '../../bloc/profile_cubit/profile_cubit.dart';
 

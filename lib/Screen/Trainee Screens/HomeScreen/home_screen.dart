@@ -5,7 +5,6 @@ import 'package:fitness_storm/Screen/Trainee%20Screens/HomeScreen/home_screen_co
 import 'package:fitness_storm/Screen/Trainee%20Screens/HomeScreen/refresh_home_plan_cubit/refresh_home_plan_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
@@ -30,8 +29,8 @@ class HomeScreen extends GetView<HomeScreenController> {
                 await controller.fillContinueTrainingPlans();
                 GetStorage getStorage = GetStorage();
                 if (controller.continueTrainingPlans.isNotEmpty) {
-                  await getStorage.write(
-                      'currentPlan', controller.continueTrainingPlans.value[0].name);
+                  await getStorage.write('currentPlan',
+                      controller.continueTrainingPlans.value[0].name);
                 }
                 Get.back();
                 controller.trendingPlans.value =
@@ -46,16 +45,13 @@ class HomeScreen extends GetView<HomeScreenController> {
                 listener: (context, state) {
                   controller.reInitial();
                 },
-                child: SingleChildScrollView(
+                child: const SingleChildScrollView(
                   child: Column(
                     children: [
-                      // SizedBox(height: 100),
-                      controller.continueTrainingPlans.isEmpty
-                          ? 0.0.verticalSpace
-                          : const ContinueTrainingWidget(),
-                      const TrendingPlanWidget(),
-                      const FeaturedPlanWidget(),
-                      const YourTrainersWidget(),
+                      ContinueTrainingWidget(),
+                      TrendingPlanWidget(),
+                      FeaturedPlanWidget(),
+                      YourTrainersWidget(),
                     ],
                   ),
                 ),
@@ -81,7 +77,8 @@ class CustomSearchDelegate extends SearchDelegate {
 
   @override
   Widget? buildLeading(BuildContext context) => IconButton(
-      onPressed: () => close(context, null), icon: const Icon(Icons.arrow_back));
+      onPressed: () => close(context, null),
+      icon: const Icon(Icons.arrow_back));
 
   @override
   Widget buildResults(BuildContext context) {
@@ -98,7 +95,8 @@ class CustomSearchDelegate extends SearchDelegate {
               // return Text(snapshot.data[index].image);
               return GestureDetector(
                 onTap: () {
-                  Get.toNamed(AppRoutes.planOverview, arguments: snapshot.data[index].id);
+                  Get.toNamed(AppRoutes.planOverview,
+                      arguments: snapshot.data[index].id);
                 },
                 child: SearchResult(
                     imageUrl: snapshot.data[index].image,

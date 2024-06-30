@@ -19,7 +19,6 @@ import 'package:pod_player/pod_player.dart';
 import '../../../Utils/Routes/app_pages.dart';
 import '../../../core/app/app_provider.dart';
 import '../../../core/models/plan_model.dart';
-import '../../../features/fire_chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 import '../HomeScreen/refresh_home_plan_cubit/refresh_home_plan_cubit.dart';
 
 class PlanOverviewController extends GetxController {
@@ -71,24 +70,24 @@ class PlanOverviewController extends GetxController {
 
   set planOverview(value) => _planOverview.value = value;
 
-  onSubscribePlan() async {
-    subscribeToPlan();
-  }
-
   subscribeToPlan() async {
     Utils.openLoadingDialog();
     var response = await _traineeRepository.subscribePlan(
         planId: planOverview.id.toString());
     if (response.type == ApiResultType.success) {
       try {
-        final chatUser =
-            await ChatServiceCore.getUser(planOverview.trainer.id.toString());
+        final chatUser = await ChatServiceCore.getUser(
+          planOverview.trainer.id.toString(),
+          trainer: planOverview.trainer,
+        );
+
         if (chatUser != null) {
           await FirebaseChatCore.instance.createRoom(chatUser);
         }
       } catch (e) {
         loggerObject.e(e);
       }
+
       Utils.closeDialog();
       GetStorage getStorage = GetStorage();
       await getStorage.write('currentPlan', planOverview.name);

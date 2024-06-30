@@ -5,8 +5,6 @@ import 'package:get/get.dart';
 
 import '../../../../core/app/app_provider.dart';
 import '../../../../core/util/my_style.dart';
-import '../../../../features/fire_chat/chat_card_widget.dart';
-import '../../../../features/fire_chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 import '../../../../features/fire_chat/open_room_cubit/open_room_cubit.dart';
 import '../../../../generated/l10n.dart';
 import '../../../../router/app_router.dart';

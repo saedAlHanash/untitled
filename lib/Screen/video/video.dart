@@ -16,7 +16,6 @@ import '../../Utils/protact_screen_service.dart';
 import '../../core/injection/injection_container.dart';
 import '../../core/models/booked_appointments.dart';
 import '../../generated/l10n.dart';
-import '../../router/app_router.dart';
 
 class Video1 extends StatefulWidget {
   const Video1({super.key, required this.appointment});
@@ -41,7 +40,7 @@ class _Video1State extends State<Video1> {
   void calculateTimeLeft(bool firstTime) {
     final d = widget.appointment.endTime
         .toUtc()
-        .difference(ServerTimeService.getServerTime);
+        .difference(DateTime.now().toUtc());
 
     if (d.inMinutes <= 10) {
       setState(() {
@@ -62,7 +61,7 @@ class _Video1State extends State<Video1> {
 
   @override
   void initState() {
-    loggerObject.w(widget.appointment.id);
+
     // calculateTimeLeft(true);
     // timer = Timer.periodic(
     //     const Duration(minutes: 1), (v) => calculateTimeLeft(false));
@@ -113,7 +112,7 @@ class _Video1State extends State<Video1> {
     await _engine.enableVideo();
     await _engine.startPreview();
 
-    loggerObject.w(widget.appointment.id);
+
     await _engine.joinChannel(
       token: widget.appointment.videoCallToken,
       channelId: widget.appointment.channelId,

@@ -3,7 +3,6 @@
 import 'package:dio/dio.dart';
 import 'package:fitness_storm/Model/plan_workout.dart';
 
-import '../../Utils/dependency_injection.dart';
 import '../../Utils/utils.dart';
 import '../../core/api_manager/api_url.dart';
 import '../../core/app/app_provider.dart';

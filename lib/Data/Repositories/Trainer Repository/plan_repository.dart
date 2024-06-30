@@ -8,9 +8,7 @@ import '../../../core/models/plan_model.dart';
 
 class TrainerPlanRepository {
   Future<List<PlanModel>> getTrendingPlan(Map<String, dynamic>? queryParameter) async {
-    //log(queryParameter.toString());
     final  option = Utils.getOptions(withToken: true, all: true);
-    //loggerObject.w(AppProvider.token);
     try {
       ApiResult result = await Methods.get(
         url: TRAINERURLS.getTrendingPlns,

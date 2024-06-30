@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:fitness_storm/services/chat_service/chat_service_core.dart';
-
 import 'package:flutter_chat_types/flutter_chat_types.dart';
 
 import '../../../../core/strings/enum_manager.dart';

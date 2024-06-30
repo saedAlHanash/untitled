@@ -1,7 +1,5 @@
 import 'package:fitness_storm/core/app/app_provider.dart';
-import 'package:fitness_storm/core/util/shared_preferences.dart';
 import 'package:fitness_storm/features/appointments/bloc/rating_cubit/rating_cubit.dart';
-import 'package:fitness_storm/features/notifications/bloc/notifications_cubit/notifications_cubit.dart';
 import 'package:fitness_storm/features/notifications/ui/pages/notifications_page.dart';
 import 'package:fitness_storm/features/profile/bloc/update_profile_cubit/update_profile_cubit.dart';
 import 'package:fitness_storm/features/trainer/bloc/trainers_cubit/trainers_cubit.dart';
@@ -274,7 +272,7 @@ void startRestPass() {
     child: const ResetPasswordPage(),
   );
 
-  //loggerObject.w('startForgetPass');
+
 
   Get.to(page);
   sl<FirebaseAnalyticService>().screenView(name: 'rest_password');
@@ -291,7 +289,7 @@ void startApply() {
     child: const ApplyPage(),
   );
 
-  //loggerObject.w('startApply');
+
 
   Get.to(() => page);
   sl<FirebaseAnalyticService>().screenView(name: 'apply_as_trainer');

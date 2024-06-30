@@ -1,11 +1,7 @@
-
 import '../../Utils/dependency_injection.dart';
 
 abstract class TRAINEEURLS {
-  static String traineeSignup = '$userBaseUrl/auth/register';
-  static String submitUserOTP = '$userBaseUrl/auth/confirmAccount';
-  static String submitForgetPasswordOtp =
-      '$userBaseUrl/auth/resetPassword/checkCode';
+
   static String setNewPassword =
       '$userBaseUrl/auth/resetPassword/changePassword';
   static String resendOTP = '$userBaseUrl/auth/resendConfirmationCode';
@@ -78,7 +74,8 @@ abstract class TRAINEEURLS {
 abstract class TRAINERURLS {
   static String getExerciesByWorkoutId = '$trainerBaseUrl/workouts/';
   static String getWorkoutsByPlanId = '$trainerBaseUrl/plans/';
-  static String restAllNotification = '$trainerBaseUrl/notifications/resetCount';
+  static String restAllNotification =
+      '$trainerBaseUrl/notifications/resetCount';
   static String trainerSignup = '$trainerBaseUrl/auth/register';
   static String submitOTP = '$trainerBaseUrl/auth/confirmAccount';
   static String trainerLogin = '$trainerBaseUrl/auth/login';

@@ -2,7 +2,6 @@
 
 import 'package:fitness_storm/Screen/Trainee%20Screens/HomeScreen/HomeSreenWidget/yourTainerWidget/your_trainer_item.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/HomeScreen/home_screen_controller.dart';
-import 'package:fitness_storm/Utils/Routes/app_pages.dart';
 import 'package:fitness_storm/features/appointments/data/request/bundles_request.dart';
 import 'package:fitness_storm/features/trainer/data/response/trainer.dart';
 import 'package:fitness_storm/router/app_router.dart';

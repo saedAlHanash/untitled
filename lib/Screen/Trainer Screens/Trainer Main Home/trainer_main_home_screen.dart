@@ -6,19 +6,17 @@ import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Main%20Home/tra
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Wallet/trainer_wallet_screen.dart';
 import 'package:fitness_storm/router/app_router.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 
 import '../../../Utils/Routes/app_pages.dart';
-import '../../../features/fire_chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 import '../../../features/profile/ui/pages/profile_trainer_screen.dart';
 import '../../../features/trainer/ui/pages/calender_screen.dart';
 import '../../../generated/assets.dart';
 import '../../../services/chat_service/core/firebase_chat_core.dart';
 import 'Widget/trainer_navigation_bar_widget.dart';
-import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 
 class TrainerMainHomeScreen extends GetView<TrainerMainHomeController> {
   TrainerMainHomeScreen({super.key});

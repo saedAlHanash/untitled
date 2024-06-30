@@ -1,6 +1,5 @@
- 
-
 import 'package:dio/dio.dart';
+import 'package:fitness_storm/core/api_manager/api_service.dart';
 
 import '../../Model/subscribed_plan.dart';
 import '../../Utils/utils.dart';
@@ -73,18 +72,16 @@ class PlanRepository {
       } else {
         Utils.openSnackBar(message: result.message!);
         return [];
-
       }
     } catch (error) {
       Utils.openSnackBar(message: error.toString());
       return [];
-
     }
   }
 
   Future<List<PlanModel>> getTrendingPlan(
       Map<String, dynamic>? queryParameter) async {
-   //log(queryParameter.toString());
+    //log(queryParameter.toString());
     Options option = Utils.getOptions(withToken: true, all: true);
     try {
       ApiResult result = await Methods.get(
@@ -92,7 +89,7 @@ class PlanRepository {
           options: option,
           data: queryParameter);
       if (result.type == ApiResultType.success) {
-       //log(result.data.toString());
+        //log(result.data.toString());
         List<PlanModel> plans = [];
         for (var element in result.data) {
           plans.add(PlanModel.fromJson(element));
@@ -101,7 +98,6 @@ class PlanRepository {
       } else {
         Utils.openSnackBar(message: result.message!);
         throw result.message!;
-
       }
     } catch (error) {
       Utils.openSnackBar(message: error.toString());
@@ -127,7 +123,6 @@ class PlanRepository {
       } else {
         Utils.openSnackBar(message: result.message!);
         return [];
-
       }
     } catch (error) {
       Utils.openSnackBar(message: error.toString());
@@ -139,7 +134,7 @@ class PlanRepository {
   Future<PlanModel> getPlanOverview(String id) async {
     Options option = Utils.getOptions(withToken: true, all: true);
     String url = '';
-    if ( AppProvider.isTrainer) {
+    if (AppProvider.isTrainer) {
       url = '${TRAINERURLS.getPlanById}$id';
     } else {
       url = '${TRAINEEURLS.getPlanById}$id';

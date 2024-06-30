@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
+import '../../../features/trainer/ui/widget/trainer_widget.dart';
 import '../../../generated/l10n.dart';
 import '../HomeScreen/HomeSreenWidget/yourTainerWidget/your_trainer_widget.dart';
 import 'Widget/filter_row.dart';
-import '../../../features/trainer/ui/widget/trainer_widget.dart';
 import 'your_trainer_controller.dart';
 
 class YourTrainersScreen extends GetView<YourTrainerController> {

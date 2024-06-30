@@ -33,13 +33,13 @@ class CachingService {
         await box.put('$key${box.values.length}', jsonEncode(e));
       }
 
-      // loggerObject.w('cached key $key count ${data.length}');
+
 
       return;
     }
 
     await box.put(key, jsonEncode(data));
-    // loggerObject.w('cached key $key');
+
   }
 
   static Future<void> clearKeysId({

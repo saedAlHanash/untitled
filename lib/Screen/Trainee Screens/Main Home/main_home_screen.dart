@@ -6,15 +6,13 @@ import 'package:fitness_storm/features/profile/ui/pages/guest_profile_page.dart'
 import 'package:fitness_storm/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_chat_ui/flutter_chat_ui.dart';
+import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 
 import '../../../Utils/Routes/app_pages.dart';
 import '../../../core/app/app_provider.dart';
-import '../../../features/fire_chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 import '../../../features/notifications/bloc/notifications_cubit/notifications_cubit.dart';
 import '../../../features/profile/ui/pages/profile_page.dart';
 import '../../../features/welcome_message/bloc/welcome_messages_cubit/welcome_messages_cubit.dart';
@@ -22,7 +20,6 @@ import '../../../generated/assets.dart';
 import '../../../services/chat_service/core/firebase_chat_core.dart';
 import '../HomeScreen/home_screen.dart';
 import 'Widget/navigation_bar_widget.dart';
-import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 
 class MainHomeScreen extends GetView<MainHomeController> {
   MainHomeScreen({super.key});

@@ -1,26 +1,19 @@
 import 'dart:async';
 
-import 'package:agora_rtc_engine/agora_rtc_engine.dart';
 import 'package:drawable_text/drawable_text.dart';
 import 'package:fitness_storm/Screen/video/video_call_widget.dart';
-import 'package:fitness_storm/core/api_manager/api_service.dart';
-import 'package:fitness_storm/core/api_manager/api_service.dart';
-import 'package:fitness_storm/core/api_manager/api_service.dart';
-import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
 import 'package:fitness_storm/core/util/firebase_analytics_service.dart';
 import 'package:fitness_storm/services/server_time_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:permission_handler/permission_handler.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 
 import '../../Utils/protact_screen_service.dart';
 import '../../core/injection/injection_container.dart';
 import '../../core/models/booked_appointments.dart';
 import '../../generated/l10n.dart';
-import 'package:agora_uikit/agora_uikit.dart';
 
 class Video1 extends StatefulWidget {
   const Video1({super.key, required this.appointment});
@@ -39,7 +32,7 @@ class _Video1State extends State<Video1> {
   void calculateTimeLeft(bool firstTime) {
     final d = widget.appointment.endTime
         .toUtc()
-        .difference(ServerTimeService.getServerTime);
+        .difference(DateTime.now().toUtc());
 
     if (d.inMinutes <= 10) {
       setState(() {

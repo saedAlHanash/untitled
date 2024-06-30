@@ -12,7 +12,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
-import 'package:hive_flutter/adapters.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'Screen/Trainee Screens/HomeScreen/refresh_home_plan_cubit/refresh_home_plan_cubit.dart';
@@ -24,30 +23,11 @@ import 'core/injection/injection_container.dart' as di;
 import 'core/injection/injection_container.dart';
 import 'core/strings/enum_manager.dart';
 import 'features/auth/bloc/refresh_token_cubit/refresh_token_cubit.dart';
-import 'features/fire_chat/get_chats_rooms_bloc/get_rooms_cubit.dart';
 
-late Box<String> roomsBox;
-late Box<String> messageBox;
-late Box<int> latestUpdateMessagesBox;
-late Box<String> latestMessagesBox;
-
-Future<void> initialHive() async {
-  roomsBox = await Hive.openBox('rooms');
-  latestUpdateMessagesBox = await Hive.openBox('messages');
-
-  latestMessagesBox = await Hive.openBox('latestMessagesBox');
-}
-
-Future<void> reInitialHive() async {
-  await roomsBox.close();
-  await latestUpdateMessagesBox.close();
-
-  await initialHive();
-}
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await ServerTimeService.initialServerDate(reInitial: true);
+
   try {
     await di.init();
 

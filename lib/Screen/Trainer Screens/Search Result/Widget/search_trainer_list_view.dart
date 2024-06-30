@@ -1,5 +1,5 @@
-import 'package:fitness_storm/features/trainer/ui/widget/trainer_widget.dart';
 import 'package:fitness_storm/features/trainer/data/response/trainer.dart';
+import 'package:fitness_storm/features/trainer/ui/widget/trainer_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

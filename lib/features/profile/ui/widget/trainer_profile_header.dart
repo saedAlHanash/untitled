@@ -52,7 +52,7 @@ class _TrainerProfileHeaderState extends State<TrainerProfileHeader> {
                 Center(
                   child: MyButton(
                     onTap: () {
-                      //loggerObject.w(trainer.agreement);
+
                       Navigator.push(
                         context,
                         MaterialPageRoute(

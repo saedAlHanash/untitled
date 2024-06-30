@@ -11,7 +11,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_multi_type/circle_image_widget.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 
-import '../../../../Screen/video/video.dart';
 import '../../../../core/models/booked_appointments.dart';
 import '../../../../core/util/my_style.dart';
 import '../../../../generated/l10n.dart';

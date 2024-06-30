@@ -13,7 +13,8 @@ class PlanResponse {
     return PlanResponse(
       data: json["data"] == null
           ? []
-          : List<PlanModel>.from(json["data"]!.map((x) => PlanModel.fromJson(x))),
+          : List<PlanModel>.from(
+              json["data"]!.map((x) => PlanModel.fromJson(x))),
     );
   }
 
@@ -69,8 +70,8 @@ class PlanModel {
       trainer: TrainerModel.fromJson(json["trainer"] ?? {}),
       trainingLocation: json["training_location"] == null
           ? []
-          : List<TrainingLocation>.from(
-              json["training_location"]!.map((x) => TrainingLocation.fromJson(x))),
+          : List<TrainingLocation>.from(json["training_location"]!
+              .map((x) => TrainingLocation.fromJson(x))),
       totalWeeks: json["total_weeks"].toString().tryParseOrZeroInt,
       workoutFrequency: json["workout_frequency"].toString().tryParseOrZeroInt,
       isBookmark: json["is_bookmark"] ?? false,
@@ -144,7 +145,6 @@ class LevelPivot {
       };
 }
 
-
 class TrainingLocation {
   TrainingLocation({
     required this.id,
@@ -160,7 +160,9 @@ class TrainingLocation {
     return TrainingLocation(
       id: json["id"].toString().tryParseOrZeroInt,
       type: json["type"] ?? "",
-      pivot: json["pivot"] == null ? null : TrainingLocationPivot.fromJson(json["pivot"]),
+      pivot: json["pivot"] == null
+          ? null
+          : TrainingLocationPivot.fromJson(json["pivot"]),
     );
   }
 
@@ -183,7 +185,8 @@ class TrainingLocationPivot {
   factory TrainingLocationPivot.fromJson(Map<String, dynamic> json) {
     return TrainingLocationPivot(
       planId: json["plan_id"].toString().tryParseOrZeroInt,
-      trainingLocationId: json["training_location_id"].toString().tryParseOrZeroInt,
+      trainingLocationId:
+          json["training_location_id"].toString().tryParseOrZeroInt,
     );
   }
 
@@ -208,7 +211,9 @@ class TrainingType {
     return TrainingType(
       id: json["id"].toString().tryParseOrZeroInt,
       type: json["type"] ?? "",
-      pivot: json["pivot"] == null ? null : TrainingTypePivot.fromJson(json["pivot"]),
+      pivot: json["pivot"] == null
+          ? null
+          : TrainingTypePivot.fromJson(json["pivot"]),
     );
   }
 

@@ -32,7 +32,7 @@ class Wallet {
       'Dec'
     ];
     DateFormat dateFormat = DateFormat("yyyy-MM-ddTHH:mm:ss");
-    DateTime dateTime = dateFormat.parse(json['time']);
+    DateTime dateTime = (DateTime.tryParse(json['time'])??DateTime(1900));
     String day = dateTime.day.toString();
     String month = months[dateTime.month - 1];
     String timehour = '${dateTime.hour}:${dateTime.minute}';
