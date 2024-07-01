@@ -62,7 +62,9 @@ class PodGetXVideoController extends _PodGesturesController {
     podLog(_videoPlayerType.toString());
     try {
       await _initializePlayer();
+
       await _videoCtr?.initialize();
+
       _videoDuration = _videoCtr?.value.duration ?? Duration.zero;
       await setLooping(isLooping);
       _videoCtr?.addListener(videoListner);
@@ -189,7 +191,7 @@ class PodGetXVideoController extends _PodGesturesController {
           closedCaptionFile: playVideoFrom.closedCaptionFile,
           formatHint: playVideoFrom.formatHint,
           videoPlayerOptions: playVideoFrom.videoPlayerOptions,
-          httpHeaders: playVideoFrom.httpHeaders,
+          // httpHeaders: playVideoFrom.httpHeaders,
         );
         playingVideoUrl = url;
     }

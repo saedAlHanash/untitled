@@ -112,9 +112,7 @@ class UserTrainingScreen extends GetView<UserTrainingController> {
                 : SizedBox(
               height: MediaQuery.of(context).size.height * 0.283,
               child: Center(
-                child: controller.accessToken == ''
-                    ? const CircularProgressIndicator.adaptive()
-                    : VimeoPlayer(
+                child:  VimeoPlayer(
                     videoId: controller.currentExercise.video!,
                     isPrivet: true),
               ),
