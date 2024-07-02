@@ -25,12 +25,9 @@ class MyTabWidget extends StatelessWidget {
           TabBar(
             isScrollable: true,
             indicatorSize: TabBarIndicatorSize.tab,
-            indicator:
-                CircleTabIndicator(color: AppColorManager.mainColor, radius: 3),
+            indicator: CircleTabIndicator(color: AppColorManager.mainColor, radius: 3),
             labelColor: AppColorManager.mainColor,
-
             unselectedLabelColor: AppColorManager.textColor,
-
             tabs: tabs,
           ),
           Transform.scale(

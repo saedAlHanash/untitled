@@ -23,15 +23,14 @@ class VimeoPlayer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppProvider.systemParams.isWebViewPlayer
+    return !AppProvider.systemParams.isWebViewPlayer
         ? VimeoPlayerWebView(
             videoId: videoId,
-            isPrivet: isPrivet,
             onInitController: onInitController,
           )
         : VimeoPlayerPod(
             videoId: videoId,
-            isPrivet: isPrivet,
+
             onInitController: onInitController,
           );
   }
@@ -42,11 +41,11 @@ class VimeoPlayerWebView extends StatefulWidget {
     super.key,
     required this.videoId,
     this.onInitController,
-    this.isPrivet = false,
+
   });
 
   final String videoId;
-  final bool isPrivet;
+
   final Function(PodPlayerController videoController)? onInitController;
 
   @override
@@ -123,11 +122,11 @@ class VimeoPlayerPod extends StatefulWidget {
   const VimeoPlayerPod(
       {super.key,
       required this.videoId,
-      this.isPrivet = false,
+
       this.onInitController});
 
   final String videoId;
-  final bool isPrivet;
+
   final Function(PodPlayerController videoController)? onInitController;
 
   @override
@@ -157,6 +156,7 @@ class _VimeoPlayerPodState extends State<VimeoPlayerPod> {
     controller = PodPlayerController(
       podPlayerConfig: const PodPlayerConfig(
         wakelockEnabled: true,
+        autoPlay: false,
         videoQualityPriority: [360],
       ),
       playVideoFrom: PlayVideoFrom.vimeoPrivateVideos(
@@ -175,6 +175,7 @@ class _VimeoPlayerPodState extends State<VimeoPlayerPod> {
     )..initialise().then((value) {
         setState(() {});
       });
+
     widget.onInitController?.call(controller);
 
     super.initState();

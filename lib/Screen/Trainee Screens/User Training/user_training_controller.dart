@@ -4,13 +4,15 @@ import 'package:fitness_storm/Data/Api/api_result.dart';
 import 'package:fitness_storm/Data/Repositories/exercise_repository.dart';
 import 'package:fitness_storm/Model/exercise.dart';
 import 'package:fitness_storm/Utils/utils.dart';
+import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:pod_player/pod_player.dart';
 
 import '../../../Data/Repositories/get_url_video.dart';
 import '../../../Utils/protact_screen_service.dart';
-
+import 'change_video_cubit/change_video_cubit.dart';
 
 class UserTrainingController extends GetxController {
   late int break_for_set = 0;
@@ -25,7 +27,8 @@ class UserTrainingController extends GetxController {
   late String workoutId;
   bool complete = false;
 
-  final Rx<String> _accessToken = ''.obs;
+  bool get isZumba => type.toLowerCase() == 'zumba';
+
   final RxList<bool> _completedExercises = <bool>[].obs;
   final Rx<Exercises> _currentExercise = Exercises().obs;
   final RxInt _currentIndex = 0.obs;
@@ -34,21 +37,15 @@ class UserTrainingController extends GetxController {
   final RxList<Exercises> _exercises = <Exercises>[].obs;
   final RxBool _isBreak = false.obs;
   final RxBool _isLoading = false.obs;
+
   final RxBool _isRest = false.obs;
   late RxDouble _progress = 0.0.obs;
   final RxInt _start = 0.obs;
   final RxList<int> _trainingSets = <int>[].obs;
-  late final Rx<PodPlayerController> _videoController;
-  final Rx<String> _videoId = ''.obs;
 
   @override
   void onClose() async {
     ProtectScreenService().stopProtect();
-
-    try {
-      videoController.dispose();
-    } on Exception {}
-
     super.onClose();
   }
 
@@ -70,7 +67,6 @@ class UserTrainingController extends GetxController {
     _initSetsList();
     currentIndex = 0;
     currentExercise = exercises[currentIndex];
-    initVideoPlayerController();
     isLoading = false;
 
     ProtectScreenService().startProtect(Get.context);
@@ -84,9 +80,7 @@ class UserTrainingController extends GetxController {
 
   bool get isLoading => _isLoading.value;
 
-  String get videoId => _videoId.value;
 
-  String get accessToken => _accessToken.value;
 
   int get currentIndex => _currentIndex.value;
 
@@ -106,21 +100,13 @@ class UserTrainingController extends GetxController {
 
   List<bool> get completedExercises => _completedExercises.value;
 
-  PodPlayerController get videoController => _videoController.value;
-
-  set videoController(value) => _videoController.value = value;
-
   set exercises(value) => _exercises.value = value;
-
-  // set videoController(value) => _videoController.value = value;
-
-  set videoId(value) => _videoId.value = value;
 
   set progress(value) => _progress.value = value;
 
-  set accessToken(value) => _accessToken.value = value;
-
   set isLoading(value) => _isLoading.value = value;
+
+
 
   set currentIndex(value) => _currentIndex.value = value;
 
@@ -130,22 +116,16 @@ class UserTrainingController extends GetxController {
 
   set isBreak(value) => _isBreak.value = value;
 
-  set currentExercise(value) => _currentExercise.value = value;
+  set currentExercise(value) {
+    Get.context!.read<ChangeVideoCubit>().changeVideo();
+    _currentExercise.value = value;
+  }
 
   set startTime(value) => _start.value = value;
 
   set trainingSets(value) => _trainingSets.value = value;
 
   set completedExercises(value) => _completedExercises.value = value;
-
-  initVideoPlayerController() async {
-    await authenticateWithVimeo();
-  }
-
-  changeVideoController() async {
-    accessToken = '';
-    await authenticateWithVimeo();
-  }
 
   double getPercentage() {
     return totalTimeToSetOrBreak == 0
@@ -180,7 +160,8 @@ class UserTrainingController extends GetxController {
                   currentIndex = 0;
 
                   currentExercise = exercises[currentIndex];
-                  completedExercises = List.generate(exercises.length, (index) => false);
+                  completedExercises =
+                      List.generate(exercises.length, (index) => false);
                   isRest = false;
                   // startNextExercise();
                 });
@@ -212,7 +193,8 @@ class UserTrainingController extends GetxController {
                 _currentIndex.refresh();
                 currentIndex = 0;
                 currentExercise = exercises[currentIndex];
-                completedExercises = List.generate(exercises.length, (index) => false);
+                completedExercises =
+                    List.generate(exercises.length, (index) => false);
                 isRest = false;
                 // startNextExercise();
               });
@@ -258,15 +240,6 @@ class UserTrainingController extends GetxController {
     }
   }
 
-  int getNextIndex() {
-    for (int i = 0; i < exercises.length; i++) {
-      if (exercises[i].setCount != trainingSets[i]) {
-        return i;
-      }
-    }
-    return 0;
-  }
-
   Future<void> startNextCircularExercise() async {
     if (isEnd()) {
       await completeDay();
@@ -280,11 +253,13 @@ class UserTrainingController extends GetxController {
         if (!completedExercises[currentIndex]) {
           currentExercise = exercises[currentIndex];
         } else {
-          currentIndex = completedExercises.indexWhere((element) => element == false);
+          currentIndex =
+              completedExercises.indexWhere((element) => element == false);
           currentExercise = exercises[currentIndex];
         }
       } else {
-        currentIndex = completedExercises.indexWhere((element) => element == false);
+        currentIndex =
+            completedExercises.indexWhere((element) => element == false);
         if (currentIndex != -1) {
           currentExercise = exercises[currentIndex];
         }
@@ -292,7 +267,6 @@ class UserTrainingController extends GetxController {
       _exercises.refresh();
       _currentExercise.refresh();
       _currentIndex.refresh();
-      await changeVideoController();
       _currentExercise.refresh();
     }
   }
@@ -311,11 +285,13 @@ class UserTrainingController extends GetxController {
         if (!completedExercises[currentIndex]) {
           currentExercise = exercises[currentIndex];
         } else {
-          currentIndex = completedExercises.indexWhere((element) => element == false);
+          currentIndex =
+              completedExercises.indexWhere((element) => element == false);
           currentExercise = exercises[currentIndex];
         }
       } else {
-        currentIndex = completedExercises.indexWhere((element) => element == false);
+        currentIndex =
+            completedExercises.indexWhere((element) => element == false);
         currentExercise = exercises[currentIndex];
       }
       currentSet = 1;
@@ -324,7 +300,6 @@ class UserTrainingController extends GetxController {
       _currentExercise.refresh();
       _currentIndex.refresh();
       isRest = false;
-      await changeVideoController();
     } else {
       currentSet++;
     }
@@ -333,6 +308,8 @@ class UserTrainingController extends GetxController {
   }
 
   changeExercise(int index) async {
+ Get.context!.read<ChangeVideoCubit>().changeVideo();
+    update();
     _currentExercise.value = exercises[index];
     _currentIndex.value = index;
     _currentSet.refresh();
@@ -341,11 +318,7 @@ class UserTrainingController extends GetxController {
     _exercises.refresh();
     startTime = 0;
     isRest = false;
-    await changeVideoController();
-  }
 
-  Future<void> authenticateWithVimeo() async {
-    accessToken = await getVimeoToken();
   }
 
   void startNextExercise() {
@@ -362,7 +335,7 @@ class UserTrainingController extends GetxController {
     const oneSec = Duration(seconds: 1);
     Timer.periodic(
       oneSec,
-          (Timer timer) {
+      (Timer timer) {
         if (startTime == 0) {
           timer.cancel();
           if (callback != null) {
@@ -396,4 +369,3 @@ class UserTrainingController extends GetxController {
     }
   }
 }
-

@@ -16,6 +16,7 @@ import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'Screen/Trainee Screens/HomeScreen/refresh_home_plan_cubit/refresh_home_plan_cubit.dart';
+import 'Screen/Trainee Screens/User Training/change_video_cubit/change_video_cubit.dart';
 import 'Utils/dependency_injection.dart';
 import 'core/api_manager/api_service.dart';
 import 'core/app/app_provider.dart';
@@ -64,6 +65,7 @@ void main() async {
       providers: [
         BlocProvider(create: (_) => RefreshHomePlanCubit()),
         BlocProvider(create: (_) => OpenRoomCubit()),
+        BlocProvider(create: (context) => ChangeVideoCubit()),
       ],
       child: const MyApp(),
     ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 
+import '../../Screen/Trainee Screens/User Training/change_video_cubit/change_video_cubit.dart';
 import '../../features/appointments/bloc/add_time_cubit/add_time_cubit.dart';
 import '../../features/appointments/bloc/available_times_cubit/available_times_cubit.dart';
 import '../../features/appointments/bloc/booked_appointments_cubit/booked_appointments_cubit.dart';
@@ -49,6 +50,7 @@ Future<void> init() async {
 
   sl.registerLazySingleton(() => GlobalKey<NavigatorState>());
   sl.registerLazySingleton(() => FirebaseAnalyticService());
+  sl.registerLazySingleton(() => ChangeVideoCubit());
 
   //endregion
 
