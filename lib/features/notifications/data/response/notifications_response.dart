@@ -85,7 +85,7 @@ class Data {
 
   factory Data.fromJson(Map<String, dynamic> json) {
     return Data(
-      date: DateTime.tryParse(json["date"] ?? ""),
+      date: DateTime.tryParse(json["date"] ?? "")?.fixTimeZone,
     );
   }
 

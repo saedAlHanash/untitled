@@ -9,6 +9,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.3.30"
+  adaptive_number:
+    dependency: transitive
+    description:
+      name: adaptive_number
+      sha256: "3a567544e9b5c9c803006f51140ad544aedc79604fd4f3f2c1380003f97c1d77"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
   adaptive_scrollbar:
     dependency: "direct main"
     description:
@@ -21,10 +29,10 @@ packages:
     dependency: "direct main"
     description:
       name: agora_rtc_engine
-      sha256: "4e620fe6db19ab15f35336b76e1fd61e88b627507e6da8efa2e42ed59ca23b8a"
+      sha256: deefb5ea051c4d916552cbf76cfbdd652867aa9b554ff9afb3c732ec2e44652e
       url: "https://pub.dev"
     source: hosted
-    version: "6.3.1"
+    version: "6.3.2"
   agora_rtm:
     dependency: transitive
     description:
@@ -249,6 +257,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.8"
+  dart_jsonwebtoken:
+    dependency: "direct main"
+    description:
+      name: dart_jsonwebtoken
+      sha256: "346e9a21e4bf6e6a431e19ece00ebb2e3668e1e339cabdf6f46d18d88692a848"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.14.0"
   day_night_time_picker:
     dependency: "direct main"
     description:
@@ -306,6 +322,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.9"
+  ed25519_edwards:
+    dependency: transitive
+    description:
+      name: ed25519_edwards
+      sha256: "6ce0112d131327ec6d42beede1e5dfd526069b18ad45dcf654f15074ad9276cd"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.3.1"
   equatable:
     dependency: "direct main"
     description:

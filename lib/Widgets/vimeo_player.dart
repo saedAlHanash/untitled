@@ -157,6 +157,7 @@ class _VimeoPlayerPodState extends State<VimeoPlayerPod> {
       podPlayerConfig: const PodPlayerConfig(
         wakelockEnabled: true,
         autoPlay: false,
+        isLooping: true,
         videoQualityPriority: [360],
       ),
       playVideoFrom: PlayVideoFrom.vimeoPrivateVideos(

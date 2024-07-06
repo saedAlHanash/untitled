@@ -87,41 +87,35 @@ class UserTrainingScreen extends GetView<UserTrainingController> {
                       : MainAxisAlignment.start,
                   // mainAxisSize: MainAxisSize.min,
                   children: [
-                    BlocBuilder<ChangeVideoCubit,ChangeVideoInitial>(
-                      builder: (context,state) {
-
+                    BlocBuilder<ChangeVideoCubit, ChangeVideoInitial>(
+                      builder: (context, state) {
                         if (state.statuses.loading) {
                           return MyStyle.loadingWidget();
                         }
-                          return controller.isZumba
-                              ? Align(
-                                  alignment: Alignment.center,
-                                  child: Column(
-                                    children: [
-                                      controller.progress < 1.0
-                                          ? Container(
-                                              padding:
-                                                  const EdgeInsets.all(10.0),
-                                              child: controller.progress < 1.0
-                                                  ? LinearProgressIndicator(
-                                                      value:
-                                                          controller.progress)
-                                                  : 0.0.verticalSpace)
-                                          : 0.0.verticalSpace,
-                                      VimeoPlayer(
-                                        videoId:
-                                            controller.currentExercise.video!,
-                                      ),
-                                    ],
-                                  ),
-                                )
-                              : VimeoPlayer(
-                                  videoId: controller.currentExercise.video!,
-                                  onInitController: (videoController) {
-                                    loggerObject.w(videoController.videoUrl);
-                                  },
-                                );
-
+                        return controller.isZumba
+                            ? Align(
+                                alignment: Alignment.center,
+                                child: Column(
+                                  children: [
+                                    controller.progress < 1.0
+                                        ? Container(
+                                            padding: const EdgeInsets.all(10.0),
+                                            child: controller.progress < 1.0
+                                                ? LinearProgressIndicator(
+                                                    value: controller.progress)
+                                                : 0.0.verticalSpace)
+                                        : 0.0.verticalSpace,
+                                    VimeoPlayer(
+                                      videoId:
+                                          controller.currentExercise.video!,
+                                    ),
+                                  ],
+                                ),
+                              )
+                            : VimeoPlayer(
+                                videoId: controller.currentExercise.video!,
+                                onInitController: (videoController) {},
+                              );
                       },
                     ),
                     controller.isZumba

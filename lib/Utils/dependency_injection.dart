@@ -1,6 +1,7 @@
 import 'dart:io';
 
 // import 'package:dio/adapter.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -43,9 +44,8 @@ class DependencyInjection {
   }
 }
 
-
- String userBaseUrl = 'https://$baseUrl/mobile/user';
- String trainerBaseUrl = 'https://$baseUrl/mobile/trainer';
+String userBaseUrl = 'https://$baseUrl/mobile/user';
+String trainerBaseUrl = 'https://$baseUrl/mobile/trainer';
 
 initRepositories() {
   Get.put(PlanRepository(), permanent: true);
@@ -141,6 +141,12 @@ Future<void> initFirebaseMessaging() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
+  FirebaseFirestore.instance.settings = const Settings(
+    persistenceEnabled: true,
+    cacheSizeBytes: Settings.CACHE_SIZE_UNLIMITED,
+    ignoreUndefinedProperties: true,
+  );
+
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 
   if (AppProvider.isTrainer) {
@@ -184,9 +190,6 @@ Future<void> requestPermission() async {
     );
   }
 }
-
-
-
 
 // Future<void> getProfileForLoginChat() async {
 //   if (loading) return;

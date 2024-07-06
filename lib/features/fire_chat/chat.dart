@@ -6,6 +6,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/features/fire_chat/util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 import 'package:flutter_chat_ui/flutter_chat_ui.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -22,6 +23,7 @@ import '../../core/strings/app_color_manager.dart';
 import '../../core/util/firebase_analytics_service.dart';
 import '../../core/widgets/app_bar/app_bar_widget.dart';
 import '../../services/chat_service/core/firebase_chat_core.dart';
+import 'messages_bloc/messages_cubit.dart';
 import 'my_room_object.dart';
 
 class ChatPage extends StatefulWidget {
@@ -52,6 +54,7 @@ class _ChatPageState extends State<ChatPage> {
 
     sl<FirebaseAnalyticService>()
         .contactTrainerOrUser(name: widget.room.otherUser.name, method: 'chat');
+    context.read<MessagesCubit>().getChatRoomMessage(widget.room);
     super.initState();
   }
 
@@ -60,44 +63,43 @@ class _ChatPageState extends State<ChatPage> {
   void _handleAtachmentPressed() {
     showModalBottomSheet<void>(
       context: context,
-      builder: (BuildContext context) =>
-          SafeArea(
-            child: SizedBox(
-              height: 144,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: <Widget>[
-                  TextButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                      _handleImageSelection();
-                    },
-                    child: const Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text('Photo'),
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                      _handleFileSelection();
-                    },
-                    child: const Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text('File'),
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () => Navigator.pop(context),
-                    child: const Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text('Cancel'),
-                    ),
-                  ),
-                ],
+      builder: (BuildContext context) => SafeArea(
+        child: SizedBox(
+          height: 144,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                  _handleImageSelection();
+                },
+                child: const Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text('Photo'),
+                ),
               ),
-            ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                  _handleFileSelection();
+                },
+                child: const Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text('File'),
+                ),
+              ),
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: const Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text('Cancel'),
+                ),
+              ),
+            ],
           ),
+        ),
+      ),
     );
   }
 
@@ -206,8 +208,10 @@ class _ChatPageState extends State<ChatPage> {
     }
   }
 
-  void _handlePreviewDataFetched(types.TextMessage message,
-      types.PreviewData previewData,) {
+  void _handlePreviewDataFetched(
+    types.TextMessage message,
+    types.PreviewData previewData,
+  ) {
     final updatedMessage = message.copyWith(previewData: previewData);
 
     FirebaseChatCore.instance.updateMessage(updatedMessage, widget.room.id);
@@ -224,7 +228,7 @@ class _ChatPageState extends State<ChatPage> {
           fcmWeb: myRoomObject.fcmTokenWeb,
         ),
       ).then(
-            (value) {
+        (value) {
           if (value) {
             ///for send notification to first message
             myRoomObject.needToSendNotification = false;
@@ -246,14 +250,15 @@ class _ChatPageState extends State<ChatPage> {
   }
 
   @override
-  Widget build(BuildContext context) =>
-      Scaffold(
+  Widget build(BuildContext context) => Scaffold(
         appBar: AppBarWidget(
           actions: [
             Row(
               children: [
                 DrawableText(
-                  text: widget.room.otherUser.name, color: Colors.white,),
+                  text: widget.room.otherUser.name,
+                  color: Colors.white,
+                ),
                 10.0.horizontalSpace,
                 CircleImageWidget(
                   url: widget.room.otherUser.imageUrl,
@@ -264,35 +269,26 @@ class _ChatPageState extends State<ChatPage> {
             ),
           ],
         ),
-        body: StreamBuilder<types.Room>(
-          initialData: widget.room,
-          stream: FirebaseChatCore.instance.room(widget.room.id),
-          builder: (context, snapshot) =>
-              StreamBuilder<List<types.Message>>(
-                initialData: const [],
-                stream: FirebaseChatCore.instance.messages(snapshot.data!),
-
-                builder: (context, snapshot) =>
-                    Chat(
-                      textMessageOptions: TextMessageOptions(
-                        onLinkPressed: (p0) {
-                          LauncherHelper.openPage(p0);
-                        },
-                      ),
-                      isAttachmentUploading: _isAttachmentUploading,
-                      messages: snapshot.data ?? [],
-                      onAttachmentPressed: _handleAtachmentPressed,
-                      onMessageTap: _handleMessageTap,
-                      onPreviewDataFetched: _handlePreviewDataFetched,
-                      onSendPressed: _handleSendPressed,
-                      theme: const DarkChatTheme(
-                          backgroundColor: Colors.white,
-                          primaryColor: AppColorManager.mainColor,
-                          secondaryColor: AppColorManager.mainColorDark,
-                          inputBackgroundColor: AppColorManager.mainColor),
-                      user: types.User(id: AppProvider.myId.toString()),
-                    ),
-              ),
+        body: BlocBuilder<MessagesCubit, MessagesInitial>(
+          builder: (context, state) => Chat(
+            textMessageOptions: TextMessageOptions(
+              onLinkPressed: (p0) {
+                LauncherHelper.openPage(p0);
+              },
+            ),
+            isAttachmentUploading: _isAttachmentUploading,
+            messages: state.result,
+            onAttachmentPressed: _handleAtachmentPressed,
+            onMessageTap: _handleMessageTap,
+            onPreviewDataFetched: _handlePreviewDataFetched,
+            onSendPressed: _handleSendPressed,
+            theme: const DarkChatTheme(
+                backgroundColor: Colors.white,
+                primaryColor: AppColorManager.mainColor,
+                secondaryColor: AppColorManager.mainColorDark,
+                inputBackgroundColor: AppColorManager.mainColor),
+            user: types.User(id: AppProvider.myId.toString()),
+          ),
         ),
       );
 }

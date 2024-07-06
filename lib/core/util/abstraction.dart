@@ -44,6 +44,10 @@ abstract class MCubit<AbstractState> extends Cubit<AbstractState> {
     await CachingService.sortData(data: data, name: nameCache, filter: filter);
   }
 
+  Future<void> sortDataWithIds(dynamic data) async {
+    await CachingService.sortDataWithIds(data: data, name: nameCache, filter: filter);
+  }
+
   Future<Iterable<dynamic>> getListCached() async {
     final data = await CachingService.getList(nameCache, filter: filter);
     return data;

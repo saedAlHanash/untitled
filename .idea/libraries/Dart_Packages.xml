@@ -9,6 +9,13 @@
             </list>
           </value>
         </entry>
+        <entry key="adaptive_number">
+          <value>
+            <list>
+              <option value="$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/adaptive_number-1.0.0/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="adaptive_scrollbar">
           <value>
             <list>
@@ -19,7 +26,7 @@
         <entry key="agora_rtc_engine">
           <value>
             <list>
-              <option value="$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/agora_rtc_engine-6.3.1/lib" />
+              <option value="$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/agora_rtc_engine-6.3.2/lib" />
             </list>
           </value>
         </entry>
@@ -219,6 +226,13 @@
             </list>
           </value>
         </entry>
+        <entry key="dart_jsonwebtoken">
+          <value>
+            <list>
+              <option value="$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/dart_jsonwebtoken-2.14.0/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="day_night_time_picker">
           <value>
             <list>
@@ -265,6 +279,13 @@
           <value>
             <list>
               <option value="$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/dropdown_button2-2.3.9/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="ed25519_edwards">
+          <value>
+            <list>
+              <option value="$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/ed25519_edwards-0.3.1/lib" />
             </list>
           </value>
         </entry>
@@ -1786,8 +1807,9 @@
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/git/drawable_text-e155d6f3e68ee00b925a5688d54ea5bce0ab5677//lib" />
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/git/image_multi_type-83c761df943c891553e518140b18c72891ea17fd//lib" />
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/_flutterfire_internals-1.3.30/lib" />
+      <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/adaptive_number-1.0.0/lib" />
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/adaptive_scrollbar-2.1.2/lib" />
-      <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/agora_rtc_engine-6.3.1/lib" />
+      <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/agora_rtc_engine-6.3.2/lib" />
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/agora_rtm-1.5.9/lib" />
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/agora_uikit-1.3.10/lib" />
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/archive-3.4.10/lib" />
@@ -1816,12 +1838,14 @@
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/crypto-3.0.3/lib" />
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/csslib-1.0.0/lib" />
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/cupertino_icons-1.0.8/lib" />
+      <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/dart_jsonwebtoken-2.14.0/lib" />
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/day_night_time_picker-1.3.1/lib" />
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/dbus-0.7.10/lib" />
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/dependency_validator-3.2.3/lib" />
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/diffutil_dart-3.0.0/lib" />
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/dio-5.4.3+1/lib" />
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/dropdown_button2-2.3.9/lib" />
+      <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/ed25519_edwards-0.3.1/lib" />
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/equatable-2.0.5/lib" />
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/fake_async-1.3.1/lib" />
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/ffi-2.1.2/lib" />

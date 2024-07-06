@@ -26,10 +26,10 @@ class BookedAppointmentsCubit extends Cubit<BookedAppointmentsInitial> {
       final old = <Appointment>[];
       final next = <Appointment>[];
 
-      final dateTimeNow = DateTime.now();
+      final dateTimeNow = DateTime.now().toUtc();
 
       for (var e in list) {
-        if (dateTimeNow.isAfter(e.endTime)) {
+        if (dateTimeNow.isAfter(e.endTime.toUtc())) {
           old.add(e);
         } else {
           next.add(e);

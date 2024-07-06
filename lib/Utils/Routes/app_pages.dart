@@ -27,10 +27,12 @@ import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Plans/trainer_p
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Wallet/trainer_wallet_binding.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Wallet/trainer_wallet_screen.dart';
 import 'package:fitness_storm/features/profile/ui/pages/profile_trainer_page.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
 import '../../core/injection/injection_container.dart';
 import '../../core/util/firebase_analytics_service.dart';
+import '../../features/fire_chat/rooms_bloc/rooms_cubit.dart';
 import '../../features/fire_chat/rooms_screen.dart';
 
 part './app_routes.dart';
@@ -154,6 +156,7 @@ class AppPages {
         name: AppRoutes.chatScreen,
         page: () {
           sl<FirebaseAnalyticService>().screenView(name: 'chat');
+          Get.context?.read<RoomsCubit>().getChatRooms(false);
           return const RoomsScreen();
         },
       ),
@@ -202,12 +205,6 @@ class AppPages {
             return const TrainerTrainerOverviewScreen();
           },
           binding: TrainerTrainerOverviewBinding()),
-
-
-
-
     ];
   }
-
-
 }

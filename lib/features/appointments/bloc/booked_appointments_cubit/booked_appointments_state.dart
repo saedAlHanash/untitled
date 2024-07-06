@@ -54,7 +54,7 @@ class BookedAppointmentsInitial extends AbstractState<List<Appointment>> {
 
       list.sort((a, b) => a.startTime.compareTo(b.startTime));
 
-      final dateTimeNow = DateTime.now();
+      final dateTimeNow = DateTime.now().toUtc();
 
       for (var e in list) {
         if (!e.isNow) continue;
@@ -62,9 +62,9 @@ class BookedAppointmentsInitial extends AbstractState<List<Appointment>> {
         return Pair(e, PrivetSessionState.active);
       }
 
-      if (dateTimeNow.isBefore(list.last.startTime)) {
+      if (dateTimeNow.isBefore(list.last.startTime.toUtc())) {
         return Pair(
-          list.firstWhere((e) => dateTimeNow.isBefore(e.startTime)),
+          list.firstWhere((e) => dateTimeNow.isBefore(e.startTime.toUtc())),
           PrivetSessionState.waiting,
         );
       }

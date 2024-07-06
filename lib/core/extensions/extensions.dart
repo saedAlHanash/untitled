@@ -342,8 +342,8 @@ extension AppointmentH on Appointment {
   bool get isNow {
     final dateTimeNow = DateTime.now().toUtc();
 
-    final b = dateTimeNow.isAfter(startTime);
-    final a = dateTimeNow.isBefore(endTime);
+    final b = dateTimeNow.isAfter(startTime.toUtc());
+    final a = dateTimeNow.isBefore(endTime.toUtc());
 
     // loggerObject.e('$a $b');
     return a && b;
@@ -351,7 +351,7 @@ extension AppointmentH on Appointment {
 
   bool get isExpired {
     final dateTimeNow = DateTime.now().toUtc();
-    final a = dateTimeNow.isAfter(endTime);
+    final a = dateTimeNow.isAfter(endTime.toUtc());
     return a;
   }
 }

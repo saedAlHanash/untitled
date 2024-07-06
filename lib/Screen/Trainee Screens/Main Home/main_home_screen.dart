@@ -13,6 +13,7 @@ import 'package:image_multi_type/image_multi_type.dart';
 
 import '../../../Utils/Routes/app_pages.dart';
 import '../../../core/app/app_provider.dart';
+import '../../../features/fire_chat/rooms_bloc/rooms_cubit.dart';
 import '../../../features/notifications/bloc/notifications_cubit/notifications_cubit.dart';
 import '../../../features/profile/ui/pages/profile_page.dart';
 import '../../../features/welcome_message/bloc/welcome_messages_cubit/welcome_messages_cubit.dart';
@@ -56,9 +57,7 @@ class MainHomeScreen extends GetView<MainHomeController> {
               if (!AppProvider.isGuest)
                 IconButton(
                     onPressed: () => Get.toNamed(AppRoutes.chatScreen),
-                    icon: StreamBuilder<List<types.Room>>(
-                      stream: FirebaseChatCore.instance.rooms(),
-                      initialData: const [],
+                    icon: BlocBuilder<RoomsCubit,RoomsInitial>(
                       builder: (context, state) {
                         return Stack(
                           children: [
@@ -66,10 +65,7 @@ class MainHomeScreen extends GetView<MainHomeController> {
                               url: Assets.imagesChatSVG,
                               color: Get.theme.scaffoldBackgroundColor,
                             ),
-                            if (state.data != null &&
-                                state.data!
-                                        .firstWhereOrNull((e) => e.isNotRead) !=
-                                    null)
+                            if (state.notRead)
                               Container(
                                 height: 7.0,
                                 width: 7.0,

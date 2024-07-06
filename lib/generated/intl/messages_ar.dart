@@ -670,7 +670,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "thereAreNoWorkout": MessageLookupByLibrary.simpleMessage(
             "لا توجد خطط تمرين في نتائج البحث الخاصة بك، يمكنك التحقق من التدريبات واستخدام الفلاتر للعثور على ما تبحث عنه"),
         "thxForApplyAsTrainer": MessageLookupByLibrary.simpleMessage(
-            "نشكرك على اهتمامك للإنضمام معنا! لقد تلقينا طلبك ونقوم حاليًا بم مراجعته."),
+            "نشكرك على اهتمامك بالانضمام معنا ! تلقينا طلبك ونقوم حاليا بمراجعته."),
         "time": MessageLookupByLibrary.simpleMessage("مرة"),
         "timeLeftToEndCall": MessageLookupByLibrary.simpleMessage(
             "الوقت المتبقي لإنهاء المكالمة "),

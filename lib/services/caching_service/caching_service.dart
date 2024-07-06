@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:collection/collection.dart';
 import 'package:fitness_storm/core/api_manager/api_service.dart';
+import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import '../../core/strings/enum_manager.dart';
@@ -33,13 +34,61 @@ class CachingService {
         await box.put('$key${box.values.length}', jsonEncode(e));
       }
 
-
-
       return;
     }
 
     await box.put(key, jsonEncode(data));
+  }
 
+  static Future<void> sortDataWithIds({
+    required dynamic data,
+    required String name,
+    String filter = '',
+  }) async {
+    if (data is Iterable && data.isEmpty) return;
+
+    final key = '_${filter}_';
+    bool haveIdParam = _haveIdParam(data);
+
+    final boxUpdate = await getBox(latestUpdateBox);
+
+    await boxUpdate.put(name, DateTime.now().toIso8601String());
+
+    final box = await getBox(name);
+
+    if (data is Iterable) {
+      for (var e in data) {
+        final item = jsonEncode(e);
+        final id =
+            '$key${haveIdParam ? '+${(e is Map) ? e['id'] : e.id}' : box.values.length}';
+        await box.put(id, item);
+      }
+      return;
+    }
+
+    await box.put('$key${haveIdParam ? '+${data.id}' : ''}', jsonEncode(data));
+  }
+
+  static bool _haveIdParam(dynamic data) {
+    try {
+      if (data is Map) {
+        return (data)['id'] != null;
+      }
+
+      if (data is Iterable) {
+        if (data.first is String) return true;
+
+        if (data.first is Map) {
+          return data.first.containsKey('id');
+        }
+
+        return !(data.first.id.toString().isBlank);
+      } else {
+        return !(data.id.toString().isBlank);
+      }
+    } catch (e) {
+      return false;
+    }
   }
 
   static Future<void> clearKeysId({
@@ -49,8 +98,6 @@ class CachingService {
     final key = '_${filter}_';
 
     final keys = box.keys.where((e) => e.startsWith(key));
-
-    loggerObject.e('deleted keys:\n$key \n$keys');
 
     await box.deleteAll(keys);
   }
@@ -67,8 +114,6 @@ class CachingService {
         .where((e) => e.startsWith(key))
         .map((e) => jsonDecode(box.get(e) ?? '{}'));
 
-    loggerObject.t('getList(): \nkey:$key count ${f.length}');
-
     return f;
   }
 
@@ -84,8 +129,6 @@ class CachingService {
 
     if (dataByKey == null) return null;
 
-    loggerObject.t('getList(): \nkey:$key key found $dataByKey');
-
     return jsonDecode(dataByKey);
   }
 
@@ -97,43 +140,29 @@ class CachingService {
 
   static Future<NeedUpdateEnum> needGetData(String name,
       {String filter = ''}) async {
-
     var key = '_${filter}_';
-
-    var message = 'needGetData key: $key';
 
     final box = await getBox(name);
     final keyFounded = box.keys.firstWhereOrNull((e) => (e).startsWith(key));
 
     if (keyFounded == null) {
-      loggerObject.v(box.keys);
-      loggerObject.f('need get data (key Not Founded): \n$key With loading');
       return NeedUpdateEnum.withLoading;
     }
 
-    message += '\n found Key with ID : ';
     final latest =
         DateTime.tryParse((await getBox(latestUpdateBox)).get(name) ?? '');
 
     final haveData = (await getList(name, filter: filter)).isNotEmpty;
 
     if (latest == null) {
-      loggerObject.f('need get data (latest): \n$key With loading');
       return NeedUpdateEnum.withLoading;
     }
 
-    final d = DateTime.now().difference(latest).inMinutes.abs();
+    final d = DateTime.now().difference(latest).inSeconds.abs();
 
     if (d > 2) {
-      loggerObject.f(
-        'need get data :'
-        ' \n$key data > 2 '
-        '\n${haveData ? NeedUpdateEnum.noLoading.name : NeedUpdateEnum.withLoading.name}',
-      );
-
       return haveData ? NeedUpdateEnum.noLoading : NeedUpdateEnum.withLoading;
     }
-    loggerObject.f('need get data : \n$key Not get data');
     return NeedUpdateEnum.no;
   }
 }

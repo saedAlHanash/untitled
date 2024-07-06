@@ -72,7 +72,6 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    loggerObject.w(AppProvider.myId);
     return ScreenUtilInit(
       designSize: MediaQuery.of(context).size,
       // designSize: const Size(14440, 972),
@@ -140,7 +139,17 @@ class _MyAppState extends State<MyApp> {
                   create: (_) => sl<BookedAppointmentsCubit>(),
                 ),
               ],
-              child: child!,
+              child: GestureDetector(
+                onTap: () {
+                  final currentFocus = FocusScope.of(context);
+
+                  if (!currentFocus.hasPrimaryFocus &&
+                      currentFocus.focusedChild != null) {
+                    FocusManager.instance.primaryFocus?.unfocus();
+                  }
+                },
+                child: child!,
+              ),
             );
           },
           scrollBehavior: MyCustomScrollBehavior(),

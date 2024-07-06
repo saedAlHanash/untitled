@@ -25,6 +25,8 @@ import 'core/injection/injection_container.dart' as di;
 import 'core/injection/injection_container.dart';
 import 'core/strings/enum_manager.dart';
 import 'features/auth/bloc/refresh_token_cubit/refresh_token_cubit.dart';
+import 'features/fire_chat/messages_bloc/messages_cubit.dart';
+import 'features/fire_chat/rooms_bloc/rooms_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -64,7 +66,9 @@ void main() async {
     MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => RefreshHomePlanCubit()),
-        BlocProvider(create: (_) => OpenRoomCubit()),
+        BlocProvider(create: (_) => sl<OpenRoomCubit>()),
+        BlocProvider(create: (_) => sl<RoomsCubit>()..getChatRooms(false)),
+        BlocProvider(create: (_) => sl<MessagesCubit>()),
         BlocProvider(create: (context) => ChangeVideoCubit()),
       ],
       child: const MyApp(),

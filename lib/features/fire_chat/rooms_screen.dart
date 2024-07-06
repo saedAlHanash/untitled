@@ -1,18 +1,15 @@
 import 'package:drawable_text/drawable_text.dart';
-import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/features/fire_chat/open_room_cubit/open_room_cubit.dart';
+import 'package:fitness_storm/features/fire_chat/rooms_bloc/rooms_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_chat_types/flutter_chat_types.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:image_multi_type/circle_image_widget.dart';
 
-import '../../generated/assets.dart';
-import '../../generated/l10n.dart';
+import '../../core/util/my_style.dart';
 import '../../services/chat_service/core/firebase_chat_core.dart';
-
 
 class RoomsScreen extends StatelessWidget {
   const RoomsScreen({super.key});
@@ -29,27 +26,15 @@ class RoomsScreen extends StatelessWidget {
         titleTextStyle:
             const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
       ),
-      body: StreamBuilder<List<Room>>(
-        stream: FirebaseChatCore.instance.rooms(),
-        initialData: const [],
-        builder: (context, snapshot) {
-          if (!snapshot.hasData || snapshot.data!.isEmpty) {
-            return ListTile(
-              onTap: () async {
-                context.read<OpenRoomCubit>().openRoomCustomerService();
-              },
-              leading: CircleImageWidget(
-                url: Assets.imagesCallCenter,
-                size: 40.0.r,
-              ),
-              title: DrawableText(text: S.of(context).support),
-            );
+      body: BlocBuilder<RoomsCubit, RoomsInitial>(
+        builder: (context, state) {
+          if (state.statuses.loading) {
+            return MyStyle.loadingWidget();
           }
-
           return ListView.builder(
-            itemCount: snapshot.data!.length,
+            itemCount: state.result.length,
             itemBuilder: (context, index) {
-              final room = snapshot.data![index];
+              final room = state.result[index];
 
               return ListTile(
                 onTap: () async {

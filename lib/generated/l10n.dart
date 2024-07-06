@@ -5440,10 +5440,10 @@ class S {
     );
   }
 
-  /// `Thank you for your interest in joining us! We have received your application and are currently reviewing it.`
+  /// `Thank you for your interest in joining us! \nWe have received your application and are currently reviewing it.`
   String get thxForApplyAsTrainer {
     return Intl.message(
-      'Thank you for your interest in joining us! We have received your application and are currently reviewing it.',
+      'Thank you for your interest in joining us! \nWe have received your application and are currently reviewing it.',
       name: 'thxForApplyAsTrainer',
       desc: '',
       args: [],

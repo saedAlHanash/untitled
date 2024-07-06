@@ -20,6 +20,7 @@ class ChatServiceCore {
     if (AppSharedPreference.getIsLoginToChatApp) return true;
     final profile = AppProvider.profile;
     try {
+      if (profile.id == 0) return false;
       await FirebaseChatCore.instance.createUserInFirestore(
         types.User(
           id: profile.id.toString(),
@@ -101,6 +102,7 @@ class ChatServiceCore {
 
   static Future<bool> logoutChatUser() async {
     if (!AppSharedPreference.getIsLoginToChatApp) return true;
+    if (AppProvider.myId == 0) return true;
     try {
       await FirebaseFirestore.instance
           .collection('users')
@@ -117,6 +119,8 @@ class ChatServiceCore {
   static Future<bool> updateChatUser() async {
     try {
       final profile = AppProvider.profile;
+      if (profile.id == 0) return false;
+
       await FirebaseFirestore.instance
           .collection('users')
           .doc(AppProvider.myId.toString())

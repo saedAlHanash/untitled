@@ -6,12 +6,14 @@ import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Main%20Home/tra
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Wallet/trainer_wallet_screen.dart';
 import 'package:fitness_storm/router/app_router.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 
 import '../../../Utils/Routes/app_pages.dart';
+import '../../../features/fire_chat/rooms_bloc/rooms_cubit.dart';
 import '../../../features/profile/ui/pages/profile_trainer_screen.dart';
 import '../../../features/trainer/ui/pages/calender_screen.dart';
 import '../../../generated/assets.dart';
@@ -63,9 +65,7 @@ class TrainerMainHomeScreen extends GetView<TrainerMainHomeController> {
                     actions: [
                       IconButton(
                           onPressed: () => Get.toNamed(AppRoutes.chatScreen),
-                          icon: StreamBuilder<List<types.Room>>(
-                            stream: FirebaseChatCore.instance.rooms(),
-                            initialData: const [],
+                          icon: BlocBuilder<RoomsCubit, RoomsInitial>(
                             builder: (context, state) {
                               return Stack(
                                 children: [
@@ -73,10 +73,7 @@ class TrainerMainHomeScreen extends GetView<TrainerMainHomeController> {
                                     url: Assets.imagesChatSVG,
                                     color: Get.theme.scaffoldBackgroundColor,
                                   ),
-                                  if (state.data != null &&
-                                      state.data!.firstWhereOrNull(
-                                              (e) => e.isNotRead) !=
-                                          null)
+                                  if (state.notRead)
                                     Container(
                                       height: 7.0,
                                       width: 7.0,

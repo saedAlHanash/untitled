@@ -4,7 +4,6 @@ import 'package:fitness_storm/core/strings/app_color_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_multi_type/image_multi_type.dart';
-
 import '../../data/response/notifications_response.dart';
 
 class NotificationWidget extends StatelessWidget {
@@ -39,7 +38,7 @@ class NotificationWidget extends StatelessWidget {
                       borderRadius: BorderRadius.circular(12.0.r)),
                   padding: const EdgeInsets.all(5.0).r,
                   child: DrawableText(
-                    text: item.data!.date?.fixTimeZone.formatDateTime ?? '',
+                    text: item.data!.date?.formatDateTime ?? '',
                     fontFamily: FontManager.cairoBold.name,
                     textAlign: TextAlign.center,
                     size: 14.0.sp,

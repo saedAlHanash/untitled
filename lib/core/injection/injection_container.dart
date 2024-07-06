@@ -26,6 +26,9 @@ import '../../features/auth/bloc/signup_cubit/signup_cubit.dart';
 import '../../features/auth/bloc/survey_cubit/survey_cubit.dart';
 import '../../features/bookmarked/bloc/bookmarked_cubit/bookmarked_cubit.dart';
 import '../../features/coupon/coupon_cubit/coupon_cubit.dart';
+import '../../features/fire_chat/messages_bloc/messages_cubit.dart';
+import '../../features/fire_chat/open_room_cubit/open_room_cubit.dart';
+import '../../features/fire_chat/rooms_bloc/rooms_cubit.dart';
 import '../../features/notifications/bloc/notifications_cubit/notifications_cubit.dart';
 import '../../features/plans/bloc/add_favorite/add_favorite_cubit.dart';
 import '../../features/plans/bloc/plans_cubit/plans_cubit.dart';
@@ -51,6 +54,9 @@ Future<void> init() async {
   sl.registerLazySingleton(() => GlobalKey<NavigatorState>());
   sl.registerLazySingleton(() => FirebaseAnalyticService());
   sl.registerLazySingleton(() => ChangeVideoCubit());
+  sl.registerLazySingleton(() => MessagesCubit());
+  sl.registerLazySingleton(() => RoomsCubit());
+  sl.registerLazySingleton(() => OpenRoomCubit());
 
   //endregion
 
