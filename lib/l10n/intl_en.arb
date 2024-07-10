@@ -538,5 +538,8 @@
   "guest": "Continue as Guest",
   "guestUser": "Guest User",
   "needLogin": "Need login!",
+  "year": "Year",
+  "months": "Months",
+  "years": "Years",
   "thxForApplyAsTrainer": "Thank you for your interest in joining us! \nWe have received your application and are currently reviewing it."
 }

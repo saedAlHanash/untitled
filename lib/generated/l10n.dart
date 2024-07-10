@@ -5440,6 +5440,36 @@ class S {
     );
   }
 
+  /// `Year`
+  String get year {
+    return Intl.message(
+      'Year',
+      name: 'year',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Months`
+  String get months {
+    return Intl.message(
+      'Months',
+      name: 'months',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Years`
+  String get years {
+    return Intl.message(
+      'Years',
+      name: 'years',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Thank you for your interest in joining us! \nWe have received your application and are currently reviewing it.`
   String get thxForApplyAsTrainer {
     return Intl.message(

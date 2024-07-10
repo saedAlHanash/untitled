@@ -265,7 +265,6 @@ class NoteMessage {
       context: context,
       dialogType: DialogType.success,
       animType: AnimType.scale,
-      title: 'done',
       desc: message,
       onDismissCallback: (type) => onCancel?.call(),
     ).show();

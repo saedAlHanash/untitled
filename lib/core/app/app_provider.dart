@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:fitness_storm/features/auth/data/response/login_response.dart';
 import 'package:fitness_storm/services/chat_service/chat_service_core.dart';
+import 'package:get/get.dart';
 
 import '../../Utils/utils.dart';
 import '../../features/profile/data/response/profile_response.dart';
@@ -25,6 +26,7 @@ class AppProvider {
   static SettingResult _systemParams = SettingResult.fromJson([]);
 
   static int _myId = 0;
+  static bool isAr = Get.locale?.languageCode == 'ar';
 
   static int get myId {
     if (_myId == 0) _myId = _loginData.id;

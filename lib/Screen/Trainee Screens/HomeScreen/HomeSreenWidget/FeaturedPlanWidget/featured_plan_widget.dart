@@ -1,10 +1,12 @@
 import 'package:fitness_storm/Screen/Trainee%20Screens/HomeScreen/home_screen_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../../../Utils/Routes/app_pages.dart';
 import '../../../../../core/models/plan_model.dart';
+import '../../../../Trainer Screens/Trainer HomeScreen/HomeSreenWidget/FeaturedPlanWidget/featured_plan_item.dart';
 import '../list_header.dart';
 
 class FeaturedPlanWidget extends GetWidget<HomeScreenController> {
@@ -14,28 +16,28 @@ class FeaturedPlanWidget extends GetWidget<HomeScreenController> {
       {required PageController controller, required List<PlanModel> plans}) {
     return Column(
       children: [
-        // SizedBox(
-        //   height: 0.5.sh,
-        //   child: PageView.builder(
-        //     controller: controller,
-        //     itemCount: plans.length,
-        //     itemBuilder: (context, index) {
-        //       return GestureDetector(
-        //         onTap: () => Get.toNamed(AppRoutes.planOverview,
-        //             arguments: plans[index].id),
-        //         child: FeaturedPlanItem(
-        //           planImageUrl: plans[index].image,
-        //           planName: plans[index].name,
-        //           totalWeeks: plans[index].totalWeeks,
-        //           workoutFrequency: plans[index].workoutFrequency,
-        //           trainerName: plans[index].trainer.name,
-        //           trainerProfileImageUrl: plans[index].trainer.image,
-        //           // trainingType: plans[index].trainingType!,
-        //         ),
-        //       );
-        //     },
-        //   ),
-        // ),
+        SizedBox(
+          height: 0.5.sh,
+          child: PageView.builder(
+            controller: controller,
+            itemCount: plans.length,
+            itemBuilder: (context, index) {
+              return GestureDetector(
+                onTap: () => Get.toNamed(AppRoutes.planOverview,
+                    arguments: plans[index].id),
+                child: FeaturedPlanItem(
+                  planImageUrl: plans[index].image,
+                  planName: plans[index].name,
+                  totalWeeks: plans[index].totalWeeks,
+                  workoutFrequency: plans[index].workoutFrequency,
+                  trainerName: plans[index].trainer.name,
+                  trainerProfileImageUrl: plans[index].trainer.image,
+                  // trainingType: plans[index].trainingType!,
+                ),
+              );
+            },
+          ),
+        ),
         SmoothPageIndicator(
           controller: controller,
           count: plans.length,

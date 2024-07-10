@@ -1,9 +1,10 @@
+import 'package:drawable_text/drawable_text.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
 import 'package:fitness_storm/helper/lang_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:image_multi_type/image_multi_type.dart';
 
 import '../generated/assets.dart';
 
@@ -30,13 +31,15 @@ class _LanguageBoardWidgetState extends State<LanguageBoardWidget> {
               padding: const EdgeInsets.symmetric(vertical: 8).r,
               child: LangWidget(
                 title: 'عربي',
-                ontap: () async => await languagesController.setLanguage('ar',
+                isSelect: Get.locale?.languageCode == 'ar',
+                onTap: () async => await languagesController.setLanguage('ar',
                     fromAuthPage: widget.fromAuthPage),
               ),
             ),
             LangWidget(
               title: 'English',
-              ontap: () async => await languagesController.setLanguage('en',
+              isSelect: Get.locale?.languageCode == 'en',
+              onTap: () async => await languagesController.setLanguage('en',
                   fromAuthPage: widget.fromAuthPage),
             ),
           ],
@@ -50,43 +53,38 @@ class LangWidget extends StatelessWidget {
   const LangWidget({
     super.key,
     required this.title,
-    required this.ontap,
+    this.isSelect = false,
+    required this.onTap,
   });
 
   final String title;
-  final VoidCallback ontap;
+  final bool isSelect;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        ontap.call();
+        onTap.call();
         Get.back();
       },
       child: Container(
         height: 60.h,
         decoration: BoxDecoration(
-          color: AppColorManager.cardColor,
+          color: isSelect
+              ? AppColorManager.mainColor.withOpacity(0.3)
+              : AppColorManager.cardColor,
           borderRadius: BorderRadius.circular(10.r),
         ),
-        child: Row(
-          children: [
-            Expanded(
-              flex: 1,
-              child: SvgPicture.asset(
-                Assets.imagesLanguage,
-                color: const Color(0xFF565C63),
-                height: 30,
-              ),
-            ),
-            Expanded(
-              flex: 1,
-              child: Text(
-                title,
-                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-              ),
-            )
-          ],
+        padding: const EdgeInsets.symmetric(horizontal: 20.0).r,
+        child: DrawableText(
+          text: title,
+          matchParent: true,
+          drawableEnd: ImageMultiType(
+            url: Assets.imagesLanguage,
+            color: isSelect ? AppColorManager.mainColor : Colors.grey,
+            height: 30,
+          ),
         ),
       ),
     );

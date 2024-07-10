@@ -58,6 +58,7 @@ Future<void> init() async {
   sl.registerLazySingleton(() => RoomsCubit());
   sl.registerLazySingleton(() => OpenRoomCubit());
 
+
   //endregion
 
   //region auth

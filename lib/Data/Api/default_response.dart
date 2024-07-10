@@ -2,7 +2,7 @@
 
 import 'api_result.dart';
 
-class DefaultResponse<T> with ApiResult<T> {
+class DefaultResponse<T> extends ApiResult<T> {
   DefaultResponse({
     this.data,
     this.status,
@@ -10,7 +10,7 @@ class DefaultResponse<T> with ApiResult<T> {
     this.message,
     this.numberOfPages,
     this.numberOfResults,
-  }) {
+  }) : super(null, null, '', 0, 0, 0) {
     super.type = ApiResultType.success;
     super.data = data;
     super.statusCode = statusCode;

@@ -51,7 +51,7 @@ class FirebaseAnalyticService {
     }
     if (survey.preferredWorkoutLocationId!.isNotEmpty) {
       analytics.setUserProperty(
-          name: "preferred_workout_location_id", value: survey.preferredWorkoutLocationId);
+          name: "preferred_location", value: survey.preferredWorkoutLocationId);
     }
     if (survey.trainingLevelId!.isNotEmpty) {
       analytics.setUserProperty(name: "training_level_id", value: survey.trainingLevelId);
@@ -89,7 +89,7 @@ class FirebaseAnalyticService {
   Future<void> trainingSessionView(
       {required TrainerModel trainer, required int numberOfAvailable}) async {
     await analytics.logEvent(
-      name: 'training_available_times_view',
+      name: 'training_available',
       parameters: {
         'trainer_id': trainer.id,
         'trainer_name': trainer.name,

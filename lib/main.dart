@@ -8,7 +8,6 @@ import 'package:fitness_storm/core/util/shared_preferences.dart';
 import 'package:fitness_storm/features/fire_chat/open_room_cubit/open_room_cubit.dart';
 import 'package:fitness_storm/helper/lang_helper.dart';
 import 'package:fitness_storm/services/caching_service/caching_service.dart';
-import 'package:fitness_storm/services/server_time_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -30,6 +29,7 @@ import 'features/fire_chat/rooms_bloc/rooms_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
 
   try {
     await di.init();

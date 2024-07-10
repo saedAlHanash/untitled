@@ -11,7 +11,9 @@ abstract class ApiResult<T> {
   int? numberOfResults;
   int? statusCode;
 
-  // Map<String,dynamic>? errors;
+  ApiResult(this.type, this.data, this.message, this.numberOfPages,
+      this.numberOfResults, this.statusCode); // Map<String,dynamic>? errors;
+
 
   factory ApiResult.success(T data, String message, int numberOfPages,
           int numberOfResults, int statusCode) =>

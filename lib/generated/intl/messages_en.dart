@@ -366,6 +366,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "mobilityTraining":
             MessageLookupByLibrary.simpleMessage("Mobility Training"),
         "month": MessageLookupByLibrary.simpleMessage("Month"),
+        "months": MessageLookupByLibrary.simpleMessage("Months"),
         "mostPopular": MessageLookupByLibrary.simpleMessage("Most Popularً"),
         "myCalender": MessageLookupByLibrary.simpleMessage("My Calender"),
         "myInfo": MessageLookupByLibrary.simpleMessage("My Info"),
@@ -770,6 +771,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "wrongEmail": MessageLookupByLibrary.simpleMessage("Invalid email"),
         "wrongPhone":
             MessageLookupByLibrary.simpleMessage("Invalid phone number"),
+        "year": MessageLookupByLibrary.simpleMessage("Year"),
+        "years": MessageLookupByLibrary.simpleMessage("Years"),
         "yesSureBasedOnYourPersonal": MessageLookupByLibrary.simpleMessage(
             " Yes sure. Based on your personal info and physical activity, a list of high-HD exercise videos will show up to you. So, it doesn\"t matter if you are a beginner or a Pro. "),
         "yesSureThereIs7DaysFreeTrial": MessageLookupByLibrary.simpleMessage(

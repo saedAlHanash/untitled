@@ -4,7 +4,7 @@ import 'dart:convert';
 
 import 'api_result.dart';
 
-class ErrorResponse<T> with ApiResult<T> {
+class ErrorResponse<T> extends ApiResult<T> {
   final Map<String, dynamic>? errors;
   final bool? status;
   final String? message;
@@ -15,7 +15,7 @@ class ErrorResponse<T> with ApiResult<T> {
     this.status,
     this.message,
     this.statusCode,
-  }) {
+  }) : super(null, null, '', 0, 0, 0) {
     super.type = ApiResultType.failure;
     super.message = message;
     super.statusCode = statusCode;

@@ -365,6 +365,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "mobilityTraining":
             MessageLookupByLibrary.simpleMessage("التدريب على التنقل"),
         "month": MessageLookupByLibrary.simpleMessage("الشهر"),
+        "months": MessageLookupByLibrary.simpleMessage("أشهر"),
         "mostPopular": MessageLookupByLibrary.simpleMessage("الأكثر شيوعاً"),
         "myCalender": MessageLookupByLibrary.simpleMessage("تقويمي"),
         "myInfo": MessageLookupByLibrary.simpleMessage("معلوماتي"),
@@ -763,6 +764,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("بريد الكتروني غير صالح"),
         "wrongPhone":
             MessageLookupByLibrary.simpleMessage("رقم الهاتف غير صالح"),
+        "year": MessageLookupByLibrary.simpleMessage("سنة"),
+        "years": MessageLookupByLibrary.simpleMessage("سنوات"),
         "yesSureBasedOnYourPersonal": MessageLookupByLibrary.simpleMessage(
             "نعم، بالتأكيد. بناءً على معلوماتك الشخصية ونشاطك البدني، ستظهر لك قائمة بمقاطع فيديو تمارين عالية الدقة. لذلك، لا يهم ما إذا كنت مبتدئًا أم محترفًا."),
         "yesSureThereIs7DaysFreeTrial": MessageLookupByLibrary.simpleMessage(

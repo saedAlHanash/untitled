@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../Model/subscription_model.dart';
+import '../../../../core/app/app_provider.dart';
+import '../../../../generated/l10n.dart';
 
-class PaymentCardWidget extends StatelessWidget {
+class PaymentCardWidget extends StatefulWidget {
   const PaymentCardWidget({
     super.key,
     required this.plan,
@@ -15,32 +17,37 @@ class PaymentCardWidget extends StatelessWidget {
   final Function onTapFunction;
 
   @override
+  State<PaymentCardWidget> createState() => _PaymentCardWidgetState();
+}
+
+class _PaymentCardWidgetState extends State<PaymentCardWidget> {
+  @override
   Widget build(BuildContext context) {
     return Card(
       elevation: 20,
       child: Column(children: [
         SizedBox(height: Get.height / 20),
         Text(
-          '${plan.duration} / $getType',
+          '${widget.plan.duration}/ $getType',
           style: const TextStyle(
             color: Color(0xFF565C63),
             fontSize: 16,
           ),
         ),
         Text(
-          '${plan.priceAfterDiscount} SAR',
+          '${widget.plan.priceAfterDiscount} ${AppProvider.isAr?'ر.س':'SAR'}',
           style: const TextStyle(
               color: Color(0xFF565C63), fontSize: 20, fontWeight: FontWeight.bold),
         ),
-        if (plan.price != plan.priceAfterDiscount)
+        if (widget.plan.price != widget.plan.priceAfterDiscount)
           Text(
-            '${'renewal_price'.tr}:${plan.price} SAR',
+            '${'renewal_price'.tr}:${widget.plan.price} ${AppProvider.isAr?'ر.س':'SAR'}',
             style: const TextStyle(color: Color(0xFF565C63), fontSize: 13),
           ),
         const Spacer(),
         CustomButton(
           onTapFunction: () {
-            onTapFunction();
+            widget.onTapFunction();
           },
           padding: 0,
           fontSize: 14,
@@ -52,12 +59,12 @@ class PaymentCardWidget extends StatelessWidget {
   }
 
   String get getType {
-    if (plan.type == 'day') {
-      return 'Day${plan.duration > 1 ? 's' : ''}';
-    } else if (plan.type == 'month') {
-      return 'Month${plan.duration > 1 ? 's' : ''}';
+    if (widget.plan.type == 'day') {
+      return S.of(context).days;
+    } else if (widget.plan.type == 'month') {
+      return S.of(context).months;
     } else {
-      return 'Year${plan.duration > 1 ? 's' : ''}';
+      return S.of(context).years;
     }
   }
 }

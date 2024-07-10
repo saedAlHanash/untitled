@@ -1,3 +1,5 @@
+import 'package:fitness_storm/core/app/app_provider.dart';
+import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -43,7 +45,7 @@ class CurrentPaymentCardWidget extends StatelessWidget {
             ),
           ),
           Text(
-            '${plan.priceAfterDiscount} SAR',
+            '${plan.priceAfterDiscount} ${AppProvider.isAr?'ر.س':'SAR'}',
             style: const TextStyle(
                 color: Color(0xFF565C63),
                 fontSize: 20,
@@ -51,7 +53,7 @@ class CurrentPaymentCardWidget extends StatelessWidget {
           ),
           if (plan.price != plan.priceAfterDiscount)
             Text(
-              '${'renewal_price'.tr}:${plan.price} SAR',
+              '${'renewal_price'.tr}:${plan.price} ${AppProvider.isAr?'ر.س':'SAR'}',
               style: const TextStyle(color: Color(0xFF565C63), fontSize: 13),
             ),
           const Spacer(),
