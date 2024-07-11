@@ -21,7 +21,7 @@ class TrainerBio extends GetWidget<PlanOverviewController> {
             borderRadius: BorderRadius.circular(30),
             color: Get.theme.primaryColor.withOpacity(0.05)),
         child: ReadMoreText(
-          aboutTrainer + ". ",
+          "$aboutTrainer. ",
           style: const TextStyle(color: Color(0xFF565C63)),
           trimMode: TrimMode.Line,
           trimLines: 2,

@@ -149,7 +149,7 @@ class AppPages {
           name: AppRoutes.myPaymentScreen,
           page: () {
             sl<FirebaseAnalyticService>().screenView(name: 'my_payment');
-            return MyPaymentScreen();
+            return const MyPaymentScreen();
           },
           binding: MyPaymentBinding()),
       GetPage(

@@ -26,7 +26,7 @@ class TrainerTrainerOverviewScreen extends GetView<TrainerTrainerOverviewControl
                 child: Column(
                   children: [
                     TrainerProfileHeader(
-                      imageUrl: controller.trainer.image!,
+                      imageUrl: controller.trainer.image,
                       trainer: controller.trainer,
                     ),
                     TrainerBioWidget(trainer: controller.trainer),

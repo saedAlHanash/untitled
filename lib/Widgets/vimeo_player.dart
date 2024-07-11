@@ -1,12 +1,9 @@
-import 'dart:convert';
-
 import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:pod_player/pod_player.dart';
 
-import '../Data/Repositories/get_url_video.dart';
 import '../core/util/my_style.dart';
 import '../generated/assets.dart';
 

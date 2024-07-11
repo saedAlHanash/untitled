@@ -24,12 +24,12 @@ class PlanTimeFrequency extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            '$totalWeeks ' + 'weeks'.tr,
+            '$totalWeeks ${'weeks'.tr}',
             style: TextStyle(color: color, fontSize: 20),
           ),
           Text('•', style: TextStyle(color: color, fontSize: 30)),
           Text(
-            ' $workoutFrequency ' + 'times/week'.tr,
+            ' $workoutFrequency ${'times/week'.tr}',
             style: TextStyle(color: color, fontSize: 20),
           ),
           Text('•', style: TextStyle(color: color, fontSize: 30)),

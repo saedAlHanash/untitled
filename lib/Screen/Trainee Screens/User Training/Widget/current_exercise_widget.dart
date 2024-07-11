@@ -39,7 +39,7 @@ class CurrentExerciseWidget extends StatelessWidget {
                         fontWeight: FontWeight.bold),
                   )
                 : Text(
-                    title + '\n' + notes,
+                    '$title\n$notes',
                     style: const TextStyle(
                         color: Color(0xFF565C63),
                         fontSize: 16,
@@ -49,7 +49,7 @@ class CurrentExerciseWidget extends StatelessWidget {
           const SizedBox(),
           Expanded(
             child: Text(
-              '$set ' + 'set_x'.tr + '${getRepsString()}',
+              '$set ${'set_x'.tr}${getRepsString()}',
               style: TextStyle(
                   color: Get.theme.colorScheme.secondary, fontSize: 12),
             ),

@@ -6,11 +6,13 @@ import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class FeaturedPlanList extends GetWidget<FeaturedPlanController> {
+  const FeaturedPlanList({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Obx(
       () => controller.isLoading
-          ? Center(child: CircularProgressIndicator.adaptive())
+          ? const Center(child: CircularProgressIndicator.adaptive())
           : SmartRefresher(
               controller: controller.refreshController.value,
               enablePullUp: true,

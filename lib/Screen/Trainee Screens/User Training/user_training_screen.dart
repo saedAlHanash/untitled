@@ -3,7 +3,6 @@ import 'package:fitness_storm/Screen/Trainee%20Screens/User%20Training/Widget/ex
 import 'package:fitness_storm/Screen/Trainee%20Screens/User%20Training/Widget/rest_widget.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/User%20Training/user_training_controller.dart';
 import 'package:fitness_storm/Widgets/vimeo_player.dart';
-import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/util/my_style.dart';
 import 'package:flutter/material.dart';

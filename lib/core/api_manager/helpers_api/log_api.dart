@@ -42,11 +42,11 @@ void saedsaed() {
       // Print an emoji for each log message
       printTime: false,
       levelColors: {
-        Level.trace: AnsiColor.fg(40),
-        Level.debug: AnsiColor.fg(1),
-        Level.info: AnsiColor.fg(2),
-        Level.warning: AnsiColor.fg(3),
-        Level.error: AnsiColor.fg(4),
+        Level.trace: const AnsiColor.fg(40),
+        Level.debug: const AnsiColor.fg(1),
+        Level.info: const AnsiColor.fg(2),
+        Level.warning: const AnsiColor.fg(3),
+        Level.error: const AnsiColor.fg(4),
       },
     ),
   );

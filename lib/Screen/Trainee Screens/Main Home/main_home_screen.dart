@@ -1,12 +1,13 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Main%20Home/main_home_controller.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Progress%20Screen/progress_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Search%20Screen/search_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Workout%20Screen/workout_screen.dart';
+import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/features/profile/ui/pages/guest_profile_page.dart';
 import 'package:fitness_storm/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:image_multi_type/image_multi_type.dart';
@@ -18,6 +19,7 @@ import '../../../features/notifications/bloc/notifications_cubit/notifications_c
 import '../../../features/profile/ui/pages/profile_page.dart';
 import '../../../features/welcome_message/bloc/welcome_messages_cubit/welcome_messages_cubit.dart';
 import '../../../generated/assets.dart';
+import '../../../services/chat_service/chat_service_core.dart';
 import '../../../services/chat_service/core/firebase_chat_core.dart';
 import '../HomeScreen/home_screen.dart';
 import 'Widget/navigation_bar_widget.dart';
@@ -39,6 +41,30 @@ class MainHomeScreen extends GetView<MainHomeController> {
       () => BlocListener<WelcomeMessagesCubit, WelcomeMessagesInitial>(
         listener: (context, state) {},
         child: Scaffold(
+          floatingActionButton: FloatingActionButton(
+            onPressed: () async {
+
+              final roomQuery = await FirebaseChatCore.instance
+                  .getFirebaseFirestore()
+                  .collection('rooms')
+                  .get();
+
+
+
+              for (var e in roomQuery.docs) {
+                loggerObject.w(e.id);
+                if (((e['userIds'] as Iterable).firstOrNull as String).length > 10) {
+                  await FirebaseFirestore.instance
+                      .collection('rooms')
+                      .doc(e.id)
+                      .delete();
+                }
+
+              }
+
+              print('done');
+            },
+          ),
           appBar: AppBar(
             leading: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10).r,
@@ -57,7 +83,7 @@ class MainHomeScreen extends GetView<MainHomeController> {
               if (!AppProvider.isGuest)
                 IconButton(
                     onPressed: () => Get.toNamed(AppRoutes.chatScreen),
-                    icon: BlocBuilder<RoomsCubit,RoomsInitial>(
+                    icon: BlocBuilder<RoomsCubit, RoomsInitial>(
                       builder: (context, state) {
                         return Stack(
                           children: [

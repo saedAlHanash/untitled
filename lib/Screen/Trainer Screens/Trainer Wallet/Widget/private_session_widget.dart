@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 class PrivateSessionWidget extends GetWidget<TrainerWalletController> {
   final Wallet privateSession;
 
-  PrivateSessionWidget({required this.privateSession});
+  const PrivateSessionWidget({super.key, required this.privateSession});
 
   @override
   Widget build(BuildContext context) {
@@ -31,11 +31,11 @@ class PrivateSessionWidget extends GetWidget<TrainerWalletController> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             privateSession.type == 'income'
-                ? Text('income'.tr + ' : ${privateSession.price} ' + 'sar'.tr,
+                ? Text('${'income'.tr} : ${privateSession.price} ${'sar'.tr}',
                     style: const TextStyle(color: Color(0xFFA0A0A0), fontSize: 16))
-                : Text('Payment: ${privateSession.price} ' + 'sar'.tr,
+                : Text('Payment: ${privateSession.price} ${'sar'.tr}',
                     style: const TextStyle(color: Color(0xFFA0A0A0), fontSize: 16)),
-            Text('balance'.tr + ' : ${privateSession.balance} ' + 'sar'.tr,
+            Text('${'balance'.tr} : ${privateSession.balance} ${'sar'.tr}',
                 style: const TextStyle(color: Color(0xFFA0A0A0), fontSize: 16)),
           ],
         ),
@@ -49,7 +49,7 @@ class PrivateSessionWidget extends GetWidget<TrainerWalletController> {
                     onPressed: () =>
                         controller.downlaodImage(privateSession.file!),
                     style: const ButtonStyle(
-                        padding: MaterialStatePropertyAll(EdgeInsets.zero)),
+                        padding: WidgetStatePropertyAll(EdgeInsets.zero)),
                     child: Text('download_invoice'.tr,
                         style: TextStyle(
                             color: Get.theme.primaryColor, fontSize: 14)),

@@ -401,7 +401,7 @@ void startWelcomePage() {
 }
 
 void startNotificationsPage() {
-  final Widget page = const NotificationsPage();
+  const Widget page = NotificationsPage();
 
   Get.to(() => page);
 }

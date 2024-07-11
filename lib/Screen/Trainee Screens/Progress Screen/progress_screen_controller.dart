@@ -81,10 +81,6 @@ class ProgressScreenController extends GetxController {
     super.onInit();
   }
 
-  @override
-  void dispose() {
-    super.dispose();
-  }
 
   bool hasTwoDigits(int number) {
     String numberString = number.toString();

@@ -25,7 +25,7 @@ class AppNavigationBar extends StatelessWidget {
           primaryColor: AppColorManager.mainColor,
           textTheme: Theme.of(context)
               .textTheme
-              .copyWith(bodySmall: TextStyle(color: Colors.yellow)),
+              .copyWith(bodySmall: const TextStyle(color: Colors.yellow)),
         ),
         child: BottomNavigationBar(
           selectedItemColor: Get.theme.primaryColor,

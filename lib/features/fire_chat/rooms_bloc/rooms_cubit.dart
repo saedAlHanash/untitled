@@ -74,6 +74,8 @@ class RoomsCubit extends MCubit<RoomsInitial> {
     final roomsCached = data
       ..sort((a, b) => (b.createdAt ?? 0).compareTo(a.createdAt ?? 0));
 
+     roomsCached.removeWhere((e) => e.otherUser.id=='-1');
+
     final roomIndex = roomsCached.indexWhere((element) {
       return element.users.firstWhereOrNull((e) => e.id == '0') != null;
     });

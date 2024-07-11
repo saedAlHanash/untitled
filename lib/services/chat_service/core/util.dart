@@ -24,7 +24,7 @@ Future<Map<String, dynamic>> fetchUser(
   String? role,
 }) async {
   final doc = await instance.collection(usersCollectionName).doc(userId).get();
-
+  if(doc.data()==null)return {'id':'-1'};
   final data = doc.data()!;
 
   data['createdAt'] = data['createdAt']?.millisecondsSinceEpoch;
@@ -60,6 +60,7 @@ Future<types.Room> processRoomDocument(
   FirebaseFirestore instance,
   String usersCollectionName,
 ) async {
+
   final data = doc.data()!;
 
   data['id'] = doc.id;

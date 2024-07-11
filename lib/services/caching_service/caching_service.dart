@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:collection/collection.dart';
-import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 

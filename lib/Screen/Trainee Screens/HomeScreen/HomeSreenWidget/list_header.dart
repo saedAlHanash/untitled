@@ -38,7 +38,7 @@ class _ListHeaderState extends State<ListHeader> {
               )
             ],
           )
-        : SizedBox.shrink();
+        : const SizedBox.shrink();
   }
 
   Widget _buildHeaderTitleText({required String headerTitle}) {

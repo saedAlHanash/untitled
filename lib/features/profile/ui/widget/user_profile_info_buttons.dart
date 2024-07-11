@@ -80,8 +80,8 @@ class _ItemState extends State<_Item> {
         break;
     }
     style = ButtonStyle(
-      backgroundColor: const MaterialStatePropertyAll(AppColorManager.f6),
-      shape: MaterialStatePropertyAll(
+      backgroundColor: const WidgetStatePropertyAll(AppColorManager.f6),
+      shape: WidgetStatePropertyAll(
         RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(5.0.r),
         ),

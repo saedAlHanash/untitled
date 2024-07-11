@@ -40,7 +40,7 @@ ThemeData lightTheme = ThemeData(
         backgroundColor: lightBackgroundColor),
     colorScheme: ColorScheme.fromSwatch(primarySwatch: primarySwatch)
         .copyWith(secondary: const Color(0xFF54BECA))
-        .copyWith(background: lightBackgroundColor.withOpacity(0.75)));
+        .copyWith(surface: lightBackgroundColor.withOpacity(0.75)));
 
 ThemeData darkTheme = ThemeData(
     fontFamily: 'Roboto',
@@ -59,4 +59,4 @@ ThemeData darkTheme = ThemeData(
           secondary: Colors.black.withOpacity(0.5),
           brightness: Brightness.dark,
         )
-        .copyWith(background: lightBackgroundColor.withOpacity(0.75)));
+        .copyWith(surface: lightBackgroundColor.withOpacity(0.75)));

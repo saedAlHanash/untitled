@@ -1,5 +1,4 @@
 import 'package:fitness_storm/core/app/app_provider.dart';
-import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -32,7 +31,7 @@ class CurrentPaymentCardWidget extends StatelessWidget {
               child: Text(
                 'current_plan'.tr,
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.white, fontSize: 12),
+                style: const TextStyle(color: Colors.white, fontSize: 12),
               ),
             ),
           ),
@@ -73,11 +72,11 @@ class CurrentPaymentCardWidget extends StatelessWidget {
                 );
               },
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all<Color>(
+                backgroundColor: WidgetStateProperty.all<Color>(
                   const Color(0xFFA0A0A0),
                 ),
-                elevation: MaterialStateProperty.all(10),
-                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                elevation: WidgetStateProperty.all(10),
+                shape: WidgetStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(18.0),
                   ),
@@ -85,7 +84,7 @@ class CurrentPaymentCardWidget extends StatelessWidget {
               ),
               child: FittedBox(
                 child: Text('cancel_subscription'.tr,
-                    style: TextStyle(fontSize: 17, color: Colors.white)),
+                    style: const TextStyle(fontSize: 17, color: Colors.white)),
               ),
             ),
           )

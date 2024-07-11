@@ -15,11 +15,11 @@ import '../../../Data/Api/urls.dart';
 
 class TrainerWalletController extends GetxController {
   RxList<Wallet> sessions = <Wallet>[].obs;
-  RxBool _isLoading = false.obs;
-  RxDouble _balanced = 0.0.obs;
+  final RxBool _isLoading = false.obs;
+  final RxDouble _balanced = 0.0.obs;
   Rx<RefreshController> refreshController = RefreshController().obs;
   int currentPage = 2;
-  TrainerTrainerRepository _trainerRepository = TrainerTrainerRepository();
+  final TrainerTrainerRepository _trainerRepository = TrainerTrainerRepository();
 
   bool get isLoading => _isLoading.value;
 
@@ -53,9 +53,6 @@ class TrainerWalletController extends GetxController {
     try {
       // Saved with this method.
       var imageId =  Image.network(path);
-      if (imageId == null) {
-        return;
-      }
 
       // Below is a method of obtaining saved image information.
       // var fileName = await ImageDownloader.findName(imageId);
@@ -63,7 +60,7 @@ class TrainerWalletController extends GetxController {
       Utils.openSnackBar(title: 'The image has been downloaded');
       // var size = await ImageDownloader.findByteSize(imageId);
       // var mimeType = await ImageDownloader.findMimeType(imageId);
-    } on PlatformException catch (error) {
+    } on PlatformException {
       
     }
   }

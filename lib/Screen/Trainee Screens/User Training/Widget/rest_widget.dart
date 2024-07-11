@@ -35,12 +35,12 @@ class RestWidget extends GetWidget<UserTrainingController> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text(
-                          "let\'s_go".tr,
-                          style: TextStyle(color: Colors.white, fontSize: 14),
+                          "let's_go".tr,
+                          style: const TextStyle(color: Colors.white, fontSize: 14),
                         ),
                         Text(
                           'you_can_do_it_this_set'.tr,
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: Colors.white,
                               fontSize: 16,
                               fontWeight: FontWeight.bold),
@@ -53,11 +53,11 @@ class RestWidget extends GetWidget<UserTrainingController> {
                       children: [
                         Text(
                           'great_job!'.tr,
-                          style: TextStyle(color: Colors.white, fontSize: 14),
+                          style: const TextStyle(color: Colors.white, fontSize: 14),
                         ),
                         Text(
                           'take_a_break'.tr,
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: Colors.white,
                               fontSize: 18,
                               fontWeight: FontWeight.bold),
@@ -66,7 +66,7 @@ class RestWidget extends GetWidget<UserTrainingController> {
                           controller.type == "Loop Exercise"
                               ? 'before_the_next_exercise'.tr
                               : 'before_the_next_set'.tr,
-                          style: TextStyle(color: Colors.white, fontSize: 14),
+                          style: const TextStyle(color: Colors.white, fontSize: 14),
                         ),
                       ],
                     ),

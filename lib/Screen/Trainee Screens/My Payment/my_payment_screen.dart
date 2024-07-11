@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 import '../../../Utils/Routes/app_pages.dart';
 
 class MyPaymentScreen extends GetView<MyPaymentController> {
-  MyPaymentScreen({super.key});
+  const MyPaymentScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

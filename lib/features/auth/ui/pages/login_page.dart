@@ -200,7 +200,7 @@ class _ForgetAndRememberWidgetState extends State<_ForgetAndRememberWidget> {
               return CheckboxListTile(
                 controlAffinity: ListTileControlAffinity.leading,
                 contentPadding: EdgeInsets.zero,
-                fillColor: MaterialStateProperty.all(Colors.white),
+                fillColor: WidgetStateProperty.all(Colors.white),
                 checkColor: AppColorManager.mainColor,
                 value: loginCubit.isTrainer,
                 onChanged: (value) {

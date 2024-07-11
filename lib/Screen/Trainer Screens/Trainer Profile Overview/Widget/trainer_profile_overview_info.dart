@@ -33,7 +33,7 @@ class TrainerProfileOverviewInfo extends StatelessWidget {
                     Text(
                       'SET_MY_AVAILABILITY'.tr,
                     ),
-                    Icon(Icons.arrow_circle_right)
+                    const Icon(Icons.arrow_circle_right)
                   ],
                 ),
               ),
@@ -44,7 +44,7 @@ class TrainerProfileOverviewInfo extends StatelessWidget {
                       Text(
                         'PLANS_BY_ME'.tr,
                       ),
-                      Icon(Icons.arrow_circle_right)
+                      const Icon(Icons.arrow_circle_right)
                     ],
                   )),
             ],

@@ -17,8 +17,8 @@ class SearchNumberOfResult extends GetWidget<SearchResultController> {
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
           Text(
             controller.selectedIndex == 0
-                ? '${controller.trainersNumberOfResults} ' + 'result'.tr
-                : '${controller.plansNumberOfResults} ' + 'result'.tr,
+                ? '${controller.trainersNumberOfResults} ${'result'.tr}'
+                : '${controller.plansNumberOfResults} ${'result'.tr}',
             style: const TextStyle(color: Color(0xFFA0A0A0)),
           ),
           GestureDetector(

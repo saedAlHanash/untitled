@@ -23,7 +23,7 @@ class FeaturedPlanScreen extends GetView<FeaturedPlanController> {
       body: Column(
         children: [
           FilterRow(selectedIndex: controller.selectedIndex),
-          Expanded(child: FeaturedPlanList()),
+          const Expanded(child: FeaturedPlanList()),
         ],
       ),
     );

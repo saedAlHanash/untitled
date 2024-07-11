@@ -27,16 +27,19 @@ class FirebaseAnalyticService {
     }
     if (user.birthDate != null) {
       analytics.setUserProperty(
-          name: "date_of_birth", value: user.birthDate?.toUtc().toIso8601String());
+          name: "date_of_birth",
+          value: user.birthDate?.toUtc().toIso8601String());
     }
   }
 
   Future<void> initSurvey({required FitnessSurvey survey}) async {
     if (survey.weight != 0) {
-      analytics.setUserProperty(name: "weight", value: survey.weight.toString());
+      analytics.setUserProperty(
+          name: "weight", value: survey.weight.toString());
     }
     if (survey.height != 0) {
-      analytics.setUserProperty(name: "height", value: survey.height.toString());
+      analytics.setUserProperty(
+          name: "height", value: survey.height.toString());
     }
     if (survey.dailyExercise != 0) {
       analytics.setUserProperty(
@@ -47,14 +50,16 @@ class FirebaseAnalyticService {
           name: "weekly_exercise", value: survey.weeklyExercise.toString());
     }
     if (survey.trainingGoal!.isNotEmpty) {
-      analytics.setUserProperty(name: "training_goal", value: survey.trainingGoal);
+      analytics.setUserProperty(
+          name: "training_goal", value: survey.trainingGoal);
     }
     if (survey.preferredWorkoutLocationId!.isNotEmpty) {
       analytics.setUserProperty(
           name: "preferred_location", value: survey.preferredWorkoutLocationId);
     }
     if (survey.trainingLevelId!.isNotEmpty) {
-      analytics.setUserProperty(name: "training_level_id", value: survey.trainingLevelId);
+      analytics.setUserProperty(
+          name: "training_level_id", value: survey.trainingLevelId);
     }
   }
 
@@ -62,13 +67,14 @@ class FirebaseAnalyticService {
     await analytics.logSignUp(
       signUpMethod: 'email_and_password',
       parameters: {
-        'email': request.phoneOrEmail,
-        'name': request.name,
+        'email': request.phoneOrEmail ?? '',
+        'name': request.name ?? '',
       },
     );
   }
 
-  Future<void> login({required LoginData data, required String loginMethod}) async {
+  Future<void> login(
+      {required LoginData data, required String loginMethod}) async {
     await analytics.logLogin(
       loginMethod: loginMethod,
       parameters: {
@@ -111,7 +117,9 @@ class FirebaseAnalyticService {
   Future<void> contactTrainerOrUser(
       {required String name, required String method}) async {
     await analytics.logEvent(
-      name: AppProvider.isTrainer ? 'trainer_contact_user' : 'user_contact_trainer',
+      name: AppProvider.isTrainer
+          ? 'trainer_contact_user'
+          : 'user_contact_trainer',
       parameters: {
         'method': method,
         AppProvider.isTrainer ? 'trainer_name' : 'user_name': name,
@@ -124,9 +132,9 @@ class FirebaseAnalyticService {
     await analytics.logEvent(
       name: 'book_sessions',
       parameters: {
-        'bundle_name': request.bundle?.name,
-        'trainer_name': request.bundle?.trainer.name,
-        'trainer_id': request.bundle?.trainer.id,
+        'bundle_name': request.bundle?.name ?? '',
+        'trainer_name': request.bundle?.trainer.name ?? '',
+        'trainer_id': request.bundle?.trainer.id ?? '',
         'times_count': request.timeIds.length,
       },
     );
@@ -139,12 +147,13 @@ class FirebaseAnalyticService {
   }
 
   Future<void> receivedNotification({required type}) async {
-    await analytics.logEvent(name: 'received_notification', parameters: {'type': type});
+    await analytics
+        .logEvent(name: 'received_notification', parameters: {'type': type});
   }
+
   Future<void> initialApp() async {
     await analytics.logAppOpen();
   }
-
 
   Future<void> screenView({required String name}) async {
     await analytics.logScreenView(screenName: name);

@@ -23,7 +23,7 @@ class PrivateCoatching extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: Get.width / 37.5),
               child: Text(
                 'take_a_plan_made_customized_for_you!'.tr,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 14,
                   fontWeight: FontWeight.bold,
@@ -35,7 +35,7 @@ class PrivateCoatching extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: Get.height / 100.75),
               child: Text(
                 'private_coatching'.tr,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Color(0xFF565C63),
                   fontWeight: FontWeight.bold,
                   fontSize: 18,
@@ -56,8 +56,8 @@ class PrivateCoatching extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(bottom: Get.height / 100),
                   child: Text(
-                    '/' + 'month'.tr,
-                    style: TextStyle(
+                    '/${'month'.tr}',
+                    style: const TextStyle(
                         color: Color(0xFFA0A0A0),
                         fontWeight: FontWeight.bold,
                         fontSize: 14),

@@ -172,7 +172,7 @@ class _ItemAppointment extends StatelessWidget {
                         )
                       : IconButton(
                           style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all<Color>(
+                            backgroundColor: WidgetStateProperty.all<Color>(
                                 AppColorManager.cardColor),
                           ),
                           onPressed: () => startRating(item),

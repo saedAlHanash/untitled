@@ -39,9 +39,7 @@ class TrainingExerciseWidget extends StatelessWidget {
                     color: Color(0xFF565C63), fontSize: 14, fontWeight: FontWeight.bold),
               ),
               Text(
-                '$sets  ' +
-                    'set_x'.tr +
-                    ' ${getRepsString(
+                '$sets  ${'set_x'.tr} ${getRepsString(
                       reps,
                       isSecondsBased,
                     )}',
@@ -86,7 +84,7 @@ class TrainingExerciseWidget extends StatelessWidget {
           child: Checkbox(
             value: isFinished,
             onChanged: (_) {},
-            fillColor: MaterialStateProperty.all(Colors.white),
+            fillColor: WidgetStateProperty.all(Colors.white),
             checkColor: Get.theme.primaryColor,
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(3)),
           ),

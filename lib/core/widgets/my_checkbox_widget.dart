@@ -75,9 +75,9 @@ class MyCheckboxWidget extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(3.0.r),
                     ),
-                    fillColor: MaterialStateProperty.resolveWith<Color>(
-                        (Set<MaterialState> states) {
-                      if (states.contains(MaterialState.selected)) {
+                    fillColor: WidgetStateProperty.resolveWith<Color>(
+                        (Set<WidgetState> states) {
+                      if (states.contains(WidgetState.selected)) {
                         return AppColorManager.mainColorLight;
                       }
                       return AppColorManager.lightGrayEd;

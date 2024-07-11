@@ -6,12 +6,12 @@ import 'package:get/state_manager.dart';
 import '../../../core/models/plan_model.dart';
 
 class TrainerPlansController extends GetxController {
-  RxBool _isLoading = false.obs;
-  TrainerTrainerRepository _trainerRepository = TrainerTrainerRepository();
+  final RxBool _isLoading = false.obs;
+  final TrainerTrainerRepository _trainerRepository = TrainerTrainerRepository();
 
   List<PlanModel> get trainerPlans => _trainerPlans;
 
-  RxList<PlanModel> _trainerPlans = <PlanModel>[].obs;
+  final RxList<PlanModel> _trainerPlans = <PlanModel>[].obs;
 
   set trainerPlans(value) => _trainerPlans.value = value;
 
@@ -49,9 +49,9 @@ class TrainerPlansController extends GetxController {
 
   //TODO add function to get trainer plans when api ready
   Future<List<PlanModel>> getTrainerPlans() async {
-    List<PlanModel> _plans = await _trainerRepository.getTrainerPlans();
-    if (_plans.isNotEmpty) {
-      _trainerPlans.addAll(_plans);
+    List<PlanModel> plans = await _trainerRepository.getTrainerPlans();
+    if (plans.isNotEmpty) {
+      _trainerPlans.addAll(plans);
     }
     return [];
   }

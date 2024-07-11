@@ -17,9 +17,9 @@ class SuccessSubscribed extends StatelessWidget {
       ),
       SizedBox(height: Get.height / 16.24),
       Text(
-        'welcome'.tr + ' $nameUser',
+        '${'welcome'.tr} $nameUser',
         textAlign: TextAlign.center,
-        style: TextStyle(
+        style: const TextStyle(
           color: Colors.white,
           fontSize: 14,
         ),
@@ -28,7 +28,7 @@ class SuccessSubscribed extends StatelessWidget {
       Text(
         'congratulations'.tr,
         textAlign: TextAlign.justify,
-        style: TextStyle(
+        style: const TextStyle(
           color: Colors.white,
           fontSize: 14,
         ),

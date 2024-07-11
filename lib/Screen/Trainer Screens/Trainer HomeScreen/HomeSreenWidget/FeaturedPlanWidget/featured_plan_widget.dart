@@ -62,8 +62,8 @@ class FeaturedPlanWidget extends GetWidget<TrainerHomeScreenController> {
                   planName: plans[index].name,
                   totalWeeks: plans[index].totalWeeks,
                   workoutFrequency: plans[index].workoutFrequency,
-                  trainerName: plans[index].trainer!.name,
-                  trainerProfileImageUrl: plans[index].trainer!.image,
+                  trainerName: plans[index].trainer.name,
+                  trainerProfileImageUrl: plans[index].trainer.image,
                   // trainingType: plans[index].trainingType!,
                 ),
               );

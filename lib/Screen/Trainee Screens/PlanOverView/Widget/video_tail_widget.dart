@@ -22,8 +22,8 @@ class VideoTailWidget extends GetWidget<PlanOverviewController> {
             ),
           ),
           Text(
-            '${controller.planOverview.totalWeeks}${controller.planOverview.totalWeeks! > 1 &&
-                        controller.planOverview.totalWeeks! < 10
+            '${controller.planOverview.totalWeeks}${controller.planOverview.totalWeeks > 1 &&
+                        controller.planOverview.totalWeeks < 10
                     ? ' ${'weeks'.tr}'
                     : ' ${'week'.tr}'}',
             style: const TextStyle(

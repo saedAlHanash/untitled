@@ -50,9 +50,9 @@ class TrendingPlanWidget extends GetView<TrainerHomeScreenController> {
             onTap: () =>
                 Get.toNamed(AppRoutes.trainerPlans, arguments: plans[index].id),
             child: TrendingPlanItem(
-              planImageUrl: plans[index].image!,
-              planName: plans[index].name!,
-              trainerName: plans[index].trainer!.name!,
+              planImageUrl: plans[index].image,
+              planName: plans[index].name,
+              trainerName: plans[index].trainer.name,
             ),
           );
         },

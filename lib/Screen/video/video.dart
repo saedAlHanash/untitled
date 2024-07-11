@@ -5,7 +5,6 @@ import 'package:drawable_text/drawable_text.dart';
 import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
 import 'package:fitness_storm/core/util/firebase_analytics_service.dart';
-import 'package:fitness_storm/services/server_time_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';

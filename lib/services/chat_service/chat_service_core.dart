@@ -3,11 +3,11 @@ import 'package:collection/collection.dart';
 import 'package:fitness_storm/features/trainer/data/response/trainer.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 
-import '../../Model/payment_private_session.dart';
 import '../../core/api_manager/api_service.dart';
 import '../../core/app/app_provider.dart';
 import '../../core/util/shared_preferences.dart';
 import 'core/firebase_chat_core.dart';
+import 'core/util.dart';
 
 class ChatServiceCore {
   static Future<void> initFirebaseChat() async {
@@ -83,9 +83,8 @@ class ChatServiceCore {
     if (user == null) {
       if (trainer != null) {
         await createUser(trainer);
+        return getUser(userId);
       }
-
-      return getUser(userId);
     }
     return user;
   }
@@ -148,4 +147,34 @@ class ChatServiceCore {
       return false;
     }
   }
+
+  static Future<List<types.User>> getChatUsers() async {
+    final users = await FirebaseFirestore.instance.collection('users').get();
+
+    final listUsers = users.docs.map((doc) {
+      final data = doc.data();
+
+      data['id'] = doc.id;
+      data['createdAt'] = data['createdAt']?.millisecondsSinceEpoch;
+      data['lastSeen'] = data['lastSeen']?.millisecondsSinceEpoch;
+      data['updatedAt'] = data['updatedAt']?.millisecondsSinceEpoch;
+
+      return types.User.fromJson(data);
+    }).toList();
+
+    return listUsers;
+  }
+  static Future<List<types.Room>> getChatRooms() async {
+    final roomQuery = await FirebaseChatCore.instance.getFirebaseFirestore()
+        .collection('rooms')
+        .get();
+
+    final rooms = (await processRoomsQuery(
+      FirebaseChatCore.instance.getFirebaseFirestore(),
+      roomQuery,
+      'users',
+    ));
+    return rooms;
+  }
+
 }

@@ -12,7 +12,7 @@ import 'firebase_chat_core_config.dart';
 import 'util.dart';
 
 class FirebaseChatCore {
-  FirebaseChatCore._privateConstructor() {}
+  FirebaseChatCore._privateConstructor();
 
   FirebaseChatCoreConfig config = const FirebaseChatCoreConfig(
     null,
@@ -136,14 +136,19 @@ class FirebaseChatCore {
 
       return room;
     }
+    Map<String, dynamic>? currentUser;
+    try {
+      currentUser = await fetchUser(
+        getFirebaseFirestore(),
+        AppProvider.myId.toString(),
+        config.usersCollectionName,
+      );
+    } catch (e) {}
 
-    final currentUser = await fetchUser(
-      getFirebaseFirestore(),
-      AppProvider.myId.toString(),
-      config.usersCollectionName,
-    );
-
-    final users = [types.User.fromJson(currentUser), otherUser];
+    final users = [
+      if (currentUser != null) types.User.fromJson(currentUser),
+      otherUser
+    ];
 
     // Create new room with sorted user ids array.
     final room = await getFirebaseFirestore()

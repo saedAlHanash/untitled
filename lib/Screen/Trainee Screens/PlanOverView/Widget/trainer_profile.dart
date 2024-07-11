@@ -32,7 +32,7 @@ class TrainerProfile extends GetWidget<PlanOverviewController> {
             children: [
               Text(
                 'about_the_coach'.tr,
-                style: TextStyle(color: Color(0xFF565C63), fontSize: 12),
+                style: const TextStyle(color: Color(0xFF565C63), fontSize: 12),
               ),
               FittedBox(
                 child: Text(

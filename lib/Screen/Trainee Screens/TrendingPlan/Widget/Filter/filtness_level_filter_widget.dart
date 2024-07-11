@@ -15,7 +15,7 @@ class FitnessLevelFilterWidget extends GetWidget<TrendingPlanController> {
         children: [
           Text(
             'FITNESS_LEVEL'.tr,
-            style: TextStyle(
+            style: const TextStyle(
                 color: Color(0xFFA8A5A5),
                 fontSize: 14,
                 fontWeight: FontWeight.bold),

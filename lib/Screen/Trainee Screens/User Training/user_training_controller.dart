@@ -4,13 +4,10 @@ import 'package:fitness_storm/Data/Api/api_result.dart';
 import 'package:fitness_storm/Data/Repositories/exercise_repository.dart';
 import 'package:fitness_storm/Model/exercise.dart';
 import 'package:fitness_storm/Utils/utils.dart';
-import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
-import 'package:pod_player/pod_player.dart';
 
-import '../../../Data/Repositories/get_url_video.dart';
 import '../../../Utils/protact_screen_service.dart';
 import 'change_video_cubit/change_video_cubit.dart';
 
@@ -39,7 +36,7 @@ class UserTrainingController extends GetxController {
   final RxBool _isLoading = false.obs;
 
   final RxBool _isRest = false.obs;
-  late RxDouble _progress = 0.0.obs;
+  late final RxDouble _progress = 0.0.obs;
   final RxInt _start = 0.obs;
   final RxList<int> _trainingSets = <int>[].obs;
 

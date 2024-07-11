@@ -84,9 +84,9 @@ class NetworkExceptions {
     if (error is Exception) {
       try {
         NetworkExceptions networkExceptions = NetworkExceptions.badRequest();
-        if (error is dio.DioError) {
+        if (error is dio.DioException) {
           switch (error.type) {
-            case dio.DioErrorType.cancel:
+            case dio.DioExceptionType.cancel:
               networkExceptions = NetworkExceptions.requestCancelled();
               break;
             // case dio.DioErrorType.connectTimeout:
@@ -131,31 +131,31 @@ class NetworkExceptions {
             //       );
             //   }
 
-            case dio.DioErrorType.sendTimeout:
+            case dio.DioExceptionType.sendTimeout:
               networkExceptions = NetworkExceptions.sendTimeout();
               break;
-            case dio.DioErrorType.connectionTimeout:
+            case dio.DioExceptionType.connectionTimeout:
               // TODO: Handle this case.
               break;
-            case dio.DioErrorType.sendTimeout:
+            case dio.DioExceptionType.sendTimeout:
               // TODO: Handle this case.
               break;
-            case dio.DioErrorType.receiveTimeout:
+            case dio.DioExceptionType.receiveTimeout:
               // TODO: Handle this case.
               break;
-            case dio.DioErrorType.badCertificate:
+            case dio.DioExceptionType.badCertificate:
               // TODO: Handle this case.
               break;
-            case dio.DioErrorType.badResponse:
+            case dio.DioExceptionType.badResponse:
               // TODO: Handle this case.
               break;
-            case dio.DioErrorType.cancel:
+            case dio.DioExceptionType.cancel:
               // TODO: Handle this case.
               break;
-            case dio.DioErrorType.connectionError:
+            case dio.DioExceptionType.connectionError:
               // TODO: Handle this case.
               break;
-            case dio.DioErrorType.unknown:
+            case dio.DioExceptionType.unknown:
               // TODO: Handle this case.
               break;
           }

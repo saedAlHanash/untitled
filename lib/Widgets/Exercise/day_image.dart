@@ -27,7 +27,7 @@ class DayImage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Padding(
-            padding: EdgeInsets.only(top: 13.0),
+            padding: const EdgeInsets.only(top: 13.0),
             child: _buildExerciseImage(),
           ),
         ],
@@ -53,7 +53,7 @@ class DayImage extends StatelessWidget {
         Container(
           height: Get.height / 13,
           width: Get.width / 3.125,
-          margin: EdgeInsets.only(bottom: 2),
+          margin: const EdgeInsets.only(bottom: 2),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5),
               color: Colors.black12.withOpacity(0.3)),

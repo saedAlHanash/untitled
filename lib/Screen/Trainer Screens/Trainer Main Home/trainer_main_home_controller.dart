@@ -1,4 +1,3 @@
-import 'package:fitness_storm/Data/Repositories/auth_repository.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Main%20Home/Widget/trainer_navigation_bar_controller.dart';
 import 'package:get/get.dart';
 

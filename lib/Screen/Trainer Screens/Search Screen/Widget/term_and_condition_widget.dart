@@ -34,7 +34,7 @@ class _TrainerTermAndConditionWidgetState extends State<TrainerTermAndConditionW
               Text(
                 'do_you_have_any_question_in_your_mind?'.tr,
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.white, fontSize: 14),
+                style: const TextStyle(color: Colors.white, fontSize: 14),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -42,7 +42,7 @@ class _TrainerTermAndConditionWidgetState extends State<TrainerTermAndConditionW
                   Text(
                     'check_our'.tr,
                     textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.white, fontSize: 14),
+                    style: const TextStyle(color: Colors.white, fontSize: 14),
                   ),
                   SizedBox(
                     width: 40,
@@ -59,7 +59,7 @@ class _TrainerTermAndConditionWidgetState extends State<TrainerTermAndConditionW
                       child: Text(
                         'FAQ'.tr,
                         textAlign: TextAlign.center,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 14,
                           decoration: TextDecoration.underline,
@@ -75,9 +75,9 @@ class _TrainerTermAndConditionWidgetState extends State<TrainerTermAndConditionW
                   Text(
                     'or_contact_our'.tr,
                     textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.white, fontSize: 14),
+                    style: const TextStyle(color: Colors.white, fontSize: 14),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 24,
                   ),
                   SizedBox(
@@ -102,7 +102,7 @@ class _TrainerTermAndConditionWidgetState extends State<TrainerTermAndConditionW
                           child: Text(
                             'customer_services'.tr,
                             textAlign: TextAlign.center,
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.white,
                               fontSize: 12,
                               decoration: TextDecoration.underline,

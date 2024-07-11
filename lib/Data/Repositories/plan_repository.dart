@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:fitness_storm/core/api_manager/api_service.dart';
 
 import '../../Model/subscribed_plan.dart';
 import '../../Utils/utils.dart';
@@ -173,7 +172,7 @@ class PlanRepository {
     Options option = Utils.getOptions(withToken: true, all: true);
     List<TrainingType> types = [];
     final response = await Methods.get(
-        url: '${TRAINEEURLS.getTrainingType}', options: option);
+        url: TRAINEEURLS.getTrainingType, options: option);
     if (response.type == ApiResultType.success) {
       response.data.forEach((elemant) {
         types.add(TrainingType.fromJson(elemant));

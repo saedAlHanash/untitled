@@ -54,7 +54,7 @@ class TrendingPlanWidget extends GetView<HomeScreenController> {
    //log(controller.trendingPlans.toString());
     return Column(
       children: [
-        Platform.isIOS ? SizedBox(height: 5) : SizedBox.shrink(),
+        Platform.isIOS ? const SizedBox(height: 5) : const SizedBox.shrink(),
         _buildTrendingPlanHeader(plans: controller.trendingPlans),
         _buildTrendsPlanList(
             plans: controller.trendingPlans

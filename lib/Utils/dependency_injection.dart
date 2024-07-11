@@ -84,7 +84,7 @@ Future<void> initDio() async {
     },
   );
   Dio dio = Dio(baseOptions);
-  (dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
+  (dio.httpClientAdapter as IOHttpClientAdapter).onHttpClientCreate =
       (client) {
     client.badCertificateCallback =
         (X509Certificate cert, String host, int port) {

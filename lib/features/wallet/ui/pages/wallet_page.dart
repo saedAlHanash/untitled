@@ -12,7 +12,7 @@ class WalletPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarWidget(zeroHeight: true),
+      appBar: const AppBarWidget(zeroHeight: true),
       body: BlocBuilder<WalletCubit, WalletInitial>(
         builder: (context, state) {
           if (state.statuses.loading) {
@@ -20,6 +20,8 @@ class WalletPage extends StatelessWidget {
           }
           return ListView.builder(
             itemBuilder: (context, index) {
+              return null;
+            
 
             },
           );

@@ -15,7 +15,7 @@ class TrainingTypeFilterWidget extends GetWidget<YourTrainerController> {
         children: [
           Text(
             'TRAINING_TYPE'.tr,
-            style: TextStyle(
+            style: const TextStyle(
                 color: Color(0xFFA8A5A5),
                 fontSize: 14,
                 fontWeight: FontWeight.bold),

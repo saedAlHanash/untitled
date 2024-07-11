@@ -1,11 +1,9 @@
 import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
-import 'package:fitness_storm/router/app_router.dart';
 import 'package:http/http.dart';
 
 import '../app/app_widget.dart';
 import '../util/abstraction.dart';
-import '../util/shared_preferences.dart';
 import '../util/snack_bar_message.dart';
 
 class ErrorManager {

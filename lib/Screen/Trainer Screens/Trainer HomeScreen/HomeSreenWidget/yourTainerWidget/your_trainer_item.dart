@@ -41,7 +41,7 @@ class YourTrainersItem extends GetWidget {
                 child: Center(
                   child: Text(
                     'private_coatching'.tr,
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontSize: 11,
                         fontWeight: FontWeight.bold,
                         color: Colors.white),

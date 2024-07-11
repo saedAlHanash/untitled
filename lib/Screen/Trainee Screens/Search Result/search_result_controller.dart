@@ -204,7 +204,7 @@ class SearchResultController extends GetxController {
   getSearchResultTrainer() async {
     Options option = Utils.getOptions(withToken: true, all: true);
     ApiResult result = await Methods.get(
-        url: '${TRAINEEURLS.getYourTrainer}', options: option);
+        url: TRAINEEURLS.getYourTrainer, options: option);
     if (result.type == ApiResultType.success) {
       // List<Trainer> trainers = [];
       for (var element in result.data) {
@@ -216,10 +216,10 @@ class SearchResultController extends GetxController {
             break;
           }
         }
-        if (checkIfCorrect) this.trainers.add(trainer);
+        if (checkIfCorrect) trainers.add(trainer);
       }
       // trainersNumberOfResults = result.numberOfResults;
-      trainersNumberOfResults = this.trainers.length;
+      trainersNumberOfResults = trainers.length;
       trainersPageNumber++;
     } else {
       throw result.message!;

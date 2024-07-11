@@ -1,6 +1,5 @@
 
 import 'package:fitness_storm/Screen/Trainee%20Screens/HomeScreen/HomeSreenWidget/ContinueTraining/continue_training_widget.dart';
-
 import 'package:fitness_storm/Screen/Trainee%20Screens/HomeScreen/home_screen_controller.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/HomeScreen/refresh_home_plan_cubit/refresh_home_plan_cubit.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +7,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
-import '../../../Utils/Routes/app_pages.dart';
 import 'HomeSreenWidget/FeaturedPlanWidget/featured_plan_widget.dart';
 import 'HomeSreenWidget/TrendingPlanWidget/trending_plan_widget.dart';
 import 'HomeSreenWidget/yourTainerWidget/your_trainer_widget.dart';

@@ -50,19 +50,19 @@ class MyButton extends StatelessWidget {
       height: height ?? 56.0.h,
       child: ElevatedButton(
         style: ButtonStyle(
-          shape: MaterialStatePropertyAll(
+          shape: WidgetStatePropertyAll(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.all(
                 Radius.circular(radios ?? 15.0.r),
               ),
             ),
           ),
-          shadowColor: MaterialStatePropertyAll(
+          shadowColor: WidgetStatePropertyAll(
               const Color(0xFF4C2E84).withOpacity(0.2)),
-          elevation: MaterialStatePropertyAll(elevation ?? 10.0.r),
+          elevation: WidgetStatePropertyAll(elevation ?? 10.0.r),
           backgroundColor:
-              MaterialStatePropertyAll(color ?? AppColorManager.mainColor),
-          padding: MaterialStatePropertyAll(
+              WidgetStatePropertyAll(color ?? AppColorManager.mainColor),
+          padding: WidgetStatePropertyAll(
               padding ?? const EdgeInsets.symmetric(vertical: 0.0).r),
           alignment: Alignment.center,
         ),
@@ -114,7 +114,7 @@ class MyButtonOutLine extends StatelessWidget {
       height: 45.0.h,
       child: ElevatedButton(
         style: ButtonStyle(
-          shape: MaterialStatePropertyAll(
+          shape: WidgetStatePropertyAll(
             RoundedRectangleBorder(
               side: BorderSide(color: color ?? AppColorManager.mainColor),
               borderRadius: BorderRadius.all(
@@ -123,11 +123,11 @@ class MyButtonOutLine extends StatelessWidget {
             ),
           ),
 
-          elevation: const MaterialStatePropertyAll(0.0),
+          elevation: const WidgetStatePropertyAll(0.0),
           backgroundColor:
-              MaterialStatePropertyAll(color ?? AppColorManager.whit),
+              WidgetStatePropertyAll(color ?? AppColorManager.whit),
           // padding: MaterialStatePropertyAll(padding),
-          padding: MaterialStatePropertyAll(
+          padding: WidgetStatePropertyAll(
               const EdgeInsets.symmetric(vertical: 0.0).r),
           alignment: Alignment.center,
         ),
@@ -180,21 +180,21 @@ class MyButtonRound extends StatelessWidget {
       height: 40.0.h,
       child: ElevatedButton(
         style: ButtonStyle(
-          shape: MaterialStatePropertyAll(
+          shape: WidgetStatePropertyAll(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.all(
                 Radius.circular(200.0.r),
               ),
             ),
           ),
-          shadowColor: MaterialStatePropertyAll(
+          shadowColor: WidgetStatePropertyAll(
               const Color(0xFF4C2E84).withOpacity(0.2)),
-          elevation: MaterialStatePropertyAll(enable ? elevation ?? 10.0.r : 0),
-          backgroundColor: MaterialStatePropertyAll(enable
+          elevation: WidgetStatePropertyAll(enable ? elevation ?? 10.0.r : 0),
+          backgroundColor: WidgetStatePropertyAll(enable
               ? color ?? AppColorManager.mainColor
               : AppColorManager.gray),
           // padding: MaterialStatePropertyAll(padding),
-          padding: MaterialStatePropertyAll(
+          padding: WidgetStatePropertyAll(
               const EdgeInsets.symmetric(vertical: 3.0).r),
           alignment: Alignment.center,
         ),

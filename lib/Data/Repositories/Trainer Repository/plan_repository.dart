@@ -27,7 +27,7 @@ class TrainerPlanRepository {
       }
     } catch (error) {
       Utils.openSnackBar(message: error.toString());
-      throw error;
+      rethrow;
     }
   }
 

@@ -4,7 +4,6 @@ import 'package:drawable_text/drawable_text.dart';
 import 'package:fitness_storm/Screen/video/video_call_widget.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
 import 'package:fitness_storm/core/util/firebase_analytics_service.dart';
-import 'package:fitness_storm/services/server_time_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -97,7 +96,7 @@ class _Video1State extends State<Video1> {
               ),
             )
           : null,
-      body: VideoCallWidget(
+      body: const VideoCallWidget(
         token: '007eJxTYDA7Fzw1uP3a3aMT1LM0tWfe2Siw4SbPVE3eksal2XZc+2wVGFKMU40TUyyT0owSLUzMklKTTE0NkwwMjC3NLRONDE2MUt6FpjUEMjI8WbiViZEBAkF8FobixNQUBgYAJJQfGg==',
         channel: 'saed',
       ),

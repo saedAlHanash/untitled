@@ -29,7 +29,7 @@ class SortBottomSheet extends GetWidget<FeaturedPlanController> {
         () => Column(mainAxisAlignment: MainAxisAlignment.start, children: [
           Text(
             'SORT_BY'.tr,
-            style: TextStyle(
+            style: const TextStyle(
                 color: Color(0xFFA8A5A5),
                 fontSize: 14,
                 fontWeight: FontWeight.bold),

@@ -15,7 +15,7 @@ class TrainerHomeScreenController extends GetxController {
 
   List<PlanModel> get trainerPlans => _trainerPlans;
 
-  RxList<PlanModel> _trainerPlans = <PlanModel>[].obs;
+  final RxList<PlanModel> _trainerPlans = <PlanModel>[].obs;
 
   set trainerPlans(value) => _trainerPlans.value = value;
 

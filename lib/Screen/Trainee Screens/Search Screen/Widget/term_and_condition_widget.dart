@@ -27,7 +27,7 @@ class TermAndConditionWidget extends StatelessWidget {
               Text(
                 'do_you_have_any_question_in_your_mind?'.tr,
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.white, fontSize: 13),
+                style: const TextStyle(color: Colors.white, fontSize: 13),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -35,7 +35,7 @@ class TermAndConditionWidget extends StatelessWidget {
                   Text(
                     'check_our'.tr,
                     textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.white, fontSize: 14),
+                    style: const TextStyle(color: Colors.white, fontSize: 14),
                   ),
                   SizedBox(
                     width: 80,
@@ -52,7 +52,7 @@ class TermAndConditionWidget extends StatelessWidget {
                       child: Text(
                         'FAQ'.tr,
                         textAlign: TextAlign.center,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 14,
                           decoration: TextDecoration.underline,
@@ -68,7 +68,7 @@ class TermAndConditionWidget extends StatelessWidget {
                   Text(
                     'or_contact_our'.tr,
                     textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.white, fontSize: 14),
+                    style: const TextStyle(color: Colors.white, fontSize: 14),
                   ),
                   SizedBox(
                     height: 25,
@@ -92,7 +92,7 @@ class TermAndConditionWidget extends StatelessWidget {
                           child: Text(
                             'customer_services'.tr,
                             textAlign: TextAlign.center,
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.white,
                               fontSize: 12,
                               decoration: TextDecoration.underline,

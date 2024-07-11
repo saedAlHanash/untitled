@@ -90,7 +90,7 @@ class SubscruptionController extends GetxController {
       var d1 = await createPaymentIntent(request);
       String uri = d1.data['url'];
       return uri;
-    } catch (e, s) {
+    } catch (e) {
       Utils.openSnackBar(title: 'failure'.tr, message: 'An_error_occurred'.tr);
       isLoading = false;
       //log('exception:$e$s');
