@@ -153,7 +153,11 @@ class _LoginPageState extends State<LoginPage> {
                       ],
                     ),
                     30.0.verticalSpace,
-                    const LoginSocialWidget(),
+                    SizedBox(
+                      height: 50.0.r,
+                      width: 50.0.r,
+                      child: const LoginSocialWidget(),
+                    ),
                     10.0.verticalSpace,
                     DrawableText(
                       text: S.of(context).notMember,

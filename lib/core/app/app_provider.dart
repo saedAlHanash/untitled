@@ -21,23 +21,20 @@ class AppProvider {
 
   static UserType _userType = AppSharedPreference.getUserType;
 
-  static Profile _profile = AppSharedPreference.profile;
+  static Profile profile = AppSharedPreference.profile;
 
-  static SettingResult _systemParams = SettingResult.fromJson([]);
+  static SettingResult systemParams = SettingResult.fromJson([]);
+
+  //region user and auth
 
   static int _myId = 0;
+
   static bool isAr = Get.locale?.languageCode == 'ar';
 
   static int get myId {
     if (_myId == 0) _myId = _loginData.id;
     return _myId;
   }
-
-  // static Profile get profile => _profile ;
-
-  static Profile get profile => _profile;
-
-  static SettingResult get systemParams => _systemParams;
 
   static String get token {
     return _loginData.accessToken;
@@ -49,48 +46,39 @@ class AppProvider {
 
   static bool get isConfirmed => _loginData.isConfirmed;
 
-  static bool get isFirstTime => _loginData.isFirstTime;
-
   static bool get isTrainer => _userType == UserType.trainer;
 
   static bool get isGuest => _userType == UserType.guest;
 
-  static _setLoginData() {
+  //endregion
+
+  static _refreshLoginData() {
     _loginData = AppSharedPreference.loginDate;
     _userType = AppSharedPreference.getUserType;
   }
 
   static cashLoginData(LoginData data, {UserType? userType}) async {
     await AppSharedPreference.cashLoginData(data);
-    if (userType != null) {
-      await AppSharedPreference.cashUserType(userType);
-    }
+    await AppSharedPreference.cashUserType(userType);
 
-    _setLoginData();
+    _refreshLoginData();
   }
 
   static cashProfile(Profile data) async {
     await AppSharedPreference.cashProfile(data);
-    _profile = data;
+    profile = data;
 
     await ChatServiceCore.updateChatUser();
-  }
-
-  static cashSetting(
-    SettingResult data,
-  ) async {
-    _systemParams = data;
   }
 
   static cashSetConfirmAccount() async {
     await AppSharedPreference.cashLoginData(
         _loginData.copyWith(isConfirmed: true));
-    _setLoginData();
+    _refreshLoginData();
   }
 
   static Future<void> logout() async {
     await AppSharedPreference.logout();
-
     _loginData = AppSharedPreference.loginDate;
     await ChatServiceCore.logoutChatUser();
     _myId = 0;

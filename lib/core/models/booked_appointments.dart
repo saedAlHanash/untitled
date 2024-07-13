@@ -46,12 +46,12 @@ class Appointment {
   factory Appointment.fromJson(Map<String, dynamic> json) {
     return Appointment(
       id: json["id"].toString().tryParseOrZeroInt,
-      startTime: DateTime.tryParse(json["startAt"] ?? json["start_time"] ?? "")
+      startTime: (DateTime.tryParse(json["startAt"] ?? json["start_time"] ?? "")
               ?.fixTimeZone ??
-          DateTime(2030),
-      endTime: DateTime.tryParse(json["endAt"] ?? json["end_time"] ?? "")
+          DateTime(2030)),
+      endTime: (DateTime.tryParse(json["endAt"] ?? json["end_time"] ?? "")
               ?.fixTimeZone ??
-          DateTime(2030),
+          DateTime(2030)),
       videoCallToken: json["video_call_token"] ?? "",
       rate: json["rate"] == null ? null : Rate.fromJson(json["rate"]),
       appointmentId: json["appointment_id"].toString().tryParseOrZeroInt,

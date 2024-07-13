@@ -11,7 +11,7 @@ class UpdateProfileInitial extends AbstractState<bool> {
   });
 
   @override
-  List<Object> get props => [statuses, result, error];
+  List<Object> get props => [statuses, result, error,request];
 
   factory UpdateProfileInitial.initial() {
     return UpdateProfileInitial(

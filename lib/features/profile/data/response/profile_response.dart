@@ -51,6 +51,7 @@ class Profile {
   UploadFile? avatar;
 
   dynamic get avatarImage {
+    if(avatar==null)return image;
     return avatar?.initialImage ?? avatar?.fileBytes ?? Assets.imagesUser;
   }
 

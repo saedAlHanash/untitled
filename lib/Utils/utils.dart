@@ -290,7 +290,7 @@ Future<bool> checkForceUpdate() async {
 
   if (pair.first == null) return false;
 
-  AppProvider.cashSetting(pair.first!);
+  AppProvider.systemParams= pair.first!;
 
   versionControlModel = pair.first;
 

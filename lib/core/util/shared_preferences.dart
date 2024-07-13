@@ -87,8 +87,9 @@ class AppSharedPreference {
     await _prefs?.remove(_otpPassword);
   }
 
-  static cashUserType(UserType appState) async {
-    await _prefs?.setInt(_toScreen, appState.index);
+  static cashUserType(UserType? userType) async {
+    if(userType==null)return;
+    await _prefs?.setInt(_toScreen, userType.index);
   }
 
   static UserType get getUserType {

@@ -110,7 +110,9 @@ class TrainerHeader extends StatelessWidget {
                                       context
                                           .read<OpenRoomCubit>()
                                           .openRoomByUserId(
-                                              trainer.id.toString());
+                                            trainer.id.toString(),
+                                            trainer: trainer,
+                                          );
                                     },
                                   );
                                 },

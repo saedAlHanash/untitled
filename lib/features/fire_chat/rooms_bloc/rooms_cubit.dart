@@ -17,7 +17,7 @@ class RoomsCubit extends MCubit<RoomsInitial> {
   RoomsCubit() : super(RoomsInitial.initial());
 
   @override
-  String get nameCache => 'rooms';
+  String get nameCache => 'rooms1';
 
   @override
   String get filter => AppProvider.myId.toString();
@@ -44,12 +44,12 @@ class RoomsCubit extends MCubit<RoomsInitial> {
             state.result.lastOrNull?.updatedAt ?? 0,
           ),
         );
-
-    loggerObject.i('requested get room ');
-    loggerObject.i(DateTime.fromMillisecondsSinceEpoch(
-        state.result.firstOrNull?.updatedAt ?? 0));
-    loggerObject.i(DateTime.fromMillisecondsSinceEpoch(
-        state.result.lastOrNull?.updatedAt ?? 0));
+    //
+    // loggerObject.i('requested get room ');
+    // loggerObject.i(DateTime.fromMillisecondsSinceEpoch(
+    //     state.result.firstOrNull?.updatedAt ?? 0));
+    // loggerObject.i(DateTime.fromMillisecondsSinceEpoch(
+    //     state.result.lastOrNull?.updatedAt ?? 0));
 
     final stream = query.snapshots().listen((snapshot) async {
       final listRooms = await processRoomsQuery(

@@ -1,5 +1,6 @@
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
+import 'package:fitness_storm/core/widgets/app_bar/app_bar_widget.dart';
 import 'package:fitness_storm/core/widgets/my_button.dart';
 import 'package:fitness_storm/core/widgets/my_text_form_widget.dart';
 import 'package:fitness_storm/core/widgets/select_date.dart';
@@ -12,6 +13,7 @@ import 'package:image_multi_type/image_multi_type.dart';
 
 import '../../../../core/util/my_style.dart';
 import '../../../../core/util/snack_bar_message.dart';
+import '../../../../core/widgets/item_image_create.dart';
 import '../../../../core/widgets/title_with_dote.dart';
 import '../../../../generated/l10n.dart';
 import '../../../auth/bloc/delete_account_cubit/delete_account_cubit.dart';
@@ -63,15 +65,7 @@ class _TraineeProfileInfoScreenState extends State<TraineeProfileInfoScreen> {
         ),
       ],
       child: Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
-            onPressed: () => Get.back(),
-          ),
-          title: Text('profile_info'.tr),
-          titleTextStyle: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-        ),
+        appBar: AppBarWidget(titleText: S.of(context).profileInfo),
         body: SingleChildScrollView(
           child: BlocBuilder<ProfileCubit, ProfileInitial>(
             builder: (context, state) {
@@ -81,7 +75,16 @@ class _TraineeProfileInfoScreenState extends State<TraineeProfileInfoScreen> {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const TraineeEditProfile(),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 15.0).r,
+                    child: ItemImageCreate(
+                      image: cubit.state.request.avatarImage,
+                      onLoad: (bytes) {
+                        context.read<UpdateProfileCubit>().setAvatar = bytes;
+                        setState(() {});
+                      },
+                    ),
+                  ),
                   TitleWithDote(text: S.of(context).profileDetails),
                   10.0.verticalSpace,
                   Form(

@@ -1,4 +1,5 @@
 import 'package:drawable_text/drawable_text.dart';
+import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
 import 'package:fitness_storm/core/strings/enum_manager.dart';
@@ -35,6 +36,7 @@ class ProfilePage extends StatelessWidget {
             return MyStyle.loadingWidget();
           }
           final profile = state.result;
+          loggerObject.w(profile.image);
           return SingleChildScrollView(
             padding:
                 const EdgeInsets.only(left: 30.0, right: 30.0, bottom: 100.0).r,
@@ -79,7 +81,7 @@ class ProfilePage extends StatelessWidget {
                       return MyStyle.loadingWidget();
                     }
                     return MyButton(
-                      onTap: ()  {
+                      onTap: () {
                         context.read<OpenRoomCubit>().openRoomCustomerService();
                       },
                       text: S.of(context).joinUsAsATrainer,

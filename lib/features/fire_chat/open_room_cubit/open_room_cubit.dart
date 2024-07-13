@@ -6,6 +6,7 @@ import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/abstraction.dart';
 import '../../../router/app_router.dart';
 import '../../../services/chat_service/core/firebase_chat_core.dart';
+import '../../trainer/data/response/trainer.dart';
 
 part 'open_room_state.dart';
 
@@ -27,9 +28,9 @@ class OpenRoomCubit extends Cubit<OpenRoomInitial> {
     startChatPage(room);
   }
 
-  Future<void> openRoomByUserId(String userId) async {
+  Future<void> openRoomByUserId(String userId,{TrainerModel? trainer}) async {
     emit(state.copyWith(statuses: CubitStatuses.loading));
-    final chatUser = await ChatServiceCore.getUser(userId);
+    final chatUser = await ChatServiceCore.getUser(userId,trainer: trainer);
 
     if (chatUser == null) {
       emit(state.copyWith(statuses: CubitStatuses.error));

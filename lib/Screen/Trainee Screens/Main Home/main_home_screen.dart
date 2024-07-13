@@ -8,6 +8,7 @@ import 'package:fitness_storm/features/profile/ui/pages/guest_profile_page.dart'
 import 'package:fitness_storm/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_chat_types/flutter_chat_types.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:image_multi_type/image_multi_type.dart';
@@ -41,30 +42,6 @@ class MainHomeScreen extends GetView<MainHomeController> {
       () => BlocListener<WelcomeMessagesCubit, WelcomeMessagesInitial>(
         listener: (context, state) {},
         child: Scaffold(
-          floatingActionButton: FloatingActionButton(
-            onPressed: () async {
-
-              final roomQuery = await FirebaseChatCore.instance
-                  .getFirebaseFirestore()
-                  .collection('rooms')
-                  .get();
-
-
-
-              for (var e in roomQuery.docs) {
-                loggerObject.w(e.id);
-                if (((e['userIds'] as Iterable).firstOrNull as String).length > 10) {
-                  await FirebaseFirestore.instance
-                      .collection('rooms')
-                      .doc(e.id)
-                      .delete();
-                }
-
-              }
-
-              print('done');
-            },
-          ),
           appBar: AppBar(
             leading: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10).r,

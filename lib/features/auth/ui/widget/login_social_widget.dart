@@ -27,6 +27,7 @@ class LoginSocialWidget extends StatelessWidget {
           child: ImageMultiType(
             url: Assets.imagesGoogleSVG,
             width: 40.0.r,
+            height: 40.0.r,
           ),
         );
       },
