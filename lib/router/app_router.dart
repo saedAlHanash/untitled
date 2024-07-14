@@ -272,8 +272,6 @@ void startRestPass() {
     child: const ResetPasswordPage(),
   );
 
-
-
   Get.to(page);
   sl<FirebaseAnalyticService>().screenView(name: 'rest_password');
   //endregion
@@ -288,8 +286,6 @@ void startApply() {
     providers: providers,
     child: const ApplyPage(),
   );
-
-
 
   Get.to(() => page);
   sl<FirebaseAnalyticService>().screenView(name: 'apply_as_trainer');
@@ -311,7 +307,6 @@ void startConfirmCodeAccount(BuildContext context) {
 }
 
 void startHome() {
-
   ChatServiceCore.initFirebaseChat();
 
   Get.offAllNamed(
@@ -440,8 +435,8 @@ void startTrainersPage() {
   sl<FirebaseAnalyticService>().screenView(name: 'your_trainer');
 }
 
-void startChatPage(Room room) {
-  Get.to(() => ChatPage(room: room));
+void startChatPage(Room room) async {
+  await Get.to(() => ChatPage(room: room));
 
   ChatServiceCore.latestSeenRoom(room.id);
 }

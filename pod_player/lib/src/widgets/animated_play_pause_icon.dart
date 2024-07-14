@@ -15,6 +15,7 @@ class _AnimatedPlayPauseIcon extends StatefulWidget {
 
 class _AnimatedPlayPauseIconState extends State<_AnimatedPlayPauseIcon>
     with SingleTickerProviderStateMixin {
+
   late final AnimationController _payCtr;
   late PodGetXVideoController _podCtr;
   @override

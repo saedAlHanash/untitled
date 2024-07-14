@@ -1,6 +1,8 @@
-import 'package:bloc/bloc.dart';
+import 'package:fitness_storm/features/fire_chat/messages_bloc/messages_cubit.dart';
 import 'package:fitness_storm/services/chat_service/chat_service_core.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart';
+import 'package:get/get.dart';
 
 import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/abstraction.dart';
@@ -18,6 +20,7 @@ class OpenRoomCubit extends Cubit<OpenRoomInitial> {
 
     final room = await FirebaseChatCore.instance.createRoom(chatUser);
     emit(state.copyWith(statuses: CubitStatuses.done, request: room));
+    Get.context?.read<MessagesCubit>().state.stream?.cancel();
     startChatPage(room);
   }
 
@@ -25,12 +28,13 @@ class OpenRoomCubit extends Cubit<OpenRoomInitial> {
     emit(state.copyWith(statuses: CubitStatuses.init));
     Future(() =>
         emit(state.copyWith(statuses: CubitStatuses.done, request: room)));
+    Get.context?.read<MessagesCubit>().state.stream?.cancel();
     startChatPage(room);
   }
 
-  Future<void> openRoomByUserId(String userId,{TrainerModel? trainer}) async {
+  Future<void> openRoomByUserId(String userId, {TrainerModel? trainer}) async {
     emit(state.copyWith(statuses: CubitStatuses.loading));
-    final chatUser = await ChatServiceCore.getUser(userId,trainer: trainer);
+    final chatUser = await ChatServiceCore.getUser(userId, trainer: trainer);
 
     if (chatUser == null) {
       emit(state.copyWith(statuses: CubitStatuses.error));
@@ -39,6 +43,7 @@ class OpenRoomCubit extends Cubit<OpenRoomInitial> {
 
     final room = await FirebaseChatCore.instance.createRoom(chatUser);
     emit(state.copyWith(statuses: CubitStatuses.done, request: room));
+    Get.context?.read<MessagesCubit>().state.stream?.cancel();
     startChatPage(room);
   }
 
@@ -53,6 +58,7 @@ class OpenRoomCubit extends Cubit<OpenRoomInitial> {
 
     final room = await FirebaseChatCore.instance.createRoom(chatUser);
     emit(state.copyWith(statuses: CubitStatuses.done, request: room));
+    Get.context?.read<MessagesCubit>().state.stream?.cancel();
     startChatPage(room);
   }
 }
