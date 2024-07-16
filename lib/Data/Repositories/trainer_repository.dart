@@ -76,7 +76,7 @@ class TrainerRepository {
   Future<ApiResult> bookPrivateSession(
       String trainerTimeId, String paymentId) async {
     Options options = Utils.getOptions(withToken: true, all: true);
-    var data = {};
+    var data = <String, dynamic>{};
     if (paymentId != "") {
       data = {
         "trainer_time_id": trainerTimeId,

@@ -24,8 +24,10 @@ import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:http/http.dart';
 import 'package:logger/logger.dart';
 
+import '../../../Data/Api/api_result.dart';
 import '../../strings/enum_manager.dart';
 import '../api_service.dart';
+import 'package:dio/dio.dart' as dio;
 
 void saedsaed() {
   var loggerObjectApi = Logger(
@@ -104,4 +106,28 @@ void logResponse({
   }
 
   loggerObject.t('${coloring(url, type)} [${response.statusCode}] \n $res');
+}
+
+void logResponseDio({
+  required String url,
+  required dio.Response response,
+  required ApiType type,
+}) {
+  try {
+    var r = [];
+    var res = '';
+    if (jsonEncode(response.data).length > 800) {
+      r = jsonEncode(response.data).splitByLength1(800);
+      for (var e in r) {
+        res += '$e\n';
+      }
+    } else {
+      res = jsonEncode(response.data);
+    }
+
+    loggerObject.t(
+        '${coloring(url.replaceAll('https://api.fitnessstorm.org', '').replaceAll('https://api-test.fitnessstorm.org', ''), type)} [${response.statusCode}] \n $res');
+  } catch (e) {
+    loggerObject.e(e);
+  }
 }

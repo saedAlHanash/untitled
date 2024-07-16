@@ -201,12 +201,12 @@ const additionalConstTrainer = 'mobile/trainer/';
 const additionalConstUser = 'mobile/user/';
 
 String get baseUrl {
-  return _live;
-  // return _test;
+  return live;
+  // return test;
 }
 
-const _live = 'api.fitnessstorm.org';
-const _test = 'api-test.fitnessstorm.org';
+const live = 'api.fitnessstorm.org';
+const test = 'api-test.fitnessstorm.org';
 
 String get additionalConst =>
     AppProvider.isTrainer ? additionalConstTrainer : additionalConstUser;

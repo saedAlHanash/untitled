@@ -74,8 +74,8 @@ class PlanModel {
               .map((x) => TrainingLocation.fromJson(x))),
       totalWeeks: json["total_weeks"].toString().tryParseOrZeroInt,
       workoutFrequency: json["workout_frequency"].toString().tryParseOrZeroInt,
-      isBookmark: json["is_bookmark"] ?? false,
-      isActive: json["is_active"] ?? false,
+      isBookmark: (json["is_bookmark"]).toString().getBool ,
+      isActive: (json["is_active"] ).toString().getBool,
       introductionVideo: json["introduction_video"] ?? '',
       description: json["description"] ?? '',
     );

@@ -117,6 +117,13 @@ extension StringHelper on String? {
     final String link = "https://$baseUrl/$this";
     return link;
   }
+
+  bool get getBool {
+    if (this == null) return false;
+    final pars = int.tryParse(this!);
+    if (pars == null) return this! == 'true';
+    return pars == 1;
+  }
 }
 
 final oCcy = NumberFormat("#,###", "en_US");
@@ -223,6 +230,7 @@ extension DateUtcHelper on DateTime {
   String get monthName => DateFormat('MMMM').format(this);
 
   String get formatDateTime => '$formatDate - $formatTime';
+
   String get formatDateTimeVertical => '$formatDate\n$formatTime';
 
   DateTime addFromNow({int? year, int? month, int? day, int? hour}) {

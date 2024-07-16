@@ -52,6 +52,7 @@ class Assets {
   static const String imagesStar = 'asset/Images/star.svg';
   static const String imagesSubscription = 'asset/Images/subscription.svg';
   static const String imagesSuccessfully = 'asset/Images/successfully.svg';
+  static const String imagesTestMode = 'asset/Images/test_mode.png';
   static const String imagesUser = 'asset/Images/user.png';
   static const String imagesVCall = 'asset/Images/v_call.svg';
   static const String imagesVideo = 'asset/Images/video.png';

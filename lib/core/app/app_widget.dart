@@ -32,6 +32,7 @@ import '../../helper/lang_helper.dart';
 import '../injection/injection_container.dart';
 import '../translations.dart';
 import '../util/shared_preferences.dart';
+import 'app_provider.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
@@ -146,7 +147,22 @@ class _MyAppState extends State<MyApp> {
                     FocusManager.instance.primaryFocus?.unfocus();
                   }
                 },
-                child: child!,
+                child: AppProvider.isTestMode
+                    ? Stack(
+                  fit: StackFit.expand,
+                  children: [
+                    child!,
+                    IgnorePointer(
+                      child: ImageMultiType(
+                        height: 100.0.h,
+                        width: 100.0.w,
+                        color: Colors.grey,
+                        url: Assets.imagesTestMode,
+                      ),
+                    ),
+                  ],
+                )
+                    : child!,
               ),
             );
           },

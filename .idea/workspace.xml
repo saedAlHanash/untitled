@@ -10,11 +10,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="43c414a0-a0aa-41d9-b6a1-9df3dcc6d755" name="Changes" comment="new chat app">
+      <change afterPath="$PROJECT_DIR$/asset/Images/test_mode.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/fire_chat/open_room_cubit/open_room_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/fire_chat/open_room_cubit/open_room_cubit.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/router/app_router.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/router/app_router.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/services/chat_service/chat_service_core.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/chat_service/chat_service_core.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pod_player/lib/src/widgets/animated_play_pause_icon.dart" beforeDir="false" afterPath="$PROJECT_DIR$/pod_player/lib/src/widgets/animated_play_pause_icon.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Data/Api/methods.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Data/Api/methods.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Data/Repositories/plan_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Data/Repositories/plan_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Data/Repositories/trainer_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Data/Repositories/trainer_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/api_manager/api_url.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/api_manager/api_url.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/api_manager/helpers_api/log_api.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/api_manager/helpers_api/log_api.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/app/app_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/app/app_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/app/app_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/app/app_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/extensions/extensions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/extensions/extensions.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/models/plan_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/models/plan_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/generated/assets.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/assets.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/saed.json" beforeDir="false" afterPath="$PROJECT_DIR$/saed.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +73,7 @@
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/LENOVO/StudioProjects/CHI/chat_admin&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/LENOVO/StudioProjects/New/fitness_storm/asset/Images&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
@@ -71,11 +83,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\LENOVO\StudioProjects\New\fitness_storm\asset\Images" />
       <recent name="C:\Users\LENOVO\StudioProjects\New\fitness_storm\lib\core\util" />
       <recent name="C:\Users\LENOVO\StudioProjects\New\fitness_storm\lib\features\fire_chat" />
       <recent name="C:\Users\LENOVO\StudioProjects\New\fitness_storm\lib\Screen\Trainee Screens\User Training" />
       <recent name="C:\Users\LENOVO\StudioProjects\New\fitness_storm\lib\services" />
-      <recent name="C:\Users\LENOVO\StudioProjects\New\fitness_storm\lib\features\trainer\ui\pages" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\LENOVO\StudioProjects\New\fitness_storm\lib\features\trainer\ui\widget" />
@@ -478,7 +490,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720859280894</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="new chat app">
+      <option name="closed" value="true" />
+      <created>1720947186865</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1720947186865</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">

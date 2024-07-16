@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:fitness_storm/core/api_manager/api_url.dart';
 import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:fitness_storm/features/auth/data/response/login_response.dart';
 import 'package:fitness_storm/services/chat_service/chat_service_core.dart';
@@ -28,6 +29,8 @@ class AppProvider {
   //region user and auth
 
   static int _myId = 0;
+
+  static bool get isTestMode => baseUrl == test;
 
   static bool isAr = Get.locale?.languageCode == 'ar';
 
