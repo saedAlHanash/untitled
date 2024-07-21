@@ -37,9 +37,8 @@ class _Video1State extends State<Video1> {
   var timeLift = 0;
 
   void calculateTimeLeft(bool firstTime) {
-    final d = widget.appointment.endTime
-        .toUtc()
-        .difference(DateTime.now().toUtc());
+    final d =
+        widget.appointment.endTime.toUtc().difference(DateTime.now().toUtc());
 
     if (d.inMinutes <= 10) {
       setState(() {
@@ -60,7 +59,6 @@ class _Video1State extends State<Video1> {
 
   @override
   void initState() {
-
     // calculateTimeLeft(true);
     // timer = Timer.periodic(
     //     const Duration(minutes: 1), (v) => calculateTimeLeft(false));
@@ -110,7 +108,6 @@ class _Video1State extends State<Video1> {
     await _engine.setClientRole(role: ClientRoleType.clientRoleBroadcaster);
     await _engine.enableVideo();
     await _engine.startPreview();
-
 
     await _engine.joinChannel(
       token: widget.appointment.videoCallToken,

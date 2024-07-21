@@ -81,6 +81,13 @@ class PlanOverviewScreen extends GetView<PlanOverviewController> {
                         return GestureDetector(
                           onTap: () {
                             controller.videoController?.pause();
+                            if (controller.videoController?.isVideoPlaying ==
+                                false) {
+                              Future.delayed(
+                                const Duration(seconds: 3),
+                                () => controller.videoController?.pause(),
+                              );
+                            }
                             controller.planWorkouts[i].name!.toLowerCase() !=
                                     'Rest day'.toLowerCase()
                                 ? controller.startTraining(i)

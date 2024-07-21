@@ -27,7 +27,6 @@ class VimeoPlayer extends StatelessWidget {
           )
         : VimeoPlayerPod(
             videoId: videoId,
-
             onInitController: onInitController,
           );
   }
@@ -153,7 +152,7 @@ class _VimeoPlayerPodState extends State<VimeoPlayerPod> {
     controller = PodPlayerController(
       podPlayerConfig: const PodPlayerConfig(
         wakelockEnabled: true,
-        autoPlay: false,
+        autoPlay: true,
         isLooping: true,
         videoQualityPriority: [360],
       ),
@@ -171,6 +170,7 @@ class _VimeoPlayerPodState extends State<VimeoPlayerPod> {
         ),
       ),
     )..initialise().then((value) {
+      if(!mounted)return;
         setState(() {});
       });
 

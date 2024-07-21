@@ -17,6 +17,7 @@ class ChatServiceCore {
   }
 
   static Future<bool> loginChatUser() async {
+    if(AppProvider.myId==null)return false;
     if (AppSharedPreference.getIsLoginToChatApp) return true;
     final profile = AppProvider.profile;
     try {
@@ -89,16 +90,6 @@ class ChatServiceCore {
     return user;
   }
 
-  static Future<bool> isRegistered() async {
-    final users = await FirebaseFirestore.instance.collection('users').get();
-    return users.docs.firstWhereOrNull(
-          (e) {
-            return e['id'] == '${AppProvider.myId}';
-          },
-        ) !=
-        null;
-  }
-
   static Future<bool> logoutChatUser() async {
     if (!AppSharedPreference.getIsLoginToChatApp) return true;
     if (AppProvider.myId == 0) return true;
@@ -116,6 +107,7 @@ class ChatServiceCore {
   }
 
   static Future<bool> updateChatUser() async {
+    if(AppProvider.myId==null)return false;
     try {
       final profile = AppProvider.profile;
       if (profile.id == 0) return false;
@@ -164,6 +156,7 @@ class ChatServiceCore {
 
     return listUsers;
   }
+
   static Future<List<types.Room>> getChatRooms() async {
     final roomQuery = await FirebaseChatCore.instance.getFirebaseFirestore()
         .collection('rooms')

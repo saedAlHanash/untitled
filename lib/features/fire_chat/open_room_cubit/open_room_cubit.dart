@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 
 import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/abstraction.dart';
+import '../../../core/app/app_provider.dart';
 import '../../../router/app_router.dart';
 import '../../../services/chat_service/core/firebase_chat_core.dart';
 import '../../trainer/data/response/trainer.dart';
@@ -16,6 +17,7 @@ class OpenRoomCubit extends Cubit<OpenRoomInitial> {
   OpenRoomCubit() : super(OpenRoomInitial.initial());
 
   Future<void> openRoom(User chatUser) async {
+    if (AppProvider.myId == null) return;
     emit(state.copyWith(statuses: CubitStatuses.loading, request: chatUser));
 
     final room = await FirebaseChatCore.instance.createRoom(chatUser);
@@ -25,6 +27,7 @@ class OpenRoomCubit extends Cubit<OpenRoomInitial> {
   }
 
   Future<void> openRoomByRoom(Room room) async {
+    if (AppProvider.myId == null) return;
     emit(state.copyWith(statuses: CubitStatuses.init));
     Future(() =>
         emit(state.copyWith(statuses: CubitStatuses.done, request: room)));
@@ -33,6 +36,7 @@ class OpenRoomCubit extends Cubit<OpenRoomInitial> {
   }
 
   Future<void> openRoomByUserId(String userId, {TrainerModel? trainer}) async {
+    if (AppProvider.myId == null) return;
     emit(state.copyWith(statuses: CubitStatuses.loading));
     final chatUser = await ChatServiceCore.getUser(userId, trainer: trainer);
 
@@ -48,6 +52,7 @@ class OpenRoomCubit extends Cubit<OpenRoomInitial> {
   }
 
   Future<void> openRoomCustomerService() async {
+    if (AppProvider.myId == null) return;
     emit(state.copyWith(statuses: CubitStatuses.loading));
     final chatUser = await ChatServiceCore.getUser('0');
 

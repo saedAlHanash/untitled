@@ -28,15 +28,15 @@ class AppProvider {
 
   //region user and auth
 
-  static int _myId = 0;
+  static int? _myId;
 
   static bool get isTestMode => baseUrl == test;
 
   static bool isAr = Get.locale?.languageCode == 'ar';
 
-  static int get myId {
+  static int? get myId {
     if (_myId == 0) _myId = _loginData.id;
-    return _myId;
+    return _myId == 0 ? null : _myId;
   }
 
   static String get token {

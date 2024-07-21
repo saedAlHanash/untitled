@@ -37,61 +37,13 @@ class FirebaseChatCore {
     config = firebaseChatCoreConfig;
   }
 
-  /// Creates a chat group room with [users]. Creator is automatically
-  /// added to the group. [name] is required and will be used as
-  /// a group name. Add an optional [imageUrl] that will be a group avatar
-  /// and [metadata] for any additional custom data.
-  Future<types.Room> createGroupRoom({
-    types.Role creatorRole = types.Role.admin,
-    String? imageUrl,
-    Map<String, dynamic>? metadata,
-    required String name,
-    required List<types.User> users,
-  }) async {
-    final currentUser = await fetchUser(
-      getFirebaseFirestore(),
-      AppProvider.myId.toString(),
-      config.usersCollectionName,
-      role: creatorRole.toShortString(),
-    );
-
-    final roomUsers = [types.User.fromJson(currentUser)] + users;
-
-    final room = await getFirebaseFirestore()
-        .collection(config.roomsCollectionName)
-        .add({
-      'createdAt': FieldValue.serverTimestamp(),
-      'imageUrl': imageUrl,
-      'metadata': metadata,
-      'name': name,
-      'type': types.RoomType.group.toShortString(),
-      'updatedAt': FieldValue.serverTimestamp(),
-      'userIds': roomUsers.map((u) => u.id).toList(),
-      'userRoles': roomUsers.fold<Map<String, String?>>(
-        {},
-        (previousValue, user) => {
-          ...previousValue,
-          user.id: user.role?.toShortString(),
-        },
-      ),
-    });
-
-    return types.Room(
-      id: room.id,
-      imageUrl: imageUrl,
-      metadata: metadata,
-      name: name,
-      type: types.RoomType.group,
-      users: roomUsers,
-    );
-  }
-
   /// Creates a direct chat for 2 people. Add [metadata] for any additional
   /// custom data.
   Future<types.Room> createRoom(
     types.User otherUser, {
     Map<String, dynamic>? metadata,
   }) async {
+    if (AppProvider.myId == null) throw Exception('myId  is null');
     // Sort two user ids array to always have the same array for both users,
     // this will make it easy to find the room if exist and make one read only.
 
@@ -284,34 +236,34 @@ class FirebaseChatCore {
         );
   }
 
-  /// Returns a stream of rooms from Firebase. Only rooms where current
-  /// logged in user exist are returned. [orderByUpdatedAt] is used in case
-  /// you want to have last modified rooms on top, there are a couple
-  /// of things you will need to do though:
-  /// 1) Make sure `updatedAt` exists on all rooms
-  /// 2) Write a Cloud Function which will update `updatedAt` of the room
-  /// when the room changes or new messages come in
-  /// 3) Create an Index (Firestore Database -> Indexes tab) where collection ID
-  /// is `rooms`, field indexed are `userIds` (type Arrays) and `updatedAt`
-  /// (type Descending), query scope is `Collection`.
-  Stream<List<types.Room>> rooms({bool orderByUpdatedAt = false}) {
-    final collection = orderByUpdatedAt
-        ? getFirebaseFirestore()
-            .collection(config.roomsCollectionName)
-            .where('userIds', arrayContains: AppProvider.myId.toString())
-            .orderBy('updatedAt', descending: true)
-        : getFirebaseFirestore()
-            .collection(config.roomsCollectionName)
-            .where('userIds', arrayContains: AppProvider.myId.toString());
-
-    return collection.snapshots().asyncMap(
-          (query) => processRoomsQuery(
-            getFirebaseFirestore(),
-            query,
-            config.usersCollectionName,
-          ),
-        );
-  }
+  // /// Returns a stream of rooms from Firebase. Only rooms where current
+  // /// logged in user exist are returned. [orderByUpdatedAt] is used in case
+  // /// you want to have last modified rooms on top, there are a couple
+  // /// of things you will need to do though:
+  // /// 1) Make sure `updatedAt` exists on all rooms
+  // /// 2) Write a Cloud Function which will update `updatedAt` of the room
+  // /// when the room changes or new messages come in
+  // /// 3) Create an Index (Firestore Database -> Indexes tab) where collection ID
+  // /// is `rooms`, field indexed are `userIds` (type Arrays) and `updatedAt`
+  // /// (type Descending), query scope is `Collection`.
+  // Stream<List<types.Room>> rooms({bool orderByUpdatedAt = false}) {
+  //   final collection = orderByUpdatedAt
+  //       ? getFirebaseFirestore()
+  //           .collection(config.roomsCollectionName)
+  //           .where('userIds', arrayContains: AppProvider.myId.toString())
+  //           .orderBy('updatedAt', descending: true)
+  //       : getFirebaseFirestore()
+  //           .collection(config.roomsCollectionName)
+  //           .where('userIds', arrayContains: AppProvider.myId.toString());
+  //
+  //   return collection.snapshots().asyncMap(
+  //         (query) => processRoomsQuery(
+  //           getFirebaseFirestore(),
+  //           query,
+  //           config.usersCollectionName,
+  //         ),
+  //       );
+  // }
 
   /// Sends a message to the Firestore. Accepts any partial message and a
   /// room ID. If arbitraty data is provided in the [partialMessage]
@@ -437,6 +389,7 @@ class FirebaseChatCore {
 
   /// Returns a stream of all users from Firebase.
   Stream<List<types.User>> users() {
+    if(AppProvider.myId==null)throw Exception('myId null');
     return getFirebaseFirestore()
         .collection(config.usersCollectionName)
         .snapshots()

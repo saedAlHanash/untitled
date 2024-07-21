@@ -23,6 +23,7 @@ class RoomsCubit extends MCubit<RoomsInitial> {
   String get filter => AppProvider.myId.toString();
 
   Future<void> getChatRooms(bool isAdmen) async {
+    if(AppProvider.myId ==null)return;
     emit(state.copyWith(request: isAdmen));
 
     await setData();

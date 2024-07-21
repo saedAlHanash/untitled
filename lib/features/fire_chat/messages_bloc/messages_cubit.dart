@@ -5,6 +5,7 @@ import 'package:collection/collection.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 
 import '../../../core/api_manager/api_service.dart';
+import '../../../core/app/app_provider.dart';
 import '../../../core/strings/enum_manager.dart';
 import '../../../core/util/abstraction.dart';
 
@@ -20,6 +21,7 @@ class MessagesCubit extends MCubit<MessagesInitial> {
   String get filter => '';
 
   Future<void> getChatRoomMessage(types.Room room) async {
+    if (AppProvider.myId == null) return;
     emit(state.copyWith(request: room));
 
     final data =
@@ -54,8 +56,6 @@ class MessagesCubit extends MCubit<MessagesInitial> {
         state.result.lastOrNull?.updatedAt ?? 0));
 
     final stream = query.snapshots().listen((snapshot) async {
-
-
       final messages = snapshot.docs.map(
         (doc) {
           final data = doc.data();
