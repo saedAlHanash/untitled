@@ -38,7 +38,8 @@ class _Video1State extends State<Video1> {
 
   void calculateTimeLeft(bool firstTime) {
     final d =
-        widget.appointment.endTime.toUtc().difference(DateTime.now().toUtc());
+        (widget.appointment.endTime.toUtc().difference(DateTime.now().toUtc()))
+            .abs();
 
     if (d.inMinutes <= 10) {
       setState(() {
@@ -59,9 +60,9 @@ class _Video1State extends State<Video1> {
 
   @override
   void initState() {
-    // calculateTimeLeft(true);
-    // timer = Timer.periodic(
-    //     const Duration(minutes: 1), (v) => calculateTimeLeft(false));
+    calculateTimeLeft(true);
+    timer = Timer.periodic(
+        const Duration(minutes: 1), (v) => calculateTimeLeft(false));
 
     WakelockPlus.enable();
     ProtectScreenService().startProtect(Get.context);
@@ -69,22 +70,22 @@ class _Video1State extends State<Video1> {
     initAgora();
     eventHandler = RtcEngineEventHandler(
       onJoinChannelSuccess: (RtcConnection connection, int elapsed) {
-        loggerObject.e("local user ${connection.localUid} joined");
+        // loggerObject.e("local user ${connection.localUid} joined");
         if (mounted) setState(() => _localUserJoined = true);
       },
       onUserJoined: (RtcConnection connection, int remoteUid, int elapsed) {
-        loggerObject.e("remote user $remoteUid joined");
+        // loggerObject.e("remote user $remoteUid joined");
 
         if (mounted) setState(() => _remoteUid = remoteUid);
       },
       onUserOffline: (RtcConnection connection, int remoteUid,
           UserOfflineReasonType reason) {
-        loggerObject.e("remote user $remoteUid left channel");
+        // loggerObject.e("remote user $remoteUid left channel");
         if (mounted) setState(() => _remoteUid = null);
       },
       onTokenPrivilegeWillExpire: (RtcConnection connection, String token) {
-        loggerObject.e(
-            '[onTokenPrivilegeWillExpire] connection: ${connection.toJson()}, token: $token');
+        // loggerObject.e(
+        //     '[onTokenPrivilegeWillExpire] connection: ${connection.toJson()}, token: $token');
       },
     );
     sl<FirebaseAnalyticService>().contactTrainerOrUser(
