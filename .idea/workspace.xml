@@ -10,10 +10,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="43c414a0-a0aa-41d9-b6a1-9df3dcc6d755" name="Changes" comment="new chat app">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/app/app_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/app/app_provider.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/util/shared_preferences.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/util/shared_preferences.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/services/chat_service/chat_service_core.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/chat_service/chat_service_core.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/video/video.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/video/video.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/video/video_call_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/video/video_call_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screen/video/video_temp.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/video/video_temp.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/router/app_router.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/router/app_router.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,14 +106,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713374825994</updated>
-    </task>
-    <task id="LOCAL-00004" summary="refactor new plugens and new project with update project">
-      <option name="closed" value="true" />
-      <created>1713395206964</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1713395206964</updated>
     </task>
     <task id="LOCAL-00005" summary="refactor new plugens and new project with update project">
       <option name="closed" value="true" />
@@ -493,7 +491,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721547857358</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="new chat app">
+      <option name="closed" value="true" />
+      <created>1721633932114</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1721633932115</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
