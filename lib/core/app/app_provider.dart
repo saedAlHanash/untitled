@@ -36,6 +36,7 @@ class AppProvider {
 
   static int? get myId {
     if (_myId == 0) _myId = _loginData.id;
+    if (_myId == 0 || _myId == null) _myId = AppSharedPreference.getMyId;
     return _myId == 0 ? null : _myId;
   }
 
@@ -61,6 +62,7 @@ class AppProvider {
   }
 
   static cashLoginData(LoginData data, {UserType? userType}) async {
+    await AppSharedPreference.cashMyId(data.id);
     await AppSharedPreference.cashLoginData(data);
     await AppSharedPreference.cashUserType(userType);
 
@@ -69,6 +71,7 @@ class AppProvider {
 
   static cashProfile(Profile data) async {
     await AppSharedPreference.cashProfile(data);
+    await AppSharedPreference.cashMyId(data.id);
     profile = data;
 
     await ChatServiceCore.updateChatUser();

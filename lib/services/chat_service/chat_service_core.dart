@@ -9,15 +9,17 @@ import '../../core/util/shared_preferences.dart';
 import 'core/firebase_chat_core.dart';
 import 'core/util.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 class ChatServiceCore {
   static Future<void> initFirebaseChat() async {
-    if (AppProvider.isGuest || AppProvider.token.isEmpty) return;
+    if (AppProvider.isGuest || AppProvider.token.isEmpty ||
+        AppProvider.myId == null) return;
     loginChatUser();
     return;
   }
 
   static Future<bool> loginChatUser() async {
-    if(AppProvider.myId==null)return false;
+    if (AppProvider.myId == null) return false;
     if (AppSharedPreference.getIsLoginToChatApp) return true;
     final profile = AppProvider.profile;
     try {
@@ -79,7 +81,7 @@ class ChatServiceCore {
   static Future<types.User?> getUser(String userId,
       {TrainerModel? trainer}) async {
     final user =
-        (await _getChatUsers()).firstWhereOrNull((e) => e.id == userId);
+    (await _getChatUsers()).firstWhereOrNull((e) => e.id == userId);
 
     if (user == null) {
       if (trainer != null) {
@@ -107,7 +109,7 @@ class ChatServiceCore {
   }
 
   static Future<bool> updateChatUser() async {
-    if(AppProvider.myId==null)return false;
+    if (AppProvider.myId == null) return false;
     try {
       final profile = AppProvider.profile;
       if (profile.id == 0) return false;
@@ -116,13 +118,13 @@ class ChatServiceCore {
           .collection('users')
           .doc(AppProvider.myId.toString())
           .update(types.User(
-            id: profile.id.toString(),
-            firstName: profile.name,
-            imageUrl: profile.image,
-            lastName: '',
-            role: types.Role.user,
-            metadata: await profile.toJsonChatApp(),
-          ).toJson());
+        id: profile.id.toString(),
+        firstName: profile.name,
+        imageUrl: profile.image,
+        lastName: '',
+        role: types.Role.user,
+        metadata: await profile.toJsonChatApp(),
+      ).toJson());
       return true;
     } catch (e) {
       loggerObject.e(e);

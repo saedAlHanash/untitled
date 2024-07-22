@@ -35,7 +35,6 @@ class AppSharedPreference {
       _prefs?.getBool(_isLoginToChatApp) ?? false;
   static SharedPreferences? _prefs;
 
-
   static int get getNotificationsRead =>
       _prefs?.getInt(_notificationsRead) ?? 0;
 
@@ -88,7 +87,7 @@ class AppSharedPreference {
   }
 
   static cashUserType(UserType? userType) async {
-    if(userType==null)return;
+    if (userType == null) return;
     await _prefs?.setInt(_toScreen, userType.index);
   }
 
@@ -119,7 +118,6 @@ class AppSharedPreference {
     return _prefs?.getString(_fireToken) ?? '';
   }
 
-
   static bool isCachedSocial() {
     return (_prefs?.getString(_social) ?? '').length > 10;
   }
@@ -132,8 +130,9 @@ class AppSharedPreference {
     return _prefs?.getBool(_activeNoti) ?? true;
   }
 
-  static void cashMyId(int id) {
-    _prefs?.setInt(_myId, id);
+  static Future<void> cashMyId(int? id) async {
+    if (id == null || id == 0) return;
+    await _prefs?.setInt(_myId, id);
   }
 
   static void updateCart(List<String> jsonCart) {
