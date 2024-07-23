@@ -1,6 +1,6 @@
 part of 'bookmarked_cubit.dart';
 
-class BookmarkedInitial extends AbstractState<List<PlanModel>> {
+class BookmarkedInitial extends AbstractState<List<Plan>> {
   // final BookmarkedRequest request;
   // final  bool tempParam;
   const BookmarkedInitial({
@@ -26,7 +26,7 @@ class BookmarkedInitial extends AbstractState<List<PlanModel>> {
 
   BookmarkedInitial copyWith({
     CubitStatuses? statuses,
-    List<PlanModel>? result,
+    List<Plan>? result,
     String? error,
     // BookmarkedRequest? request,
     // bool? tempParam,

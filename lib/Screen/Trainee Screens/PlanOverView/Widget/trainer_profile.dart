@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 
 import '../../../../Widgets/trainer_profile_image.dart';
 
-class TrainerProfile extends GetWidget<PlanOverviewController> {
+class TrainerProfile extends StatelessWidget {
   final String trianerName;
   final String trainerImageUrl;
 

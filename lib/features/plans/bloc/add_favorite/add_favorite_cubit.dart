@@ -14,7 +14,7 @@ part 'add_favorite_state.dart';
 class AddFavoriteCubit extends Cubit<AddFavoriteInitial> {
   AddFavoriteCubit() : super(AddFavoriteInitial.initial());
 
-  Future<void> changeFavorite({required PlanModel plan}) async {
+  Future<void> changeFavorite({required Plan plan}) async {
     emit(state.copyWith(
       statuses: CubitStatuses.loading,
       plan: plan,

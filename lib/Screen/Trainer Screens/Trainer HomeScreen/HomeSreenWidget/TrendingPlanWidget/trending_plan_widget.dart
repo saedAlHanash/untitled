@@ -30,14 +30,14 @@ class TrendingPlanWidget extends GetView<TrainerHomeScreenController> {
     );
   }
 
-  Widget _buildTrendingPlanHeader({required List<PlanModel> plans}) {
+  Widget _buildTrendingPlanHeader({required List<Plan> plans}) {
     return ListHeader(
         headerTitle: 'trending_plan'.tr,
         seeAllFunction: () => Get.toNamed(AppRoutes.trendingPlanScreen,
             arguments: controller.trendingPlans));
   }
 
-  Widget _buildTrendsPlanList({required List<PlanModel> plans}) {
+  Widget _buildTrendsPlanList({required List<Plan> plans}) {
     return SizedBox(
       width: MediaQuery.of(Get.context!).size.width,
       height: MediaQuery.of(Get.context!).size.height / 4,

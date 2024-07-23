@@ -14,7 +14,7 @@ import '../../../core/models/plan_model.dart';
 
 class FeaturedPlanController extends GetxController {
   AppController appController = Get.find<AppController>();
-  RxList<PlanModel> plans = <PlanModel>[].obs;
+  RxList<Plan> plans = <Plan>[].obs;
   final Rx<RefreshController> refreshController = RefreshController().obs;
   final TextEditingController searchTerm = TextEditingController();
   late final Map<String, String> sortByKeys;
@@ -268,10 +268,10 @@ class FeaturedPlanController extends GetxController {
 
   getSearchResultPlans() async {
     pageNumber = 1;
-    List<PlanModel> result = await _planRepository.getFeaturedgPlan(pageNumber,
+    List<Plan> result = await _planRepository.getFeaturedgPlan(pageNumber,
         queryParameter: {'name': searchTerm.text});
    //log('congrats $result');
-    plans = <PlanModel>[].obs;
+    plans = <Plan>[].obs;
     for (var element in result) {
       plans.add(element);
     }
@@ -279,7 +279,7 @@ class FeaturedPlanController extends GetxController {
   }
 
   getSortResultPlans() async {
-    List<PlanModel> result = [];
+    List<Plan> result = [];
     pageNumber = 1;
     for (int i = 0; i < sortFilterControllers.length; i++) {
       if (sortFilterControllers[i]) {
@@ -294,7 +294,7 @@ class FeaturedPlanController extends GetxController {
       }
     }
    //log('congrats $result');
-    plans = <PlanModel>[].obs;
+    plans = <Plan>[].obs;
     for (var element in result) {
       plans.add(element);
     }
@@ -302,13 +302,13 @@ class FeaturedPlanController extends GetxController {
   }
 
   getFilterResultPlans() async {
-    List<PlanModel> result = [];
+    List<Plan> result = [];
     pageNumber = 1;
    //log(data.toString());
     result = await _planRepository.getFeaturedgPlan(pageNumber,
         queryParameter: data);
    //log('congrats $result');
-    plans = <PlanModel>[].obs;
+    plans = <Plan>[].obs;
     for (var element in result) {
       plans.add(element);
     }

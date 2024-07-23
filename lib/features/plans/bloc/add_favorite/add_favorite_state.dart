@@ -2,7 +2,7 @@ part of 'add_favorite_cubit.dart';
 
 class AddFavoriteInitial extends AbstractState<bool> {
   final bool isFav;
-  final PlanModel plan;
+  final Plan plan;
 
   const AddFavoriteInitial({
     required super.result,
@@ -16,7 +16,7 @@ class AddFavoriteInitial extends AbstractState<bool> {
     return AddFavoriteInitial(
       result: false,
       isFav: false,
-      plan: PlanModel.fromJson({}),
+      plan: Plan.fromJson({}),
     );
   }
 
@@ -28,7 +28,7 @@ class AddFavoriteInitial extends AbstractState<bool> {
     bool? result,
     String? error,
     bool? isFav,
-    PlanModel? plan,
+    Plan? plan,
   }) {
     return AddFavoriteInitial(
       statuses: statuses ?? this.statuses,

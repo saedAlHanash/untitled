@@ -1,6 +1,7 @@
 import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/features/appointments/bloc/rating_cubit/rating_cubit.dart';
 import 'package:fitness_storm/features/notifications/ui/pages/notifications_page.dart';
+import 'package:fitness_storm/features/plans/ui/pages/plan_page.dart';
 import 'package:fitness_storm/features/profile/bloc/update_profile_cubit/update_profile_cubit.dart';
 import 'package:fitness_storm/features/trainer/bloc/trainers_cubit/trainers_cubit.dart';
 import 'package:fitness_storm/features/trainer/data/response/trainer.dart';
@@ -46,6 +47,8 @@ import '../features/auth/ui/pages/reset_password_page.dart';
 import '../features/auth/ui/pages/signup_page.dart';
 import '../features/bookmarked/ui/pages/bookmarked_page.dart';
 import '../features/fire_chat/chat.dart';
+import '../features/plans/bloc/plan_cubit/plan_cubit.dart';
+import '../features/plans/bloc/plan_workout_cubit/plan_workout_cubit.dart';
 import '../features/profile/ui/pages/pdf_viewer_page.dart';
 import '../features/profile/ui/pages/update_profile_page.dart';
 import '../features/trainer/ui/pages/available_time_page.dart';
@@ -439,6 +442,24 @@ void startChatPage(Room room) async {
   await Get.to(() => ChatPage(room: room));
 
   ChatServiceCore.latestSeenRoom(room.id);
+}
+
+void startPlanPage(String id) async {
+  final providers = [
+    BlocProvider(
+      create: (_) => sl<PlanCubit>()..getPlan(planId: int.parse(id)),
+    ),
+    BlocProvider(
+      create: (_) => sl<PlanWorkoutsCubit>()..getPlanWorkouts(id: int.parse(id)),
+    ),
+  ];
+
+  final Widget page = MultiBlocProvider(
+    providers: providers,
+    child: const PlanPage(),
+  );
+
+  Get.to(() => page);
 }
 
 Future<bool> startRating(Appointment appointment) async {

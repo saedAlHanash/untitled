@@ -18,7 +18,7 @@ class TrainerSearchResultController extends GetxController {
 
   final RxInt _selectedIndex = 0.obs;
   final RxList<TrainerModel> _trainers = <TrainerModel>[].obs;
-  final RxList<PlanModel> _plans = <PlanModel>[].obs;
+  final RxList<Plan> _plans = <Plan>[].obs;
   final RxInt _trainersPageNumber = 1.obs;
   final RxInt _trainersNumberOfResults = 0.obs;
   final RxInt _plansPageNumber = 1.obs;
@@ -35,7 +35,7 @@ class TrainerSearchResultController extends GetxController {
 
   List<TrainerModel> get trainers => _trainers;
 
-  List<PlanModel> get plans => _plans;
+  List<Plan> get plans => _plans;
 
   int get trainersPageNumber => _trainersPageNumber.value;
 
@@ -142,9 +142,9 @@ class TrainerSearchResultController extends GetxController {
     isLoadingPlans = true;
     ApiResult apiResult = await _planRepository.getSearchPlans(queryParameters);
     if (apiResult.type == ApiResultType.success) {
-      plans = <PlanModel>[];
+      plans = <Plan>[];
       apiResult.data.forEach((element) {
-        plans.add(PlanModel.fromJson(element));
+        plans.add(Plan.fromJson(element));
       });
     }
     isLoadingPlans = false;
@@ -187,13 +187,13 @@ class TrainerSearchResultController extends GetxController {
     };
   }
 
-  Future<List<PlanModel>> getPagenationPlans() async {
+  Future<List<Plan>> getPagenationPlans() async {
     ApiResult result =
         await _planRepository.getSearchPlans({'name': searchTerm});
     if (result.type == ApiResultType.success) {
-      List<PlanModel> tempPlans = [];
+      List<Plan> tempPlans = [];
       result.data.forEach((element) {
-        tempPlans.add(PlanModel.fromJson(element));
+        tempPlans.add(Plan.fromJson(element));
       });
       return tempPlans;
     }
@@ -219,7 +219,7 @@ class TrainerSearchResultController extends GetxController {
         await _planRepository.getSearchPlans({'name': searchTerm});
     if (result.type == ApiResultType.success) {
       result.data.forEach((element) {
-        plans.add(PlanModel.fromJson(element));
+        plans.add(Plan.fromJson(element));
       });
       plansNumberOfResults = result.numberOfResults;
       plansPageNumber++;

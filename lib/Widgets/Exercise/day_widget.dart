@@ -2,15 +2,16 @@ import 'package:fitness_storm/Model/exercise.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../features/plans/data/response/plan_workout_response.dart';
 import 'day_exercises_widget.dart';
 import 'day_image.dart';
 
-class DayWidget extends StatelessWidget {
+class DayWidget extends StatefulWidget {
   final String imageUrl;
   final String dayNumber;
   final int totalMinutes;
   final String type;
-  final List<Exercises> exercises;
+  final List<Exercise> exercises;
 
   const DayWidget({
     super.key,
@@ -22,21 +23,26 @@ class DayWidget extends StatelessWidget {
   });
 
   @override
+  State<DayWidget> createState() => _DayWidgetState();
+}
+
+class _DayWidgetState extends State<DayWidget> {
+  @override
   Widget build(BuildContext context) {
     return Container(
-      height: exercises.length < 3 ? Get.height / 5 : Get.height / 3.2,
+      height: widget.exercises.length < 3 ? Get.height / 5 : Get.height / 3.2,
       width: Get.width,
       margin: EdgeInsets.symmetric(vertical: Get.height / 162.4),
       color: const Color(0xFFF5F5F5),
       child: Center(
         child: Row(children: [
           DayImage(
-            imageUrl: imageUrl,
-            dayNumber: dayNumber,
-            totalMinutes: totalMinutes,
-            numberOfExercises: exercises.length,
+            imageUrl: widget.imageUrl,
+            dayNumber: widget.dayNumber,
+            totalMinutes: widget.totalMinutes,
+            numberOfExercises: widget.exercises.length,
           ),
-          Expanded(child: DayExercisesWidget(exercises: exercises, type: type)),
+          Expanded(child: DayExercisesWidget(exercises: widget.exercises, type: widget.type)),
         ]),
       ),
     );

@@ -4,9 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../Model/repetition.dart';
+import '../../features/plans/data/response/plan_workout_response.dart';
 
 class DayExercisesWidget extends StatelessWidget {
-  final List<Exercises> exercises;
+  final List<Exercise> exercises;
   final String type;
 
   const DayExercisesWidget({
@@ -31,10 +32,11 @@ class DayExercisesWidget extends StatelessWidget {
         itemCount: exercises.length > 3 ? 3 : exercises.length,
         itemBuilder: (context, index) {
           return _buildExerciseInfo(
-            exercises[index].name!,
-            exercises[index].setCount!,
-            exercises[index].repetitions!,
-            exercises[index].secondsBased!,
+            exercises[index].name,
+            exercises[index].setCount.toInt(),
+            exercises[index].repetitions,
+
+            exercises[index].secondBased,
             exercises.length > 3 && index == 2,
             type,
           );
@@ -46,7 +48,7 @@ class DayExercisesWidget extends StatelessWidget {
   Widget _buildExerciseInfo(
     String name,
     int sets,
-    List<Repetitions> reps,
+    List<Repetition> reps,
     bool secondsBased,
     bool hasSeeMore,
     String type,
@@ -105,7 +107,7 @@ class DayExercisesWidget extends StatelessWidget {
   }
 
   String getRepsString(
-    List<Repetitions> reps,
+    List<Repetition> reps,
     bool isSecondsBased,
   ) {
     String repsText = '';

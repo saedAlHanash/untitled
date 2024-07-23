@@ -31,6 +31,8 @@ import '../../features/fire_chat/open_room_cubit/open_room_cubit.dart';
 import '../../features/fire_chat/rooms_bloc/rooms_cubit.dart';
 import '../../features/notifications/bloc/notifications_cubit/notifications_cubit.dart';
 import '../../features/plans/bloc/add_favorite/add_favorite_cubit.dart';
+import '../../features/plans/bloc/plan_cubit/plan_cubit.dart';
+import '../../features/plans/bloc/plan_workout_cubit/plan_workout_cubit.dart';
 import '../../features/plans/bloc/plans_cubit/plans_cubit.dart';
 import '../../features/profile/bloc/profile_cubit/profile_cubit.dart';
 import '../../features/profile/bloc/update_profile_cubit/update_profile_cubit.dart';
@@ -100,6 +102,8 @@ Future<void> init() async {
 
   //region plans
   sl.registerFactory(() => PlansCubit());
+  sl.registerFactory(() => PlanCubit());
+  sl.registerFactory(() => PlanWorkoutsCubit());
   sl.registerFactory(() => AddFavoriteCubit());
   sl.registerFactory(() => BookmarkedCubit());
 

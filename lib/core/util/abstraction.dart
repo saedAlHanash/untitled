@@ -67,6 +67,7 @@ abstract class MCubit<AbstractState> extends Cubit<AbstractState> {
     required dynamic state,
     required T Function(Map<String, dynamic>) fromJson,
     bool newData = false,
+    Function(dynamic data,CubitStatuses state )?onSuccess,
   }) async {
     if (newData) {
       emit(state.copyWith(statuses: CubitStatuses.loading));
@@ -84,12 +85,18 @@ abstract class MCubit<AbstractState> extends Cubit<AbstractState> {
         data = fromJson(await getDataCached());
       }
 
-      emit(
-        state.copyWith(
-          statuses: emitState,
-          result: data,
-        ),
-      );
+      if(onSuccess!=null){
+        onSuccess.call(data,emitState);
+      }else{
+        emit(
+          state.copyWith(
+            statuses: emitState,
+            result: data,
+          ),
+        );
+      }
+
+
 
       if (cacheType == NeedUpdateEnum.no) return true;
 

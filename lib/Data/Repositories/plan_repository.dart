@@ -34,14 +34,14 @@ class PlanRepository {
         url: TRAINEEURLS.removeFromBookMarked(id), options: options);
   }
 
-  Future<List<PlanModel>> getAllBookmarked() async {
+  Future<List<Plan>> getAllBookmarked() async {
     Options options = Utils.getOptions(withToken: true, all: true);
     ApiResult result =
         await Methods.get(url: TRAINEEURLS.getBookmarkPlan, options: options);
     if (result.type == ApiResultType.success) {
-      List<PlanModel> plans = [];
+      List<Plan> plans = [];
       for (var element in result.data) {
-        plans.add(PlanModel.fromJson(element));
+        plans.add(Plan.fromJson(element));
       }
       return plans;
     } else {
@@ -80,7 +80,7 @@ class PlanRepository {
     }
   }
 
-  Future<List<PlanModel>> getTrendingPlan(
+  Future<List<Plan>> getTrendingPlan(
       Map<String, dynamic>? queryParameter) async {
     //log(queryParameter.toString());
     Options option = Utils.getOptions(withToken: true, all: true);
@@ -92,9 +92,9 @@ class PlanRepository {
 
       if (result.type == ApiResultType.success) {
         //log(result.data.toString());
-        List<PlanModel> plans = [];
+        List<Plan> plans = [];
         for (var element in result.data) {
-          plans.add(PlanModel.fromJson(element));
+          plans.add(Plan.fromJson(element));
         }
         return plans;
       } else {
@@ -108,7 +108,7 @@ class PlanRepository {
     }
   }
 
-  Future<List<PlanModel>> getFeaturedgPlan(int pageNumber,
+  Future<List<Plan>> getFeaturedgPlan(int pageNumber,
       {Map<String, dynamic>? queryParameter}) async {
     Options option = Utils.getOptions(withToken: true, all: true);
     try {
@@ -117,9 +117,9 @@ class PlanRepository {
           options: option,
           data: queryParameter);
       if (result.type == ApiResultType.success) {
-        List<PlanModel> plans = [];
+        List<Plan> plans = [];
         for (var element in result.data) {
-          plans.add(PlanModel.fromJson(element));
+          plans.add(Plan.fromJson(element));
         }
         return plans;
       } else {
@@ -133,7 +133,7 @@ class PlanRepository {
     }
   }
 
-  Future<PlanModel> getPlanOverview(String id) async {
+  Future<Plan> getPlanOverview(String id) async {
     Options option = Utils.getOptions(withToken: true, all: true);
     String url = '';
     if (AppProvider.isTrainer) {
@@ -144,7 +144,7 @@ class PlanRepository {
 
     ApiResult result = await Methods.get(url: url, options: option);
 
-    var x = PlanModel.fromJson(result.data);
+    var x = Plan.fromJson(result.data);
 
     return x;
   }
@@ -158,14 +158,14 @@ class PlanRepository {
         options: option);
   }
 
-  Future<List<PlanModel>> searchPlans(String query) async {
+  Future<List<Plan>> searchPlans(String query) async {
     Options option = Utils.getOptions(withToken: true, all: true);
-    List<PlanModel> plans = [];
+    List<Plan> plans = [];
     final response = await Methods.get(
         url: '${TRAINEEURLS.filter}?name=$query', options: option);
     if (response.type == ApiResultType.success) {
       response.data.forEach((elemant) {
-        plans.add(PlanModel.fromJson(elemant));
+        plans.add(Plan.fromJson(elemant));
       });
     }
     return plans;

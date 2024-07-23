@@ -11,6 +11,7 @@ import '../../../../Utils/Routes/app_pages.dart';
 import '../../../../Widgets/custom_chip.dart';
 import '../../../../core/models/plan_model.dart';
 import '../../../../generated/l10n.dart';
+import '../../../../router/app_router.dart';
 
 class SeeAllListItem extends StatelessWidget {
   const SeeAllListItem({
@@ -18,13 +19,13 @@ class SeeAllListItem extends StatelessWidget {
     required this.plan,
   });
 
-  final PlanModel plan;
+  final Plan plan;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Get.toNamed(AppRoutes.planOverview, arguments: plan.id);
+        startPlanPage(plan.id.toString());
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,

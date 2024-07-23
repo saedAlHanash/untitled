@@ -13,7 +13,7 @@ import '../../bloc/bookmarked_cubit/bookmarked_cubit.dart';
 class BookMarkedBtn extends StatefulWidget {
   const BookMarkedBtn({super.key, required this.plan});
 
-  final PlanModel plan;
+  final Plan plan;
 
   @override
   State<BookMarkedBtn> createState() => _BookMarkedBtnState();

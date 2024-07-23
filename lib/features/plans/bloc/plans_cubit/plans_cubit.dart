@@ -21,7 +21,8 @@ class PlansCubit extends Cubit<PlansInitial> {
       emit(state.copyWith(statuses: CubitStatuses.error, error: pair.second));
       showErrorFromApi(state);
     } else {
-      emit(state.copyWith(statuses: CubitStatuses.done, result: pair.first?.data));
+      emit(state.copyWith(
+          statuses: CubitStatuses.done, result: pair.first?.data));
     }
   }
 

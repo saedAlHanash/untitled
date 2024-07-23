@@ -9,6 +9,7 @@ import 'package:image_multi_type/image_multi_type.dart';
 
 import '../../../../../Model/subscribed_plan.dart';
 import '../../../../../generated/l10n.dart';
+import '../../../../../router/app_router.dart';
 
 class ContinueTrainingWidget extends GetView<HomeScreenController> {
   const ContinueTrainingWidget({super.key});
@@ -55,10 +56,7 @@ class ContinueTrainingWidget extends GetView<HomeScreenController> {
               final item = plans[i];
               return InkWell(
                 onTap: () {
-                  Get.toNamed(
-                    AppRoutes.planOverview,
-                    arguments: item.id,
-                  );
+                  startPlanPage(item.id.toString());
                 },
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

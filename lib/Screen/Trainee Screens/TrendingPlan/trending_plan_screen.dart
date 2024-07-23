@@ -8,7 +8,7 @@ import '../../../features/bookmarked/ui/widget/see_all_list_item.dart';
 class TrendingPlansScreen extends GetView<TrendingPlanController> {
   const TrendingPlansScreen({super.key});
 
-  Widget _buildTrendsPlansList(List<PlanModel> plans) {
+  Widget _buildTrendsPlansList(List<Plan> plans) {
     return controller.isLoading
         ? const Center(child: CircularProgressIndicator.adaptive())
         : ListView.builder(

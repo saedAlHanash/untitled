@@ -10,14 +10,14 @@ import '../../../core/models/plan_model.dart';
 
 class HomeScreenController extends GetxController {
   final RxList<SubscribedPlan> continueTrainingPlans = <SubscribedPlan>[].obs;
-  final RxList<PlanModel> featuredPlans = <PlanModel>[].obs;
+  final RxList<Plan> featuredPlans = <Plan>[].obs;
   final RxBool isLoading = false.obs;
 
   // final RxInt pageNumber = 1.obs;
   final PlanRepository planRepository = PlanRepository();
 
   final TrainerRepository trainerRepository = TrainerRepository();
-  final RxList<PlanModel> trendingPlans = <PlanModel>[].obs;
+  final RxList<Plan> trendingPlans = <Plan>[].obs;
   final RxList<TrainerModel> yourTrainer = <TrainerModel>[].obs;
 
   final Rx<TextEditingController> _searchEditingController =

@@ -11,7 +11,7 @@ import '../../../core/models/plan_model.dart';
 import 'Widget/Filter/filter_sheet_widget.dart';
 
 class TrendingPlanController extends GetxController {
-  RxList<PlanModel> plans = <PlanModel>[].obs;
+  RxList<Plan> plans = <Plan>[].obs;
   final TextEditingController searchTerm = TextEditingController();
   late final Map<String, String> sortByKeys;
   final RxList<bool> sortFilterControllers = <bool>[].obs;
@@ -238,17 +238,17 @@ class TrendingPlanController extends GetxController {
   }
 
   getSearchResultPlans() async {
-    List<PlanModel> result =
+    List<Plan> result =
         await _planRepository.getTrendingPlan({'name': searchTerm.text});
    //log('congrats $result');
-    plans = <PlanModel>[].obs;
+    plans = <Plan>[].obs;
     for (var element in result) {
       plans.add(element);
     }
   }
 
   getSortResultPlans() async {
-    List<PlanModel> result = [];
+    List<Plan> result = [];
     for (int i = 0; i < sortFilterControllers.length; i++) {
       if (sortFilterControllers[i]) {
        //log('true ${sortFilterTypes[i]}');
@@ -261,18 +261,18 @@ class TrendingPlanController extends GetxController {
       }
     }
    //log('congrats $result');
-    plans = <PlanModel>[].obs;
+    plans = <Plan>[].obs;
     for (var element in result) {
       plans.add(element);
     }
   }
 
   getFilterResultPlans() async {
-    List<PlanModel> result = [];
+    List<Plan> result = [];
    //log(data.toString());
     result = await _planRepository.getTrendingPlan(data);
    //log('congrats $result');
-    plans = <PlanModel>[].obs;
+    plans = <Plan>[].obs;
     for (var element in result) {
       plans.add(element);
     }

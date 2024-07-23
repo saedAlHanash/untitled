@@ -5,6 +5,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../../../Utils/Routes/app_pages.dart';
 import '../../../../../core/models/plan_model.dart';
+import '../../../../../router/app_router.dart';
 import '../list_header.dart';
 import 'featured_plan_item.dart';
 
@@ -45,7 +46,7 @@ class FeaturedPlanWidget extends GetWidget<TrainerHomeScreenController> {
   // }
 
   Widget _buildFeaturedPlanItemWidget(
-      {required PageController controller, required List<PlanModel> plans}) {
+      {required PageController controller, required List<Plan> plans}) {
     return Column(
       children: [
         SizedBox(
@@ -53,18 +54,19 @@ class FeaturedPlanWidget extends GetWidget<TrainerHomeScreenController> {
           child: PageView.builder(
             controller: controller,
             itemCount: plans.length,
-            itemBuilder: (context, index) {
+            itemBuilder: (context, i) {
               return GestureDetector(
-                onTap: () => Get.toNamed(AppRoutes.planOverview,
-                    arguments: plans[index].id),
+                onTap: () {
+                  startPlanPage(plans[i].id.toString());
+                },
                 child: FeaturedPlanItem(
-                  planImageUrl: plans[index].image,
-                  planName: plans[index].name,
-                  totalWeeks: plans[index].totalWeeks,
-                  workoutFrequency: plans[index].workoutFrequency,
-                  trainerName: plans[index].trainer.name,
-                  trainerProfileImageUrl: plans[index].trainer.image,
-                  // trainingType: plans[index].trainingType!,
+                  planImageUrl: plans[i].image,
+                  planName: plans[i].name,
+                  totalWeeks: plans[i].totalWeeks,
+                  workoutFrequency: plans[i].workoutFrequency,
+                  trainerName: plans[i].trainer.name,
+                  trainerProfileImageUrl: plans[i].trainer.image,
+                  // trainingType: plans[i].trainingType!,
                 ),
               );
             },

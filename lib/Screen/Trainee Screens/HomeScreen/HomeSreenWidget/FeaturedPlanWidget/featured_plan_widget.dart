@@ -6,6 +6,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../../../Utils/Routes/app_pages.dart';
 import '../../../../../core/models/plan_model.dart';
+import '../../../../../router/app_router.dart';
 import '../../../../Trainer Screens/Trainer HomeScreen/HomeSreenWidget/FeaturedPlanWidget/featured_plan_item.dart';
 import '../list_header.dart';
 
@@ -13,7 +14,7 @@ class FeaturedPlanWidget extends GetWidget<HomeScreenController> {
   const FeaturedPlanWidget({super.key});
 
   Widget _buildFeaturedPlanItemWidget(
-      {required PageController controller, required List<PlanModel> plans}) {
+      {required PageController controller, required List<Plan> plans}) {
     return Column(
       children: [
         SizedBox(
@@ -23,8 +24,10 @@ class FeaturedPlanWidget extends GetWidget<HomeScreenController> {
             itemCount: plans.length,
             itemBuilder: (context, index) {
               return GestureDetector(
-                onTap: () => Get.toNamed(AppRoutes.planOverview,
-                    arguments: plans[index].id),
+                onTap: () {
+                  startPlanPage(plans[index].id.toString());
+
+                },
                 child: FeaturedPlanItem(
                   planImageUrl: plans[index].image,
                   planName: plans[index].name,

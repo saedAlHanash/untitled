@@ -8,12 +8,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../../core/models/plan_model.dart';
+import '../../../../../router/app_router.dart';
 import '../list_header.dart';
 
 class TrendingPlanWidget extends GetView<HomeScreenController> {
   const TrendingPlanWidget({super.key});
 
-  Widget _buildTrendingPlanHeader({required List<PlanModel> plans}) {
+  Widget _buildTrendingPlanHeader({required List<Plan> plans}) {
     return ListHeader(
       headerTitle: 'trending_plan'.tr,
       seeAllFunction: () {
@@ -23,7 +24,7 @@ class TrendingPlanWidget extends GetView<HomeScreenController> {
     );
   }
 
-  Widget _buildTrendsPlanList({required List<PlanModel> plans}) {
+  Widget _buildTrendsPlanList({required List<Plan> plans}) {
     return SizedBox(
       width: MediaQuery.of(Get.context!).size.width,
       height: Platform.isIOS
@@ -36,7 +37,8 @@ class TrendingPlanWidget extends GetView<HomeScreenController> {
         itemBuilder: (context1, i) {
           return GestureDetector(
             onTap: () {
-              Get.toNamed(AppRoutes.planOverview, arguments: plans[i].id);
+              startPlanPage(plans[i].id.toString());
+
             },
             child: TrendingPlanItem(
               planImageUrl: plans[i].image,

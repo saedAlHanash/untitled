@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:readmore/readmore.dart';
 
-class TrainerBio extends GetWidget<PlanOverviewController> {
+class TrainerBio extends StatelessWidget {
   final String aboutTrainer;
 
   const TrainerBio(this.aboutTrainer, {super.key});

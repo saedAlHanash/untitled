@@ -1,4 +1,5 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/core/app/app_provider.dart';
 
 import '../../features/appointments/data/request/create_bundle_request.dart';
@@ -156,6 +157,10 @@ class FirebaseAnalyticService {
   }
 
   Future<void> screenView({required String name}) async {
-    await analytics.logScreenView(screenName: name);
+    try {
+      await analytics.logScreenView(screenName: name);
+    } catch (e) {
+      loggerObject.e(e);
+    }
   }
 }

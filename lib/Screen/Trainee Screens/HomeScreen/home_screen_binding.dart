@@ -7,6 +7,6 @@ class HomeScreenBinding extends Bindings {
   @override
   void dependencies() {
     Get.lazyPut(() => HomeScreenController());
-    Get.lazyPut(() => PlanOverviewController());
+    // Get.lazyPut(() => PlanOverviewController());
   }
 }

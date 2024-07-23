@@ -1,3 +1,4 @@
+import 'package:fitness_storm/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_multi_type/image_multi_type.dart';
@@ -16,7 +17,7 @@ class PlansList extends StatelessWidget {
     required this.index,
   });
 
-  final PlanModel plan;
+  final Plan plan;
   final Widget subTitle;
   final int index;
 
@@ -24,7 +25,7 @@ class PlansList extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Get.toNamed(AppRoutes.planOverview, arguments: plan.id);
+        startPlanPage(plan.id.toString());
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -124,7 +125,7 @@ class PlansList extends StatelessWidget {
 class _PlanImage extends StatelessWidget {
   const _PlanImage({required this.plan});
 
-  final PlanModel plan;
+  final Plan plan;
 
   @override
   Widget build(BuildContext context) {

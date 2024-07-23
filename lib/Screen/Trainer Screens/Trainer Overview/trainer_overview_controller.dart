@@ -10,13 +10,13 @@ import '../../../features/trainer/data/response/trainer.dart';
 
 class TrainerTrainerOverviewController extends GetxController {
   final Rx<TrainerModel> _trainer = TrainerModel.fromJson({}).obs;
-  final RxList<PlanModel> _trainerPlans = <PlanModel>[].obs;
+  final RxList<Plan> _trainerPlans = <Plan>[].obs;
   final RxBool _isLoading = false.obs;
   final RxBool _isvisible = true.obs;
 
   TrainerModel get trainer => _trainer.value;
 
-  List<PlanModel> get trainerPlans => _trainerPlans;
+  List<Plan> get trainerPlans => _trainerPlans;
 
   bool get isLoading => _isLoading.value;
 

@@ -55,13 +55,13 @@ class AppPages {
             return MainHomeScreen();
           },
           binding: MainHomeBinding()),
-      GetPage(
-          name: AppRoutes.planOverview,
-          page: () {
-            sl<FirebaseAnalyticService>().screenView(name: 'plan_overview');
-            return const PlanOverviewScreen();
-          },
-          binding: PlanOverviewBinding()),
+      // GetPage(
+      //     name: AppRoutes.planOverview,
+      //     page: () {
+      //
+      //       return const PlanOverviewScreen();
+      //     },
+      //     binding: PlanOverviewBinding()),
 
       GetPage(
           name: AppRoutes.trendingPlanScreen,

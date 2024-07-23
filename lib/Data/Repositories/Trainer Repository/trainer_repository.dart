@@ -47,14 +47,14 @@ class TrainerTrainerRepository {
         url: TRAINERURLS.getYourTrainer, options: option, data: queryParameters);
   }
 
-  Future<List<PlanModel>> getTrainerPlans() async {
+  Future<List<Plan>> getTrainerPlans() async {
     final option = Utils.getOptions(withToken: true, all: true);
     final result = await Methods.get(url: TRAINERURLS.trainerPlans, options: option);
 
     if (result.type == ApiResultType.success) {
-      List<PlanModel> plans = [];
+      List<Plan> plans = [];
       for (var element in result.data) {
-        plans.add(PlanModel.fromJson(element));
+        plans.add(Plan.fromJson(element));
       }
       return plans;
     } else {

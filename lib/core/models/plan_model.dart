@@ -7,14 +7,14 @@ class PlanResponse {
     required this.data,
   });
 
-  final List<PlanModel> data;
+  final List<Plan> data;
 
   factory PlanResponse.fromJson(Map<String, dynamic> json) {
     return PlanResponse(
       data: json["data"] == null
           ? []
-          : List<PlanModel>.from(
-              json["data"]!.map((x) => PlanModel.fromJson(x))),
+          : List<Plan>.from(
+              json["data"]!.map((x) => Plan.fromJson(x))),
     );
   }
 
@@ -23,8 +23,8 @@ class PlanResponse {
       };
 }
 
-class PlanModel {
-  PlanModel({
+class Plan {
+  Plan({
     required this.id,
     required this.name,
     required this.image,
@@ -54,8 +54,8 @@ class PlanModel {
   final String introductionVideo;
   final String description;
 
-  factory PlanModel.fromJson(Map<String, dynamic> json) {
-    return PlanModel(
+  factory Plan.fromJson(Map<String, dynamic> json) {
+    return Plan(
       id: json["id"].toString().tryParseOrZeroInt,
       name: json["name"] ?? "",
       image: (json["image"] ?? "").toString().fixAvatarImage,

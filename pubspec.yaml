@@ -40,7 +40,7 @@ dependencies:
   firebase_auth: ^5.1.2
   firebase_analytics: ^11.2.0
   firebase_dynamic_links: ^6.0.3
-  get: ^4.6.5
+  get: ^4.6.6
   get_storage: ^2.0.3
   logger: ^2.0.2+1
   pull_to_refresh: ^2.0.0

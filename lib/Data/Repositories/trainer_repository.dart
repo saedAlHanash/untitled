@@ -57,15 +57,15 @@ class TrainerRepository {
     }
   }
 
-  Future<List<PlanModel>> getTrainerPlans(String id) async {
+  Future<List<Plan>> getTrainerPlans(String id) async {
     Options options = Utils.getOptions(withToken: true, all: true);
 
     ApiResult result = await Methods.get(
         url: TRAINEEURLS.getTrainerPlans(id), options: options);
     if (result.type == ApiResultType.success) {
-      List<PlanModel> plans = [];
+      List<Plan> plans = [];
       for (var element in result.data) {
-        plans.add(PlanModel.fromJson(element));
+        plans.add(Plan.fromJson(element));
       }
       return plans;
     } else {

@@ -9,9 +9,9 @@ class TrainerPlansController extends GetxController {
   final RxBool _isLoading = false.obs;
   final TrainerTrainerRepository _trainerRepository = TrainerTrainerRepository();
 
-  List<PlanModel> get trainerPlans => _trainerPlans;
+  List<Plan> get trainerPlans => _trainerPlans;
 
-  final RxList<PlanModel> _trainerPlans = <PlanModel>[].obs;
+  final RxList<Plan> _trainerPlans = <Plan>[].obs;
 
   set trainerPlans(value) => _trainerPlans.value = value;
 
@@ -48,8 +48,8 @@ class TrainerPlansController extends GetxController {
   }
 
   //TODO add function to get trainer plans when api ready
-  Future<List<PlanModel>> getTrainerPlans() async {
-    List<PlanModel> plans = await _trainerRepository.getTrainerPlans();
+  Future<List<Plan>> getTrainerPlans() async {
+    List<Plan> plans = await _trainerRepository.getTrainerPlans();
     if (plans.isNotEmpty) {
       _trainerPlans.addAll(plans);
     }

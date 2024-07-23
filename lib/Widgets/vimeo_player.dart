@@ -20,6 +20,12 @@ class VimeoPlayer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (videoId.isEmpty) {
+      return AspectRatio(
+        aspectRatio: 16 / 9,
+        child: MyStyle.loadingWidget(),
+      );
+    }
     return !AppProvider.systemParams.isWebViewPlayer
         ? VimeoPlayerWebView(
             videoId: videoId,
@@ -37,7 +43,6 @@ class VimeoPlayerWebView extends StatefulWidget {
     super.key,
     required this.videoId,
     this.onInitController,
-
   });
 
   final String videoId;
@@ -116,10 +121,7 @@ class _VimeoPlayerWebViewState extends State<VimeoPlayerWebView> {
 
 class VimeoPlayerPod extends StatefulWidget {
   const VimeoPlayerPod(
-      {super.key,
-      required this.videoId,
-
-      this.onInitController});
+      {super.key, required this.videoId, this.onInitController});
 
   final String videoId;
 
@@ -170,7 +172,7 @@ class _VimeoPlayerPodState extends State<VimeoPlayerPod> {
         ),
       ),
     )..initialise().then((value) {
-      if(!mounted)return;
+        if (!mounted) return;
         setState(() {});
       });
 

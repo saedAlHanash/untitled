@@ -97,6 +97,10 @@ class GetUrl {
 
   static const notification = 'notifications';
 
+  static var plan = 'plans';
+
+  static String planWorkouts(int id ) => 'plans/$id/workouts';
+
   static String plans(int id) => 'trainers/$id/plans';
 
   static String availableTimes(int id) => 'trainers/$id/availableTimes';

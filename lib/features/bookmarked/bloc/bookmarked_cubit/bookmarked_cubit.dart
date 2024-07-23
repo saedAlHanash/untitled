@@ -31,7 +31,7 @@ class BookmarkedCubit extends MCubit<BookmarkedInitial> {
     }
   }
 
-  Future<Pair<List<PlanModel>?, String?>> _getBookmarked() async {
+  Future<Pair<List<Plan>?, String?>> _getBookmarked() async {
     final response = await APIService().callApi(type: ApiType.get,url: GetUrl.bookmarked);
 
     if (response.statusCode.success) {
@@ -50,7 +50,7 @@ class BookmarkedCubit extends MCubit<BookmarkedInitial> {
       state.copyWith(
         statuses: cacheType.getState,
         result:
-            (await getListCached()).map((e) => PlanModel.fromJson(e)).toList(),
+            (await getListCached()).map((e) => Plan.fromJson(e)).toList(),
       ),
     );
 

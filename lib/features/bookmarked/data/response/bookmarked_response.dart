@@ -6,14 +6,14 @@ class BookmarkedResponse {
     required this.data,
   });
 
-  final List<PlanModel> data;
+  final List<Plan> data;
 
   factory BookmarkedResponse.fromJson(Map<String, dynamic> json) {
     return BookmarkedResponse(
       data: json["data"] == null
           ? []
-          : List<PlanModel>.from(
-              json["data"]!.map((x) => PlanModel.fromJson(x))),
+          : List<Plan>.from(
+              json["data"]!.map((x) => Plan.fromJson(x))),
     );
   }
 

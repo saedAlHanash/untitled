@@ -7,7 +7,7 @@ import 'package:fitness_storm/Utils/utils.dart';
 import '../../../core/models/plan_model.dart';
 
 class TrainerPlanRepository {
-  Future<List<PlanModel>> getTrendingPlan(Map<String, dynamic>? queryParameter) async {
+  Future<List<Plan>> getTrendingPlan(Map<String, dynamic>? queryParameter) async {
     final  option = Utils.getOptions(withToken: true, all: true);
     try {
       ApiResult result = await Methods.get(
@@ -16,9 +16,9 @@ class TrainerPlanRepository {
         data: queryParameter,
       );
       if (result.type == ApiResultType.success) {
-        List<PlanModel> plans = [];
+        List<Plan> plans = [];
         for (var element in result.data) {
-          plans.add(PlanModel.fromJson(element));
+          plans.add(Plan.fromJson(element));
         }
         return plans;
       } else {
@@ -31,15 +31,15 @@ class TrainerPlanRepository {
     }
   }
 
-  Future<List<PlanModel>> getFeaturedgPlan(int pageNumber) async {
+  Future<List<Plan>> getFeaturedgPlan(int pageNumber) async {
     Options option = Utils.getOptions(withToken: true, all: true);
     try {
       ApiResult result = await Methods.get(
           url: '${TRAINERURLS.getOurPlans}?page=$pageNumber', options: option);
       if (result.type == ApiResultType.success) {
-        List<PlanModel> plans = [];
+        List<Plan> plans = [];
         for (var element in result.data) {
-          plans.add(PlanModel.fromJson(element));
+          plans.add(Plan.fromJson(element));
         }
         return plans;
       } else {

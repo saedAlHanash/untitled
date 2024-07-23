@@ -9,13 +9,13 @@ import '../../../core/models/plan_model.dart';
 
 class TrainerHomeScreenController extends GetxController {
   final RxList<SubscribedPlan> continueTrainingPlans = <SubscribedPlan>[].obs;
-  final RxList<PlanModel> trendingPlans = <PlanModel>[].obs;
-  final RxList<PlanModel> featuredPlans = <PlanModel>[].obs;
+  final RxList<Plan> trendingPlans = <Plan>[].obs;
+  final RxList<Plan> featuredPlans = <Plan>[].obs;
   final RxList<TrainerModel> yourTrainer = <TrainerModel>[].obs;
 
-  List<PlanModel> get trainerPlans => _trainerPlans;
+  List<Plan> get trainerPlans => _trainerPlans;
 
-  final RxList<PlanModel> _trainerPlans = <PlanModel>[].obs;
+  final RxList<Plan> _trainerPlans = <Plan>[].obs;
 
   set trainerPlans(value) => _trainerPlans.value = value;
 

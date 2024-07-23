@@ -1,6 +1,6 @@
 part of 'plans_cubit.dart';
 
-class PlansInitial extends AbstractState<List<PlanModel>> {
+class PlansInitial extends AbstractState<List<Plan>> {
   // final PlansRequest request;
   final int id;
 
@@ -27,7 +27,7 @@ class PlansInitial extends AbstractState<List<PlanModel>> {
 
   PlansInitial copyWith({
     CubitStatuses? statuses,
-    List<PlanModel>? result,
+    List<Plan>? result,
     String? error,
     // PlansRequest? request,
     int? id,

@@ -68,20 +68,21 @@ class WorkoutScreenController extends GetxController {
   }
 
   createWorkoutWidget() {
-    for (int i = 0; i < workouts.length; i++) {
-      workoutWidgets.add(
-        GestureDetector(
-          onTap: () => startTraining(i),
-          child: DayWidget(
-            key: keys[i],
-            imageUrl: workouts[i].image!,
-            dayNumber: (i + 1).toString(),
-            totalMinutes: workouts[i].totalMinutes!,
-            exercises: workouts[i].exercises!,
-            type: workouts[i].type!,
-          ),
-        ),
-      );
-    }
+    return;
+    // for (int i = 0; i < workouts.length; i++) {
+    //   workoutWidgets.add(
+    //     GestureDetector(
+    //       onTap: () => startTraining(i),
+    //       child: DayWidget(
+    //         key: keys[i],
+    //         imageUrl: workouts[i].image!,
+    //         dayNumber: (i + 1).toString(),
+    //         totalMinutes: workouts[i].totalMinutes!,
+    //         exercises: workouts[i].exercises!,
+    //         type: workouts[i].type!,
+    //       ),
+    //     ),
+    //   );
+    // }
   }
 }
