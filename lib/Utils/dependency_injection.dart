@@ -55,7 +55,6 @@ initRepositories() {
 
 Future<void> initGetStorage() async {
   //log('init GetStore');
-  await GetStorage.init();
   //log(storage.user);
   //log("lang");
   //log(storage.langCode);

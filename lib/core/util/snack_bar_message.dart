@@ -44,7 +44,7 @@ class NoteMessage {
   }) {
     final snack = SnackBar(
       elevation: 0.0,
-      backgroundColor: Colors.transparent,
+      backgroundColor: AppColorManager.mainColor,
       content: SnakeBarWidget(text: message ?? ''),
     );
 

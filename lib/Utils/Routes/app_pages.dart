@@ -6,8 +6,6 @@ import 'package:fitness_storm/Screen/Trainee%20Screens/Main%20Home/main_home_bin
 import 'package:fitness_storm/Screen/Trainee%20Screens/Main%20Home/main_home_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/My%20Payment/my_payment_binding.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/My%20Payment/my_payment_screen.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/PlanOverView/plan_overview_binding.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/PlanOverView/plan_overview_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Search%20Result/search_result_bindings.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Search%20Result/search_result_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Subscription/subscription_binding.dart';

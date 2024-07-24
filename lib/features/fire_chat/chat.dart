@@ -4,6 +4,7 @@ import 'package:drawable_text/drawable_text.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:fitness_storm/core/app/app_provider.dart';
+import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/features/fire_chat/util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,6 +22,7 @@ import '../../core/helper/launcher_helper.dart';
 import '../../core/injection/injection_container.dart';
 import '../../core/strings/app_color_manager.dart';
 import '../../core/util/firebase_analytics_service.dart';
+import '../../core/util/my_style.dart';
 import '../../core/widgets/app_bar/app_bar_widget.dart';
 import '../../services/chat_service/core/firebase_chat_core.dart';
 import 'messages_bloc/messages_cubit.dart';
@@ -250,27 +252,29 @@ class _ChatPageState extends State<ChatPage> {
   }
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-        appBar: AppBarWidget(
-          actions: [
-            Row(
-              children: [
-                DrawableText(
-                  text: widget.room.otherUser.name,
-                  color: Colors.white,
-                ),
-                10.0.horizontalSpace,
-                CircleImageWidget(
-                  url: widget.room.otherUser.imageUrl,
-                  size: 40.0.r,
-                ),
-                10.0.horizontalSpace,
-              ],
-            ),
-          ],
-        ),
-        body: BlocBuilder<MessagesCubit, MessagesInitial>(
-          builder: (context, state) => Chat(
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBarWidget(
+        actions: [
+          Row(
+            children: [
+              DrawableText(
+                text: widget.room.otherUser.name,
+                color: Colors.white,
+              ),
+              10.0.horizontalSpace,
+              CircleImageWidget(
+                url: widget.room.otherUser.imageUrl,
+                size: 40.0.r,
+              ),
+              10.0.horizontalSpace,
+            ],
+          ),
+        ],
+      ),
+      body: BlocBuilder<MessagesCubit, MessagesInitial>(
+        builder: (context, state) {
+          return Chat(
             textMessageOptions: TextMessageOptions(
               onLinkPressed: (p0) {
                 LauncherHelper.openPage(p0);
@@ -288,7 +292,9 @@ class _ChatPageState extends State<ChatPage> {
                 secondaryColor: AppColorManager.mainColorDark,
                 inputBackgroundColor: AppColorManager.mainColor),
             user: types.User(id: AppProvider.myId.toString()),
-          ),
-        ),
-      );
+          );
+        },
+      ),
+    );
+  }
 }

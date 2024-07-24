@@ -57,9 +57,9 @@ Future<void> init() async {
   sl.registerLazySingleton(() => GlobalKey<NavigatorState>());
   sl.registerLazySingleton(() => FirebaseAnalyticService());
   sl.registerLazySingleton(() => ChangeVideoCubit());
-  sl.registerLazySingleton(() => MessagesCubit());
   sl.registerLazySingleton(() => RoomsCubit());
   sl.registerLazySingleton(() => OpenRoomCubit());
+  sl.registerFactory(() => MessagesCubit());
 
 
   //endregion

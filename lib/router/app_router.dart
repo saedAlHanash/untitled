@@ -48,6 +48,7 @@ import '../features/auth/ui/pages/reset_password_page.dart';
 import '../features/auth/ui/pages/signup_page.dart';
 import '../features/bookmarked/ui/pages/bookmarked_page.dart';
 import '../features/fire_chat/chat.dart';
+import '../features/fire_chat/messages_bloc/messages_cubit.dart';
 import '../features/plans/bloc/plan_cubit/plan_cubit.dart';
 import '../features/plans/bloc/plan_workout_cubit/plan_workout_cubit.dart';
 import '../features/plans/bloc/subscribe_plan_cubit/subscribe_plan_cubit.dart';
@@ -441,9 +442,18 @@ void startTrainersPage() {
 }
 
 void startChatPage(Room room) async {
-  await Get.to(() => ChatPage(room: room));
-
-  ChatServiceCore.latestSeenRoom(room.id);
+  Navigator.push(ctx!, MaterialPageRoute(
+    builder: (context) {
+      return BlocProvider(
+        create: (_) => sl<MessagesCubit>(),
+        child: ChatPage(room: room),
+      );
+    },
+  )).then(
+    (value) {
+      ChatServiceCore.latestSeenRoom(room.id);
+    },
+  );
 }
 
 void startPlanPage(String id) async {

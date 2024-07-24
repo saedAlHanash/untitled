@@ -30,7 +30,6 @@ import 'features/fire_chat/rooms_bloc/rooms_cubit.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-
   try {
     await di.init();
 
@@ -68,7 +67,6 @@ void main() async {
         BlocProvider(create: (_) => RefreshHomePlanCubit()),
         BlocProvider(create: (_) => sl<OpenRoomCubit>()),
         BlocProvider(create: (_) => sl<RoomsCubit>()..getChatRooms(false)),
-        BlocProvider(create: (_) => sl<MessagesCubit>()),
         BlocProvider(create: (context) => ChangeVideoCubit()),
       ],
       child: const MyApp(),

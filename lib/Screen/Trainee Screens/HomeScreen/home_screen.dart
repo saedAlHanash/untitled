@@ -2,6 +2,7 @@
 import 'package:fitness_storm/Screen/Trainee%20Screens/HomeScreen/HomeSreenWidget/ContinueTraining/continue_training_widget.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/HomeScreen/home_screen_controller.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/HomeScreen/refresh_home_plan_cubit/refresh_home_plan_cubit.dart';
+import 'package:fitness_storm/core/util/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
@@ -25,11 +26,7 @@ class HomeScreen extends GetView<HomeScreenController> {
               onRefresh: () async {
                 controller.isLoading.value = true;
                 await controller.fillContinueTrainingPlans();
-                GetStorage getStorage = GetStorage();
-                if (controller.continueTrainingPlans.isNotEmpty) {
-                  await getStorage.write('currentPlan',
-                      controller.continueTrainingPlans.value[0].id);
-                }
+
                 Get.back();
                 controller.trendingPlans.value =
                     await controller.planRepository.getTrendingPlan({});

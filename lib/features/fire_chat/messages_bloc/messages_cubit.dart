@@ -22,6 +22,7 @@ class MessagesCubit extends MCubit<MessagesInitial> {
 
   Future<void> getChatRoomMessage(types.Room room) async {
     if (AppProvider.myId == null) return;
+
     emit(state.copyWith(request: room));
 
     final data =
@@ -55,6 +56,7 @@ class MessagesCubit extends MCubit<MessagesInitial> {
     loggerObject.i(DateTime.fromMillisecondsSinceEpoch(
         state.result.lastOrNull?.updatedAt ?? 0));
 
+    await state.stream?.cancel();
     final stream = query.snapshots().listen((snapshot) async {
       final messages = snapshot.docs.map(
         (doc) {

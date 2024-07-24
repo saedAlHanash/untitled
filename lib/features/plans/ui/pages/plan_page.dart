@@ -10,6 +10,7 @@ import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
 import 'package:fitness_storm/core/util/my_style.dart';
+import 'package:fitness_storm/core/util/shared_preferences.dart';
 import 'package:fitness_storm/core/widgets/app_bar/app_bar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -39,7 +40,9 @@ class _PlanPageState extends State<PlanPage> {
   Widget build(BuildContext context) {
     return BlocListener<SubscribePlanCubit, SubscribePlanInitial>(
       listenWhen: (p, c) => c.statuses.done,
-      listener: (context, state) => cubit.getPlan(newData: true),
+      listener: (context, state) {
+        setState(() {});
+      },
       child: Scaffold(
           appBar: AppBarWidget(
             title: BlocBuilder<PlanCubit, PlanInitial>(
@@ -61,7 +64,6 @@ class _PlanPageState extends State<PlanPage> {
               if (state.statuses.loading) {
                 return MyStyle.loadingWidget();
               }
-              loggerObject.w(state.result.introductionVideo);
               return SingleChildScrollView(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -111,6 +113,9 @@ class _PlanPageState extends State<PlanPage> {
                             final item = state.result[i];
                             return GestureDetector(
                               onTap: () {
+                                if (AppSharedPreference.getCurrentPlanId !=
+                                    cubit.state.result.id.toString()) return;
+
                                 cubit.state.videoController?.pause();
                                 if (cubit.state.videoController
                                         ?.isVideoPlaying ==
@@ -120,6 +125,7 @@ class _PlanPageState extends State<PlanPage> {
                                     () => cubit.state.videoController?.pause(),
                                   );
                                 }
+
                                 item.name.toLowerCase() !=
                                         'Rest day'.toLowerCase()
                                     ? cubit.startTraining(state.result[i], i)
@@ -155,7 +161,8 @@ class _PlanPageState extends State<PlanPage> {
                 return SizedBox(
                   height: 30.0.r,
                   width: 30.0.r,
-                  child: MyStyle.loadingWidget(),
+                  child: MyStyle.loadingWidget(
+                      color: AppColorManager.mainColorLight),
                 );
               }
               return BlocBuilder<PlanCubit, PlanInitial>(
@@ -164,14 +171,15 @@ class _PlanPageState extends State<PlanPage> {
                     return SizedBox(
                       height: 30.0.r,
                       width: 30.0.r,
-                      child: MyStyle.loadingWidget(),
+                      child: MyStyle.loadingWidget(
+                          color: AppColorManager.mainColorLight),
                     );
                   }
                   return (AppProvider.isTrainer)
                       ? 0.0.verticalSpace
                       : state.result.isActive ||
-                              GetStorage().read('currentPlan') ==
-                                  state.result.id
+                              AppSharedPreference.getCurrentPlanId ==
+                                  state.result.id.toString()
                           ? 0.0.verticalSpace
                           : CustomButton(
                               onTapFunction: () => context
@@ -184,7 +192,7 @@ class _PlanPageState extends State<PlanPage> {
                               fontSize: 16.0.sp,
                               height: Get.height / 15,
                               width: Get.width,
-                              text: GetStorage().read('currentPlan') == null
+                              text: AppSharedPreference.getCurrentPlanId.isEmpty
                                   ? 'subscribe'.tr
                                   : 'start_within_plan'.tr);
                 },

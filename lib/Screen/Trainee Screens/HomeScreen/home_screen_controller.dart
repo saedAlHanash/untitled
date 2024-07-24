@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 import '../../../core/models/plan_model.dart';
+import '../../../core/util/shared_preferences.dart';
 
 class HomeScreenController extends GetxController {
   final RxList<SubscribedPlan> continueTrainingPlans = <SubscribedPlan>[].obs;
@@ -29,9 +30,10 @@ class HomeScreenController extends GetxController {
     await fillContinueTrainingPlans();
 
     if (continueTrainingPlans.isNotEmpty) {
-      await GetStorage().write('currentPlan', continueTrainingPlans.value[0].id);
+      AppSharedPreference.serCurrentPlanId(
+          continueTrainingPlans.value.first.id.toString());
     }
-    Get.back();
+    // Get.back();
     trendingPlans.value = await planRepository.getTrendingPlan({});
     featuredPlans.value = await planRepository.getFeaturedgPlan(1);
     yourTrainer.value = await trainerRepository.getYourTrainer(1);
@@ -43,10 +45,10 @@ class HomeScreenController extends GetxController {
     isLoading.value = true;
     await fillContinueTrainingPlans();
     if (continueTrainingPlans.isNotEmpty) {
-      await GetStorage().write(
-          'currentPlan', continueTrainingPlans.value[0].id);
+      AppSharedPreference.serCurrentPlanId(
+          continueTrainingPlans.value.first.id.toString());
     }
-    Get.back();
+    // Get.back();
     trendingPlans.value = await planRepository.getTrendingPlan({});
     featuredPlans.value = await planRepository.getFeaturedgPlan(1);
     yourTrainer.value = await trainerRepository.getYourTrainer(1);

@@ -10,14 +10,6 @@ import '../Api/methods.dart';
 import '../Api/urls.dart';
 
 class TraineeRepository {
-  Future<ApiResult> subscribePlan({required String planId}) async {
-    Options option = Utils.getOptions(withToken: true, all: true);
-    Map<String, String> data = {
-      "plan_id": planId,
-    };
-    return await Methods.post(
-        url: TRAINEEURLS.subscribeToPlan, options: option, data: data);
-  }
 
   Future<ApiResult> getUserProfile() async {
     Options options = Utils.getOptions(withToken: true, all: true);

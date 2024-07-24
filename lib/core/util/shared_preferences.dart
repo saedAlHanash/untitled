@@ -25,7 +25,8 @@ class AppSharedPreference {
   static const _loginData = '19';
   static const _profile = '0';
   static const _notificationsRead = '20';
-  static const _isLoginToChatApp = '21';
+  static const _isLoginToChatApp = '23';
+  static const currentPlan = '22';
 
   static cashLoginToChatApp(bool b) {
     _prefs?.setBool(_isLoginToChatApp, b);
@@ -34,6 +35,13 @@ class AppSharedPreference {
   static bool get getIsLoginToChatApp =>
       _prefs?.getBool(_isLoginToChatApp) ?? false;
   static SharedPreferences? _prefs;
+
+  static serCurrentPlanId(String b) async {
+    await _prefs?.setString(currentPlan, b);
+  }
+
+  static String get getCurrentPlanId =>
+      _prefs?.getString(currentPlan) ?? '';
 
   static int get getNotificationsRead =>
       _prefs?.getInt(_notificationsRead) ?? 0;
