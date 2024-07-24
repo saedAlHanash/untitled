@@ -10,20 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="43c414a0-a0aa-41d9-b6a1-9df3dcc6d755" name="Changes" comment="fix plan page">
-      <change afterPath="$PROJECT_DIR$/lib/features/plans/bloc/subscribe_plan_cubit/subscribe_plan_cubit.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/plans/bloc/subscribe_plan_cubit/subscribe_plan_state.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/HomeScreen/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/HomeScreen/home_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/HomeScreen/home_screen_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/HomeScreen/home_screen_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/PlanOverView/plan_overview_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/PlanOverView/plan_overview_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/PlanOverView/plan_overview_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/PlanOverView/plan_overview_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/api_manager/api_url.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/api_manager/api_url.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/injection/injection_container.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/injection/injection_container.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/plans/bloc/plan_cubit/plan_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/plans/bloc/plan_cubit/plan_cubit.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/plans/ui/pages/plan_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/plans/ui/pages/plan_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/helperClass.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/helperClass.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/router/app_router.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/router/app_router.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/fire_chat/rooms_bloc/rooms_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/fire_chat/rooms_bloc/rooms_cubit.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,14 +97,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713374825994</updated>
-    </task>
-    <task id="LOCAL-00008" summary="fix pod and wakelock_plus">
-      <option name="closed" value="true" />
-      <created>1713439742518</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1713439742518</updated>
     </task>
     <task id="LOCAL-00009" summary="fix pod and wakelock_plus">
       <option name="closed" value="true" />
@@ -503,7 +482,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721725369829</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="fix plan page">
+      <option name="closed" value="true" />
+      <created>1721812056436</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1721812056436</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
