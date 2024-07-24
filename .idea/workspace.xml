@@ -9,28 +9,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="43c414a0-a0aa-41d9-b6a1-9df3dcc6d755" name="Changes" comment="fix plan page">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Data/Repositories/trainee_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Data/Repositories/trainee_repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/HomeScreen/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/HomeScreen/home_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/HomeScreen/home_screen_binding.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/HomeScreen/home_screen_binding.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/HomeScreen/home_screen_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/HomeScreen/home_screen_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/PlanOverView/Widget/day_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/PlanOverView/Widget/day_bar.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/PlanOverView/Widget/trainer_bio.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/PlanOverView/Widget/trainer_bio.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/PlanOverView/Widget/trainer_profile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/PlanOverView/Widget/trainer_profile.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/PlanOverView/Widget/video_tail_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/PlanOverView/Widget/video_tail_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/PlanOverView/plan_overview_binding.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/PlanOverView/plan_overview_controller.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/PlanOverView/plan_overview_screen.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Utils/Routes/app_pages.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Utils/Routes/app_pages.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Utils/dependency_injection.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Utils/dependency_injection.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/util/shared_preferences.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/util/shared_preferences.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/fire_chat/messages_bloc/messages_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/fire_chat/messages_bloc/messages_cubit.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/fire_chat/open_room_cubit/open_room_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/fire_chat/open_room_cubit/open_room_cubit.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/plans/bloc/subscribe_plan_cubit/subscribe_plan_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/plans/bloc/subscribe_plan_cubit/subscribe_plan_cubit.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/plans/ui/pages/plan_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/plans/ui/pages/plan_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-    </list>
+    <list default="true" id="43c414a0-a0aa-41d9-b6a1-9df3dcc6d755" name="Changes" comment="fix plan page" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -116,14 +95,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713374825994</updated>
-    </task>
-    <task id="LOCAL-00010" summary="fix pod and wakelock_plus">
-      <option name="closed" value="true" />
-      <created>1713440668120</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1713440668120</updated>
     </task>
     <task id="LOCAL-00011" summary="fix pod and wakelock_plus">
       <option name="closed" value="true" />
@@ -509,7 +480,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721812277028</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="fix plan page">
+      <option name="closed" value="true" />
+      <created>1721816940690</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1721816940690</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
