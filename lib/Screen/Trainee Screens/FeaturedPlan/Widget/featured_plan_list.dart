@@ -39,7 +39,7 @@ class FeaturedPlanList extends GetWidget<FeaturedPlanController> {
                 },
               ),
               child: ListView.builder(
-                itemCount: controller.plans.value.length,
+                itemCount: controller.plans.length,
                 itemBuilder: (context, index) {
                   return SeeAllListItem(
                     plan: controller.plans[index],

@@ -6,7 +6,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
 import '../../../../Screen/Trainee Screens/HomeScreen/refresh_home_plan_cubit/refresh_home_plan_cubit.dart';
-import '../../../../Utils/utils.dart';
 import '../../../../core/api_manager/api_service.dart';
 import '../../../../core/app/app_provider.dart';
 import '../../../../core/app/app_widget.dart';

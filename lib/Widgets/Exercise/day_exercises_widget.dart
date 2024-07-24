@@ -1,9 +1,7 @@
 import 'package:adaptive_scrollbar/adaptive_scrollbar.dart';
-import 'package:fitness_storm/Model/exercise.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../Model/repetition.dart';
 import '../../features/plans/data/response/plan_workout_response.dart';
 
 class DayExercisesWidget extends StatelessWidget {

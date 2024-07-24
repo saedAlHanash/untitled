@@ -6,7 +6,6 @@ import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/services/chat_service/core/firebase_chat_core.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 
-import '../../../core/api_manager/api_service.dart';
 import '../../../core/strings/enum_manager.dart';
 import '../../../core/util/abstraction.dart';
 import '../../../services/chat_service/core/util.dart';

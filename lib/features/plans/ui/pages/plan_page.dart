@@ -6,7 +6,6 @@ import 'package:fitness_storm/Screen/Trainee%20Screens/PlanOverView/Widget/train
 import 'package:fitness_storm/Screen/Trainee%20Screens/PlanOverView/Widget/video_tail_widget.dart';
 import 'package:fitness_storm/Widgets/custom_button.dart';
 import 'package:fitness_storm/Widgets/read_more_text_widget.dart';
-import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
 import 'package:fitness_storm/core/util/my_style.dart';
@@ -16,7 +15,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:image_multi_type/circle_image_widget.dart';
 
 import '../../../../Widgets/Exercise/day_widget.dart';
@@ -120,10 +118,12 @@ class _PlanPageState extends State<PlanPage> {
                                 if (cubit.state.videoController
                                         ?.isVideoPlaying ==
                                     false) {
+
                                   Future.delayed(
                                     const Duration(seconds: 3),
                                     () => cubit.state.videoController?.pause(),
                                   );
+
                                 }
 
                                 item.name.toLowerCase() !=

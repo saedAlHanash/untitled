@@ -104,7 +104,8 @@ class UserTrainingScreen extends GetView<UserTrainingController> {
                                                     value: controller.progress)
                                                 : 0.0.verticalSpace)
                                         : 0.0.verticalSpace,
-                                    VimeoPlayer(
+                                    VimeoPlayer1(
+                                      key: UniqueKey(),
                                       videoId:
                                           controller.currentExercise.video!,
                                     ),
@@ -158,7 +159,7 @@ class UserTrainingScreen extends GetView<UserTrainingController> {
                 )
               : controller.isZumba || (AppProvider.isTrainer)
                   ? 0.0.verticalSpace
-                  : Obx(
+                  : Obx (
                       () => controller.isLoading
                           ? Container()
                           : controller.isRest && controller.startTime > 0

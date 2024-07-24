@@ -490,13 +490,12 @@ Future<bool> startRating(Appointment appointment) async {
 }
 
 Future<void> startVideoCall(Appointment appointment) async {
-  return;
-  // final Widget page = Video1(appointment: appointment);
-  // Get.to(page)?.then((value) {
-  //   if (value == true) {
-  //     startRating(appointment);
-  //   }
-  // });
+  final Widget page = Video1(appointment: appointment);
+  Get.to(page)?.then((value) {
+    if (value == true) {
+      startRating(appointment);
+    }
+  });
 }
 
 void startPdf(String url, String name) {

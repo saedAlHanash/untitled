@@ -4,7 +4,6 @@ import 'package:fitness_storm/Data/Repositories/workout_repository.dart';
 import 'package:fitness_storm/Model/plan_workout.dart';
 import 'package:fitness_storm/Utils/Routes/app_pages.dart';
 import 'package:fitness_storm/Utils/utils.dart';
-import 'package:fitness_storm/Widgets/Exercise/day_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

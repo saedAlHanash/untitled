@@ -1,6 +1,5 @@
 import 'package:drawable_text/drawable_text.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/HomeScreen/home_screen_controller.dart';
-import 'package:fitness_storm/Utils/Routes/app_pages.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

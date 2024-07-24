@@ -14,7 +14,6 @@ import 'package:fitness_storm/helper/lang_helper.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:hive_flutter/adapters.dart';
 
 import '../core/api_manager/api_url.dart';

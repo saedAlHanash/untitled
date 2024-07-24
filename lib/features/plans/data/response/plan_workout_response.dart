@@ -1,6 +1,4 @@
 import 'package:fitness_storm/core/extensions/extensions.dart';
-
-import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:flutter/cupertino.dart';
 
 class PlanWorkouts {

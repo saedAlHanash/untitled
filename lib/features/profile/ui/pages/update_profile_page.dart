@@ -4,11 +4,9 @@ import 'package:fitness_storm/core/widgets/app_bar/app_bar_widget.dart';
 import 'package:fitness_storm/core/widgets/my_button.dart';
 import 'package:fitness_storm/core/widgets/my_text_form_widget.dart';
 import 'package:fitness_storm/core/widgets/select_date.dart';
-import 'package:fitness_storm/features/profile/ui/widget/trainee_edit_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 
 import '../../../../core/util/my_style.dart';

@@ -13,13 +13,9 @@ import '../utils/logger.dart';
 import '../utils/video_apis.dart';
 
 part 'pod_base_controller.dart';
-
 part 'pod_gestures_controller.dart';
-
 part 'pod_ui_controller.dart';
-
 part 'pod_video_controller.dart';
-
 part 'pod_video_quality_controller.dart';
 
 class PodGetXVideoController extends _PodGesturesController {

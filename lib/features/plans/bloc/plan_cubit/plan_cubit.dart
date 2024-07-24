@@ -1,27 +1,22 @@
+import 'package:fitness_storm/Screen/Trainee%20Screens/User%20Training/change_video_cubit/change_video_cubit.dart';
 import 'package:fitness_storm/core/api_manager/api_url.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
-import 'package:fitness_storm/router/app_router.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:pod_player/pod_player.dart';
 
 import '../../../../Data/Api/api_result.dart';
 import '../../../../Data/Repositories/exercise_repository.dart';
-import '../../../../Data/Repositories/trainee_repository.dart';
-import '../../../../Screen/Trainee Screens/HomeScreen/refresh_home_plan_cubit/refresh_home_plan_cubit.dart';
 import '../../../../Utils/Routes/app_pages.dart';
 import '../../../../Utils/utils.dart';
 import '../../../../core/api_manager/api_service.dart';
 import '../../../../core/app/app_provider.dart';
+import '../../../../core/app/app_widget.dart';
 import '../../../../core/error/error_manager.dart';
 import '../../../../core/models/plan_model.dart';
 import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/abstraction.dart';
 import '../../../../core/util/pair_class.dart';
-import '../../../../helperClass.dart';
-import '../../../../services/chat_service/chat_service_core.dart';
-import '../../../../services/chat_service/core/firebase_chat_core.dart';
 import '../../data/response/plan_workout_response.dart';
 
 part 'plan_state.dart';
@@ -93,6 +88,10 @@ class PlanCubit extends MCubit<PlanInitial> {
         planWorkout.workoutBreak.toInt(),
         apiResult.statusCode == 402
       ]);
+      Future.delayed(
+        const Duration(seconds: 1),
+        () => ctx?.read<ChangeVideoCubit>().changeVideo(),
+      );
       Utils.closeDialog();
     }
   }

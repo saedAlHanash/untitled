@@ -1,12 +1,10 @@
 import 'dart:io';
 
-
 import 'package:fitness_storm/features/plans/bloc/plan_workout_cubit/plan_workout_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
-import '../../../../features/plans/bloc/plan_cubit/plan_cubit.dart';
 import 'day_bar_widget.dart';
 
 class DayBar extends StatelessWidget {

@@ -1,4 +1,3 @@
-import 'package:fitness_storm/Model/exercise.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

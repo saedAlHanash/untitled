@@ -4,7 +4,6 @@ import 'package:fitness_storm/Model/subscribed_plan.dart';
 import 'package:fitness_storm/features/trainer/data/response/trainer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 
 import '../../../core/models/plan_model.dart';
 import '../../../core/util/shared_preferences.dart';
@@ -31,7 +30,7 @@ class HomeScreenController extends GetxController {
 
     if (continueTrainingPlans.isNotEmpty) {
       AppSharedPreference.serCurrentPlanId(
-          continueTrainingPlans.value.first.id.toString());
+          continueTrainingPlans.first.id.toString());
     }
     // Get.back();
     trendingPlans.value = await planRepository.getTrendingPlan({});
@@ -46,7 +45,7 @@ class HomeScreenController extends GetxController {
     await fillContinueTrainingPlans();
     if (continueTrainingPlans.isNotEmpty) {
       AppSharedPreference.serCurrentPlanId(
-          continueTrainingPlans.value.first.id.toString());
+          continueTrainingPlans.first.id.toString());
     }
     // Get.back();
     trendingPlans.value = await planRepository.getTrendingPlan({});

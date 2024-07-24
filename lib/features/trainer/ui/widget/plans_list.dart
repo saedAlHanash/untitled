@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 
-import '../../../../Utils/Routes/app_pages.dart';
 import '../../../../Widgets/custom_chip.dart';
 import '../../../../Widgets/trainer_profile_image.dart';
 import '../../../../core/models/plan_model.dart';

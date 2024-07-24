@@ -31,7 +31,6 @@ class Wallet {
       'Nov',
       'Dec'
     ];
-    DateFormat dateFormat = DateFormat("yyyy-MM-ddTHH:mm:ss");
     DateTime dateTime = (DateTime.tryParse(json['time'])??DateTime(1900));
     String day = dateTime.day.toString();
     String month = months[dateTime.month - 1];

@@ -20,14 +20,13 @@
 
 import 'dart:convert';
 
+import 'package:dio/dio.dart' as dio;
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:http/http.dart';
 import 'package:logger/logger.dart';
 
-import '../../../Data/Api/api_result.dart';
 import '../../strings/enum_manager.dart';
 import '../api_service.dart';
-import 'package:dio/dio.dart' as dio;
 
 void saedsaed() {
   var loggerObjectApi = Logger(
