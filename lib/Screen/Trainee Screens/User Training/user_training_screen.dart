@@ -9,7 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:shimmer_animation/shimmer_animation.dart';
+
+
 
 import '../../../core/app/app_provider.dart';
 import '../../../generated/l10n.dart';
@@ -140,23 +141,20 @@ class UserTrainingScreen extends GetView<UserTrainingController> {
           floatingActionButtonLocation:
               FloatingActionButtonLocation.centerDocked,
           floatingActionButton: (controller.complete)
-              ? Shimmer(
-                  color: Colors.white70,
-                  child: Container(
-                    color: Get.theme.colorScheme.secondary,
-                    width: double.infinity,
-                    padding: const EdgeInsets.all(10.0),
-                    child: Text(
-                      'already_play'.tr,
-                      style: const TextStyle(
-                        color: Color(0xFFFFFFFF),
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      // textDirection: isEnglish ? TextDirection.ltr : TextDirection.rtl,
-                    ),
+              ? Container(
+                color: Get.theme.colorScheme.secondary,
+                width: double.infinity,
+                padding: const EdgeInsets.all(10.0),
+                child: Text(
+                  'already_play'.tr,
+                  style: const TextStyle(
+                    color: Color(0xFFFFFFFF),
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
                   ),
-                )
+                  // textDirection: isEnglish ? TextDirection.ltr : TextDirection.rtl,
+                ),
+              )
               : controller.isZumba || (AppProvider.isTrainer)
                   ? 0.0.verticalSpace
                   : Obx (

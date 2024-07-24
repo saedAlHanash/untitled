@@ -9,14 +9,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.3.39"
-  adaptive_number:
-    dependency: transitive
-    description:
-      name: adaptive_number
-      sha256: "3a567544e9b5c9c803006f51140ad544aedc79604fd4f3f2c1380003f97c1d77"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.0"
   adaptive_scrollbar:
     dependency: "direct main"
     description:
@@ -33,22 +25,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.3.2"
-  agora_rtm:
-    dependency: transitive
-    description:
-      name: agora_rtm
-      sha256: "6c65cf6c9658acc9024322798c546e9dc61c39605b67d0af069793d4ee81d199"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.5.9"
-  agora_uikit:
-    dependency: "direct main"
-    description:
-      name: agora_uikit
-      sha256: "2c06a3a12a1aeba6dda84c56bef66091fa6b87b11cc96dbff27c092d0697cef7"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.3.10"
   appsflyer_sdk:
     dependency: "direct main"
     description:
@@ -85,10 +61,10 @@ packages:
     dependency: "direct main"
     description:
       name: awesome_dialog
-      sha256: c5bccfc0cd94f2025ba6af324e723b99241859e49d9951933d0e1a7952f4f8bb
+      sha256: "41c41ae4b30b5c7f26bb3d9f9c87010ed1cab0bb4d4ac0cc513e5799c37e9d82"
       url: "https://pub.dev"
     source: hosted
-    version: "3.2.0"
+    version: "3.2.1"
   awesome_icons:
     dependency: "direct main"
     description:
@@ -97,14 +73,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.0"
-  badges:
-    dependency: "direct main"
-    description:
-      name: badges
-      sha256: a7b6bbd60dce418df0db3058b53f9d083c22cdb5132a052145dc267494df0b84
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.1.2"
   bloc:
     dependency: "direct main"
     description:
@@ -121,14 +89,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
-  bottom_picker:
-    dependency: "direct main"
-    description:
-      name: bottom_picker
-      sha256: a998b8f36f2a736e73a3e6c2e10f730bdb068d799f52dc3bd1d8e60b048a06de
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.9.1"
   build_config:
     dependency: transitive
     description:
@@ -265,14 +225,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.8"
-  dart_jsonwebtoken:
-    dependency: "direct main"
-    description:
-      name: dart_jsonwebtoken
-      sha256: "346e9a21e4bf6e6a431e19ece00ebb2e3668e1e339cabdf6f46d18d88692a848"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.14.0"
   day_night_time_picker:
     dependency: "direct main"
     description:
@@ -330,14 +282,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.9"
-  ed25519_edwards:
-    dependency: transitive
-    description:
-      name: ed25519_edwards
-      sha256: "6ce0112d131327ec6d42beede1e5dfd526069b18ad45dcf654f15074ad9276cd"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.3.1"
   equatable:
     dependency: "direct main"
     description:
@@ -482,22 +426,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.17.3"
-  firebase_dynamic_links:
-    dependency: "direct main"
-    description:
-      name: firebase_dynamic_links
-      sha256: beed25d57e0240728952c0ff540dde214b11b323ca09cb1ae5f71f30e5efc3b3
-      url: "https://pub.dev"
-    source: hosted
-    version: "6.0.3"
-  firebase_dynamic_links_platform_interface:
-    dependency: transitive
-    description:
-      name: firebase_dynamic_links_platform_interface
-      sha256: bb949552fcf65e8ed810b69327eb0dcb174b7d69e2b71f8856d27af50c89ddc7
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.2.6+39"
   firebase_messaging:
     dependency: "direct main"
     description:
@@ -559,14 +487,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_app_badger:
-    dependency: "direct main"
-    description:
-      name: flutter_app_badger
-      sha256: "64d4a279bab862ed28850431b9b446b9820aaae0bf363322d51077419f930fa8"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.5.0"
   flutter_bloc:
     dependency: "direct main"
     description:
@@ -790,14 +710,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.14.11"
-  font_awesome_flutter:
-    dependency: "direct main"
-    description:
-      name: font_awesome_flutter
-      sha256: "275ff26905134bcb59417cf60ad979136f1f8257f2f449914b2c3e05bbb4cd6f"
-      url: "https://pub.dev"
-    source: hosted
-    version: "10.7.0"
   freezed_annotation:
     dependency: transitive
     description:
@@ -822,14 +734,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "7.7.0"
-  get_storage:
-    dependency: "direct main"
-    description:
-      name: get_storage
-      sha256: "39db1fffe779d0c22b3a744376e86febe4ade43bf65e06eab5af707dc84185a2"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.1.1"
   glob:
     dependency: transitive
     description:
@@ -1490,18 +1394,18 @@ packages:
     dependency: transitive
     description:
       name: rive
-      sha256: ae75a6e9cfbf146630bfb1feba97ee582d935508be6b362e4bd197b9c55a6dd3
+      sha256: "090169ee4917a0cc0452d936e04d5800a98e5cf96c668b7ed579c65e0dd018b6"
       url: "https://pub.dev"
     source: hosted
-    version: "0.12.4"
+    version: "0.13.10"
   rive_common:
     dependency: transitive
     description:
       name: rive_common
-      sha256: f4e20d0a99c5040c85624a3eb2b0b6b19e614d93a693c3bb25cf6e7bb2d3d6d3
+      sha256: "77311538b149263d34dc29cde4e608953c2d4451233efdb874ea9f08910769ac"
       url: "https://pub.dev"
     source: hosted
-    version: "0.2.8"
+    version: "0.4.10"
   rxdart:
     dependency: transitive
     description:
@@ -1518,14 +1422,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.4.2"
-  scroll_snap_list:
-    dependency: "direct main"
-    description:
-      name: scroll_snap_list
-      sha256: "8009ad9030f680b93f3107b29b1ea31284d867aa4972868d2970c6d61fe9e59f"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.9.1"
   scroll_to_index:
     dependency: transitive
     description:
@@ -1591,7 +1487,7 @@ packages:
     source: hosted
     version: "2.3.2"
   shimmer_animation:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: shimmer_animation
       sha256: "1f12d0f3fc20acbf2dcf8438b79f4268c523d55b2f3de55cf49e5bd3acbc5719"
@@ -1611,14 +1507,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.99"
-  sliding_up_panel:
-    dependency: "direct main"
-    description:
-      name: sliding_up_panel
-      sha256: "578e90956a6212d1e406373250b2436a0f3afece29aee3c24c8360094d6cf968"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.0+1"
   smart_auth:
     dependency: transitive
     description:
@@ -1923,14 +1811,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.0"
-  vimeo_player_flutter:
-    dependency: "direct main"
-    description:
-      name: vimeo_player_flutter
-      sha256: e59d50731f879bf5b634409c3624e7861f504303c405f5a9a378d7d4e247a89a
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.0.3+2"
   visibility_detector:
     dependency: transitive
     description:

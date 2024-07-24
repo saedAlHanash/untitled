@@ -17,10 +17,7 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission
-        android:name="android.permission.FOREGROUND_SERVICE"
-        tools:remove="true"
-        />
+
 
     <!-- The Agora SDK requires Bluetooth permissions in case users are using Bluetooth devices.-->
 
@@ -47,7 +44,6 @@
             android:name=".MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:exported="true"
-            android:hardwareAccelerated="true"
             android:launchMode="singleTop"
             android:theme="@style/LaunchTheme"
             android:windowSoftInputMode="adjustResize">
@@ -69,15 +65,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.VIEW" />-->
+            <!--            <intent-filter>-->
+            <!--                <action android:name="android.intent.action.VIEW" />-->
 
-<!--                <category android:name="android.intent.category.DEFAULT" />-->
-<!--                <category android:name="android.intent.category.BROWSABLE" />-->
+            <!--                <category android:name="android.intent.category.DEFAULT" />-->
+            <!--                <category android:name="android.intent.category.BROWSABLE" />-->
 
-<!--                <data android:scheme="signinwithapple" />-->
-<!--                <data android:path="callback" />-->
-<!--            </intent-filter>-->
+            <!--                <data android:scheme="signinwithapple" />-->
+            <!--                <data android:path="callback" />-->
+            <!--            </intent-filter>-->
 
         </activity>
         <!-- Don't delete the meta-data below.
