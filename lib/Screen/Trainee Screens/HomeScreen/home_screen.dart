@@ -28,7 +28,7 @@ class HomeScreen extends GetView<HomeScreenController> {
                 GetStorage getStorage = GetStorage();
                 if (controller.continueTrainingPlans.isNotEmpty) {
                   await getStorage.write('currentPlan',
-                      controller.continueTrainingPlans.value[0].name);
+                      controller.continueTrainingPlans.value[0].id);
                 }
                 Get.back();
                 controller.trendingPlans.value =

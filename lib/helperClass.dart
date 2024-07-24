@@ -1,6 +1,6 @@
 
 class HelperClass {
-  static bool successfullySubscription = false;
+
 
   static bool isTrainerGloabl = false;
 

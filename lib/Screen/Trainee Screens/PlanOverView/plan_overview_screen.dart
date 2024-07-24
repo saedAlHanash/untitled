@@ -117,7 +117,7 @@
 //             ? null
 //             : controller.isActivated ||
 //                     GetStorage().read('currentPlan') ==
-//                         controller.planOverview.name
+//                         controller.planOverview.id
 //                 ? null
 //                 : CustomButton(
 //                     onTapFunction: controller.subscribeToPlan,

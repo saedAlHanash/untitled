@@ -35,8 +35,9 @@ class PlanCubit extends MCubit<PlanInitial> {
   @override
   String get filter => state.request?.toString() ?? '';
 
-  Future<void> getPlan({bool newData = false, required int planId}) async {
+  Future<void> getPlan({bool newData = false, int? planId}) async {
     emit(state.copyWith(request: planId));
+    state.videoController?.pause();
     final checkData = await checkCashed1(
         state: state, fromJson: Plan.fromJson, newData: newData);
 
@@ -66,76 +67,9 @@ class PlanCubit extends MCubit<PlanInitial> {
     }
   }
 
-  void setVideoController(PodPlayerController videoController) {
+  Future<void> setVideoController(PodPlayerController videoController) async {
+    state.videoController?.dispose();
     emit(state.copyWith(videoController: videoController));
-  }
-
-  subscribeToPlan() async {
-    Utils.openLoadingDialog();
-    var response = await TraineeRepository()
-        .subscribePlan(planId: state.request.toString());
-    if (response.type == ApiResultType.success) {
-      try {
-        final chatUser = await ChatServiceCore.getUser(
-          state.result.trainer.id.toString(),
-          trainer: state.result.trainer,
-        );
-
-        if (chatUser != null) {
-          await FirebaseChatCore.instance.createRoom(chatUser);
-        }
-      } catch (e) {
-        loggerObject.e(e);
-      }
-
-      Utils.closeDialog();
-      GetStorage getStorage = GetStorage();
-      await getStorage.write('currentPlan', state.result.name);
-      Utils.openSnackBar(
-          title: 'successfully_subscribed'.tr,
-          message: 'enjoy_your_fitness_storm'.tr,
-          second: 5);
-      // Get.offAllNamed(AppRoutes.mainHome);
-      Get.context?.read<RefreshHomePlanCubit>().refresh();
-      Get.back();
-      startPlanPage(state.result.id.toString());
-    } else {
-      if (response.statusCode == 451) {
-        Utils.closeDialog();
-        if (AppControl.isAppleAccount) return;
-        state.videoController?.pause();
-        Get.toNamed(AppRoutes.subscriptionScreen)!.then((value) async {
-          if (HelperClass.successfullySubscription) {
-            Utils.openLoadingDialog();
-            var response = await TraineeRepository()
-                .subscribePlan(planId: state.result.id.toString());
-
-            if (response.type == ApiResultType.success) {
-              Utils.closeDialog();
-              GetStorage getStorage = GetStorage();
-              await getStorage.write('currentPlan', state.result.name);
-              Utils.openSnackBar(
-                  title: 'Successfully subscribed!',
-                  message: 'enjoy_your_fitness_storm'.tr,
-                  second: 5);
-              // Get.offAllNamed(AppRoutes.mainHome);
-              Get.context?.read<RefreshHomePlanCubit>().refresh();
-              Get.back();
-              startPlanPage(state.result.id.toString());
-            } else {
-              Utils.closeDialog();
-            }
-          } else {
-            Utils.openSnackBar(
-              title: 'not_successfully_subscription'.tr,
-              message: "not_complete_process_payment".tr,
-            );
-          }
-        });
-      } else {
-        Utils.openSnackBar(title: response.message!);
-      }
-    }
   }
 
   startTraining(PlanWorkout planWorkout, int i) async {
@@ -159,26 +93,7 @@ class PlanCubit extends MCubit<PlanInitial> {
         planWorkout.workoutBreak.toInt(),
         apiResult.statusCode == 402
       ]);
-    } else {
       Utils.closeDialog();
-      if (apiResult.statusCode == 401) {
-        String? prevPlan = GetStorage().read('currentPlan');
-        if (prevPlan != null) {
-          Utils.showAlertDialog(subscribeToPlan,
-              '''${'Your_subscription_to_plan'.tr} $prevPlan''');
-        } else {
-          Utils.showAlertDialog(() {}, apiResult.message!,
-              textContinue: 'okay'.tr);
-        }
-      } else if (apiResult.statusCode == 451) {
-        if (AppControl.isAppleAccount) return;
-
-        Get.toNamed(AppRoutes.subscriptionScreen);
-      } else if (apiResult.statusCode == 402) {
-        //TODO: saed see mahmood form server to fix it
-        Utils.showAlertDialog(() {}, "finished_this_day".tr,
-            textContinue: 'okay'.tr);
-      }
     }
   }
 }

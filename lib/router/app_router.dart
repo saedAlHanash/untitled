@@ -12,6 +12,7 @@ import 'package:get/get.dart';
 
 import '../Screen/video/video.dart';
 import '../Utils/Routes/app_pages.dart';
+import '../core/app/app_widget.dart';
 import '../core/injection/injection_container.dart';
 import '../core/models/booked_appointments.dart';
 import '../core/util/firebase_analytics_service.dart';
@@ -49,6 +50,7 @@ import '../features/bookmarked/ui/pages/bookmarked_page.dart';
 import '../features/fire_chat/chat.dart';
 import '../features/plans/bloc/plan_cubit/plan_cubit.dart';
 import '../features/plans/bloc/plan_workout_cubit/plan_workout_cubit.dart';
+import '../features/plans/bloc/subscribe_plan_cubit/subscribe_plan_cubit.dart';
 import '../features/profile/ui/pages/pdf_viewer_page.dart';
 import '../features/profile/ui/pages/update_profile_page.dart';
 import '../features/trainer/ui/pages/available_time_page.dart';
@@ -446,11 +448,13 @@ void startChatPage(Room room) async {
 
 void startPlanPage(String id) async {
   final providers = [
+    BlocProvider(create: (_) => sl<SubscribePlanCubit>()),
     BlocProvider(
       create: (_) => sl<PlanCubit>()..getPlan(planId: int.parse(id)),
     ),
     BlocProvider(
-      create: (_) => sl<PlanWorkoutsCubit>()..getPlanWorkouts(id: int.parse(id)),
+      create: (_) =>
+          sl<PlanWorkoutsCubit>()..getPlanWorkouts(id: int.parse(id)),
     ),
   ];
 
@@ -459,7 +463,7 @@ void startPlanPage(String id) async {
     child: const PlanPage(),
   );
 
-  Get.to(() => page);
+  Navigator.push(ctx!, MaterialPageRoute(builder: (context) => page));
 }
 
 Future<bool> startRating(Appointment appointment) async {

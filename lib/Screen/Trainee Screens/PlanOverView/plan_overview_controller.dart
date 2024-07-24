@@ -90,7 +90,7 @@
 //
 //       Utils.closeDialog();
 //       GetStorage getStorage = GetStorage();
-//       await getStorage.write('currentPlan', planOverview.name);
+//       await getStorage.write('currentPlan', planOverview.id);
 //       Utils.openSnackBar(
 //           title: 'successfully_subscribed'.tr,
 //           message: 'enjoy_your_fitness_storm'.tr,
@@ -112,7 +112,7 @@
 //             if (response.type == ApiResultType.success) {
 //               Utils.closeDialog();
 //               GetStorage getStorage = GetStorage();
-//               await getStorage.write('currentPlan', planOverview.name);
+//               await getStorage.write('currentPlan', planOverview.id);
 //               Utils.openSnackBar(
 //                   title: 'Successfully subscribed!',
 //                   message: 'enjoy_your_fitness_storm'.tr,

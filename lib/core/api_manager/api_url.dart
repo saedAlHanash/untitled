@@ -97,7 +97,9 @@ class GetUrl {
 
   static const notification = 'notifications';
 
-  static var plan = 'plans';
+  static const plan = 'plans';
+
+
 
   static String planWorkouts(int id ) => 'plans/$id/workouts';
 
@@ -143,11 +145,13 @@ class PostUrl {
 
   static const rate = 'bookedAppointments/rate';
 
-  static var createTemp = '';
+  static const createTemp = '';
 
-  static var temps = '';
+  static const temps = '';
 
-  static var trainers = 'trainers';
+  static const trainers = 'trainers';
+
+  static const subscribePlan = 'subscribeToPlan';
 
   static String addFavorite(int id) => 'plans/$id/addToBookmarkedPlans';
 
@@ -184,13 +188,13 @@ class PutUrl {
   static const updatePhone = 'update-phone';
   static const updateAddress = 'update-address';
 
-  static var updateTemp = '';
+  static const updateTemp = '';
 }
 
 class DeleteUrl {
   static const removeTime = 'availableTimes';
 
-  static var deleteTemp = '';
+  static const deleteTemp = '';
 
   static String removeFavorite(int id) => 'plans/$id/deleteFromBookmarkedPlans';
 

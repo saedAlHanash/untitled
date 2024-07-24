@@ -29,8 +29,7 @@ class HomeScreenController extends GetxController {
     await fillContinueTrainingPlans();
 
     if (continueTrainingPlans.isNotEmpty) {
-      await GetStorage().write(
-          'currentPlan', continueTrainingPlans.value[0].name);
+      await GetStorage().write('currentPlan', continueTrainingPlans.value[0].id);
     }
     Get.back();
     trendingPlans.value = await planRepository.getTrendingPlan({});
@@ -45,7 +44,7 @@ class HomeScreenController extends GetxController {
     await fillContinueTrainingPlans();
     if (continueTrainingPlans.isNotEmpty) {
       await GetStorage().write(
-          'currentPlan', continueTrainingPlans.value[0].name);
+          'currentPlan', continueTrainingPlans.value[0].id);
     }
     Get.back();
     trendingPlans.value = await planRepository.getTrendingPlan({});
