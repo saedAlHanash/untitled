@@ -24,7 +24,7 @@ class TrainerCubit extends Cubit<TrainerInitial> {
       showErrorFromApi(state);
     } else {
       emit(state.copyWith(statuses: CubitStatuses.done, result: pair.first));
-      sl<FirebaseAnalyticService>().trainingProfileView(trainer: pair.first!);
+      sl<AnalyticService>().trainingProfileView(trainer: pair.first!);
     }
   }
 

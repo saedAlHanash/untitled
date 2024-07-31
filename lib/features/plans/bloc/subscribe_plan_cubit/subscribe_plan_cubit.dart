@@ -1,5 +1,6 @@
 import 'package:fitness_storm/core/api_manager/api_url.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
+import 'package:fitness_storm/core/util/firebase_analytics_service.dart';
 import 'package:fitness_storm/core/util/shared_preferences.dart';
 import 'package:fitness_storm/core/util/snack_bar_message.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,6 +11,7 @@ import '../../../../core/api_manager/api_service.dart';
 import '../../../../core/app/app_provider.dart';
 import '../../../../core/app/app_widget.dart';
 import '../../../../core/error/error_manager.dart';
+import '../../../../core/injection/injection_container.dart';
 import '../../../../core/models/plan_model.dart';
 import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/abstraction.dart';
@@ -33,6 +35,7 @@ class SubscribePlanCubit extends Cubit<SubscribePlanInitial> {
       showErrorFromApi(state);
     } else {
 
+      sl<AnalyticService>().subscribePlan(pair.first!);
       await createRoomWithTrainer();
 
       await AppSharedPreference.serCurrentPlanId(planId.toString());

@@ -10,39 +10,7 @@
 //
 // class AppFlyerAnalyticService {
 //
-//   final appsFlyerOptions = AppsFlyerOptions(
-//     afDevKey: 'kdSh9oEtSmmaVtcn3Drtzf',
-//     appId: '6463420120',
-//     showDebug: true,
-//     timeToWaitForATTUserAuthorization: 50,
-//     // for iOS 14.5
-//     disableAdvertisingIdentifier: false,
-//     // Optional field
-//     disableCollectASA: false,
-//     //Optional field
-//     manualStart: true,
-//   ); // Optional field
 //
-//   Future<AppsflyerSdk> initialAppFlyer() async {
-//
-//     final appsflyerSdk = AppsflyerSdk(appsFlyerOptions);
-//
-//     await appsflyerSdk.initSdk(
-//       registerConversionDataCallback: true,
-//       registerOnAppOpenAttributionCallback: true,
-//       registerOnDeepLinkingCallback: true,
-//     );
-//     appsflyerSdk.startSDK(
-//       onSuccess: () {
-//         loggerObject.f("AppsFlyer SDK initialized successfully.");
-//       },
-//       onError: (int errorCode, String errorMessage) {
-//         loggerObject.e(
-//             "Error initializing AppsFlyer SDK: Code $errorCode - $errorMessage");
-//       },
-//     );
-//     return appsflyerSdk;
-//   }
 //
 //   Future<void> initUser({required Profile user}) async {
 //     appsFlyerOptions.setUserId(id: user.id.toString());

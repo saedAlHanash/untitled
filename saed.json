@@ -1,29 +1,34 @@
 {
   "data": [
     {
-      "id": 612,
-      "workout_id": 92,
-      "name": "\u062a\u0645\u0631\u064a\u0646 \u062d\u0631\u0642 \u0627\u0644\u062f\u0647\u0648\u0646",
-      "image": "storage\/app\/public\/workoutImages\/0aWkSSnPXhIEGWwkCpQnSKb0PuGjAYr5vRAwz6wm.jpg",
-      "day_number": 1,
-      "total_minutes": 45,
-      "exercises": [
-        {
-          "id": 443,
-          "name": "\u062c\u0627\u0645\u0628 \u062c\u0627\u0643 ",
-          "set_count": 3,
-          "notes": "null",
-          "second_based": true,
-          "repetitions": [
-            {
-              "count": 45
-            }
-          ]
-        }
-      ],
-      "type": "Loop Exercise",
-      "count": 1,
-      "break": 0
+      "id": "1",
+      "content": "new",
+      "is_open": 0,
+      "file": "storage\/app\/public\/trainerFiles\/kcIMLtetaYisOW6HpgXj07Jzxw55pM3eDwY99BDo.pdf"
+    },
+    {
+      "id": "2",
+      "content": "new one",
+      "is_open": 0,
+      "file": "storage\/app\/public\/trainerFiles\/o9TUDyJVYujzE"
+    },
+    {
+      "id": "3",
+      "content": "test",
+      "is_open": 0,
+      "file": "storage\/app\/public\/trainerFiles\/Fvqb2dFMUHBazmP3DTuTmxwoc8AvKPDZtqexceu0.pdf"
+    },
+    {
+      "id": "4",
+      "content": "saed",
+      "is_open": 0,
+      "file": null
+    },
+    {
+      "id": "5",
+      "content": "dhshshshsaed",
+      "is_open": 0,
+      "file": null
     }
   ]
 }

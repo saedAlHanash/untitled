@@ -38,7 +38,7 @@ class LoginSocialCubit extends Cubit<LoginSocialInitial> {
       showErrorFromApi(state);
     } else {
       emit(state.copyWith(statuses: CubitStatuses.done, result: pair.first));
-      sl<FirebaseAnalyticService>().login(data: pair.first!,loginMethod: 'google');
+      sl<AnalyticService>().login(data: pair.first!,loginMethod: 'google');
     }
   }
 

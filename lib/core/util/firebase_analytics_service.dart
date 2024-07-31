@@ -1,21 +1,59 @@
+import 'package:appsflyer_sdk/appsflyer_sdk.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/core/app/app_provider.dart';
+import 'package:fitness_storm/core/models/plan_model.dart';
 
 import '../../features/appointments/data/request/create_bundle_request.dart';
+import '../../features/appointments/data/response/bundles_response.dart';
 import '../../features/auth/data/request/signup_request.dart';
 import '../../features/auth/data/response/login_response.dart';
+import '../../features/coupon/data/request/pay_request.dart';
 import '../../features/profile/data/response/profile_response.dart';
 import '../../features/trainer/data/response/trainer.dart';
 
-class FirebaseAnalyticService {
+class AnalyticService {
+  final appsflyer = AppsflyerSdk(AppsFlyerOptions(
+    afDevKey: 'kdSh9oEtSmmaVtcn3Drtzf',
+    appId: '6463420120',
+    showDebug: true,
+    timeToWaitForATTUserAuthorization: 50,
+    // for iOS 14.5
+    disableAdvertisingIdentifier: false,
+    // Optional field
+    disableCollectASA: false,
+    //Optional field
+    manualStart: true,
+  ));
+
+  Future<void> initialAppFlyer() async {
+    await appsflyer.initSdk(
+      registerConversionDataCallback: true,
+      registerOnAppOpenAttributionCallback: true,
+      registerOnDeepLinkingCallback: true,
+    );
+
+    appsflyer.startSDK(
+      onSuccess: () {
+        loggerObject.f("AppsFlyer SDK initialized successfully.");
+      },
+      onError: (int errorCode, String errorMessage) {
+        loggerObject.e(
+            "Error initializing AppsFlyer SDK: Code $errorCode - $errorMessage");
+      },
+    );
+  }
+
   final analytics = FirebaseAnalytics.instance;
 
   Future<void> initUser({required Profile user}) async {
     analytics.setUserId(id: user.id.toString());
     initSurvey(survey: user.fitnessSurvey);
+    appsflyer.setCustomerUserId(user.id?.toString() ?? '');
+
     if (user.email!.isNotEmpty) {
       analytics.setUserProperty(name: "email", value: user.email);
+      appsflyer.setUserEmails([user.email!]);
     }
     if (user.mobile!.isNotEmpty) {
       analytics.setUserProperty(name: "phone", value: user.mobile);
@@ -65,6 +103,12 @@ class FirebaseAnalyticService {
   }
 
   Future<void> signup({required SignupRequest request}) async {
+    appsflyer.setAdditionalData({
+      'Sign_Up': {
+        'email': request.phoneOrEmail ?? '',
+        'name': request.name ?? '',
+      }
+    });
     await analytics.logSignUp(
       signUpMethod: 'email_and_password',
       parameters: {
@@ -85,6 +129,15 @@ class FirebaseAnalyticService {
         'user_type': AppProvider.isTrainer ? 'trainer' : 'user',
       },
     );
+
+    appsflyer.setAdditionalData({
+      'Login': {
+        'User_Id': data.id,
+        'Is_First_Time': data.isFirstTime.toString(),
+        'Is_Confirmed': data.isConfirmed.toString(),
+        'User_Type': AppProvider.isTrainer ? 'trainer' : 'user',
+      }
+    });
   }
 
   Future<void> logout() async {
@@ -141,10 +194,30 @@ class FirebaseAnalyticService {
     );
   }
 
+  Future<void> startCheckoutBundle({required Bundle bundle}) async {
+    appsflyer.setCurrencyCode('SAR');
+    appsflyer.setAdditionalData({
+      'Start_Checkout': {
+        'Bundle_Id': bundle.id,
+        'Bundle_Name': bundle.name,
+        'Bundle_Price': bundle.price,
+      }
+    });
+  }
+
+  Future<void> addToWishlist({required String id}) async {
+    appsflyer.setAdditionalData({
+      'Add_To_Wishlist': {'plan_Id': id}
+    });
+  }
+
+  Future<void> startCheckout({required PayRequest request}) async {
+    appsflyer.setCurrencyCode('SAR');
+    appsflyer.setAdditionalData({'Start_Checkout': request.toJson()});
+  }
+
   Future<void> checkoutStart() async {
-    await analytics.logBeginCheckout(
-      currency: 'SAR',
-    );
+    await analytics.logBeginCheckout(currency: 'SAR');
   }
 
   Future<void> receivedNotification({required type}) async {
@@ -154,13 +227,33 @@ class FirebaseAnalyticService {
 
   Future<void> initialApp() async {
     await analytics.logAppOpen();
+    appsflyer.setAdditionalData({'App_Open': {}});
   }
 
   Future<void> screenView({required String name}) async {
     try {
       await analytics.logScreenView(screenName: name);
+      appsflyer.setAdditionalData({'View_Content': name});
     } catch (e) {
       loggerObject.e(e);
     }
+  }
+
+  void subscribePlan(Plan plan) {
+    appsflyer.setAdditionalData({
+      'Subscribe': {
+        'Plan_Id': plan.id,
+        'Plan_Name': plan.name,
+      }
+    });
+  }
+
+  void subscribeApp(Plan plan) {
+    appsflyer.setAdditionalData({
+      'Subscribe': {
+        'Plan_Id': plan.id,
+        'Plan_Name': plan.name,
+      }
+    });
   }
 }

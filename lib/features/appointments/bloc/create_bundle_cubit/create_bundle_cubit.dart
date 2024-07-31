@@ -32,7 +32,7 @@ class CreateBundleCubit extends Cubit<CreateBundleInitial> {
       showErrorFromApi(state);
     } else {
       emit(state.copyWith(statuses: CubitStatuses.done, result: pair.first));
-      sl<FirebaseAnalyticService>().bookSession(request: state.request);
+      sl<AnalyticService>().bookSession(request: state.request);
     }
   }
 

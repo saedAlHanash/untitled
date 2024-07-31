@@ -1,8 +1,10 @@
 import 'package:dio/dio.dart';
+import 'package:fitness_storm/core/util/firebase_analytics_service.dart';
 
 import '../../Model/subscribed_plan.dart';
 import '../../Utils/utils.dart';
 import '../../core/app/app_provider.dart';
+import '../../core/injection/injection_container.dart';
 import '../../core/models/plan_model.dart';
 import '../Api/api_result.dart';
 import '../Api/methods.dart';
@@ -17,6 +19,7 @@ class PlanRepository {
 
   Future<ApiResult> addToBookmark(String id) async {
     Options options = Utils.getOptions(withToken: true, all: true);
+    sl<AnalyticService>().addToWishlist(id: id);
     return await Methods.post(
         url: TRAINEEURLS.addToBookmark(id), options: options);
   }

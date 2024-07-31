@@ -32,7 +32,7 @@ class LoginCubit extends Cubit<LoginInitial> {
     } else {
       saveFCM();
       emit(state.copyWith(statuses: CubitStatuses.done, result: pair.first));
-      sl<FirebaseAnalyticService>()
+      sl<AnalyticService>()
           .login(data: pair.first!, loginMethod: 'email_and_password');
     }
   }

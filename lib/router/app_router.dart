@@ -5,6 +5,7 @@ import 'package:fitness_storm/features/plans/ui/pages/plan_page.dart';
 import 'package:fitness_storm/features/profile/bloc/update_profile_cubit/update_profile_cubit.dart';
 import 'package:fitness_storm/features/trainer/bloc/trainers_cubit/trainers_cubit.dart';
 import 'package:fitness_storm/features/trainer/data/response/trainer.dart';
+import 'package:fitness_storm/features/trainer_files/bloc/create_trainer_file_cubit/create_trainer_file_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart';
@@ -56,6 +57,8 @@ import '../features/profile/ui/pages/pdf_viewer_page.dart';
 import '../features/profile/ui/pages/update_profile_page.dart';
 import '../features/trainer/ui/pages/available_time_page.dart';
 import '../features/trainer/ui/pages/trainers_page.dart';
+import '../features/trainer_files/bloc/delete_trainer_file_cubit/delete_trainer_file_cubit.dart';
+import '../features/trainer_files/ui/pages/trainer_files_page.dart';
 import '../features/welcome_message/bloc/welcome_messages_cubit/welcome_messages_cubit.dart';
 import '../features/welcome_message/ui/pages/welcome_page.dart';
 import '../services/chat_service/chat_service_core.dart';
@@ -221,7 +224,7 @@ void startSignup() {
   );
 
   Get.to(() => page);
-  sl<FirebaseAnalyticService>().screenView(name: 'signup');
+  sl<AnalyticService>().screenView(name: 'signup');
 }
 
 void startLogin() {
@@ -233,7 +236,7 @@ void startLogin() {
     child: const LoginPage(),
   );
   Get.offAll(page);
-  sl<FirebaseAnalyticService>().screenView(name: 'login');
+  sl<AnalyticService>().screenView(name: 'login');
 }
 
 void startForgetPass(BuildContext context) {
@@ -251,7 +254,7 @@ void startForgetPass(BuildContext context) {
   );
 
   Get.to(() => page);
-  sl<FirebaseAnalyticService>().screenView(name: 'forget_password');
+  sl<AnalyticService>().screenView(name: 'forget_password');
 }
 
 void startAppointment() {
@@ -265,7 +268,22 @@ void startAppointment() {
     child: const AppointmentsPage(),
   );
   Get.to(() => page);
-  sl<FirebaseAnalyticService>().screenView(name: 'appointment');
+  sl<AnalyticService>().screenView(name: 'appointment');
+}
+
+void startTrainerFiles() {
+  final providers = [
+    BlocProvider(create: (_) => sl<CreateTrainerFileCubit>()),
+    BlocProvider(create: (_) => sl<DeleteTrainerFileCubit>()),
+  ];
+
+  final Widget page = MultiBlocProvider(
+    providers: providers,
+    child: const TrainerFilesPage(),
+  );
+
+  Get.to(() => page);
+  sl<AnalyticService>().screenView(name: 'trainer_files');
 }
 
 void startRestPass() {
@@ -279,7 +297,7 @@ void startRestPass() {
   );
 
   Get.to(page);
-  sl<FirebaseAnalyticService>().screenView(name: 'rest_password');
+  sl<AnalyticService>().screenView(name: 'rest_password');
   //endregion
 }
 
@@ -294,7 +312,7 @@ void startApply() {
   );
 
   Get.to(() => page);
-  sl<FirebaseAnalyticService>().screenView(name: 'apply_as_trainer');
+  sl<AnalyticService>().screenView(name: 'apply_as_trainer');
   //endregion
 }
 
@@ -309,7 +327,7 @@ void startConfirmCodeAccount(BuildContext context) {
     child: const ConfirmCodePage(),
   );
   Get.offAll(page);
-  sl<FirebaseAnalyticService>().screenView(name: 'confirm_code_account');
+  sl<AnalyticService>().screenView(name: 'confirm_code_account');
 }
 
 void startHome() {
@@ -317,7 +335,7 @@ void startHome() {
 
   Get.offAllNamed(
       AppProvider.isTrainer ? AppRoutes.trainerHomePage : AppRoutes.mainHome);
-  sl<FirebaseAnalyticService>().screenView(name: 'home');
+  sl<AnalyticService>().screenView(name: 'home');
 }
 
 void startUpdateProfile() {
@@ -329,7 +347,7 @@ void startUpdateProfile() {
     child: const TraineeProfileInfoScreen(),
   );
   Get.to(() => page);
-  sl<FirebaseAnalyticService>().screenView(name: 'update_profile');
+  sl<AnalyticService>().screenView(name: 'update_profile');
 }
 
 void startBookPrivetSession(TrainerModel trainer) {
@@ -354,7 +372,7 @@ void startBookPrivetSession(TrainerModel trainer) {
   );
 
   Get.to(() => page);
-  sl<FirebaseAnalyticService>().screenView(name: 'book_privet_session');
+  sl<AnalyticService>().screenView(name: 'book_privet_session');
 }
 
 void startAvailableTimePage() {
@@ -375,11 +393,11 @@ void startAvailableTimePage() {
   );
 
   Get.to(() => page);
-  sl<FirebaseAnalyticService>().screenView(name: 'available_time');
+  sl<AnalyticService>().screenView(name: 'available_time');
 }
 
 void startBookMarked() {
-  sl<FirebaseAnalyticService>().screenView(name: 'bookmarked');
+  sl<AnalyticService>().screenView(name: 'bookmarked');
 
   const Widget page = BookmarkedPage();
 
@@ -425,7 +443,8 @@ void startCreateBundle(Bundle bundle) {
     child: CreateBundlePage(bundle: bundle),
   );
   Get.to(() => page);
-  sl<FirebaseAnalyticService>().screenView(name: 'create_bundle');
+  sl<AnalyticService>().screenView(name: 'create_bundle');
+  sl<AnalyticService>().startCheckoutBundle(bundle: bundle);
 }
 
 void startTrainersPage() {
@@ -438,7 +457,7 @@ void startTrainersPage() {
     child: const TrainersPage(),
   );
   Get.to(() => page);
-  sl<FirebaseAnalyticService>().screenView(name: 'your_trainer');
+  sl<AnalyticService>().screenView(name: 'your_trainer');
 }
 
 void startChatPage(Room room) async {

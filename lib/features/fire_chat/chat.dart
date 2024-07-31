@@ -52,7 +52,7 @@ class _ChatPageState extends State<ChatPage> {
       fcmTokenWeb: (widget.room.otherUser.metadata ?? {})['fcm_web'] ?? '',
     );
 
-    sl<FirebaseAnalyticService>()
+    sl<AnalyticService>()
         .contactTrainerOrUser(name: widget.room.otherUser.name, method: 'chat');
     context.read<MessagesCubit>().getChatRoomMessage(widget.room);
     super.initState();

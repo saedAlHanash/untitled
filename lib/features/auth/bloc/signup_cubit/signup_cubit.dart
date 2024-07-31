@@ -29,7 +29,7 @@ class SignupCubit extends Cubit<SignupInitial> {
       showErrorFromApi(state);
     } else {
       emit(state.copyWith(statuses: CubitStatuses.done, result: pair.first));
-     sl<FirebaseAnalyticService>().signup(request: state.request);
+     sl<AnalyticService>().signup(request: state.request);
     }
   }
 

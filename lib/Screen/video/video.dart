@@ -87,7 +87,7 @@ class _Video1State extends State<Video1> {
         //     '[onTokenPrivilegeWillExpire] connection: ${connection.toJson()}, token: $token');
       },
     );
-    sl<FirebaseAnalyticService>().contactTrainerOrUser(
+    sl<AnalyticService>().contactTrainerOrUser(
         name: widget.appointment.user.name, method: 'video_call');
     super.initState();
   }

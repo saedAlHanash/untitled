@@ -41,7 +41,7 @@ class AppPages {
       GetPage(
         name: AppRoutes.splash,
         page: () {
-          sl<FirebaseAnalyticService>().screenView(name: 'splash');
+          sl<AnalyticService>().screenView(name: 'splash');
           return const Splash();
         },
         binding: SplashBinding(),
@@ -49,7 +49,7 @@ class AppPages {
       GetPage(
           name: AppRoutes.mainHome,
           page: () {
-            sl<FirebaseAnalyticService>().screenView(name: 'main_home');
+            sl<AnalyticService>().screenView(name: 'main_home');
             return MainHomeScreen();
           },
           binding: MainHomeBinding()),
@@ -64,14 +64,14 @@ class AppPages {
       GetPage(
           name: AppRoutes.trendingPlanScreen,
           page: () {
-            sl<FirebaseAnalyticService>().screenView(name: 'trending_plan');
+            sl<AnalyticService>().screenView(name: 'trending_plan');
             return const TrendingPlansScreen();
           },
           binding: TrendingPlanBinding()),
       GetPage(
           name: AppRoutes.featuredPlamScreen,
           page: () {
-            sl<FirebaseAnalyticService>()
+            sl<AnalyticService>()
                 .screenView(name: 'featured_plan_creen');
             return const FeaturedPlanScreen();
           },
@@ -94,7 +94,7 @@ class AppPages {
       GetPage(
           name: AppRoutes.userTraining,
           page: () {
-            sl<FirebaseAnalyticService>().screenView(name: 'user_training');
+            sl<AnalyticService>().screenView(name: 'user_training');
             return const UserTrainingScreen();
           },
           binding: UserTrainingBinding()),
@@ -123,14 +123,14 @@ class AppPages {
       GetPage(
           name: AppRoutes.subscriptionScreen,
           page: () {
-            sl<FirebaseAnalyticService>().screenView(name: 'subscription');
+            sl<AnalyticService>().screenView(name: 'subscription');
             return const SubscriptionScreen();
           },
           binding: SubscriptionBinding()),
       GetPage(
           name: AppRoutes.searchResultSceen,
           page: () {
-            sl<FirebaseAnalyticService>().screenView(name: 'searchResult');
+            sl<AnalyticService>().screenView(name: 'searchResult');
             return const SearchResultScreen();
           },
           binding: SearchResultBinding()),
@@ -146,14 +146,14 @@ class AppPages {
       GetPage(
           name: AppRoutes.myPaymentScreen,
           page: () {
-            sl<FirebaseAnalyticService>().screenView(name: 'my_payment');
+            sl<AnalyticService>().screenView(name: 'my_payment');
             return const MyPaymentScreen();
           },
           binding: MyPaymentBinding()),
       GetPage(
         name: AppRoutes.chatScreen,
         page: () {
-          sl<FirebaseAnalyticService>().screenView(name: 'chat');
+          sl<AnalyticService>().screenView(name: 'chat');
           Get.context?.read<RoomsCubit>().getChatRooms(false);
           return const RoomsScreen();
         },
@@ -161,14 +161,14 @@ class AppPages {
       GetPage(
           name: AppRoutes.trainerHomePage,
           page: () {
-            sl<FirebaseAnalyticService>().screenView(name: 'trainer_home_page');
+            sl<AnalyticService>().screenView(name: 'trainer_home_page');
             return TrainerMainHomeScreen();
           },
           binding: TrainerMainHomeBinding()),
       GetPage(
         name: AppRoutes.trainerProfileOverview,
         page: () {
-          sl<FirebaseAnalyticService>()
+          sl<AnalyticService>()
               .screenView(name: 'trainer_profile_overview');
           return const ProfileTrainerPage();
         },
@@ -176,21 +176,21 @@ class AppPages {
       GetPage(
           name: AppRoutes.trainerPlans,
           page: () {
-            sl<FirebaseAnalyticService>().screenView(name: 'trainer_plans');
+            sl<AnalyticService>().screenView(name: 'trainer_plans');
             return const TrainerPlansScreen();
           },
           binding: TrainerPlansBinding()),
       GetPage(
           name: AppRoutes.trainerWallet,
           page: () {
-            sl<FirebaseAnalyticService>().screenView(name: 'trainer_wallet');
+            sl<AnalyticService>().screenView(name: 'trainer_wallet');
             return const TrainerWalletScreen();
           },
           binding: TrainerWalletBinding()),
       GetPage(
           name: AppRoutes.trainerSearchResultSceen,
           page: () {
-            sl<FirebaseAnalyticService>()
+            sl<AnalyticService>()
                 .screenView(name: 'trainer_search_result');
             return const TrainerSearchResultScreen();
           },
@@ -198,7 +198,7 @@ class AppPages {
       GetPage(
           name: AppRoutes.trainerTrainerOverviewScreen,
           page: () {
-            sl<FirebaseAnalyticService>()
+            sl<AnalyticService>()
                 .screenView(name: 'trainer_trainer_overview');
             return const TrainerTrainerOverviewScreen();
           },

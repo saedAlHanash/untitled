@@ -39,6 +39,9 @@ import '../../features/profile/bloc/profile_cubit/profile_cubit.dart';
 import '../../features/profile/bloc/update_profile_cubit/update_profile_cubit.dart';
 import '../../features/trainer/bloc/trainer_cubit/trainer_cubit.dart';
 import '../../features/trainer/bloc/trainers_cubit/trainers_cubit.dart';
+import '../../features/trainer_files/bloc/create_trainer_file_cubit/create_trainer_file_cubit.dart';
+import '../../features/trainer_files/bloc/delete_trainer_file_cubit/delete_trainer_file_cubit.dart';
+import '../../features/trainer_files/bloc/trainer_files_cubit/trainer_files_cubit.dart';
 import '../../features/wallet/bloc/wallet_cubit/wallet_cubit.dart';
 import '../../features/welcome_message/bloc/welcome_message_cubit/welcome_message_cubit.dart';
 import '../../features/welcome_message/bloc/welcome_messages_cubit/welcome_messages_cubit.dart';
@@ -55,12 +58,11 @@ Future<void> init() async {
   sl.registerLazySingleton(() => InternetConnectionChecker());
 
   sl.registerLazySingleton(() => GlobalKey<NavigatorState>());
-  sl.registerLazySingleton(() => FirebaseAnalyticService());
+  sl.registerLazySingleton(() => AnalyticService());
   sl.registerLazySingleton(() => ChangeVideoCubit());
   sl.registerLazySingleton(() => RoomsCubit());
   sl.registerLazySingleton(() => OpenRoomCubit());
   sl.registerFactory(() => MessagesCubit());
-
 
   //endregion
 
@@ -147,6 +149,11 @@ Future<void> init() async {
   sl.registerFactory(() => WelcomeMessagesCubit());
   //endregion
 
-//! External
+  //region TrainerFiles
+  sl.registerFactory(() => TrainerFilesCubit());
+  sl.registerFactory(() => CreateTrainerFileCubit());
+  sl.registerFactory(() => DeleteTrainerFileCubit());
+  //endregion
 
+//! External
 }

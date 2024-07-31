@@ -221,7 +221,7 @@ extension DateUtcHelper on DateTime {
   String get formatDate => DateFormat('yyyy/MM/dd', 'en').format(this);
 
   String get formatDateAther =>
-      DateFormat('yyyy-MM-dd HH:MM', 'en').format(this);
+      DateFormat('yyyy-MM-dd HH:mm', 'en').format(this);
 
   String get formatTime => DateFormat('hh:mm a', 'en').format(this);
 

@@ -32,6 +32,7 @@ void main() async {
   try {
     await di.init();
 
+
     await SharedPreferences.getInstance().then((value) {
       AppSharedPreference.init(value);
     });
@@ -53,7 +54,9 @@ void main() async {
       DeviceOrientation.portraitDown,
     ]);
 
-    sl<FirebaseAnalyticService>().initialApp();
+    await sl<AnalyticService>().initialAppFlyer();
+
+  await  sl<AnalyticService>().initialApp();
   } catch (e) {
     loggerObject.e(e);
   }

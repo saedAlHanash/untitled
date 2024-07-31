@@ -25,6 +25,7 @@ import '../../features/bookmarked/bloc/bookmarked_cubit/bookmarked_cubit.dart';
 import '../../features/coupon/coupon_cubit/coupon_cubit.dart';
 import '../../features/notifications/bloc/notifications_cubit/notifications_cubit.dart';
 import '../../features/plans/bloc/add_favorite/add_favorite_cubit.dart';
+import '../../features/trainer_files/bloc/trainer_files_cubit/trainer_files_cubit.dart';
 import '../../features/wallet/bloc/wallet_cubit/wallet_cubit.dart';
 import '../../features/welcome_message/bloc/welcome_messages_cubit/welcome_messages_cubit.dart';
 import '../../generated/l10n.dart';
@@ -114,6 +115,9 @@ class _MyAppState extends State<MyApp> {
                 bloc.BlocProvider(create: (_) => sl<SurveyCubit>()),
                 bloc.BlocProvider(create: (_) => sl<BundlesCubit>()),
                 bloc.BlocProvider(
+                  create: (_) => sl<TrainerFilesCubit>()..getTrainerFiles(),
+                ),
+                bloc.BlocProvider(
                     create: (_) =>
                         sl<WelcomeMessagesCubit>()..getWelcomeMessages()),
                 bloc.BlocProvider(
@@ -149,19 +153,19 @@ class _MyAppState extends State<MyApp> {
                 },
                 child: AppProvider.isTestMode
                     ? Stack(
-                  fit: StackFit.expand,
-                  children: [
-                    child!,
-                    IgnorePointer(
-                      child: ImageMultiType(
-                        height: 100.0.h,
-                        width: 100.0.w,
-                        color: Colors.grey,
-                        url: Assets.imagesTestMode,
-                      ),
-                    ),
-                  ],
-                )
+                        fit: StackFit.expand,
+                        children: [
+                          child!,
+                          IgnorePointer(
+                            child: ImageMultiType(
+                              height: 100.0.h,
+                              width: 100.0.w,
+                              color: Colors.grey,
+                              url: Assets.imagesTestMode,
+                            ),
+                          ),
+                        ],
+                      )
                     : child!,
               ),
             );

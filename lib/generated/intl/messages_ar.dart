@@ -182,7 +182,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "days": MessageLookupByLibrary.simpleMessage("أيام"),
         "daysWeek":
             MessageLookupByLibrary.simpleMessage("أيام التدريب في الأسبوع"),
+        "delete": MessageLookupByLibrary.simpleMessage("حذف"),
         "deleteAccount": MessageLookupByLibrary.simpleMessage("حذف الحساب"),
+        "deleteFile": MessageLookupByLibrary.simpleMessage("حذف الملف؟"),
         "deliveryDate": MessageLookupByLibrary.simpleMessage("تاريخ التسليم"),
         "description": MessageLookupByLibrary.simpleMessage("الوصف"),
         "didNotHaveNotifications": MessageLookupByLibrary.simpleMessage(
@@ -191,6 +193,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "لم تبدأ بعد! اختر برنامجك الرياضى الآن وشاهد التغيير في حياتك."),
         "didYouFinishYourTraining": MessageLookupByLibrary.simpleMessage(
             "هل أنهيت تمارينك اليوم؟ اختر نعم ليتم حفظ تقدمك في السجل."),
+        "dismiss": MessageLookupByLibrary.simpleMessage("رفض"),
         "doYouHaveAnyQuestionInYourMind":
             MessageLookupByLibrary.simpleMessage("هل لديك أي أسئلة؟"),
         "done": MessageLookupByLibrary.simpleMessage("نعم"),
@@ -259,6 +262,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "faq": MessageLookupByLibrary.simpleMessage("الأسئلة الشائعة"),
         "fav": MessageLookupByLibrary.simpleMessage("المفضلة"),
         "female": MessageLookupByLibrary.simpleMessage("أنثى"),
+        "files": MessageLookupByLibrary.simpleMessage("الملفات"),
         "filter": MessageLookupByLibrary.simpleMessage("فلاتر البحث"),
         "filters": MessageLookupByLibrary.simpleMessage("الفلاتر"),
         "finish": MessageLookupByLibrary.simpleMessage("تم"),
@@ -485,6 +489,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("يرجى تعيين عنوانك"),
         "pleaseEnterOTPCode":
             MessageLookupByLibrary.simpleMessage("الرجاء إدخال رمز OTP"),
+        "pleaseFillInformation": MessageLookupByLibrary.simpleMessage(
+            "يرجى ملئ المعلومات للإرسال والتأكد أن الملف من نوع بي دي إف"),
         "plsEnterEmail": MessageLookupByLibrary.simpleMessage(
             "يرجى إدخال البريد الإلكتروني لاستقبال رمز التفعيل"),
         "policy": MessageLookupByLibrary.simpleMessage(
@@ -576,6 +582,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "selectFromMap": MessageLookupByLibrary.simpleMessage("من الخريطة"),
         "selectGovernor": MessageLookupByLibrary.simpleMessage("اختر المحافظة"),
         "send": MessageLookupByLibrary.simpleMessage("أرسال"),
+        "sendNewFile": MessageLookupByLibrary.simpleMessage("إرسال ملف ؟"),
         "sendTimeoutinConnectionWithAPIserver":
             MessageLookupByLibrary.simpleMessage("انتهى وقتت الاتصال"),
         "sent6Digit": MessageLookupByLibrary.simpleMessage(

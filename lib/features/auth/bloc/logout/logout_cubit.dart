@@ -18,7 +18,7 @@ class LogoutCubit extends Cubit<LogoutInitial> {
   Future<void> logout() async {
     emit(state.copyWith(statuses: CubitStatuses.loading));
 
-    sl<FirebaseAnalyticService>().logout();
+    sl<AnalyticService>().logout();
 
     final pair = await _logoutApi();
 

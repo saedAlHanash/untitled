@@ -187,7 +187,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "day4": MessageLookupByLibrary.simpleMessage("Day 4 "),
         "days": MessageLookupByLibrary.simpleMessage("Days"),
         "daysWeek": MessageLookupByLibrary.simpleMessage("Days/Week"),
+        "delete": MessageLookupByLibrary.simpleMessage("Delete"),
         "deleteAccount": MessageLookupByLibrary.simpleMessage("Delete Account"),
+        "deleteFile": MessageLookupByLibrary.simpleMessage("Delete File?"),
         "deliveryDate": MessageLookupByLibrary.simpleMessage("Delivery Date"),
         "description": MessageLookupByLibrary.simpleMessage("Description"),
         "didNotHaveNotifications": MessageLookupByLibrary.simpleMessage(
@@ -196,6 +198,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "You didn\"t Start your Fitness Storm Yet! Choose a plan and watch the change in your life."),
         "didYouFinishYourTraining": MessageLookupByLibrary.simpleMessage(
             "Did you finish your training? press Done to save your progress to your records."),
+        "dismiss": MessageLookupByLibrary.simpleMessage("Dismiss"),
         "doYouHaveAnyQuestionInYourMind": MessageLookupByLibrary.simpleMessage(
             "Do you have any question in your mind?"),
         "done": MessageLookupByLibrary.simpleMessage("Done"),
@@ -263,6 +266,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "faq": MessageLookupByLibrary.simpleMessage("F.A.Q"),
         "fav": MessageLookupByLibrary.simpleMessage("Favorites"),
         "female": MessageLookupByLibrary.simpleMessage("Female"),
+        "files": MessageLookupByLibrary.simpleMessage("Files"),
         "filter": MessageLookupByLibrary.simpleMessage("Filter"),
         "filters": MessageLookupByLibrary.simpleMessage("Filters"),
         "finish": MessageLookupByLibrary.simpleMessage("FINISH"),
@@ -485,6 +489,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Pleas Set Your Address"),
         "pleaseEnterOTPCode":
             MessageLookupByLibrary.simpleMessage("Please Enter OTP Code"),
+        "pleaseFillInformation": MessageLookupByLibrary.simpleMessage(
+            "Please fill in the information to submit and make sure the file is in PDF format."),
         "plsEnterEmail": MessageLookupByLibrary.simpleMessage(
             "Please Enter Your Email To Receive Activation Code"),
         "policy": MessageLookupByLibrary.simpleMessage(
@@ -578,6 +584,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "selectGovernor":
             MessageLookupByLibrary.simpleMessage("Select Governor"),
         "send": MessageLookupByLibrary.simpleMessage("send"),
+        "sendNewFile": MessageLookupByLibrary.simpleMessage("Send new file?"),
         "sendTimeoutinConnectionWithAPIserver":
             MessageLookupByLibrary.simpleMessage(
                 "Send timeout in connection with API server"),

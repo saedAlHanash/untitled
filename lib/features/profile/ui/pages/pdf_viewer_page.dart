@@ -11,13 +11,12 @@ class PdfViewerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBarWidget(
         titleText: title,
       ),
       body: const PDF(
-        swipeHorizontal: true,
+        swipeHorizontal: false,
       ).cachedFromUrl(url),
     );
   }

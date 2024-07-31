@@ -230,6 +230,7 @@ class NoteMessage {
       builder: (BuildContext context) {
         return Dialog(
           surfaceTintColor: Colors.white,
+          backgroundColor: Colors.white,
           alignment: Alignment.center,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(

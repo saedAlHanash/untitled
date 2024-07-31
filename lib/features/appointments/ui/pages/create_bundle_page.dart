@@ -46,7 +46,7 @@ class _CreateBundlePageState extends State<CreateBundlePage> {
 
         Get.back();
         Get.back();
-        sl<FirebaseAnalyticService>().checkoutStart();
+        sl<AnalyticService>().checkoutStart();
         Navigator.push(
           context,
           MaterialPageRoute(

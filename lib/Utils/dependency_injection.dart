@@ -129,7 +129,7 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   }
   if (title.isEmpty && body.isEmpty) return;
 
-  sl<FirebaseAnalyticService>().receivedNotification(type: 'notification');
+  sl<AnalyticService>().receivedNotification(type: 'notification');
 
   Note.showBigTextNotification(title: title, body: body);
 }
@@ -168,7 +168,7 @@ Future<void> initFirebaseMessaging() async {
     }
 
     if (title.isEmpty && body.isEmpty) return;
-    sl<FirebaseAnalyticService>().receivedNotification(type: 'notification');
+    sl<AnalyticService>().receivedNotification(type: 'notification');
     Note.showBigTextNotification(title: title, body: body);
     ctx?.read<NotificationsCubit>().getNotifications();
   });

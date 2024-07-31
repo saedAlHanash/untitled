@@ -30,7 +30,7 @@ class ProfileCubit extends Cubit<ProfileInitial> {
     } else {
       await AppProvider.cashProfile(pair.first!);
       emit(state.copyWith(statuses: CubitStatuses.done, result: pair.first));
-      sl<FirebaseAnalyticService>().initUser(user: pair.first!);
+      sl<AnalyticService>().initUser(user: pair.first!);
     }
   }
 

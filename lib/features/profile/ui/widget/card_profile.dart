@@ -71,6 +71,13 @@ class _ProfileCardState extends State<ProfileCard> {
           startAppointment();
         };
 
+      case ProfileCardType.files:
+        image = Assets.imagesFiles;
+        name = S().files;
+        onTap = () {
+          startTrainerFiles();
+        };
+
         break;
       // case ProfileCardType.welcome:
       //   image = Assets.imagesWelcomeMessage;

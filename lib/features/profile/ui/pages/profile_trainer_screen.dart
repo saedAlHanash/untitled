@@ -30,7 +30,6 @@ class ProfileTrainerScreen extends StatefulWidget {
 class _ProfileTrainerScreenState extends State<ProfileTrainerScreen> {
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: const AppBarWidget(zeroHeight: true),
       body: BlocBuilder<ProfileCubit, ProfileInitial>(
@@ -40,10 +39,13 @@ class _ProfileTrainerScreenState extends State<ProfileTrainerScreen> {
           }
 
           return RefreshIndicator(
-            onRefresh: () async => context.read<ProfileCubit>().getProfile(newData: true),
+            onRefresh: () async =>
+                context.read<ProfileCubit>().getProfile(newData: true),
             child: SingleChildScrollView(
               physics: const AlwaysScrollableScrollPhysics(),
-              padding: const EdgeInsets.only(left: 30.0, right: 30.0, bottom: 30.0).r,
+              padding:
+                  const EdgeInsets.only(left: 30.0, right: 30.0, bottom: 30.0)
+                      .r,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -71,7 +73,8 @@ class _ProfileTrainerScreenState extends State<ProfileTrainerScreen> {
                       size: 15.0.sp,
                       color: Colors.white,
                       drawablePadding: 10.0.w,
-                      drawableStart: const ImageMultiType(url: Assets.imagesSubscription),
+                      drawableStart:
+                          const ImageMultiType(url: Assets.imagesSubscription),
                     ),
                   ),
                   20.0.verticalSpace,
@@ -88,7 +91,8 @@ class _ProfileTrainerScreenState extends State<ProfileTrainerScreen> {
                           text: S.of(context).logout,
                           color: Colors.grey,
                           drawablePadding: 10.0.w,
-                          drawableEnd: const ImageMultiType(url: Assets.imagesLogout),
+                          drawableEnd:
+                              const ImageMultiType(url: Assets.imagesLogout),
                         ),
                       );
                     },
@@ -117,6 +121,8 @@ class _ProfileCards extends StatelessWidget {
             const Expanded(child: ProfileCard(type: ProfileCardType.lang)),
           ],
         ),
+        15.0.verticalSpace,
+        const ProfileCard(type: ProfileCardType.files)
       ],
     );
   }

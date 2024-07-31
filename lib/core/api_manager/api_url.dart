@@ -153,6 +153,10 @@ class PostUrl {
 
   static const subscribePlan = 'subscribeToPlan';
 
+  static var createTrainerFile = 'files';
+
+  static var trainerFiles = 'files';
+
   static String addFavorite(int id) => 'plans/$id/addToBookmarkedPlans';
 
   static const restPass = 'reset-password';
@@ -189,12 +193,16 @@ class PutUrl {
   static const updateAddress = 'update-address';
 
   static const updateTemp = '';
+
+  static var updateTrainerFile = '';
 }
 
 class DeleteUrl {
   static const removeTime = 'availableTimes';
 
   static const deleteTemp = '';
+
+  static var deleteTrainerFile = 'files';
 
   static String removeFavorite(int id) => 'plans/$id/deleteFromBookmarkedPlans';
 

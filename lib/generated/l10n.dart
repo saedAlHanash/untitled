@@ -5479,6 +5479,66 @@ class S {
       args: [],
     );
   }
+
+  /// `Files`
+  String get files {
+    return Intl.message(
+      'Files',
+      name: 'files',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please fill in the information to submit and make sure the file is in PDF format.`
+  String get pleaseFillInformation {
+    return Intl.message(
+      'Please fill in the information to submit and make sure the file is in PDF format.',
+      name: 'pleaseFillInformation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send new file?`
+  String get sendNewFile {
+    return Intl.message(
+      'Send new file?',
+      name: 'sendNewFile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dismiss`
+  String get dismiss {
+    return Intl.message(
+      'Dismiss',
+      name: 'dismiss',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete File?`
+  String get deleteFile {
+    return Intl.message(
+      'Delete File?',
+      name: 'deleteFile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete`
+  String get delete {
+    return Intl.message(
+      'Delete',
+      name: 'delete',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

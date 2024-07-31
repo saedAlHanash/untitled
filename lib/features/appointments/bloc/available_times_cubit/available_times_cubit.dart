@@ -42,7 +42,7 @@ class AvailableTimesCubit extends Cubit<AvailableTimesInitial> {
           events: _getMapEvent(pair.first!),
         ),
       );
-      sl<FirebaseAnalyticService>().trainingSessionView(
+      sl<AnalyticService>().trainingSessionView(
         trainer: state.trainer,
         numberOfAvailable: state.result.length,
       );
