@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 
@@ -393,6 +394,16 @@ extension NeedUpdateEnumH on NeedUpdateEnum {
         return CubitStatuses.loading;
       case NeedUpdateEnum.noLoading:
         return CubitStatuses.done;
+    }
+  }
+}
+
+extension ReadOrNull on BuildContext? {
+  T? readOrNull<T>() {
+    try {
+      return this!.read<T>();
+    } on ProviderNotFoundException catch (_) {
+      return null;
     }
   }
 }

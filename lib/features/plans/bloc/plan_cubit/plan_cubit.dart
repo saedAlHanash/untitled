@@ -32,7 +32,7 @@ class PlanCubit extends MCubit<PlanInitial> {
 
   Future<void> getPlan({bool newData = false, int? planId}) async {
     emit(state.copyWith(request: planId));
-    state.videoController?.pause();
+    pausePlayer();
     final checkData = await checkCashed1(
         state: state, fromJson: Plan.fromJson, newData: newData);
 
@@ -74,9 +74,10 @@ class PlanCubit extends MCubit<PlanInitial> {
 
     if ((AppProvider.isTrainer) ||
         apiResult.type == ApiResultType.success ||
-        apiResult.statusCode == 402) {
+        apiResult.statusCode == 402 ||
+        apiResult.statusCode == 451) {
       Get.back();
-      state.videoController?.pause();
+      pausePlayer();
       Get.toNamed(AppRoutes.userTraining, arguments: [
         i + 1,
         planWorkout.name,
@@ -88,11 +89,24 @@ class PlanCubit extends MCubit<PlanInitial> {
         planWorkout.workoutBreak.toInt(),
         apiResult.statusCode == 402
       ]);
-      Future.delayed(
-        const Duration(seconds: 1),
-        () => ctx?.read<ChangeVideoCubit>().changeVideo(),
-      );
+      // Future.delayed(
+      //   const Duration(seconds: 1),
+      //   () => ctx?.readOrNull<ChangeVideoCubit>()?.changeVideo(),
+      // );
       Utils.closeDialog();
     }
+  }
+
+  void pausePlayer() {
+    if (state.videoController == null) {
+      Future.delayed(
+        const Duration(seconds: 3),
+        pausePlayer,
+      );
+      return;
+    }
+    state.videoController
+      ?..pause()
+      ..setAutoPlay = false;
   }
 }

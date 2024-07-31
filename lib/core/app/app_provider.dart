@@ -98,7 +98,8 @@ class AppProvider {
       textButton: S.of(ctx!).login,
       image: Assets.imagesLogo,
       color: AppColorManager.mainColor,
-      onConfirm: () {
+      onConfirm: (b) {
+        if(!b)return;
         AppSharedPreference.logout();
         startLogin();
       },

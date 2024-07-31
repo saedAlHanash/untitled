@@ -108,6 +108,8 @@ class PodPlayerController {
 
   VideoPlayerValue? get videoPlayerValue => _ctr.videoCtr?.value;
 
+   set setAutoPlay(bool b) => _ctr.autoPlay = b;
+
   PodVideoPlayerType get videoPlayerType => _ctr.videoPlayerType;
 
   // Future<void> initialize() async => _ctr.videoCtr?.initialize;

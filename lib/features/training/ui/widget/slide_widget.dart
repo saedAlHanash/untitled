@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class SlidWidget extends GetWidget<UserTrainingController> {
-  final int setNumber;
-  final int repetationNumber;
+  final num setNumber;
+  final num repetationNumber;
 
   const SlidWidget({
     required this.setNumber,

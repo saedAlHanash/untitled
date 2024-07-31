@@ -64,7 +64,8 @@ class _AvailableTimePageState extends State<AvailableTimePage> {
                   okText: S.of(context).done,
                   value: Time(hour: request.hour, minute: request.minute),
                   onChange: (p0) {
-                    final request = pick.copyWith(hour: p0.hour, minute: p0.minute);
+                    final request =
+                        pick.copyWith(hour: p0.hour, minute: p0.minute);
                     context.read<AddTimeCubit>().addTime(request: request);
                   },
                 ),
@@ -178,7 +179,8 @@ class _ItemAvailableTimeState extends State<_ItemAvailableTime> {
                     //             height: 60.0.r,
                     //             width: 60.0.r,
                     //           ),
-                    //           onConfirm: () {
+                    //           onConfirm: (b) {
+                    //              if(!b)return;
                     //             context.read<RemoveTimeCubit>().removeTime(id: e.id);
                     //           },
                     //         );

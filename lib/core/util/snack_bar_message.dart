@@ -271,12 +271,15 @@ class NoteMessage {
     ).show();
   }
 
-  static Future<void> showCheckDialog(BuildContext context,
-      {required String text,
-      required String textButton,
-      required dynamic image,
-      Function()? onConfirm,
-      Color? color}) async {
+  static Future<void> showCheckDialog(
+    BuildContext context, {
+    required String text,
+    required String textButton,
+    required dynamic image,
+    Function(bool b)? onConfirm,
+    String? textCancelButton,
+    Color? color,
+  }) async {
     // show the dialog
     final result = await showDialog(
       context: context,
@@ -360,7 +363,7 @@ class NoteMessage {
                                 const EdgeInsets.symmetric(vertical: 23.0).r,
                             color: Colors.grey,
                             fontWeight: FontWeight.bold,
-                            text: S.of(context).cancel,
+                            text: textCancelButton ?? S.of(context).cancel,
                             matchParent: true,
                           ),
                         ),
@@ -375,8 +378,7 @@ class NoteMessage {
       },
     );
 
-    if (result == true) {
-      onConfirm?.call();
-    }
+      onConfirm?.call(result);
+
   }
 }

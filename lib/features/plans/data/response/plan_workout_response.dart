@@ -1,6 +1,8 @@
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:flutter/cupertino.dart';
 
+import '../../../training/data/response/exercises_response.dart';
+
 class PlanWorkouts {
   PlanWorkouts({
     required this.data,
@@ -46,7 +48,10 @@ class PlanWorkout {
   final String type;
   final num count;
   final num workoutBreak;
-   GlobalKey key = GlobalKey();
+
+  //--------------------
+
+  GlobalKey key = GlobalKey();
 
   factory PlanWorkout.fromJson(Map<String, dynamic> json) {
     return PlanWorkout(
@@ -77,64 +82,5 @@ class PlanWorkout {
         "type": type,
         "count": count,
         "break": workoutBreak,
-      };
-}
-
-class Exercise {
-  Exercise({
-    required this.id,
-    required this.name,
-    required this.setCount,
-    required this.notes,
-    required this.secondBased,
-    required this.repetitions,
-  });
-
-  final int id;
-  final String name;
-  final num setCount;
-  final String notes;
-  final bool secondBased;
-  final List<Repetition> repetitions;
-
-  factory Exercise.fromJson(Map<String, dynamic> json) {
-    return Exercise(
-      id: json["id"].toString().tryParseOrZeroInt,
-      name: json["name"] ?? "",
-      setCount: json["set_count"] ?? 0,
-      notes: json["notes"] ?? "",
-      secondBased: json["second_based"] ?? false,
-      repetitions: json["repetitions"] == null
-          ? []
-          : List<Repetition>.from(
-              json["repetitions"]!.map((x) => Repetition.fromJson(x))),
-    );
-  }
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": name,
-        "set_count": setCount,
-        "notes": notes,
-        "second_based": secondBased,
-        "repetitions": repetitions.map((x) => x.toJson()).toList(),
-      };
-}
-
-class Repetition {
-  Repetition({
-    required this.count,
-  });
-
-  final num count;
-
-  factory Repetition.fromJson(Map<String, dynamic> json) {
-    return Repetition(
-      count: json["count"] ?? 0,
-    );
-  }
-
-  Map<String, dynamic> toJson() => {
-        "count": count,
       };
 }

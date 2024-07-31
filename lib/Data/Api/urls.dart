@@ -18,7 +18,6 @@ abstract class TRAINEEURLS {
   static String getPlanById = '$userBaseUrl/plans/';
   static String getYourTrainer = '$userBaseUrl/trainers';
   static String getTrainerById = '$userBaseUrl/trainers/';
-  static String subscribeToPlan = '$userBaseUrl/subscribeToPlan';
   static String completeDay = '$userBaseUrl/completeDay';
 
   static String filter = '$userBaseUrl/plans';

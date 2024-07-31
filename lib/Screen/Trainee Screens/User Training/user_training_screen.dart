@@ -1,5 +1,5 @@
-import 'package:fitness_storm/Screen/Trainee%20Screens/User%20Training/Widget/current_exercise_widget.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/User%20Training/Widget/exercises_listview.dart';
+import 'package:fitness_storm/features/training/ui/widget/current_exercise_widget.dart';
+import 'package:fitness_storm/features/training/ui/widget/exercises_listview.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/User%20Training/Widget/rest_widget.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/User%20Training/user_training_controller.dart';
 import 'package:fitness_storm/Widgets/vimeo_player.dart';
@@ -14,7 +14,7 @@ import 'package:get/get.dart';
 
 import '../../../core/app/app_provider.dart';
 import '../../../generated/l10n.dart';
-import 'Widget/slide_widget.dart';
+import '../../../features/training/ui/widget/slide_widget.dart';
 import 'change_video_cubit/change_video_cubit.dart';
 
 class UserTrainingScreen extends GetView<UserTrainingController> {

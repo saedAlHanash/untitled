@@ -12,6 +12,7 @@ class _PodBaseController extends GetxController {
   FocusNode? keyboardFocusWeb;
 
   bool autoPlay = true;
+
   bool _isWebAutoPlayDone = false;
 
   ///

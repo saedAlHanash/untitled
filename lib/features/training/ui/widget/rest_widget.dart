@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
 class RestWidget extends GetWidget<UserTrainingController> {
-  final int seconds;
+  final num seconds;
   final bool isBreak;
 
   const RestWidget({required this.seconds, required this.isBreak, super.key});

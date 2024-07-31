@@ -83,7 +83,8 @@ class TrainerFilesPage extends StatelessWidget {
                                   textButton: S.of(context).delete,
                                   image: Icons.delete,
                                   color: Colors.red,
-                                  onConfirm: () {
+                                  onConfirm: (b) {
+        if(!b)return;
                                     context
                                         .read<DeleteTrainerFileCubit>()
                                         .deleteTrainerFile(

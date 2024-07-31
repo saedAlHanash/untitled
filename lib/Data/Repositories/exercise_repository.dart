@@ -7,12 +7,13 @@ import 'package:fitness_storm/Data/Api/urls.dart';
 import '../../Model/exercise.dart';
 import '../../Utils/utils.dart';
 import '../../core/app/app_provider.dart';
+import '../../features/training/data/response/exercises_response.dart';
 import '../Api/api_result.dart';
 
 class ExerciseRepository {
-  Future<List<Exercises>> getExercise(String id) async {
+  Future<List<Exercise>> getExercise(String id) async {
     Options option = Utils.getOptions(withToken: true, all: true);
-    List<Exercises> exercise = [];
+    List<Exercise> exercise = [];
     String url = '';
     if (( AppProvider.isTrainer)) {
       url = '${TRAINERURLS.getExerciesByWorkoutId}$id/exercises';
@@ -22,7 +23,7 @@ class ExerciseRepository {
     ApiResult response = await Methods.get(url: url, options: option);
    //log(response.data.toString());
     response.data.forEach((element) {
-      exercise.add(Exercises.fromJson(element));
+      exercise.add(Exercise.fromJson(element));
     });
     return exercise;
   }

@@ -105,6 +105,8 @@ class GetUrl {
 
   static String plans(int id) => 'trainers/$id/plans';
 
+  static String exercises(int id) => 'workouts/$id/exercises';
+
   static String availableTimes(int id) => 'trainers/$id/availableTimes';
 }
 
@@ -156,6 +158,8 @@ class PostUrl {
   static var createTrainerFile = 'files';
 
   static var trainerFiles = 'files';
+
+  static var completeDay = 'completeDay';
 
   static String addFavorite(int id) => 'plans/$id/addToBookmarkedPlans';
 

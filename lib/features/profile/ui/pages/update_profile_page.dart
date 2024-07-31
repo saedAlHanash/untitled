@@ -232,7 +232,8 @@ class _TraineeProfileInfoScreenState extends State<TraineeProfileInfoScreen> {
                             text: S.of(context).areYouSure,
                             image: Icons.delete_forever,
                             textButton: S.of(context).deleteAccount,
-                            onConfirm: () {
+                            onConfirm: (b) {
+        if(!b)return;
                               context.read<DeleteAccountCubit>().deleteAccount(context);
                             },
                           );

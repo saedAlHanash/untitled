@@ -183,7 +183,7 @@ class _VimeoPlayerPodState extends State<VimeoPlayerPod> {
     //   },
     // );
     controller = PodPlayerController(
-      podPlayerConfig: const PodPlayerConfig(
+      podPlayerConfig:  PodPlayerConfig(
         wakelockEnabled: true,
         autoPlay: true,
         isLooping: true,

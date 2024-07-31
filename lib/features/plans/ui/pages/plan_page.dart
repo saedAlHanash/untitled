@@ -112,19 +112,10 @@ class _PlanPageState extends State<PlanPage> {
                             return GestureDetector(
                               onTap: () {
                                 if (AppSharedPreference.getCurrentPlanId !=
-                                    cubit.state.result.id.toString()) return;
-
-                                cubit.state.videoController?.pause();
-                                if (cubit.state.videoController
-                                        ?.isVideoPlaying ==
-                                    false) {
-
-                                  Future.delayed(
-                                    const Duration(seconds: 3),
-                                    () => cubit.state.videoController?.pause(),
-                                  );
-
+                                    cubit.state.result.id.toString()) {
+                                  return;
                                 }
+                                cubit.pausePlayer();
 
                                 item.name.toLowerCase() !=
                                         'Rest day'.toLowerCase()

@@ -4,6 +4,10 @@ import 'package:fitness_storm/Data/Api/api_result.dart';
 import 'package:fitness_storm/Data/Repositories/exercise_repository.dart';
 import 'package:fitness_storm/Model/exercise.dart';
 import 'package:fitness_storm/Utils/utils.dart';
+import 'package:fitness_storm/features/training/data/response/exercises_response.dart';
+import 'package:fitness_storm/features/training/data/response/exercises_response.dart';
+import 'package:fitness_storm/features/training/data/response/exercises_response.dart';
+import 'package:fitness_storm/features/training/data/response/exercises_response.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
@@ -27,11 +31,11 @@ class UserTrainingController extends GetxController {
   bool get isZumba => type.toLowerCase() == 'zumba';
 
   final RxList<bool> _completedExercises = <bool>[].obs;
-  final Rx<Exercises> _currentExercise = Exercises().obs;
+  final Rx<Exercise> _currentExercise = Exercises().obs;
   final RxInt _currentIndex = 0.obs;
   final RxInt _currentSet = 1.obs;
   final ExerciseRepository _exerciseRepository = ExerciseRepository();
-  final RxList<Exercises> _exercises = <Exercises>[].obs;
+  final RxList<Exercise> _exercises = <Exercise>[].obs;
   final RxBool _isBreak = false.obs;
   final RxBool _isLoading = false.obs;
 
@@ -71,13 +75,11 @@ class UserTrainingController extends GetxController {
     super.onInit();
   }
 
-  List<Exercises> get exercises => _exercises;
+  List<Exercise> get exercises => _exercises;
 
   // PodPlayerController get videoController => _videoController.value;
 
   bool get isLoading => _isLoading.value;
-
-
 
   int get currentIndex => _currentIndex.value;
 

@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 class TrainingExerciseWidget extends StatelessWidget {
   final String title;
   final int sets;
-  final List<Repetitions> reps;
+  final List<Repetition> reps;
   final bool isSecondsBased;
   final bool isFinished;
   final bool isPlaying;
@@ -53,7 +53,7 @@ class TrainingExerciseWidget extends StatelessWidget {
   }
 
   String getRepsString(
-    List<Repetitions> reps,
+    List<Repetition> reps,
     bool isSecondsBased,
   ) {
     String repsText = '';

@@ -1,16 +1,17 @@
 import 'package:fitness_storm/Model/repetition.dart';
+import 'package:fitness_storm/features/training/data/response/exercises_response.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CurrentExerciseWidget extends StatelessWidget {
   final Color color;
   final String title;
-  final int set;
-  final List<Repetitions> reps;
+  final num set;
+  final List<Repetition> reps;
   final bool isSecondsBased;
   final String notes;
 
-  const CurrentExerciseWidget(
+  const   CurrentExerciseWidget(
       {super.key,
       required this.color,
       required this.title,
