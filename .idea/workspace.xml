@@ -9,66 +9,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="43c414a0-a0aa-41d9-b6a1-9df3dcc6d755" name="Changes" comment="fix plan page">
-      <change afterPath="$PROJECT_DIR$/asset/Images/create_file.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/asset/Images/files.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/asset/Images/pdf.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/asset/Images/pdf_uploadsvg.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/trainer_files/bloc/create_trainer_file_cubit/create_trainer_file_cubit.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/trainer_files/bloc/create_trainer_file_cubit/create_trainer_file_state.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/trainer_files/bloc/delete_trainer_file_cubit/delete_trainer_file_cubit.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/trainer_files/bloc/delete_trainer_file_cubit/delete_trainer_file_state.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/trainer_files/bloc/trainer_files_cubit/trainer_files_cubit.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/trainer_files/bloc/trainer_files_cubit/trainer_files_state.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/trainer_files/data/request/create_trainer_file_request.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/trainer_files/data/response/trainer_file_response.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/trainer_files/ui/pages/trainer_files_page.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/trainer_files/ui/widget/create_dialog.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Data/Repositories/plan_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Data/Repositories/plan_repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Subscription/subscription_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/Trainee Screens/Subscription/subscription_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screen/video/video.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screen/video/video.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Utils/Routes/app_pages.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Utils/Routes/app_pages.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Utils/dependency_injection.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Utils/dependency_injection.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/api_manager/api_url.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/api_manager/api_url.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/app/app_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/app/app_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/extensions/extensions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/extensions/extensions.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/injection/injection_container.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/injection/injection_container.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/strings/enum_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/strings/enum_manager.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/util/app_flyers.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/util/app_flyers.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/util/firebase_analytics_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/util/firebase_analytics_service.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/util/snack_bar_message.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/util/snack_bar_message.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/appointments/bloc/available_times_cubit/available_times_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/appointments/bloc/available_times_cubit/available_times_cubit.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/appointments/bloc/create_bundle_cubit/create_bundle_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/appointments/bloc/create_bundle_cubit/create_bundle_cubit.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/appointments/ui/pages/create_bundle_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/appointments/ui/pages/create_bundle_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/auth/bloc/login_cubit/login_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/bloc/login_cubit/login_cubit.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/auth/bloc/login_social_cubit/login_social_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/bloc/login_social_cubit/login_social_cubit.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/auth/bloc/logout/logout_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/bloc/logout/logout_cubit.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/auth/bloc/signup_cubit/signup_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/bloc/signup_cubit/signup_cubit.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/fire_chat/chat.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/fire_chat/chat.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/plans/bloc/subscribe_plan_cubit/subscribe_plan_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/plans/bloc/subscribe_plan_cubit/subscribe_plan_cubit.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/profile/bloc/profile_cubit/profile_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/profile/bloc/profile_cubit/profile_cubit.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/profile/ui/pages/pdf_viewer_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/profile/ui/pages/pdf_viewer_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/profile/ui/pages/profile_trainer_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/profile/ui/pages/profile_trainer_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/profile/ui/pages/profile_trainer_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/profile/ui/pages/profile_trainer_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/profile/ui/widget/card_profile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/profile/ui/widget/card_profile.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/trainer/bloc/trainer_cubit/trainer_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/trainer/bloc/trainer_cubit/trainer_cubit.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/generated/assets.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/assets.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/generated/intl/messages_ar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/intl/messages_ar.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/generated/intl/messages_en.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/intl/messages_en.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/generated/l10n.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/l10n.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/l10n/intl_ar.arb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/l10n/intl_ar.arb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/l10n/intl_en.arb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/l10n/intl_en.arb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/router/app_router.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/router/app_router.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/saed.json" beforeDir="false" afterPath="$PROJECT_DIR$/saed.json" afterDir="false" />
-    </list>
+    <list default="true" id="43c414a0-a0aa-41d9-b6a1-9df3dcc6d755" name="Changes" comment="fix plan page" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -86,6 +27,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -155,30 +101,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713374825994</updated>
-    </task>
-    <task id="LOCAL-00013" summary="fix pod and wakelock_plus">
-      <option name="closed" value="true" />
-      <created>1713442154970</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1713442154970</updated>
-    </task>
-    <task id="LOCAL-00014" summary="fix pod and wakelock_plus">
-      <option name="closed" value="true" />
-      <created>1713458378488</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1713458378488</updated>
-    </task>
-    <task id="LOCAL-00015" summary="fix pod and wakelock_plus">
-      <option name="closed" value="true" />
-      <created>1713470857509</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1713470857509</updated>
     </task>
     <task id="LOCAL-00016" summary="fix pod and wakelock_plus">
       <option name="closed" value="true" />
@@ -548,7 +470,31 @@
       <option name="project" value="LOCAL" />
       <updated>1721844683582</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="fix plan page">
+      <option name="closed" value="true" />
+      <created>1722421144370</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1722421144371</updated>
+    </task>
+    <task id="LOCAL-00063" summary="fix plan page">
+      <option name="closed" value="true" />
+      <created>1722421201343</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1722421201343</updated>
+    </task>
+    <task id="LOCAL-00064" summary="fix plan page">
+      <option name="closed" value="true" />
+      <created>1722421214130</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1722421214130</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
