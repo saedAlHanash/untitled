@@ -1,7 +1,7 @@
-import 'package:fitness_storm/Screen/Trainee%20Screens/User%20Training/change_video_cubit/change_video_cubit.dart';
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:fitness_storm/core/api_manager/api_url.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fitness_storm/router/app_router.dart';
 import 'package:get/get.dart';
 import 'package:pod_player/pod_player.dart';
 
@@ -32,7 +32,6 @@ class PlanCubit extends MCubit<PlanInitial> {
 
   Future<void> getPlan({bool newData = false, int? planId}) async {
     emit(state.copyWith(request: planId));
-    pausePlayer();
     final checkData = await checkCashed1(
         state: state, fromJson: Plan.fromJson, newData: newData);
 
@@ -68,27 +67,43 @@ class PlanCubit extends MCubit<PlanInitial> {
   }
 
   startTraining(PlanWorkout planWorkout, int i) async {
+    pausePlayer();
     Utils.openLoadingDialog();
     final apiResult =
         await ExerciseRepository().startDay(planWorkout.id.toString());
 
+
+    if (apiResult.statusCode == 451 && !AppControl.isAppleAccount) {
+      Get.toNamed(AppRoutes.subscriptionScreen);
+      AwesomeDialog(
+        context: ctx!,
+        dialogType: DialogType.warning,
+        animType: AnimType.scale,
+        title: 'oops',
+        desc: state.error.replaceAll('451', ''),
+      ).show();
+      return;
+    }
+
     if ((AppProvider.isTrainer) ||
         apiResult.type == ApiResultType.success ||
-        apiResult.statusCode == 402 ||
-        apiResult.statusCode == 451) {
+        apiResult.statusCode == 402) {
+
       Get.back();
-      pausePlayer();
-      Get.toNamed(AppRoutes.userTraining, arguments: [
-        i + 1,
-        planWorkout.name,
-        planWorkout.workoutId.toString(),
-        planWorkout.id.toString(),
-        (planWorkout.type == 'Loop All'),
-        planWorkout.type,
-        planWorkout.count.toInt(),
-        planWorkout.workoutBreak.toInt(),
-        apiResult.statusCode == 402
-      ]);
+
+      startTrainingPage(planWorkout, apiResult.statusCode == 402);
+
+      // Get.toNamed(AppRoutes.userTraining, arguments: [
+      //   i + 1,
+      //   planWorkout.name,
+      //   planWorkout.workoutId.toString(),
+      //   planWorkout.id.toString(),
+      //   (planWorkout.type == 'Loop All'),
+      //   planWorkout.type,
+      //   planWorkout.count.toInt(),
+      //   planWorkout.workoutBreak.toInt(),
+      //   apiResult.statusCode == 402
+      // ]);
       // Future.delayed(
       //   const Duration(seconds: 1),
       //   () => ctx?.readOrNull<ChangeVideoCubit>()?.changeVideo(),

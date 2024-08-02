@@ -34,10 +34,13 @@ class AppProvider {
 
   static bool isAr = Get.locale?.languageCode == 'ar';
 
-  static int? get myId {
+  static String get myId {
     if (_myId == 0) _myId = _loginData.id;
     if (_myId == 0 || _myId == null) _myId = AppSharedPreference.getMyId;
-    return _myId == 0 ? null : _myId;
+
+    return _myId == 0
+        ? ''
+        : '${AppProvider.isTestMode ? 'test' : ''}${_myId.toString()}';
   }
 
   static String get token {
@@ -99,7 +102,7 @@ class AppProvider {
       image: Assets.imagesLogo,
       color: AppColorManager.mainColor,
       onConfirm: (b) {
-        if(!b)return;
+        if (!b) return;
         AppSharedPreference.logout();
         startLogin();
       },
@@ -115,5 +118,5 @@ class AppControl {
       (AppProvider.systemParams.buildNumber >
           AppProvider.systemParams.minAppleVersion);
 
-  static bool get isAppleAccount => AppProvider.myId == 262;
+  static bool get isAppleAccount => AppSharedPreference.getMyId == 262;
 }

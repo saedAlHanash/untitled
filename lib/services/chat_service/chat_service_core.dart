@@ -12,13 +12,13 @@ import 'core/util.dart';
 class ChatServiceCore {
   static Future<void> initFirebaseChat() async {
     if (AppProvider.isGuest || AppProvider.token.isEmpty ||
-        AppProvider.myId == null) return;
+        AppProvider.myId.isEmpty) return;
     loginChatUser();
     return;
   }
 
   static Future<bool> loginChatUser() async {
-    if (AppProvider.myId == null) return false;
+    if (AppProvider.myId.isEmpty) return false;
     if (AppSharedPreference.getIsLoginToChatApp) return true;
     final profile = AppProvider.profile;
     try {
@@ -93,11 +93,11 @@ class ChatServiceCore {
 
   static Future<bool> logoutChatUser() async {
     if (!AppSharedPreference.getIsLoginToChatApp) return true;
-    if (AppProvider.myId == 0) return true;
+    if (AppProvider.myId.isEmpty) return true;
     try {
       await FirebaseFirestore.instance
           .collection('users')
-          .doc(AppProvider.myId.toString())
+          .doc(AppProvider.myId)
           .update({'metadata': {}});
       await AppSharedPreference.cashLoginToChatApp(false);
       return true;
@@ -108,14 +108,14 @@ class ChatServiceCore {
   }
 
   static Future<bool> updateChatUser() async {
-    if (AppProvider.myId == null) return false;
+    if (AppProvider.myId.isEmpty) return false;
     try {
       final profile = AppProvider.profile;
       if (profile.id == 0) return false;
 
       await FirebaseFirestore.instance
           .collection('users')
-          .doc(AppProvider.myId.toString())
+          .doc(AppProvider.myId)
           .update(types.User(
         id: profile.id.toString(),
         firstName: profile.name,

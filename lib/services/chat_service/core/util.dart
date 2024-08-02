@@ -87,7 +87,7 @@ Future<types.Room> processRoomDocument(
   if (type == types.RoomType.direct.toShortString()) {
     try {
       final otherUser = users.firstWhere(
-        (u) => u['id'] != AppProvider.myId.toString(),
+        (u) => u['id'] != AppProvider.myId,
       );
 
       imageUrl = otherUser['imageUrl'] as String?;

@@ -26,6 +26,7 @@ import '../../features/coupon/coupon_cubit/coupon_cubit.dart';
 import '../../features/notifications/bloc/notifications_cubit/notifications_cubit.dart';
 import '../../features/plans/bloc/add_favorite/add_favorite_cubit.dart';
 import '../../features/trainer_files/bloc/trainer_files_cubit/trainer_files_cubit.dart';
+import '../../features/training/bloc/exercise_cubit/exercise_cubit.dart';
 import '../../features/wallet/bloc/wallet_cubit/wallet_cubit.dart';
 import '../../features/welcome_message/bloc/welcome_messages_cubit/welcome_messages_cubit.dart';
 import '../../generated/l10n.dart';
@@ -51,16 +52,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     S.load(Locale(AppSharedPreference.getLocal));
-    setImageMultiTypeErrorImage(
-      const Opacity(
-        opacity: 0.3,
-        child: ImageMultiType(
-          url: Assets.imagesLogo,
-          height: 30.0,
-          width: 30.0,
-        ),
-      ),
-    );
+    setImageMultiTypeErrorImage(Assets.imagesLogo);
     super.initState();
   }
 
@@ -113,6 +105,7 @@ class _MyAppState extends State<MyApp> {
                 bloc.BlocProvider(create: (_) => sl<LogoutCubit>()),
                 bloc.BlocProvider(create: (_) => sl<CouponCubit>()),
                 bloc.BlocProvider(create: (_) => sl<SurveyCubit>()),
+                bloc.BlocProvider(create: (_) => sl<ExercisesCubit>()),
                 bloc.BlocProvider(create: (_) => sl<BundlesCubit>()),
                 bloc.BlocProvider(
                   create: (_) => sl<TrainerFilesCubit>()..getTrainerFiles(),

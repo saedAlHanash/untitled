@@ -5,6 +5,7 @@ import 'package:fitness_storm/Screen/Trainee%20Screens/HomeScreen/HomeSreenWidge
 import 'package:fitness_storm/Screen/Trainee%20Screens/HomeScreen/home_screen_controller.dart';
 import 'package:fitness_storm/Utils/Routes/app_pages.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../../../core/models/plan_model.dart';
@@ -26,7 +27,7 @@ class TrendingPlanWidget extends GetView<HomeScreenController> {
 
   Widget _buildTrendsPlanList({required List<Plan> plans}) {
     return SizedBox(
-      width: MediaQuery.of(Get.context!).size.width,
+      width: 1.0.sw,
       height: Platform.isIOS
           ? MediaQuery.of(Get.context!).size.height / 4
           : MediaQuery.of(Get.context!).size.height / 3.7,

@@ -88,12 +88,12 @@ class ProgressScreenController extends GetxController {
   }
 
   getUserProgress() async {
-    DateFormat dateFormat = DateFormat('yyyy-MM-dd');
-    int index = months.indexOf(currentMonth);
-    int monthNumber = index + 1;
-    String monthNumberString = monthNumber.toString();
-    String currentStartDayWeekString = currentWeekStartDay.toString();
-    String currentEndDayWeekString = currentWeekEndDay.toString();
+    final dateFormat = DateFormat('yyyy-MM-dd', 'en');
+    final index = months.indexOf(currentMonth);
+    final monthNumber = index + 1;
+    var monthNumberString = monthNumber.toString();
+    var currentStartDayWeekString = currentWeekStartDay.toString();
+    var currentEndDayWeekString = currentWeekEndDay.toString();
 
     if (!hasTwoDigits(monthNumber)) {
       monthNumberString = "0$monthNumber";
@@ -105,12 +105,12 @@ class ProgressScreenController extends GetxController {
       currentEndDayWeekString = '0$currentWeekEndDay';
     }
 
-    String fromDate = '$year-$monthNumberString-$currentStartDayWeekString';
-    String endDate = '$year-$monthNumberString-$currentEndDayWeekString';
+    final fromDate = '$year-$monthNumberString-$currentStartDayWeekString';
+    final endDate = '$year-$monthNumberString-$currentEndDayWeekString';
 
 
-    DateTime from = DateTime.parse(fromDate);
-    DateTime to = DateTime.parse(endDate);
+    final from = DateTime.parse(fromDate);
+    final to = DateTime.parse(endDate);
 
     progressModel = await traineeRepository
         .getTraineeProgress(dateFormat.format(from), to: dateFormat.format(to));

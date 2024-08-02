@@ -1,6 +1,8 @@
 import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/core/app/app_provider.dart';
 
+import '../../../../core/util/shared_preferences.dart';
+
 class CreateTrainerFileRequest {
   CreateTrainerFileRequest({
     required this.id,
@@ -21,6 +23,6 @@ class CreateTrainerFileRequest {
   Map<String, dynamic> toJson() => {
         "id": id,
         "content": content,
-        "trainer_id": AppProvider.myId,
+        "trainer_id": AppSharedPreference.getMyId.toString(),
       };
 }

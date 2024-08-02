@@ -1,3 +1,7 @@
+import 'package:fitness_storm/core/api_manager/api_service.dart';
+import 'package:fitness_storm/core/extensions/extensions.dart';
+import 'package:fitness_storm/core/extensions/extensions.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
 class ProgressModel {
@@ -22,22 +26,27 @@ class ProgressModel {
 
 class LogUser {
   String? title;
-  String? from;
-  String? to;
+  DateTime? from;
+  DateTime? to;
+
+  String get inMinute {
+    if (from == null || to == null) return '0 ${'minute'.tr}';
+    return '${(to!.difference(from!).inSeconds.abs()/60).toStringAsFixed(2)} ${'minute'.tr}';
+  }
 
   LogUser({this.title, this.from, this.to});
 
   LogUser.fromJson(Map<String, dynamic> json) {
     title = json['title'];
-    from = DateFormat('yyyy-MM-dd').format(DateTime.parse(json['from']));
-    to = DateFormat('yyyy-MM-dd').format(DateTime.parse(json['to']));
+    from = DateTime.tryParse(json['from'] ?? '');
+    to = DateTime.tryParse(json['to'] ?? '');
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['title'] = title;
-    data['from'] = from;
-    data['to'] = to;
+    data['from'] = from?.toIso8601String();
+    data['to'] = to?.toIso8601String();
     return data;
   }
 }

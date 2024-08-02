@@ -43,11 +43,11 @@ class FirebaseChatCore {
     types.User otherUser, {
     Map<String, dynamic>? metadata,
   }) async {
-    if (AppProvider.myId == null) throw Exception('myId  is null');
+    if (AppProvider.myId.isEmpty) throw Exception('myId  is null');
     // Sort two user ids array to always have the same array for both users,
     // this will make it easy to find the room if exist and make one read only.
 
-    final userIds = [AppProvider.myId.toString(), otherUser.id]..sort();
+    final userIds = [AppProvider.myId, otherUser.id]..sort();
 
     final roomQuery = await getFirebaseFirestore()
         .collection(config.roomsCollectionName)
@@ -92,7 +92,7 @@ class FirebaseChatCore {
     try {
       currentUser = await fetchUser(
         getFirebaseFirestore(),
-        AppProvider.myId.toString(),
+        AppProvider.myId,
         config.usersCollectionName,
       );
     } catch (e) {}
@@ -250,11 +250,11 @@ class FirebaseChatCore {
   //   final collection = orderByUpdatedAt
   //       ? getFirebaseFirestore()
   //           .collection(config.roomsCollectionName)
-  //           .where('userIds', arrayContains: AppProvider.myId.toString())
+  //           .where('userIds', arrayContains: AppProvider.myId)
   //           .orderBy('updatedAt', descending: true)
   //       : getFirebaseFirestore()
   //           .collection(config.roomsCollectionName)
-  //           .where('userIds', arrayContains: AppProvider.myId.toString());
+  //           .where('userIds', arrayContains: AppProvider.myId);
   //
   //   return collection.snapshots().asyncMap(
   //         (query) => processRoomsQuery(
@@ -273,25 +273,25 @@ class FirebaseChatCore {
 
     if (partialMessage is types.PartialCustom) {
       message = types.CustomMessage.fromPartial(
-        author: types.User(id: AppProvider.myId.toString()),
+        author: types.User(id: AppProvider.myId),
         id: '',
         partialCustom: partialMessage,
       );
     } else if (partialMessage is types.PartialFile) {
       message = types.FileMessage.fromPartial(
-        author: types.User(id: AppProvider.myId.toString()),
+        author: types.User(id: AppProvider.myId),
         id: '',
         partialFile: partialMessage,
       );
     } else if (partialMessage is types.PartialImage) {
       message = types.ImageMessage.fromPartial(
-        author: types.User(id: AppProvider.myId.toString()),
+        author: types.User(id: AppProvider.myId),
         id: '',
         partialImage: partialMessage,
       );
     } else if (partialMessage is types.PartialText) {
       message = types.TextMessage.fromPartial(
-        author: types.User(id: AppProvider.myId.toString()),
+        author: types.User(id: AppProvider.myId),
         id: '',
         partialText: partialMessage,
       );
@@ -301,7 +301,7 @@ class FirebaseChatCore {
       final messageMap = message.toJson();
 
       messageMap.removeWhere((key, value) => key == 'author' || key == 'id');
-      messageMap['authorId'] = AppProvider.myId.toString();
+      messageMap['authorId'] = AppProvider.myId;
       messageMap['createdAt'] = FieldValue.serverTimestamp();
       messageMap['updatedAt'] = FieldValue.serverTimestamp();
 
@@ -335,7 +335,7 @@ class FirebaseChatCore {
   /// Updates a message in the Firestore. Accepts any message and a
   /// room ID. Message will probably be taken from the [messages] stream.
   void updateMessage(types.Message message, String roomId) async {
-    if (message.author.id != AppProvider.myId.toString()) return;
+    if (message.author.id != AppProvider.myId) return;
 
     final messageMap = message.toJson();
     messageMap.removeWhere(
@@ -389,7 +389,7 @@ class FirebaseChatCore {
 
   /// Returns a stream of all users from Firebase.
   Stream<List<types.User>> users() {
-    if(AppProvider.myId==null)throw Exception('myId null');
+    if(AppProvider.myId.isEmpty)throw Exception('myId null');
     return getFirebaseFirestore()
         .collection(config.usersCollectionName)
         .snapshots()
@@ -397,7 +397,7 @@ class FirebaseChatCore {
           (snapshot) => snapshot.docs.fold<List<types.User>>(
             [],
             (previousValue, doc) {
-              if (AppProvider.myId.toString() == doc.id) return previousValue;
+              if (AppProvider.myId == doc.id) return previousValue;
 
               final data = doc.data();
 
@@ -415,17 +415,17 @@ class FirebaseChatCore {
 
 extension RoomH on types.Room {
   types.User get me =>
-      users.firstWhere((e) => e.id == AppProvider.myId.toString());
+      users.firstWhere((e) => e.id == AppProvider.myId);
 
   types.User get otherUser =>
-      users.firstWhere((e) => e.id != AppProvider.myId.toString());
+      users.firstWhere((e) => e.id != AppProvider.myId);
 
   int get latestSeen => metadata?['latestSeen'] ?? 0;
 
   bool get isRead {
     if ((lastMessages ?? []).isEmpty) return true;
     final latestMessage = lastMessages!.first;
-    return ((latestMessage.author.id == AppProvider.myId.toString()) ||
+    return ((latestMessage.author.id == AppProvider.myId) ||
         ((latestSeen - (updatedAt ?? 0)) > 0));
   }
 

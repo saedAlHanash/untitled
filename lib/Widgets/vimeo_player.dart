@@ -26,38 +26,7 @@ class VimeoPlayer extends StatelessWidget {
         child: MyStyle.loadingWidget(),
       );
     }
-    return !AppProvider.systemParams.isWebViewPlayer
-        ? VimeoPlayerWebView(
-            videoId: videoId,
-            onInitController: onInitController,
-          )
-        : VimeoPlayerPod(
-            videoId: videoId,
-            onInitController: onInitController,
-          );
-  }
-}
-
-class VimeoPlayer1 extends StatelessWidget {
-  const VimeoPlayer1(
-      {super.key,
-      required this.videoId,
-      this.isPrivet = false,
-      this.onInitController});
-
-  final String videoId;
-  final bool isPrivet;
-  final Function(PodPlayerController videoController)? onInitController;
-
-  @override
-  Widget build(BuildContext context) {
-    if (videoId.isEmpty) {
-      return AspectRatio(
-        aspectRatio: 16 / 9,
-        child: MyStyle.loadingWidget(),
-      );
-    }
-    return !AppProvider.systemParams.isWebViewPlayer
+    return AppProvider.systemParams.isWebViewPlayer
         ? VimeoPlayerWebView(
             videoId: videoId,
             onInitController: onInitController,

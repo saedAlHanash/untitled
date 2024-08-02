@@ -1,10 +1,12 @@
 part of 'training_cubit.dart';
 
 class TrainingInitial extends AbstractState<PlanWorkout> {
+  final int changeModifier;
   const TrainingInitial({
     required super.result,
     super.error,
     required super.request,
+    required this.changeModifier,
     // required this.trainingParam,
     super.statuses,
   });
@@ -13,6 +15,7 @@ class TrainingInitial extends AbstractState<PlanWorkout> {
     return TrainingInitial(
       result: PlanWorkout.fromJson({}),
       error: '',
+      changeModifier: 0,
       // trainingParam: false,
       request: '',
       statuses: CubitStatuses.init,
@@ -24,6 +27,7 @@ class TrainingInitial extends AbstractState<PlanWorkout> {
     statuses,
     result,
     error,
+    changeModifier,
     if (request != null) request,
    
   ];
@@ -33,6 +37,7 @@ class TrainingInitial extends AbstractState<PlanWorkout> {
     PlanWorkout? result,
     String? error,
     String? request,
+    int? changeModifier,
     // bool? trainingParam,
   }) {
     return TrainingInitial(
@@ -40,6 +45,7 @@ class TrainingInitial extends AbstractState<PlanWorkout> {
       result: result ?? this.result,
       error: error ?? this.error,
       request: request ?? this.request,
+      changeModifier: changeModifier ?? this.changeModifier,
       // trainingParam: trainingParam ?? this.trainingParam,
     );
   }

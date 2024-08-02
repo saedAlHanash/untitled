@@ -6,6 +6,7 @@ class Exercise {
     required this.name,
     required this.setCount,
     required this.notes,
+    required this.video,
     required this.secondBased,
     required this.repetitions,
   });
@@ -14,6 +15,7 @@ class Exercise {
   final String name;
   final num setCount;
   final String notes;
+  final String video;
   final bool secondBased;
   final List<Repetition> repetitions;
 
@@ -23,6 +25,7 @@ class Exercise {
       name: json["name"] ?? "",
       setCount: (json["set_count"]).toString().tryParseOrZeroInt,
       notes: json["notes"] ?? "",
+      video: json["video"] ?? "",
       secondBased: json["second_based"] ?? false,
       repetitions: json["repetitions"] == null
           ? []
@@ -36,6 +39,7 @@ class Exercise {
         "name": name,
         "set_count": setCount,
         "notes": notes,
+        "video": video,
         "second_based": secondBased,
         "repetitions": repetitions.map((x) => x.toJson()).toList(),
       };

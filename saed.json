@@ -1,34 +1,16 @@
 {
-  "data": [
-    {
-      "id": "1",
-      "content": "new",
-      "is_open": 0,
-      "file": "storage\/app\/public\/trainerFiles\/kcIMLtetaYisOW6HpgXj07Jzxw55pM3eDwY99BDo.pdf"
-    },
-    {
-      "id": "2",
-      "content": "new one",
-      "is_open": 0,
-      "file": "storage\/app\/public\/trainerFiles\/o9TUDyJVYujzE"
-    },
-    {
-      "id": "3",
-      "content": "test",
-      "is_open": 0,
-      "file": "storage\/app\/public\/trainerFiles\/Fvqb2dFMUHBazmP3DTuTmxwoc8AvKPDZtqexceu0.pdf"
-    },
-    {
-      "id": "4",
-      "content": "saed",
-      "is_open": 0,
-      "file": null
-    },
-    {
-      "id": "5",
-      "content": "dhshshshsaed",
-      "is_open": 0,
-      "file": null
+  "Thursday": {
+    "plan": {
+      "title": "تدريب لكامل الجسم",
+      "from": "2024-08-01 17:58:08",
+      "to": "2024-08-01 17:58:21"
     }
-  ]
+  },
+  "Friday": {
+    "plan": {
+      "title": "تدريب لكامل الجسم",
+      "from": "2024-08-02 10:01:12",
+      "to": "2024-08-02 10:01:17"
+    }
+  }
 }

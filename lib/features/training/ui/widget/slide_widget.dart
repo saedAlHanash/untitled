@@ -1,8 +1,10 @@
-import 'package:fitness_storm/Screen/Trainee%20Screens/User%20Training/user_training_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
-class SlidWidget extends GetWidget<UserTrainingController> {
+import '../../bloc/temp_cubit/training_cubit.dart';
+
+class SlidWidget extends StatefulWidget {
   final num setNumber;
   final num repetationNumber;
 
@@ -13,74 +15,86 @@ class SlidWidget extends GetWidget<UserTrainingController> {
   });
 
   @override
+  State<SlidWidget> createState() => _SlidWidgetState();
+}
+
+class _SlidWidgetState extends State<SlidWidget> {
+  TrainingCubit get cubit => context.read<TrainingCubit>();
+
+  @override
   Widget build(BuildContext context) {
-    bool isEnglish = Get.locale?.languageCode == 'en';
-    return Obx(
-      () => Container(
-        height: Get.height / 8,
-        alignment: Alignment.bottomCenter,
-        color: Get.theme.colorScheme.secondary,
-        child: Dismissible(
-          key: UniqueKey(),
+    return BlocBuilder<TrainingCubit, TrainingInitial>(
+      builder: (context, state) {
+        return Container(
+          height: Get.height / 8,
+          alignment: Alignment.bottomCenter,
+          color: Get.theme.colorScheme.secondary,
+          child: Dismissible(
+            key: UniqueKey(),
 
-          onDismissed: (direction) {
-            controller.startRestTimer(controller.currentExercise.secondsBased!);
-          },
+            onDismissed: (direction) {
+              cubit.startRestTimer(cubit.currentExercise.secondBased);
+            },
 
-          //controller.isRest = true,
-          direction: DismissDirection.horizontal,
-          child: Container(
-            color: Get.theme.colorScheme.secondary,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      textAlign: TextAlign.center,
-                      '${'set'.tr} ${controller.currentSet}',
-                      style: const TextStyle(
-                          fontSize: 15, fontWeight: FontWeight.bold, color: Colors.white),
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'repeat_this_exercise'.tr,
-                          style: const TextStyle(fontSize: 14, color: Colors.white),
-                        ),
-                        Text(
-                          _getRepeatText(),
+            //cubit.isRest = true,
+            direction: DismissDirection.horizontal,
+            child: Container(
+              color: Get.theme.colorScheme.secondary,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        textAlign: TextAlign.center,
+                        '${'set'.tr} ${cubit.currentSet}',
+                        style: const TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'repeat_this_exercise'.tr,
+                            style: const TextStyle(
+                                fontSize: 14, color: Colors.white),
+                          ),
+                          Text(
+                            _getRepeatText(),
+                            style: const TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
+                          )
+                        ],
+                      ),
+                    ],
+                  ),
+                  !cubit.currentExercise.secondBased
+                      ? Text('slide_to_start_the_next_set'.tr,
                           style: const TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white),
-                        )
-                      ],
-                    ),
-                  ],
-                ),
-                !controller.currentExercise.secondsBased!
-                    ? Text('slide_to_start_the_next_set'.tr,
-                        style: const TextStyle(fontSize: 14, color: Colors.white))
-                    : Text('slide_to_start_the_timer_for_this_set'.tr,
-                        maxLines: 3,
-                        style: const TextStyle(fontSize: 14, color: Colors.white))
-              ],
+                              fontSize: 14, color: Colors.white))
+                      : Text('slide_to_start_the_timer_for_this_set'.tr,
+                          maxLines: 3,
+                          style: const TextStyle(
+                              fontSize: 14, color: Colors.white))
+                ],
+              ),
             ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 
   String _getRepeatText() {
-    String reps = controller
-        .currentExercise.repetitions![controller.currentSet - 1].count!
+    String reps = cubit.currentExercise.repetitions[cubit.currentSet - 1].count
         .toString();
-    if (controller.currentExercise.secondsBased!) {
+    if (cubit.currentExercise.secondBased) {
       if (int.parse(reps) > 3 && int.parse(reps) < 9) {
         reps += " ${'seconds'.tr}";
       } else {

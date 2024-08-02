@@ -1,8 +1,8 @@
 import 'package:fitness_storm/features/training/ui/widget/training_exercise_widget.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/User%20Training/user_training_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get/get.dart';
+
+import '../../bloc/temp_cubit/training_cubit.dart';
 
 class ExerciseListView extends StatefulWidget {
   const ExerciseListView({super.key});
@@ -12,33 +12,33 @@ class ExerciseListView extends StatefulWidget {
 }
 
 class _ExerciseListViewState extends State<ExerciseListView> {
-  int index = -1;
-
+  int i = -1;
+  TrainingCubit get cubit => context.read<TrainingCubit>();
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SubjectBloc, SubjectState>(
+    return BlocBuilder<TrainingCubit, TrainingInitial>(
       builder: (context, state) {
         return Expanded(
           child: ListView.builder(
             shrinkWrap: true,
-            itemCount: controller.exercises.length,
-            itemBuilder: (context, index) =>
+            itemCount: cubit.exercises.length,
+            itemBuilder: (context, i) =>
                 GestureDetector(
-                  onTap: () async => await controller.changeExercise(index),
+                  onTap: () async => await cubit.changeExercise(i),
                   child: GestureDetector(
-                    onTap: () async => await controller.changeExercise(index),
+                    onTap: () async => await cubit.changeExercise(i),
                     child: TrainingExerciseWidget(
-                      isSecondsBased: controller.exercises[index].secondsBased!,
-                      reps: controller.exercises[index].repetitions!,
-                      sets: controller.exercises[index].setCount!,
-                      title: controller.exercises[index].name!,
-                      isFinished: controller.completedExercises[index] ||
-                          index == controller.currentIndex,
-                      //index <= controller.currentIndex,
-                      isPlaying: index ==
-                          (controller.currentIndex < 0
+                      isSecondsBased: cubit.exercises[i].secondBased,
+                      reps: cubit.exercises[i].repetitions,
+                      sets: cubit.exercises[i].setCount,
+                      title: cubit.exercises[i].name,
+                      isFinished: cubit.completedExercises[i] ||
+                          i == cubit.currentIndex,
+                      //i <= cubit.currentIndex,
+                      isPlaying: i ==
+                          (cubit.currentIndex < 0
                               ? 0
-                              : controller.currentIndex),
+                              : cubit.currentIndex),
                     ),
                   ),
                 ),

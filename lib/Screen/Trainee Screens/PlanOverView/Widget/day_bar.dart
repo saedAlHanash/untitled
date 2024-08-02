@@ -24,8 +24,11 @@ class DayBar extends StatelessWidget {
               itemCount: state.result.length,
               itemBuilder: (context, i) {
                 return GestureDetector(
-                    onTap: () async {
-                      await Scrollable.ensureVisible(
+                    onTap: () {
+                      if (state.result[i].key.currentState?.context == null) {
+                        return;
+                      }
+                      Scrollable.ensureVisible(
                         (state.result[i].key.currentState?.context)!,
                         duration: const Duration(seconds: 1),
                       );

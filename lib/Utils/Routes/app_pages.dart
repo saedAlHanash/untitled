@@ -91,13 +91,13 @@ class AppPages {
       //       return const TrainingScreen();
       //     },
       //     binding: TrainingBinding()),
-      GetPage(
-          name: AppRoutes.userTraining,
-          page: () {
-            sl<AnalyticService>().screenView(name: 'user_training');
-            return const UserTrainingScreen();
-          },
-          binding: UserTrainingBinding()),
+      // GetPage(
+      //     name: AppRoutes.userTraining,
+      //     page: () {
+      //       sl<AnalyticService>().screenView(name: 'user_training');
+      //       return const UserTrainingScreen();
+      //     },
+      //     binding: UserTrainingBinding()),
       // GetPage(
       //     name: AppRoutes.loadingStartTrainginScreen,
       //     page: () {

@@ -6,6 +6,7 @@ import 'package:fitness_storm/Screen/Trainee%20Screens/PlanOverView/Widget/train
 import 'package:fitness_storm/Screen/Trainee%20Screens/PlanOverView/Widget/video_tail_widget.dart';
 import 'package:fitness_storm/Widgets/custom_button.dart';
 import 'package:fitness_storm/Widgets/read_more_text_widget.dart';
+import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
 import 'package:fitness_storm/core/util/my_style.dart';
@@ -111,16 +112,11 @@ class _PlanPageState extends State<PlanPage> {
                             final item = state.result[i];
                             return GestureDetector(
                               onTap: () {
-                                if (AppSharedPreference.getCurrentPlanId !=
-                                    cubit.state.result.id.toString()) {
+                                if (item.isRestDay ||
+                                    !cubit.state.result.isCurrent) {
                                   return;
                                 }
-                                cubit.pausePlayer();
-
-                                item.name.toLowerCase() !=
-                                        'Rest day'.toLowerCase()
-                                    ? cubit.startTraining(state.result[i], i)
-                                    : () {};
+                                cubit.startTraining(state.result[i], i);
                               },
                               child: DayWidget(
                                 key: state.result[i].key,

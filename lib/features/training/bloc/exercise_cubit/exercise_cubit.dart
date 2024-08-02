@@ -17,7 +17,7 @@ class ExercisesCubit extends MCubit<ExercisesInitial> {
   String get nameCache => 'exercises';
 
   @override
-  String get filter => state.request ?? '';
+  String get filter => (state.request).toString() ?? '';
 
   Future<void> getExercises({bool newData = false, required int id}) async {
     emit(state.copyWith(request: id));
@@ -44,7 +44,13 @@ class ExercisesCubit extends MCubit<ExercisesInitial> {
     );
 
     if (response.statusCode.success) {
-      return Pair([], null);
+      final json = response.jsonBodyPure;
+      return Pair(
+          json["data"] == null
+              ? []
+              : List<Exercise>.from(
+                  json["data"]!.map((x) => Exercise.fromJson(x))),
+          null);
     } else {
       return response.getPairError;
     }

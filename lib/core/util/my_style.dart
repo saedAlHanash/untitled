@@ -122,22 +122,3 @@ class MyStyle {
       crossAxisCount: 2, mainAxisExtent: 250.0.h);
 }
 
-class BackBtnWidget extends StatelessWidget {
-  const BackBtnWidget({super.key, required this.appBarColor});
-
-  final Color appBarColor;
-
-  @override
-  Widget build(BuildContext context) {
-    return IconButton(
-      onPressed: () {
-        if (!Navigator.canPop(context)) return;
-        Navigator.pop(context);
-      },
-      icon: Icon(
-        Platform.isAndroid ? Icons.arrow_back : Icons.arrow_back_ios,
-        color: isColorDark(appBarColor) ? Colors.white : AppColorManager.black,
-      ),
-    );
-  }
-}

@@ -7,6 +7,7 @@ import '../../../../core/error/error_manager.dart';
 import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/abstraction.dart';
 import '../../../../core/util/pair_class.dart';
+import '../../../../core/util/shared_preferences.dart';
 import '../../data/response/trainer_file_response.dart';
 
 part 'trainer_files_state.dart';
@@ -41,7 +42,7 @@ class TrainerFilesCubit extends MCubit<TrainerFilesInitial> {
     final response = await APIService().callApi(
       type: ApiType.get,
       url: PostUrl.trainerFiles,
-      path: AppProvider.myId.toString(),
+      path: AppSharedPreference.getMyId.toString(),
     );
 
     if (response.statusCode.success) {

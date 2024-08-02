@@ -6,6 +6,7 @@ import 'package:fitness_storm/features/profile/bloc/update_profile_cubit/update_
 import 'package:fitness_storm/features/trainer/bloc/trainers_cubit/trainers_cubit.dart';
 import 'package:fitness_storm/features/trainer/data/response/trainer.dart';
 import 'package:fitness_storm/features/trainer_files/bloc/create_trainer_file_cubit/create_trainer_file_cubit.dart';
+import 'package:fitness_storm/features/training/bloc/temp_cubit/training_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart';
@@ -53,12 +54,15 @@ import '../features/fire_chat/messages_bloc/messages_cubit.dart';
 import '../features/plans/bloc/plan_cubit/plan_cubit.dart';
 import '../features/plans/bloc/plan_workout_cubit/plan_workout_cubit.dart';
 import '../features/plans/bloc/subscribe_plan_cubit/subscribe_plan_cubit.dart';
+import '../features/plans/data/response/plan_workout_response.dart';
 import '../features/profile/ui/pages/pdf_viewer_page.dart';
 import '../features/profile/ui/pages/update_profile_page.dart';
 import '../features/trainer/ui/pages/available_time_page.dart';
 import '../features/trainer/ui/pages/trainers_page.dart';
 import '../features/trainer_files/bloc/delete_trainer_file_cubit/delete_trainer_file_cubit.dart';
 import '../features/trainer_files/ui/pages/trainer_files_page.dart';
+import '../features/training/bloc/exercise_cubit/exercise_cubit.dart';
+import '../features/training/ui/pages/training_page.dart';
 import '../features/welcome_message/bloc/welcome_messages_cubit/welcome_messages_cubit.dart';
 import '../features/welcome_message/ui/pages/welcome_page.dart';
 import '../services/chat_service/chat_service_core.dart';
@@ -490,6 +494,19 @@ void startPlanPage(String id) async {
   final Widget page = MultiBlocProvider(
     providers: providers,
     child: const PlanPage(),
+  );
+
+  Navigator.push(ctx!, MaterialPageRoute(builder: (context) => page));
+}
+
+void startTrainingPage(PlanWorkout planWorkout,bool complete) async {
+  final providers = [
+    BlocProvider(create: (_) => sl<TrainingCubit>()..initial(planWorkout,complete)),
+  ];
+
+  final Widget page = MultiBlocProvider(
+    providers: providers,
+    child: const TrainingPage(),
   );
 
   Navigator.push(ctx!, MaterialPageRoute(builder: (context) => page));

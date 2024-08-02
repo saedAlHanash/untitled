@@ -19,10 +19,10 @@ class RoomsCubit extends MCubit<RoomsInitial> {
   String get nameCache => 'rooms1';
 
   @override
-  String get filter => AppProvider.myId.toString();
+  String get filter => AppProvider.myId;
 
   Future<void> getChatRooms(bool isAdmen) async {
-    if(AppProvider.myId ==null)return;
+    if(AppProvider.myId.isEmpty)return;
     emit(state.copyWith(request: isAdmen));
 
     await setData();
@@ -37,7 +37,7 @@ class RoomsCubit extends MCubit<RoomsInitial> {
     query = FirebaseFirestore.instance
         .collection('rooms')
         .orderBy('updatedAt', descending: true)
-        .where('userIds', arrayContains: AppProvider.myId.toString())
+        .where('userIds', arrayContains: AppProvider.myId)
         .where(
           'updatedAt',
           isGreaterThan: Timestamp.fromMillisecondsSinceEpoch(

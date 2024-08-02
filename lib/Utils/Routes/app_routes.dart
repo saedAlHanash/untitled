@@ -12,7 +12,7 @@ abstract class AppRoutes {
   static const featuredPlamScreen = '/featured_plan_screen';
   // static const yourTrainerScreen = '/your_trainer_screen';
 
-  static const userTraining = '/user_training';
+  // static const userTraining = '/user_training';
 
   static const subscriptionScreen = '/subscription_screen';
   // static const notificationScreen = '/notification_screen';

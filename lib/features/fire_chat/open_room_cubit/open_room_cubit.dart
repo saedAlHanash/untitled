@@ -15,7 +15,7 @@ class OpenRoomCubit extends Cubit<OpenRoomInitial> {
   OpenRoomCubit() : super(OpenRoomInitial.initial());
 
   Future<void> openRoom(User chatUser) async {
-    if (AppProvider.myId == null) return;
+    if (AppProvider.myId.isEmpty) return;
     emit(state.copyWith(statuses: CubitStatuses.loading, request: chatUser));
 
     final room = await FirebaseChatCore.instance.createRoom(chatUser);
@@ -25,7 +25,7 @@ class OpenRoomCubit extends Cubit<OpenRoomInitial> {
   }
 
   Future<void> openRoomByRoom(Room room) async {
-    if (AppProvider.myId == null) return;
+    if (AppProvider.myId.isEmpty) return;
     emit(state.copyWith(statuses: CubitStatuses.init));
     Future(() =>
         emit(state.copyWith(statuses: CubitStatuses.done, request: room)));
@@ -34,7 +34,7 @@ class OpenRoomCubit extends Cubit<OpenRoomInitial> {
   }
 
   Future<void> openRoomByUserId(String userId, {TrainerModel? trainer}) async {
-    if (AppProvider.myId == null) return;
+    if (AppProvider.myId.isEmpty) return;
     emit(state.copyWith(statuses: CubitStatuses.loading));
     final chatUser = await ChatServiceCore.getUser(userId, trainer: trainer);
 
@@ -50,7 +50,7 @@ class OpenRoomCubit extends Cubit<OpenRoomInitial> {
   }
 
   Future<void> openRoomCustomerService() async {
-    if (AppProvider.myId == null) return;
+    if (AppProvider.myId.isEmpty) return;
     emit(state.copyWith(statuses: CubitStatuses.loading));
     final chatUser = await ChatServiceCore.getUser('0');
 

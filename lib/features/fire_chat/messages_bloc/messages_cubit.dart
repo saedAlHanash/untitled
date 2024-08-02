@@ -21,7 +21,7 @@ class MessagesCubit extends MCubit<MessagesInitial> {
   String get filter => '';
 
   Future<void> getChatRoomMessage(types.Room room) async {
-    if (AppProvider.myId == null) return;
+    if (AppProvider.myId.isEmpty) return;
 
     emit(state.copyWith(request: room));
 

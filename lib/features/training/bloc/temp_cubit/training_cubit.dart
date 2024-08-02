@@ -6,6 +6,7 @@ import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/util/snack_bar_message.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get.dart';
 import 'package:http/http.dart';
 
 import '../../../../Data/Api/api_result.dart';
@@ -32,7 +33,7 @@ class TrainingCubit extends Cubit<TrainingInitial> {
 
   num startTime = 0;
   int currentIndex = 0;
-  int currentSet = 0;
+  int currentSet = 1;
   bool complete = false;
   bool isRest = false;
   bool isBreak = false;
@@ -45,19 +46,26 @@ class TrainingCubit extends Cubit<TrainingInitial> {
 
   Exercise currentExercise = Exercise.fromJson({});
 
-  void initial(PlanWorkout planWorkout) async {
+  void initial(PlanWorkout planWorkout, bool complete) async {
+    this.complete = complete;
     emit(state.copyWith(result: planWorkout, statuses: CubitStatuses.loading));
 
-    exercises = await ctx!.read<ExercisesCubit>().getExercisesAsync(id: planWorkout.id);
+    exercises = await ctx!
+        .read<ExercisesCubit>()
+        .getExercisesAsync(id: planWorkout.workoutId);
 
     completedExercises = List.generate(exercises.length, (index) => false);
 
     initSetsList();
 
     currentIndex = 0;
+    try {
+      currentExercise = exercises[currentIndex];
+    } catch (e) {
+      loggerObject.e(e);
+    }
 
-    currentExercise = exercises[currentIndex];
-
+    emit(state.copyWith(statuses: CubitStatuses.done));
   }
 
   Future<Pair<bool?, String?>> _completeDay() async {
@@ -80,6 +88,7 @@ class TrainingCubit extends Cubit<TrainingInitial> {
   bool get canPop => complete || AppProvider.isTrainer;
 
   void onPop(bool didPop) async {
+    if (didPop) return;
     NoteMessage.showCheckDialog(
       ctx!,
       text: S.of(ctx!).didYouFinishYourTraining,
@@ -88,7 +97,7 @@ class TrainingCubit extends Cubit<TrainingInitial> {
       image: '',
       onConfirm: (b) {
         if (b) _completeDay();
-        Navigator.pop(ctx!);
+        Future(() => Navigator.pop(ctx!));
       },
     );
   }
@@ -163,6 +172,7 @@ class TrainingCubit extends Cubit<TrainingInitial> {
         }
       }
     }
+    emit(state.copyWith(changeModifier: state.changeModifier + 1));
   }
 
   bool checkLoopExercise() {
@@ -223,6 +233,7 @@ class TrainingCubit extends Cubit<TrainingInitial> {
         }
       }
     }
+    emit(state.copyWith(changeModifier: state.changeModifier + 1));
   }
 
   Future<void> startNextDefaultExercise() async {
@@ -255,6 +266,7 @@ class TrainingCubit extends Cubit<TrainingInitial> {
       currentSet++;
     }
     isRest = false;
+    emit(state.copyWith(changeModifier: state.changeModifier + 1));
   }
 
   changeExercise(int index) async {
@@ -262,6 +274,7 @@ class TrainingCubit extends Cubit<TrainingInitial> {
     currentIndex = index;
     startTime = 0;
     isRest = false;
+    emit(state.copyWith(changeModifier: state.changeModifier + 1));
   }
 
   void startNextExercise() {
@@ -270,6 +283,7 @@ class TrainingCubit extends Cubit<TrainingInitial> {
     } else {
       startNextDefaultExercise();
     }
+    emit(state.copyWith(changeModifier: state.changeModifier + 1));
   }
 
   void startTimer(num seconds, [VoidCallback? callback]) {
@@ -291,6 +305,7 @@ class TrainingCubit extends Cubit<TrainingInitial> {
         }
       },
     );
+    emit(state.copyWith(changeModifier: state.changeModifier + 1));
   }
 
   initSetsList() {

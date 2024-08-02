@@ -289,7 +289,7 @@ class _ChatPageState extends State<ChatPage> {
                 primaryColor: AppColorManager.mainColor,
                 secondaryColor: AppColorManager.mainColorDark,
                 inputBackgroundColor: AppColorManager.mainColor),
-            user: types.User(id: AppProvider.myId.toString()),
+            user: types.User(id: AppProvider.myId),
           );
         },
       ),

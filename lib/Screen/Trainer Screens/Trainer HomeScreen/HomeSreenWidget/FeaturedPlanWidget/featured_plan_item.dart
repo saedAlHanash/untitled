@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 
@@ -14,7 +15,7 @@ class FeaturedPlanItem extends GetWidget {
   // final String trainingType;
 
   const FeaturedPlanItem({
-        super.key,
+    super.key,
     required this.planImageUrl,
     required this.planName,
     required this.totalWeeks,
@@ -22,7 +23,7 @@ class FeaturedPlanItem extends GetWidget {
     required this.trainerProfileImageUrl,
     required this.trainerName,
     // required this.trainingType,
-  }) ;
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -59,8 +60,7 @@ class FeaturedPlanItem extends GetWidget {
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(15),
-          child: ImageMultiType(url:planImageUrl,
-              fit: BoxFit.cover),
+          child: ImageMultiType(url: planImageUrl, fit: BoxFit.cover),
         ),
       ),
     );
@@ -74,32 +74,32 @@ class FeaturedPlanItem extends GetWidget {
     required int planFrequency,
     // required String trainingType,
   }) {
-    final width = MediaQuery.of(Get.context!).size.width - 30;
-    return ClipRRect(
-      borderRadius: const BorderRadius.only(
-        bottomRight: Radius.circular(15),
-        bottomLeft: Radius.circular(15),
-      ),
-      child: Container(
-        width: width,
-        color: Colors.grey.withOpacity(0.5),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            _buildTrainerInfo(
-              trainerImageUrl: trainerImageUrl,
-              trainerName: trainerName,
-              width: width,
-            ),
-            _buildPlanInfoWidget(
-              planName: planName,
-              totalWeeks: totalWeeks,
-              planFrequency: planFrequency,
-              // trainingType: trainingType,
-              width: width,
-            )
-          ],
+    final width = 0.9.sw;
+    return Container(
+      width: width,
+      decoration: BoxDecoration(
+        borderRadius:  BorderRadius.only(
+          bottomRight: Radius.circular(15.r),
+          bottomLeft: Radius.circular(15.r),
         ),
+        color: Colors.grey.withOpacity(0.5),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          _buildTrainerInfo(
+            trainerImageUrl: trainerImageUrl,
+            trainerName: trainerName,
+            width: width,
+          ),
+          _buildPlanInfoWidget(
+            planName: planName,
+            totalWeeks: totalWeeks,
+            planFrequency: planFrequency,
+            // trainingType: trainingType,
+            width: width,
+          )
+        ],
       ),
     );
   }
@@ -119,27 +119,23 @@ class FeaturedPlanItem extends GetWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            FittedBox(
-              child: Center(
-                child: Text(
-                  planName,
-                  style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold),
-                ),
+            Center(
+              child: Text(
+                planName,
+                style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold),
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(bottom: 8.0),
-              child: FittedBox(
-                child: Text(
-                  trainerName,
-                  style: TextStyle(
-                    color: Get.theme.colorScheme.secondary,
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
-                  ),
+              child: Text(
+                trainerName,
+                style: TextStyle(
+                  color: Get.theme.colorScheme.secondary,
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ),
@@ -160,7 +156,7 @@ class FeaturedPlanItem extends GetWidget {
       child: Center(
         child: CircleAvatar(
           backgroundColor: Colors.grey,
-          backgroundImage: CachedNetworkImageProvider( trainerImageUrl),
+          backgroundImage: CachedNetworkImageProvider(trainerImageUrl),
           radius: Get.width / 10,
         ),
       ),

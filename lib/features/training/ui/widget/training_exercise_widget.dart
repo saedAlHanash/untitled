@@ -2,9 +2,11 @@ import 'package:fitness_storm/Model/repetition.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../data/response/exercises_response.dart';
+
 class TrainingExerciseWidget extends StatelessWidget {
   final String title;
-  final int sets;
+  final num sets;
   final List<Repetition> reps;
   final bool isSecondsBased;
   final bool isFinished;

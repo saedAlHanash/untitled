@@ -1,6 +1,7 @@
 import 'package:fitness_storm/core/extensions/extensions.dart';
 
 import '../../features/trainer/data/response/trainer.dart';
+import '../util/shared_preferences.dart';
 
 class PlanResponse {
   PlanResponse({
@@ -53,6 +54,8 @@ class Plan {
   final bool isActive;
   final String introductionVideo;
   final String description;
+
+  bool get isCurrent => AppSharedPreference.getCurrentPlanId == '$id';
 
   factory Plan.fromJson(Map<String, dynamic> json) {
     return Plan(

@@ -1,6 +1,7 @@
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:flutter/cupertino.dart';
 
+import '../../../../core/util/shared_preferences.dart';
 import '../../../training/data/response/exercises_response.dart';
 
 class PlanWorkouts {
@@ -49,7 +50,9 @@ class PlanWorkout {
   final num count;
   final num workoutBreak;
 
-  //--------------------
+  bool get isRestDay =>
+      (name.toLowerCase() == 'rest day') ||
+      (totalMinutes == 0 && exercises.isEmpty);
 
   GlobalKey key = GlobalKey();
 

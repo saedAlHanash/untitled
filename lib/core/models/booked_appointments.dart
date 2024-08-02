@@ -1,5 +1,6 @@
 import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
+import 'package:fitness_storm/core/util/shared_preferences.dart';
 
 class BookedAppointments {
   BookedAppointments({required this.data});
@@ -56,7 +57,7 @@ class Appointment {
       rate: json["rate"] == null ? null : Rate.fromJson(json["rate"]),
       appointmentId: json["appointment_id"].toString().tryParseOrZeroInt,
       channelId: json["channelId"] ?? AppProvider.isTrainer
-          ? '${AppProvider.myId}'
+          ? '${AppSharedPreference.getMyId}'
           : '${User.fromJson(json["trainer"] ?? json["user"] ?? {}).id}',
       status: json["status"] ?? "",
       user: User.fromJson(json["trainer"] ?? json["user"] ?? {}),

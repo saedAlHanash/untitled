@@ -1,6 +1,11 @@
+import 'package:drawable_text/drawable_text.dart';
 import 'package:fitness_storm/Model/progress_model.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Progress%20Screen/progress_screen_controller.dart';
+import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class ProgressScreen extends GetView<ProgressScreenController> {
@@ -9,85 +14,93 @@ class ProgressScreen extends GetView<ProgressScreenController> {
   @override
   Widget build(BuildContext context) {
     return Obx(
-      () => controller.isLoading
-          ? SizedBox(
-              height: Get.height,
-              child: const Center(child: CircularProgressIndicator.adaptive()))
-          : SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
+      () {
+        if (controller.isLoading) {
+          return SizedBox(
+            height: Get.height,
+            child: const Center(
+              child: CircularProgressIndicator.adaptive(),
+            ),
+          );
+        }
+        return SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              12.0.verticalSpace,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const SizedBox(height: 12),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      IconButton(
-                          onPressed: () => controller.getPreviousWeek(),
-                          icon: Get.locale?.languageCode == 'en'
-                              ? Icon(Icons.arrow_back_ios_new,
-                                  color: Get.theme.primaryColor)
-                              : Icon(Icons.arrow_back_ios,
-                                  color: Get.theme.primaryColor)),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 5,
-                          vertical: 5,
-                        ),
-                        child: Row(
-                          children: [
-                            Get.locale?.languageCode == 'en'
-                                ? Text(
-                                    '${controller.currentWeekStartDay} - ${controller.currentWeekEndDay} ${controller.currentMonth}',
-                                    style: TextStyle(
-                                        color: Get.theme.primaryColor,
-                                        fontSize: 17,
-                                        fontWeight: FontWeight.bold),
-                                    textDirection: TextDirection.ltr,
-                                  )
-                                : Text(
-                                    '${controller.currentWeekStartDay} - ${controller.currentWeekEndDay} ${controller.currentMonth}',
-                                    textDirection: TextDirection.rtl,
-                                    style: TextStyle(
-                                        color: Get.theme.primaryColor,
-                                        fontSize: 17,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                          ],
-                        ),
-                      ),
-                      IconButton(
-                          onPressed: () => controller.getNextWeek(),
-                          icon: Get.locale?.languageCode == 'en'
-                              ? Icon(Icons.arrow_forward_ios,
-                                  color: Get.theme.primaryColor)
-                              : Icon(Icons.arrow_forward_ios_outlined,
-                                  color: Get.theme.primaryColor)),
-                    ],
+                  IconButton(
+                      onPressed: () => controller.getPreviousWeek(),
+                      icon: Get.locale?.languageCode == 'en'
+                          ? Icon(Icons.arrow_back_ios_new,
+                              color: Get.theme.primaryColor)
+                          : Icon(Icons.arrow_back_ios,
+                              color: Get.theme.primaryColor)),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 5,
+                      vertical: 5,
+                    ),
+                    child: Row(
+                      children: [
+                        Get.locale?.languageCode == 'en'
+                            ? Text(
+                                '${controller.currentWeekStartDay} - ${controller.currentWeekEndDay} ${controller.currentMonth}',
+                                style: TextStyle(
+                                    color: Get.theme.primaryColor,
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.bold),
+                                textDirection: TextDirection.ltr,
+                              )
+                            : Text(
+                                '${controller.currentWeekStartDay} - ${controller.currentWeekEndDay} ${controller.currentMonth}',
+                                textDirection: TextDirection.rtl,
+                                style: TextStyle(
+                                    color: Get.theme.primaryColor,
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                      ],
+                    ),
                   ),
-                  const SizedBox(height: 10),/*
+                  IconButton(
+                      onPressed: () => controller.getNextWeek(),
+                      icon: Get.locale?.languageCode == 'en'
+                          ? Icon(Icons.arrow_forward_ios,
+                              color: Get.theme.primaryColor)
+                          : Icon(Icons.arrow_forward_ios_outlined,
+                              color: Get.theme.primaryColor)),
+                ],
+              ),
+              10.0.verticalSpace,
+              /*
                   controller.progressModel.isEmpty
                       ? Center(
                           child: Text('the_from_is_not_a_valid_date'.tr),
                         )
-                      :*/ Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: controller.progressModel
-                              .map((e) => Log(progressModel: e))
-                              .toList(),
-                        ),
-                ],
+                      :*/
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: controller.progressModel
+                    .map((e) => Log(progressModel: e))
+                    .toList(),
               ),
-            ),
+            ],
+          ),
+        );
+      },
     );
   }
 }
 
 class Log extends StatefulWidget {
   const Log({
-        super.key,
+    super.key,
     required this.progressModel,
-  }) ;
+  });
 
   final ProgressModel progressModel;
 
@@ -129,71 +142,50 @@ class _LogState extends State<Log> {
           color: const Color.fromRGBO(240, 240, 240, 1),
           borderRadius: BorderRadius.circular(12),
         ),
-        margin: EdgeInsets.only(
-          left: width * 0.05,
-          right: width * 0.05,
-          top: height * 0.02,
-          bottom: height * 0.005,
-        ),
-        height: height * 0.23,
-        width: width,
+        margin: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0).r,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(height: 15),
+            15.0.verticalSpace,
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Text(
-                  '${DateTime.parse(widget.progressModel.logUser!.to!).hour - DateTime.parse(widget.progressModel.logUser!.from!).hour} ${'minute'.tr}',
-                  style: TextStyle(
+                Expanded(
+                  child: DrawableText(
+                    textAlign: TextAlign.center,
+                    text: widget.progressModel.logUser?.inMinute ?? '',
                     color: isSession ? color1 : color2,
-                    fontSize: 16,
+                    size: 14.0.sp,
                   ),
                 ),
-                Text(
-                  widget.progressModel.type!.tr,
-                  style: TextStyle(
+                Expanded(
+                  flex: 2,
+                  child: DrawableText(
+                      textAlign: TextAlign.center,
+                      text: widget.progressModel.logUser?.title ?? '-',
                       color: isSession ? color1 : color2,
-                      fontSize: 16,
                       fontWeight: FontWeight.w600),
                 ),
-                Text(
-                  widget.progressModel.logUser!.from!,
-                  style: const TextStyle(fontSize: 16),
+                Expanded(
+                  child: DrawableText(
+                      textAlign: TextAlign.center,
+                      size: 14.0.sp,
+                      text: widget.progressModel.logUser?.from?.formatDate ??
+                          '-'),
                 ),
               ],
             ),
-            const Expanded(child: SizedBox.shrink()),
-            Text(
-              widget.progressModel.logUser!.title!,
-              style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
-            ),
-            const Expanded(child: SizedBox.shrink()),
+            20.0.verticalSpace,
             Container(
+              margin: EdgeInsets.symmetric(horizontal: 20.0).r,
               decoration: BoxDecoration(
                 color: isSession ? color1 : color2,
                 borderRadius: BorderRadius.circular(5),
               ),
               height: height * 0.02,
               width: width,
-              // child: const Align(
-              //   alignment: Alignment.center,
-              //   child: RichText(
-              //     text: TextSpan(
-              //       text: widget.progressModel.tag == 'Session'
-              //           ? ('Did you like this Session ? ')
-              //           : ('Did you like this workout plan ? '),
-              //       children: <TextSpan>[
-              //         // TextSpan(
-              //         //     text: 'Rate this Trainer',
-              //         //     style: TextStyle(fontWeight: FontWeight.w600))
-              //       ],
-              //     ),
-              //     textAlign: TextAlign.center,
-              //   ),
-              // ),
-            )
+            ),
+            10.0.verticalSpace,
           ],
         ),
       ),
