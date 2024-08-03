@@ -1,4 +1,4 @@
-import 'package:appsflyer_sdk/appsflyer_sdk.dart';
+// import 'package:appsflyer_sdk/appsflyer_sdk.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/core/app/app_provider.dart';
@@ -13,35 +13,35 @@ import '../../features/profile/data/response/profile_response.dart';
 import '../../features/trainer/data/response/trainer.dart';
 
 class AnalyticService {
-  final appsflyer = AppsflyerSdk(AppsFlyerOptions(
-    afDevKey: 'kdSh9oEtSmmaVtcn3Drtzf',
-    appId: '6463420120',
-    showDebug: true,
-    timeToWaitForATTUserAuthorization: 50,
-    // for iOS 14.5
-    disableAdvertisingIdentifier: false,
-    // Optional field
-    disableCollectASA: false,
-    //Optional field
-    manualStart: true,
-  ));
+  // final appsflyer = AppsflyerSdk(AppsFlyerOptions(
+  //   afDevKey: 'kdSh9oEtSmmaVtcn3Drtzf',
+  //   appId: '6463420120',
+  //   showDebug: true,
+  //   timeToWaitForATTUserAuthorization: 50,
+  //   // for iOS 14.5
+  //   disableAdvertisingIdentifier: false,
+  //   // Optional field
+  //   disableCollectASA: false,
+  //   //Optional field
+  //   manualStart: true,
+  // ));
 
   Future<void> initialAppFlyer() async {
-    await appsflyer.initSdk(
-      registerConversionDataCallback: true,
-      registerOnAppOpenAttributionCallback: true,
-      registerOnDeepLinkingCallback: true,
-    );
-
-    appsflyer.startSDK(
-      onSuccess: () {
-        loggerObject.f("AppsFlyer SDK initialized successfully.");
-      },
-      onError: (int errorCode, String errorMessage) {
-        loggerObject.e(
-            "Error initializing AppsFlyer SDK: Code $errorCode - $errorMessage");
-      },
-    );
+    // await appsflyer.initSdk(
+    //   registerConversionDataCallback: true,
+    //   registerOnAppOpenAttributionCallback: true,
+    //   registerOnDeepLinkingCallback: true,
+    // );
+    //
+    // appsflyer.startSDK(
+    //   onSuccess: () {
+    //     loggerObject.f("AppsFlyer SDK initialized successfully.");
+    //   },
+    //   onError: (int errorCode, String errorMessage) {
+    //     loggerObject.e(
+    //         "Error initializing AppsFlyer SDK: Code $errorCode - $errorMessage");
+    //   },
+    // );
   }
 
   final analytics = FirebaseAnalytics.instance;
@@ -49,11 +49,11 @@ class AnalyticService {
   Future<void> initUser({required Profile user}) async {
     analytics.setUserId(id: user.id.toString());
     initSurvey(survey: user.fitnessSurvey);
-    appsflyer.setCustomerUserId(user.id?.toString() ?? '');
+    // appsflyer.setCustomerUserId(user.id?.toString() ?? '');
 
     if (user.email!.isNotEmpty) {
       analytics.setUserProperty(name: "email", value: user.email);
-      appsflyer.setUserEmails([user.email!]);
+      // appsflyer.setUserEmails([user.email!]);
     }
     if (user.mobile!.isNotEmpty) {
       analytics.setUserProperty(name: "phone", value: user.mobile);
@@ -103,12 +103,12 @@ class AnalyticService {
   }
 
   Future<void> signup({required SignupRequest request}) async {
-    appsflyer.setAdditionalData({
-      'Sign_Up': {
-        'email': request.phoneOrEmail ?? '',
-        'name': request.name ?? '',
-      }
-    });
+    // appsflyer.setAdditionalData({
+    //   'Sign_Up': {
+    //     'email': request.phoneOrEmail ?? '',
+    //     'name': request.name ?? '',
+    //   }
+    // });
     await analytics.logSignUp(
       signUpMethod: 'email_and_password',
       parameters: {
@@ -130,14 +130,14 @@ class AnalyticService {
       },
     );
 
-    appsflyer.setAdditionalData({
-      'Login': {
-        'User_Id': data.id,
-        'Is_First_Time': data.isFirstTime.toString(),
-        'Is_Confirmed': data.isConfirmed.toString(),
-        'User_Type': AppProvider.isTrainer ? 'trainer' : 'user',
-      }
-    });
+    // appsflyer.setAdditionalData({
+    //   'Login': {
+    //     'User_Id': data.id,
+    //     'Is_First_Time': data.isFirstTime.toString(),
+    //     'Is_Confirmed': data.isConfirmed.toString(),
+    //     'User_Type': AppProvider.isTrainer ? 'trainer' : 'user',
+    //   }
+    // });
   }
 
   Future<void> logout() async {
@@ -195,25 +195,25 @@ class AnalyticService {
   }
 
   Future<void> startCheckoutBundle({required Bundle bundle}) async {
-    appsflyer.setCurrencyCode('SAR');
-    appsflyer.setAdditionalData({
-      'Start_Checkout': {
-        'Bundle_Id': bundle.id,
-        'Bundle_Name': bundle.name,
-        'Bundle_Price': bundle.price,
-      }
-    });
+    // appsflyer.setCurrencyCode('SAR');
+    // appsflyer.setAdditionalData({
+    //   'Start_Checkout': {
+    //     'Bundle_Id': bundle.id,
+    //     'Bundle_Name': bundle.name,
+    //     'Bundle_Price': bundle.price,
+    //   }
+    // });
   }
 
   Future<void> addToWishlist({required String id}) async {
-    appsflyer.setAdditionalData({
-      'Add_To_Wishlist': {'plan_Id': id}
-    });
+    // appsflyer.setAdditionalData({
+    //   'Add_To_Wishlist': {'plan_Id': id}
+    // });
   }
 
   Future<void> startCheckout({required PayRequest request}) async {
-    appsflyer.setCurrencyCode('SAR');
-    appsflyer.setAdditionalData({'Start_Checkout': request.toJson()});
+    // appsflyer.setCurrencyCode('SAR');
+    // appsflyer.setAdditionalData({'Start_Checkout': request.toJson()});
   }
 
   Future<void> checkoutStart() async {
@@ -227,33 +227,33 @@ class AnalyticService {
 
   Future<void> initialApp() async {
     await analytics.logAppOpen();
-    appsflyer.setAdditionalData({'App_Open': {}});
+    // appsflyer.setAdditionalData({'App_Open': {}});
   }
 
   Future<void> screenView({required String name}) async {
     try {
       await analytics.logScreenView(screenName: name);
-      appsflyer.setAdditionalData({'View_Content': name});
+      // appsflyer.setAdditionalData({'View_Content': name});
     } catch (e) {
       loggerObject.e(e);
     }
   }
 
   void subscribePlan(Plan plan) {
-    appsflyer.setAdditionalData({
-      'Subscribe': {
-        'Plan_Id': plan.id,
-        'Plan_Name': plan.name,
-      }
-    });
+    // appsflyer.setAdditionalData({
+    //   'Subscribe': {
+    //     'Plan_Id': plan.id,
+    //     'Plan_Name': plan.name,
+    //   }
+    // });
   }
 
   void subscribeApp(Plan plan) {
-    appsflyer.setAdditionalData({
-      'Subscribe': {
-        'Plan_Id': plan.id,
-        'Plan_Name': plan.name,
-      }
-    });
+    // appsflyer.setAdditionalData({
+    //   'Subscribe': {
+    //     'Plan_Id': plan.id,
+    //     'Plan_Name': plan.name,
+    //   }
+    // });
   }
 }
