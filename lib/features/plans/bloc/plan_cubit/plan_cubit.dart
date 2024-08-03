@@ -62,7 +62,6 @@ class PlanCubit extends MCubit<PlanInitial> {
   }
 
   Future<void> setVideoController(PodPlayerController videoController) async {
-    state.videoController?.dispose();
     emit(state.copyWith(videoController: videoController));
   }
 

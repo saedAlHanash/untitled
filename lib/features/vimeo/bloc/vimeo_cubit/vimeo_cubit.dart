@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:pod_player/pod_player.dart';
 
 import '../../../../core/app/app_provider.dart';
@@ -11,14 +12,17 @@ class VimeoCubit extends Cubit<VimeoInitial> {
   VimeoCubit() : super(VimeoInitial.initial());
 
   Future<void> initial({required String vimeoId}) async {
-    return;
-    if (state.result == vimeoId || AppProvider.systemParams.isWebViewPlayer)
+    // return;
+    if (state.result == vimeoId || AppProvider.systemParams.isWebViewPlayer) {
       return;
+    }
 
     emit(state.copyWith(result: vimeoId, statuses: CubitStatuses.loading));
 
     if (state.controller != null) {
-      await state.controller!.changeVideo(
+      loggerObject.f('change');
+      state.controller!
+          .changeVideo(
         playerConfig: const PodPlayerConfig(
           wakelockEnabled: true,
           autoPlay: true,
@@ -32,13 +36,23 @@ class VimeoCubit extends Cubit<VimeoInitial> {
             'Content-Type': 'application/json',
             'Accept': "application/vnd.vimeo.*+json;version=3.4",
           },
-          // '784930773',
-          // httpHeaders: {'Authorization': 'Bearer $token'},
           videoPlayerOptions: VideoPlayerOptions(
             mixWithOthers: true,
           ),
         ),
+      )
+          .then(
+        (value) {
+          Future.delayed(
+            Duration(seconds: 1),
+            () {
+              state.controller?.play();
+            },
+          );
+        },
       );
+
+      loggerObject.w('initial');
       emit(state.copyWith(statuses: CubitStatuses.done));
       return;
     }
@@ -66,11 +80,17 @@ class VimeoCubit extends Cubit<VimeoInitial> {
     );
 
     emit(state.copyWith(controller: controller, statuses: CubitStatuses.done));
+    controller.initialise();
   }
 
   @override
   Future<void> close() {
-    state.controller?.dispose();
+    try {
+      state.controller?.dispose();
+    } catch (e) {
+      loggerObject.e(e);
+    }
+    loggerObject.e('state.controller?.dispose');
     return super.close();
   }
 }

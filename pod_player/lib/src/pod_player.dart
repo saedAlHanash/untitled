@@ -68,8 +68,8 @@ class PodVideoPlayer extends StatefulWidget {
     addToUiController();
   }
 
-  static bool enableLogs = false;
-  static bool enableGetxLogs = false;
+  static bool enableLogs = true;
+  static bool enableGetxLogs = true;
 
   void addToUiController() {
     Get.find<PodGetXVideoController>(tag: controller.getTag)

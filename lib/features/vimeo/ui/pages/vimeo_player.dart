@@ -1,6 +1,5 @@
 import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/core/app/app_provider.dart';
-import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -137,12 +136,17 @@ class VimeoPlayerPod extends StatefulWidget {
 }
 
 class _VimeoPlayerPodState extends State<VimeoPlayerPod> {
+  bool isSendTo = false;
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<VimeoCubit, VimeoInitial>(
       listenWhen: (p, c) => c.controller != null,
       listener: (context, state) {
-        widget.onInitController?.call(state.controller!);
+        if (!isSendTo) {
+          widget.onInitController?.call(state.controller!);
+          isSendTo = true;
+        }
       },
       builder: (context, state) {
         if (state.statuses != CubitStatuses.done) {
@@ -154,7 +158,7 @@ class _VimeoPlayerPodState extends State<VimeoPlayerPod> {
             ),
           );
         }
-        loggerObject.w(state.statuses);
+
         return Directionality(
           textDirection: TextDirection.ltr,
           child: Stack(

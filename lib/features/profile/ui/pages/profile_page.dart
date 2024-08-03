@@ -36,7 +36,7 @@ class ProfilePage extends StatelessWidget {
             return MyStyle.loadingWidget();
           }
           final profile = state.result;
-          loggerObject.w(profile.image);
+
           return SingleChildScrollView(
             padding:
                 const EdgeInsets.only(left: 30.0, right: 30.0, bottom: 100.0).r,

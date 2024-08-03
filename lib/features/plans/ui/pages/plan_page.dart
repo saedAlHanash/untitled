@@ -18,6 +18,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:image_multi_type/circle_image_widget.dart';
+import 'package:image_multi_type/image_multi_type.dart';
 
 import '../../../../Widgets/Exercise/day_widget.dart';
 import '../../../vimeo/ui/pages/vimeo_player.dart';
@@ -35,6 +36,8 @@ class PlanPage extends StatefulWidget {
 
 class _PlanPageState extends State<PlanPage> {
   PlanCubit get cubit => context.read<PlanCubit>();
+
+  var showIntro = true;
 
   @override
   Widget build(BuildContext context) {
@@ -80,15 +83,28 @@ class _PlanPageState extends State<PlanPage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    VimeoPlayer(
-                      videoId: state.result.introductionVideo,
-                      onInitController: (videoController) {
-                        cubit.setVideoController(videoController);
-                        context
-                            .read<SubscribePlanCubit>()
-                            .setVideoController(videoController);
-                      },
-                    ),
+                    // if ((state.result.isActive ||
+                    //     AppSharedPreference.getCurrentPlanId ==
+                    //         state.result.id.toString() ||
+                    //     AppProvider.isTrainer))
+                    //   AspectRatio(
+                    //     aspectRatio: 16 / 9,
+                    //     child: ImageMultiType(
+                    //       url: Icons.play_circle,
+                    //       color: Colors.white,
+                    //     ),
+                    //   )
+                    // else
+                    if (showIntro)
+                      VimeoPlayer(
+                        videoId: state.result.introductionVideo,
+                        onInitController: (videoController) {
+                          cubit.setVideoController(videoController);
+                          context
+                              .read<SubscribePlanCubit>()
+                              .setVideoController(videoController);
+                        },
+                      ),
                     const VideoTailWidget(),
                     Column(
                       children: [
@@ -132,6 +148,14 @@ class _PlanPageState extends State<PlanPage> {
                                     !cubit.state.result.isCurrent) {
                                   return;
                                 }
+                                setState(() {
+                                  showIntro = false;
+                                  context
+                                      .read<VimeoCubit>()
+                                      .state
+                                      .controller
+                                      ?.dispose();
+                                });
                                 cubit.startTraining(state.result[i], i);
                               },
                               child: DayWidget(
@@ -178,26 +202,25 @@ class _PlanPageState extends State<PlanPage> {
                           color: AppColorManager.mainColorLight),
                     );
                   }
-                  return (AppProvider.isTrainer)
+                  return (state.result.isActive ||
+                          AppSharedPreference.getCurrentPlanId ==
+                              state.result.id.toString() ||
+                          AppProvider.isTrainer)
                       ? 0.0.verticalSpace
-                      : state.result.isActive ||
-                              AppSharedPreference.getCurrentPlanId ==
-                                  state.result.id.toString()
-                          ? 0.0.verticalSpace
-                          : CustomButton(
-                              onTapFunction: () => context
-                                  .read<SubscribePlanCubit>()
-                                  .subscribe(planId: state.result.id),
-                              buttonColor: AppColorManager.mainColorLight,
-                              textColor: Colors.white,
-                              padding: 0,
-                              radius: 10,
-                              fontSize: 16.0.sp,
-                              height: Get.height / 15,
-                              width: Get.width,
-                              text: AppSharedPreference.getCurrentPlanId.isEmpty
-                                  ? 'subscribe'.tr
-                                  : 'start_within_plan'.tr);
+                      : CustomButton(
+                          onTapFunction: () => context
+                              .read<SubscribePlanCubit>()
+                              .subscribe(planId: state.result.id),
+                          buttonColor: AppColorManager.mainColorLight,
+                          textColor: Colors.white,
+                          padding: 0,
+                          radius: 10,
+                          fontSize: 16.0.sp,
+                          height: Get.height / 15,
+                          width: Get.width,
+                          text: AppSharedPreference.getCurrentPlanId.isEmpty
+                              ? 'subscribe'.tr
+                              : 'start_within_plan'.tr);
                 },
               );
             },

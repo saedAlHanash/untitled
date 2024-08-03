@@ -97,7 +97,6 @@ class SubscribePlanCubit extends Cubit<SubscribePlanInitial> {
   }
 
   Future<void> setVideoController(PodPlayerController videoController) async {
-    state.videoController?.dispose();
     emit(state.copyWith(videoController: videoController));
   }
 

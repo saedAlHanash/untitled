@@ -39,7 +39,7 @@ class CreateTrainerFileCubit extends Cubit<CreateTrainerFileInitial> {
 
   Future<Pair<TrainerFile?, String?>> _createTrainerFileApi() async {
     late final Response response;
-    loggerObject.w(state.mRequest.file?.fileBytes?.length);
+
     response = await APIService().uploadMultiPart(
       files: [state.mRequest.file],
       url: PostUrl.createTrainerFile,

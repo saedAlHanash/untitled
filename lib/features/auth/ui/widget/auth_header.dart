@@ -30,7 +30,8 @@ class AuthHeader extends StatelessWidget {
               },
               child: ImageMultiType(
                 url: Assets.imagesLanguage,
-                width: 25.0.r,
+                width: 35.0.r,
+                height: 35.0.r,
               ),
             ),
             ImageMultiType(
