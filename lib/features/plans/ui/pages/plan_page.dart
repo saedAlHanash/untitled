@@ -12,6 +12,7 @@ import 'package:fitness_storm/core/strings/app_color_manager.dart';
 import 'package:fitness_storm/core/util/my_style.dart';
 import 'package:fitness_storm/core/util/shared_preferences.dart';
 import 'package:fitness_storm/core/widgets/app_bar/app_bar_widget.dart';
+import 'package:fitness_storm/features/vimeo/bloc/vimeo_cubit/vimeo_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -19,7 +20,7 @@ import 'package:get/get.dart';
 import 'package:image_multi_type/circle_image_widget.dart';
 
 import '../../../../Widgets/Exercise/day_widget.dart';
-import '../../../../Widgets/vimeo_player.dart';
+import '../../../vimeo/ui/pages/vimeo_player.dart';
 import '../../../../core/app/app_provider.dart';
 import '../../bloc/plan_cubit/plan_cubit.dart';
 import '../../bloc/plan_workout_cubit/plan_workout_cubit.dart';
@@ -37,11 +38,23 @@ class _PlanPageState extends State<PlanPage> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<SubscribePlanCubit, SubscribePlanInitial>(
-      listenWhen: (p, c) => c.statuses.done,
-      listener: (context, state) {
-        setState(() {});
-      },
+    return MultiBlocListener(
+      listeners: [
+        BlocListener<SubscribePlanCubit, SubscribePlanInitial>(
+          listenWhen: (p, c) => c.statuses.done,
+          listener: (context, state) {
+            setState(() {});
+          },
+        ),
+        BlocListener<PlanCubit, PlanInitial>(
+          listenWhen: (p, c) => c.statuses.done,
+          listener: (context, state) {
+            context
+                .read<VimeoCubit>()
+                .initial(vimeoId: state.result.introductionVideo);
+          },
+        ),
+      ],
       child: Scaffold(
           appBar: AppBarWidget(
             title: BlocBuilder<PlanCubit, PlanInitial>(

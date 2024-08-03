@@ -1,11 +1,16 @@
+import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/core/app/app_provider.dart';
+import 'package:fitness_storm/core/extensions/extensions.dart';
+import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:pod_player/pod_player.dart';
 
-import '../core/util/my_style.dart';
-import '../generated/assets.dart';
+import '../../../../core/util/my_style.dart';
+import '../../../../generated/assets.dart';
+import '../../bloc/vimeo_cubit/vimeo_cubit.dart';
 
 class VimeoPlayer extends StatelessWidget {
   const VimeoPlayer(
@@ -139,18 +144,7 @@ class _VimeoPlayerPodState extends State<VimeoPlayerPod> {
 
   @override
   void initState() {
-    // vc = VideoPlayerController.networkUrl(Uri.parse(
-    //     'https://player.vimeo.com/progressive_redirect/playback/739932290/rendition/540p/file.mp4?loc=external&oauth2_token_id=1770106234&signature=e1c48a7068bd338603c6c0213099b6258fc6dd04396674ec08ea3dc7ff99c725'));
-    // vc.initialize().then(
-    //   (value) {
-    //
-    //     setState(() {
-    //       isInitial = true;
-    //     });
-    //
-    //     vc.play();
-    //   },
-    // );
+
     controller = PodPlayerController(
       podPlayerConfig:  PodPlayerConfig(
         wakelockEnabled: true,
@@ -194,16 +188,6 @@ class _VimeoPlayerPodState extends State<VimeoPlayerPod> {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          if (false)
-            isInitial
-                ? Center(
-                    child: AspectRatio(
-                      aspectRatio: 16 / 9,
-                      child: VideoPlayer(vc),
-                    ),
-                  )
-                : MyStyle.loadingWidget()
-          else
             PodVideoPlayer(
               controller: controller,
               onToggleFullScreen: (isFullScreen) async {

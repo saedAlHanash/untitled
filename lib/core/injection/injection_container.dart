@@ -44,6 +44,7 @@ import '../../features/trainer_files/bloc/delete_trainer_file_cubit/delete_train
 import '../../features/trainer_files/bloc/trainer_files_cubit/trainer_files_cubit.dart';
 import '../../features/training/bloc/exercise_cubit/exercise_cubit.dart';
 import '../../features/training/bloc/temp_cubit/training_cubit.dart';
+import '../../features/vimeo/bloc/vimeo_cubit/vimeo_cubit.dart';
 import '../../features/wallet/bloc/wallet_cubit/wallet_cubit.dart';
 import '../../features/welcome_message/bloc/welcome_message_cubit/welcome_message_cubit.dart';
 import '../../features/welcome_message/bloc/welcome_messages_cubit/welcome_messages_cubit.dart';
@@ -160,6 +161,10 @@ Future<void> init() async {
   //region TrainingCubit
   sl.registerFactory(() => TrainingCubit());
   sl.registerFactory(() => ExercisesCubit());
+  //endregion
+  //region VimeoCubit
+  sl.registerFactory(() => VimeoCubit());
+
   //endregion
 
 //! External

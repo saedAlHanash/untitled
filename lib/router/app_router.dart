@@ -63,6 +63,7 @@ import '../features/trainer_files/bloc/delete_trainer_file_cubit/delete_trainer_
 import '../features/trainer_files/ui/pages/trainer_files_page.dart';
 import '../features/training/bloc/exercise_cubit/exercise_cubit.dart';
 import '../features/training/ui/pages/training_page.dart';
+import '../features/vimeo/bloc/vimeo_cubit/vimeo_cubit.dart';
 import '../features/welcome_message/bloc/welcome_messages_cubit/welcome_messages_cubit.dart';
 import '../features/welcome_message/ui/pages/welcome_page.dart';
 import '../services/chat_service/chat_service_core.dart';
@@ -482,6 +483,7 @@ void startChatPage(Room room) async {
 void startPlanPage(String id) async {
   final providers = [
     BlocProvider(create: (_) => sl<SubscribePlanCubit>()),
+    BlocProvider(create: (_) => sl<VimeoCubit>()),
     BlocProvider(
       create: (_) => sl<PlanCubit>()..getPlan(planId: int.parse(id)),
     ),
@@ -502,6 +504,7 @@ void startPlanPage(String id) async {
 void startTrainingPage(PlanWorkout planWorkout,bool complete) async {
   final providers = [
     BlocProvider(create: (_) => sl<TrainingCubit>()..initial(planWorkout,complete)),
+    BlocProvider(create: (_) => sl<VimeoCubit>()),
   ];
 
   final Widget page = MultiBlocProvider(
