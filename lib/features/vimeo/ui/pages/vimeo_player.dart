@@ -137,91 +137,65 @@ class VimeoPlayerPod extends StatefulWidget {
 }
 
 class _VimeoPlayerPodState extends State<VimeoPlayerPod> {
-  late PodPlayerController controller;
-
-  bool isInitial = false;
-  late final VideoPlayerController vc;
-
-  @override
-  void initState() {
-
-    controller = PodPlayerController(
-      podPlayerConfig:  PodPlayerConfig(
-        wakelockEnabled: true,
-        autoPlay: true,
-        isLooping: true,
-        videoQualityPriority: [360],
-      ),
-      playVideoFrom: PlayVideoFrom.vimeoPrivateVideos(
-        widget.videoId,
-        httpHeaders: {
-          'Authorization': 'Bearer 021e33294bd3accb2c957b2a406b6c30',
-          'Content-Type': 'application/json',
-          'Accept': "application/vnd.vimeo.*+json;version=3.4",
-        },
-        // '784930773',
-        // httpHeaders: {'Authorization': 'Bearer $token'},
-        videoPlayerOptions: VideoPlayerOptions(
-          mixWithOthers: true,
-        ),
-      ),
-    )..initialise().then((value) {
-        if (!mounted) return;
-        setState(() {});
-      });
-
-    widget.onInitController?.call(controller);
-
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.ltr,
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-            PodVideoPlayer(
-              controller: controller,
-              onToggleFullScreen: (isFullScreen) async {
-                if (isFullScreen) {
-                  SystemChrome.setPreferredOrientations([
-                    DeviceOrientation.landscapeLeft,
-                    DeviceOrientation.landscapeRight,
-                  ]);
-                } else {
-                  SystemChrome.setPreferredOrientations([
-                    DeviceOrientation.portraitUp,
-                    DeviceOrientation.portraitDown,
-                  ]);
-                }
-              },
-              videoThumbnail: const DecorationImage(
-                image: AssetImage(Assets.imagesLogo),
-              ),
+    return BlocConsumer<VimeoCubit, VimeoInitial>(
+      listenWhen: (p, c) => c.controller != null,
+      listener: (context, state) {
+        widget.onInitController?.call(state.controller!);
+      },
+      builder: (context, state) {
+        if (state.statuses != CubitStatuses.done) {
+          return Container(
+            color: Colors.black,
+            child: AspectRatio(
+              aspectRatio: 16 / 9,
+              child: MyStyle.loadingWidget(),
             ),
-          Positioned(
-            bottom: 5.0,
-            right: 15.0,
-            child: IgnorePointer(
-              child: Opacity(
-                opacity: 0.4,
-                child: Image.asset(
-                  Assets.imagesFs2,
-                  height: 40.0,
+          );
+        }
+        loggerObject.w(state.statuses);
+        return Directionality(
+          textDirection: TextDirection.ltr,
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              PodVideoPlayer(
+                controller: state.controller!,
+                onToggleFullScreen: (isFullScreen) async {
+                  if (isFullScreen) {
+                    SystemChrome.setPreferredOrientations([
+                      DeviceOrientation.landscapeLeft,
+                      DeviceOrientation.landscapeRight,
+                    ]);
+                  } else {
+                    SystemChrome.setPreferredOrientations([
+                      DeviceOrientation.portraitUp,
+                      DeviceOrientation.portraitDown,
+                    ]);
+                  }
+                },
+                videoThumbnail: const DecorationImage(
+                  image: AssetImage(Assets.imagesLogo),
                 ),
               ),
-            ),
+              Positioned(
+                bottom: 5.0,
+                right: 15.0,
+                child: IgnorePointer(
+                  child: Opacity(
+                    opacity: 0.4,
+                    child: Image.asset(
+                      Assets.imagesFs2,
+                      height: 40.0,
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 }
