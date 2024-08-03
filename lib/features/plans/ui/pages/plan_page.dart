@@ -71,6 +71,9 @@ class _PlanPageState extends State<PlanPage> {
                       videoId: state.result.introductionVideo,
                       onInitController: (videoController) {
                         cubit.setVideoController(videoController);
+                        context
+                            .read<SubscribePlanCubit>()
+                            .setVideoController(videoController);
                       },
                     ),
                     const VideoTailWidget(),

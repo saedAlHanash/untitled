@@ -7,6 +7,7 @@ import 'package:fitness_storm/core/util/shared_preferences.dart';
 import 'package:fitness_storm/core/util/snack_bar_message.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
+import 'package:pod_player/pod_player.dart';
 
 import '../../../../Screen/Trainee Screens/HomeScreen/refresh_home_plan_cubit/refresh_home_plan_cubit.dart';
 import '../../../../core/api_manager/api_service.dart';
@@ -28,6 +29,7 @@ class SubscribePlanCubit extends Cubit<SubscribePlanInitial> {
   SubscribePlanCubit() : super(SubscribePlanInitial.initial());
 
   Future<void> subscribe({required int planId}) async {
+
     emit(state.copyWith(request: planId, statuses: CubitStatuses.loading));
 
     final pair = await _subscribe();
@@ -35,6 +37,7 @@ class SubscribePlanCubit extends Cubit<SubscribePlanInitial> {
     if (pair.first == null) {
       emit(state.copyWith(statuses: CubitStatuses.error, error: pair.second));
       if (state.error.startsWith('451')) {
+        pausePlayer();
         AwesomeDialog(
           context: ctx!,
           dialogType: DialogType.warning,
@@ -91,5 +94,24 @@ class SubscribePlanCubit extends Cubit<SubscribePlanInitial> {
       }
       return response.getPairError;
     }
+  }
+
+  Future<void> setVideoController(PodPlayerController videoController) async {
+    state.videoController?.dispose();
+    emit(state.copyWith(videoController: videoController));
+  }
+
+  void pausePlayer() {
+    loggerObject.w('puase');
+    if (state.videoController == null) {
+      Future.delayed(
+        const Duration(seconds: 3),
+        pausePlayer,
+      );
+      return;
+    }
+    state.videoController
+      ?..pause()
+      ..setAutoPlay = false;
   }
 }

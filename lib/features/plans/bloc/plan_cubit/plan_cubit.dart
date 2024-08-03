@@ -68,7 +68,9 @@ class PlanCubit extends MCubit<PlanInitial> {
 
   startTraining(PlanWorkout planWorkout, int i) async {
     pausePlayer();
+
     Utils.openLoadingDialog();
+
     final apiResult =
         await ExerciseRepository().startDay(planWorkout.id.toString());
 
