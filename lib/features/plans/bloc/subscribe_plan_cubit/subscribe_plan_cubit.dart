@@ -37,7 +37,6 @@ class SubscribePlanCubit extends Cubit<SubscribePlanInitial> {
     if (pair.first == null) {
       emit(state.copyWith(statuses: CubitStatuses.error, error: pair.second));
       if (state.error.startsWith('451')) {
-        pausePlayer();
         AwesomeDialog(
           context: ctx!,
           dialogType: DialogType.warning,
@@ -88,7 +87,7 @@ class SubscribePlanCubit extends Cubit<SubscribePlanInitial> {
       return Pair(Plan.fromJson(response.jsonBody), null);
     } else {
       if (response.statusCode == 451 && !AppControl.isAppleAccount) {
-        ctx.readOrNull<PlanCubit>()?.pausePlayer();
+
         Get.toNamed(AppRoutes.subscriptionScreen);
         return Pair(null, '451${ErrorManager.getApiError(response)}');
       }
@@ -96,21 +95,4 @@ class SubscribePlanCubit extends Cubit<SubscribePlanInitial> {
     }
   }
 
-  Future<void> setVideoController(PodPlayerController videoController) async {
-    emit(state.copyWith(videoController: videoController));
-  }
-
-  void pausePlayer() {
-    loggerObject.w('puase');
-    if (state.videoController == null) {
-      Future.delayed(
-        const Duration(seconds: 3),
-        pausePlayer,
-      );
-      return;
-    }
-    state.videoController
-      ?..pause()
-      ..setAutoPlay = false;
-  }
 }

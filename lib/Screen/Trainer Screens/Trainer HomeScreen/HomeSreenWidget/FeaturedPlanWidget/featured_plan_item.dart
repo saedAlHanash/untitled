@@ -56,8 +56,7 @@ class FeaturedPlanItem extends GetWidget {
         margin: EdgeInsets.zero,
         color: Colors.white,
         elevation: 0,
-        shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(15),
           child: ImageMultiType(url: planImageUrl, fit: BoxFit.cover),
@@ -74,13 +73,13 @@ class FeaturedPlanItem extends GetWidget {
     required int planFrequency,
     // required String trainingType,
   }) {
-    final width = 0.9.sw;
     return Container(
-      width: width,
+      width: 0.93.sw,
+      clipBehavior: Clip.hardEdge,
       decoration: BoxDecoration(
-        borderRadius:  BorderRadius.only(
-          bottomRight: Radius.circular(15.r),
-          bottomLeft: Radius.circular(15.r),
+        borderRadius: BorderRadius.vertical(
+          bottom: Radius.circular(15.r),
+          top: Radius.circular(15.r),
         ),
         color: Colors.grey.withOpacity(0.5),
       ),
@@ -90,14 +89,14 @@ class FeaturedPlanItem extends GetWidget {
           _buildTrainerInfo(
             trainerImageUrl: trainerImageUrl,
             trainerName: trainerName,
-            width: width,
+            width: 0.93.sw,
           ),
           _buildPlanInfoWidget(
             planName: planName,
             totalWeeks: totalWeeks,
             planFrequency: planFrequency,
             // trainingType: trainingType,
-            width: width,
+            width: 0.93.sw,
           )
         ],
       ),
@@ -123,9 +122,7 @@ class FeaturedPlanItem extends GetWidget {
               child: Text(
                 planName,
                 style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold),
+                    color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
               ),
             ),
             Padding(

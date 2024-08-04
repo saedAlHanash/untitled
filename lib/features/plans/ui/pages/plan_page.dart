@@ -52,9 +52,7 @@ class _PlanPageState extends State<PlanPage> {
         BlocListener<PlanCubit, PlanInitial>(
           listenWhen: (p, c) => c.statuses.done,
           listener: (context, state) {
-            context
-                .read<VimeoCubit>()
-                .initial(vimeoId: state.result.introductionVideo);
+            context.read<VimeoCubit>().initial(vimeoId: state.result.introductionVideo);
           },
         ),
       ],
@@ -98,12 +96,6 @@ class _PlanPageState extends State<PlanPage> {
                     if (showIntro)
                       VimeoPlayer(
                         videoId: state.result.introductionVideo,
-                        onInitController: (videoController) {
-                          cubit.setVideoController(videoController);
-                          context
-                              .read<SubscribePlanCubit>()
-                              .setVideoController(videoController);
-                        },
                       ),
                     const VideoTailWidget(),
                     Column(
@@ -111,8 +103,7 @@ class _PlanPageState extends State<PlanPage> {
                         30.0.verticalSpace,
                         Text(
                           state.result.name,
-                          style: const TextStyle(
-                              color: Color(0xFF565C63), fontSize: 26),
+                          style: const TextStyle(color: Color(0xFF565C63), fontSize: 26),
                         ),
                         30.0.verticalSpace,
                         ReadMoreTextWidget(text: state.result.description),
@@ -144,18 +135,15 @@ class _PlanPageState extends State<PlanPage> {
                             final item = state.result[i];
                             return GestureDetector(
                               onTap: () {
-                                if (item.isRestDay ||
-                                    !cubit.state.result.isCurrent) {
+                                if (item.isRestDay || !cubit.state.result.isCurrent) {
                                   return;
                                 }
+
                                 setState(() {
                                   showIntro = false;
-                                  context
-                                      .read<VimeoCubit>()
-                                      .state
-                                      .controller
-                                      ?.dispose();
+                                  context.read<VimeoCubit>().state.controller?.dispose();
                                 });
+
                                 cubit.startTraining(state.result[i], i);
                               },
                               child: DayWidget(
@@ -181,15 +169,13 @@ class _PlanPageState extends State<PlanPage> {
           floatingActionButtonLocation: Platform.isIOS
               ? FloatingActionButtonLocation.centerDocked
               : FloatingActionButtonLocation.centerFloat,
-          floatingActionButton:
-              BlocBuilder<SubscribePlanCubit, SubscribePlanInitial>(
+          floatingActionButton: BlocBuilder<SubscribePlanCubit, SubscribePlanInitial>(
             builder: (context, state) {
               if (state.statuses.loading) {
                 return SizedBox(
                   height: 30.0.r,
                   width: 30.0.r,
-                  child: MyStyle.loadingWidget(
-                      color: AppColorManager.mainColorLight),
+                  child: MyStyle.loadingWidget(color: AppColorManager.mainColorLight),
                 );
               }
               return BlocBuilder<PlanCubit, PlanInitial>(
@@ -198,8 +184,7 @@ class _PlanPageState extends State<PlanPage> {
                     return SizedBox(
                       height: 30.0.r,
                       width: 30.0.r,
-                      child: MyStyle.loadingWidget(
-                          color: AppColorManager.mainColorLight),
+                      child: MyStyle.loadingWidget(color: AppColorManager.mainColorLight),
                     );
                   }
                   return (state.result.isActive ||
@@ -208,9 +193,15 @@ class _PlanPageState extends State<PlanPage> {
                           AppProvider.isTrainer)
                       ? 0.0.verticalSpace
                       : CustomButton(
-                          onTapFunction: () => context
-                              .read<SubscribePlanCubit>()
-                              .subscribe(planId: state.result.id),
+                          onTapFunction: () {
+                            setState(() {
+                              context.read<VimeoCubit>().state.controller?.pause();
+                            });
+
+                            return context
+                                .read<SubscribePlanCubit>()
+                                .subscribe(planId: state.result.id);
+                          },
                           buttonColor: AppColorManager.mainColorLight,
                           textColor: Colors.white,
                           padding: 0,

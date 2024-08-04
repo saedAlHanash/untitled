@@ -1,13 +1,11 @@
 part of 'subscribe_plan_cubit.dart';
 
 class SubscribePlanInitial extends AbstractState<Plan> {
-  final PodPlayerController? videoController;
 
   const SubscribePlanInitial({
     required super.result,
     super.error,
     required super.request,
-    this.videoController,
     // required this.tempParam,
     super.statuses,
   });
@@ -27,7 +25,7 @@ class SubscribePlanInitial extends AbstractState<Plan> {
         statuses,
         result,
         error,
-        if (videoController != null) videoController!,
+
         if (request != null) request,
       ];
 
@@ -36,7 +34,6 @@ class SubscribePlanInitial extends AbstractState<Plan> {
     Plan? result,
     String? error,
     int? request,
-    PodPlayerController? videoController,
     // bool? tempParam,
   }) {
     return SubscribePlanInitial(
@@ -44,7 +41,6 @@ class SubscribePlanInitial extends AbstractState<Plan> {
       result: result ?? this.result,
       error: error ?? this.error,
       request: request ?? this.request,
-      videoController: videoController ?? this.videoController,
       // tempParam: tempParam ?? this.tempParam,
     );
   }

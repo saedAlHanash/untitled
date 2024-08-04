@@ -61,12 +61,8 @@ class PlanCubit extends MCubit<PlanInitial> {
     }
   }
 
-  Future<void> setVideoController(PodPlayerController videoController) async {
-    emit(state.copyWith(videoController: videoController));
-  }
 
   startTraining(PlanWorkout planWorkout, int i) async {
-    pausePlayer();
 
     Utils.openLoadingDialog();
 
@@ -113,16 +109,4 @@ class PlanCubit extends MCubit<PlanInitial> {
     }
   }
 
-  void pausePlayer() {
-    if (state.videoController == null) {
-      Future.delayed(
-        const Duration(seconds: 3),
-        pausePlayer,
-      );
-      return;
-    }
-    state.videoController
-      ?..pause()
-      ..setAutoPlay = false;
-  }
 }
