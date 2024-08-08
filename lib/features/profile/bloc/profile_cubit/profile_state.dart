@@ -1,11 +1,8 @@
 part of 'profile_cubit.dart';
 
 class ProfileInitial extends AbstractState<Profile> {
-  final int id;
-
   const ProfileInitial({
     required super.result,
-    required this.id,
     super.error,
     super.statuses,
   });
@@ -13,24 +10,26 @@ class ProfileInitial extends AbstractState<Profile> {
   factory ProfileInitial.initial() {
     return ProfileInitial(
       result: AppProvider.profile,
-      id: 0,
     );
   }
 
   @override
-  List<Object> get props => [statuses, result, error];
+  List<Object> get props => [
+    statuses,
+    result,
+    error,
+    if (request != null) request,
+  ];
 
   ProfileInitial copyWith({
     CubitStatuses? statuses,
     Profile? result,
     String? error,
-    int? id,
   }) {
     return ProfileInitial(
       statuses: statuses ?? this.statuses,
       result: result ?? this.result,
       error: error ?? this.error,
-      id: id ?? this.id,
     );
   }
 }

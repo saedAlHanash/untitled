@@ -1,16 +1,16 @@
-part of 'temp_cubit.dart';
+part of 'delete_diet_cubit.dart';
 
-class TempInitial extends AbstractState<Temp> {
-  const TempInitial({
+class DeleteDietInitial extends AbstractState<bool> {
+  const DeleteDietInitial({
     required super.result,
     super.error,
     required super.request,
     super.statuses,
-  });
+  }); //
 
-  factory TempInitial.initial() {
-    return TempInitial(
-      result: Temp.fromJson({}),
+  factory DeleteDietInitial.initial() {
+    return const DeleteDietInitial(
+      result: false,
       error: '',
       request: '',
       statuses: CubitStatuses.init,
@@ -19,19 +19,19 @@ class TempInitial extends AbstractState<Temp> {
 
   @override
   List<Object> get props => [
-        statuses,
-        result,
-        error,
-        if (request != null) request,
-      ];
-
-  TempInitial copyWith({
+    statuses,
+    result,
+    error,
+    if (request != null) request,
+   
+  ];
+  DeleteDietInitial copyWith({
     CubitStatuses? statuses,
-    Temp? result,
+    bool? result,
     String? error,
     String? request,
   }) {
-    return TempInitial(
+    return DeleteDietInitial(
       statuses: statuses ?? this.statuses,
       result: result ?? this.result,
       error: error ?? this.error,

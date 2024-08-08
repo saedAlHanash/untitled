@@ -110,6 +110,7 @@ class _TraineeProfileInfoScreenState extends State<TraineeProfileInfoScreen> {
                           MyTextFormWidget(
                             initialValue: request.mobile,
                             color: AppColorManager.cardColor,
+                            keyBordType: TextInputType.phone,
                             validator: (p0) => cubit.validatePhone,
                             textColor: Colors.black87,
                             label: S.of(context).phone,

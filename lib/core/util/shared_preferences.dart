@@ -172,8 +172,8 @@ class AppSharedPreference {
         jsonDecode(_prefs?.getString(_loginData) ?? '{}'));
   }
 
-  static cashProfile(Profile profile) async {
-    await _prefs?.setString(_profile, jsonEncode(profile.toJson()));
+  static Future<void> cashProfile(Profile profile) async {
+    await _prefs?.setString(_profile, jsonEncode(profile));
   }
 
   static Profile get profile {

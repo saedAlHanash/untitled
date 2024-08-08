@@ -6,52 +6,52 @@ import '../../../../core/api_manager/api_service.dart';
 import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/abstraction.dart';
 import '../../../../core/util/pair_class.dart';
-import '../../data/response/temp_response.dart';
+import '../../data/response/diet_response.dart';
 
-part 'temps_state.dart';
+part 'diets_state.dart';
 
-class TempsCubit extends MCubit<TempsInitial> {
-  TempsCubit() : super(TempsInitial.initial());
+class DietsCubit extends MCubit<DietsInitial> {
+  DietsCubit() : super(DietsInitial.initial());
 
   @override
-  String get nameCache => 'temps';
+  String get nameCache => 'diets';
 
   @override
   String get filter =>  state.request?.toString() ?? '';
 
-  Future<void> getTemps({bool newData = false}) async {
+  Future<void> getDiets({bool newData = false}) async {
     await getDataAbstract(
-      fromJson: Temp.fromJson,
+      fromJson: Diet.fromJson,
       state: state,
-      getDataApi: _getTemps,
+      getDataApi: _getDiets,
       newData: newData,
     );
   }
 
-  Future<Pair<List<Temp>?, String?>> _getTemps() async {
+  Future<Pair<List<Diet>?, String?>> _getDiets() async {
     final response = await APIService().callApi(
       type: ApiType.get,
-      url: GetUrl.temps,
+      url: GetUrl.diets,
     );
 
     if (response.statusCode.success) {
-      return Pair(Temps.fromJson(response.jsonBody).items, null);
+      return Pair(Diets.fromJson(response.jsonBodyPure).data, null);
     } else {
       return response.getPairError;
     }
   }
 
-  Future<void> addTemp(Temp item) async {
+  Future<void> addDiet(Diet item) async {
     final listJson = await addOrUpdateDate([item]);
     if (listJson == null) return;
-    final list = listJson.map((e) => Temp.fromJson(e)).toList();
+    final list = listJson.map((e) => Diet.fromJson(e)).toList();
     emit(state.copyWith(result: list));
   }
 
-  Future<void> deleteTempFromCache(String id) async {
+  Future<void> deleteDietFromCache(String id) async {
     final listJson = await deleteDate([id]);
     if (listJson == null) return;
-    final list = listJson.map((e) => Temp.fromJson(e)).toList();
+    final list = listJson.map((e) => Diet.fromJson(e)).toList();
     emit(state.copyWith(result: list));
   }
 }

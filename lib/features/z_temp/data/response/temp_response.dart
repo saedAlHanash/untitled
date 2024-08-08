@@ -1,12 +1,20 @@
 class Temp {
-  Temp();
+  Temp({
+    required this.id,
+  });
+
+  final String id;
 
   Map<String, dynamic> toJson() {
-    return {};
+    return {
+      "id": id,
+    };
   }
 
-  factory Temp.fromJson(Map<String, dynamic> map) {
-    return Temp();
+  factory Temp.fromJson(Map<String, dynamic> json) {
+    return Temp(
+      id: json["id"] ?? "",
+    );
   }
 
 //</editor-fold>
@@ -25,9 +33,9 @@ class Temps {
     };
   }
 
-  factory Temps.fromJson(Map<String, dynamic> map) {
+  factory Temps.fromJson(Map<String, dynamic> json) {
     return Temps(
-      items: map['items'] as List<Temp>,
+      items: json['items'] as List<Temp>,
     );
   }
 }

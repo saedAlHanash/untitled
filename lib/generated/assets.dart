@@ -26,6 +26,7 @@ class Assets {
   static const String imagesCreateFile = 'asset/Images/create_file.svg';
   static const String imagesCv = 'asset/Images/cv.svg';
   static const String imagesDambleSVG = 'asset/Images/dambleSVG.svg';
+  static const String imagesDiet = 'asset/Images/diet.svg';
   static const String imagesDrawer = 'asset/Images/drawer.png';
   static const String imagesDrawerSVG = 'asset/Images/drawerSVG.svg';
   static const String imagesEmptyStar = 'asset/Images/empty_star.svg';

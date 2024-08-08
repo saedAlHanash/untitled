@@ -14,33 +14,36 @@ import '../../../../core/util/pair_class.dart';
 
 part 'profile_state.dart';
 
-class ProfileCubit extends Cubit<ProfileInitial> {
+class ProfileCubit extends MCubit<ProfileInitial> {
   ProfileCubit() : super(ProfileInitial.initial());
 
-  Future<void> getProfile({bool? newData}) async {
-    if (state.result.id != 0 && newData == null) {
-      return;
-    }
-    emit(state.copyWith(statuses: CubitStatuses.loading));
-    final pair = await _getProfileApi();
+  @override
+  String get nameCache => 'Profile';
 
-    if (pair.first == null) {
-      emit(state.copyWith(statuses: CubitStatuses.error, error: pair.second));
-      showErrorFromApi(state);
-    } else {
-      await AppProvider.cashProfile(pair.first!);
-      emit(state.copyWith(statuses: CubitStatuses.done, result: pair.first));
-      sl<AnalyticService>().initUser(user: pair.first!);
-    }
+  Future<void> getProfile({bool? newData}) async {
+    await getDataAbstract(
+      fromJson: Profile.fromJson,
+      state: state,
+      getDataApi: _getProfileApi,
+      newData: newData ?? false,
+      onSuccess: (data, emitState) {
+        loggerObject.w(data);
+        emit(state.copyWith(statuses: emitState,result: data));
+      },
+    );
   }
 
   Future<Pair<Profile?, String?>> _getProfileApi() async {
-    final response = await APIService().callApi(type: ApiType.get,
+    final response = await APIService().callApi(
+      type: ApiType.get,
       url: GetUrl.profile,
     );
 
     if (response.statusCode.success) {
-      return Pair(Profile.fromJson(response.jsonBody), null);
+      final model = Profile.fromJson(response.jsonBody);
+       AppProvider.cashProfile(model);
+      sl<AnalyticService>().initUser(user: model);
+      return Pair(model, null);
     } else {
       return response.getPairError;
     }

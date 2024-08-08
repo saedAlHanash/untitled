@@ -78,6 +78,13 @@ class _ProfileCardState extends State<ProfileCard> {
           startTrainerFiles();
         };
 
+      case ProfileCardType.diets:
+        image = Assets.imagesDiet;
+        name = S().diets;
+        onTap = () {
+          startDietsPage();
+        };
+
         break;
       // case ProfileCardType.welcome:
       //   image = Assets.imagesWelcomeMessage;

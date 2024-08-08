@@ -1,16 +1,26 @@
 import 'dart:convert';
 
 import 'package:collection/collection.dart';
+import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import '../../core/strings/enum_manager.dart';
 
 const latestUpdateBox = 'latestUpdateBox';
+const version = 0;
 
 class CachingService {
+  static var timeInterval = 180;
+
   static Future<void> initial() async {
     await Hive.initFlutter();
+  }
+
+  static Future<void> updateLatestUpdateBox(String name) async {
+    final boxUpdate = await getBox(latestUpdateBox);
+
+    await boxUpdate.put(name, DateTime.now().toIso8601String());
   }
 
   static Future<void> sortData({
@@ -18,85 +28,93 @@ class CachingService {
     required String name,
     String filter = '',
   }) async {
-    final key = '_${filter}_';
+    await updateLatestUpdateBox(name);
 
-    final boxUpdate = await getBox(latestUpdateBox);
+    final haveId = _getIdParam(data).isNotEmpty;
 
-    await boxUpdate.put(name, DateTime.now().toIso8601String());
+    final key = CacheKey(
+      id: '',
+      filter: filter,
+      version: version,
+    );
 
     final box = await getBox(name);
 
     if (data is List) {
-      await clearKeysId(box: box, filter: filter);
+      await clearKeysId(box: box, filter: key);
 
       for (var e in data) {
-        await box.put('$key${box.values.length}', jsonEncode(e));
+        final id = haveId ? _getIdParam(e) : '';
+        final keyString = key.copyWith(id: id).jsonString;
+        await box.put(keyString, jsonEncode(e));
       }
-
       return;
     }
 
-    await box.put(key, jsonEncode(data));
+    final keyString = key.copyWith(id: haveId ? _getIdParam(data) : '').jsonString;
+
+    await box.put(keyString, jsonEncode(data));
   }
 
-  static Future<void> sortDataWithIds({
-    required dynamic data,
+  static Future<Iterable<dynamic>?> addOrUpdate({
+    required List<dynamic> data,
     required String name,
-    String filter = '',
+    required String filter,
   }) async {
-    if (data is Iterable && data.isEmpty) return;
+    final key = CacheKey(
+      id: getIdFromData(data),
+      filter: filter,
+      version: version,
+    );
 
-    final key = '_${filter}_';
-    bool haveIdParam = _haveIdParam(data);
-
-    final boxUpdate = await getBox(latestUpdateBox);
-
-    await boxUpdate.put(name, DateTime.now().toIso8601String());
+    if (key.id.isEmpty) return null;
 
     final box = await getBox(name);
 
-    if (data is Iterable) {
-      for (var e in data) {
-        final item = jsonEncode(e);
-        final id =
-            '$key${haveIdParam ? '+${(e is Map) ? e['id'] : e.id}' : box.values.length}';
-        await box.put(id, item);
-      }
-      return;
+    for (var d in data) {
+      final keys = box.keys.where((e) => jsonDecode(e)['id'] == d.id);
+
+      final item = jsonEncode(d);
+
+      final mapUpdate = Map.fromEntries(keys.map((key) => MapEntry(key, item)));
+
+      //if not found the operation is add
+      if (mapUpdate.isEmpty) mapUpdate[key.jsonString] = item;
+
+      await box.putAll(mapUpdate);
     }
 
-    await box.put('$key${haveIdParam ? '+${data.id}' : ''}', jsonEncode(data));
+    return await getList(name, filter: filter);
   }
 
-  static bool _haveIdParam(dynamic data) {
-    try {
-      if (data is Map) {
-        return (data)['id'] != null;
-      }
+  static Future<Iterable<dynamic>?> delete({
+    required List<String> data,
+    required String name,
+    required String filter,
+  }) async {
+    if (getIdFromData(data).isEmpty) return null;
 
-      if (data is Iterable) {
-        if (data.first is String) return true;
+    final box = await getBox(name);
 
-        if (data.first is Map) {
-          return data.first.containsKey('id');
-        }
+    for (var id in data) {
+      final keys = box.keys.where((e) {
+        return jsonDecode(e)['id'] == id;
+      });
 
-        return !(data.first.id.toString().isBlank);
-      } else {
-        return !(data.id.toString().isBlank);
-      }
-    } catch (e) {
-      return false;
+      await box.deleteAll(keys);
     }
+
+    return await getList(name, filter: filter);
   }
 
   static Future<void> clearKeysId({
     required Box<String> box,
-    String filter = '',
+    required CacheKey filter,
   }) async {
-    final key = '_${filter}_';
-
-    final keys = box.keys.where((e) => e.startsWith(key));
+    final keys = box.keys.where((e) {
+      final keyCache = jsonDecode(e);
+      return keyCache['filter'] == filter.filter;
+    });
 
     await box.deleteAll(keys);
   }
@@ -105,26 +123,67 @@ class CachingService {
     String name, {
     String filter = '',
   }) async {
-    final key = '_${filter}_';
-
     final box = await getBox(name);
+    final listKeys = box.keys.toList();
 
-    final f = box.keys
-        .where((e) => e.startsWith(key))
-        .map((e) => jsonDecode(box.get(e) ?? '{}'));
+    List<dynamic> f = [];
 
-    return f;
+    for (var i = 0; i < listKeys.length; i++) {
+      try {
+        final keyCache = CacheKey.fromJson(jsonDecode(listKeys[i]));
+
+        if (keyCache.version != version) {
+          listKeys.removeAt(i);
+          await box.deleteAt(i);
+          i -= 1;
+          continue;
+        }
+
+        if (keyCache.filter == filter) f.add(listKeys[i]);
+      } catch (e) {
+        listKeys.removeAt(i);
+        await box.deleteAt(i);
+        i -= 1;
+        loggerObject.e(e);
+      }
+    }
+
+    return f.map((e) => jsonDecode(box.get(e) ?? '{}'));
   }
 
   static Future<dynamic> getData(
     String name, {
     String filter = '',
   }) async {
-    final key = '_${filter}_';
-
     final box = await getBox(name);
 
-    final dataByKey = box.get(key);
+    final listKeys = box.keys.toList();
+
+    dynamic keyBox;
+
+    for (var i = 0; i < listKeys.length; i++) {
+      try {
+        final keyCache = CacheKey.fromJson(jsonDecode(listKeys[i]));
+        if (keyCache.version != version) {
+          listKeys.removeAt(i);
+          await box.deleteAt(i);
+          i -= 1;
+          continue;
+        }
+        if (keyCache.filter == filter) {
+          keyBox = listKeys[i];
+          break;
+        }
+      } catch (e) {
+        listKeys.removeAt(i);
+        await box.deleteAt(i);
+        i -= 1;
+        loggerObject.e(e);
+      }
+    }
+
+    if (keyBox == null) return null;
+    final dataByKey = box.get(keyBox);
 
     if (dataByKey == null) return null;
 
@@ -137,21 +196,43 @@ class CachingService {
         : await Hive.openBox<String>(name);
   }
 
-  static Future<NeedUpdateEnum> needGetData(String name,
-      {String filter = ''}) async {
-    var key = '_${filter}_';
-
+  static Future<NeedUpdateEnum> needGetData(
+    String name, {
+    String filter = '',
+    int? timeInterval,
+  }) async {
     final box = await getBox(name);
-    final keyFounded = box.keys.firstWhereOrNull((e) => (e).startsWith(key));
+
+    final listKeys = box.keys.toList();
+
+    dynamic keyFounded;
+
+    for (var i = 0; i < listKeys.length; i++) {
+      try {
+        final keyCache = CacheKey.fromJson(jsonDecode(listKeys[i]));
+        if (keyCache.version != version) {
+          listKeys.removeAt(i);
+          await box.deleteAt(i);
+          i -= 1;
+          continue;
+        }
+        if (keyCache.filter == filter) {
+          keyFounded = listKeys[i];
+          break;
+        }
+      } catch (e) {
+        listKeys.removeAt(i);
+        await box.deleteAt(i);
+        i -= 1;
+        loggerObject.e(e);
+      }
+    }
 
     if (keyFounded == null) {
       return NeedUpdateEnum.withLoading;
     }
 
-    final latest =
-        DateTime.tryParse((await getBox(latestUpdateBox)).get(name) ?? '');
-
-    final haveData = (await getList(name, filter: filter)).isNotEmpty;
+    final latest = DateTime.tryParse((await getBox(latestUpdateBox)).get(name) ?? '');
 
     if (latest == null) {
       return NeedUpdateEnum.withLoading;
@@ -159,9 +240,73 @@ class CachingService {
 
     final d = DateTime.now().difference(latest).inSeconds.abs();
 
-    if (d > 2) {
-      return haveData ? NeedUpdateEnum.noLoading : NeedUpdateEnum.withLoading;
+    if (d > (timeInterval ?? CachingService.timeInterval)) {
+      return NeedUpdateEnum.noLoading;
     }
+
     return NeedUpdateEnum.no;
+  }
+
+  static String getIdFromData(dynamic data) {
+    return _getIdParam(data);
+  }
+
+  static String _getIdParam(dynamic data) {
+    try {
+      if (data is List) {
+        if (data.first is String) return data.first;
+        return (data.first.id.toString().isBlank) ? '-' : data.first.id.toString();
+      } else {
+        return (data.id.toString().isBlank) ? '-' : data.id.toString();
+      }
+    } catch (e) {
+      return '-1';
+    }
+  }
+}
+
+class CacheKey {
+  CacheKey({
+    required this.id,
+    required this.filter,
+    required this.version,
+  }) {
+    filter = filter.replaceAll('null', '');
+  }
+
+  final String id;
+  String filter;
+  final num version;
+
+  factory CacheKey.fromJson(Map<String, dynamic> json) {
+    return CacheKey(
+      id: json["id"] ?? "",
+      filter: json["filter"] ?? "",
+      version: json["version"] ?? 0,
+    );
+  }
+
+  bool isMatchFilter(CacheKey key) {
+    return filter == key.filter;
+  }
+
+  Map<String, dynamic> toJson() => {
+        "id": id,
+        "filter": filter,
+        "version": version,
+      };
+
+  String get jsonString => jsonEncode(this);
+
+  CacheKey copyWith({
+    String? id,
+    String? filter,
+    num? version,
+  }) {
+    return CacheKey(
+      id: id ?? this.id,
+      filter: filter ?? this.filter,
+      version: version ?? this.version,
+    );
   }
 }

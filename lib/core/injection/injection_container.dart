@@ -26,6 +26,10 @@ import '../../features/auth/bloc/signup_cubit/signup_cubit.dart';
 import '../../features/auth/bloc/survey_cubit/survey_cubit.dart';
 import '../../features/bookmarked/bloc/bookmarked_cubit/bookmarked_cubit.dart';
 import '../../features/coupon/coupon_cubit/coupon_cubit.dart';
+import '../../features/diets/bloc/create_diet_cubit/create_diet_cubit.dart';
+import '../../features/diets/bloc/delete_diet_cubit/delete_diet_cubit.dart';
+import '../../features/diets/bloc/diet_cubit/diet_cubit.dart';
+import '../../features/diets/bloc/diets_cubit/diets_cubit.dart';
 import '../../features/fire_chat/messages_bloc/messages_cubit.dart';
 import '../../features/fire_chat/open_room_cubit/open_room_cubit.dart';
 import '../../features/fire_chat/rooms_bloc/rooms_cubit.dart';
@@ -56,8 +60,7 @@ final sl = GetIt.instance;
 Future<void> init() async {
   //region Core
 
-  sl.registerLazySingleton<NetworkInfo>(
-      () => NetworkInfoImpl(connectionChecker: sl()));
+  sl.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(connectionChecker: sl()));
   sl.registerLazySingleton(() => InternetConnectionChecker());
 
   sl.registerLazySingleton(() => GlobalKey<NavigatorState>());
@@ -162,10 +165,18 @@ Future<void> init() async {
   sl.registerFactory(() => TrainingCubit());
   sl.registerFactory(() => ExercisesCubit());
   //endregion
+
   //region VimeoCubit
   sl.registerFactory(() => VimeoCubit());
 
   //endregion
+
+    //region Diet
+      sl.registerFactory(() => DietCubit());
+      sl.registerFactory(() => DietsCubit());
+      sl.registerFactory(() => CreateDietCubit());
+      sl.registerFactory(() => DeleteDietCubit());
+      //endregion
 
 //! External
 }

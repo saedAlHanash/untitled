@@ -198,6 +198,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "You didn\"t Start your Fitness Storm Yet! Choose a plan and watch the change in your life."),
         "didYouFinishYourTraining": MessageLookupByLibrary.simpleMessage(
             "Did you finish your training? press Done to save your progress to your records."),
+        "diets": MessageLookupByLibrary.simpleMessage("Diets"),
         "dismiss": MessageLookupByLibrary.simpleMessage("Dismiss"),
         "doYouHaveAnyQuestionInYourMind": MessageLookupByLibrary.simpleMessage(
             "Do you have any question in your mind?"),

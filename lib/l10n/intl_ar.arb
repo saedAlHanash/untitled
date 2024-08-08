@@ -562,5 +562,6 @@
   "sendNewFile": "إرسال ملف ؟",
   "dismiss": "رفض",
   "deleteFile": "حذف الملف؟",
-  "delete": "حذف"
+  "delete": "حذف",
+  "diets": "الوصفات"
 }

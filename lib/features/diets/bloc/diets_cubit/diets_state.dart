@@ -1,18 +1,17 @@
-part of 'temp_cubit.dart';
+part of 'diets_cubit.dart';
 
-class TempInitial extends AbstractState<Temp> {
-  const TempInitial({
+class DietsInitial extends AbstractState<List<Diet>> {
+  const DietsInitial({
     required super.result,
     super.error,
-    required super.request,
+    super.request,
     super.statuses,
-  });
+  }); //
 
-  factory TempInitial.initial() {
-    return TempInitial(
-      result: Temp.fromJson({}),
+  factory DietsInitial.initial() {
+    return const DietsInitial(
+      result: [],
       error: '',
-      request: '',
       statuses: CubitStatuses.init,
     );
   }
@@ -23,15 +22,16 @@ class TempInitial extends AbstractState<Temp> {
         result,
         error,
         if (request != null) request,
+       
       ];
 
-  TempInitial copyWith({
+  DietsInitial copyWith({
     CubitStatuses? statuses,
-    Temp? result,
+    List<Diet>? result,
     String? error,
-    String? request,
+    dynamic request,
   }) {
-    return TempInitial(
+    return DietsInitial(
       statuses: statuses ?? this.statuses,
       result: result ?? this.result,
       error: error ?? this.error,

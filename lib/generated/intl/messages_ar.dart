@@ -193,6 +193,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "لم تبدأ بعد! اختر برنامجك الرياضى الآن وشاهد التغيير في حياتك."),
         "didYouFinishYourTraining": MessageLookupByLibrary.simpleMessage(
             "هل أنهيت تمارينك اليوم؟ اختر نعم ليتم حفظ تقدمك في السجل."),
+        "diets": MessageLookupByLibrary.simpleMessage("الوصفات"),
         "dismiss": MessageLookupByLibrary.simpleMessage("رفض"),
         "doYouHaveAnyQuestionInYourMind":
             MessageLookupByLibrary.simpleMessage("هل لديك أي أسئلة؟"),

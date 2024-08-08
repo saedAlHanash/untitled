@@ -1,16 +1,12 @@
 {
-  "Thursday": {
-    "plan": {
-      "title": "تدريب لكامل الجسم",
-      "from": "2024-08-01 17:58:08",
-      "to": "2024-08-01 17:58:21"
-    }
-  },
-  "Friday": {
-    "plan": {
-      "title": "تدريب لكامل الجسم",
-      "from": "2024-08-02 10:01:12",
-      "to": "2024-08-02 10:01:17"
-    }
+  "data": {
+    "id": "3",
+    "title": "test diet title AR",
+    "content": "test diet content AR",
+    "is_free": 1,
+    "price": "10",
+    "file": "storage\/app\/public\/dietFiles\/Pwms0eweSLTCbuzTxazZrrC7AkmMMzx4NDjtuFpm.pdf",
+    "image": "storage\/app\/public\/dietFilesAr\/7aFf4C0CMkbIojZdkmLpfk5Vy4OyJA3Efh2vRoSA.png",
+    "is_active": 1
   }
 }

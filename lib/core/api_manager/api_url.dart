@@ -99,6 +99,12 @@ class GetUrl {
 
   static const plan = 'plans';
 
+  static var temps = '';
+
+  static var diet = 'diets';
+
+  static var diets = 'diets';
+
 
 
   static String planWorkouts(int id ) => 'plans/$id/workouts';
@@ -161,6 +167,8 @@ class PostUrl {
 
   static var completeDay = 'completeDay';
 
+  static var createDiet = '';
+
   static String addFavorite(int id) => 'plans/$id/addToBookmarkedPlans';
 
   static const restPass = 'reset-password';
@@ -199,6 +207,8 @@ class PutUrl {
   static const updateTemp = '';
 
   static var updateTrainerFile = '';
+
+  static var updateDiet = "";
 }
 
 class DeleteUrl {
@@ -207,6 +217,8 @@ class DeleteUrl {
   static const deleteTemp = '';
 
   static var deleteTrainerFile = 'files';
+
+  static var deleteDiet = '';
 
   static String removeFavorite(int id) => 'plans/$id/deleteFromBookmarkedPlans';
 
@@ -221,8 +233,8 @@ const additionalConstTrainer = 'mobile/trainer/';
 const additionalConstUser = 'mobile/user/';
 
 String get baseUrl {
-  return live;
-  // return test;
+  // return live;
+  return test;
 }
 
 const live = 'api.fitnessstorm.org';

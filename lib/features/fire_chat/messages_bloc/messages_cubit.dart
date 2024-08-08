@@ -74,7 +74,7 @@ class MessagesCubit extends MCubit<MessagesInitial> {
         },
       );
 
-      await sortDataWithIds(messages);
+      await storeData(messages);
 
       if (!isClosed) {
         final data = (await getListCached())

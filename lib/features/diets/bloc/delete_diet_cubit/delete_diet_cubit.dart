@@ -10,15 +10,15 @@ import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/abstraction.dart';
 import '../../../../core/util/pair_class.dart';
 
-part 'delete_temp_state.dart';
+part 'delete_diet_state.dart';
 
-class DeleteTempCubit extends Cubit<DeleteTempInitial> {
-  DeleteTempCubit() : super(DeleteTempInitial.initial());
+class DeleteDietCubit extends Cubit<DeleteDietInitial> {
+  DeleteDietCubit() : super(DeleteDietInitial.initial());
 
-  Future<void> deleteTemp({required String id}) async {
+  Future<void> deleteDiet({required String id}) async {
     emit(state.copyWith(statuses: CubitStatuses.loading, request: id));
 
-    final pair = await _deleteTempApi();
+    final pair = await _deleteDietApi();
 
     if (pair.first == null) {
       emit(state.copyWith(error: pair.second, statuses: CubitStatuses.error));
@@ -28,10 +28,10 @@ class DeleteTempCubit extends Cubit<DeleteTempInitial> {
     }
   }
 
-  Future<Pair<bool?, String?>> _deleteTempApi() async {
+  Future<Pair<bool?, String?>> _deleteDietApi() async {
     final response = await APIService().callApi(
       type: ApiType.delete,
-      url: DeleteUrl.deleteTemp,
+      url: DeleteUrl.deleteDiet,
       query: {'id': state.request},
     );
 

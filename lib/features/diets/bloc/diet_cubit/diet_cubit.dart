@@ -5,48 +5,47 @@ import '../../../../core/api_manager/api_service.dart';
 import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/abstraction.dart';
 import '../../../../core/util/pair_class.dart';
-import '../../data/response/temp_response.dart';
+import '../../data/response/diet_response.dart';
 
-part 'temp_state.dart';
+part 'diet_state.dart';
 
-class TempCubit extends MCubit<TempInitial> {
-  TempCubit() : super(TempInitial.initial());
+class DietCubit extends MCubit<DietInitial> {
+  DietCubit() : super(DietInitial.initial());
 
   @override
-  String get nameCache => 'temp';
+  String get nameCache => 'diet';
 
   @override
   String get filter => state.request ?? '';
 
-  Future<void> getTemp({bool newData = false, required String tempId}) async {
-
-    emit(state.copyWith(request: tempId));
+  Future<void> getDiet({bool newData = false, required String dietId}) async {
+    emit(state.copyWith(request: dietId));
 
     await getDataAbstract(
-      fromJson: Temp.fromJson,
+      fromJson: Diet.fromJson,
       state: state,
-      getDataApi: _getTemp,
+      getDataApi: _getDiet,
       newData: newData,
     );
-
   }
 
-  Future<Pair<Temp?, String?>> _getTemp() async {
+  Future<Pair<Diet?, String?>> _getDiet() async {
     final response = await APIService().callApi(
       type: ApiType.get,
-      url: GetUrl.temp,
-      query: {'Id': state.request},
+      url: GetUrl.diet,
+      path: state.request.toString(),
     );
 
     if (response.statusCode.success) {
-      return Pair(Temp.fromJson(response.jsonBody), null);
+      return Pair(Diet.fromJson(response.jsonBody), null);
     } else {
       return response.getPairError;
     }
   }
-  void setTemp(dynamic temp) {
-    if(temp is! Temp)return;
 
-    emit(state.copyWith(result: temp));
+  void setDiet(dynamic diet) {
+    if (diet is! Diet) return;
+
+    emit(state.copyWith(result: diet));
   }
 }

@@ -72,7 +72,7 @@ class AppProvider {
     _refreshLoginData();
   }
 
-  static cashProfile(Profile data) async {
+  static Future<void> cashProfile(Profile data) async {
     await AppSharedPreference.cashProfile(data);
     await AppSharedPreference.cashMyId(data.id);
     profile = data;

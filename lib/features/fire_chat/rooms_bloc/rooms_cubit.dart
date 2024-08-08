@@ -58,7 +58,7 @@ class RoomsCubit extends MCubit<RoomsInitial> {
         'users',
       );
 
-      await sortDataWithIds(listRooms);
+      await storeData(listRooms);
 
       if (isClosed) return;
       await setData();

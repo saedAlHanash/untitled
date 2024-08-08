@@ -1,3 +1,5 @@
+import '../response/temp_response.dart';
+
 class CreateTempRequest {
   CreateTempRequest({
     required this.id,
@@ -5,14 +7,19 @@ class CreateTempRequest {
 
   final String id;
 
-  factory CreateTempRequest.fromJson(Map<String, dynamic> json){
+  factory CreateTempRequest.fromJson(Map<String, dynamic> json) {
     return CreateTempRequest(
       id: json["id"] ?? "",
     );
   }
 
-  Map<String, dynamic> toJson() => {
-    "id": id,
-  };
+  factory CreateTempRequest.fromTemp(Temp temp) {
+    return CreateTempRequest(
+      id: temp.id,
+    );
+  }
 
+  Map<String, dynamic> toJson() => {
+        "id": id,
+      };
 }

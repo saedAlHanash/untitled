@@ -547,5 +547,6 @@
   "sendNewFile": "Send new file?",
   "dismiss": "Dismiss",
   "deleteFile": "Delete File?",
-  "delete": "Delete"
+  "delete": "Delete",
+  "diets": "Diets"
 }

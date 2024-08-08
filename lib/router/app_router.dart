@@ -49,6 +49,9 @@ import '../features/auth/ui/pages/otp_password_page.dart';
 import '../features/auth/ui/pages/reset_password_page.dart';
 import '../features/auth/ui/pages/signup_page.dart';
 import '../features/bookmarked/ui/pages/bookmarked_page.dart';
+import '../features/diets/bloc/create_diet_cubit/create_diet_cubit.dart';
+import '../features/diets/bloc/delete_diet_cubit/delete_diet_cubit.dart';
+import '../features/diets/ui/pages/diets_page.dart';
 import '../features/fire_chat/chat.dart';
 import '../features/fire_chat/messages_bloc/messages_cubit.dart';
 import '../features/plans/bloc/plan_cubit/plan_cubit.dart';
@@ -289,6 +292,21 @@ void startTrainerFiles() {
 
   Get.to(() => page);
   sl<AnalyticService>().screenView(name: 'trainer_files');
+}
+
+void startDietsPage() {
+  final providers = [
+    BlocProvider(create: (_) => sl<CreateDietCubit>()),
+    BlocProvider(create: (_) => sl<DeleteDietCubit>()),
+  ];
+
+  final Widget page = MultiBlocProvider(
+    providers: providers,
+    child: const DietsPage(),
+  );
+
+  Get.to(() => page);
+  sl<AnalyticService>().screenView(name: 'diets_page');
 }
 
 void startRestPass() {

@@ -6,7 +6,7 @@ import 'package:fitness_storm/features/profile/bloc/profile_cubit/profile_cubit.
 import 'package:fitness_storm/generated/assets.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart' as bloc;
+import 'package:flutter_bloc/flutter_bloc.dart' as b;
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -23,6 +23,7 @@ import '../../features/auth/bloc/refresh_token_cubit/refresh_token_cubit.dart';
 import '../../features/auth/bloc/survey_cubit/survey_cubit.dart';
 import '../../features/bookmarked/bloc/bookmarked_cubit/bookmarked_cubit.dart';
 import '../../features/coupon/coupon_cubit/coupon_cubit.dart';
+import '../../features/diets/bloc/diets_cubit/diets_cubit.dart';
 import '../../features/notifications/bloc/notifications_cubit/notifications_cubit.dart';
 import '../../features/plans/bloc/add_favorite/add_favorite_cubit.dart';
 import '../../features/trainer_files/bloc/trainer_files_cubit/trainer_files_cubit.dart';
@@ -100,40 +101,28 @@ class _MyAppState extends State<MyApp> {
           ],
           supportedLocales: S.delegate.supportedLocales,
           builder: (_, child) {
-            return bloc.MultiBlocProvider(
+            return b.MultiBlocProvider(
               providers: [
-                bloc.BlocProvider(create: (_) => sl<LogoutCubit>()),
-                bloc.BlocProvider(create: (_) => sl<CouponCubit>()),
-                bloc.BlocProvider(create: (_) => sl<SurveyCubit>()),
-                bloc.BlocProvider(create: (_) => sl<ExercisesCubit>()),
-                bloc.BlocProvider(create: (_) => sl<BundlesCubit>()),
-                bloc.BlocProvider(
-                  create: (_) => sl<TrainerFilesCubit>()..getTrainerFiles(),
-                ),
-                bloc.BlocProvider(
-                    create: (_) =>
-                        sl<WelcomeMessagesCubit>()..getWelcomeMessages()),
-                bloc.BlocProvider(
-                    create: (_) =>
-                        sl<NotificationsCubit>()..getNotifications()),
-                bloc.BlocProvider(create: (_) => sl<AddFavoriteCubit>()),
-                bloc.BlocProvider(create: (_) => sl<DeleteAccountCubit>()),
-                bloc.BlocProvider(
-                    create: (_) => sl<WalletCubit>()..getWallet()),
-                bloc.BlocProvider(
-                    create: (_) => sl<RefreshTokenCubit>()..refreshToken()),
-                bloc.BlocProvider(
-                    create: (_) => sl<ProfileCubit>()..getProfile()),
-                bloc.BlocProvider(
-                  create: (_) => sl<BookmarkedCubit>()..getBookmarked(),
-                ),
-                bloc.BlocProvider(
-                  create: (_) =>
-                      sl<AvailableTimesCubit>()..getTrainerAvailableTimes(),
-                ),
-                bloc.BlocProvider(
-                  create: (_) => sl<BookedAppointmentsCubit>(),
-                ),
+                b.BlocProvider(create: (_) => sl<LogoutCubit>()),
+                b.BlocProvider(create: (_) => sl<CouponCubit>()),
+                b.BlocProvider(create: (_) => sl<SurveyCubit>()),
+                b.BlocProvider(create: (_) => sl<ExercisesCubit>()),
+                b.BlocProvider(create: (_) => sl<BundlesCubit>()),
+                b.BlocProvider(create: (_) => sl<AddFavoriteCubit>()),
+                b.BlocProvider(create: (_) => sl<DeleteAccountCubit>()),
+                b.BlocProvider(create: (_) => sl<DietsCubit>()..getDiets()),
+                b.BlocProvider(create: (_) => sl<BookedAppointmentsCubit>()),
+                b.BlocProvider(create: (_) => sl<WalletCubit>()..getWallet()),
+                b.BlocProvider(create: (_) => sl<ProfileCubit>()..getProfile()),
+                b.BlocProvider(create: (_) => sl<RefreshTokenCubit>()..refreshToken()),
+                b.BlocProvider(create: (_) => sl<BookmarkedCubit>()..getBookmarked()),
+                b.BlocProvider(create: (_) => sl<TrainerFilesCubit>()..getTrainerFiles()),
+                b.BlocProvider(
+                    create: (_) => sl<WelcomeMessagesCubit>()..getWelcomeMessages()),
+                b.BlocProvider(
+                    create: (_) => sl<NotificationsCubit>()..getNotifications()),
+                b.BlocProvider(
+                    create: (_) => sl<AvailableTimesCubit>()..getTrainerAvailableTimes()),
               ],
               child: GestureDetector(
                 onTap: () {
