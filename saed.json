@@ -1,0 +1,34 @@
+{
+  "message": "https://lmss-29085.web.app/?id=0&type=a",
+  "exception": "ErrorException",
+  "file": "/home/almafpby/lms.almas.education/app/Http/Controllers/LoginController.php",
+  "line": 249,
+  "trace": [
+    {
+      "file": "/home/almafpby/lms.almas.education/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php",
+      "line": 270,
+      "function": "handleError",
+      "class": "Illuminate\\Foundation\\Bootstrap\\HandleExceptions",
+      "type": "->"
+    },
+    {
+      "file": "/home/almafpby/lms.almas.education/app/Http/Controllers/LoginController.php",
+      "line": 249,
+      "function": "Illuminate\\Foundation\\Bootstrap\\{closure}",
+      "class": "Illuminate\\Foundation\\Bootstrap\\HandleExceptions",
+      "type": "->"
+    },
+    {
+      "file": "/home/almafpby/lms.almas.education/app/Http/Controllers/LoginController.php",
+      "line": 206,
+      "function": "Notification",
+      "class": "App\\Http\\Controllers\\LoginController",
+      "type": "->"
+    },
+    {
+      "file": "/home/almafpby/lms.almas.education/vendor/laravel/framework/src/Illuminate/Routing/Controller.php",
+      "line": 54,
+      "function": "PushNotification"
+    }
+  ]
+}
