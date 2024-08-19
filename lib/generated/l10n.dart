@@ -5549,6 +5549,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Confirm logout`
+  String get confirmLogout {
+    return Intl.message(
+      'Confirm logout',
+      name: 'confirmLogout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Need subscribe to this plan`
+  String get needSubscribeToThisPlan {
+    return Intl.message(
+      'Need subscribe to this plan',
+      name: 'needSubscribeToThisPlan',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

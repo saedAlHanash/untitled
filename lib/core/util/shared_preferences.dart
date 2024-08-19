@@ -25,7 +25,7 @@ class AppSharedPreference {
   static const _loginData = '19';
   static const _profile = '0';
   static const _notificationsRead = '20';
-  static const _isLoginToChatApp = '23';
+  static const _isLoginToChatApp = '_23';
   static const currentPlan = '22';
 
   static cashLoginToChatApp(bool b) {

@@ -144,6 +144,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Confirm Address"),
         "confirmCode":
             MessageLookupByLibrary.simpleMessage("Enter Confirmation Code"),
+        "confirmLogout": MessageLookupByLibrary.simpleMessage("Confirm logout"),
         "confirmMethod": MessageLookupByLibrary.simpleMessage(
             "Please Choose How You Would Like To Send The Verification Code"),
         "confirmNewPassword":
@@ -394,6 +395,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "needBookPrivateSession": MessageLookupByLibrary.simpleMessage(
             "You need to book an appointment to have a private session with the coach"),
         "needLogin": MessageLookupByLibrary.simpleMessage("Need login!"),
+        "needSubscribeToThisPlan":
+            MessageLookupByLibrary.simpleMessage("Need subscribe to this plan"),
         "netTotal": MessageLookupByLibrary.simpleMessage("Net Total"),
         "newArrival": MessageLookupByLibrary.simpleMessage("New Arrival"),
         "newCheckEmail": MessageLookupByLibrary.simpleMessage(

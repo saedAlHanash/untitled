@@ -52,7 +52,6 @@ class _LoginPageState extends State<LoginPage> {
               listenWhen: (p, c) => c.statuses.done,
               listener: (context, state) {
                 if (AppProvider.isConfirmed || AppProvider.isTrainer) {
-                  context.read<ProfileCubit>().getProfile(newData: true);
                   startHome();
                 } else {
                   startConfirmCodeAccount(context);
@@ -62,7 +61,6 @@ class _LoginPageState extends State<LoginPage> {
             BlocListener<LoginSocialCubit, LoginSocialInitial>(
               listenWhen: (p, c) => c.statuses.done,
               listener: (context, state) {
-                context.read<ProfileCubit>().getProfile(newData: true);
                 startHome();
               },
             ),

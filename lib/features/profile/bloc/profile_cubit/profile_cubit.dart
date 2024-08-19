@@ -21,13 +21,15 @@ class ProfileCubit extends MCubit<ProfileInitial> {
   String get nameCache => 'Profile';
 
   Future<void> getProfile({bool? newData}) async {
+
+    if(AppProvider.token.isEmpty)return;
+
     await getDataAbstract(
       fromJson: Profile.fromJson,
       state: state,
       getDataApi: _getProfileApi,
       newData: newData ?? false,
       onSuccess: (data, emitState) {
-        loggerObject.w(data);
         emit(state.copyWith(statuses: emitState,result: data));
       },
     );

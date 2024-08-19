@@ -563,5 +563,7 @@
   "dismiss": "رفض",
   "deleteFile": "حذف الملف؟",
   "delete": "حذف",
-  "diets": "الوصفات"
+  "diets": "الوصفات",
+  "confirmLogout": "تأكيد تسجيل الخروج",
+  "needSubscribeToThisPlan": "يجب الإشتراك بهذا البرنامج"
 }

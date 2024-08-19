@@ -1,14 +1,14 @@
 import 'dart:convert';
 
-import 'package:collection/collection.dart';
 import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
+import 'package:flutter_chat_types/flutter_chat_types.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import '../../core/strings/enum_manager.dart';
 
 const latestUpdateBox = 'latestUpdateBox';
-const version = 0;
+const version = 2;
 
 class CachingService {
   static var timeInterval = 180;
@@ -40,9 +40,8 @@ class CachingService {
 
     final box = await getBox(name);
 
-    if (data is List) {
+    if (data is Iterable) {
       await clearKeysId(box: box, filter: key);
-
       for (var e in data) {
         final id = haveId ? _getIdParam(e) : '';
         final keyString = key.copyWith(id: id).jsonString;
@@ -53,7 +52,35 @@ class CachingService {
 
     final keyString = key.copyWith(id: haveId ? _getIdParam(data) : '').jsonString;
 
-    await box.put(keyString, jsonEncode(data));
+    try {
+      await box.put(keyString, jsonEncode(data));
+    } catch (e) {
+      loggerObject.e('sortData SingleData $name $e');
+    }
+  }
+
+  static Future<void> sortDataChat({
+    required Iterable<dynamic> data,
+    required String name,
+    String filter = '',
+  }) async {
+    await updateLatestUpdateBox(name);
+
+    final haveId = _getIdParam(data).isNotEmpty;
+
+    final key = CacheKey(
+      id: '',
+      filter: filter,
+      version: version,
+    );
+
+    final box = await getBox(name);
+
+    for (var e in data) {
+      final id = haveId ? _getIdParam(e) : '';
+      final keyString = key.copyWith(id: id).jsonString;
+      await box.put(keyString, jsonEncode(e));
+    }
   }
 
   static Future<Iterable<dynamic>?> addOrUpdate({
@@ -149,6 +176,60 @@ class CachingService {
     }
 
     return f.map((e) => jsonDecode(box.get(e) ?? '{}'));
+  }
+
+  static Future<Iterable<Message>> getListChat(
+    String name, {
+    String filter = '',
+  }) async {
+    final nowTimeMillis = DateTime.now().millisecondsSinceEpoch;
+    final box = await getBox(name);
+
+    final listKeys = box.keys.toList();
+
+    final listMessages = <Message>[];
+
+    for (var i = 0; i < listKeys.length; i++) {
+      try {
+        final keyCache = CacheKey.fromJson(jsonDecode(listKeys[i]));
+
+        if (keyCache.version != version) {
+          await _removeFromListBox(listKeys, i, box);
+          continue;
+        }
+
+        if (keyCache.filter == filter) {
+          final message = Message.fromJson(jsonDecode(box.get(listKeys[i]) ?? '{}'));
+
+          if (isMoreThanOneMonth(message.createdAt ?? 0, nowTimeMillis)) {
+            await _removeFromListBox(listKeys, i, box);
+            continue;
+          }
+
+          listMessages.add(message);
+        }
+      } catch (e) {
+        await _removeFromListBox(listKeys, i, box);
+        loggerObject.e(e);
+      }
+    }
+
+    return listMessages;
+  }
+
+  static bool isMoreThanOneMonth(int firstTimestamp, int secondTimestamp) {
+    int result = (firstTimestamp - secondTimestamp).abs();
+
+    final r = result > 2592000000;
+    if (r) loggerObject.f(r);
+    return r;
+  }
+
+  static Future<void> _removeFromListBox(
+      List<dynamic> listKeys, int i, Box<String> box) async {
+    listKeys.removeAt(i);
+    await box.deleteAt(i);
+    i = i - 1;
   }
 
   static Future<dynamic> getData(
@@ -253,6 +334,9 @@ class CachingService {
 
   static String _getIdParam(dynamic data) {
     try {
+      if (data is Map) {
+        return data['id'];
+      }
       if (data is List) {
         if (data.first is String) return data.first;
         return (data.first.id.toString().isBlank) ? '-' : data.first.id.toString();

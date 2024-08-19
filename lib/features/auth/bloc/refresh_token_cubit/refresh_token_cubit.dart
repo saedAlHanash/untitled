@@ -30,15 +30,17 @@ class RefreshTokenCubit extends Cubit<RefreshTokenInitial> {
     final response = await APIService().callApi(
       type: ApiType.post,
       url: PostUrl.refreshToken,
-      header: innerHeader..addAll({
-        'Authorization': 'Bearer ${AppProvider.refreshToken}',
-      }),
+      header: innerHeader
+        ..addAll({
+          'Authorization': 'Bearer ${AppProvider.refreshToken}',
+        }),
     );
 
     if (response.statusCode.success) {
       final token = (response.jsonBody['access_token'] ?? '').toString();
       AppProvider.cashLoginData(
         AppSharedPreference.loginDate.copyWith(accessToken: token),
+        refreshToken: true,
       );
       return Pair(true, null);
     } else {

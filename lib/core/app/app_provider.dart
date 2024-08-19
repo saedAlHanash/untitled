@@ -5,9 +5,11 @@ import 'package:fitness_storm/core/api_manager/api_url.dart';
 import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:fitness_storm/features/auth/data/response/login_response.dart';
 import 'package:fitness_storm/services/chat_service/chat_service_core.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
 import '../../Utils/utils.dart';
+import '../../features/profile/bloc/profile_cubit/profile_cubit.dart';
 import '../../features/profile/data/response/profile_response.dart';
 import '../../generated/assets.dart';
 import '../../generated/l10n.dart';
@@ -38,9 +40,7 @@ class AppProvider {
     if (_myId == 0) _myId = _loginData.id;
     if (_myId == 0 || _myId == null) _myId = AppSharedPreference.getMyId;
 
-    return _myId == 0
-        ? ''
-        : '${AppProvider.isTestMode ? 'test' : ''}${_myId.toString()}';
+    return _myId == 0 ? '' : '${AppProvider.isTestMode ? 'test' : ''}${_myId.toString()}';
   }
 
   static String get token {
@@ -64,11 +64,14 @@ class AppProvider {
     _userType = AppSharedPreference.getUserType;
   }
 
-  static cashLoginData(LoginData data, {UserType? userType}) async {
+  static cashLoginData(LoginData data, {UserType? userType,bool refreshToken = false}) async {
+
     await AppSharedPreference.cashMyId(data.id);
     await AppSharedPreference.cashLoginData(data);
     await AppSharedPreference.cashUserType(userType);
-
+    if(!refreshToken){
+      ctx!.read<ProfileCubit>().getProfile(newData: true);
+    }
     _refreshLoginData();
   }
 
@@ -82,7 +85,8 @@ class AppProvider {
 
   static cashSetConfirmAccount() async {
     await AppSharedPreference.cashLoginData(
-        _loginData.copyWith(isConfirmed: true));
+      _loginData.copyWith(isConfirmed: true),
+    );
     _refreshLoginData();
   }
 
@@ -90,7 +94,7 @@ class AppProvider {
     await AppSharedPreference.logout();
     _loginData = AppSharedPreference.loginDate;
     await ChatServiceCore.logoutChatUser();
-    _myId = 0;
+    _myId = null;
     startLogin();
   }
 
@@ -115,8 +119,7 @@ class AppControl {
   static bool get hideGoogleBtn =>
       Platform.isIOS &&
       AppProvider.systemParams.isIosTest &&
-      (AppProvider.systemParams.buildNumber >
-          AppProvider.systemParams.minAppleVersion);
+      (AppProvider.systemParams.buildNumber > AppProvider.systemParams.minAppleVersion);
 
   static bool get isAppleAccount => AppSharedPreference.getMyId == 262;
 }

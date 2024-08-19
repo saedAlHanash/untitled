@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
+import 'package:flutter_chat_types/flutter_chat_types.dart';
 
 import '../../services/caching_service/caching_service.dart';
 import '../api_manager/api_service.dart';
@@ -51,6 +52,9 @@ abstract class MCubit<AbstractState> extends Cubit<AbstractState> {
   Future<void> storeData(dynamic data) async {
     await CachingService.sortData(data: data, name: nameCache, filter: filter);
   }
+  Future<void> sortDataChat(dynamic data) async {
+    await CachingService.sortDataChat(data: data, name: nameCache, filter: filter);
+  }
 
   Future<Iterable<dynamic>?> addOrUpdateDate(
       List<dynamic> data, {
@@ -70,6 +74,12 @@ abstract class MCubit<AbstractState> extends Cubit<AbstractState> {
 
   Future<Iterable<dynamic>> getListCached() async {
     final data = await CachingService.getList(nameCache, filter: filter);
+    return data;
+  }
+
+  Future<Iterable<Message>> getListCachedChat() async {
+    final data = await CachingService.getListChat(nameCache, filter: filter);
+
     return data;
   }
 

@@ -49,12 +49,7 @@ class _TraineeProfileInfoScreenState extends State<TraineeProfileInfoScreen> {
   Widget build(BuildContext context) {
     return MultiBlocListener(
       listeners: [
-        BlocListener<UpdateProfileCubit, UpdateProfileInitial>(
-          listenWhen: (p, c) => c.statuses.done,
-          listener: (context, state) {
-            context.read<ProfileCubit>().getProfile(newData: true);
-          },
-        ),
+
         BlocListener<DeleteAccountCubit, DeleteAccountInitial>(
           listenWhen: (p, c) => c.statuses.done,
           listener: (context, state) {

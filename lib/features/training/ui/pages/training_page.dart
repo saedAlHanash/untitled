@@ -51,9 +51,7 @@ class _TrainingPageState extends State<TrainingPage> {
   Widget build(BuildContext context) {
     return BlocListener<TrainingCubit, TrainingInitial>(
       listener: (context, state) {
-        context
-            .read<VimeoCubit>()
-            .initial(vimeoId: cubit.currentExercise.video);
+        context.read<VimeoCubit>().initial(vimeoId: cubit.currentExercise.video);
       },
       child: BlocBuilder<TrainingCubit, TrainingInitial>(
         builder: (context, state) {
@@ -63,115 +61,79 @@ class _TrainingPageState extends State<TrainingPage> {
                 onPopInvoked: (didPop) => cubit.onPop.call(didPop),
                 titleText: state.result.name,
               ),
-              body: BlocBuilder<TrainingCubit, TrainingInitial>(
-                builder: (context, state) {
-                  if (state.statuses.loading) {
-                    return MyStyle.loadingWidget();
-                  }
-                  return Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: cubit.isZumba
-                        ? MainAxisAlignment.center
-                        : MainAxisAlignment.start,
-                    // mainAxisSize: MainAxisSize.min,
-                    children: [
-
-                      VimeoPlayer(
-                        videoId: cubit.currentExercise.video,
-                        onInitController: (videoController) {
-                        },
-                      ),
-                      // FutureBuilder(
-                      //   future:
-                      //   Future.delayed(const Duration(seconds: 1), () => 0),
-                      //   builder: (context, snapshot) {
-                      //     if (snapshot.hasData) {
-                      //       return VimeoPlayer(
-                      //         key: UniqueKey(),
-                      //         videoId: cubit.currentExercise.video,
-                      //         onInitController: (videoController) {},
-                      //       );
-                      //     } else {
-                      //       return MyStyle.loadingWidget();
-                      //     }
-                      //   },
-                      // ),
-                      cubit.isZumba
-                          ? 0.0.verticalSpace
-                          : CurrentExerciseWidget(
-                        color: Colors.white,
-                        title: cubit.currentExercise.name,
-                        isSecondsBased: cubit.currentExercise.secondBased,
-                        reps: cubit.currentExercise.repetitions,
-                        set: cubit.currentExercise.setCount,
-                        notes: cubit.currentExercise.notes,
-                      ),
-                      cubit.isZumba
-                          ? 0.0.verticalSpace
-                          : const ExerciseListView(),
-                      (AppProvider.isTrainer)
-                          ? 0.0.verticalSpace
-                          : SizedBox(
-                        height: Get.height / 8,
-                      ),
-                    ],
-                  );
-                },
-              ),
-              floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerDocked,
-              floatingActionButton: BlocBuilder<TrainingCubit, TrainingInitial>(
-                builder: (context, state) {
-                  if (state.statuses.loading) {
-                    return MyStyle.loadingWidget();
-                  }
-                  return (cubit.complete)
-                      ? Container(
-                    color: Get.theme.colorScheme.secondary,
-                    width: double.infinity,
-                    padding: const EdgeInsets.all(10.0),
-                    child: Text(
-                      'already_play'.tr,
-                      style: const TextStyle(
-                        color: Color(0xFFFFFFFF),
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      // textDirection: isEnglish ? TextDirection.ltr : TextDirection.rtl,
+              body: (state.statuses.loading)
+                  ? MyStyle.loadingWidget()
+                  : Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: cubit.isZumba
+                          ? MainAxisAlignment.center
+                          : MainAxisAlignment.start,
+                      // mainAxisSize: MainAxisSize.min,
+                      children: [
+                        VimeoPlayer(
+                          videoId: cubit.currentExercise.video,
+                          onInitController: (videoController) {},
+                        ),
+                        cubit.isZumba
+                            ? 0.0.verticalSpace
+                            : CurrentExerciseWidget(
+                                color: Colors.white,
+                                title: cubit.currentExercise.name,
+                                isSecondsBased: cubit.currentExercise.secondBased,
+                                reps: cubit.currentExercise.repetitions,
+                                set: cubit.currentExercise.setCount,
+                                notes: cubit.currentExercise.notes,
+                              ),
+                        cubit.isZumba ? 0.0.verticalSpace : const ExerciseListView(),
+                        (AppProvider.isTrainer)
+                            ? 0.0.verticalSpace
+                            : SizedBox(
+                                height: Get.height / 8,
+                              ),
+                      ],
                     ),
-                  )
+              floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+              floatingActionButton: (state.statuses.loading)
+                  ? 0.0.verticalSpace
+                  : (cubit.complete)
+                      ? Container(
+                          color: Get.theme.colorScheme.secondary,
+                          width: double.infinity,
+                          padding: const EdgeInsets.all(10.0),
+                          child: Text(
+                            'already_play'.tr,
+                            style: const TextStyle(
+                              color: Color(0xFFFFFFFF),
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            // textDirection: isEnglish ? TextDirection.ltr : TextDirection.rtl,
+                          ),
+                        )
                       : cubit.isZumba || (AppProvider.isTrainer)
-                      ? 0.0.verticalSpace
-                      : cubit.isRest && cubit.startTime > 0
-                      ? RestWidget(
-                    seconds:
-                    (state.result.type == "Loop Exercise")
-                        ? cubit.startTime
-                        : 0,
-                    isBreak: cubit.isBreak,
-                  )
-                      : Builder(builder: (context) {
-
-                    if (cubit.currentSet < 1 ||
-                        cubit.currentExercise.repetitions
-                            .isEmpty) {
-                      return 0.0.verticalSpace;
-                    }
-                    loggerObject.v(
-                        cubit.currentExercise.repetitions.length);
-                    return SlidWidget(
-                      repetationNumber: cubit
-                          .currentExercise
-                          .repetitions[cubit.currentSet - 1]
-                          .count,
-                      setNumber: cubit.currentSet,
-                    );
-                  });
-                },
-              ));
+                          ? 0.0.verticalSpace
+                          : cubit.isRest && cubit.startTime > 0
+                              ? RestWidget(
+                                  seconds: (state.result.type == "Loop Exercise")
+                                      ? cubit.startTime
+                                      : 0,
+                                  isBreak: cubit.isBreak,
+                                )
+                              : Builder(builder: (context) {
+                                  if (cubit.currentSet < 1 ||
+                                      cubit.currentExercise.repetitions.isEmpty) {
+                                    return 0.0.verticalSpace;
+                                  }
+                                  loggerObject
+                                      .v(cubit.currentExercise.repetitions.length);
+                                  return SlidWidget(
+                                    repetationNumber: cubit.currentExercise
+                                        .repetitions[cubit.currentSet - 1].count,
+                                    setNumber: cubit.currentSet,
+                                  );
+                                }));
         },
       ),
     );
   }
 }
-

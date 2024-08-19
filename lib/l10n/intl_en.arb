@@ -548,5 +548,7 @@
   "dismiss": "Dismiss",
   "deleteFile": "Delete File?",
   "delete": "Delete",
-  "diets": "Diets"
+  "diets": "Diets",
+  "confirmLogout": "Confirm logout",
+  "needSubscribeToThisPlan": "Need subscribe to this plan"
 }

@@ -25,8 +25,7 @@ class MessagesCubit extends MCubit<MessagesInitial> {
 
     emit(state.copyWith(request: room));
 
-    final data =
-        (await getListCached()).map((e) => types.Message.fromJson(e)).toList();
+    final data = (await getListCachedChat()).toList();
 
     final allMessages = data
       ..sort((a, b) => (b.createdAt ?? 0).compareTo(a.createdAt ?? 0));
@@ -34,6 +33,7 @@ class MessagesCubit extends MCubit<MessagesInitial> {
     emit(state.copyWith(result: allMessages));
 
     await Future.delayed(const Duration(seconds: 2));
+
     messages(room);
   }
 
@@ -44,17 +44,17 @@ class MessagesCubit extends MCubit<MessagesInitial> {
         .orderBy('createdAt', descending: true)
         .limit(100)
         .where(
-          'createdAt',
+          'updatedAt',
           isGreaterThan: Timestamp.fromMillisecondsSinceEpoch(
               state.result.firstOrNull?.updatedAt ?? 0),
         );
 
     loggerObject.i('requested get messages ');
 
-    loggerObject.i(DateTime.fromMillisecondsSinceEpoch(
-        state.result.firstOrNull?.updatedAt ?? 0));
-    loggerObject.i(DateTime.fromMillisecondsSinceEpoch(
-        state.result.lastOrNull?.updatedAt ?? 0));
+    loggerObject
+        .i(DateTime.fromMillisecondsSinceEpoch(state.result.firstOrNull?.updatedAt ?? 0));
+    loggerObject
+        .i(DateTime.fromMillisecondsSinceEpoch(state.result.lastOrNull?.updatedAt ?? 0));
 
     await state.stream?.cancel();
     final stream = query.snapshots().listen((snapshot) async {
@@ -74,12 +74,12 @@ class MessagesCubit extends MCubit<MessagesInitial> {
         },
       );
 
-      await storeData(messages);
+      if (messages.isEmpty) return;
+
+      await sortDataChat(messages);
 
       if (!isClosed) {
-        final data = (await getListCached())
-            .map((e) => types.Message.fromJson(e))
-            .toList();
+        final data = (await getListCachedChat()).toList();
 
         final allMessages = data
           ..sort((a, b) => (b.createdAt ?? 0).compareTo(a.createdAt ?? 0));

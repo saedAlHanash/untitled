@@ -52,7 +52,6 @@ class VimeoCubit extends Cubit<VimeoInitial> {
         },
       );
 
-      loggerObject.w('initial');
       emit(state.copyWith(statuses: CubitStatuses.done));
       return;
     }

@@ -113,10 +113,13 @@ class _MyAppState extends State<MyApp> {
                 b.BlocProvider(create: (_) => sl<DietsCubit>()..getDiets()),
                 b.BlocProvider(create: (_) => sl<BookedAppointmentsCubit>()),
                 b.BlocProvider(create: (_) => sl<WalletCubit>()..getWallet()),
-                b.BlocProvider(create: (_) => sl<ProfileCubit>()..getProfile()),
                 b.BlocProvider(create: (_) => sl<RefreshTokenCubit>()..refreshToken()),
                 b.BlocProvider(create: (_) => sl<BookmarkedCubit>()..getBookmarked()),
                 b.BlocProvider(create: (_) => sl<TrainerFilesCubit>()..getTrainerFiles()),
+                b.BlocProvider(
+                  create: (_) => sl<ProfileCubit>()..getProfile(),
+                  lazy: false,
+                ),
                 b.BlocProvider(
                     create: (_) => sl<WelcomeMessagesCubit>()..getWelcomeMessages()),
                 b.BlocProvider(

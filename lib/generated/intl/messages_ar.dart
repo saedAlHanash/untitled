@@ -139,6 +139,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "confirm": MessageLookupByLibrary.simpleMessage("تأكيد"),
         "confirmAddress": MessageLookupByLibrary.simpleMessage("تأكيد العنوان"),
         "confirmCode": MessageLookupByLibrary.simpleMessage("أدخل رمز التأكيد"),
+        "confirmLogout":
+            MessageLookupByLibrary.simpleMessage("تأكيد تسجيل الخروج"),
         "confirmMethod": MessageLookupByLibrary.simpleMessage(
             "يرجى اختيار كيفية إرسال رمز التحقق"),
         "confirmNewPassword":
@@ -391,6 +393,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "needBookPrivateSession": MessageLookupByLibrary.simpleMessage(
             "يجب عليك حجز موعد للحصول على جلسة خاصة مع المدرب"),
         "needLogin": MessageLookupByLibrary.simpleMessage("يجب تسجيل الدخول!"),
+        "needSubscribeToThisPlan":
+            MessageLookupByLibrary.simpleMessage("يجب الإشتراك بهذا البرنامج"),
         "netTotal": MessageLookupByLibrary.simpleMessage("المبلغ بعد الخصم"),
         "newArrival": MessageLookupByLibrary.simpleMessage("وصول جديد"),
         "newCheckEmail": MessageLookupByLibrary.simpleMessage(

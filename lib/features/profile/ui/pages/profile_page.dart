@@ -34,7 +34,6 @@ class ProfilePage extends StatelessWidget {
       body: BlocBuilder<ProfileCubit, ProfileInitial>(
         builder: (context, state) {
           final profile = state.result;
-          loggerObject.w(AppProvider.profile.toJson());
           return RefreshWidget(
             onRefresh: () {
               context.read<ProfileCubit>().getProfile(newData: true);

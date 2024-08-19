@@ -21,12 +21,13 @@ import 'package:image_multi_type/circle_image_widget.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 
 import '../../../../Widgets/Exercise/day_widget.dart';
+import '../../../../generated/l10n.dart';
 import '../../../vimeo/ui/pages/vimeo_player.dart';
 import '../../../../core/app/app_provider.dart';
 import '../../bloc/plan_cubit/plan_cubit.dart';
 import '../../bloc/plan_workout_cubit/plan_workout_cubit.dart';
 import '../../bloc/subscribe_plan_cubit/subscribe_plan_cubit.dart';
-
+import 'package:fluttertoast/fluttertoast.dart';
 class PlanPage extends StatefulWidget {
   const PlanPage({super.key});
 
@@ -72,6 +73,56 @@ class _PlanPageState extends State<PlanPage> {
               },
             ),
           ),
+        floatingActionButtonLocation: Platform.isIOS
+          ? FloatingActionButtonLocation.centerDocked
+          : FloatingActionButtonLocation.centerFloat,
+        floatingActionButton: BlocBuilder<SubscribePlanCubit, SubscribePlanInitial>(
+          builder: (context, state) {
+            if (state.statuses.loading) {
+              return SizedBox(
+                height: 30.0.r,
+                width: 30.0.r,
+                child: MyStyle.loadingWidget(color: AppColorManager.mainColorLight),
+              );
+            }
+            return BlocBuilder<PlanCubit, PlanInitial>(
+              builder: (context, state) {
+                if (state.statuses.loading) {
+                  return SizedBox(
+                    height: 30.0.r,
+                    width: 30.0.r,
+                    child: MyStyle.loadingWidget(color: AppColorManager.mainColorLight),
+                  );
+                }
+                return (state.result.isActive ||
+                    AppSharedPreference.getCurrentPlanId ==
+                        state.result.id.toString() ||
+                    AppProvider.isTrainer)
+                    ? 0.0.verticalSpace
+                    : CustomButton(
+                    onTapFunction: () {
+                      setState(() {
+                        context.read<VimeoCubit>().state.controller?.pause();
+                      });
+
+                      return context
+                          .read<SubscribePlanCubit>()
+                          .subscribe(planId: state.result.id);
+                    },
+                    buttonColor: AppColorManager.mainColorLight,
+                    textColor: Colors.white,
+                    padding: 0,
+                    radius: 10,
+                    fontSize: 16.0.sp,
+                    height: Get.height / 15,
+                    width: Get.width,
+                    text: AppSharedPreference.getCurrentPlanId.isEmpty
+                        ? 'subscribe'.tr
+                        : 'start_within_plan'.tr);
+              },
+            );
+          },
+        ),
           body: BlocBuilder<PlanCubit, PlanInitial>(
             builder: (context, state) {
               if (state.statuses.loading) {
@@ -81,18 +132,6 @@ class _PlanPageState extends State<PlanPage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    // if ((state.result.isActive ||
-                    //     AppSharedPreference.getCurrentPlanId ==
-                    //         state.result.id.toString() ||
-                    //     AppProvider.isTrainer))
-                    //   AspectRatio(
-                    //     aspectRatio: 16 / 9,
-                    //     child: ImageMultiType(
-                    //       url: Icons.play_circle,
-                    //       color: Colors.white,
-                    //     ),
-                    //   )
-                    // else
                     if (showIntro)
                       VimeoPlayer(
                         videoId: state.result.introductionVideo,
@@ -135,7 +174,19 @@ class _PlanPageState extends State<PlanPage> {
                             final item = state.result[i];
                             return GestureDetector(
                               onTap: () {
-                                if (item.isRestDay || !cubit.state.result.isCurrent) {
+                                if (item.isRestDay) return;
+
+
+                                if (!cubit.state.result.isCurrent) {
+                                  Fluttertoast.showToast(
+                                    msg: S.of(context).needSubscribeToThisPlan,
+                                    toastLength: Toast.LENGTH_SHORT,
+                                    gravity: ToastGravity.BOTTOM,
+                                    timeInSecForIosWeb: 1,
+                                    backgroundColor: Colors.white,
+                                    textColor: Colors.black,
+                                    fontSize: 16.0.sp,
+                                  );
                                   return;
                                 }
 
@@ -166,56 +217,8 @@ class _PlanPageState extends State<PlanPage> {
               );
             },
           ),
-          floatingActionButtonLocation: Platform.isIOS
-              ? FloatingActionButtonLocation.centerDocked
-              : FloatingActionButtonLocation.centerFloat,
-          floatingActionButton: BlocBuilder<SubscribePlanCubit, SubscribePlanInitial>(
-            builder: (context, state) {
-              if (state.statuses.loading) {
-                return SizedBox(
-                  height: 30.0.r,
-                  width: 30.0.r,
-                  child: MyStyle.loadingWidget(color: AppColorManager.mainColorLight),
-                );
-              }
-              return BlocBuilder<PlanCubit, PlanInitial>(
-                builder: (context, state) {
-                  if (state.statuses.loading) {
-                    return SizedBox(
-                      height: 30.0.r,
-                      width: 30.0.r,
-                      child: MyStyle.loadingWidget(color: AppColorManager.mainColorLight),
-                    );
-                  }
-                  return (state.result.isActive ||
-                          AppSharedPreference.getCurrentPlanId ==
-                              state.result.id.toString() ||
-                          AppProvider.isTrainer)
-                      ? 0.0.verticalSpace
-                      : CustomButton(
-                          onTapFunction: () {
-                            setState(() {
-                              context.read<VimeoCubit>().state.controller?.pause();
-                            });
 
-                            return context
-                                .read<SubscribePlanCubit>()
-                                .subscribe(planId: state.result.id);
-                          },
-                          buttonColor: AppColorManager.mainColorLight,
-                          textColor: Colors.white,
-                          padding: 0,
-                          radius: 10,
-                          fontSize: 16.0.sp,
-                          height: Get.height / 15,
-                          width: Get.width,
-                          text: AppSharedPreference.getCurrentPlanId.isEmpty
-                              ? 'subscribe'.tr
-                              : 'start_within_plan'.tr);
-                },
-              );
-            },
-          )),
+      ),
     );
   }
 }

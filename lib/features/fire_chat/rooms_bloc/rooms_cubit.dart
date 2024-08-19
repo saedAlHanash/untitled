@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
+import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/services/chat_service/core/firebase_chat_core.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
@@ -44,12 +45,8 @@ class RoomsCubit extends MCubit<RoomsInitial> {
             state.result.lastOrNull?.updatedAt ?? 0,
           ),
         );
-    //
-    // loggerObject.i('requested get room ');
-    // loggerObject.i(DateTime.fromMillisecondsSinceEpoch(
-    //     state.result.firstOrNull?.updatedAt ?? 0));
-    // loggerObject.i(DateTime.fromMillisecondsSinceEpoch(
-    //     state.result.lastOrNull?.updatedAt ?? 0));
+
+    loggerObject.i('requested get room ');
 
     final stream = query.snapshots().listen((snapshot) async {
       final listRooms = await processRoomsQuery(
@@ -58,7 +55,7 @@ class RoomsCubit extends MCubit<RoomsInitial> {
         'users',
       );
 
-      await storeData(listRooms);
+      await sortDataChat(listRooms);
 
       if (isClosed) return;
       await setData();

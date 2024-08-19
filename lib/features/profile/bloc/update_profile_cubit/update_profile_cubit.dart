@@ -8,12 +8,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get_utils/src/extensions/export.dart';
 
 import '../../../../core/api_manager/api_service.dart';
+import '../../../../core/app/app_widget.dart';
 import '../../../../core/error/error_manager.dart';
 import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/abstraction.dart';
 import '../../../../core/util/pair_class.dart';
 import '../../../../generated/l10n.dart';
 import '../../data/response/profile_response.dart';
+import '../profile_cubit/profile_cubit.dart';
 
 part 'update_profile_state.dart';
 
@@ -45,6 +47,7 @@ class UpdateProfileCubit extends Cubit<UpdateProfileInitial> {
     );
 
     if (response.statusCode.success) {
+      ctx!.read<ProfileCubit>().getProfile(newData: true);
       return Pair(true, null);
     } else {
       return response.getPairError;
