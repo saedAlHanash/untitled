@@ -494,7 +494,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseEnterOTPCode":
             MessageLookupByLibrary.simpleMessage("Please Enter OTP Code"),
         "pleaseFillInformation": MessageLookupByLibrary.simpleMessage(
-            "Please fill in the information to submit and make sure the file is in PDF format."),
+            "Please fill in the information to submit and make sure the file is in PDF oe Image."),
         "plsEnterEmail": MessageLookupByLibrary.simpleMessage(
             "Please Enter Your Email To Receive Activation Code"),
         "policy": MessageLookupByLibrary.simpleMessage(

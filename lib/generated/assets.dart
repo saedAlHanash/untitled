@@ -37,11 +37,13 @@ class Assets {
   static const String imagesFullStar = 'asset/Images/full_star.svg';
   static const String imagesGoogleSVG = 'asset/Images/googleSVG.svg';
   static const String imagesHomeSVG = 'asset/Images/homeSVG.svg';
+  static const String imagesImageFile = 'asset/Images/image_file.svg';
   static const String imagesLanguage = 'asset/Images/language.svg';
   static const String imagesLeft = 'asset/Images/left.svg';
   static const String imagesLogo = 'asset/Images/logo.png';
   static const String imagesLogoLight = 'asset/Images/logo_light.png';
   static const String imagesLogout = 'asset/Images/logout.svg';
+  static const String imagesNewLogo = 'asset/Images/new_logo.png';
   static const String imagesNoteMe = 'asset/Images/note_me.svg';
   static const String imagesNotificationSVG = 'asset/Images/notificationSVG.svg';
   static const String imagesPayment = 'asset/Images/payment.svg';
@@ -58,6 +60,7 @@ class Assets {
   static const String imagesSubscription = 'asset/Images/subscription.svg';
   static const String imagesSuccessfully = 'asset/Images/successfully.svg';
   static const String imagesTestMode = 'asset/Images/test_mode.png';
+  static const String imagesUploadImage = 'asset/Images/upload_image.svg';
   static const String imagesUser = 'asset/Images/user.png';
   static const String imagesVCall = 'asset/Images/v_call.svg';
   static const String imagesVideo = 'asset/Images/video.png';

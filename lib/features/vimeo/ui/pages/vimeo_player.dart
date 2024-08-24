@@ -180,7 +180,7 @@ class _VimeoPlayerPodState extends State<VimeoPlayerPod> {
                   }
                 },
                 videoThumbnail: const DecorationImage(
-                  image: AssetImage(Assets.imagesLogo),
+                  image: AssetImage(Assets.imagesNewLogo),
                 ),
               ),
               Positioned(
@@ -190,7 +190,7 @@ class _VimeoPlayerPodState extends State<VimeoPlayerPod> {
                   child: Opacity(
                     opacity: 0.4,
                     child: Image.asset(
-                      Assets.imagesFs2,
+                      Assets.imagesNewLogo,
                       height: 40.0,
                     ),
                   ),

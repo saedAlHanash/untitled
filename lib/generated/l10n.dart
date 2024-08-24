@@ -5490,10 +5490,10 @@ class S {
     );
   }
 
-  /// `Please fill in the information to submit and make sure the file is in PDF format.`
+  /// `Please fill in the information to submit and make sure the file is in PDF oe Image.`
   String get pleaseFillInformation {
     return Intl.message(
-      'Please fill in the information to submit and make sure the file is in PDF format.',
+      'Please fill in the information to submit and make sure the file is in PDF oe Image.',
       name: 'pleaseFillInformation',
       desc: '',
       args: [],

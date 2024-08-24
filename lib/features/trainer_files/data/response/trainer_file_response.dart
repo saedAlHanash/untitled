@@ -1,5 +1,7 @@
 import 'package:fitness_storm/core/extensions/extensions.dart';
 
+import '../../../../core/strings/enum_manager.dart';
+
 class TrainerFiles {
   TrainerFiles({
     required this.data,
@@ -11,8 +13,7 @@ class TrainerFiles {
     return TrainerFiles(
       data: json["data"] == null
           ? []
-          : List<TrainerFile>.from(
-              json["data"]!.map((x) => TrainerFile.fromJson(x))),
+          : List<TrainerFile>.from(json["data"]!.map((x) => TrainerFile.fromJson(x))),
     );
   }
 
@@ -27,20 +28,24 @@ class TrainerFile {
     required this.content,
     required this.isOpen,
     required this.file,
+    required this.mediaType,
   });
 
   final int id;
   final String content;
   final num isOpen;
   final String file;
+  final MediaType mediaType;
 
   factory TrainerFile.fromJson(Map<String, dynamic> json) {
     return TrainerFile(
-      id: json["id"].toString().tryParseOrZeroInt,
-      content: json["content"] ?? "",
-      isOpen: json["is_open"] ?? 0,
-      file: (json["file"] ?? "").toString().fixAvatarImage,
-    );
+        id: json["id"].toString().tryParseOrZeroInt,
+        content: json["content"] ?? "",
+        isOpen: json["is_open"] ?? 0,
+        file: (json["file"] ?? "").toString().fixAvatarImage,
+        mediaType: (json["file"] ?? "").toString().toLowerCase().endsWith('pdf')
+            ? MediaType.pdf
+            : MediaType.image);
   }
 
   Map<String, dynamic> toJson() => {

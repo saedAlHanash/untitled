@@ -495,7 +495,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseEnterOTPCode":
             MessageLookupByLibrary.simpleMessage("الرجاء إدخال رمز OTP"),
         "pleaseFillInformation": MessageLookupByLibrary.simpleMessage(
-            "يرجى ملئ المعلومات للإرسال والتأكد أن الملف من نوع بي دي إف"),
+            "يرجى ملئ المعلومات للإرسال والتأكد أن الملف من نوع PDF او صورة"),
         "plsEnterEmail": MessageLookupByLibrary.simpleMessage(
             "يرجى إدخال البريد الإلكتروني لاستقبال رمز التفعيل"),
         "policy": MessageLookupByLibrary.simpleMessage(

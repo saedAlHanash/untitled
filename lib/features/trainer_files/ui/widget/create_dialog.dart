@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:collection/collection.dart';
 import 'package:drawable_text/drawable_text.dart';
+import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -29,9 +30,11 @@ class CreateDialog extends StatefulWidget {
 class _CreateDialogState extends State<CreateDialog> {
   CreateTrainerFileCubit get cubit => context.read<CreateTrainerFileCubit>();
 
+  var isPdf = true;
+
   void getFile() async {
     final pdfFile = await FilePicker.platform.pickFiles(
-      allowedExtensions: ['pdf'],
+      allowedExtensions: ['pdf', 'jpg', 'png' 'Jpg', 'Png'],
       type: FileType.custom,
     );
 
@@ -40,7 +43,9 @@ class _CreateDialogState extends State<CreateDialog> {
 
       var bytes = file.readAsBytesSync();
       cubit.setFile(bytes);
-      setState(() {});
+      setState(() {
+        isPdf = file.uri.path.toLowerCase().endsWith('pdf');
+      });
     } else {}
   }
 
@@ -58,7 +63,7 @@ class _CreateDialogState extends State<CreateDialog> {
               child: ImageMultiType(
                 url: cubit.state.mRequest.file == null
                     ? Assets.imagesCreateFile
-                    : Assets.imagesPdfUploadsvg,
+                    : isPdf?Assets.imagesPdfUploadsvg: Assets.imagesUploadImage,
                 height: 70.0.r,
                 width: 70.0.r,
               ),

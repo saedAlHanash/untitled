@@ -33,6 +33,7 @@ enum WalletType { income, invoice }
 enum NeedUpdateEnum { no, withLoading, noLoading }
 
 enum ThemeColor { dark, light }
+enum MediaType { pdf, image }
 
 enum ApiType {
   get,

@@ -1,5 +1,7 @@
 import 'package:drawable_text/drawable_text.dart';
+import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
+import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:fitness_storm/core/widgets/app_bar/app_bar_widget.dart';
 import 'package:fitness_storm/core/widgets/my_card_widget.dart';
 import 'package:fitness_storm/features/trainer_files/bloc/delete_trainer_file_cubit/delete_trainer_file_cubit.dart';
@@ -59,17 +61,35 @@ class TrainerFilesPage extends StatelessWidget {
                 cardColor: AppColorManager.lightGray,
                 padding: EdgeInsets.zero,
                 child: ListTile(
-                  onTap: () => startPdf(item.file, item.content),
+                  onTap: () {
+                    loggerObject.e(item.file);
+                    switch (item.mediaType) {
+                      case MediaType.pdf:
+                        startPdf(item.file, item.content);
+                        break;
+
+                      case MediaType.image:
+                        NoteMessage.showMyDialog(
+                          context,
+                          child: ImageMultiType(
+                            height: .5.sh,
+                            width: 1.0.sw,
+                            url: item.file,
+                          ),
+                        );
+                    }
+                  },
                   title: DrawableText(text: item.content),
                   leading: RoundImageWidget(
-                    url: Assets.imagesPdf,
+                    url: item.mediaType == MediaType.pdf
+                        ? Assets.imagesPdf
+                        : Assets.imagesImageFile,
                     width: 50.0.r,
                   ),
                   trailing: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      BlocBuilder<DeleteTrainerFileCubit,
-                          DeleteTrainerFileInitial>(
+                      BlocBuilder<DeleteTrainerFileCubit, DeleteTrainerFileInitial>(
                         buildWhen: (p, c) => c.request == item.id.toString(),
                         builder: (context, state) {
                           if (state.statuses.loading) {
@@ -84,11 +104,10 @@ class TrainerFilesPage extends StatelessWidget {
                                   image: Icons.delete,
                                   color: Colors.red,
                                   onConfirm: (b) {
-        if(!b)return;
+                                    if (!b) return;
                                     context
                                         .read<DeleteTrainerFileCubit>()
-                                        .deleteTrainerFile(
-                                            id: item.id.toString());
+                                        .deleteTrainerFile(id: item.id.toString());
                                   },
                                 );
                               },
