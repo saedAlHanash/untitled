@@ -92,6 +92,8 @@ dependencies:
   flutter_cached_pdfview: ^0.4.2
   linkfy_text: ^1.1.6
   fluttertoast: ^8.2.8
+  win32: ^5.5.4
+  archive: ^3.6.1
 #  appsflyer_sdk: ^6.14.3
 #  ------------------------------------------------
 
