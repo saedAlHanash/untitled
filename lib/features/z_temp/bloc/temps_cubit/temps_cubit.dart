@@ -1,5 +1,4 @@
 import 'package:fitness_storm/core/api_manager/api_url.dart';
-import 'package:fitness_storm/core/api_manager/request_models/command.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 
 import '../../../../core/api_manager/api_service.dart';

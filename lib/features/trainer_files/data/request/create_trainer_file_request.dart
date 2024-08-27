@@ -1,5 +1,4 @@
 import 'package:fitness_storm/core/api_manager/api_service.dart';
-import 'package:fitness_storm/core/app/app_provider.dart';
 
 import '../../../../core/util/shared_preferences.dart';
 

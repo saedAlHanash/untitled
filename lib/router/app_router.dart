@@ -64,7 +64,6 @@ import '../features/trainer/ui/pages/available_time_page.dart';
 import '../features/trainer/ui/pages/trainers_page.dart';
 import '../features/trainer_files/bloc/delete_trainer_file_cubit/delete_trainer_file_cubit.dart';
 import '../features/trainer_files/ui/pages/trainer_files_page.dart';
-import '../features/training/bloc/exercise_cubit/exercise_cubit.dart';
 import '../features/training/ui/pages/training_page.dart';
 import '../features/vimeo/bloc/vimeo_cubit/vimeo_cubit.dart';
 import '../features/welcome_message/bloc/welcome_messages_cubit/welcome_messages_cubit.dart';

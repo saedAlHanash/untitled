@@ -7,7 +7,6 @@ import 'package:fitness_storm/core/util/shared_preferences.dart';
 import 'package:fitness_storm/core/util/snack_bar_message.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
-import 'package:pod_player/pod_player.dart';
 
 import '../../../../Screen/Trainee Screens/HomeScreen/refresh_home_plan_cubit/refresh_home_plan_cubit.dart';
 import '../../../../core/api_manager/api_service.dart';
@@ -21,7 +20,6 @@ import '../../../../core/util/abstraction.dart';
 import '../../../../core/util/pair_class.dart';
 import '../../../../services/chat_service/chat_service_core.dart';
 import '../../../../services/chat_service/core/firebase_chat_core.dart';
-import '../plan_cubit/plan_cubit.dart';
 
 part 'subscribe_plan_state.dart';
 

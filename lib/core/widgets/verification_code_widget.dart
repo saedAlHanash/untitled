@@ -17,7 +17,7 @@ class PinCodeWidget extends StatelessWidget {
     return Center(
       child: Pinput(
         length: 5,
-        androidSmsAutofillMethod: AndroidSmsAutofillMethod.smsUserConsentApi,
+        // androidSmsAutofillMethod: AndroidSmsAutofillMethod.smsUserConsentApi,
         onCompleted: onCompleted,
         onChanged: onChange,
         validator: validator,

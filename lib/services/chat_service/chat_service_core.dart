@@ -7,7 +7,6 @@ import '../../core/api_manager/api_service.dart';
 import '../../core/app/app_provider.dart';
 import '../../core/util/shared_preferences.dart';
 import 'core/firebase_chat_core.dart';
-import 'core/util.dart';
 
 class ChatServiceCore {
   static Future<void> initFirebaseChat() async {

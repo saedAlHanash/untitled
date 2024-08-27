@@ -4,8 +4,6 @@ import 'package:fitness_storm/Screen/Trainee%20Screens/Progress%20Screen/progres
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class ProgressScreen extends GetView<ProgressScreenController> {

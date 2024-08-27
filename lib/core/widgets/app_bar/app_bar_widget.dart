@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:drawable_text/drawable_text.dart';
-import 'package:fitness_storm/core/util/my_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

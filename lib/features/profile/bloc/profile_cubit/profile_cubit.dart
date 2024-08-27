@@ -1,4 +1,3 @@
-import 'package:bloc/bloc.dart';
 import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/util/abstraction.dart';
@@ -6,7 +5,6 @@ import 'package:fitness_storm/features/profile/data/response/profile_response.da
 
 import '../../../../core/api_manager/api_service.dart';
 import '../../../../core/api_manager/api_url.dart';
-import '../../../../core/error/error_manager.dart';
 import '../../../../core/injection/injection_container.dart';
 import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/firebase_analytics_service.dart';

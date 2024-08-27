@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../features/plans/data/response/plan_workout_response.dart';
 import '../../features/training/data/response/exercises_response.dart';
 import 'day_exercises_widget.dart';
 import 'day_image.dart';

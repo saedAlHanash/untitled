@@ -6,7 +6,6 @@ import 'package:fitness_storm/core/widgets/my_button.dart';
 import 'package:fitness_storm/core/widgets/my_text_form_widget.dart';
 import 'package:fitness_storm/features/auth/ui/widget/auth_header.dart';
 import 'package:fitness_storm/features/auth/ui/widget/login_social_widget.dart';
-import 'package:fitness_storm/features/profile/bloc/profile_cubit/profile_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

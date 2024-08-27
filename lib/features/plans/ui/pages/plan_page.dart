@@ -6,7 +6,6 @@ import 'package:fitness_storm/Screen/Trainee%20Screens/PlanOverView/Widget/train
 import 'package:fitness_storm/Screen/Trainee%20Screens/PlanOverView/Widget/video_tail_widget.dart';
 import 'package:fitness_storm/Widgets/custom_button.dart';
 import 'package:fitness_storm/Widgets/read_more_text_widget.dart';
-import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
 import 'package:fitness_storm/core/util/my_style.dart';
@@ -16,18 +15,17 @@ import 'package:fitness_storm/features/vimeo/bloc/vimeo_cubit/vimeo_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:image_multi_type/circle_image_widget.dart';
-import 'package:image_multi_type/image_multi_type.dart';
 
 import '../../../../Widgets/Exercise/day_widget.dart';
+import '../../../../core/app/app_provider.dart';
 import '../../../../generated/l10n.dart';
 import '../../../vimeo/ui/pages/vimeo_player.dart';
-import '../../../../core/app/app_provider.dart';
 import '../../bloc/plan_cubit/plan_cubit.dart';
 import '../../bloc/plan_workout_cubit/plan_workout_cubit.dart';
 import '../../bloc/subscribe_plan_cubit/subscribe_plan_cubit.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 class PlanPage extends StatefulWidget {
   const PlanPage({super.key});

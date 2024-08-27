@@ -1,22 +1,16 @@
 import 'package:drawable_text/drawable_text.dart';
-import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
-import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:fitness_storm/core/widgets/app_bar/app_bar_widget.dart';
 import 'package:fitness_storm/core/widgets/my_card_widget.dart';
-import 'package:fitness_storm/features/trainer_files/bloc/delete_trainer_file_cubit/delete_trainer_file_cubit.dart';
 import 'package:fitness_storm/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:image_multi_type/circle_image_widget.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 import 'package:image_multi_type/round_image_widget.dart';
 
 import '../../../../core/strings/app_color_manager.dart';
 import '../../../../core/util/my_style.dart';
-import '../../../../core/util/snack_bar_message.dart';
-import '../../../../generated/assets.dart';
 import '../../../../generated/l10n.dart';
 import '../../bloc/diets_cubit/diets_cubit.dart';
 

@@ -1,24 +1,17 @@
-import 'package:drawable_text/drawable_text.dart';
 import 'package:fitness_storm/Utils/protact_screen_service.dart';
 import 'package:fitness_storm/core/api_manager/api_service.dart';
-import 'package:fitness_storm/features/training/ui/widget/current_exercise_widget.dart';
-import 'package:fitness_storm/features/vimeo/bloc/vimeo_cubit/vimeo_cubit.dart';
-
-import 'package:fitness_storm/features/vimeo/ui/pages/vimeo_player.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/util/my_style.dart';
 import 'package:fitness_storm/core/widgets/app_bar/app_bar_widget.dart';
+import 'package:fitness_storm/features/training/ui/widget/current_exercise_widget.dart';
+import 'package:fitness_storm/features/vimeo/bloc/vimeo_cubit/vimeo_cubit.dart';
+import 'package:fitness_storm/features/vimeo/ui/pages/vimeo_player.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:pod_player/pod_player.dart';
-import 'package:wakelock_plus/wakelock_plus.dart';
 
 import '../../../../core/app/app_provider.dart';
-import '../../../../core/injection/injection_container.dart';
-import '../../../../generated/assets.dart';
 import '../../bloc/temp_cubit/training_cubit.dart';
 import '../widget/exercises_listview.dart';
 import '../widget/rest_widget.dart';

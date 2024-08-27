@@ -3,7 +3,6 @@ import 'package:fitness_storm/core/api_manager/api_url.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/router/app_router.dart';
 import 'package:get/get.dart';
-import 'package:pod_player/pod_player.dart';
 
 import '../../../../Data/Api/api_result.dart';
 import '../../../../Data/Repositories/exercise_repository.dart';

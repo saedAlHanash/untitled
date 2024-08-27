@@ -1,15 +1,8 @@
-import 'package:fitness_storm/Data/Api/api_result.dart';
 import 'package:fitness_storm/Data/Repositories/exercise_repository.dart';
 import 'package:fitness_storm/Data/Repositories/workout_repository.dart';
-import 'package:fitness_storm/Model/plan_workout.dart';
-import 'package:fitness_storm/Utils/Routes/app_pages.dart';
-import 'package:fitness_storm/Utils/utils.dart';
 import 'package:fitness_storm/features/plans/data/response/plan_workout_response.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../../router/app_router.dart';
-import '../User Training/user_training_controller.dart';
 
 class WorkoutScreenController extends GetxController {
   final RxBool _isLoading = false.obs;

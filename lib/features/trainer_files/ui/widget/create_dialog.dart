@@ -1,23 +1,18 @@
 import 'dart:io';
 
-import 'package:file_picker/file_picker.dart';
-import 'package:collection/collection.dart';
 import 'package:drawable_text/drawable_text.dart';
-import 'package:fitness_storm/core/api_manager/api_service.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
+import 'package:fitness_storm/core/strings/app_color_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:image_multi_type/image_multi_type.dart';
-import 'package:fitness_storm/core/extensions/extensions.dart';
-import 'package:fitness_storm/core/strings/app_color_manager.dart';
 
 import '../../../../core/util/my_style.dart';
 import '../../../../core/widgets/my_text_form_widget.dart';
-import '../../../../generated/l10n.dart';
-
 import '../../../../generated/assets.dart';
+import '../../../../generated/l10n.dart';
 import '../../bloc/create_trainer_file_cubit/create_trainer_file_cubit.dart';
 
 class CreateDialog extends StatefulWidget {

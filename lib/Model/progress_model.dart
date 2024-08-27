@@ -1,8 +1,4 @@
-import 'package:fitness_storm/core/api_manager/api_service.dart';
-import 'package:fitness_storm/core/extensions/extensions.dart';
-import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
 
 class ProgressModel {
   String? type;
