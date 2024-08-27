@@ -201,7 +201,8 @@ class CachingService {
         if (keyCache.filter == filter) {
           final message = Message.fromJson(jsonDecode(box.get(listKeys[i]) ?? '{}'));
 
-          if (isMoreThanOneMonth(message.createdAt ?? 0, nowTimeMillis)) {
+          if (isMoreThanOneMonth(message.createdAt ?? 0, nowTimeMillis) &&
+              (message.type == MessageType.file || message.type == MessageType.video)) {
             await _removeFromListBox(listKeys, i, box);
             continue;
           }

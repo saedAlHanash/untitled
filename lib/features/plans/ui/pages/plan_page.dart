@@ -28,6 +28,7 @@ import '../../bloc/plan_cubit/plan_cubit.dart';
 import '../../bloc/plan_workout_cubit/plan_workout_cubit.dart';
 import '../../bloc/subscribe_plan_cubit/subscribe_plan_cubit.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+
 class PlanPage extends StatefulWidget {
   const PlanPage({super.key});
 
@@ -58,24 +59,24 @@ class _PlanPageState extends State<PlanPage> {
         ),
       ],
       child: Scaffold(
-          appBar: AppBarWidget(
-            title: BlocBuilder<PlanCubit, PlanInitial>(
-              builder: (context, state) {
-                if (state.statuses.loading) {
-                  return 0.0.verticalSpace;
-                }
-                return DrawableText(
-                  text: state.result.name,
-                  size: 24.0.spMin,
-                  color: Colors.white,
-                  fontFamily: FontManager.cairoBold.name,
-                );
-              },
-            ),
+        appBar: AppBarWidget(
+          title: BlocBuilder<PlanCubit, PlanInitial>(
+            builder: (context, state) {
+              if (state.statuses.loading) {
+                return 0.0.verticalSpace;
+              }
+              return DrawableText(
+                text: state.result.name,
+                size: 24.0.spMin,
+                color: Colors.white,
+                fontFamily: FontManager.cairoBold.name,
+              );
+            },
           ),
+        ),
         floatingActionButtonLocation: Platform.isIOS
-          ? FloatingActionButtonLocation.centerDocked
-          : FloatingActionButtonLocation.centerFloat,
+            ? FloatingActionButtonLocation.centerDocked
+            : FloatingActionButtonLocation.centerFloat,
         floatingActionButton: BlocBuilder<SubscribePlanCubit, SubscribePlanInitial>(
           builder: (context, state) {
             if (state.statuses.loading) {
@@ -95,129 +96,128 @@ class _PlanPageState extends State<PlanPage> {
                   );
                 }
                 return (state.result.isActive ||
-                    AppSharedPreference.getCurrentPlanId ==
-                        state.result.id.toString() ||
-                    AppProvider.isTrainer)
+                        AppSharedPreference.getCurrentPlanId ==
+                            state.result.id.toString() ||
+                        AppProvider.isTrainer)
                     ? 0.0.verticalSpace
                     : CustomButton(
-                    onTapFunction: () {
-                      setState(() {
-                        context.read<VimeoCubit>().state.controller?.pause();
-                      });
+                        onTapFunction: () {
+                          setState(() {
+                            showIntro = false;
+                            context.read<VimeoCubit>().state.controller?.dispose();
+                          });
 
-                      return context
-                          .read<SubscribePlanCubit>()
-                          .subscribe(planId: state.result.id);
-                    },
-                    buttonColor: AppColorManager.mainColorLight,
-                    textColor: Colors.white,
-                    padding: 0,
-                    radius: 10,
-                    fontSize: 16.0.sp,
-                    height: Get.height / 15,
-                    width: Get.width,
-                    text: AppSharedPreference.getCurrentPlanId.isEmpty
-                        ? 'subscribe'.tr
-                        : 'start_within_plan'.tr);
+                          return context
+                              .read<SubscribePlanCubit>()
+                              .subscribe(planId: state.result.id);
+                        },
+                        buttonColor: AppColorManager.mainColorLight,
+                        textColor: Colors.white,
+                        padding: 0,
+                        radius: 10,
+                        fontSize: 16.0.sp,
+                        height: Get.height / 15,
+                        width: Get.width,
+                        text: AppSharedPreference.getCurrentPlanId.isEmpty
+                            ? 'subscribe'.tr
+                            : 'start_within_plan'.tr);
               },
             );
           },
         ),
-          body: BlocBuilder<PlanCubit, PlanInitial>(
-            builder: (context, state) {
-              if (state.statuses.loading) {
-                return MyStyle.loadingWidget();
-              }
-              return SingleChildScrollView(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    if (showIntro)
-                      VimeoPlayer(
-                        videoId: state.result.introductionVideo,
+        body: BlocBuilder<PlanCubit, PlanInitial>(
+          builder: (context, state) {
+            if (state.statuses.loading) {
+              return MyStyle.loadingWidget();
+            }
+            return SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  if (showIntro)
+                    VimeoPlayer(
+                      videoId: state.result.introductionVideo,
+                    ),
+                  const VideoTailWidget(),
+                  Column(
+                    children: [
+                      30.0.verticalSpace,
+                      Text(
+                        state.result.name,
+                        style: const TextStyle(color: Color(0xFF565C63), fontSize: 26),
                       ),
-                    const VideoTailWidget(),
-                    Column(
-                      children: [
-                        30.0.verticalSpace,
-                        Text(
-                          state.result.name,
-                          style: const TextStyle(color: Color(0xFF565C63), fontSize: 26),
+                      30.0.verticalSpace,
+                      ReadMoreTextWidget(text: state.result.description),
+                      30.0.verticalSpace,
+                      ListTile(
+                        leading: CircleImageWidget(
+                          url: state.result.trainer.image,
+                          size: 70.0.r,
                         ),
-                        30.0.verticalSpace,
-                        ReadMoreTextWidget(text: state.result.description),
-                        30.0.verticalSpace,
-                        ListTile(
-                          leading: CircleImageWidget(
-                            url: state.result.trainer.image,
-                            size: 70.0.r,
-                          ),
-                          title: DrawableText(text: state.result.trainer.name),
-                        ),
-                        30.0.verticalSpace,
-                        TrainerBio(state.result.trainer.bio),
-                      ],
-                    ),
-                    const DayBar(),
-                    30.0.verticalSpace,
-                    BlocBuilder<PlanWorkoutsCubit, PlanWorkoutsInitial>(
-                      builder: (context, state) {
-                        if (state.statuses.loading) {
-                          return MyStyle.loadingWidget();
-                        }
-                        return ListView.builder(
-                          key: UniqueKey(),
-                          controller: ScrollController(),
-                          shrinkWrap: true,
-                          itemCount: state.result.length,
-                          itemBuilder: (_, i) {
-                            final item = state.result[i];
-                            return GestureDetector(
-                              onTap: () {
-                                if (item.isRestDay) return;
+                        title: DrawableText(text: state.result.trainer.name),
+                      ),
+                      30.0.verticalSpace,
+                      TrainerBio(state.result.trainer.bio),
+                    ],
+                  ),
+                  const DayBar(),
+                  30.0.verticalSpace,
+                  BlocBuilder<PlanWorkoutsCubit, PlanWorkoutsInitial>(
+                    builder: (context, state) {
+                      if (state.statuses.loading) {
+                        return MyStyle.loadingWidget();
+                      }
+                      return ListView.builder(
+                        key: UniqueKey(),
+                        controller: ScrollController(),
+                        shrinkWrap: true,
+                        itemCount: state.result.length,
+                        itemBuilder: (_, i) {
+                          final item = state.result[i];
+                          return GestureDetector(
+                            onTap: () {
+                              if (item.isRestDay) return;
 
+                              if (!cubit.state.result.isCurrent) {
+                                Fluttertoast.showToast(
+                                  msg: S.of(context).needSubscribeToThisPlan,
+                                  toastLength: Toast.LENGTH_SHORT,
+                                  gravity: ToastGravity.BOTTOM,
+                                  timeInSecForIosWeb: 1,
+                                  backgroundColor: Colors.white,
+                                  textColor: Colors.black,
+                                  fontSize: 16.0.sp,
+                                );
+                                return;
+                              }
 
-                                if (!cubit.state.result.isCurrent) {
-                                  Fluttertoast.showToast(
-                                    msg: S.of(context).needSubscribeToThisPlan,
-                                    toastLength: Toast.LENGTH_SHORT,
-                                    gravity: ToastGravity.BOTTOM,
-                                    timeInSecForIosWeb: 1,
-                                    backgroundColor: Colors.white,
-                                    textColor: Colors.black,
-                                    fontSize: 16.0.sp,
-                                  );
-                                  return;
-                                }
+                              setState(() {
+                                showIntro = false;
+                                context.read<VimeoCubit>().state.controller?.dispose();
+                              });
 
-                                setState(() {
-                                  showIntro = false;
-                                  context.read<VimeoCubit>().state.controller?.dispose();
-                                });
+                              cubit.startTraining(state.result[i], i);
+                            },
+                            child: DayWidget(
+                              key: state.result[i].key,
+                              imageUrl: item.image,
+                              dayNumber: item.name,
+                              totalMinutes: item.totalMinutes.toInt(),
+                              exercises: item.exercises,
+                              type: item.type,
 
-                                cubit.startTraining(state.result[i], i);
-                              },
-                              child: DayWidget(
-                                key: state.result[i].key,
-                                imageUrl: item.image,
-                                dayNumber: item.name,
-                                totalMinutes: item.totalMinutes.toInt(),
-                                exercises: item.exercises,
-                                type: item.type,
-
-                                // type:item.type!
-                              ),
-                            );
-                          },
-                        );
-                      },
-                    ),
-                  ],
-                ),
-              );
-            },
-          ),
-
+                              // type:item.type!
+                            ),
+                          );
+                        },
+                      );
+                    },
+                  ),
+                ],
+              ),
+            );
+          },
+        ),
       ),
     );
   }
