@@ -1,11 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
+import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:fitness_storm/features/trainer/data/response/trainer.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 
 import '../../core/api_manager/api_service.dart';
 import '../../core/app/app_provider.dart';
 import '../../core/util/shared_preferences.dart';
+import '../../features/profile/data/response/profile_response.dart';
 import 'core/firebase_chat_core.dart';
 
 class ChatServiceCore {
@@ -22,8 +24,9 @@ class ChatServiceCore {
 
     if (AppProvider.myId.isEmpty ||
         AppSharedPreference.getIsLoginToChatApp ||
-        profile.name?.isEmpty == true ||
+        (profile.name ?? '').isEmpty == true ||
         profile.id == 0) return false;
+    if (AppSharedPreference.getUserType == UserType.guest) return false;
     try {
       await FirebaseChatCore.instance.createUserInFirestore(
         types.User(
@@ -45,6 +48,7 @@ class ChatServiceCore {
 
   static Future<bool> createUser(TrainerModel trainer) async {
     try {
+      if (AppSharedPreference.getUserType == UserType.guest) return false;
       await FirebaseChatCore.instance.createUserInFirestore(
         types.User(
           id: trainer.id.toString(),
@@ -94,6 +98,7 @@ class ChatServiceCore {
   static Future<bool> logoutChatUser() async {
     if (!AppSharedPreference.getIsLoginToChatApp) return true;
     if (AppProvider.myId.isEmpty) return true;
+    if (AppSharedPreference.getUserType == UserType.guest) return false;
     try {
       await FirebaseFirestore.instance
           .collection('users')
@@ -107,10 +112,10 @@ class ChatServiceCore {
     }
   }
 
-  static Future<bool> updateChatUser() async {
+  static Future<bool> updateChatUser(Profile profile) async {
     if (AppProvider.myId.isEmpty) return false;
+    if (AppSharedPreference.getUserType == UserType.guest) return false;
     try {
-      final profile = AppProvider.profile;
       if (profile.id == 0) return false;
 
       await FirebaseFirestore.instance
@@ -133,6 +138,7 @@ class ChatServiceCore {
 
   static Future<bool> latestSeenRoom(String roomId) async {
     try {
+      if (AppSharedPreference.getUserType == UserType.guest) return false;
       await FirebaseChatCore.instance.latestSeenRoom(roomId);
       return true;
     } catch (e) {

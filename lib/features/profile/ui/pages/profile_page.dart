@@ -145,8 +145,8 @@ class ProfileCards extends StatelessWidget {
           Row(
             children: [
               const Expanded(child: ProfileCard(type: ProfileCardType.appointment)),
-              15.0.horizontalSpace,
-              const Expanded(child: ProfileCard(type: ProfileCardType.diets)),
+              // 15.0.horizontalSpace,
+              // const Expanded(child: ProfileCard(type: ProfileCardType.diets)),
             ],
           ),
       ],

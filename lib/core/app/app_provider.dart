@@ -39,7 +39,6 @@ class AppProvider {
   static String get myId {
     if (_myId == 0) _myId = _loginData.id;
     if (_myId == 0 || _myId == null) _myId = AppSharedPreference.getMyId;
-
     return _myId == 0 ? '' : '${AppProvider.isTestMode ? 'test' : ''}${_myId.toString()}';
   }
 
@@ -80,7 +79,7 @@ class AppProvider {
     await AppSharedPreference.cashMyId(data.id);
     profile = data;
 
-    await ChatServiceCore.updateChatUser();
+    await ChatServiceCore.updateChatUser(data);
   }
 
   static cashSetConfirmAccount() async {
