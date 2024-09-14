@@ -332,7 +332,7 @@ extension GetDateTimesBetween on DateTime {
   }
 }
 
-extension EnumsH on List<Enum> {
+extension EnumsH on List {
   List<SpinnerItem> getSpinnerItems({int? selected}) {
     return map(
       (e) => SpinnerItem(

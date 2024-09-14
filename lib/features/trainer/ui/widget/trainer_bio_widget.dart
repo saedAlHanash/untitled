@@ -174,6 +174,8 @@ class _BundleItem extends StatelessWidget {
                 text: item.name,
                 size: 11.0.sp,
                 maxLines: 2,
+                matchParent: true,
+                textAlign: TextAlign.center,
                 color: AppColorManager.mainColor,
               ),
               DrawableText(
@@ -185,7 +187,7 @@ class _BundleItem extends StatelessWidget {
               ),
               DrawableText(
                 text: '${item.sessions} ${S.of(context).session}',
-                size: 10.0.sp,
+                size: 11.0.sp,
                 maxLines: 1,
                 color: AppColorManager.mainColor,
               ),

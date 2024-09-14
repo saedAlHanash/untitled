@@ -287,6 +287,7 @@ class _ChatPageState extends State<ChatPage> {
             theme: const DarkChatTheme(
                 backgroundColor: Colors.white,
                 primaryColor: AppColorManager.mainColor,
+                dateDividerTextStyle: TextStyle(color: Colors.black54),
                 secondaryColor: AppColorManager.mainColorDark,
                 inputBackgroundColor: AppColorManager.mainColor),
             user: types.User(id: AppProvider.myId),

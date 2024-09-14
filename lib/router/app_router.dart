@@ -3,9 +3,13 @@ import 'package:fitness_storm/features/appointments/bloc/rating_cubit/rating_cub
 import 'package:fitness_storm/features/notifications/ui/pages/notifications_page.dart';
 import 'package:fitness_storm/features/plans/ui/pages/plan_page.dart';
 import 'package:fitness_storm/features/profile/bloc/update_profile_cubit/update_profile_cubit.dart';
+import 'package:fitness_storm/features/search/bloc/temp_cubit/search_cubit.dart';
+import 'package:fitness_storm/features/search/data/request/trainers_filter.dart';
+import 'package:fitness_storm/features/search/ui/pages/search_result_page.dart';
 import 'package:fitness_storm/features/trainer/bloc/trainers_cubit/trainers_cubit.dart';
 import 'package:fitness_storm/features/trainer/data/response/trainer.dart';
 import 'package:fitness_storm/features/trainer_files/bloc/create_trainer_file_cubit/create_trainer_file_cubit.dart';
+import 'package:fitness_storm/features/trainer_files/data/response/trainer_file_response.dart';
 import 'package:fitness_storm/features/training/bloc/temp_cubit/training_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -177,8 +181,7 @@ Route<dynamic> routes(RouteSettings settings) {
     //endregion
   }
 
-  return MaterialPageRoute(
-      builder: (_) => const Scaffold(backgroundColor: Colors.red));
+  return MaterialPageRoute(builder: (_) => const Scaffold(backgroundColor: Colors.red));
 }
 
 class RouteName {
@@ -251,8 +254,7 @@ void startForgetPass(BuildContext context) {
 
   final providers = [
     BlocProvider(
-        create: (_) =>
-            sl<ForgetPasswordCubit>()..setPhoneOrEmail = phoneOrEmail),
+        create: (_) => sl<ForgetPasswordCubit>()..setPhoneOrEmail = phoneOrEmail),
   ];
 
   final Widget page = MultiBlocProvider(
@@ -266,8 +268,7 @@ void startForgetPass(BuildContext context) {
 
 void startAppointment() {
   final providers = [
-    BlocProvider(
-        create: (_) => sl<BookedAppointmentsCubit>()..getBookedAppointments()),
+    BlocProvider(create: (_) => sl<BookedAppointmentsCubit>()..getBookedAppointments()),
   ];
 
   final Widget page = MultiBlocProvider(
@@ -355,8 +356,7 @@ void startConfirmCodeAccount(BuildContext context) {
 void startHome() {
   ChatServiceCore.initFirebaseChat();
 
-  Get.offAllNamed(
-      AppProvider.isTrainer ? AppRoutes.trainerHomePage : AppRoutes.mainHome);
+  Get.offAllNamed(AppProvider.isTrainer ? AppRoutes.trainerHomePage : AppRoutes.mainHome);
   sl<AnalyticService>().screenView(name: 'home');
 }
 
@@ -383,8 +383,8 @@ void startBookPrivetSession(TrainerModel trainer) {
         ),
     ),
     BlocProvider(
-      create: (_) => sl<BundlesCubit>()
-        ..getBundles(request: BundlesRequest(trainerId: trainer.id)),
+      create: (_) =>
+          sl<BundlesCubit>()..getBundles(request: BundlesRequest(trainerId: trainer.id)),
     ),
   ];
 
@@ -449,8 +449,7 @@ void startNotificationsPage() {
 
 void startCreateBundle(Bundle bundle) {
   final providers = [
-    BlocProvider(
-        create: (_) => sl<CreateBundleCubit>()..setData(bundle: bundle)),
+    BlocProvider(create: (_) => sl<CreateBundleCubit>()..setData(bundle: bundle)),
     BlocProvider(
       create: (_) => sl<AvailableTimesCubit>()
         ..getAvailableTimes(
@@ -505,8 +504,7 @@ void startPlanPage(String id) async {
       create: (_) => sl<PlanCubit>()..getPlan(planId: int.parse(id)),
     ),
     BlocProvider(
-      create: (_) =>
-          sl<PlanWorkoutsCubit>()..getPlanWorkouts(id: int.parse(id)),
+      create: (_) => sl<PlanWorkoutsCubit>()..getPlanWorkouts(id: int.parse(id)),
     ),
   ];
 
@@ -518,9 +516,29 @@ void startPlanPage(String id) async {
   Navigator.push(ctx!, MaterialPageRoute(builder: (context) => page));
 }
 
-void startTrainingPage(PlanWorkout planWorkout,bool complete) async {
+void startSearchResultPage(String name) async {
   final providers = [
-    BlocProvider(create: (_) => sl<TrainingCubit>()..initial(planWorkout,complete)),
+    BlocProvider(
+      create: (_) => sl<SearchCubit>()
+        ..getSearch(
+          request: TrainerFilter(
+            name: name,
+          ),
+        ),
+    ),
+  ];
+
+  final Widget page = MultiBlocProvider(
+    providers: providers,
+    child: const SearchResultPage(),
+  );
+
+  Navigator.push(ctx!, MaterialPageRoute(builder: (context) => page));
+}
+
+void startTrainingPage(PlanWorkout planWorkout, bool complete) async {
+  final providers = [
+    BlocProvider(create: (_) => sl<TrainingCubit>()..initial(planWorkout, complete)),
     BlocProvider(create: (_) => sl<VimeoCubit>()),
   ];
 

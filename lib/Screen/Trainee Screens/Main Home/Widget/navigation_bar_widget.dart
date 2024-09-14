@@ -37,20 +37,20 @@ class AppNavigationBar extends StatelessWidget {
               backgroundColor: Colors.white,
               label: 'home'.tr,
             ),
-            if (!AppProvider.isGuest)
-              BottomNavigationBarItem(
-                  icon: SvgPicture.asset('asset/Images/dambleSVG.svg'),
-                  backgroundColor: Colors.white,
-                  label: 'workout'.tr),
+            // if (!AppProvider.isGuest)
+            //   BottomNavigationBarItem(
+            //       icon: SvgPicture.asset('asset/Images/dambleSVG.svg'),
+            //       backgroundColor: Colors.white,
+            //       label: 'workout'.tr),
             BottomNavigationBarItem(
                 icon: SvgPicture.asset('asset/Images/searchSVG.svg'),
                 backgroundColor: Colors.white,
                 label: 'Search_small'.tr),
-            if (!AppProvider.isGuest)
-              BottomNavigationBarItem(
-                  icon: SvgPicture.asset('asset/Images/scoreSVG.svg'),
-                  backgroundColor: Colors.white,
-                  label: 'progress'.tr),
+            // if (!AppProvider.isGuest)
+            //   BottomNavigationBarItem(
+            //       icon: SvgPicture.asset('asset/Images/scoreSVG.svg'),
+            //       backgroundColor: Colors.white,
+            //       label: 'progress'.tr),
             BottomNavigationBarItem(
               icon: SvgPicture.asset('asset/Images/drawerSVG.svg'),
               backgroundColor: Colors.white,

@@ -21,15 +21,9 @@ abstract class AbstractState<T> extends Equatable {
     this.request,
     required this.result,
   });
-}
-abstract class AbstractMeta {
-  final Meta meta;
 
-  AbstractMeta({
-    required this.meta,
-  });
+  bool get loading => statuses == CubitStatuses.loading;
 }
-
 
 abstract class MCubit<AbstractState> extends Cubit<AbstractState> {
   MCubit(super.initialState);
@@ -52,15 +46,16 @@ abstract class MCubit<AbstractState> extends Cubit<AbstractState> {
   Future<void> storeData(dynamic data) async {
     await CachingService.sortData(data: data, name: nameCache, filter: filter);
   }
+
   Future<void> sortDataChat(dynamic data) async {
     await CachingService.sortDataChat(data: data, name: nameCache, filter: filter);
   }
 
   Future<Iterable<dynamic>?> addOrUpdateDate(
-      List<dynamic> data, {
-        String? name,
-        String? cachedFilter,
-      }) async {
+    List<dynamic> data, {
+    String? name,
+    String? cachedFilter,
+  }) async {
     return await CachingService.addOrUpdate(
       data: data,
       name: name ?? nameCache,

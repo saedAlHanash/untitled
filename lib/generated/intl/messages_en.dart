@@ -75,6 +75,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "beginner": MessageLookupByLibrary.simpleMessage("Beginner"),
         "birthDate": MessageLookupByLibrary.simpleMessage("Birth Date"),
         "birthday": MessageLookupByLibrary.simpleMessage("birthday"),
+        "bodyBuilding": MessageLookupByLibrary.simpleMessage("Body building"),
         "bodyWeight": MessageLookupByLibrary.simpleMessage("Body Weight"),
         "bodybuilding": MessageLookupByLibrary.simpleMessage("Body building"),
         "book": MessageLookupByLibrary.simpleMessage("Book"),
@@ -298,6 +299,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "guestUser": MessageLookupByLibrary.simpleMessage("Guest User"),
         "gym": MessageLookupByLibrary.simpleMessage("Gym"),
         "handsFree": MessageLookupByLibrary.simpleMessage("Hands-Free"),
+        "handsfree": MessageLookupByLibrary.simpleMessage("Hands-free"),
         "haveBeenCreated": MessageLookupByLibrary.simpleMessage(
             "Your Account Had Been Created"),
         "haveCoupon": MessageLookupByLibrary.simpleMessage("Have a coupon ?"),
@@ -575,7 +577,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "sarHour": MessageLookupByLibrary.simpleMessage("SAR/hour"),
         "saveChange": MessageLookupByLibrary.simpleMessage("save change"),
         "saveForLater": MessageLookupByLibrary.simpleMessage("Save For Later?"),
+        "search": MessageLookupByLibrary.simpleMessage("Search"),
         "searchInAll": MessageLookupByLibrary.simpleMessage("Search In All"),
+        "searchResult": MessageLookupByLibrary.simpleMessage("Search result"),
         "searchResults": MessageLookupByLibrary.simpleMessage("Search Results"),
         "searchSmall": MessageLookupByLibrary.simpleMessage("Search"),
         "sec": MessageLookupByLibrary.simpleMessage(" Sec"),
@@ -702,8 +706,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "trainers": MessageLookupByLibrary.simpleMessage("Trainers"),
         "trainingGoalFieldIsRequire": MessageLookupByLibrary.simpleMessage(
             "Training Goal Field is Require"),
+        "trainingLeve": MessageLookupByLibrary.simpleMessage("Training leve"),
         "trainingLevelFieldIsRequire": MessageLookupByLibrary.simpleMessage(
             "Training Level Field is Require"),
+        "trainingType": MessageLookupByLibrary.simpleMessage("Training type"),
         "trendingPlan": MessageLookupByLibrary.simpleMessage("Trending Plan"),
         "typeAnythingToSearchIt":
             MessageLookupByLibrary.simpleMessage("Type Anything To Search It"),

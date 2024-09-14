@@ -137,7 +137,7 @@ class _MyTextFormWidgetState extends State<MyTextFormWidget> {
       fillColor: AppColorManager.lightGray,
       label: DrawableText(
         text: widget.label,
-        color: AppColorManager.gray,
+        color: AppColorManager.grey,
         size: 14.0.sp,
       ),
       counter: const SizedBox(),
@@ -147,7 +147,7 @@ class _MyTextFormWidgetState extends State<MyTextFormWidget> {
       hintStyle: TextStyle(
         locale: Locale(AppSharedPreference.getLocal),
         fontFamily: FontManager.cairoSemiBold.name,
-        color: widget.textColor ?? AppColorManager.gray,
+        color: widget.textColor ?? AppColorManager.grey,
       ),
       hintMaxLines: 1,
       labelStyle: TextStyle(color: widget.color),
@@ -264,7 +264,7 @@ class MyEditTextWidget extends StatelessWidget {
       hintStyle: TextStyle(
         fontFamily: FontManager.cairoSemiBold.name,
         fontSize: 18.0.sp,
-        color: color?.withOpacity(0.6) ?? AppColorManager.gray.withOpacity(0.6),
+        color: color?.withOpacity(0.6) ?? AppColorManager.grey.withOpacity(0.6),
       ),
       contentPadding: EdgeInsets.zero,
       counter: const SizedBox(),

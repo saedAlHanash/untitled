@@ -57,16 +57,14 @@ class AvailableTimesCubit extends Cubit<AvailableTimesInitial> {
         header: innerHeader..addAll({'lang': 'en'}));
 
     if (response.statusCode.success) {
-      final model =
-          AvailableTimesResponse.fromJson(response.jsonBody).getAllTimes;
+      final model = AvailableTimesResponse.fromJson(response.jsonBody).getAllTimes;
       return Pair(model, null);
     } else {
       return response.getPairError;
     }
   }
 
-  Future<void> getTrainerAvailableTimes(
-      {AvailableTimesRequest? request}) async {
+  Future<void> getTrainerAvailableTimes({AvailableTimesRequest? request}) async {
     emit(state.copyWith(statuses: CubitStatuses.loading, request: request));
     final pair = await _getTrainerAvailableTimes();
     if (pair.first == null) {
@@ -76,15 +74,14 @@ class AvailableTimesCubit extends Cubit<AvailableTimesInitial> {
       emit(
         state.copyWith(
           statuses: CubitStatuses.done,
-          result: pair.first?.data,
-          events: _getMapEvent(pair.first!.data),
+          result: pair.first,
+          events: _getMapEvent(pair.first!),
         ),
       );
     }
   }
 
-  Future<Pair<AvailableTimesResponseList?, String?>>
-      _getTrainerAvailableTimes() async {
+  Future<Pair<List<Appointment>?, String?>> _getTrainerAvailableTimes() async {
     final response = await APIService().callApi(
       type: ApiType.get,
       url: GetUrl.availableTimesTrainer,
@@ -92,8 +89,13 @@ class AvailableTimesCubit extends Cubit<AvailableTimesInitial> {
     );
 
     if (response.statusCode.success) {
-      return Pair(
-          AvailableTimesResponseList.fromJson(response.jsonBodyPure), null);
+      final model = AvailableTimesResponseList.fromJson(response.jsonBodyPure).data
+        ..removeWhere(
+          (e) {
+            return e.startTime.isBefore(DateTime.now());
+          },
+        );
+      return Pair(model, null);
     } else {
       return response.getPairError;
     }

@@ -71,7 +71,7 @@ class MyCheckboxWidget extends StatelessWidget {
                       AppColorManager.textColor,
                   drawableStart: Checkbox(
                     value: selected,
-                    side: BorderSide(width: 1.0.spMin, color: AppColorManager.gray),
+                    side: BorderSide(width: 1.0.spMin, color: AppColorManager.grey),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(3.0.r),
                     ),

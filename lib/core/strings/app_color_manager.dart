@@ -9,7 +9,7 @@ class AppColorManager {
   static const textColor = Color(0xFF606060);
   static const black = Color(0xFF000000);
   static const ampere = Color(0xFFFFC107);
-  static const gray = Color(0xFF848484);
+  static const grey = Color(0xFF848484);
   static const lightGray = Color(0xFFFBFBFB);
   static const lightGrayEd = Color(0xFFEDEDED);
   static const offWhit = Color(0x4D777988);
@@ -67,7 +67,7 @@ Color getCheckColor(Color color) {
   if (isColorDark(color)) {
     return Colors.white;
   } else {
-    return AppColorManager.gray;
+    return AppColorManager.grey;
   }
 }
 

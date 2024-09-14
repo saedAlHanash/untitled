@@ -29,7 +29,7 @@ class SearchScreen extends GetView<SearchScreenController> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Expanded(child: SizedBox.shrink()),
+          Spacer(),
               Expanded(
                 child: Column(
                   children: [

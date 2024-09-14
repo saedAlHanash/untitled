@@ -31,7 +31,7 @@ class GetUrl {
 
   static const productById = 'products';
   static const products = 'products';
-  static const search = 'products/search';
+  static const search = 'trainers';
 
   static const offers = 'products/offers';
   static const bestSeller = 'products/best-seller';

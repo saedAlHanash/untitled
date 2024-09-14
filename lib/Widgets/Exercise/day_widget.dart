@@ -41,7 +41,12 @@ class _DayWidgetState extends State<DayWidget> {
             totalMinutes: widget.totalMinutes,
             numberOfExercises: widget.exercises.length,
           ),
-          Expanded(child: DayExercisesWidget(exercises: widget.exercises, type: widget.type)),
+          Expanded(
+            child: DayExercisesWidget(
+              exercises: widget.exercises,
+              type: widget.type,
+            ),
+          ),
         ]),
       ),
     );

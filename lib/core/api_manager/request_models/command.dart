@@ -42,12 +42,6 @@ class Command {
     );
   }
 
-  Command fromMeta({required AbstractMeta meta}) {
-    return Command(
-      pag: meta.meta.currentPage,
-      perPage: meta.meta.perPage,
-    );
-  }
 }
 
 class Meta {

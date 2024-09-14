@@ -1,5 +1,6 @@
 import 'package:fitness_storm/Utils/Routes/app_pages.dart';
 import 'package:fitness_storm/Utils/utils.dart';
+import 'package:fitness_storm/router/app_router.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
@@ -8,9 +9,10 @@ class SearchScreenController extends GetxController {
 
   onSearch() async {
     if (serachController.text.isEmpty) {
-      Utils.openSnackBar(title: 'Type_Anything_To_Search_It'.tr);
       return;
+      // Utils.openSnackBar(title: 'Type_Anything_To_Search_It'.tr);
     }
-    Get.toNamed(AppRoutes.searchResultSceen, arguments: serachController.text);
+    startSearchResultPage(serachController.text);
+    // Get.toNamed(AppRoutes.searchResultSceen, arguments: serachController.text);
   }
 }

@@ -1,5 +1,3 @@
- 
-
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
@@ -30,8 +28,7 @@ class SearchResultController extends GetxController {
   final RxBool _isLoadingPlans = false.obs;
   final RxBool _isTrainerSort = false.obs;
   final RxBool _isPlanSort = false.obs;
-  final Rx<RefreshController> _trainerRefreshController =
-      RefreshController().obs;
+  final Rx<RefreshController> _trainerRefreshController = RefreshController().obs;
   final Rx<RefreshController> _planRefreshController = RefreshController().obs;
 
   int get selectedIndex => _selectedIndex.value;
@@ -56,8 +53,7 @@ class SearchResultController extends GetxController {
 
   bool get isPlanSort => _isPlanSort.value;
 
-  RefreshController get trainerRefreshController =>
-      _trainerRefreshController.value;
+  RefreshController get trainerRefreshController => _trainerRefreshController.value;
 
   RefreshController get planRefreshController => _planRefreshController.value;
 
@@ -83,8 +79,7 @@ class SearchResultController extends GetxController {
 
   set isPlanSort(value) => _isPlanSort.value = value;
 
-  set trainerRefreshController(value) =>
-      _trainerRefreshController.value = value;
+  set trainerRefreshController(value) => _trainerRefreshController.value = value;
 
   set planRefreshController(value) => _planRefreshController.value = value;
 
@@ -111,13 +106,10 @@ class SearchResultController extends GetxController {
   onSortTrainer() async {
     isTrainerSort = !isTrainerSort;
     trainersPageNumber = 1;
-    Map<String, dynamic> queryParameters = {
-      'name': searchTerm,
-      "sortBy": 'aToz'
-    };
+    Map<String, dynamic> queryParameters = {'name': searchTerm, "sortBy": 'aToz'};
     isLoadingTrainer = true;
-    ApiResult apiResult = await _trainerRepository.getSearchTrainer(
-        trainersPageNumber, queryParameters);
+    ApiResult apiResult =
+        await _trainerRepository.getSearchTrainer(trainersPageNumber, queryParameters);
     if (apiResult.type == ApiResultType.success) {
       trainers = <TrainerModel>[];
       apiResult.data.forEach((element) {
@@ -128,7 +120,7 @@ class SearchResultController extends GetxController {
   }
 
   onSortPlan() async {
-   //log('plannnnnnnnnnnnnnn');
+    //log('plannnnnnnnnnnnnnn');
     isPlanSort = !isPlanSort;
     plansPageNumber = 1;
     Map<String, dynamic> queryParameters;
@@ -182,13 +174,13 @@ class SearchResultController extends GetxController {
       return tempTrainers;
     }
     throw (e) {
-     //log(e.toString());
+      //log(e.toString());
     };
   }
 
   Future<List<Plan>> getPagenationPlans() async {
-    ApiResult result = await _planRepository
-        .getSearchPlans(plansPageNumber, {'name': searchTerm});
+    ApiResult result =
+        await _planRepository.getSearchPlans(plansPageNumber, {'name': searchTerm});
     if (result.type == ApiResultType.success) {
       List<Plan> tempPlans = [];
       result.data.forEach((element) {
@@ -197,14 +189,14 @@ class SearchResultController extends GetxController {
       return tempPlans;
     }
     throw (e) {
-     //log(e.toString());
+      //log(e.toString());
     };
   }
 
   getSearchResultTrainer() async {
     Options option = Utils.getOptions(withToken: true, all: true);
-    ApiResult result = await Methods.get(
-        url: TRAINEEURLS.getYourTrainer, options: option);
+    ApiResult result =
+        await Methods.get(url: TRAINEEURLS.getYourTrainer, options: option);
     if (result.type == ApiResultType.success) {
       // List<Trainer> trainers = [];
       for (var element in result.data) {
@@ -227,8 +219,8 @@ class SearchResultController extends GetxController {
   }
 
   getSearchResultPlans() async {
-    ApiResult result = await _planRepository
-        .getSearchPlans(plansPageNumber, {'name': searchTerm});
+    ApiResult result =
+        await _planRepository.getSearchPlans(plansPageNumber, {'name': searchTerm});
     if (result.type == ApiResultType.success) {
       result.data.forEach((element) {
         plans.add(Plan.fromJson(element));
@@ -247,14 +239,14 @@ class SearchResultController extends GetxController {
   }
 
   addPlanToFavorite(int index) async {
-   // //log(index.toString());
-   //  final temp = plans[index];
-   //  temp.isBookMark = !temp.isBookMark!;
-   //  _plans.removeAt(index);
-   //  _plans.refresh();
-   //  _plans.insert(index, temp);
-   //  _plans.refresh();
-   //  await addToBookmark(temp.id!, !temp.isBookMark!);
+    // //log(index.toString());
+    //  final temp = plans[index];
+    //  temp.isBookMark = !temp.isBookMark!;
+    //  _plans.removeAt(index);
+    //  _plans.refresh();
+    //  _plans.insert(index, temp);
+    //  _plans.refresh();
+    //  await addToBookmark(temp.id!, !temp.isBookMark!);
   }
 
   addToBookmark(String id, bool isBookMark) async {

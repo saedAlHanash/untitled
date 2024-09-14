@@ -1,4 +1,7 @@
+import 'package:drawable_text/drawable_text.dart';
+import 'package:fitness_storm/core/app/app_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 
@@ -44,8 +47,8 @@ class DayImage extends StatelessWidget {
           child: SizedBox(
             height: numberOfExercises < 3 ? Get.height / 6 : Get.height / 3.7,
             width: Get.width / 2.9,
-            child: ImageMultiType(url:
-               imageUrl,
+            child: ImageMultiType(
+              url: imageUrl,
               fit: BoxFit.cover,
             ),
           ),
@@ -53,7 +56,6 @@ class DayImage extends StatelessWidget {
         Container(
           height: Get.height / 13,
           width: Get.width / 3.125,
-          margin: const EdgeInsets.only(bottom: 2),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5),
               color: Colors.black12.withOpacity(0.3)),
@@ -67,21 +69,10 @@ class DayImage extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        // const Text(
-        //   'Day',
-        //   style: TextStyle(
-        //     color: Colors.white,
-        //     fontSize: 11,
-        //   ),
-        // ),
-        Text(
-          dayNumber,
+        DrawableText(
+          text: dayNumber,
           maxLines: 3,
-          style: const TextStyle(
-            color: Colors.white,
-            fontSize: 11,
-            fontWeight: FontWeight.bold,
-          ),
+          color: Colors.white,
         ),
         Padding(
           padding: EdgeInsets.symmetric(vertical: Get.height / 80),
@@ -92,13 +83,11 @@ class DayImage extends StatelessWidget {
                 color: Colors.white,
                 size: 14,
               ),
-              SizedBox(width: Get.width / 70),
-              Text(
-                formatTimePerMinutes(totalMinutes),
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 14,
-                ),
+              10.0.horizontalSpace,
+              DrawableText(
+                text: formatTimePerMinutes(totalMinutes),
+                color: Colors.white,
+                fontWeight: FontWeight.w500,
               )
             ],
           ),

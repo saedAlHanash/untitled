@@ -23,8 +23,7 @@ class TrainerHomeScreenController extends GetxController {
   final Rx<TextEditingController> _searchEditingController =
       TextEditingController().obs;
 
-  // final RxInt pageNumber = 1.obs;
-  final TrainerPlanRepository _planRepository = TrainerPlanRepository();
+
   final TrainerTrainerRepository _trainerRepository =
       TrainerTrainerRepository();
 

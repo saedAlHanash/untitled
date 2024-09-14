@@ -550,5 +550,11 @@
   "delete": "Delete",
   "diets": "Diets",
   "confirmLogout": "Confirm logout",
-  "needSubscribeToThisPlan": "Need subscribe to this plan"
+  "needSubscribeToThisPlan": "Need subscribe to this plan",
+  "bodyBuilding": "Body building",
+    "handsfree": "Hands-free",
+    "searchResult": "Search result",
+    "search": "Search",
+    "trainingType": "Training type",
+    "trainingLeve": "Training leve"
 }

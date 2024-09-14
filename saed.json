@@ -1,28 +1,6 @@
 {
-  "data": [
-    {
-      "id": "3",
-      "content": "test",
-      "is_open": 0,
-      "file": "storage\/app\/public\/trainerFilesNew\/AOyN332HGfwJimgTN4ooMc3ulBABRmZTcXXbCSHf.pdf"
-    },
-    {
-      "id": "4",
-      "content": "test new",
-      "is_open": 0,
-      "file": "storage\/app\/public\/trainerFilesNew\/xUqK4XVmYX133pd3ucVYLSUS5D9VGdfM0bj9MdnL.pdf"
-    },
-    {
-      "id": "6",
-      "content": "Sabreen",
-      "is_open": 0,
-      "file": "storage\/app\/public\/trainerFilesNew\/GXnAVTL18wU61Z9zCcGUHWWxw0iG6KDYWqk4Up6H.png"
-    },
-    {
-      "id": "7",
-      "content": "Diet plan",
-      "is_open": 0,
-      "file": "storage\/app\/public\/trainerFilesNew\/lqBTSkjcySpS1icp0Fy9bEkeuBNUStA9DHOjdPxP.docx"
-    }
+  "name": "rita",
+  "training_type": [
+    "Functional training"
   ]
 }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:image_multi_type/image_multi_type.dart';
+import 'package:image_multi_type/round_image_widget.dart';
 
 class TrendingPlanItem extends GetView<HomeScreenController> {
   const TrendingPlanItem({
@@ -23,7 +24,7 @@ class TrendingPlanItem extends GetView<HomeScreenController> {
         borderRadius: BorderRadius.circular(10.0.r),
       ),
       margin: const EdgeInsets.all(10),
-      child: ImageMultiType(
+      child: RoundImageWidget(
         url: planImageUrl,
         width: MediaQuery.of(Get.context!).size.width / 2,
         height: MediaQuery.of(Get.context!).size.width / 2,

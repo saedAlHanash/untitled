@@ -25,9 +25,9 @@ class MainHomeScreen extends GetView<MainHomeController> {
 
   List<Widget> tabs = [
     const HomeScreen(),
-    if (!AppProvider.isGuest) const WorkoutScreen(),
+    // if (!AppProvider.isGuest) const WorkoutScreen(),
     const SearchScreen(),
-    if (!AppProvider.isGuest) const ProgressScreen(),
+    // if (!AppProvider.isGuest) const ProgressScreen(),
     if (AppProvider.isGuest) const GuestProfilePage() else const ProfilePage(),
   ];
 
@@ -103,12 +103,9 @@ class MainHomeScreen extends GetView<MainHomeController> {
                                 minHeight: 15,
                               ),
                               child: Text(
-                                (state.result.numberOfResults -
-                                            state.numOfRead) >
-                                        9
+                                (state.result.numberOfResults - state.numOfRead) > 9
                                     ? "+9"
-                                    : (state.result.numberOfResults -
-                                            state.numOfRead)
+                                    : (state.result.numberOfResults - state.numOfRead)
                                         .toString(),
                                 style: const TextStyle(
                                   color: Colors.white,

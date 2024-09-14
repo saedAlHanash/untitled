@@ -97,7 +97,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                       ),
                       15.0.verticalSpace,
                       MyButtonRound(
-                        color: AppColorManager.gray,
+                        color: AppColorManager.grey,
                         text: S.of(context).cancel,
                         onTap: () {
                           AppSharedPreference.cashRestPassEmail('');

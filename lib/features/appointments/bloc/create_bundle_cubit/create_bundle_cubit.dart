@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:fitness_storm/core/api_manager/api_url.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/util/firebase_analytics_service.dart';
@@ -37,8 +38,8 @@ class CreateBundleCubit extends Cubit<CreateBundleInitial> {
   }
 
   Future<Pair<String?, String?>> _createBundle() async {
-
-    final response = await APIService().callApi(type: ApiType.post,
+    final response = await APIService().callApi(
+      type: ApiType.post,
       url: PostUrl.createBundle,
       body: state.request.toJson(),
     );
@@ -80,4 +81,13 @@ class CreateBundleCubit extends Cubit<CreateBundleInitial> {
   }
 
   bool get isFull => state.bundle.sessions == state.request.timeIds.length;
+
+  bool isDaySelected(Iterable<int> dayIds) {
+    for (var e in dayIds) {
+      if (state.request.timeIds.firstWhereOrNull((e1) => e1.id == e) != null) {
+        return true;
+      }
+    }
+    return false;
+  }
 }

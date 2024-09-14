@@ -41,6 +41,7 @@ import '../../features/plans/bloc/plans_cubit/plans_cubit.dart';
 import '../../features/plans/bloc/subscribe_plan_cubit/subscribe_plan_cubit.dart';
 import '../../features/profile/bloc/profile_cubit/profile_cubit.dart';
 import '../../features/profile/bloc/update_profile_cubit/update_profile_cubit.dart';
+import '../../features/search/bloc/temp_cubit/search_cubit.dart';
 import '../../features/trainer/bloc/trainer_cubit/trainer_cubit.dart';
 import '../../features/trainer/bloc/trainers_cubit/trainers_cubit.dart';
 import '../../features/trainer_files/bloc/create_trainer_file_cubit/create_trainer_file_cubit.dart';
@@ -176,6 +177,10 @@ Future<void> init() async {
       sl.registerFactory(() => DietsCubit());
       sl.registerFactory(() => CreateDietCubit());
       sl.registerFactory(() => DeleteDietCubit());
+      //endregion
+
+    //region Search
+      sl.registerFactory(() => SearchCubit());
       //endregion
 
 //! External

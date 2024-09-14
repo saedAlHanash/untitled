@@ -15,7 +15,7 @@ class MyButton extends StatelessWidget {
     this.textColor,
     this.width,
     this.height,
-    this.enable,
+    this.enable = true,
     this.toUpper = false,
     this.padding,
     this.radios,
@@ -29,7 +29,7 @@ class MyButton extends StatelessWidget {
   final double? width;
   final double? height;
   final double? radios;
-  final bool? enable;
+  final bool enable;
   final EdgeInsets? padding;
   final Function()? onTap;
   final bool toUpper;
@@ -57,11 +57,10 @@ class MyButton extends StatelessWidget {
               ),
             ),
           ),
-          shadowColor: WidgetStatePropertyAll(
-              const Color(0xFF4C2E84).withOpacity(0.2)),
+          shadowColor: WidgetStatePropertyAll(const Color(0xFF4C2E84).withOpacity(0.2)),
           elevation: WidgetStatePropertyAll(elevation ?? 10.0.r),
-          backgroundColor:
-              WidgetStatePropertyAll(color ?? AppColorManager.mainColor),
+          backgroundColor: WidgetStatePropertyAll(
+              color ?? (enable ? AppColorManager.mainColor : Colors.grey)),
           padding: WidgetStatePropertyAll(
               padding ?? const EdgeInsets.symmetric(vertical: 0.0).r),
           alignment: Alignment.center,
@@ -124,11 +123,9 @@ class MyButtonOutLine extends StatelessWidget {
           ),
 
           elevation: const WidgetStatePropertyAll(0.0),
-          backgroundColor:
-              WidgetStatePropertyAll(color ?? AppColorManager.whit),
+          backgroundColor: WidgetStatePropertyAll(color ?? AppColorManager.whit),
           // padding: MaterialStatePropertyAll(padding),
-          padding: WidgetStatePropertyAll(
-              const EdgeInsets.symmetric(vertical: 0.0).r),
+          padding: WidgetStatePropertyAll(const EdgeInsets.symmetric(vertical: 0.0).r),
           alignment: Alignment.center,
         ),
         onPressed: !(enable ?? true) ? null : onTap,
@@ -187,15 +184,12 @@ class MyButtonRound extends StatelessWidget {
               ),
             ),
           ),
-          shadowColor: WidgetStatePropertyAll(
-              const Color(0xFF4C2E84).withOpacity(0.2)),
+          shadowColor: WidgetStatePropertyAll(const Color(0xFF4C2E84).withOpacity(0.2)),
           elevation: WidgetStatePropertyAll(enable ? elevation ?? 10.0.r : 0),
-          backgroundColor: WidgetStatePropertyAll(enable
-              ? color ?? AppColorManager.mainColor
-              : AppColorManager.gray),
+          backgroundColor: WidgetStatePropertyAll(
+              enable ? color ?? AppColorManager.mainColor : AppColorManager.grey),
           // padding: MaterialStatePropertyAll(padding),
-          padding: WidgetStatePropertyAll(
-              const EdgeInsets.symmetric(vertical: 3.0).r),
+          padding: WidgetStatePropertyAll(const EdgeInsets.symmetric(vertical: 3.0).r),
           alignment: Alignment.center,
         ),
         onPressed: !enable ? null : onTap,

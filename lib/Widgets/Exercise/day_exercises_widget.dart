@@ -16,7 +16,6 @@ class DayExercisesWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     ScrollController scrollController = ScrollController();
     return AdaptiveScrollbar(
       controller: scrollController,
@@ -33,7 +32,6 @@ class DayExercisesWidget extends StatelessWidget {
             exercises[index].name,
             exercises[index].setCount.toInt(),
             exercises[index].repetitions,
-
             exercises[index].secondBased,
             exercises.length > 3 && index == 2,
             type,
@@ -59,11 +57,10 @@ class DayExercisesWidget extends StatelessWidget {
       children: [
         Text(
           name,
-          style:  const TextStyle(
+          style: const TextStyle(
             color: Color(0xFF565C63),
             fontSize: 14,
             fontWeight: FontWeight.bold,
-
           ),
           // textDirection: isEnglish ? TextDirection.ltr : TextDirection.rtl,
         ),
@@ -73,11 +70,9 @@ class DayExercisesWidget extends StatelessWidget {
                 '$sets  ${'set_x'.tr} ${getRepsString(
                   reps,
                   secondsBased,
-
                 )}',
-                style: TextStyle(
-                    color: Get.theme.colorScheme.secondary, fontSize: 12),
-          // textDirection: isEnglish ? TextDirection.ltr : TextDirection.rtl,
+                style: TextStyle(color: Get.theme.colorScheme.secondary, fontSize: 12),
+                // textDirection: isEnglish ? TextDirection.ltr : TextDirection.rtl,
               ),
         type == 'Zumba' || type == 'zumba'
             ? const SizedBox.shrink()

@@ -62,7 +62,7 @@ class TrainerWidget extends StatelessWidget {
           ),
           ImageMultiType(
             url: Icons.arrow_forward_ios,
-            color: AppColorManager.gray,
+            color: AppColorManager.grey,
             height: 15.0.r,
             width: 15.0.r,
           )

@@ -73,6 +73,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "beginner": MessageLookupByLibrary.simpleMessage("مبتدئ "),
         "birthDate": MessageLookupByLibrary.simpleMessage("تاريخ الميلاد"),
         "birthday": MessageLookupByLibrary.simpleMessage("تاريخ الميلاد"),
+        "bodyBuilding": MessageLookupByLibrary.simpleMessage("بناء الجسم"),
         "bodyWeight": MessageLookupByLibrary.simpleMessage("وزن الجسم"),
         "bodybuilding": MessageLookupByLibrary.simpleMessage("بناء أجسام"),
         "book": MessageLookupByLibrary.simpleMessage("حجز"),
@@ -296,6 +297,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "gym": MessageLookupByLibrary.simpleMessage("النادي"),
         "handsFree":
             MessageLookupByLibrary.simpleMessage("بدون استخدام اليدين"),
+        "handsfree": MessageLookupByLibrary.simpleMessage("بلا يدين"),
         "haveBeenCreated":
             MessageLookupByLibrary.simpleMessage("تم إنشاء حسابك"),
         "haveCoupon": MessageLookupByLibrary.simpleMessage("لديك كود خصم؟"),
@@ -571,8 +573,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("حدد مدى توافري"),
         "sORTBY": MessageLookupByLibrary.simpleMessage("تصنيف حسب"),
         "sUBSCRIBERSCap": MessageLookupByLibrary.simpleMessage("المشتركين"),
-        "sar": MessageLookupByLibrary.simpleMessage("ريال سعودي"),
-        "sarHour": MessageLookupByLibrary.simpleMessage("ريال سعودي لكل ساعة"),
+        "sar": MessageLookupByLibrary.simpleMessage("ر.س"),
+        "sarHour": MessageLookupByLibrary.simpleMessage("ر.س لكل ساعة"),
         "saveChange": MessageLookupByLibrary.simpleMessage("حفظ التغيير"),
         "saveForLater": MessageLookupByLibrary.simpleMessage("حفظ لاحقًا؟"),
         "searchInAll": MessageLookupByLibrary.simpleMessage("البحث في الكل"),
@@ -697,8 +699,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "trainers": MessageLookupByLibrary.simpleMessage("مدربين"),
         "trainingGoalFieldIsRequire":
             MessageLookupByLibrary.simpleMessage("مجال أهداف التدريب مطلوب"),
+        "trainingLeve": MessageLookupByLibrary.simpleMessage("Training leve"),
         "trainingLevelFieldIsRequire":
             MessageLookupByLibrary.simpleMessage("المستوى التدريبي مطلوب"),
+        "trainingType": MessageLookupByLibrary.simpleMessage("Training type"),
         "trendingPlan":
             MessageLookupByLibrary.simpleMessage("البرامج الأكثر رواجاً"),
         "typeAnythingToSearchIt":

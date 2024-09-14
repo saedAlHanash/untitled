@@ -66,6 +66,7 @@ class _CreateBundlePageState extends State<CreateBundlePage> {
                 if (state.statuses.loading) {
                   return MyStyle.loadingWidget();
                 }
+
                 if (!context.read<CreateBundleCubit>().isFull) {
                   return 0.0.verticalSpace;
                 }
@@ -205,9 +206,7 @@ class _BundleSelectWidget extends StatelessWidget {
                                 3.0.verticalSpace,
                                 InkWell(
                                   onTap: () {
-                                    context
-                                        .read<CreateBundleCubit>()
-                                        .removeTime(item!);
+                                    context.read<CreateBundleCubit>().removeTime(item!);
                                   },
                                   child: const ImageMultiType(
                                     url: Icons.cancel,
@@ -303,15 +302,12 @@ class _ItemAvailableTimeState extends State<_ItemAvailableTime> {
                         }
                         setState(() {});
                       },
-                      color: isItemSelected
-                          ? Colors.red
-                          : cubit.isFull
-                              ? Colors.grey
-                              : null,
+                      enable: isItemSelected ||
+                          ((!cubit.isFull) &&
+                              !cubit.isDaySelected(widget.value.map((e) => e.id))),
+                      color: isItemSelected ? Colors.red : null,
                       child: DrawableText(
-                        text: isItemSelected
-                            ? S.of(context).remove
-                            : S.of(context).add,
+                        text: isItemSelected ? S.of(context).remove : S.of(context).add,
                         color: Colors.white,
                       ),
                     ),
