@@ -172,6 +172,7 @@ class AppSharedPreference {
         jsonDecode(_prefs?.getString(_loginData) ?? '{}'));
   }
 
+
   static Future<void> cashProfile(Profile profile) async {
     await _prefs?.setString(_profile, jsonEncode(profile));
   }
@@ -179,4 +180,5 @@ class AppSharedPreference {
   static Profile get profile {
     return Profile.fromJson(jsonDecode(_prefs?.getString(_profile) ?? '{}'));
   }
+
 }

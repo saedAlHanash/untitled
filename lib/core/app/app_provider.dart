@@ -63,29 +63,31 @@ class AppProvider {
     _userType = AppSharedPreference.getUserType;
   }
 
-  static cashLoginData(LoginData data, {UserType? userType,bool refreshToken = false}) async {
+  static cashLoginData(LoginData data,
+      {UserType? userType, bool refreshToken = false}) async {
 
     await AppSharedPreference.cashMyId(data.id);
     await AppSharedPreference.cashLoginData(data);
     await AppSharedPreference.cashUserType(userType);
-    if(!refreshToken){
+    if (!refreshToken) {
       ctx!.read<ProfileCubit>().getProfile(newData: true);
     }
     _refreshLoginData();
   }
 
   static Future<void> cashProfile(Profile data) async {
+
     await AppSharedPreference.cashProfile(data);
+
     await AppSharedPreference.cashMyId(data.id);
+
     profile = data;
 
     await ChatServiceCore.updateChatUser(data);
   }
 
   static cashSetConfirmAccount() async {
-    await AppSharedPreference.cashLoginData(
-      _loginData.copyWith(isConfirmed: true),
-    );
+    await AppSharedPreference.cashLoginData(_loginData.copyWith(isConfirmed: true));
     _refreshLoginData();
   }
 

@@ -27,9 +27,6 @@ class ProfileCubit extends MCubit<ProfileInitial> {
       state: state,
       getDataApi: _getProfileApi,
       newData: newData ?? false,
-      onSuccess: (data, emitState) {
-        emit(state.copyWith(statuses: emitState,result: data));
-      },
     );
   }
 

@@ -100,10 +100,11 @@ class ChatServiceCore {
     if (AppProvider.myId.isEmpty) return true;
     if (AppSharedPreference.getUserType == UserType.guest) return false;
     try {
-      await FirebaseFirestore.instance
-          .collection('users')
-          .doc(AppProvider.myId)
-          .update({'metadata': {}});
+      await FirebaseFirestore.instance.collection('users').doc(AppProvider.myId).update({
+        'metadata': {},
+        'updatedAt': FieldValue.serverTimestamp(),
+      });
+
       await AppSharedPreference.cashLoginToChatApp(false);
       return true;
     } catch (e) {
@@ -117,18 +118,21 @@ class ChatServiceCore {
     if (AppSharedPreference.getUserType == UserType.guest) return false;
     try {
       if (profile.id == 0) return false;
+      final json = types.User(
+        id: profile.id.toString(),
+        firstName: profile.name,
+        imageUrl: profile.image,
+        lastName: '',
+        role: types.Role.user,
+        metadata: await profile.toJsonChatApp(),
+      ).toJson();
+
+      json['updatedAt'] = FieldValue.serverTimestamp();
 
       await FirebaseFirestore.instance
           .collection('users')
           .doc(AppProvider.myId)
-          .update(types.User(
-            id: profile.id.toString(),
-            firstName: profile.name,
-            imageUrl: profile.image,
-            lastName: '',
-            role: types.Role.user,
-            metadata: await profile.toJsonChatApp(),
-          ).toJson());
+          .update(json);
       return true;
     } catch (e) {
       loggerObject.e(e);
@@ -146,34 +150,4 @@ class ChatServiceCore {
       return false;
     }
   }
-
-// static Future<List<types.User>> getChatUsers() async {
-//   final users = await FirebaseFirestore.instance.collection('users').get();
-//
-//   final listUsers = users.docs.map((doc) {
-//     final data = doc.data();
-//
-//     data['id'] = doc.id;
-//     data['createdAt'] = data['createdAt']?.millisecondsSinceEpoch;
-//     data['lastSeen'] = data['lastSeen']?.millisecondsSinceEpoch;
-//     data['updatedAt'] = data['updatedAt']?.millisecondsSinceEpoch;
-//
-//     return types.User.fromJson(data);
-//   }).toList();
-//
-//   return listUsers;
-// }
-//
-// static Future<List<types.Room>> getChatRooms() async {
-//   final roomQuery = await FirebaseChatCore.instance.getFirebaseFirestore()
-//       .collection('rooms')
-//       .get();
-//
-//   final rooms = (await processRoomsQuery(
-//     FirebaseChatCore.instance.getFirebaseFirestore(),
-//     roomQuery,
-//     'users',
-//   ));
-//   return rooms;
-// }
 }

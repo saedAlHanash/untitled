@@ -23,7 +23,7 @@ class RoomsCubit extends MCubit<RoomsInitial> {
   String get filter => AppProvider.myId;
 
   Future<void> getChatRooms(bool isAdmen) async {
-    if(AppProvider.myId.isEmpty)return;
+    if (AppProvider.myId.isEmpty) return;
     emit(state.copyWith(request: isAdmen));
 
     await setData();
@@ -65,13 +65,11 @@ class RoomsCubit extends MCubit<RoomsInitial> {
   }
 
   Future<void> setData() async {
-    final data =
-        (await getListCached()).map((e) => types.Room.fromJson(e)).toList();
+    final data = (await getListCached()).map((e) => types.Room.fromJson(e)).toList();
 
-    final roomsCached = data
-      ..sort((a, b) => (b.createdAt ?? 0).compareTo(a.createdAt ?? 0));
+    final roomsCached = data..sort((a, b) => (b.updatedAt ?? 0).compareTo(a.updatedAt ?? 0));
 
-     roomsCached.removeWhere((e) => e.otherUser.id=='-1');
+    roomsCached.removeWhere((e) => e.otherUser.id == '-1');
 
     final roomIndex = roomsCached.indexWhere((element) {
       return element.users.firstWhereOrNull((e) => e.id == '0') != null;
@@ -79,7 +77,7 @@ class RoomsCubit extends MCubit<RoomsInitial> {
 
     if (roomIndex > -1) {
       final room = roomsCached.removeAt(roomIndex);
-      roomsCached.insert(0,room);
+      roomsCached.insert(0, room);
     }
 
     emit(state.copyWith(result: roomsCached));
