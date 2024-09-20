@@ -3,9 +3,9 @@ import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
+import 'package:m_cubit/abstraction.dart';
 
 import '../../../../Widgets/custom_button.dart';
-import '../../../../core/strings/enum_manager.dart';
 import '../../../core/widgets/my_text_form_widget.dart';
 import '../coupon_cubit/coupon_cubit.dart';
 import '../data/request/pay_request.dart';

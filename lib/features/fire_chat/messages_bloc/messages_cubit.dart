@@ -3,11 +3,11 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
+import 'package:m_cubit/abstraction.dart';
 
 import '../../../core/api_manager/api_service.dart';
 import '../../../core/app/app_provider.dart';
-import '../../../core/strings/enum_manager.dart';
-import '../../../core/util/abstraction.dart';
+import '../../../core/util/cheker_helper.dart';
 
 part 'messages_state.dart';
 
@@ -18,19 +18,14 @@ class MessagesCubit extends MCubit<MessagesInitial> {
   String get nameCache => state.mRequest.id.toString();
 
   @override
-  String get filter => '';
+  String get filter => state.filter;
 
   Future<void> getChatRoomMessage(types.Room room) async {
     if (AppProvider.myId.isEmpty) return;
 
     emit(state.copyWith(request: room));
 
-    final data = (await getListCachedChat()).toList();
-
-    final allMessages = data
-      ..sort((a, b) => (b.createdAt ?? 0).compareTo(a.createdAt ?? 0));
-
-    emit(state.copyWith(result: allMessages));
+    await setData();
 
     await Future.delayed(const Duration(seconds: 2));
 
@@ -50,11 +45,6 @@ class MessagesCubit extends MCubit<MessagesInitial> {
         );
 
     loggerObject.i('requested get messages ');
-
-    loggerObject
-        .i(DateTime.fromMillisecondsSinceEpoch(state.result.firstOrNull?.updatedAt ?? 0));
-    loggerObject
-        .i(DateTime.fromMillisecondsSinceEpoch(state.result.lastOrNull?.updatedAt ?? 0));
 
     await state.stream?.cancel();
     final stream = query.snapshots().listen((snapshot) async {
@@ -76,19 +66,34 @@ class MessagesCubit extends MCubit<MessagesInitial> {
 
       if (messages.isEmpty) return;
 
-      await sortDataChat(messages);
+      await saveData(
+        messages,
+        clearId: false,
+        sortKey: messages.map((e) => ((e['createdAt'] as int?) ?? 0)).toList(),
+      );
 
-      if (!isClosed) {
-        final data = (await getListCachedChat()).toList();
+      if (isClosed) return;
 
-        final allMessages = data
-          ..sort((a, b) => (b.createdAt ?? 0).compareTo(a.createdAt ?? 0));
-
-        emit(state.copyWith(result: allMessages));
-      }
+      await setData();
     });
 
     emit(state.copyWith(stream: stream));
+  }
+
+  Future<void> setData() async {
+    final nowTimeMillis = DateTime.now().millisecondsSinceEpoch;
+
+    final allMessages = await getListCached(
+      fromJson: types.Message.fromJson,
+      deleteFunction: (json) {
+        final type = json['type'];
+        return (type == 'file' || type == 'video') &&
+            isMoreThanOneMonth(json['createdAt'] ?? 0, nowTimeMillis);
+      },
+    )
+      ..sort((a, b) => (b.createdAt ?? 0).compareTo(a.createdAt ?? 0));
+
+    emit(state.copyWith(result: allMessages));
   }
 
   @override

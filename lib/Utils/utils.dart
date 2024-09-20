@@ -285,7 +285,9 @@ class Utils {
 SettingResult? versionControlModel;
 
 Future<bool> checkForceUpdate() async {
+
   final appData = await PackageInfo.fromPlatform();
+
   final pair = await _apiSettings();
 
   if (pair.first == null) return false;
@@ -312,6 +314,7 @@ Future<bool> checkForceUpdate() async {
 }
 
 Future<Pair<SettingResult?, String?>> _apiSettings() async {
+
   final response = await APIService()
       .callApi(type: ApiType.get, url: 'api/terms', additional: '');
 

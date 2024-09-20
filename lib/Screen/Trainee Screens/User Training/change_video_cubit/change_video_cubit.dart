@@ -1,9 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../../core/strings/enum_manager.dart';
-import '../../../../core/util/abstraction.dart';
+import 'package:m_cubit/abstraction.dart';
 
 part 'change_video_state.dart';
 

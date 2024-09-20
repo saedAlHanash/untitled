@@ -1,9 +1,9 @@
 import 'package:fitness_storm/core/app/app_provider.dart';
-import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'package:m_cubit/abstraction.dart';
 import 'package:pod_player/pod_player.dart';
 
 import '../../../../core/util/my_style.dart';

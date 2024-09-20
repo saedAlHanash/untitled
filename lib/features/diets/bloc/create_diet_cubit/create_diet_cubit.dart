@@ -4,11 +4,11 @@ import 'package:fitness_storm/core/api_manager/api_url.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart';
+import 'package:m_cubit/abstraction.dart';
 
 import '../../../../core/api_manager/api_service.dart';
 import '../../../../core/error/error_manager.dart';
 import '../../../../core/strings/enum_manager.dart';
-import '../../../../core/util/abstraction.dart';
 import '../../../../core/util/pair_class.dart';
 import '../../data/request/create_diet_request.dart';
 import '../../data/response/diet_response.dart';

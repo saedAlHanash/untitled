@@ -1,9 +1,9 @@
 import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:http/http.dart';
+import 'package:m_cubit/abstraction.dart';
 
 import '../app/app_widget.dart';
-import '../util/abstraction.dart';
 import '../util/snack_bar_message.dart';
 
 class ErrorManager {

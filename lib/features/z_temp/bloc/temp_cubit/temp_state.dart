@@ -23,6 +23,7 @@ class TempInitial extends AbstractState<Temp> {
         result,
         error,
         if (request != null) request,
+        if (filterRequest != null) filterRequest!
       ];
 
   TempInitial copyWith({

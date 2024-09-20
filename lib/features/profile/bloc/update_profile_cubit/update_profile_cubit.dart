@@ -6,12 +6,12 @@ import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get_utils/src/extensions/export.dart';
+import 'package:m_cubit/abstraction.dart';
 
 import '../../../../core/api_manager/api_service.dart';
 import '../../../../core/app/app_widget.dart';
 import '../../../../core/error/error_manager.dart';
 import '../../../../core/strings/enum_manager.dart';
-import '../../../../core/util/abstraction.dart';
 import '../../../../core/util/pair_class.dart';
 import '../../../../generated/l10n.dart';
 import '../../data/response/profile_response.dart';

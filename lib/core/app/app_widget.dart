@@ -118,7 +118,7 @@ class _MyAppState extends State<MyApp> {
                 b.BlocProvider(create: (_) => sl<TrainerFilesCubit>()..getTrainerFiles()),
                 b.BlocProvider(
                   create: (_) => sl<ProfileCubit>()..getProfile(),
-                  lazy: false,
+                  lazy: AppSharedPreference.isLogin&&(!AppProvider.isGuest),
                 ),
                 b.BlocProvider(
                     create: (_) => sl<WelcomeMessagesCubit>()..getWelcomeMessages()),

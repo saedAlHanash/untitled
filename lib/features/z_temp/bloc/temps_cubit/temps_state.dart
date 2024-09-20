@@ -22,7 +22,6 @@ class TempsInitial extends AbstractState<List<Temp>> {
         result,
         error,
         if (request != null) request,
-       
       ];
 
   TempsInitial copyWith({

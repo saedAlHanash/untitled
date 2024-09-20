@@ -1,10 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:fitness_storm/core/api_manager/api_service.dart';
+import 'package:m_cubit/abstraction.dart';
 import 'package:pod_player/pod_player.dart';
 
 import '../../../../core/app/app_provider.dart';
-import '../../../../core/strings/enum_manager.dart';
-import '../../../../core/util/abstraction.dart';
 
 part 'vimeo_state.dart';
 

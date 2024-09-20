@@ -6,8 +6,8 @@ import 'package:fitness_storm/features/auth/ui/pages/forget_password_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:m_cubit/abstraction.dart';
 
-import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/my_style.dart';
 import '../../../../core/util/shared_preferences.dart';
 import '../../../../core/widgets/app_bar/app_bar_widget.dart';

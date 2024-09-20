@@ -1,7 +1,5 @@
 import 'package:fitness_storm/Screen/Trainee%20Screens/Main%20Home/main_home_controller.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/Progress%20Screen/progress_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Search%20Screen/search_screen.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/Workout%20Screen/workout_screen.dart';
 import 'package:fitness_storm/features/profile/ui/pages/guest_profile_page.dart';
 import 'package:fitness_storm/router/app_router.dart';
 import 'package:flutter/material.dart';

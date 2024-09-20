@@ -1,7 +1,5 @@
 import 'package:fitness_storm/features/trainer/data/response/trainer.dart';
 
-import 'package:fitness_storm/features/trainer/data/response/trainer.dart';
-
 class Searchs {
   Searchs({
     required this.data,

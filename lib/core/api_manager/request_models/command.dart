@@ -1,7 +1,5 @@
 import 'package:fitness_storm/core/extensions/extensions.dart';
 
-import '../../util/abstraction.dart';
-
 const commandInitial = Command(pag: 1, perPage: 20);
 
 class Command {

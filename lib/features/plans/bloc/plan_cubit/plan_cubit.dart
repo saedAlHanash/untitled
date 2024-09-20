@@ -3,6 +3,7 @@ import 'package:fitness_storm/core/api_manager/api_url.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/router/app_router.dart';
 import 'package:get/get.dart';
+import 'package:m_cubit/abstraction.dart';
 
 import '../../../../Data/Api/api_result.dart';
 import '../../../../Data/Repositories/exercise_repository.dart';
@@ -11,11 +12,10 @@ import '../../../../Utils/utils.dart';
 import '../../../../core/api_manager/api_service.dart';
 import '../../../../core/app/app_provider.dart';
 import '../../../../core/app/app_widget.dart';
-import '../../../../core/error/error_manager.dart';
 import '../../../../core/models/plan_model.dart';
 import '../../../../core/strings/enum_manager.dart';
-import '../../../../core/util/abstraction.dart';
 import '../../../../core/util/pair_class.dart';
+import '../../../../core/util/shared_preferences.dart';
 import '../../data/response/plan_workout_response.dart';
 
 part 'plan_state.dart';
@@ -24,26 +24,19 @@ class PlanCubit extends MCubit<PlanInitial> {
   PlanCubit() : super(PlanInitial.initial());
 
   @override
-  String get nameCache => 'plan';
+  String get nameCache => '${AppSharedPreference.getLocal}plan';
 
   @override
-  String get filter => state.request?.toString() ?? '';
+  String get filter => state.filter;
 
   Future<void> getPlan({bool newData = false, int? planId}) async {
     emit(state.copyWith(request: planId));
-    final checkData = await checkCashed1(
-        state: state, fromJson: Plan.fromJson, newData: newData);
-
-    if (checkData) return;
-
-    final pair = await _getPlan();
-    if (pair.first == null) {
-      emit(state.copyWith(statuses: CubitStatuses.error, error: pair.second));
-      showErrorFromApi(state);
-    } else {
-      await storeData(pair.first!);
-      emit(state.copyWith(statuses: CubitStatuses.done, result: pair.first));
-    }
+    getDataAbstract(
+      fromJson: Plan.fromJson,
+      state: state,
+      getDataApi: _getPlan,
+      newData: newData,
+    );
   }
 
   Future<Pair<Plan?, String?>> _getPlan() async {
@@ -60,14 +53,10 @@ class PlanCubit extends MCubit<PlanInitial> {
     }
   }
 
-
   startTraining(PlanWorkout planWorkout, int i) async {
-
     Utils.openLoadingDialog();
 
-    final apiResult =
-        await ExerciseRepository().startDay(planWorkout.id.toString());
-
+    final apiResult = await ExerciseRepository().startDay(planWorkout.id.toString());
 
     if (apiResult.statusCode == 451 && !AppControl.isAppleAccount) {
       Get.toNamed(AppRoutes.subscriptionScreen);
@@ -84,7 +73,6 @@ class PlanCubit extends MCubit<PlanInitial> {
     if ((AppProvider.isTrainer) ||
         apiResult.type == ApiResultType.success ||
         apiResult.statusCode == 402) {
-
       Get.back();
 
       startTrainingPage(planWorkout, apiResult.statusCode == 402);
@@ -107,5 +95,4 @@ class PlanCubit extends MCubit<PlanInitial> {
       Utils.closeDialog();
     }
   }
-
 }

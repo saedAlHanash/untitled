@@ -8,11 +8,10 @@ import 'package:fitness_storm/features/trainer_files/bloc/trainer_files_cubit/tr
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart';
+import 'package:m_cubit/abstraction.dart';
 
 import '../../../../core/api_manager/api_service.dart';
 import '../../../../core/error/error_manager.dart';
-import '../../../../core/strings/enum_manager.dart';
-import '../../../../core/util/abstraction.dart';
 import '../../../../core/util/pair_class.dart';
 import '../../data/request/create_trainer_file_request.dart';
 import '../../data/response/trainer_file_response.dart';

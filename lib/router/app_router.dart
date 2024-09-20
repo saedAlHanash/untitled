@@ -9,7 +9,6 @@ import 'package:fitness_storm/features/search/ui/pages/search_result_page.dart';
 import 'package:fitness_storm/features/trainer/bloc/trainers_cubit/trainers_cubit.dart';
 import 'package:fitness_storm/features/trainer/data/response/trainer.dart';
 import 'package:fitness_storm/features/trainer_files/bloc/create_trainer_file_cubit/create_trainer_file_cubit.dart';
-import 'package:fitness_storm/features/trainer_files/data/response/trainer_file_response.dart';
 import 'package:fitness_storm/features/training/bloc/temp_cubit/training_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -358,6 +357,10 @@ void startHome() {
 
   Get.offAllNamed(AppProvider.isTrainer ? AppRoutes.trainerHomePage : AppRoutes.mainHome);
   sl<AnalyticService>().screenView(name: 'home');
+}
+
+void startSplash() {
+  Get.offAllNamed(AppRoutes.splash);
 }
 
 void startUpdateProfile() {

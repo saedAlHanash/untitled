@@ -4,13 +4,13 @@ import 'package:fitness_storm/core/util/shared_preferences.dart';
 import 'package:fitness_storm/features/auth/data/request/login_request.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
+import 'package:m_cubit/abstraction.dart';
 
 import '../../../../core/api_manager/api_service.dart';
 import '../../../../core/app/app_provider.dart';
 import '../../../../core/error/error_manager.dart';
 import '../../../../core/injection/injection_container.dart';
 import '../../../../core/strings/enum_manager.dart';
-import '../../../../core/util/abstraction.dart';
 import '../../../../core/util/firebase_analytics_service.dart';
 import '../../../../core/util/pair_class.dart';
 import '../../../../generated/l10n.dart';

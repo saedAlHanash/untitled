@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'trainer_main_home_controller.dart';
 
 class TrainerMainHomeBinding extends Bindings {
+
   @override
   void dependencies() {
     Get.lazyPut(() => TrainerMainHomeController());

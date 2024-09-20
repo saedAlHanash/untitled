@@ -5,13 +5,13 @@ import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/util/snack_bar_message.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:m_cubit/abstraction.dart';
 
 import '../../../../Utils/utils.dart';
 import '../../../../core/api_manager/api_service.dart';
 import '../../../../core/app/app_provider.dart';
 import '../../../../core/app/app_widget.dart';
 import '../../../../core/strings/enum_manager.dart';
-import '../../../../core/util/abstraction.dart';
 import '../../../../core/util/pair_class.dart';
 import '../../../../generated/l10n.dart';
 import '../../../plans/data/response/plan_workout_response.dart';
@@ -44,9 +44,9 @@ class TrainingCubit extends Cubit<TrainingInitial> {
     this.complete = complete;
     emit(state.copyWith(result: planWorkout, statuses: CubitStatuses.loading));
 
-    exercises = await ctx!
-        .read<ExercisesCubit>()
-        .getExercisesAsync(id: planWorkout.workoutId);
+    await ctx!.read<ExercisesCubit>().getExercises(id: planWorkout.workoutId);
+
+    exercises = ctx!.read<ExercisesCubit>().state.result;
 
     completedExercises = List.generate(exercises.length, (index) => false);
 
@@ -125,8 +125,7 @@ class TrainingCubit extends Cubit<TrainingInitial> {
                   currentIndex = 0;
 
                   currentExercise = exercises[currentIndex];
-                  completedExercises =
-                      List.generate(exercises.length, (index) => false);
+                  completedExercises = List.generate(exercises.length, (index) => false);
                   isRest = false;
                   // startNextExercise();
                 });
@@ -154,8 +153,7 @@ class TrainingCubit extends Cubit<TrainingInitial> {
               startTimer(state.result.workoutBreak, () {
                 currentIndex = 0;
                 currentExercise = exercises[currentIndex];
-                completedExercises =
-                    List.generate(exercises.length, (index) => false);
+                completedExercises = List.generate(exercises.length, (index) => false);
                 isRest = false;
                 // startNextExercise();
               });
@@ -215,13 +213,11 @@ class TrainingCubit extends Cubit<TrainingInitial> {
         if (!completedExercises[currentIndex]) {
           currentExercise = exercises[currentIndex];
         } else {
-          currentIndex =
-              completedExercises.indexWhere((element) => element == false);
+          currentIndex = completedExercises.indexWhere((element) => element == false);
           currentExercise = exercises[currentIndex];
         }
       } else {
-        currentIndex =
-            completedExercises.indexWhere((element) => element == false);
+        currentIndex = completedExercises.indexWhere((element) => element == false);
         if (currentIndex != -1) {
           currentExercise = exercises[currentIndex];
         }
@@ -244,13 +240,11 @@ class TrainingCubit extends Cubit<TrainingInitial> {
         if (!completedExercises[currentIndex]) {
           currentExercise = exercises[currentIndex];
         } else {
-          currentIndex =
-              completedExercises.indexWhere((element) => element == false);
+          currentIndex = completedExercises.indexWhere((element) => element == false);
           currentExercise = exercises[currentIndex];
         }
       } else {
-        currentIndex =
-            completedExercises.indexWhere((element) => element == false);
+        currentIndex = completedExercises.indexWhere((element) => element == false);
         currentExercise = exercises[currentIndex];
       }
       currentSet = 1;

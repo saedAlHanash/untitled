@@ -7,11 +7,11 @@ import 'package:fitness_storm/core/util/firebase_analytics_service.dart';
 import 'package:fitness_storm/core/util/shared_preferences.dart';
 import 'package:fitness_storm/features/fire_chat/open_room_cubit/open_room_cubit.dart';
 import 'package:fitness_storm/helper/lang_helper.dart';
-import 'package:fitness_storm/services/caching_service/caching_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
+import 'package:m_cubit/caching_service/caching_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'Screen/Trainee Screens/HomeScreen/refresh_home_plan_cubit/refresh_home_plan_cubit.dart';
@@ -25,6 +25,7 @@ import 'core/injection/injection_container.dart';
 import 'core/strings/enum_manager.dart';
 import 'features/auth/bloc/refresh_token_cubit/refresh_token_cubit.dart';
 import 'features/fire_chat/rooms_bloc/rooms_cubit.dart';
+import 'features/fire_chat/userss_bloc/users_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,12 +33,15 @@ void main() async {
   try {
     await di.init();
 
-
     await SharedPreferences.getInstance().then((value) {
       AppSharedPreference.init(value);
     });
 
-    await CachingService.initial();
+    await CachingService.initial(
+      onError: (state) => showErrorFromApi(state),
+      version: 1,
+      timeInterval: 60,
+    );
 
     Get.put(LanguagesController());
 
@@ -56,7 +60,7 @@ void main() async {
 
     await sl<AnalyticService>().initialAppFlyer();
 
-  await  sl<AnalyticService>().initialApp();
+    await sl<AnalyticService>().initialApp();
   } catch (e) {
     loggerObject.e(e);
   }
@@ -67,6 +71,7 @@ void main() async {
     MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => RefreshHomePlanCubit()),
+        BlocProvider(create: (_) => sl<UsersCubit>()..getChatUsers(), lazy: true),
         BlocProvider(create: (_) => sl<OpenRoomCubit>()),
         BlocProvider(create: (_) => sl<RoomsCubit>()..getChatRooms(false)),
         BlocProvider(create: (context) => ChangeVideoCubit()),
@@ -91,8 +96,7 @@ class MyHttpOverrides extends HttpOverrides {
   @override
   HttpClient createHttpClient(SecurityContext? context) {
     return super.createHttpClient(context)
-      ..badCertificateCallback =
-          (X509Certificate cert, String host, int port) => true;
+      ..badCertificateCallback = (X509Certificate cert, String host, int port) => true;
   }
 }
 

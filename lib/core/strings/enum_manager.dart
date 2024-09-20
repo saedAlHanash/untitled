@@ -1,6 +1,5 @@
 import '../../generated/l10n.dart';
 
-enum CubitStatuses { init, loading, done, error }
 
 enum ToScreen { non, confirmCode, policy, main }
 

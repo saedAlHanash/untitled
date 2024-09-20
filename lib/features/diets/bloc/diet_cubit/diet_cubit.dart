@@ -1,10 +1,11 @@
 import 'package:fitness_storm/core/api_manager/api_url.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
+import 'package:m_cubit/abstraction.dart';
 
 import '../../../../core/api_manager/api_service.dart';
 import '../../../../core/strings/enum_manager.dart';
-import '../../../../core/util/abstraction.dart';
 import '../../../../core/util/pair_class.dart';
+import '../../../../core/util/shared_preferences.dart';
 import '../../data/response/diet_response.dart';
 
 part 'diet_state.dart';
@@ -13,10 +14,10 @@ class DietCubit extends MCubit<DietInitial> {
   DietCubit() : super(DietInitial.initial());
 
   @override
-  String get nameCache => 'diet';
+  String get nameCache => '${AppSharedPreference.getLocal}diet';
 
   @override
-  String get filter => state.request ?? '';
+  String get filter => state.filter;
 
   Future<void> getDiet({bool newData = false, required String dietId}) async {
     emit(state.copyWith(request: dietId));

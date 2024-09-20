@@ -33,6 +33,7 @@ import '../../features/diets/bloc/diets_cubit/diets_cubit.dart';
 import '../../features/fire_chat/messages_bloc/messages_cubit.dart';
 import '../../features/fire_chat/open_room_cubit/open_room_cubit.dart';
 import '../../features/fire_chat/rooms_bloc/rooms_cubit.dart';
+import '../../features/fire_chat/userss_bloc/users_bloc.dart';
 import '../../features/notifications/bloc/notifications_cubit/notifications_cubit.dart';
 import '../../features/plans/bloc/add_favorite/add_favorite_cubit.dart';
 import '../../features/plans/bloc/plan_cubit/plan_cubit.dart';
@@ -68,6 +69,7 @@ Future<void> init() async {
   sl.registerLazySingleton(() => AnalyticService());
   sl.registerLazySingleton(() => ChangeVideoCubit());
   sl.registerLazySingleton(() => RoomsCubit());
+  sl.registerLazySingleton(() => UsersCubit());
   sl.registerLazySingleton(() => OpenRoomCubit());
   sl.registerFactory(() => MessagesCubit());
 

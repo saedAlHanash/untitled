@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
-import '../../../../core/app/app_provider.dart';
 import '../../../../generated/l10n.dart';
 import 'navigation_bar_controller.dart';
 

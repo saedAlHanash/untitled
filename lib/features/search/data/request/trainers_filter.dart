@@ -1,5 +1,7 @@
 import 'dart:convert';
-import 'package:crypto/crypto.dart';
+
+import 'package:m_cubit/util.dart';
+
 import '../../../../core/strings/enum_manager.dart';
 
 class TrainerFilter {
@@ -18,11 +20,8 @@ class TrainerFilter {
   }
 
   String get getKey {
-    var jsonString = jsonEncode(this);
-    var bytes = utf8.encode(jsonString);
-    var digest = sha1.convert(bytes);
 
-    return '$digest';
+    return jsonEncode(this).getKey;
   }
 
   Map<String, dynamic> toJson() => {

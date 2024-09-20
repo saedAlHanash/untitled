@@ -14,8 +14,7 @@ Future<void> openPage(String url) async {
 
 class SplashController extends GetxController {
   @override
-  void onReady() {
-    super.onReady();
+  void onInit() {
     Future.delayed(const Duration(seconds: 3)).then((value) async {
       if (await checkForceUpdate()) {
         showUpdateDialog(
@@ -43,5 +42,6 @@ class SplashController extends GetxController {
 
       startHome();
     });
+    super.onInit();
   }
 }

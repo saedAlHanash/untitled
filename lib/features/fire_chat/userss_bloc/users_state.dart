@@ -1,18 +1,20 @@
-part of 'rooms_cubit.dart';
+part of 'users_bloc.dart';
 
-class RoomsInitial extends AbstractState<List<types.Room>> {
+class UsersInitial extends AbstractState<List<types.User>> {
   final StreamSubscription<QuerySnapshot<Map<String, dynamic>>>? stream;
   final String search;
 
-  const RoomsInitial({
+  const UsersInitial({
     required super.result,
     super.statuses,
     super.request,
     super.error,
-
     this.stream,
+
     this.search = '',
   });
+
+  bool get mRequest => request as bool;
 
   @override
   List<Object?> get props => [
@@ -24,24 +26,26 @@ class RoomsInitial extends AbstractState<List<types.Room>> {
         if (stream != null) stream,
       ];
 
-  factory RoomsInitial.initial() {
-    return const RoomsInitial(
+  factory UsersInitial.initial() {
+    return const UsersInitial(
       result: [],
+
       statuses: CubitStatuses.init,
     );
   }
 
-  bool get notRead => result.firstWhereOrNull((e) => e.isNotRead) != null;
 
-  RoomsInitial copyWith({
+  UsersInitial copyWith({
     CubitStatuses? statuses,
-    List<types.Room>? result,
+    List<types.User>? result,
+    List<types.User>? myUsers,
+    List<types.User>? othersUsers,
     String? error,
     String? search,
-    String? request,
+    bool? request,
     StreamSubscription<QuerySnapshot<Map<String, dynamic>>>? stream,
   }) {
-    return RoomsInitial(
+    return UsersInitial(
         statuses: statuses ?? this.statuses,
         result: result ?? this.result,
         error: error ?? this.error,

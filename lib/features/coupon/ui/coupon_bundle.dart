@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:m_cubit/abstraction.dart';
 
 import '../../../../Widgets/custom_button.dart';
-import '../../../../core/strings/enum_manager.dart';
 import '../../../core/widgets/my_text_form_widget.dart';
 import '../../../generated/l10n.dart';
 import '../../appointments/data/request/create_bundle_request.dart';

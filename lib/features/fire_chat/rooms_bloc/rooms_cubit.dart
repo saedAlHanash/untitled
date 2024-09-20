@@ -6,9 +6,8 @@ import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/services/chat_service/core/firebase_chat_core.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
+import 'package:m_cubit/abstraction.dart';
 
-import '../../../core/strings/enum_manager.dart';
-import '../../../core/util/abstraction.dart';
 import '../../../services/chat_service/core/util.dart';
 
 part 'rooms_state.dart';
@@ -17,14 +16,15 @@ class RoomsCubit extends MCubit<RoomsInitial> {
   RoomsCubit() : super(RoomsInitial.initial());
 
   @override
-  String get nameCache => 'rooms1';
+  String get nameCache => 'rooms';
 
   @override
-  String get filter => AppProvider.myId;
+  String get filter => state.filter;
 
   Future<void> getChatRooms(bool isAdmen) async {
     if (AppProvider.myId.isEmpty) return;
-    emit(state.copyWith(request: isAdmen));
+
+    emit(state.copyWith(request: AppProvider.myId));
 
     await setData();
 
@@ -46,7 +46,7 @@ class RoomsCubit extends MCubit<RoomsInitial> {
           ),
         );
 
-    loggerObject.i('requested get room ');
+    loggerObject.i('requested get room ${state.result.lastOrNull?.updatedAt ?? 0}');
 
     final stream = query.snapshots().listen((snapshot) async {
       final listRooms = await processRoomsQuery(
@@ -55,7 +55,7 @@ class RoomsCubit extends MCubit<RoomsInitial> {
         'users',
       );
 
-      await sortDataChat(listRooms);
+      await saveData(listRooms, clearId: false);
 
       if (isClosed) return;
       await setData();
@@ -65,9 +65,10 @@ class RoomsCubit extends MCubit<RoomsInitial> {
   }
 
   Future<void> setData() async {
-    final data = (await getListCached()).map((e) => types.Room.fromJson(e)).toList();
-
-    final roomsCached = data..sort((a, b) => (b.updatedAt ?? 0).compareTo(a.updatedAt ?? 0));
+    final roomsCached = await getListCached(
+      fromJson: types.Room.fromJson,
+    )
+      ..sort((a, b) => (b.updatedAt ?? 0).compareTo(a.updatedAt ?? 0));
 
     roomsCached.removeWhere((e) => e.otherUser.id == '-1');
 

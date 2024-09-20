@@ -1,5 +1,3 @@
-import 'package:fitness_storm/Utils/Routes/app_pages.dart';
-import 'package:fitness_storm/Utils/utils.dart';
 import 'package:fitness_storm/router/app_router.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';

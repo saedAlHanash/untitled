@@ -32,15 +32,19 @@ class _LanguageBoardWidgetState extends State<LanguageBoardWidget> {
               child: LangWidget(
                 title: 'عربي',
                 isSelect: Get.locale?.languageCode == 'ar',
-                onTap: () async => await languagesController.setLanguage('ar',
-                    fromAuthPage: widget.fromAuthPage),
+                onTap: () async => await languagesController.setLanguage(
+                  'ar',
+                  fromAuthPage: widget.fromAuthPage,
+                ),
               ),
             ),
             LangWidget(
               title: 'English',
               isSelect: Get.locale?.languageCode == 'en',
-              onTap: () async => await languagesController.setLanguage('en',
-                  fromAuthPage: widget.fromAuthPage),
+              onTap: () async => await languagesController.setLanguage(
+                'en',
+                fromAuthPage: widget.fromAuthPage,
+              ),
             ),
           ],
         ),

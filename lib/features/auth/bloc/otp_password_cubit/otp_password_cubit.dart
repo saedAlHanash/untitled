@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
-import 'package:fitness_storm/core/util/abstraction.dart';
+import 'package:m_cubit/abstraction.dart';
 
 import '../../../../core/api_manager/api_service.dart';
 import '../../../../core/api_manager/api_url.dart';
