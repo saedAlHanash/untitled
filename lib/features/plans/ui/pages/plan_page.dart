@@ -132,10 +132,7 @@ class _PlanPageState extends State<PlanPage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  if (showIntro)
-                    VimeoPlayer(
-                      videoId: state.result.introductionVideo,
-                    ),
+                  if (showIntro) const VimeoPlayer(),
                   const VideoTailWidget(),
                   Column(
                     children: [
@@ -198,12 +195,7 @@ class _PlanPageState extends State<PlanPage> {
                             },
                             child: DayWidget(
                               key: state.result[i].key,
-                              imageUrl: item.image,
-                              dayNumber: item.name,
-                              totalMinutes: item.totalMinutes.toInt(),
-                              exercises: item.exercises,
-                              type: item.type,
-
+                              item: item,
                               // type:item.type!
                             ),
                           );

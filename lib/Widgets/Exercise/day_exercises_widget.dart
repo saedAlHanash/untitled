@@ -2,16 +2,17 @@ import 'package:adaptive_scrollbar/adaptive_scrollbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../features/plans/data/response/plan_workout_response.dart';
 import '../../features/training/data/response/exercises_response.dart';
 
-class DayExercisesWidget extends StatelessWidget {
-  final List<Exercise> exercises;
-  final String type;
 
+class DayExercisesWidget extends StatelessWidget {
+
+  final PlanWorkout item;
   const DayExercisesWidget({
     super.key,
-    required this.exercises,
-    required this.type,
+    required this.item,
+
   });
 
   @override
@@ -26,15 +27,15 @@ class DayExercisesWidget extends StatelessWidget {
         key: UniqueKey(),
         controller: scrollController,
         shrinkWrap: true,
-        itemCount: exercises.length > 3 ? 3 : exercises.length,
+        itemCount: item.exercises.length > 3 ? 3 : item.exercises.length,
         itemBuilder: (context, index) {
           return _buildExerciseInfo(
-            exercises[index].name,
-            exercises[index].setCount.toInt(),
-            exercises[index].repetitions,
-            exercises[index].secondBased,
-            exercises.length > 3 && index == 2,
-            type,
+            item.exercises[index].name,
+            item.exercises[index].setCount.toInt(),
+            item.exercises[index].repetitions,
+            item.exercises[index].secondBased,
+            item.exercises.length > 3 && index == 2,
+            item.type,
           );
         },
       ),

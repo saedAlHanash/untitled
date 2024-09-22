@@ -5,14 +5,14 @@ import 'package:get/get.dart';
 import '../../bloc/temp_cubit/training_cubit.dart';
 
 class SlidWidget extends StatefulWidget {
-  final num setNumber;
-  final num repetationNumber;
-
   const SlidWidget({
     required this.setNumber,
     required this.repetationNumber,
     super.key,
   });
+  final num setNumber;
+  final num repetationNumber;
+
 
   @override
   State<SlidWidget> createState() => _SlidWidgetState();
@@ -31,9 +31,8 @@ class _SlidWidgetState extends State<SlidWidget> {
           color: Get.theme.colorScheme.secondary,
           child: Dismissible(
             key: UniqueKey(),
-
             onDismissed: (direction) {
-              cubit.startRestTimer(cubit.currentExercise.secondBased);
+              cubit.startRestTimer(cubit.currentExercise.secondBased, context);
             },
 
             //cubit.isRest = true,
@@ -60,8 +59,7 @@ class _SlidWidgetState extends State<SlidWidget> {
                         children: [
                           Text(
                             'repeat_this_exercise'.tr,
-                            style: const TextStyle(
-                                fontSize: 14, color: Colors.white),
+                            style: const TextStyle(fontSize: 14, color: Colors.white),
                           ),
                           Text(
                             _getRepeatText(),
@@ -76,12 +74,10 @@ class _SlidWidgetState extends State<SlidWidget> {
                   ),
                   !cubit.currentExercise.secondBased
                       ? Text('slide_to_start_the_next_set'.tr,
-                          style: const TextStyle(
-                              fontSize: 14, color: Colors.white))
+                          style: const TextStyle(fontSize: 14, color: Colors.white))
                       : Text('slide_to_start_the_timer_for_this_set'.tr,
                           maxLines: 3,
-                          style: const TextStyle(
-                              fontSize: 14, color: Colors.white))
+                          style: const TextStyle(fontSize: 14, color: Colors.white))
                 ],
               ),
             ),
@@ -92,8 +88,8 @@ class _SlidWidgetState extends State<SlidWidget> {
   }
 
   String _getRepeatText() {
-    String reps = cubit.currentExercise.repetitions[cubit.currentSet - 1].count
-        .toString();
+    String reps =
+        cubit.currentExercise.repetitions[cubit.currentSet - 1].count.toString();
     if (cubit.currentExercise.secondBased) {
       if (int.parse(reps) > 3 && int.parse(reps) < 9) {
         reps += " ${'seconds'.tr}";

@@ -43,6 +43,7 @@ class _TrainingPageState extends State<TrainingPage> {
   @override
   Widget build(BuildContext context) {
     return BlocListener<TrainingCubit, TrainingInitial>(
+      listenWhen: (p, c) => c.statuses.done,
       listener: (context, state) {
         context.read<VimeoCubit>().initial(vimeoId: cubit.currentExercise.video);
       },
@@ -63,10 +64,7 @@ class _TrainingPageState extends State<TrainingPage> {
                           : MainAxisAlignment.start,
                       // mainAxisSize: MainAxisSize.min,
                       children: [
-                        VimeoPlayer(
-                          videoId: cubit.currentExercise.video,
-                          onInitController: (videoController) {},
-                        ),
+                        const VimeoPlayer(),
                         cubit.isZumba
                             ? 0.0.verticalSpace
                             : CurrentExerciseWidget(
@@ -119,10 +117,13 @@ class _TrainingPageState extends State<TrainingPage> {
                                   }
                                   loggerObject
                                       .v(cubit.currentExercise.repetitions.length);
-                                  return SlidWidget(
-                                    repetationNumber: cubit.currentExercise
-                                        .repetitions[cubit.currentSet - 1].count,
-                                    setNumber: cubit.currentSet,
+                                  return BlocProvider.value(
+                                    value: context.read<VimeoCubit>(),
+                                    child: SlidWidget(
+                                      repetationNumber: cubit.currentExercise
+                                          .repetitions[cubit.currentSet - 1].count,
+                                      setNumber: cubit.currentSet,
+                                    ),
                                   );
                                 }));
         },

@@ -11,33 +11,27 @@ import '../../../../generated/assets.dart';
 import '../../bloc/vimeo_cubit/vimeo_cubit.dart';
 
 class VimeoPlayer extends StatelessWidget {
-  const VimeoPlayer(
-      {super.key,
-      required this.videoId,
-      this.isPrivet = false,
-      this.onInitController});
-
-  final String videoId;
-  final bool isPrivet;
-  final Function(PodPlayerController videoController)? onInitController;
+  const VimeoPlayer({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
-    if (videoId.isEmpty) {
-      return AspectRatio(
-        aspectRatio: 16 / 9,
-        child: MyStyle.loadingWidget(),
-      );
-    }
-    return AppProvider.systemParams.isWebViewPlayer
-        ? VimeoPlayerWebView(
-            videoId: videoId,
-            onInitController: onInitController,
-          )
-        : VimeoPlayerPod(
-            videoId: videoId,
-            onInitController: onInitController,
+    return BlocBuilder<VimeoCubit, VimeoInitial>(
+      builder: (context, state) {
+        if (state.result.isEmpty) {
+          return AspectRatio(
+            aspectRatio: 16 / 9,
+            child: MyStyle.loadingWidget(),
           );
+        }
+        return AppProvider.systemParams.isWebViewPlayer
+            ? VimeoPlayerWebView(
+                videoId: state.result,
+              )
+            : const VimeoPlayerPod();
+      },
+    );
   }
 }
 
@@ -88,8 +82,7 @@ class _VimeoPlayerWebViewState extends State<VimeoPlayerWebView> {
                 webView = controller;
               },
               onLoadStop: (controller1, url) {},
-              onProgressChanged:
-                  (InAppWebViewController controller, int progress) {
+              onProgressChanged: (InAppWebViewController controller, int progress) {
                 setState(() {
                   this.progress = progress / 100;
                 });
@@ -123,10 +116,7 @@ class _VimeoPlayerWebViewState extends State<VimeoPlayerWebView> {
 }
 
 class VimeoPlayerPod extends StatefulWidget {
-  const VimeoPlayerPod(
-      {super.key, required this.videoId, this.onInitController});
-
-  final String videoId;
+  const VimeoPlayerPod({super.key, this.onInitController});
 
   final Function(PodPlayerController videoController)? onInitController;
 

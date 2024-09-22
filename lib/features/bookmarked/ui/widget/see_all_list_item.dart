@@ -68,29 +68,30 @@ class SeeAllListItem extends StatelessWidget {
                 ),
               ],
             ),
-            subtitle: SizedBox(
-              width: 1.0.sw,
-              height: 50.0.h,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                shrinkWrap: true,
-                children: [
-                  Row(
-                      children: plan.trainingLocation
-                          .map((e) => CustomChip(text: e.type))
-                          .toList()),
-                  Row(
-                      children: plan.level
-                          .map((e) => CustomChip(text: e.type))
-                          .toList()),
-                  Row(
-                      children: plan.trainingType
-                          .map((e) => CustomChip(text: e.type))
-                          .toList()),
-                ],
-              ),
-            ),
+            // subtitle: SizedBox(
+            //   width: 1.0.sw,
+            //   height: 50.0.h,
+            //   child: ListView(
+            //     scrollDirection: Axis.horizontal,
+            //     shrinkWrap: true,
+            //     children: [
+            //       Row(
+            //           children: plan.trainingLocation
+            //               .map((e) => CustomChip(text: e.type))
+            //               .toList()),
+            //       Row(
+            //           children: plan.level
+            //               .map((e) => CustomChip(text: e.type))
+            //               .toList()),
+            //       Row(
+            //           children: plan.trainingType
+            //               .map((e) => CustomChip(text: e.type))
+            //               .toList()),
+            //     ],
+            //   ),
+            // ),
           ),
+          10.0.verticalSpace,
         ],
       ),
     );

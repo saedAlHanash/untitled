@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
@@ -7,10 +6,10 @@ import 'package:percent_indicator/percent_indicator.dart';
 import '../../bloc/temp_cubit/training_cubit.dart';
 
 class RestWidget extends StatefulWidget {
+  const RestWidget({required this.seconds, required this.isBreak, super.key});
   final num seconds;
   final bool isBreak;
 
-  const RestWidget({required this.seconds, required this.isBreak, super.key});
 
   @override
   State<RestWidget> createState() => _RestWidgetState();
@@ -42,51 +41,49 @@ class _RestWidgetState extends State<RestWidget> {
                 const SizedBox(),
                 !cubit.isBreak
                     ? Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      "let's_go".tr,
-                      style: const TextStyle(color: Colors.white, fontSize: 14),
-                    ),
-                    Text(
-                      'you_can_do_it_this_set'.tr,
-                      style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ],
-                )
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            "let's_go".tr,
+                            style: const TextStyle(color: Colors.white, fontSize: 14),
+                          ),
+                          Text(
+                            'you_can_do_it_this_set'.tr,
+                            style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      )
                     : Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      'great_job!'.tr,
-                      style: const TextStyle(color: Colors.white, fontSize: 14),
-                    ),
-                    Text(
-                      'take_a_break'.tr,
-                      style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    Text(
-                      cubit.state.result.type == "Loop Exercise"
-                          ? 'before_the_next_exercise'.tr
-                          : 'before_the_next_set'.tr,
-                      style: const TextStyle(color: Colors.white, fontSize: 14),
-                    ),
-                  ],
-                ),
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            'great_job!'.tr,
+                            style: const TextStyle(color: Colors.white, fontSize: 14),
+                          ),
+                          Text(
+                            'take_a_break'.tr,
+                            style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            cubit.state.result.type == "Loop Exercise"
+                                ? 'before_the_next_exercise'.tr
+                                : 'before_the_next_set'.tr,
+                            style: const TextStyle(color: Colors.white, fontSize: 14),
+                          ),
+                        ],
+                      ),
                 Text(
                   formatTimePerSeconds(cubit.startTime),
                   style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold),
+                      color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ],
             ),

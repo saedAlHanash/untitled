@@ -541,8 +541,8 @@ void startSearchResultPage(String name) async {
 
 void startTrainingPage(PlanWorkout planWorkout, bool complete) async {
   final providers = [
-    BlocProvider(create: (_) => sl<TrainingCubit>()..initial(planWorkout, complete)),
     BlocProvider(create: (_) => sl<VimeoCubit>()),
+    BlocProvider(create: (_) => sl<TrainingCubit>()..initial(planWorkout, complete)),
   ];
 
   final Widget page = MultiBlocProvider(

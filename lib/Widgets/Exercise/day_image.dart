@@ -4,18 +4,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 
+import '../../features/plans/data/response/plan_workout_response.dart';
+
 class DayImage extends StatelessWidget {
-  final String imageUrl;
-  final String dayNumber;
-  final int totalMinutes;
-  final int numberOfExercises;
+  final PlanWorkout item;
 
   const DayImage({
     super.key,
-    required this.imageUrl,
-    required this.dayNumber,
-    required this.totalMinutes,
-    required this.numberOfExercises,
+    required this.item,
   });
 
   @override
@@ -44,22 +40,22 @@ class DayImage extends StatelessWidget {
         ClipRRect(
           borderRadius: BorderRadius.circular(5),
           child: SizedBox(
-            height: numberOfExercises < 3 ? Get.height / 6 : Get.height / 3.7,
+            height: item.exercises.length < 3 ? Get.height / 6 : Get.height / 3.7,
             width: Get.width / 2.9,
             child: ImageMultiType(
-              url: imageUrl,
+              url: item.image,
               fit: BoxFit.cover,
             ),
           ),
         ),
-        Container(
-          height: Get.height / 13,
-          width: Get.width / 3.125,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5),
-              color: Colors.black12.withOpacity(0.3)),
-        ),
-        _buildDayInfo()
+        // Container(
+        //   height: Get.height / 13,
+        //   width: Get.width / 3.125,
+        //   decoration: BoxDecoration(
+        //       borderRadius: BorderRadius.circular(5),
+        //       color: Colors.black12.withOpacity(0.3)),
+        // ),
+        // _buildDayInfo()
       ],
     );
   }
@@ -69,7 +65,7 @@ class DayImage extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         DrawableText(
-          text: dayNumber,
+          text: item.name,
           maxLines: 3,
           color: Colors.white,
         ),
@@ -84,7 +80,7 @@ class DayImage extends StatelessWidget {
               ),
               10.0.horizontalSpace,
               DrawableText(
-                text: formatTimePerMinutes(totalMinutes),
+                text: formatTimePerMinutes(item.totalMinutes),
                 color: Colors.white,
                 fontWeight: FontWeight.w500,
               )
@@ -99,7 +95,7 @@ class DayImage extends StatelessWidget {
     return '${(Duration(seconds: seconds))}'.split('.')[0].padLeft(8, '0');
   }
 
-  String formatTimePerMinutes(int minutes) {
-    return '${(Duration(minutes: minutes))}'.split('.')[0].padLeft(8, '0');
+  String formatTimePerMinutes(num minutes) {
+    return '${(Duration(minutes: minutes.toInt()))}'.split('.')[0].padLeft(8, '0');
   }
 }
