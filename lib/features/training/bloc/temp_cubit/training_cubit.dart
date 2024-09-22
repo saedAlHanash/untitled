@@ -65,6 +65,7 @@ class TrainingCubit extends Cubit<TrainingInitial> {
     emit(state.copyWith(statuses: CubitStatuses.done));
   }
 
+
   Future<Pair<bool?, String?>> _completeDay() async {
     final response = await APIService().callApi(
       type: ApiType.post,
