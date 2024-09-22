@@ -24,8 +24,8 @@ class LanguagesController extends GetxController {
     } else {
       ctx?.readOrNull<DietsCubit>()?.getDiets();
       ctx?.readOrNull<BookmarkedCubit>()?.getBookmarked();
-      ctx?.readOrNull<TrainerFilesCubit>()?.getTrainerFiles();
-      ctx?.readOrNull<WelcomeMessagesCubit>()?.getWelcomeMessages();
+      // ctx?.readOrNull<TrainerFilesCubit>()?.getTrainerFiles();
+      // ctx?.readOrNull<WelcomeMessagesCubit>()?.getWelcomeMessages();
       ctx?.readOrNull<NotificationsCubit>()?.getNotifications();
       startHome();
     }
