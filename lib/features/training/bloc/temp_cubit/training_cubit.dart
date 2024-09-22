@@ -3,8 +3,10 @@ import 'dart:async';
 import 'package:fitness_storm/core/api_manager/api_url.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/util/snack_bar_message.dart';
+import 'package:fitness_storm/features/vimeo/bloc/vimeo_cubit/vimeo_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get.dart';
 import 'package:m_cubit/abstraction.dart';
 
 import '../../../../Utils/utils.dart';
@@ -42,6 +44,7 @@ class TrainingCubit extends Cubit<TrainingInitial> {
 
   void initial(PlanWorkout planWorkout, bool complete) async {
     this.complete = complete;
+
     emit(state.copyWith(result: planWorkout, statuses: CubitStatuses.loading));
 
     await ctx!.read<ExercisesCubit>().getExercises(id: planWorkout.workoutId);
@@ -102,7 +105,8 @@ class TrainingCubit extends Cubit<TrainingInitial> {
         : (totalTimeToSetOrBreak - startTime) / totalTimeToSetOrBreak;
   }
 
-  void startRestTimer(bool isSecondBased) async {
+  void startRestTimer(bool isSecondBased,BuildContext context) async {
+    context.read<VimeoCubit>().state.controller?.pause();
     isRest = true;
     if (isSecondBased) {
       isBreak = false;
@@ -291,9 +295,9 @@ class TrainingCubit extends Cubit<TrainingInitial> {
         } else {
           startTime--;
         }
+        emit(state.copyWith(changeModifier: state.changeModifier + 1));
       },
     );
-    emit(state.copyWith(changeModifier: state.changeModifier + 1));
   }
 
   initSetsList() {
