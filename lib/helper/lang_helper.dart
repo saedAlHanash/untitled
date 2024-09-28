@@ -22,7 +22,7 @@ class LanguagesController extends GetxController {
     if (fromAuthPage) {
       startLogin();
     } else {
-      ctx?.readOrNull<DietsCubit>()?.getDiets();
+      // ctx?.readOrNull<DietsCubit>()?.getDiets();
       ctx?.readOrNull<BookmarkedCubit>()?.getBookmarked();
       // ctx?.readOrNull<TrainerFilesCubit>()?.getTrainerFiles();
       // ctx?.readOrNull<WelcomeMessagesCubit>()?.getWelcomeMessages();

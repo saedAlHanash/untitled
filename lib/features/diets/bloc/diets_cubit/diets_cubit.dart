@@ -20,12 +20,12 @@ class DietsCubit extends MCubit<DietsInitial> {
   String get filter => state.filter;
 
   Future<void> getDiets({bool newData = false}) async {
-    await getDataAbstract(
-      fromJson: Diet.fromJson,
-      state: state,
-      getDataApi: _getDiets,
-      newData: newData,
-    );
+    // await getDataAbstract(
+    //   fromJson: Diet.fromJson,
+    //   state: state,
+    //   getDataApi: _getDiets,
+    //   newData: newData,
+    // );
   }
 
   Future<Pair<List<Diet>?, String?>> _getDiets() async {

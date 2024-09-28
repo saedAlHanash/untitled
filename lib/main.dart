@@ -83,13 +83,11 @@ void main() async {
 
 Future<void> setLastSeen() async {
   if (AppProvider.isTrainer) return;
-  final result = await APIService().callApi(
+  await APIService().callApi(
     type: ApiType.patch,
     url: 'profile/last-seen',
     additional: additionalConstUser,
   );
-  if (result.statusCode != 401) return;
-  await AppProvider.logout();
 }
 
 class MyHttpOverrides extends HttpOverrides {
