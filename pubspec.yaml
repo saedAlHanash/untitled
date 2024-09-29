@@ -87,7 +87,7 @@ dependencies:
   equatable: ^2.0.5
   syncfusion_flutter_datepicker: ^26.2.11
   get_it: ^7.7.0
-  internet_connection_checker: ^2.0.0
+  internet_connection_checker:
   http: ^1.2.2
   flutter_screenutil: ^5.9.3
   dropdown_button2: ^2.3.9
