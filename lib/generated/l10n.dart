@@ -5629,6 +5629,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Continue rest password`
+  String get continueRestPassword {
+    return Intl.message(
+      'Continue rest password',
+      name: 'continueRestPassword',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

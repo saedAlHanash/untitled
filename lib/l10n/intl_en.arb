@@ -556,5 +556,6 @@
     "searchResult": "Search result",
     "search": "Search",
     "trainingType": "Training type",
-    "trainingLeve": "Training leve"
+    "trainingLeve": "Training leve",
+  "continueRestPassword": "Continue rest password"
 }

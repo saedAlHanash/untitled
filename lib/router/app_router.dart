@@ -318,7 +318,9 @@ void startRestPass() {
     child: const ResetPasswordPage(),
   );
 
-  Get.to(page);
+  Navigator.pushReplacement(ctx!,MaterialPageRoute(builder: (context) {
+    return page;
+  },));
   sl<AnalyticService>().screenView(name: 'rest_password');
   //endregion
 }

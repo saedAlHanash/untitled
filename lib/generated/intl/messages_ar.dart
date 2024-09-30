@@ -161,6 +161,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("خطأ في الاتصال"),
         "contact": MessageLookupByLibrary.simpleMessage("اتصل بنا"),
         "contactUs": MessageLookupByLibrary.simpleMessage("اتصل بنا"),
+        "continueRestPassword": MessageLookupByLibrary.simpleMessage(
+            "متابعة إعادة تعيين كلمة المرور "),
         "continueSignUp":
             MessageLookupByLibrary.simpleMessage("متابعة التسجيل"),
         "continueTo": MessageLookupByLibrary.simpleMessage("متابعة"),
@@ -699,10 +701,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "trainers": MessageLookupByLibrary.simpleMessage("مدربين"),
         "trainingGoalFieldIsRequire":
             MessageLookupByLibrary.simpleMessage("مجال أهداف التدريب مطلوب"),
-        "trainingLeve": MessageLookupByLibrary.simpleMessage("Training leve"),
+        "trainingLeve": MessageLookupByLibrary.simpleMessage("مستوى التدريب"),
         "trainingLevelFieldIsRequire":
             MessageLookupByLibrary.simpleMessage("المستوى التدريبي مطلوب"),
-        "trainingType": MessageLookupByLibrary.simpleMessage("Training type"),
+        "trainingType": MessageLookupByLibrary.simpleMessage("نوع التدريب"),
         "trendingPlan":
             MessageLookupByLibrary.simpleMessage("البرامج الأكثر رواجاً"),
         "typeAnythingToSearchIt":

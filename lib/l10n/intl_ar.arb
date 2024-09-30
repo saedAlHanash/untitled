@@ -568,6 +568,7 @@
     "bodyBuilding": "بناء الجسم",
     "handsfree": "بلا يدين",
     "needSubscribeToThisPlan": "يجب الإشتراك بهذا البرنامج",
-    "trainingType": "Training type",
-    "trainingLeve": "Training leve"
+    "trainingType": "نوع التدريب",
+    "trainingLeve": "مستوى التدريب",
+  "continueRestPassword": "متابعة إعادة تعيين كلمة المرور "
 }

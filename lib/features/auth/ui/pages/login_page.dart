@@ -2,6 +2,7 @@ import 'package:drawable_text/drawable_text.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
 import 'package:fitness_storm/core/strings/enum_manager.dart';
+import 'package:fitness_storm/core/util/shared_preferences.dart';
 import 'package:fitness_storm/core/widgets/my_button.dart';
 import 'package:fitness_storm/core/widgets/my_text_form_widget.dart';
 import 'package:fitness_storm/features/auth/ui/widget/auth_header.dart';
@@ -87,8 +88,7 @@ class _LoginPageState extends State<LoginPage> {
                             hint: S.of(context).enterEmailAddress,
                             initialValue: loginCubit.state.request.phoneOrEmail,
                             keyBordType: TextInputType.emailAddress,
-                            onChanged: (val) =>
-                                loginCubit.setPhoneOrEmail = val,
+                            onChanged: (val) => loginCubit.setPhoneOrEmail = val,
                           ),
                           10.0.verticalSpace,
                           MyTextFormOutLineWidget(
@@ -104,6 +104,14 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     const _ForgetAndRememberWidget(),
+                    if (AppSharedPreference.getRestPassEmail.isNotEmpty)
+                      MyButtonRound(
+                        width: 1.0.sw,
+                        onTap: () => startRestPass(),
+                        text: S.of(context).continueRestPassword,
+                      ),
+                    if (AppSharedPreference.getRestPassEmail.isNotEmpty)
+                      20.0.verticalSpace,
                     BlocBuilder<LoginCubit, LoginInitial>(
                       builder: (_, state) {
                         if (state.statuses.loading) {
@@ -184,8 +192,7 @@ class _ForgetAndRememberWidget extends StatefulWidget {
   const _ForgetAndRememberWidget();
 
   @override
-  State<_ForgetAndRememberWidget> createState() =>
-      _ForgetAndRememberWidgetState();
+  State<_ForgetAndRememberWidget> createState() => _ForgetAndRememberWidgetState();
 }
 
 class _ForgetAndRememberWidgetState extends State<_ForgetAndRememberWidget> {
