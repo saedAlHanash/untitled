@@ -28,8 +28,8 @@ class HomeScreen extends GetView<HomeScreenController> {
                 Get.back();
                 controller.trendingPlans.value =
                     await controller.planRepository.getTrendingPlan({});
-                controller.featuredPlans.value =
-                    await controller.planRepository.getFeaturedgPlan(1);
+                // controller.featuredPlans.value =
+                //     await controller.planRepository.getFeaturedgPlan(1);
                 controller.yourTrainer.value =
                     await controller.trainerRepository.getYourTrainer(1);
                 controller.isLoading.value = false;
@@ -43,7 +43,7 @@ class HomeScreen extends GetView<HomeScreenController> {
                     children: [
                       ContinueTrainingWidget(),
                       TrendingPlanWidget(),
-                      FeaturedPlanWidget(),
+                      // FeaturedPlanWidget(),
                       YourTrainersWidget(),
                     ],
                   ),

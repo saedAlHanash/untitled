@@ -109,30 +109,6 @@ class PlanRepository {
     }
   }
 
-  Future<List<Plan>> getFeaturedgPlan(int pageNumber,
-      {Map<String, dynamic>? queryParameter}) async {
-    Options option = Utils.getOptions(withToken: true, all: true);
-    try {
-      ApiResult result = await Methods.get(
-          url: '${TRAINEEURLS.getOurPlans}?page=$pageNumber',
-          options: option,
-          data: queryParameter);
-      if (result.type == ApiResultType.success) {
-        List<Plan> plans = [];
-        for (var element in result.data) {
-          plans.add(Plan.fromJson(element));
-        }
-        return plans;
-      } else {
-        Utils.openSnackBar(message: result.message!);
-        return [];
-      }
-    } catch (error) {
-      Utils.openSnackBar(message: error.toString());
-      return [];
-      // throw error;
-    }
-  }
 
   Future<Plan> getPlanOverview(String id) async {
     Options option = Utils.getOptions(withToken: true, all: true);

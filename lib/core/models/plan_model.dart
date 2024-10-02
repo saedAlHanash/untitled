@@ -3,15 +3,15 @@ import 'package:fitness_storm/core/extensions/extensions.dart';
 import '../../features/trainer/data/response/trainer.dart';
 import '../util/shared_preferences.dart';
 
-class PlanResponse {
-  PlanResponse({
+class Plans {
+  Plans({
     required this.data,
   });
 
   final List<Plan> data;
 
-  factory PlanResponse.fromJson(Map<String, dynamic> json) {
-    return PlanResponse(
+  factory Plans.fromJson(Map<String, dynamic> json) {
+    return Plans(
       data: json["data"] == null
           ? []
           : List<Plan>.from(

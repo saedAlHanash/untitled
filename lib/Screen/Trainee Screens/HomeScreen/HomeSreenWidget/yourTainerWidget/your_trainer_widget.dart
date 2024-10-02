@@ -14,7 +14,7 @@ import '../../../../../core/injection/injection_container.dart';
 import '../../../../../features/appointments/bloc/available_times_cubit/available_times_cubit.dart';
 import '../../../../../features/appointments/bloc/bundles_cubit/bundles_cubit.dart';
 import '../../../../../features/appointments/data/request/available_times_request.dart';
-import '../../../../../features/plans/bloc/plans_cubit/plans_cubit.dart';
+import '../../../../../features/plans/bloc/trainer_plans_cubit/trainer_plans_cubit.dart';
 import '../../../../../features/trainer/bloc/trainer_cubit/trainer_cubit.dart';
 import '../../../../../features/trainer/ui/pages/trainer_page.dart';
 import '../list_header.dart';
@@ -67,7 +67,7 @@ void startTrainerPage(BuildContext context, int id) {
         return MultiBlocProvider(
           providers: [
             BlocProvider(create: (_) => sl<TrainerCubit>()..getTrainer(id: id)),
-            BlocProvider(create: (_) => sl<PlansCubit>()..getPlans(id: id)),
+            BlocProvider(create: (_) => sl<TrainerPlansCubit>()..getPlans(id: id)),
             BlocProvider(
               create: (_) => sl<AvailableTimesCubit>()
                 ..getAvailableTimes(

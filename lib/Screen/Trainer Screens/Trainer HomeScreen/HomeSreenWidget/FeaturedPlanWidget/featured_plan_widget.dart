@@ -17,9 +17,13 @@ class FeaturedPlanWidget extends GetWidget<TrainerHomeScreenController> {
     return Column(
       children: [
         ListHeader(
-          headerTitle: 'our_plans'.tr,
-          seeAllFunction: () => Get.toNamed(AppRoutes.featuredPlamScreen,
-              arguments: controller.trendingPlans),
+          headerTitle: 'our_plan'.tr,
+          seeAllFunction: () {
+          //   return Get.toNamed(
+          //   AppRoutes.featuredPlamScreen,
+          //   arguments: controller.trendingPlans,
+          // );
+          },
         ),
         _buildFeaturedPlanItemWidget(
             controller: PageController(),

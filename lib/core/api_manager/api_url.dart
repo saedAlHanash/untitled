@@ -99,17 +99,18 @@ class GetUrl {
 
   static const plan = 'plans';
 
-  static var temps = '';
+  static const temps = '';
 
-  static var diet = 'diets';
+  static const diet = 'diets';
 
-  static var diets = 'diets';
+  static const diets = 'diets';
 
+  static var plans = 'plans/ourPlans';
 
 
   static String planWorkouts(int id ) => 'plans/$id/workouts';
 
-  static String plans(int id) => 'trainers/$id/plans';
+  static String trainerPlans(int id) => 'trainers/$id/plans';
 
   static String exercises(int id) => 'workouts/$id/exercises';
 
@@ -161,13 +162,13 @@ class PostUrl {
 
   static const subscribePlan = 'subscribeToPlan';
 
-  static var createTrainerFile = 'files';
+  static const createTrainerFile = 'files';
 
-  static var trainerFiles = 'files';
+  static const trainerFiles = 'files';
 
-  static var completeDay = 'completeDay';
+  static const completeDay = 'completeDay';
 
-  static var createDiet = '';
+  static const createDiet = '';
 
   static String addFavorite(int id) => 'plans/$id/addToBookmarkedPlans';
 
@@ -206,9 +207,9 @@ class PutUrl {
 
   static const updateTemp = '';
 
-  static var updateTrainerFile = '';
+  static const updateTrainerFile = '';
 
-  static var updateDiet = "";
+  static const updateDiet = "";
 }
 
 class DeleteUrl {
@@ -216,9 +217,9 @@ class DeleteUrl {
 
   static const deleteTemp = '';
 
-  static var deleteTrainerFile = 'files';
+  static const deleteTrainerFile = 'files';
 
-  static var deleteDiet = '';
+  static const deleteDiet = '';
 
   static String removeFavorite(int id) => 'plans/$id/deleteFromBookmarkedPlans';
 

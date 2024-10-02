@@ -1,7 +1,6 @@
 import '../../generated/l10n.dart';
 
-
-enum EmailType { password, confirm}
+enum EmailType { password, confirm }
 
 enum AttachmentType { image, youtube, video, d3 }
 
@@ -108,17 +107,6 @@ enum TrainingLevelEnum {
   String get nameRequest {
     switch (this) {
       case TrainingLevelEnum.advanced:
-        return S().advanced;
-      case TrainingLevelEnum.intermediate:
-        return S().intermediate;
-      case TrainingLevelEnum.beginner:
-        return S().beginner;
-    }
-  }
-
-  String get name {
-    switch (this) {
-      case TrainingLevelEnum.advanced:
         return 'Advanced';
       case TrainingLevelEnum.intermediate:
         return 'Intermediate';
@@ -126,27 +114,76 @@ enum TrainingLevelEnum {
         return 'Beginner';
     }
   }
+
+  String get name {
+    switch (this) {
+      case TrainingLevelEnum.advanced:
+        return S().advanced;
+      case TrainingLevelEnum.intermediate:
+        return S().intermediate;
+      case TrainingLevelEnum.beginner:
+        return S().beginner;
+    }
+  }
 }
 
-enum TrainingLocationTypeEnum {
+enum TrainingLocationType {
   home,
   gym;
 
-  String get nameRequest {
+  String get name {
     switch (this) {
-      case TrainingLocationTypeEnum.home:
+      case TrainingLocationType.home:
         return S().home;
-      case TrainingLocationTypeEnum.gym:
+      case TrainingLocationType.gym:
         return S().gym;
     }
   }
 
+  String get nameRequest {
+    switch (this) {
+      case TrainingLocationType.home:
+        return 'Home';
+      case TrainingLocationType.gym:
+        return 'Gym';
+    }
+  }
+}
+
+enum SortTypes {
+  aToz,
+  zToa,
+  mostPopular,
+  playDaysMoreFirst,
+  playDaysLessFirst;
+
   String get name {
     switch (this) {
-      case TrainingLocationTypeEnum.home:
-        return 'home';
-      case TrainingLocationTypeEnum.gym:
-        return 'gym';
+      case SortTypes.aToz:
+        return S().alphabeticalAZ;
+      case SortTypes.zToa:
+        return S().alphabeticalZA;
+      case SortTypes.mostPopular:
+        return S().mostPopular;
+      case SortTypes.playDaysMoreFirst:
+        return S().playingDays_moreFirst;
+      case SortTypes.playDaysLessFirst:
+        return S().playingDays_lessFirst;
+    }
+  }
+
+  String get nameRequest {
+    switch (this) {
+      case SortTypes.aToz:
+        return 'aToz';
+      case SortTypes.zToa:
+        return 'zToa';
+      case SortTypes.mostPopular:
+        return '';
+      case SortTypes.playDaysMoreFirst:
+        return 'play_days_more_first';
+      case SortTypes.playDaysLessFirst:
+        return 'play_days_less_first';
     }
   }
 }

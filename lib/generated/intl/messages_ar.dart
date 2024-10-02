@@ -491,9 +491,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "plansByThisTrainer":
             MessageLookupByLibrary.simpleMessage("برامج المدرب "),
         "playingDays_lessFirst":
-            MessageLookupByLibrary.simpleMessage("Playing Days (less first)"),
+            MessageLookupByLibrary.simpleMessage("أيام اللعب (أقل أولاً)"),
         "playingDays_moreFirst":
-            MessageLookupByLibrary.simpleMessage("Playing Days (more first)"),
+            MessageLookupByLibrary.simpleMessage("أيام اللعب (المزيد أولاً)"),
         "pleasCreateAccount":
             MessageLookupByLibrary.simpleMessage("يرجى إنشاء حساب"),
         "pleasSetYourAddress":
@@ -511,7 +511,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("التدريب قبل الولادة"),
         "price": MessageLookupByLibrary.simpleMessage("السعر"),
         "prioritizingYourFitness": MessageLookupByLibrary.simpleMessage(
-            "Prioritizing your fitness leads to physical and mental health benefits like improved mood, reduced stress, and better sleep."),
+            "إن إعطاء الأولوية للياقتك البدنية يؤدي إلى فوائد صحية جسدية وعقلية مثل تحسين الحالة المزاجية وتقليل التوتر وتحسين النوم."),
         "privacyPolicy": MessageLookupByLibrary.simpleMessage("سياسة الخصوصية"),
         "private": MessageLookupByLibrary.simpleMessage("خاص"),
         "privateCoatching":
@@ -758,7 +758,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "whatLanguageIsSpokenInTheVideos": MessageLookupByLibrary.simpleMessage(
             "ما هي اللغة التي يتم التحدث بها في مقاطع الفيديو ؟"),
         "whatPlansDoYouOfferToSubscribe": MessageLookupByLibrary.simpleMessage(
-            "What plans do you offer to subscribe?"),
+            "ما هي الخطط التي تقدمونها للاشتراك؟"),
         "whatWillYouGetInThisPrivateSession":
             MessageLookupByLibrary.simpleMessage(
                 "ما الذي  ستحصل عليه في هذه الجلسة؟"),

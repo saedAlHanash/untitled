@@ -31,27 +31,7 @@ class TrainerPlanRepository {
     }
   }
 
-  Future<List<Plan>> getFeaturedgPlan(int pageNumber) async {
-    Options option = Utils.getOptions(withToken: true, all: true);
-    try {
-      ApiResult result = await Methods.get(
-          url: '${TRAINERURLS.getOurPlans}?page=$pageNumber', options: option);
-      if (result.type == ApiResultType.success) {
-        List<Plan> plans = [];
-        for (var element in result.data) {
-          plans.add(Plan.fromJson(element));
-        }
-        return plans;
-      } else {
-        Utils.openSnackBar(message: result.message!);
-        return [];
-      }
-    } catch (error) {
-      Utils.openSnackBar(message: error.toString());
-      return [];
-      // throw error;
-    }
-  }
+
 
   Future<ApiResult> getSearchPlans(Map<String, dynamic> queryParameters) async {
     Options options = Utils.getOptions(withToken: true, all: true);

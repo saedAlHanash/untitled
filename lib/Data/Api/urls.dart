@@ -82,7 +82,7 @@ abstract class TRAINERURLS {
   static String trainerPorile = '$trainerBaseUrl/profile';
   static String trainerAvailableTime = '$trainerBaseUrl/availableTimes';
   static String getTrendingPlns = '$trainerBaseUrl/plans/trending';
-  static String getOurPlans = '$trainerBaseUrl/plans/ourPlans';
+
 
   static String getConversation(String channelId) =>
       '$trainerBaseUrl/chats/$channelId';

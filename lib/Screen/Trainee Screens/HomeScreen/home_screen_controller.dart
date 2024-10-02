@@ -10,7 +10,7 @@ import '../../../core/util/shared_preferences.dart';
 
 class HomeScreenController extends GetxController {
   final RxList<SubscribedPlan> continueTrainingPlans = <SubscribedPlan>[].obs;
-  final RxList<Plan> featuredPlans = <Plan>[].obs;
+  // final RxList<Plan> featuredPlans = <Plan>[].obs;
   final RxBool isLoading = false.obs;
 
   // final RxInt pageNumber = 1.obs;
@@ -34,7 +34,7 @@ class HomeScreenController extends GetxController {
     }
     // Get.back();
     trendingPlans.value = await planRepository.getTrendingPlan({});
-    featuredPlans.value = await planRepository.getFeaturedgPlan(1);
+    // featuredPlans.value = await planRepository.getFeaturedgPlan(1);
     yourTrainer.value = await trainerRepository.getYourTrainer(1);
     isLoading.value = false;
     super.onInit();
@@ -49,7 +49,7 @@ class HomeScreenController extends GetxController {
     }
     // Get.back();
     trendingPlans.value = await planRepository.getTrendingPlan({});
-    featuredPlans.value = await planRepository.getFeaturedgPlan(1);
+    // featuredPlans.value = await planRepository.getFeaturedgPlan(1);
     yourTrainer.value = await trainerRepository.getYourTrainer(1);
     isLoading.value = false;
   }

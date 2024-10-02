@@ -66,14 +66,14 @@ class AppPages {
             return const TrendingPlansScreen();
           },
           binding: TrendingPlanBinding()),
-      GetPage(
-          name: AppRoutes.featuredPlamScreen,
-          page: () {
-            sl<AnalyticService>()
-                .screenView(name: 'featured_plan_creen');
-            return const FeaturedPlanScreen();
-          },
-          binding: FeaturedPlanBinding()),
+      // GetPage(
+      //     name: AppRoutes.featuredPlamScreen,
+      //     page: () {
+      //       sl<AnalyticService>()
+      //           .screenView(name: 'featured_plan_creen');
+      //       return const FeaturedPlanScreen();
+      //     },
+      //     binding: FeaturedPlanBinding()),
       // GetPage(
       //     name: AppRoutes.yourTrainerScreen,
       //     page: () {
