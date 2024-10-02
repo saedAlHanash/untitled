@@ -53,7 +53,7 @@ class LoginCubit extends Cubit<LoginInitial> {
 
       await AppProvider.cashLoginData(pair.first, userType: state.userType);
 
-      await AppSharedPreference.removePhoneOrEmail();
+      await AppSharedPreference.removeEmail();
 
       return pair;
     } else {

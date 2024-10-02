@@ -557,5 +557,6 @@
     "search": "Search",
     "trainingType": "Training type",
     "trainingLeve": "Training leve",
-  "continueRestPassword": "Continue rest password"
+  "continueRestPassword": "Continue rest password",
+  "continueConfirmOtpCode": "Continue confirm OTP code"
 }

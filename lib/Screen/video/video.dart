@@ -7,12 +7,15 @@ import 'package:fitness_storm/core/util/firebase_analytics_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 
 import '../../Utils/protact_screen_service.dart';
+import '../../core/api_manager/api_service.dart';
 import '../../core/injection/injection_container.dart';
 import '../../core/models/booked_appointments.dart';
+import '../../core/strings/enum_manager.dart';
 import '../../generated/l10n.dart';
 
 class Video1 extends StatefulWidget {
@@ -35,10 +38,11 @@ class _Video1State extends State<Video1> {
 
   var timeLift = 0;
 
-  void calculateTimeLeft(bool firstTime) {
-    final d =
-        (widget.appointment.endTime.toUtc().difference(DateTime.now().toUtc()))
-            .abs();
+  void calculateTimeLeft(bool firstTime) async {
+    final d = (widget.appointment.endTime
+            .toUtc()
+            .difference((await APIService().getServerDateTime)))
+        .abs();
 
     if (d.inMinutes <= 10) {
       setState(() {
@@ -60,8 +64,7 @@ class _Video1State extends State<Video1> {
   @override
   void initState() {
     calculateTimeLeft(true);
-    timer = Timer.periodic(
-        const Duration(minutes: 1), (v) => calculateTimeLeft(false));
+    timer = Timer.periodic(const Duration(minutes: 1), (v) => calculateTimeLeft(false));
 
     WakelockPlus.enable();
     ProtectScreenService().startProtect(Get.context);
@@ -77,8 +80,8 @@ class _Video1State extends State<Video1> {
 
         if (mounted) setState(() => _remoteUid = remoteUid);
       },
-      onUserOffline: (RtcConnection connection, int remoteUid,
-          UserOfflineReasonType reason) {
+      onUserOffline:
+          (RtcConnection connection, int remoteUid, UserOfflineReasonType reason) {
         // loggerObject.e("remote user $remoteUid left channel");
         if (mounted) setState(() => _remoteUid = null);
       },
@@ -87,8 +90,8 @@ class _Video1State extends State<Video1> {
         //     '[onTokenPrivilegeWillExpire] connection: ${connection.toJson()}, token: $token');
       },
     );
-    sl<AnalyticService>().contactTrainerOrUser(
-        name: widget.appointment.user.name, method: 'video_call');
+    sl<AnalyticService>()
+        .contactTrainerOrUser(name: widget.appointment.user.name, method: 'video_call');
     super.initState();
   }
 
@@ -308,7 +311,6 @@ class _CallScreenState extends State<CallScreen> {
     );
   }
 }
-
 
 /*
 import 'package:flutter/material.dart';

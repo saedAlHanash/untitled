@@ -26,7 +26,8 @@ class RefreshTokenCubit extends Cubit<RefreshTokenInitial> {
     // }
   }
 
-  static Future<Pair<bool?, String?>> refreshTokenApi() async {
+  static Future<void> refreshTokenApi() async {
+    if (!AppProvider.isLogin) return;
     final response = await APIService().callApi(
       type: ApiType.post,
       url: PostUrl.refreshToken,
@@ -39,12 +40,10 @@ class RefreshTokenCubit extends Cubit<RefreshTokenInitial> {
     if (response.statusCode.success) {
       final token = (response.jsonBody['access_token'] ?? '').toString();
       AppProvider.cashLoginData(
-        AppSharedPreference.loginDate.copyWith(accessToken: token),
+        AppSharedPreference.getLoginDate.copyWith(accessToken: token),
         refreshToken: true,
       );
-      return Pair(true, null);
-    } else {
-      return Pair(true, 'error');
+      return;
     }
   }
 }

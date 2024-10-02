@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:drawable_text/drawable_text.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/features/fire_chat/util.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +13,9 @@ import 'package:flutter_chat_ui/flutter_chat_ui.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:http/http.dart' as http;
 import 'package:image_multi_type/circle_image_widget.dart';
+import 'package:image_multi_type/image_multi_type.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:logger/logger.dart';
 import 'package:mime/mime.dart';
 import 'package:open_filex/open_filex.dart';
 import 'package:path_provider/path_provider.dart';
@@ -22,6 +25,7 @@ import '../../core/injection/injection_container.dart';
 import '../../core/strings/app_color_manager.dart';
 import '../../core/util/firebase_analytics_service.dart';
 import '../../core/widgets/app_bar/app_bar_widget.dart';
+import '../../generated/l10n.dart';
 import '../../services/chat_service/core/firebase_chat_core.dart';
 import 'messages_bloc/messages_cubit.dart';
 import 'my_room_object.dart';
@@ -282,6 +286,10 @@ class _ChatPageState extends State<ChatPage> {
             messages: state.result,
             onAttachmentPressed: _handleAtachmentPressed,
             onMessageTap: _handleMessageTap,
+            onMessageLongPress: (context, p0) {
+              if (p0.author.id != AppProvider.myId) return;
+              showShortListMenu(ctx: context, id: p0.id);
+            },
             onPreviewDataFetched: _handlePreviewDataFetched,
             onSendPressed: _handleSendPressed,
             theme: const DarkChatTheme(
@@ -296,4 +304,40 @@ class _ChatPageState extends State<ChatPage> {
       ),
     );
   }
+}
+
+void showShortListMenu({
+  required String id,
+  required BuildContext ctx,
+}) {
+  final RenderBox box = ctx.findRenderObject() as RenderBox;
+  final localPosition = box.localToGlobal(Offset.zero);
+
+  showMenu(
+    context: ctx,
+    position: RelativeRect.fromLTRB(
+      localPosition.dx,
+      (localPosition.dy + 50.0.h),
+      localPosition.dx,
+      localPosition.dy,
+    ),
+    items: [
+      PopupMenuItem(
+        value: 1,
+        onTap: () {
+          ctx.read<MessagesCubit>().deleteMessage(id);
+        },
+        child: ListTile(
+          leading: const ImageMultiType(
+            url: Icons.delete,
+            color: AppColorManager.red,
+          ),
+          trailing: DrawableText(
+            text: S.of(ctx).delete,
+            color: Colors.red,
+          ),
+        ),
+      ),
+    ],
+  );
 }

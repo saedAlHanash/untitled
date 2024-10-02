@@ -54,7 +54,7 @@ class _LoginPageState extends State<LoginPage> {
                 if (AppProvider.isConfirmed || AppProvider.isTrainer) {
                   startHome();
                 } else {
-                  startConfirmCodeAccount(context);
+                  startConfirmCodeAccount();
                 }
               },
             ),
@@ -104,14 +104,20 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     const _ForgetAndRememberWidget(),
-                    if (AppSharedPreference.getRestPassEmail.isNotEmpty)
+                    if (AppSharedPreference.haveConfirm)
                       MyButtonRound(
                         width: 1.0.sw,
-                        onTap: () => startRestPass(),
-                        text: S.of(context).continueRestPassword,
+                        onTap: () {
+                          if (AppSharedPreference.getRestPassEmail.isNotEmpty) {
+                            startRestPass();
+                          }
+                          if (AppSharedPreference.getConfirmEmail.isNotEmpty) {
+                            startConfirmCodeAccount();
+                          }
+                        },
+                        text: S.of(context).continueConfirmOtpCode,
                       ),
-                    if (AppSharedPreference.getRestPassEmail.isNotEmpty)
-                      20.0.verticalSpace,
+                    if (AppSharedPreference.haveConfirm) 20.0.verticalSpace,
                     BlocBuilder<LoginCubit, LoginInitial>(
                       builder: (_, state) {
                         if (state.statuses.loading) {

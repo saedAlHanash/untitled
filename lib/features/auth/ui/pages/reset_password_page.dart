@@ -100,7 +100,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                         color: AppColorManager.grey,
                         text: S.of(context).cancel,
                         onTap: () {
-                          AppSharedPreference.cashRestPassEmail('');
+                          AppSharedPreference.removeEmail();
                           startLogin();
                         },
                       ),

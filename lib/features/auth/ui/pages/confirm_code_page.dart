@@ -74,9 +74,7 @@ class _ConfirmCodePageState extends State<ConfirmCodePage> {
                 child: Column(
                   children: [
                     AuthHeader(
-                        name: !confirmCodeCubit.state.isPassReset
-                            ? S.of(context).resetPassword
-                            : S.of(context).emailVerification),
+                        name:  S.of(context).emailVerification),
                     DrawableText(
                       text: S.of(context).sent6Digit,
                       color: Colors.white,

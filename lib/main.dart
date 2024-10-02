@@ -108,6 +108,6 @@ Future<void> saveFCM() async {
   );
   if (response.statusCode != 200) {
     loggerObject.e('error with fcm');
-    ErrorManager.getApiError(response);
+    // ErrorManager.getApiError(response);
   }
 }

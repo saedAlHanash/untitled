@@ -340,7 +340,7 @@ void startApply() {
   //endregion
 }
 
-void startConfirmCodeAccount(BuildContext context) {
+void startConfirmCodeAccount() {
   final providers = [
     BlocProvider(create: (_) => sl<ConfirmCodeCubit>()),
     BlocProvider(create: (_) => sl<ResendCodeCubit>()),

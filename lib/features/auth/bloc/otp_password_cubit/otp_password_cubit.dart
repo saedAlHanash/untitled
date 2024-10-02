@@ -36,9 +36,8 @@ class OtpPasswordCubit extends Cubit<OtpPasswordInitial> {
     );
 
     if (response.statusCode.success) {
-      final pair = Pair(true, null);
-      AppSharedPreference.cashOtpPassword(state.request.code);
-      return pair;
+     return Pair(true, null);
+
     } else {
         return response.getPairError;
     }

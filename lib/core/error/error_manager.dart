@@ -1,5 +1,6 @@
 import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
+import 'package:fitness_storm/router/app_router.dart';
 import 'package:http/http.dart';
 import 'package:m_cubit/abstraction.dart';
 
@@ -25,6 +26,9 @@ class ErrorManager {
       case 500:
       default:
         final errorBody = ErrorBody.fromJson(response.jsonBodyPure);
+        if(errorBody.message.contains('not confirmed')){
+          startConfirmCodeAccount();
+        }
         return '${errorBody.message}\n${errorBody.errors.join('\n')}\n ${response.statusCode}';
     }
   }

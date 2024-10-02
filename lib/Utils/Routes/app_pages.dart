@@ -152,7 +152,6 @@ class AppPages {
         name: AppRoutes.chatScreen,
         page: () {
           sl<AnalyticService>().screenView(name: 'chat');
-          Get.context?.read<RoomsCubit>().getChatRooms(false);
           return const RoomsScreen();
         },
       ),

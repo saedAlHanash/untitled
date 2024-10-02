@@ -2,6 +2,7 @@ import 'package:fitness_storm/core/api_manager/api_url.dart';
 import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/util/firebase_analytics_service.dart';
+import 'package:fitness_storm/core/util/shared_preferences.dart';
 import 'package:fitness_storm/features/auth/data/response/login_response.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
@@ -29,17 +30,22 @@ class SignupCubit extends Cubit<SignupInitial> {
       showErrorFromApi(state);
     } else {
       emit(state.copyWith(statuses: CubitStatuses.done, result: pair.first));
-     sl<AnalyticService>().signup(request: state.request);
+      sl<AnalyticService>().signup(request: state.request);
     }
   }
 
   Future<Pair<bool?, String?>> _signupApi() async {
-    final response = await APIService().callApi(type: ApiType.post,
+    final response = await APIService().callApi(
+      type: ApiType.post,
       url: PostUrl.signup,
       body: state.request.toJson(),
     );
 
     if (response.statusCode.success) {
+      await AppSharedPreference.cacheEmail(
+        state.request.phoneOrEmail,
+        EmailType.confirm,
+      );
       await AppProvider.cashLoginData(
         LoginData.fromJson(response.jsonBody),
         userType: UserType.user,

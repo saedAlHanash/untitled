@@ -161,6 +161,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("خطأ في الاتصال"),
         "contact": MessageLookupByLibrary.simpleMessage("اتصل بنا"),
         "contactUs": MessageLookupByLibrary.simpleMessage("اتصل بنا"),
+        "continueConfirmOtpCode":
+            MessageLookupByLibrary.simpleMessage("متابعة تأكيد الرمز"),
         "continueRestPassword": MessageLookupByLibrary.simpleMessage(
             "متابعة إعادة تعيين كلمة المرور "),
         "continueSignUp":

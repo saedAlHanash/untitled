@@ -38,11 +38,7 @@ class ConfirmCodeCubit extends Cubit<ConfirmCodeInitial> {
 
     if (response.statusCode.success) {
       final pair = Pair(true, null);
-
-      await AppProvider.cashSetConfirmAccount();
-
-      await AppSharedPreference.removePhoneOrEmail();
-
+      await AppProvider.confirmAccountInCache();
       return pair;
     } else {
       return response.getPairError;

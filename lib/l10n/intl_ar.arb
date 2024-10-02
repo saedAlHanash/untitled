@@ -570,5 +570,6 @@
     "needSubscribeToThisPlan": "يجب الإشتراك بهذا البرنامج",
     "trainingType": "نوع التدريب",
     "trainingLeve": "مستوى التدريب",
-  "continueRestPassword": "متابعة إعادة تعيين كلمة المرور "
+  "continueRestPassword": "متابعة إعادة تعيين كلمة المرور ",
+  "continueConfirmOtpCode": "متابعة تأكيد الرمز"
 }

@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:fitness_storm/core/app/app_provider.dart';
+import 'package:fitness_storm/core/util/shared_preferences.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -36,7 +37,7 @@ class SplashController extends GetxController {
         return;
       }
 
-      if (AppProvider.token.isEmpty) {
+      if (!AppProvider.isLogin) {
         startLogin();
         return;
       }

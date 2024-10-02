@@ -20,7 +20,7 @@ import '../util/snack_bar_message.dart';
 import 'app_widget.dart';
 
 class AppProvider {
-  static LoginData _loginData = AppSharedPreference.loginDate;
+  static LoginData _loginData = AppSharedPreference.getLoginDate;
 
   static UserType _userType = AppSharedPreference.getUserType;
 
@@ -46,6 +46,8 @@ class AppProvider {
     return _loginData.accessToken;
   }
 
+  static bool get isLogin => token.isNotEmpty && isConfirmed;
+
   static String get refreshToken {
     return _loginData.refreshToken;
   }
@@ -59,24 +61,22 @@ class AppProvider {
   //endregion
 
   static _refreshLoginData() {
-    _loginData = AppSharedPreference.loginDate;
+    _loginData = AppSharedPreference.getLoginDate;
     _userType = AppSharedPreference.getUserType;
   }
 
   static cashLoginData(LoginData data,
       {UserType? userType, bool refreshToken = false}) async {
-
     await AppSharedPreference.cashMyId(data.id);
     await AppSharedPreference.cashLoginData(data);
     await AppSharedPreference.cashUserType(userType);
-    if (!refreshToken) {
+    if (!refreshToken&&data.isConfirmed) {
       ctx!.read<ProfileCubit>().getProfile(newData: true);
     }
     _refreshLoginData();
   }
 
   static Future<void> cashProfile(Profile data) async {
-
     await AppSharedPreference.cashProfile(data);
 
     await AppSharedPreference.cashMyId(data.id);
@@ -86,14 +86,15 @@ class AppProvider {
     await ChatServiceCore.updateChatUser(data);
   }
 
-  static cashSetConfirmAccount() async {
+  static confirmAccountInCache() async {
     await AppSharedPreference.cashLoginData(_loginData.copyWith(isConfirmed: true));
+    await AppSharedPreference.removeEmail();
     _refreshLoginData();
   }
 
   static Future<void> logout() async {
     await AppSharedPreference.logout();
-    _loginData = AppSharedPreference.loginDate;
+    _loginData = AppSharedPreference.getLoginDate;
     await ChatServiceCore.logoutChatUser();
     _myId = null;
     startLogin();

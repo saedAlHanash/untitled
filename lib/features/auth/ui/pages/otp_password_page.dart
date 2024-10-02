@@ -33,7 +33,7 @@ class _OtpPasswordPageState extends State<OtpPasswordPage> {
   void initState() {
     confirmCodeCubit = context.read<OtpPasswordCubit>();
     resendCodeCubit = context.read<ResendCodeCubit>();
-    confirmCodeCubit.setPhoneOrEmail = AppSharedPreference.getPhoneOrEmailPassword;
+    confirmCodeCubit.setPhoneOrEmail = AppSharedPreference.getRestPassEmail;
     super.initState();
   }
 
@@ -60,7 +60,7 @@ class _OtpPasswordPageState extends State<OtpPasswordPage> {
         appBar: AppBarWidget(titleText: S.of(context).forgetPassword),
         bottomNavigationBar: TextButton(
           onPressed: () {
-            AppSharedPreference.removePhoneOrEmail();
+            AppSharedPreference.removeEmail();
             Navigator.pushNamed(context, RouteName.login);
           },
           child: DrawableText(
@@ -92,7 +92,7 @@ class _OtpPasswordPageState extends State<OtpPasswordPage> {
                 drawablePadding: 10.0.w,
                 drawableEnd: TextButton(
                   onPressed: () {
-                    if (AppSharedPreference.getPhoneOrEmailPassword.isEmpty) {
+                    if (!AppSharedPreference.haveConfirm) {
                       Navigator.pushReplacementNamed(context, RouteName.login);
                       return;
                     }
@@ -121,7 +121,7 @@ class _OtpPasswordPageState extends State<OtpPasswordPage> {
                   return MyButton(
                     text: S.of(context).verify,
                     onTap: () {
-                      if (AppSharedPreference.getPhoneOrEmailPassword.isEmpty) {
+                      if (!AppSharedPreference.haveConfirm) {
                         Navigator.pushReplacementNamed(context, RouteName.login);
                         return;
                       }

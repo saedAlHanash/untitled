@@ -60,7 +60,7 @@ class _SignupPageState extends State<SignupPage> {
                 if (AppProvider.isConfirmed) {
                   startHome();
                 } else {
-                  startConfirmCodeAccount(context);
+                  startConfirmCodeAccount();
                 }
               },
             ),

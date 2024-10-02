@@ -1,7 +1,7 @@
 import '../../generated/l10n.dart';
 
 
-enum ToScreen { non, confirmCode, policy, main }
+enum EmailType { password, confirm}
 
 enum AttachmentType { image, youtube, video, d3 }
 
@@ -151,13 +151,6 @@ enum TrainingLocationTypeEnum {
   }
 }
 
-//TrainingType : ["Weightlifting" , "HIIT training" , "Strength training" ,"Functional training" , "Mobility training" ,"Sports training" , "Dynamic training" , "Body building" ,"Prenatal training" , "Hands-free"] array
-// ————————————————————————-
-// training_location_type : ["home","gym"] array
-// ————————————————————————-
-// training_level : ["Advanced" , "Intermediate" ,"Beginner"] array
-// ————————————————————————-
-// total_weeks : string
 enum ApiType {
   get,
   post,

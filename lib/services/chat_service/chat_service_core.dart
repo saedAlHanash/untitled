@@ -117,7 +117,9 @@ class ChatServiceCore {
     if (AppProvider.myId.isEmpty) return false;
     if (AppSharedPreference.getUserType == UserType.guest) return false;
     try {
+
       if (profile.id == 0) return false;
+
       final json = types.User(
         id: profile.id.toString(),
         firstName: profile.name,
@@ -133,6 +135,7 @@ class ChatServiceCore {
           .collection('users')
           .doc(AppProvider.myId)
           .update(json);
+
       return true;
     } catch (e) {
       loggerObject.e(e);

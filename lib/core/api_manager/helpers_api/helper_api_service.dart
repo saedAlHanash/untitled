@@ -6,8 +6,6 @@ import '../../strings/enum_manager.dart';
 import '../api_url.dart';
 import 'log_api.dart';
 
-DateTime? serverDateTime;
-
 const connectionTimeOut = Duration(seconds: 40);
 
 final noInternet = http.Response('No Internet', 481);

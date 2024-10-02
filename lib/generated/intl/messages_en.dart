@@ -165,6 +165,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Connection request timeout"),
         "contact": MessageLookupByLibrary.simpleMessage("Contact Us"),
         "contactUs": MessageLookupByLibrary.simpleMessage("Contact Us"),
+        "continueConfirmOtpCode":
+            MessageLookupByLibrary.simpleMessage("Continue confirm OTP code"),
         "continueRestPassword":
             MessageLookupByLibrary.simpleMessage("Continue rest password"),
         "continueSignUp":

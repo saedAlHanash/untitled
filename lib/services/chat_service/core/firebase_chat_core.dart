@@ -328,6 +328,7 @@ class FirebaseChatCore {
         .update(
       {
         'latestSeen${AppProvider.myId}': FieldValue.serverTimestamp(),
+        'updatedAt': FieldValue.serverTimestamp(),
       },
     );
   }
@@ -351,7 +352,7 @@ class FirebaseChatCore {
   }
 
   /// Updates a room in the Firestore. Accepts any room.
-  /// Room will probably be taken from the [rooms] stream.
+
   void updateRoom(types.Room room) async {
     final roomMap = room.toJson();
     roomMap.removeWhere((key, value) =>

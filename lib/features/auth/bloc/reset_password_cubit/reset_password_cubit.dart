@@ -26,7 +26,7 @@ class ResetPasswordCubit extends Cubit<ResetPasswordInitial> {
       emit(state.copyWith(statuses: CubitStatuses.error, error: pair.second));
       showErrorFromApi(state);
     } else {
-      AppSharedPreference.cashRestPassEmail('');
+
       await _resetPassword(token: pair.first!);
     }
   }
@@ -38,7 +38,7 @@ class ResetPasswordCubit extends Cubit<ResetPasswordInitial> {
       emit(state.copyWith(statuses: CubitStatuses.error, error: pair.second));
       showErrorFromApi(state);
     } else {
-      AppSharedPreference.cashRestPassEmail('');
+     await AppSharedPreference.removeEmail();
       emit(state.copyWith(statuses: CubitStatuses.done, result: pair.first));
     }
   }

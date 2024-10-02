@@ -6,6 +6,7 @@ import 'package:fitness_storm/core/api_manager/api_url.dart';
 import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
+import 'package:intl/intl.dart';
 import 'package:logger/logger.dart';
 
 import '../injection/injection_container.dart';
@@ -155,6 +156,22 @@ class APIService {
     logResponse(url: url, response: response, type: ApiType.post);
 
     return response;
+  }
+
+
+
+  Future<DateTime> get getServerDateTime async{
+
+    final response = await http.get(Uri.https(baseUrl));
+
+    final dateString  = response.headers['date']??'';
+
+    // Define the format that matches the date string
+    final  format = DateFormat("EEE, dd MMM yyyy HH:mm:ss 'GMT'", 'en_US');
+
+    // Parse the string to DateTime
+    final  parsedDate = format.parseUtc(dateString);
+    return parsedDate;
   }
 }
 

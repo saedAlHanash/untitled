@@ -5639,6 +5639,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Continue confirm OTP code`
+  String get continueConfirmOtpCode {
+    return Intl.message(
+      'Continue confirm OTP code',
+      name: 'continueConfirmOtpCode',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

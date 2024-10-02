@@ -19,7 +19,7 @@ class RoomsCubit extends MCubit<RoomsInitial> {
   String get nameCache => 'rooms';
 
   @override
-  String get filter => state.filter;
+  String get filter => AppProvider.myId;
 
   Future<void> getChatRooms(bool isAdmen) async {
     if (AppProvider.myId.isEmpty) return;
@@ -32,7 +32,7 @@ class RoomsCubit extends MCubit<RoomsInitial> {
   }
 
   /// Returns a stream of messages from Firebase for a given room.
-  void rooms() {
+  Future<void> rooms() async {
     late final Query<Map<String, dynamic>> query;
 
     query = FirebaseFirestore.instance
@@ -48,12 +48,28 @@ class RoomsCubit extends MCubit<RoomsInitial> {
 
     loggerObject.i('requested get room ${state.result.lastOrNull?.updatedAt ?? 0}');
 
+    var latestUpdate = state.result.firstOrNull?.updatedAt ?? 0;
+
+    await state.stream?.cancel();
+
     final stream = query.snapshots().listen((snapshot) async {
       final listRooms = await processRoomsQuery(
         FirebaseFirestore.instance,
         snapshot,
         'users',
       );
+
+      if (listRooms.isEmpty) return;
+
+      final latestUpdateMessageFromSnap = listRooms
+          .reduce((c, n) => (c.updatedAt ?? 0) > (n.updatedAt ?? 0) ? c : n)
+          .updatedAt;
+
+      listRooms.removeWhere((e) => ((e.updatedAt ?? 0) <= latestUpdate));
+
+      latestUpdate = latestUpdateMessageFromSnap ?? 0;
+
+      if (listRooms.isEmpty) return;
 
       await saveData(listRooms, clearId: false);
 

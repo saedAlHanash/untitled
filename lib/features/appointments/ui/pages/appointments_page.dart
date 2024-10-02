@@ -143,12 +143,12 @@ class _ItemAppointment extends StatelessWidget {
         ListTile(
           //TODO: change this
           onTap: () {
+            startVideoCall(item);
             if (!item.isNow) return;
             if (item.videoCallToken.isEmpty) {
               context.read<BookedAppointmentsCubit>().getBookedAppointments();
               return;
             }
-            startVideoCall(item);
           },
           trailing: item.isNow
               ? Container(

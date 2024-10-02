@@ -34,7 +34,7 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordInitial> {
         url: PostUrl.forgetPassword, body: {'email': state.request.phoneOrEmail});
 
     if (response.statusCode.success) {
-      await AppSharedPreference.cashRestPassEmail(state.request.phoneOrEmail);
+      await AppSharedPreference.cacheEmail(state.request.phoneOrEmail,EmailType.password);
       return Pair(true, null);
     } else {
       return response.getPairError;
