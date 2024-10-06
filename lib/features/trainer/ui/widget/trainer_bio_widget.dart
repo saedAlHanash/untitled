@@ -120,7 +120,7 @@ class TrainerBioWidget extends StatelessWidget {
           ),
         ),
         Container(
-          color: AppColorManager.topBarColor,
+          color: AppColorManager.threadColor,
           padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 20.0).r,
           child: DrawableText(
             text: trainer.bio,

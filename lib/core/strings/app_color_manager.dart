@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 class AppColorManager {
-  static const mainColor = Color(0xFF74569D);
-  static const mainColorDark = Color(0xFF604781);
-  static const topBarColor = Color(0xFF9F86C1);
+  static const mainColor = Color(0xFF6340D6);
+  static const mainColorDark = Color(0xFFFF00D8);
+  static const threadColor = Color(0xFFF9582D);
 
-  static const mainColorLight = Color(0xFF2CADB6);
-  static const textColor = Color(0xFF606060);
+  static const mainColorLight = Color(0xFF10D1BD);
+  static const textColor = Color(0xFF191919);
   static const black = Color(0xFF000000);
   static const ampere = Color(0xFFFFC107);
   static const grey = Color(0xFF848484);

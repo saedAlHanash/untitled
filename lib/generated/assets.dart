@@ -15,7 +15,6 @@ class Assets {
   static const String imagesActiveFav = 'asset/Images/active_fav.svg';
   static const String imagesAuth1 = 'asset/Images/auth1.png';
   static const String imagesBookmark = 'asset/Images/bookmark.svg';
-  static const String imagesBookmarkSVG = 'asset/Images/bookmarkSVG.svg';
   static const String imagesCalender = 'asset/Images/calender.svg';
   static const String imagesCallCenter = 'asset/Images/call_center.svg';
   static const String imagesCancel = 'asset/Images/cancel.svg';
@@ -36,6 +35,7 @@ class Assets {
   static const String imagesFs2 = 'asset/Images/fs2.png';
   static const String imagesFullStar = 'asset/Images/full_star.svg';
   static const String imagesGoogleSVG = 'asset/Images/googleSVG.svg';
+  static const String imagesHome = 'asset/Images/home.svg';
   static const String imagesHomeSVG = 'asset/Images/homeSVG.svg';
   static const String imagesImageFile = 'asset/Images/image_file.svg';
   static const String imagesLanguage = 'asset/Images/language.svg';
@@ -43,6 +43,7 @@ class Assets {
   static const String imagesLogo = 'asset/Images/logo.png';
   static const String imagesLogoLight = 'asset/Images/logo_light.png';
   static const String imagesLogout = 'asset/Images/logout.svg';
+  static const String imagesMenu = 'asset/Images/menu.svg';
   static const String imagesNewLogo = 'asset/Images/new_logo.png';
   static const String imagesNoteMe = 'asset/Images/note_me.svg';
   static const String imagesNotificationSVG = 'asset/Images/notificationSVG.svg';
@@ -52,6 +53,7 @@ class Assets {
   static const String imagesProfileInfo = 'asset/Images/profile_info.svg';
   static const String imagesRight = 'asset/Images/right.svg';
   static const String imagesScoreSVG = 'asset/Images/scoreSVG.svg';
+  static const String imagesSearch = 'asset/Images/search.svg';
   static const String imagesSearchBar = 'asset/Images/search_bar.svg';
   static const String imagesSearchSVG = 'asset/Images/searchSVG.svg';
   static const String imagesSend = 'asset/Images/send.svg';

@@ -12,6 +12,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
     this.titleText,
     this.elevation,
     this.zeroHeight,
+    this.leading,
     this.actions,
     this.title,
     this.color,
@@ -21,6 +22,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
 
   final String? titleText;
   final Widget? title;
+  final Widget? leading;
   final Color? color;
   final bool? zeroHeight;
   final double? elevation;
@@ -46,11 +48,12 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
               color: Colors.white,
               fontFamily: FontManager.cairoBold.name,
             ),
-        leading: Navigator.canPop(context)
-            ? BackBtnWidget(
-                appBarColor: color ?? AppColorManager.mainColor,
-              )
-            : null,
+        leading: leading ??
+            (Navigator.canPop(context)
+                ? BackBtnWidget(
+                    appBarColor: color ?? AppColorManager.mainColor,
+                  )
+                : null),
         actions: actions,
         elevation: elevation ?? 0.0,
         shadowColor: AppColorManager.black.withOpacity(0.28),
@@ -80,7 +83,7 @@ class BackBtnWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: () {
-        if(!canPop){
+        if (!canPop) {
           onPopInvoked?.call(canPop);
           return;
         }

@@ -100,6 +100,8 @@ dependencies:
   fluttertoast: ^8.2.8
   win32: ^5.5.4
   archive: ^3.6.1
+  carousel_slider:
+  curved_navigation_bar:
 #  appsflyer_sdk: ^6.14.3
 #  ------------------------------------------------
 

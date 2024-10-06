@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_multi_type/circle_image_widget.dart';
 import 'package:image_multi_type/image_multi_type.dart';
+import 'package:image_multi_type/round_image_widget.dart';
 
 import '../../../../Widgets/custom_chip.dart';
 import '../../../../core/models/plan_model.dart';
@@ -31,7 +32,7 @@ class SeeAllListItem extends StatelessWidget {
           Stack(
             alignment: AlignmentDirectional.topEnd,
             children: [
-              ImageMultiType(
+              RoundImageWidget(
                 url: plan.image,
                 fit: BoxFit.fitWidth,
                 height: 160.0.h,
@@ -43,55 +44,37 @@ class SeeAllListItem extends StatelessWidget {
               )
             ],
           ),
-          10.0.verticalSpace,
-          ListTile(
-            leading: CircleImageWidget(
-              url: plan.trainer.image,
-              size: 70.0.r,
+          SizedBox(
+            width: 1.0.sw,
+            child: ListTile(
+              leading: RoundImageWidget(
+                url: plan.trainer.image,
+                radios: 200.0,
+                height: 50.0.r,
+                width: 50.0.r,
+              ),
+              title: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  DrawableText(
+                    text: plan.name,
+                    fontFamily: FontManager.cairoBold.name,
+                    fontWeight: FontWeight.bold,
+                    size: 18.0.sp,
+                  ),
+                  DrawableText(
+                    text: plan.trainer.name,
+                    color: AppColorManager.mainColorLight,
+                  ),
+                  DrawableText(
+                    text: '${plan.totalWeeks} ${S.of(context).weeks}',
+                    color: Colors.grey,
+                  ),
+                ],
+              ),
             ),
-            title: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                DrawableText(
-                  text: plan.name,
-                  fontFamily: FontManager.cairoBold.name,
-                  fontWeight: FontWeight.bold,
-                  size: 18.0.sp,
-                ),
-                DrawableText(
-                  text: plan.trainer.name,
-                  color: AppColorManager.mainColorLight,
-                ),
-                DrawableText(
-                  text: '${plan.totalWeeks} ${S.of(context).weeks}',
-                  color: Colors.grey,
-                ),
-              ],
-            ),
-            // subtitle: SizedBox(
-            //   width: 1.0.sw,
-            //   height: 50.0.h,
-            //   child: ListView(
-            //     scrollDirection: Axis.horizontal,
-            //     shrinkWrap: true,
-            //     children: [
-            //       Row(
-            //           children: plan.trainingLocation
-            //               .map((e) => CustomChip(text: e.type))
-            //               .toList()),
-            //       Row(
-            //           children: plan.level
-            //               .map((e) => CustomChip(text: e.type))
-            //               .toList()),
-            //       Row(
-            //           children: plan.trainingType
-            //               .map((e) => CustomChip(text: e.type))
-            //               .toList()),
-            //     ],
-            //   ),
-            // ),
           ),
-          10.0.verticalSpace,
+          20.0.verticalSpace,
         ],
       ),
     );

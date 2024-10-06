@@ -36,7 +36,7 @@ class PlansCubit extends MCubit<PlansInitial> {
     );
 
     if (response.statusCode.success) {
-      return Pair(Plans.fromJson(response.jsonBody).data, null);
+      return Pair(Plans.fromJson(response.jsonBodyPure).data, null);
     } else {
       return response.getPairError;
     }

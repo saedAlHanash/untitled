@@ -61,6 +61,7 @@ import '../features/plans/bloc/plan_cubit/plan_cubit.dart';
 import '../features/plans/bloc/plan_workout_cubit/plan_workout_cubit.dart';
 import '../features/plans/bloc/subscribe_plan_cubit/subscribe_plan_cubit.dart';
 import '../features/plans/data/response/plan_workout_response.dart';
+import '../features/plans/ui/pages/plans_page.dart';
 import '../features/profile/ui/pages/pdf_viewer_page.dart';
 import '../features/profile/ui/pages/update_profile_page.dart';
 import '../features/trainer/ui/pages/available_time_page.dart';
@@ -481,6 +482,19 @@ void startTrainersPage() {
   final Widget page = MultiBlocProvider(
     providers: providers,
     child: const TrainersPage(),
+  );
+  Get.to(() => page);
+  sl<AnalyticService>().screenView(name: 'your_trainer');
+}
+
+void startPlansPage() {
+  final providers = [
+    BlocProvider(create: (_) => sl<TrainersCubit>()),
+  ];
+
+  final Widget page = MultiBlocProvider(
+    providers: providers,
+    child: const PlansPage(),
   );
   Get.to(() => page);
   sl<AnalyticService>().screenView(name: 'your_trainer');
