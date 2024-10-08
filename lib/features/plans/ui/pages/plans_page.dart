@@ -42,7 +42,9 @@ class _PlansPageState extends State<PlansPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarWidget(titleText: S.of(context).ourPlans),
+      appBar: AppBarWidget(titleText: S
+          .of(context)
+          .ourPlans),
       body: BlocBuilder<PlansCubit, PlansInitial>(
         builder: (context, state) {
           return Column(
@@ -54,7 +56,8 @@ class _PlansPageState extends State<PlansPage> {
                     context.read<PlansCubit>().getPlans(newData: true);
                   },
                   child: ListView.builder(
-                    padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 10.0).r,
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0)
+                        .r,
                     itemCount: state.result.length,
                     itemBuilder: (context, i) {
                       return SeeAllListItem(

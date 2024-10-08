@@ -43,9 +43,9 @@ class _BookPrivateSessionScreenState extends State<BookPrivateSessionScreen> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => MyCustomeWebPage(
+            builder: (context) => MyCustomWebPage(
               urlWebPage: state.result,
-              subscruptionController: Get.find<SubscruptionController>(),
+
             ),
           ),
         );

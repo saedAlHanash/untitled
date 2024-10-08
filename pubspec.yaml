@@ -19,7 +19,7 @@ dependencies:
   hive_flutter: ^1.1.0
   table_calendar: ^3.1.2
   smooth_page_indicator: ^1.2.0+3
-  dio: ^5.6.0
+  dio: ^5.7.0
   group_button: ^5.3.4
   bloc: ^8.1.4
   flutter_bloc: ^8.1.6
@@ -32,8 +32,8 @@ dependencies:
   google_sign_in: ^6.2.1
   agora_rtc_engine: ^6.3.2
   permission_handler: ^11.3.1
-  firebase_auth: ^5.1.4
-  firebase_analytics: ^11.2.1
+  firebase_auth: ^5.3.1
+  firebase_analytics: ^11.3.3
   get: ^4.6.6
   logger: ^2.4.0
   pull_to_refresh: ^2.0.0
@@ -41,30 +41,31 @@ dependencies:
   pinput: ^5.0.0
   screen_protector: ^1.4.2+1
   lottie: ^3.1.2
-  url_launcher: ^6.3.0
+  url_launcher: ^6.3.1
   percent_indicator: ^4.2.3
   adaptive_scrollbar: ^2.1.2
-  firebase_messaging: ^15.1.1
-  firebase_core: ^3.4.1
-  flutter_local_notifications: ^17.2.2
-  cached_network_image: ^3.3.1
-  quiver: ^3.1.0
-  webview_flutter: ^3.0.4
+  firebase_messaging: ^15.1.3
+  firebase_core: ^3.6.0
+  flutter_local_notifications: ^17.2.3
+  cached_network_image: ^3.4.1
+  quiver: ^3.2.2
+  webview_flutter: ^4.9.0
 
   shared_preferences: ^2.3.2
-  file_picker:
-  firebase_storage: ^12.3.0
+  file_picker: ^8.1.2
+  firebase_storage: ^12.3.3
   flutter_chat_types: ^3.6.2
-  cloud_firestore: ^5.4.1
+  cloud_firestore: ^5.4.4
   flutter_chat_ui: ^1.6.15
   image_picker: ^1.1.2
   mime: ^1.0.6
   collection: ^1.18.0
   open_filex: ^4.5.0
   path_provider: ^2.1.4
-  flutter_meta_sdk: ^1.0.2
+#  flutter_meta_sdk: ^1.0.2
   intl_phone_number_input: ^0.7.4
-  flutter_inappwebview: ^6.0.0
+  flutter_inappwebview: ^6.1.4
+  webview_flutter_android: 3.16.9
 
   #---------------- saed ----------------------
 
@@ -87,8 +88,8 @@ dependencies:
   cupertino_icons: ^1.0.8
   day_night_time_picker: ^1.3.1
   equatable: ^2.0.5
-  syncfusion_flutter_datepicker: ^26.2.11
-  get_it: ^7.7.0
+  syncfusion_flutter_datepicker: ^27.1.52
+  get_it: ^8.0.0
   internet_connection_checker:
   http: ^1.2.2
   flutter_screenutil: ^5.9.3
@@ -100,8 +101,8 @@ dependencies:
   fluttertoast: ^8.2.8
   win32: ^5.5.4
   archive: ^3.6.1
-  carousel_slider:
-  curved_navigation_bar:
+  carousel_slider: ^5.0.0
+  curved_navigation_bar: ^1.0.6
 #  appsflyer_sdk: ^6.14.3
 #  ------------------------------------------------
 

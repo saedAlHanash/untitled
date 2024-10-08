@@ -67,4 +67,5 @@ class DefaultFirebaseOptions {
     iosClientId: '644714333877-120vrkjeaqnlmihnacereairhcv9i2ih.apps.googleusercontent.com',
     iosBundleId: 'com.chi.fitnessStorm',
   );
+
 }

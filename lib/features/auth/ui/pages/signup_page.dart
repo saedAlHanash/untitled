@@ -159,7 +159,7 @@ class _SignupPageState extends State<SignupPage> {
                                 size: 12.0.sp,
                                 text: S.of(context).termsOfConditions,
                                 color: Colors.white,
-                                underLine: true,
+
                               ),
                             ),
                             DrawableText(
@@ -177,7 +177,7 @@ class _SignupPageState extends State<SignupPage> {
                                 size: 12.0.sp,
                                 text: S.of(context).privacyPolicy,
                                 color: Colors.white,
-                                underLine: true,
+
                               ),
                             ),
                           ],

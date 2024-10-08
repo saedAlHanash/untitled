@@ -50,9 +50,9 @@ class _CreateBundlePageState extends State<CreateBundlePage> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => MyCustomeWebPage(
+            builder: (context) => MyCustomWebPage(
               urlWebPage: state.result,
-              subscruptionController: Get.find<SubscruptionController>(),
+
             ),
           ),
         );

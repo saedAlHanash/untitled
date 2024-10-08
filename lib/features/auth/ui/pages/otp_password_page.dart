@@ -65,7 +65,6 @@ class _OtpPasswordPageState extends State<OtpPasswordPage> {
           },
           child: DrawableText(
             size: 18.0.sp,
-            underLine: true,
             fontFamily: FontManager.cairoBold.name,
             text: '${S.of(context).login}.',
           ),
@@ -75,7 +74,7 @@ class _OtpPasswordPageState extends State<OtpPasswordPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              DrawableText.header(text: otp),
+              DrawableText(text: otp),
               123.0.verticalSpace,
               DrawableText(text: S.of(context).enterOTP),
               35.0.verticalSpace,
@@ -105,7 +104,7 @@ class _OtpPasswordPageState extends State<OtpPasswordPage> {
                       }
                       return DrawableText(
                         text: S.of(context).resend,
-                        underLine: true,
+
                         fontFamily: FontManager.cairoBold.name,
                       );
                     },

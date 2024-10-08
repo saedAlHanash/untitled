@@ -125,9 +125,8 @@ class SubscriptionScreen extends GetView<SubscruptionController> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => MyCustomeWebPage(
+            builder: (context) => MyCustomWebPage(
               urlWebPage: uri,
-              subscruptionController: controller,
             ),
           ),
         ).then((value) async {
