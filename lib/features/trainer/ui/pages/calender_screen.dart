@@ -110,7 +110,7 @@ class _ItemAvailableTimeState extends State<_ItemAvailableTime> {
                             drawablePadding: 10.0.w,
                             drawableStart: ImageMultiType(
                               url: Icons.timer_off_outlined,
-                              color: AppColorManager.mainColorLight,
+                              color: AppColorManager.secondColor,
                               width: 18.0.r,
                             ),
                           ),

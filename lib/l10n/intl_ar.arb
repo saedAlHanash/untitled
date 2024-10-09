@@ -570,6 +570,12 @@
     "needSubscribeToThisPlan": "يجب الإشتراك بهذا البرنامج",
     "trainingType": "نوع التدريب",
     "trainingLeve": "مستوى التدريب",
-  "continueRestPassword": "متابعة إعادة تعيين كلمة المرور ",
-  "continueConfirmOtpCode": "متابعة تأكيد الرمز"
+    "continueRestPassword": "متابعة إعادة تعيين كلمة المرور ",
+    "continueConfirmOtpCode": "متابعة تأكيد الرمز",
+    "start": "ابدأ",
+    "welcomeTo": "أهلا بك في",
+    "fitnessStorm": "فتنس ستورم",
+    "yourPersonalFitnessCompanion": "رفيق اللياقة البدنية الشخصي الخاص بك",
+    "getUnlimitedAccessToAllFitnessnPrograms": "احصل على وصول غير محدود إلى جميع برامج اللياقة\n البدنية",
+    "getFitAnytimeAnywherentrackYourProgressEffortlesslynaccessPersonalizedWorkouts": "احصل على لياقة بدنية في أي وقت وفي أي مكان\nتتبع تقدمك بسهولة\nالوصول إلى التدريبات المخصصة"
 }

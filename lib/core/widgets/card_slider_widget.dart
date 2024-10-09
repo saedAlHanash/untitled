@@ -25,7 +25,6 @@ class CardSlider extends StatelessWidget {
 
     return CarouselSlider(
       items: images,
-
       options: CarouselOptions(
         enableInfiniteScroll: false,
         autoPlayInterval: const Duration(seconds: 7),
@@ -80,11 +79,11 @@ class IndicatorSliderWidgetState extends State<IndicatorSliderWidget> {
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, i) {
           return AnimatedContainer(
-            width: 7.r,
+            width: selected == i ? 24.0.r : 7.r,
             height: 7.r,
             decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: AppColorManager.mainColor.withOpacity(selected == i ? 1 : 0.2),
+              borderRadius: BorderRadius.circular(12.0),
+              color: AppColorManager.whit.withOpacity(selected == i ? 1 : 0.2),
             ),
             duration: const Duration(milliseconds: 150),
           );

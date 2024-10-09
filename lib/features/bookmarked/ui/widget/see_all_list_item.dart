@@ -64,7 +64,7 @@ class SeeAllListItem extends StatelessWidget {
                   ),
                   DrawableText(
                     text: plan.trainer.name,
-                    color: AppColorManager.mainColorLight,
+                    color: AppColorManager.secondColor,
                   ),
                   DrawableText(
                     text: '${plan.totalWeeks} ${S.of(context).weeks}',

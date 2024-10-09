@@ -192,7 +192,7 @@ class _SignupPageState extends State<SignupPage> {
                         }
                         return MyButtonRound(
                           text: S.of(context).signUp,
-                          color: AppColorManager.mainColorLight,
+                          color: AppColorManager.secondColor,
                           onTap: () {
                             if (!_formKey.currentState!.validate()) return;
                             signupCubit.signup();

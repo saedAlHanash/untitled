@@ -97,7 +97,7 @@ class ContinueTrainingWidget extends GetView<HomeScreenController> {
                           DrawableText(
                             fontWeight: FontWeight.bold,
                             text: item.name ?? '-',
-                            color: AppColorManager.mainColorLight,
+                            color: AppColorManager.secondColor,
                           ),
                           DrawableText(
                             fontWeight: FontWeight.bold,

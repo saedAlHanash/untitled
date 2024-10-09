@@ -38,6 +38,11 @@ class Assets {
   static const String imagesHome = 'asset/Images/home.svg';
   static const String imagesHomeSVG = 'asset/Images/homeSVG.svg';
   static const String imagesImageFile = 'asset/Images/image_file.svg';
+  static const String imagesIntro1 = 'asset/Images/intro1.png';
+  static const String imagesIntro1Back = 'asset/Images/intro1_back.png';
+  static const String imagesIntro2 = 'asset/Images/intro2.png';
+  static const String imagesIntro3 = 'asset/Images/intro3.png';
+  static const String imagesIntro3Back = 'asset/Images/intro3_back.png';
   static const String imagesLanguage = 'asset/Images/language.svg';
   static const String imagesLeft = 'asset/Images/left.svg';
   static const String imagesLogo = 'asset/Images/logo.png';

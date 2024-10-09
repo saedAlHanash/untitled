@@ -277,6 +277,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "finishedThisDay":
             MessageLookupByLibrary.simpleMessage("لقد أنهيت تدريب هذا اليوم"),
         "firstName": MessageLookupByLibrary.simpleMessage("الاسم الأول"),
+        "fitnessStorm": MessageLookupByLibrary.simpleMessage("فتنس ستورم"),
         "fitnessStormMessage": MessageLookupByLibrary.simpleMessage(
             "Fitness Storm هو تطبيق مفعم بالحيوية يشجع الناس على ممارسة الرياضة في أي مكان وزمان والحصول على المظهر الذي طالما حلموا به. سواء كنت مبتدئا أو محترفا ، تمنحك Fitness Storm فرصة ذهبية للتدريب مع مدربين عالميين من خلال مقاطع فيديو تعليمية عالية الدقة خطوة بخطوة. انقاص وزنك ، وقم ببناء العضلات ، وحافظ على لياقتك بسهولة من خلال التدريبات الصحيحة والعديد من برامج التدريب الفعالة ، التي صممها خبراء اللياقة البدنية المفضلون لديك.  اشترك ، أجب عن بعض الأسئلة ، اشترك في أحد برامجنا لمدة 3 أشهر أو 6 أشهر أو 12 شهرا ودعنا نوصي بأفضل البرامج التي تناسبك. احصل على الإلهام مع مدربينا المذهلين ومارس التمارين يوميا من خلال تعليمات الفيديو عالية الدقة خطوة بخطوة. غير مقتنع بعد؟ لجعل كل دقيقة تتدرب فيها وتلعب وتتنافس - عد ، جلسة واحدة إلى جلسة واحدة سيتم تقديم برنامج فريد في عاصفة اللياقة البدنية. إذا كنت ترغب في اتباع نهج أكثر فردية لتحقيق أهداف إنقاص الوزن أو الصحة أو القوة أو الوقاية من الإصابات أو الأداء التي حددتها لنفسك ، فقد تم تصميم هذا البرنامج لك حيث يمكنك الحصول على مدرب شخصي / اختصاصي تغذية يركز على الوصول إلى أهدافك الفردية. حان الوقت لتكون أقوى وأكثر صحة وسعادة من أي وقت مضى مع Fitness Storm!"),
         "fitnessSurvey": MessageLookupByLibrary.simpleMessage("إحصائية بدنية"),
@@ -292,6 +293,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "functionalTraining":
             MessageLookupByLibrary.simpleMessage("تدريب وظيفي"),
         "gender": MessageLookupByLibrary.simpleMessage("الجنس"),
+        "getFitAnytimeAnywherentrackYourProgressEffortlesslynaccessPersonalizedWorkouts":
+            MessageLookupByLibrary.simpleMessage(
+                "احصل على لياقة بدنية في أي وقت وفي أي مكان\nتتبع تقدمك بسهولة\nالوصول إلى التدريبات المخصصة"),
+        "getUnlimitedAccessToAllFitnessnPrograms":
+            MessageLookupByLibrary.simpleMessage(
+                "احصل على وصول غير محدود إلى جميع برامج اللياقة\n البدنية"),
         "globalKeysReparent": MessageLookupByLibrary.simpleMessage(
             "تمثل الودجات التي تحتوي على مفاتيح عالمية شرائطها الفرعية عند نقلها من موقع واحد في الشجرة إلى موقع آخر في الشجرة. من أجل إعادة رسم خبرتها الفرعية، يجب أن تصل الأداة إلى موقعها الجديد في الشجرة في نفس إطار الرسوم المتحركة الذي تمت فيه إزالتها من موقعها القديم الشجرة."),
         "governor": MessageLookupByLibrary.simpleMessage("المحافظة"),
@@ -632,6 +639,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "sort": MessageLookupByLibrary.simpleMessage("تصنيف"),
         "sportsTraining": MessageLookupByLibrary.simpleMessage("تدريب رياضي"),
         "stSet": MessageLookupByLibrary.simpleMessage("st set"),
+        "start": MessageLookupByLibrary.simpleMessage("ابدأ"),
         "startPrivateSession":
             MessageLookupByLibrary.simpleMessage("ابدأ تدريبك الخاص"),
         "startSession": MessageLookupByLibrary.simpleMessage("بدأ الجلسة"),
@@ -744,6 +752,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "welcome": MessageLookupByLibrary.simpleMessage("مرحباّ"),
         "welcomeBack": MessageLookupByLibrary.simpleMessage("مرحبًا بعودتك!"),
         "welcomeMessage": MessageLookupByLibrary.simpleMessage("رسالة الترحيب"),
+        "welcomeTo": MessageLookupByLibrary.simpleMessage("أهلا بك في"),
         "whatAreYouSearchingFor":
             MessageLookupByLibrary.simpleMessage("ما الذي تبحث عنه ؟"),
         "whatIsFitnessStorm":
@@ -806,6 +815,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "yourLocation": MessageLookupByLibrary.simpleMessage("موقعك"),
         "yourName": MessageLookupByLibrary.simpleMessage("اسمك"),
         "yourOrder": MessageLookupByLibrary.simpleMessage("طلبك"),
+        "yourPersonalFitnessCompanion": MessageLookupByLibrary.simpleMessage(
+            "رفيق اللياقة البدنية الشخصي الخاص بك"),
         "yourPhone": MessageLookupByLibrary.simpleMessage("رقم هاتفك"),
         "yourSubscriptionToPlan":
             MessageLookupByLibrary.simpleMessage("سيتم إلغاء اشتراكك في خطة"),

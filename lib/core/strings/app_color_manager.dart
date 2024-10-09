@@ -5,7 +5,7 @@ class AppColorManager {
   static const mainColorDark = Color(0xFFFF00D8);
   static const threadColor = Color(0xFFF9582D);
 
-  static const mainColorLight = Color(0xFF10D1BD);
+  static const secondColor = Color(0xFF10D1BD);
   static const textColor = Color(0xFF191919);
   static const black = Color(0xFF000000);
   static const ampere = Color(0xFFFFC107);

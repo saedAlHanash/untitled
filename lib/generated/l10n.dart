@@ -5649,6 +5649,68 @@ class S {
       args: [],
     );
   }
+
+  /// `Start`
+  String get start {
+    return Intl.message(
+      'Start',
+      name: 'start',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Welcome To`
+  String get welcomeTo {
+    return Intl.message(
+      'Welcome To',
+      name: 'welcomeTo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Fitness Storm`
+  String get fitnessStorm {
+    return Intl.message(
+      'Fitness Storm',
+      name: 'fitnessStorm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your Personal Fitness Companion`
+  String get yourPersonalFitnessCompanion {
+    return Intl.message(
+      'Your Personal Fitness Companion',
+      name: 'yourPersonalFitnessCompanion',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Get Unlimited Access To All Fitness\n Programs`
+  String get getUnlimitedAccessToAllFitnessnPrograms {
+    return Intl.message(
+      'Get Unlimited Access To All Fitness\n Programs',
+      name: 'getUnlimitedAccessToAllFitnessnPrograms',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Get Fit Anytime, Anywhere\nTrack Your Progress Effortlessly\nAccess Personalized Workouts`
+  String
+      get getFitAnytimeAnywherentrackYourProgressEffortlesslynaccessPersonalizedWorkouts {
+    return Intl.message(
+      'Get Fit Anytime, Anywhere\nTrack Your Progress Effortlessly\nAccess Personalized Workouts',
+      name:
+          'getFitAnytimeAnywherentrackYourProgressEffortlesslynaccessPersonalizedWorkouts',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -44,7 +44,7 @@ class ItemMessage extends StatelessWidget {
                   },
                   textDirection: TextDirection.ltr,
                   linkStyle: TextStyle(
-                    color: AppColorManager.mainColorLight,
+                    color: AppColorManager.secondColor,
                     fontFamily: FontManager.cairoBold.name,
                     fontSize: 16.0.sp,
                   ),

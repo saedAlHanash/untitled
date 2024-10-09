@@ -122,7 +122,7 @@ class TrainerHeader extends StatelessWidget {
                             Expanded(
                               flex: 4,
                               child: MyButtonRound(
-                                color: AppColorManager.mainColorLight,
+                                color: AppColorManager.secondColor,
                                 enable:
                                     pair.second == PrivetSessionState.active,
                                 child: DrawableText(

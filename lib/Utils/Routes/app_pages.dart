@@ -30,6 +30,7 @@ import '../../core/injection/injection_container.dart';
 import '../../core/util/firebase_analytics_service.dart';
 import '../../features/fire_chat/rooms_bloc/rooms_cubit.dart';
 import '../../features/fire_chat/rooms_screen.dart';
+import '../../features/intro/ui/pages/intro_page.dart';
 
 part './app_routes.dart';
 
@@ -40,7 +41,7 @@ class AppPages {
         name: AppRoutes.splash,
         page: () {
           sl<AnalyticService>().screenView(name: 'splash');
-          return const Splash();
+          return const IntroPage();
         },
         binding: SplashBinding(),
       ),

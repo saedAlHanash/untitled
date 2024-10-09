@@ -81,7 +81,7 @@ class _PlanPageState extends State<PlanPage> {
               return SizedBox(
                 height: 30.0.r,
                 width: 30.0.r,
-                child: MyStyle.loadingWidget(color: AppColorManager.mainColorLight),
+                child: MyStyle.loadingWidget(color: AppColorManager.secondColor),
               );
             }
             return BlocBuilder<PlanCubit, PlanInitial>(
@@ -90,7 +90,7 @@ class _PlanPageState extends State<PlanPage> {
                   return SizedBox(
                     height: 30.0.r,
                     width: 30.0.r,
-                    child: MyStyle.loadingWidget(color: AppColorManager.mainColorLight),
+                    child: MyStyle.loadingWidget(color: AppColorManager.secondColor),
                   );
                 }
                 return (state.result.isActive ||
@@ -109,7 +109,7 @@ class _PlanPageState extends State<PlanPage> {
                               .read<SubscribePlanCubit>()
                               .subscribe(planId: state.result.id);
                         },
-                        buttonColor: AppColorManager.mainColorLight,
+                        buttonColor: AppColorManager.secondColor,
                         textColor: Colors.white,
                         padding: 0,
                         radius: 10,

@@ -78,7 +78,7 @@ class MyCheckboxWidget extends StatelessWidget {
                     fillColor: WidgetStateProperty.resolveWith<Color>(
                         (Set<WidgetState> states) {
                       if (states.contains(WidgetState.selected)) {
-                        return AppColorManager.mainColorLight;
+                        return AppColorManager.secondColor;
                       }
                       return AppColorManager.lightGrayEd;
                     }),

@@ -84,7 +84,7 @@ class ProfilePage extends StatelessWidget {
                           context.read<OpenRoomCubit>().openRoomCustomerService();
                         },
                         text: S.of(context).joinUsAsATrainer,
-                        color: AppColorManager.mainColorLight,
+                        color: AppColorManager.secondColor,
                       );
                     },
                   ),

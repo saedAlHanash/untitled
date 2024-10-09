@@ -149,7 +149,7 @@ class _ApplyPageState extends State<ApplyPage> {
                           return MyStyle.loadingWidget(color: Colors.white);
                         }
                         return MyButtonRound(
-                          color: AppColorManager.mainColorLight,
+                          color: AppColorManager.secondColor,
                           text: S.of(context).apply,
                           onTap: () {
                             if (!_formKey.currentState!.validate()) return;

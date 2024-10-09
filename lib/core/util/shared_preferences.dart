@@ -17,6 +17,7 @@ class AppSharedPreference {
   static const _isLoginToChatApp = '_23';
   static const _currentPlan = '22';
   static const _email = 'email';
+  static const _isShowIntro = 'isShowIntro';
 
   static SharedPreferences? _prefs;
 
@@ -124,4 +125,12 @@ class AppSharedPreference {
   }
 
  static bool get haveConfirm => getRestPassEmail.isNotEmpty || getConfirmEmail.isNotEmpty;
+
+  static Future<void> cashShowIntro() async {
+    await _prefs?.setBool(_isShowIntro, true);
+  }
+
+  static bool get isShowIntro {
+    return _prefs?.getBool(_isShowIntro) ?? false;
+  }
 }

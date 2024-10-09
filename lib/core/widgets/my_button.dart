@@ -47,13 +47,13 @@ class MyButton extends StatelessWidget {
 
     return SizedBox(
       width: width ?? .9.sw,
-      height: height ?? 56.0.h,
+      height: height ?? 40.0.h,
       child: ElevatedButton(
         style: ButtonStyle(
           shape: WidgetStatePropertyAll(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.all(
-                Radius.circular(radios ?? 15.0.r),
+                Radius.circular(radios ?? 8.0.r),
               ),
             ),
           ),

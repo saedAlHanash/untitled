@@ -119,7 +119,7 @@ class _ConfirmCodePageState extends State<ConfirmCodePage> {
                         return MyButtonRound(
                           width: 150.0.w,
                           text: S.of(context).verify,
-                          color: AppColorManager.mainColorLight,
+                          color: AppColorManager.secondColor,
                           onTap: () {
                             if (!_formKey.currentState!.validate()) return;
                             confirmCodeCubit.confirmCode();

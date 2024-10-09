@@ -120,7 +120,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                         }
                         return MyButtonRound(
                           width: 150.0.w,
-                          color: AppColorManager.mainColorLight,
+                          color: AppColorManager.secondColor,
                           text: S.of(context).reset,
                           onTap: () {
                             if (!_formKey.currentState!.validate()) return;

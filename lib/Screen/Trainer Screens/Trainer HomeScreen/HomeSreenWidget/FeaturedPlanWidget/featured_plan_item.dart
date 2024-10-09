@@ -58,7 +58,7 @@ class FeaturedPlanItem extends GetWidget {
                 subtitle: DrawableText(
                   text: plan.trainer.name,
                   fontWeight: FontWeight.bold,
-                  color: AppColorManager.mainColorLight,
+                  color: AppColorManager.secondColor,
                 ),
               ),
             ),

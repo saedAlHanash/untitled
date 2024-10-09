@@ -38,13 +38,19 @@ class _LoginPageState extends State<LoginPage> {
     return Stack(
       children: [
         ImageMultiType(
-          url: Assets.imagesAuth1,
+          url: Assets.imagesIntro3,
           height: 1.0.sh,
+          width: 1.0.sw,
           fit: BoxFit.cover,
         ),
         Container(
-          height: 1.0.sh,
           color: Colors.black.withOpacity(0.6),
+        ),
+        ImageMultiType(
+          url: Assets.imagesIntro1Back,
+          height: 1.0.sh,
+          width: 1.0.sw,
+          fit: BoxFit.cover,
         ),
         MultiBlocListener(
           listeners: [
@@ -123,8 +129,8 @@ class _LoginPageState extends State<LoginPage> {
                         if (state.statuses.loading) {
                           return MyStyle.loadingWidget(color: Colors.white);
                         }
-                        return MyButtonRound(
-                          color: AppColorManager.mainColorLight,
+                        return MyButton(
+                          color: AppColorManager.secondColor,
                           text: S.of(context).signIn,
                           onTap: () {
                             if (!_formKey.currentState!.validate()) return;
@@ -139,10 +145,8 @@ class _LoginPageState extends State<LoginPage> {
                       children: [
                         Expanded(
                           child: MyButton(
-                            padding: EdgeInsets.zero,
-                            height: 45.0.h,
-                            radios: 12.0.r,
-                            color: AppColorManager.priceColor,
+
+                            color: AppColorManager.mainColor,
                             text: S.of(context).guest,
                             onTap: () {
                               loginCubit.changeUserType = UserType.guest;
@@ -150,13 +154,11 @@ class _LoginPageState extends State<LoginPage> {
                             },
                           ),
                         ),
-                        30.0.horizontalSpace,
+                        10.0.horizontalSpace,
                         Expanded(
                           child: MyButton(
-                            padding: EdgeInsets.zero,
-                            height: 45.0.h,
-                            radios: 12.0.r,
-                            color: AppColorManager.mainColorDark,
+
+                            color: AppColorManager.mainColor,
                             text: S.of(context).applyAsTrainer,
                             onTap: () => startApply(),
                           ),

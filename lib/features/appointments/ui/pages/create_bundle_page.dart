@@ -95,7 +95,7 @@ class _CreateBundlePageState extends State<CreateBundlePage> {
                             ..createBundle();
                         }
                       },
-                      color: AppColorManager.mainColorLight,
+                      color: AppColorManager.secondColor,
                       text: S.of(context).haveCoupon,
                     ),
                     15.0.horizontalSpace,
@@ -199,7 +199,7 @@ class _BundleSelectWidget extends StatelessWidget {
                                   drawablePadding: 10.0.w,
                                   drawableStart: ImageMultiType(
                                     url: Icons.timer_off_outlined,
-                                    color: AppColorManager.mainColorLight,
+                                    color: AppColorManager.secondColor,
                                     width: 18.0.r,
                                   ),
                                 ),
@@ -284,7 +284,7 @@ class _ItemAvailableTimeState extends State<_ItemAvailableTime> {
                             drawablePadding: 10.0.w,
                             drawableStart: ImageMultiType(
                               url: Icons.timer_off_outlined,
-                              color: AppColorManager.mainColorLight,
+                              color: AppColorManager.secondColor,
                               width: 18.0.r,
                             ),
                           ),

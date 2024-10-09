@@ -280,6 +280,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "finishedThisDay": MessageLookupByLibrary.simpleMessage(
             "User already finished this day"),
         "firstName": MessageLookupByLibrary.simpleMessage("first name"),
+        "fitnessStorm": MessageLookupByLibrary.simpleMessage("Fitness Storm"),
         "fitnessStormMessage": MessageLookupByLibrary.simpleMessage(
             "Fitness Storm is a spirited application encouraging people to exercise anywhere and anytime and have the look they have always dreamed of.\nWhether you are a beginner or a pro, Fitness Storm gives you a golden chance to train with world class trainers through HD step-by-step instructional videos.\nLose weight, build muscle, and stay fit easily with the correct workouts and many effective training programs, designed by your favorite fitness experts. Sign up, answer a few questions, subscribe to one of our programs for 3 months, 6 months or 12 months and let us recommend the best plans that fits you. Get inspired with our amazing trainers and work out daily with step-by-step HD video instruction.\nNot convinced yet? To make every minute you train, play and compete – count, one to one session a unique program will be offered at fitness storm . If you want a more individualized approach to achieve the weight-loss, health, strength, injury prevention, or performance goals you have set for yourself, this program is designed for you where you can have a personal coach/dietitian  focusing on reaching your individual goals.\nIt is time to be stronger, healthier, and happier than ever before with Fitness Storm!"),
         "fitnessSurvey": MessageLookupByLibrary.simpleMessage("Fitness Survey"),
@@ -295,6 +296,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "functionalTraining":
             MessageLookupByLibrary.simpleMessage("Functional Training"),
         "gender": MessageLookupByLibrary.simpleMessage("Gender"),
+        "getFitAnytimeAnywherentrackYourProgressEffortlesslynaccessPersonalizedWorkouts":
+            MessageLookupByLibrary.simpleMessage(
+                "Get Fit Anytime, Anywhere\nTrack Your Progress Effortlessly\nAccess Personalized Workouts"),
+        "getUnlimitedAccessToAllFitnessnPrograms":
+            MessageLookupByLibrary.simpleMessage(
+                "Get Unlimited Access To All Fitness\n Programs"),
         "globalKeysReparent": MessageLookupByLibrary.simpleMessage(
             "Widgets that have global keys reparent\ntheir subtrees when they are moved from one\nlocation in the tree to another location in \"\nthe tree. In order to reparent its subtree, \na widget must arrive at its new location in \nthe tree in the same animation frame in \nwhich it was removed from its old location \nthe tree."),
         "governor": MessageLookupByLibrary.simpleMessage("governor"),
@@ -637,6 +644,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "sportsTraining":
             MessageLookupByLibrary.simpleMessage("Sports Training"),
         "stSet": MessageLookupByLibrary.simpleMessage("st set"),
+        "start": MessageLookupByLibrary.simpleMessage("Start"),
         "startPrivateSession":
             MessageLookupByLibrary.simpleMessage("Start private session"),
         "startSession": MessageLookupByLibrary.simpleMessage("Start session"),
@@ -751,6 +759,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "welcomeBack": MessageLookupByLibrary.simpleMessage("Welcome Back!"),
         "welcomeMessage":
             MessageLookupByLibrary.simpleMessage("Welcome Message"),
+        "welcomeTo": MessageLookupByLibrary.simpleMessage("Welcome To"),
         "whatAreYouSearchingFor":
             MessageLookupByLibrary.simpleMessage("What are you searching for?"),
         "whatIsFitnessStorm":
@@ -813,6 +822,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "yourLocation": MessageLookupByLibrary.simpleMessage("Your Location"),
         "yourName": MessageLookupByLibrary.simpleMessage("Your Name"),
         "yourOrder": MessageLookupByLibrary.simpleMessage("Your Order"),
+        "yourPersonalFitnessCompanion": MessageLookupByLibrary.simpleMessage(
+            "Your Personal Fitness Companion"),
         "yourPhone": MessageLookupByLibrary.simpleMessage("Your Phone"),
         "yourSubscriptionToPlan": MessageLookupByLibrary.simpleMessage(
             "You will be no longer training with plan"),
