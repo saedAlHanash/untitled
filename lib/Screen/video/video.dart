@@ -2,7 +2,7 @@
 import 'dart:async';
 
 import 'package:agora_rtc_engine/agora_rtc_engine.dart';
-import 'package:drawable_text/drawable_text.dart';
+import 'package:drawable_text/drawable_text.dart';import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
 import 'package:fitness_storm/core/util/firebase_analytics_service.dart';
 import 'package:flutter/material.dart';

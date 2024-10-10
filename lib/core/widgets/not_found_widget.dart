@@ -1,5 +1,6 @@
 import 'package:drawable_text/drawable_text.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
+import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
@@ -31,7 +32,7 @@ class NotFoundWidget extends StatelessWidget {
             ),
             DrawableText(
               text: text,
-              fontFamily: FontManager.cairoBold.name,
+              fontFamily: FontManager.bold.name,
               color: AppColorManager.mainColorDark,
               size: 24.0.spMin,
             )

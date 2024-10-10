@@ -8,6 +8,7 @@ import 'package:fitness_storm/Widgets/custom_button.dart';
 import 'package:fitness_storm/Widgets/read_more_text_widget.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
+import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:fitness_storm/core/util/my_style.dart';
 import 'package:fitness_storm/core/util/shared_preferences.dart';
 import 'package:fitness_storm/core/widgets/app_bar/app_bar_widget.dart';
@@ -67,7 +68,7 @@ class _PlanPageState extends State<PlanPage> {
                 text: state.result.name,
                 size: 24.0.spMin,
                 color: Colors.white,
-                fontFamily: FontManager.cairoBold.name,
+                fontFamily: FontManager.bold.name,
               );
             },
           ),

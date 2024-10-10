@@ -73,12 +73,10 @@ class _MyAppState extends State<MyApp> {
       // splitScreenMode: true,
       builder: (context, child) {
         DrawableText.initial(
-          headerSizeText: 28.0.sp,
           initialHeightText: 1.5.sp,
-          titleSizeText: 20.0.sp,
           initialSize: 16.0.sp,
           selectable: false,
-          initialFont: FontFamily.roboto.name,
+          initialFont: FontManager.semeBold.name,
           initialColor: AppColorManager.black,
         );
 

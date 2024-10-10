@@ -1,12 +1,10 @@
+import 'package:drawable_text/drawable_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-
-
 class ListHeader extends StatefulWidget {
-  const ListHeader(
-      {    super.key, required this.headerTitle, required this.seeAllFunction})
-      ;
+  const ListHeader({super.key, required this.headerTitle, required this.seeAllFunction});
 
   final String headerTitle;
   final Function seeAllFunction;
@@ -22,9 +20,9 @@ class _ListHeaderState extends State<ListHeader> {
             children: [
               TextButton(
                 onPressed: () => widget.seeAllFunction(),
-                child: Text(
-                  'see_all'.tr,
-                  style: TextStyle(color: Get.theme.primaryColor, fontSize: 14),
+                child: DrawableText(
+                  text: 'see_all'.tr,
+                  color: Get.theme.primaryColor,
                 ),
               ),
               CircleAvatar(
@@ -41,25 +39,19 @@ class _ListHeaderState extends State<ListHeader> {
         : const SizedBox.shrink();
   }
 
-  Widget _buildHeaderTitleText({required String headerTitle}) {
-    return Text(
-      widget.headerTitle,
-      style: TextStyle(
-        color: Get.theme.primaryColor,
-        fontSize: 18,
-        fontWeight: FontWeight.w500,
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 10),
+      padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 10).r,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          _buildHeaderTitleText(headerTitle: widget.headerTitle),
+          DrawableText(
+            text: widget.headerTitle,
+            color: Get.theme.primaryColor,
+            size: 18.sp,
+            fontWeight: FontWeight.w500,
+          ),
           _buildSeeAllButton()
         ],
       ),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'package:image_multi_type/image_multi_type.dart';
 import 'package:m_cubit/abstraction.dart';
 import 'package:pod_player/pod_player.dart';
 
@@ -178,7 +179,7 @@ class _VimeoPlayerPodState extends State<VimeoPlayerPod> {
                 child: IgnorePointer(
                   child: Opacity(
                     opacity: 0.4,
-                    child: Image.asset(
+                    child: ImageMultiType(url:
                       Assets.imagesNewLogo,
                       height: 40.0,
                     ),

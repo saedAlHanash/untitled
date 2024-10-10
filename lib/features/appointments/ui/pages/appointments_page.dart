@@ -1,6 +1,7 @@
 import 'package:drawable_text/drawable_text.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
+import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:fitness_storm/core/widgets/app_bar/app_bar_widget.dart';
 import 'package:fitness_storm/core/widgets/not_found_widget.dart';
 import 'package:fitness_storm/router/app_router.dart';
@@ -66,15 +67,14 @@ class _AppointmentsPageState extends State<AppointmentsPage>
                     controller: _tabController,
                     indicator: BoxDecoration(
                         color: AppColorManager.mainColor,
-                        borderRadius:
-                            BorderRadius.all(Radius.circular(12.0.r))),
+                        borderRadius: BorderRadius.all(Radius.circular(12.0.r))),
                     labelStyle: TextStyle(
                       fontSize: 16.0.sp,
-                      fontFamily: FontManager.cairoBold.name,
+                      fontFamily: FontManager.bold.name,
                     ),
                     unselectedLabelStyle: TextStyle(
                       fontSize: 16.0.sp,
-                      fontFamily: FontManager.cairoBold.name,
+                      fontFamily: FontManager.bold.name,
                     ),
                     labelColor: Colors.white,
                     unselectedLabelColor: AppColorManager.mainColor,
@@ -143,12 +143,12 @@ class _ItemAppointment extends StatelessWidget {
         ListTile(
           //TODO: change this
           onTap: () {
-            startVideoCall(item);
             if (!item.isNow) return;
             if (item.videoCallToken.isEmpty) {
               context.read<BookedAppointmentsCubit>().getBookedAppointments();
               return;
             }
+            startVideoCall(item);
           },
           trailing: item.isNow
               ? Container(
@@ -173,8 +173,8 @@ class _ItemAppointment extends StatelessWidget {
                         )
                       : IconButton(
                           style: ButtonStyle(
-                            backgroundColor: WidgetStateProperty.all<Color>(
-                                AppColorManager.cardColor),
+                            backgroundColor:
+                                WidgetStateProperty.all<Color>(AppColorManager.cardColor),
                           ),
                           onPressed: () => startRating(item),
                           icon: const ImageMultiType(
@@ -191,10 +191,7 @@ class _ItemAppointment extends StatelessWidget {
             size: 12.0.sp,
           ),
         ),
-        Divider(
-            color: AppColorManager.cardColor,
-            indent: 10.0.w,
-            endIndent: 10.0.w),
+        Divider(color: AppColorManager.cardColor, indent: 10.0.w, endIndent: 10.0.w),
       ],
     );
   }

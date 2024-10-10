@@ -60,7 +60,7 @@ class _ProfileTrainerScreenState extends State<ProfileTrainerScreen> {
                     color: AppColorManager.mainColor,
                     size: 26.0.sp,
                     fontWeight: FontWeight.bold,
-                    fontFamily: FontManager.cairoBold.name,
+                    fontFamily: FontManager.bold.name,
                   ),
                   20.0.verticalSpace,
                   const _ProfileCards(),
@@ -69,7 +69,7 @@ class _ProfileTrainerScreenState extends State<ProfileTrainerScreen> {
                     onTap: () => Get.toNamed(AppRoutes.trainerPlans),
                     child: DrawableText(
                       text: S.of(context).myPlans,
-                      fontFamily: FontManager.cairoBold.name,
+                      fontFamily: FontManager.bold.name,
                       size: 15.0.sp,
                       color: Colors.white,
                       drawablePadding: 10.0.w,

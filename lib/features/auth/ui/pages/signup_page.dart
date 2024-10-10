@@ -2,6 +2,7 @@ import 'package:drawable_text/drawable_text.dart';
 import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
+import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:fitness_storm/core/util/my_style.dart';
 import 'package:fitness_storm/core/widgets/my_button.dart';
 import 'package:fitness_storm/core/widgets/my_text_form_widget.dart';
@@ -12,7 +13,6 @@ import 'package:image_multi_type/image_multi_type.dart';
 
 import '../../../../Widgets/language_board_widget.dart';
 import '../../../../core/helper/launcher_helper.dart';
-import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/bottom_sheets.dart';
 import '../../../../generated/assets.dart';
 import '../../../../generated/l10n.dart';
@@ -107,7 +107,7 @@ class _SignupPageState extends State<SignupPage> {
                       text: S.of(context).signUp,
                       size: 26.0.sp,
                       color: Colors.white,
-                      fontFamily: FontFamily.robotoBold.name,
+                      fontFamily: FontManager.bold.name,
                     ),
                     15.0.verticalSpace,
                     MyTextFormOutLineWidget(
@@ -209,7 +209,7 @@ class _SignupPageState extends State<SignupPage> {
                       drawableEnd: TextButton(
                         onPressed: () => Navigator.pop(context),
                         child: DrawableText(
-                          fontFamily: FontManager.cairoBold.name,
+                          fontFamily: FontManager.bold.name,
                           color: Colors.white,
                           text: '${S.of(context).signIn}.',
                         ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../core/strings/enum_manager.dart';
+
 
 MaterialColor primarySwatch = const MaterialColor(0xFF6340D6, {
   0: Color(0xFFFFFFFF),
@@ -19,7 +21,7 @@ Color lightBackgroundColor = const Color(0xFF6340D6);
 Color darkGrey = const Color(0xFF9D9D9D);
 Color lightGray = const Color(0xFFF3F3F3);
 ThemeData lightTheme = ThemeData(
-    fontFamily: 'Roboto',
+    
     primaryColor: primarySwatch,
     scaffoldBackgroundColor: Colors.white,
     cardColor: primarySwatch,
@@ -43,7 +45,7 @@ ThemeData lightTheme = ThemeData(
         .copyWith(surface: lightBackgroundColor.withOpacity(0.75)));
 
 ThemeData darkTheme = ThemeData(
-    fontFamily: 'Roboto',
+    
     primaryColor: primarySwatch,
     scaffoldBackgroundColor: const Color(0xFF2B2B2B),
     unselectedWidgetColor: primarySwatch,

@@ -1,7 +1,5 @@
 import 'package:fitness_storm/Screen/Splash/splash_binding.dart';
 import 'package:fitness_storm/Screen/Splash/splash_screen.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/FeaturedPlan/featured_plan_binding.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/FeaturedPlan/featured_plan_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Main%20Home/main_home_binding.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Main%20Home/main_home_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/My%20Payment/my_payment_binding.dart';
@@ -22,13 +20,12 @@ import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Plans/trainer_p
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Plans/trainer_plans_screen.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Wallet/trainer_wallet_binding.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Wallet/trainer_wallet_screen.dart';
+import 'package:fitness_storm/core/util/shared_preferences.dart';
 import 'package:fitness_storm/features/profile/ui/pages/profile_trainer_page.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
 import '../../core/injection/injection_container.dart';
 import '../../core/util/firebase_analytics_service.dart';
-import '../../features/fire_chat/rooms_bloc/rooms_cubit.dart';
 import '../../features/fire_chat/rooms_screen.dart';
 import '../../features/intro/ui/pages/intro_page.dart';
 
@@ -41,7 +38,7 @@ class AppPages {
         name: AppRoutes.splash,
         page: () {
           sl<AnalyticService>().screenView(name: 'splash');
-          return const IntroPage();
+          return  Splash();
         },
         binding: SplashBinding(),
       ),
@@ -166,8 +163,7 @@ class AppPages {
       GetPage(
         name: AppRoutes.trainerProfileOverview,
         page: () {
-          sl<AnalyticService>()
-              .screenView(name: 'trainer_profile_overview');
+          sl<AnalyticService>().screenView(name: 'trainer_profile_overview');
           return const ProfileTrainerPage();
         },
       ),
@@ -188,16 +184,14 @@ class AppPages {
       GetPage(
           name: AppRoutes.trainerSearchResultSceen,
           page: () {
-            sl<AnalyticService>()
-                .screenView(name: 'trainer_search_result');
+            sl<AnalyticService>().screenView(name: 'trainer_search_result');
             return const TrainerSearchResultScreen();
           },
           binding: TrainerSearchResultBinding()),
       GetPage(
           name: AppRoutes.trainerTrainerOverviewScreen,
           page: () {
-            sl<AnalyticService>()
-                .screenView(name: 'trainer_trainer_overview');
+            sl<AnalyticService>().screenView(name: 'trainer_trainer_overview');
             return const TrainerTrainerOverviewScreen();
           },
           binding: TrainerTrainerOverviewBinding()),

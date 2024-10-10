@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:internet_connection_checker/internet_connection_checker.dart';
+
 
 import '../../Screen/Trainee Screens/User Training/change_video_cubit/change_video_cubit.dart';
 import '../../features/appointments/bloc/add_time_cubit/add_time_cubit.dart';
@@ -39,8 +39,8 @@ import '../../features/plans/bloc/add_favorite/add_favorite_cubit.dart';
 import '../../features/plans/bloc/plan_cubit/plan_cubit.dart';
 import '../../features/plans/bloc/plan_workout_cubit/plan_workout_cubit.dart';
 import '../../features/plans/bloc/plans_cubit/plans_cubit.dart';
-import '../../features/plans/bloc/trainer_plans_cubit/trainer_plans_cubit.dart';
 import '../../features/plans/bloc/subscribe_plan_cubit/subscribe_plan_cubit.dart';
+import '../../features/plans/bloc/trainer_plans_cubit/trainer_plans_cubit.dart';
 import '../../features/profile/bloc/profile_cubit/profile_cubit.dart';
 import '../../features/profile/bloc/update_profile_cubit/update_profile_cubit.dart';
 import '../../features/search/bloc/temp_cubit/search_cubit.dart';
@@ -63,8 +63,7 @@ final sl = GetIt.instance;
 Future<void> init() async {
   //region Core
 
-  sl.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(connectionChecker: sl()));
-  sl.registerLazySingleton(() => InternetConnectionChecker());
+
 
   sl.registerLazySingleton(() => GlobalKey<NavigatorState>());
   sl.registerLazySingleton(() => AnalyticService());

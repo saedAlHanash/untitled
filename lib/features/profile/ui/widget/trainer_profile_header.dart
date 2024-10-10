@@ -1,4 +1,5 @@
 import 'package:drawable_text/drawable_text.dart';
+import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:fitness_storm/core/widgets/app_bar/app_bar_widget.dart';
 import 'package:fitness_storm/features/trainer/data/response/trainer.dart';
 import 'package:flutter/material.dart';
@@ -6,7 +7,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 import 'package:image_multi_type/round_image_widget.dart';
 
-import '../../../../../core/strings/enum_manager.dart';
 import '../../../../../core/widgets/my_button.dart';
 import '../../../../generated/l10n.dart';
 
@@ -45,7 +45,7 @@ class _TrainerProfileHeaderState extends State<TrainerProfileHeader> {
                 DrawableText(
                   text: (trainer.name).toUpperCase(),
                   size: 16.0.sp,
-                  fontFamily: FontFamily.robotoBold.name,
+                  fontFamily: FontManager.bold.name,
                 ),
                 30.0.verticalSpace,
                 if(trainer.agreement.isNotEmpty)

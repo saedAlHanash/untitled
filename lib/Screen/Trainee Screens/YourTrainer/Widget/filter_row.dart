@@ -19,19 +19,19 @@ class FilterRow extends GetWidget<YourTrainerController> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           FilterButton(
-            icon: 'asset/Images/search_bar.svg',
+            icon: 'assets/images/search_bar.svg',
             text: 'SEARCH'.tr,
             index: 0,
             onTap: () => controller.searchBottomSheet(aboutTrainer),
           ),
           FilterButton(
-            icon: 'asset/Images/filter.svg',
+            icon: 'assets/images/filter.svg',
             text: 'filter'.tr,
             index: 1,
             onTap: () => controller.filterBottomSheet(),
           ),
           FilterButton(
-            icon: 'asset/Images/sort.svg',
+            icon: 'assets/images/sort.svg',
             text: 'sort'.tr,
             index: 2,
             onTap: () => controller.sortBottomSheet(),

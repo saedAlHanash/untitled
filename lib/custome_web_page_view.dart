@@ -5,8 +5,6 @@ import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:get/get.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-import 'Screen/Trainee Screens/Subscription/subscription_controller.dart';
-
 class MyCustomWebPage extends StatefulWidget {
   const MyCustomWebPage({super.key, this.urlWebPage});
 

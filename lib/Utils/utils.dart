@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:image_multi_type/image_multi_type.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 import '../core/api_manager/api_service.dart';
@@ -195,8 +196,8 @@ class Utils {
                           color: Get.theme.primaryColor,
                           borderRadius:
                               const BorderRadius.all(Radius.circular(500))),
-                      child: SvgPicture.asset(
-                        'asset/Images/search_bar.svg',
+                      child: ImageMultiType(url:
+                        'assets/images/search_bar.svg',
                         color: Colors.white,
                       ),
                     ),

@@ -20,7 +20,6 @@ enum DeviceStatus { pending, accepted, reject, notFound }
 
 enum StartPage { login, home, otp }
 
-enum FontFamily { roboto, robotoSimBold, robotoBold }
 
 enum ProfileCardType { profile, fav, payment, lang, appointment, files, diets }
 
@@ -35,6 +34,8 @@ enum NeedUpdateEnum { no, withLoading, noLoading }
 enum ThemeColor { dark, light }
 
 enum MediaType { pdf, image }
+
+enum FontManager { regular, semeBold,bold }
 
 enum TrainingTypeEnum {
   weightlifting,

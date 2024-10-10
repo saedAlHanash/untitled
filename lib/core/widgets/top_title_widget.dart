@@ -1,5 +1,6 @@
 import 'package:drawable_text/drawable_text.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
+import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:fitness_storm/core/widgets/my_card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -34,7 +35,7 @@ class TopTitleWidget extends StatelessWidget {
     final textWidget = DrawableText(
       text: text,
       color: AppColorManager.grey,
-      fontFamily: FontManager.cairoBold.name,
+      fontFamily: FontManager.bold.name,
       size: 18.0.spMin,
     );
     return MyCardWidget(

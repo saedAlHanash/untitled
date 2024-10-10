@@ -10,7 +10,6 @@ import 'package:image_multi_type/image_multi_type.dart';
 import '../../../../core/util/shared_preferences.dart';
 import '../../../../generated/assets.dart';
 import '../../../../generated/l10n.dart';
-import '../../../auth/ui/widget/auth_header.dart';
 
 class IntroPage extends StatefulWidget {
   const IntroPage({super.key});
@@ -25,6 +24,7 @@ class _IntroPageState extends State<IntroPage> {
   @override
   void initState() {
     super.initState();
+    AppSharedPreference.cashShowIntro();
     _pageController = PageController();
   }
 
@@ -69,7 +69,7 @@ class _IntroPageState extends State<IntroPage> {
                 child: MyButton(
                   onTap: () {
                     if (pageIndex == 2) {
-                      AppSharedPreference.cashShowIntro().then((_) => startLogin());
+                      startLogin();
                     } else {
                       _pageController.animateToPage(
                         (pageIndex + 1),
@@ -87,9 +87,7 @@ class _IntroPageState extends State<IntroPage> {
               10.0.verticalSpace,
               if (pageIndex != 2)
                 TextButton(
-                  onPressed: () {
-                    AppSharedPreference.cashShowIntro().then((_) => startLogin());
-                  },
+                  onPressed: () => startLogin(),
                   child: DrawableText(
                     text: S.of(context).skip,
                     color: Colors.white,
@@ -237,8 +235,9 @@ class _P3 extends StatelessWidget {
                 DrawableText(
                   matchParent: true,
                   maxLines: 5,
-                  text:
-                      S.of(context).getFitAnytimeAnywherentrackYourProgressEffortlesslynaccessPersonalizedWorkouts,
+                  text: S
+                      .of(context)
+                      .getFitAnytimeAnywherentrackYourProgressEffortlesslynaccessPersonalizedWorkouts,
                   color: Colors.white,
                   size: 18.0.sp,
                   fontWeight: FontWeight.w600,

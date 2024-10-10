@@ -2,7 +2,9 @@ import 'package:fitness_storm/Screen/Trainer%20Screens/Search%20Screen/Widget/te
 import 'package:fitness_storm/Screen/Trainer%20Screens/Search%20Screen/search_screen_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_multi_type/image_multi_type.dart';
 
+import '../../../generated/assets.dart';
 import 'Widget/search_bar_widget.dart';
 
 class TrainerSearchScreen extends GetView<TrainerSearchScreenController> {
@@ -36,8 +38,8 @@ class TrainerSearchScreen extends GetView<TrainerSearchScreenController> {
                     Center(
                       child: SizedBox(
                         width: Get.width / 2.9,
-                        child: Image.asset(
-                          "asset/Images/white_logo.png",
+                        child: ImageMultiType(url:
+                          Assets.imagesWhiteLogo,
                           fit: BoxFit.cover,
                         ),
                       ),

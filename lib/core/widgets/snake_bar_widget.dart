@@ -1,4 +1,5 @@
 import 'package:drawable_text/drawable_text.dart';
+import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -22,7 +23,7 @@ class SnakeBarWidget extends StatelessWidget {
       child: DrawableText(
         padding: EdgeInsets.symmetric(horizontal: 0.02.sw),
         text: text,
-        fontFamily: FontManager.cairoBold.name,
+        fontFamily: FontManager.bold.name,
         size: 16.0.spMin,
         matchParent: true,
         drawableEnd: icon,

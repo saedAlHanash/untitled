@@ -1,10 +1,10 @@
 import 'package:drawable_text/drawable_text.dart';
+import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 
 import '../../../../Widgets/language_board_widget.dart';
-import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/bottom_sheets.dart';
 import '../../../../generated/assets.dart';
 
@@ -46,7 +46,7 @@ class AuthHeader extends StatelessWidget {
           text: name,
           size: 26.0.sp,
           color: Colors.white,
-          fontFamily: FontFamily.robotoBold.name,
+          fontFamily: FontManager.bold.name,
         ),
         40.0.verticalSpace,
       ],

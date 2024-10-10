@@ -1,5 +1,11 @@
+import 'package:fitness_storm/core/strings/app_color_manager.dart';
+import 'package:fitness_storm/core/widgets/app_bar/app_bar_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:image_multi_type/image_multi_type.dart';
+
+import '../../../../generated/assets.dart';
 
 class WithoutSubscribed extends StatelessWidget {
   const WithoutSubscribed({super.key, required this.isSubscirbe});
@@ -10,12 +16,17 @@ class WithoutSubscribed extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(
-          width: Get.width / 4.1,
-          height: Get.height / 11.7,
-          child: Image.asset("asset/Images/white_logo.png"),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            BackBtnWidget(appBarColor: AppColorManager.mainColor),
+            ImageMultiType(
+              url: Assets.imagesWhiteLogo,
+              width: 0.5.sw,
+            ),
+            50.0.horizontalSpace,
+          ],
         ),
-        SizedBox(height: Get.height / 16.24),
         Text(
           isSubscirbe ? 'successfully_subscribed'.tr : 'why_to_subscribe'.tr,
           textAlign: TextAlign.center,

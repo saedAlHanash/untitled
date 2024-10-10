@@ -2,6 +2,7 @@ import 'package:fitness_storm/Screen/Trainee%20Screens/TrendingPlan/trending_pla
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:image_multi_type/image_multi_type.dart';
 
 class FilterButton extends GetWidget<TrendingPlanController> {
   final String icon;
@@ -36,7 +37,7 @@ class FilterButton extends GetWidget<TrendingPlanController> {
             SizedBox(
               width: Get.width / 27.7,
               height: Get.width / 27.7,
-              child: SvgPicture.asset(
+              child: ImageMultiType(url:
                 icon,
                 color: controller.selectedIndex == index
                     ? Colors.white

@@ -29,7 +29,7 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const AppBarWidget(zeroHeight: true),
+      appBar: const AppBarWidget(zeroHeight: true,color: Colors.white),
       body: BlocBuilder<ProfileCubit, ProfileInitial>(
         builder: (context, state) {
           final profile = state.result;
@@ -54,7 +54,7 @@ class ProfilePage extends StatelessWidget {
                     text: profile.name!.isEmpty ? profile.email! : profile.name!,
                     color: AppColorManager.mainColor,
                     size: 26.0.sp,
-                    fontFamily: FontManager.cairoBold.name,
+                    fontFamily: FontManager.bold.name,
                   ),
                   20.0.verticalSpace,
                   const ProfileCards(),
@@ -64,7 +64,7 @@ class ProfilePage extends StatelessWidget {
                       onTap: () => Get.toNamed(AppRoutes.subscriptionScreen),
                       child: DrawableText(
                         text: S.of(context).subscriptionPlans,
-                        fontFamily: FontManager.cairoBold.name,
+                        fontFamily: FontManager.bold.name,
                         size: 15.0.sp,
                         color: Colors.white,
                         drawablePadding: 10.0.w,

@@ -1,13 +1,11 @@
 import 'package:drawable_text/drawable_text.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
+import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:fitness_storm/features/bookmarked/ui/widget/bookmarked_btn.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:image_multi_type/circle_image_widget.dart';
-import 'package:image_multi_type/image_multi_type.dart';
 import 'package:image_multi_type/round_image_widget.dart';
 
-import '../../../../Widgets/custom_chip.dart';
 import '../../../../core/models/plan_model.dart';
 import '../../../../generated/l10n.dart';
 import '../../../../router/app_router.dart';
@@ -58,7 +56,7 @@ class SeeAllListItem extends StatelessWidget {
                 children: [
                   DrawableText(
                     text: plan.name,
-                    fontFamily: FontManager.cairoBold.name,
+                    fontFamily: FontManager.bold.name,
                     fontWeight: FontWeight.bold,
                     size: 18.0.sp,
                   ),

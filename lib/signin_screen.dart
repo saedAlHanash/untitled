@@ -1,11 +1,11 @@
 
 import 'package:drawable_text/drawable_text.dart';
+import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
 import 'core/strings/app_color_manager.dart';
-import 'core/strings/enum_manager.dart';
 
 class MyPhoneForm extends StatelessWidget {
   const MyPhoneForm({
@@ -67,10 +67,10 @@ class MyPhoneForm extends StatelessWidget {
               ),
               errorStyle: TextStyle(
                 fontSize: 14.0.sp,
-                fontFamily: FontFamily.robotoBold.name,
+                fontFamily: FontManager.bold.name,
               ),
               hintStyle: TextStyle(
-                fontFamily: FontFamily.roboto.name,
+                
                 fontSize: 12.0.sp,
                 color: const Color(0xffA0A0A0),
               ),

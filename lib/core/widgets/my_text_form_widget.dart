@@ -146,7 +146,7 @@ class _MyTextFormWidgetState extends State<MyTextFormWidget> {
       hintTextDirection: widget.textDirection,
       hintStyle: TextStyle(
         locale: Locale(AppSharedPreference.getLocal),
-        fontFamily: FontManager.cairoSemiBold.name,
+       
         color: widget.textColor ?? AppColorManager.grey,
       ),
       hintMaxLines: 1,
@@ -156,7 +156,7 @@ class _MyTextFormWidgetState extends State<MyTextFormWidget> {
     );
 
     final textStyle = TextStyle(
-      fontFamily: FontManager.cairoSemiBold.name,
+     
       fontSize: 16.0.sp,
       color: widget.textColor ?? AppColorManager.black,
     );
@@ -262,7 +262,7 @@ class MyEditTextWidget extends StatelessWidget {
     final inputDecoration = InputDecoration(
       hintText: hint,
       hintStyle: TextStyle(
-        fontFamily: FontManager.cairoSemiBold.name,
+       
         fontSize: 18.0.sp,
         color: color?.withOpacity(0.6) ?? AppColorManager.grey.withOpacity(0.6),
       ),
@@ -310,7 +310,7 @@ class MyEditTextWidget extends StatelessWidget {
             textAlign: textAlign ?? TextAlign.start,
             onChanged: onChanged,
             style: TextStyle(
-              fontFamily: FontManager.cairoBold.name,
+              fontFamily: FontManager.bold.name,
               fontSize: 18.0.sp,
               color: color ?? Colors.black87,
             ),
@@ -536,7 +536,7 @@ class _MyTextFormOutLineWidgetState extends State<MyTextFormOutLineWidget> {
       border: border,
       errorStyle: TextStyle(
         fontSize: 14.0.sp,
-        fontFamily: FontFamily.robotoBold.name,
+        fontFamily: FontManager.bold.name,
       ),
       focusedBorder: border,
       enabledBorder: border,
@@ -546,7 +546,7 @@ class _MyTextFormOutLineWidgetState extends State<MyTextFormOutLineWidget> {
       counter: const SizedBox(),
       hintText: widget.hint,
       hintStyle: TextStyle(
-        fontFamily: FontFamily.roboto.name,
+        
         fontSize: 12.0.sp,
         color: const Color(0xffA0A0A0),
       ),
@@ -558,7 +558,7 @@ class _MyTextFormOutLineWidgetState extends State<MyTextFormOutLineWidget> {
     );
 
     final textStyle = TextStyle(
-      fontFamily: FontManager.cairoSemiBold.name,
+     
       fontSize: 16.0.sp,
       color: AppColorManager.whit,
     );
@@ -686,7 +686,7 @@ class MyTextFormWhiteWidget extends StatelessWidget {
     );
 
     final textStyle = TextStyle(
-      fontFamily: FontManager.cairoBold.name,
+      fontFamily: FontManager.bold.name,
       fontSize: 18.0,
       color: color ?? Colors.black,
     );

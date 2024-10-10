@@ -14,7 +14,7 @@ import 'package:fitness_storm/helper/lang_helper.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
-import 'package:hive_flutter/adapters.dart';
+
 
 import '../core/api_manager/api_url.dart';
 import '../core/app/app_widget.dart';
@@ -25,7 +25,6 @@ import 'app_controller.dart';
 
 class DependencyInjection {
   static Future<void> init() async {
-    await Hive.initFlutter();
 
     await Note.initialize();
 

@@ -1,5 +1,5 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:image_multi_type/circle_image_widget.dart';
 
 class TrainerProfileImage extends StatelessWidget {
   final String trainerImageUrl;
@@ -13,10 +13,6 @@ class TrainerProfileImage extends StatelessWidget {
       height: 70,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(100),
-        image: DecorationImage(
-          image:CachedNetworkImageProvider(trainerImageUrl),
-          fit: BoxFit.fill,
-        ),
         border: Border.all(
           color: Colors.white,
           width: 1.0,
@@ -30,6 +26,7 @@ class TrainerProfileImage extends StatelessWidget {
           ),
         ],
       ),
+      child: CircleImageWidget(url: trainerImageUrl),
     );
   }
 }

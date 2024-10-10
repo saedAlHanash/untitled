@@ -1,14 +1,18 @@
 import 'package:drawable_text/drawable_text.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
+import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:image_multi_type/image_multi_type.dart';
 import 'package:m_cubit/abstraction.dart';
 
 import '../../../../Widgets/custom_button.dart';
+import '../../../core/widgets/app_bar/app_bar_widget.dart';
 import '../../../core/widgets/my_text_form_widget.dart';
+import '../../../generated/assets.dart';
 import '../../../generated/l10n.dart';
 import '../../appointments/data/request/create_bundle_request.dart';
 import '../../appointments/data/response/bundles_response.dart';
@@ -73,7 +77,7 @@ class _CouponBundleWidgetState extends State<CouponBundleWidget> {
                             DrawableText(
                               text: 'voucher'.tr,
                               matchParent: true,
-                              fontFamily: FontManager.cairoBold.name,
+                              fontFamily: FontManager.bold.name,
                               drawableAlin: DrawableAlin.between,
                               padding: const EdgeInsets.symmetric(horizontal: 10.0),
                               drawableEnd: DrawableText(
@@ -83,7 +87,7 @@ class _CouponBundleWidgetState extends State<CouponBundleWidget> {
                           DrawableText(
                             text: 'sup_total'.tr,
                             matchParent: true,
-                            fontFamily: FontManager.cairoBold.name,
+                            fontFamily: FontManager.bold.name,
                             drawableAlin: DrawableAlin.between,
                             padding: const EdgeInsets.symmetric(horizontal: 10.0),
                             drawableEnd: DrawableText(
@@ -95,12 +99,12 @@ class _CouponBundleWidgetState extends State<CouponBundleWidget> {
                             DrawableText(
                               text: 'net_total'.tr,
                               matchParent: true,
-                              fontFamily: FontManager.cairoBold.name,
+                              fontFamily: FontManager.bold.name,
                               drawableAlin: DrawableAlin.between,
                               color: Get.theme.primaryColor,
                               padding: const EdgeInsets.symmetric(horizontal: 15.0),
                               drawableEnd: DrawableText(
-                                fontFamily: FontManager.cairoBold.name,
+                                fontFamily: FontManager.bold.name,
                                 text: (widget.bundle.price -
                                         ((widget.bundle.price * state.result.percentage) /
                                             100))
@@ -123,14 +127,6 @@ class _CouponBundleWidgetState extends State<CouponBundleWidget> {
               )
             ],
           ),
-          appBar: AppBar(
-            title: Text('coupon'.tr,
-                style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-            leading: IconButton(
-              icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
-              onPressed: () => Get.back(),
-            ),
-          ),
           body: Container(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
@@ -138,6 +134,19 @@ class _CouponBundleWidgetState extends State<CouponBundleWidget> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
+                  30.0.verticalSpace,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      BackBtnWidget(appBarColor: AppColorManager.mainColor),
+                      ImageMultiType(
+                        url: Assets.imagesWhiteLogo,
+                        width: 0.5.sw,
+                      ),
+                      50.0.horizontalSpace,
+                    ],
+                  ),
+                  30.0.verticalSpace,
                   _ItemCard(title: S.of(context).bundle, data: widget.bundle.name),
                   _ItemCard(
                     title: S.of(context).sessionsCount,

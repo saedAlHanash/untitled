@@ -1,5 +1,6 @@
 import 'package:drawable_text/drawable_text.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
+import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:fitness_storm/core/widgets/app_bar/app_bar_widget.dart';
 import 'package:fitness_storm/features/appointments/ui/widget/appointment_calendar.dart';
 import 'package:flutter/material.dart';
@@ -67,7 +68,7 @@ class _BookPrivateSessionScreenState extends State<BookPrivateSessionScreen> {
                   ),
                   DrawableText(
                     text: state.trainer.name,
-                    fontFamily: FontManager.cairoBold.name,
+                    fontFamily: FontManager.bold.name,
                     size: 18.0.sp,
                   ),
                   10.0.verticalSpace,

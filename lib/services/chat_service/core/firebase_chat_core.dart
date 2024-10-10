@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:drawable_text/drawable_text.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -462,7 +463,7 @@ extension MessageH on types.Message {
       maxLines: 1,
       size: 14.0.sp,
       color: isRead ? Colors.grey : AppColorManager.mainColor,
-      fontFamily: isRead ? null : FontManager.cairoBold.name,
+      fontFamily: isRead ? null : FontManager.bold.name,
       drawablePadding: 7.0.w,
       drawableStart: ImageMultiType(
         color: isRead ? Colors.grey : AppColorManager.mainColor,

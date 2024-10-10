@@ -1,5 +1,6 @@
 import 'package:drawable_text/drawable_text.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
+import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:fitness_storm/core/util/snack_bar_message.dart';
 import 'package:fitness_storm/core/widgets/my_button.dart';
 import 'package:fitness_storm/features/auth/ui/pages/forget_password_page.dart';
@@ -65,7 +66,7 @@ class _OtpPasswordPageState extends State<OtpPasswordPage> {
           },
           child: DrawableText(
             size: 18.0.sp,
-            fontFamily: FontManager.cairoBold.name,
+            fontFamily: FontManager.bold.name,
             text: '${S.of(context).login}.',
           ),
         ),
@@ -105,7 +106,7 @@ class _OtpPasswordPageState extends State<OtpPasswordPage> {
                       return DrawableText(
                         text: S.of(context).resend,
 
-                        fontFamily: FontManager.cairoBold.name,
+                        fontFamily: FontManager.bold.name,
                       );
                     },
                   ),

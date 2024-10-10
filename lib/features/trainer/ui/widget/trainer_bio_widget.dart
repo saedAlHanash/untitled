@@ -1,6 +1,7 @@
 import 'package:drawable_text/drawable_text.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
+import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:fitness_storm/core/util/my_style.dart';
 import 'package:fitness_storm/core/util/snack_bar_message.dart';
 import 'package:fitness_storm/core/widgets/my_button.dart';
@@ -126,7 +127,7 @@ class TrainerBioWidget extends StatelessWidget {
             text: trainer.bio,
             color: Colors.white,
             fontWeight: FontWeight.bold,
-            fontFamily: FontManager.cairoBold.name,
+            fontFamily: FontManager.bold.name,
             size: 16.0.sp,
             matchParent: true,
             textAlign: TextAlign.center,

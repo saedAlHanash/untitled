@@ -1,12 +1,10 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:drawable_text/drawable_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 
 import '../../../../core/strings/app_color_manager.dart';
 import '../../../../generated/assets.dart';
-import '../../../../generated/l10n.dart';
 
 class Navbar extends StatefulWidget {
   const Navbar({

@@ -1,6 +1,7 @@
 import 'package:drawable_text/drawable_text.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/HomeScreen/home_screen_controller.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
+import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -34,6 +35,7 @@ class ContinueTrainingWidget extends GetView<HomeScreenController> {
             .toList()
         : [];
     if (plans.isEmpty) return 0.0.verticalSpace;
+
     return Column(
       children: [
         DrawableText(
@@ -42,11 +44,11 @@ class ContinueTrainingWidget extends GetView<HomeScreenController> {
           matchParent: true,
           padding: const EdgeInsets.all(10.0).r,
           size: 18.0.sp,
-          fontFamily: FontManager.cairoBold.name,
+          
         ),
         SizedBox(
           width: 1.0.sw,
-          height: 0.3.sh,
+          height: 0.28.sh,
           child: ListView.builder(
             shrinkWrap: true,
             scrollDirection: Axis.horizontal,

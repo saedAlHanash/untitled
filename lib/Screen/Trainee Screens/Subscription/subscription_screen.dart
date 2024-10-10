@@ -3,6 +3,7 @@ import 'package:fitness_storm/Screen/Trainee%20Screens/Subscription/Widget/succe
 import 'package:fitness_storm/Screen/Trainee%20Screens/Subscription/Widget/without_subscribed.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Subscription/subscription_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../core/app/app_provider.dart';
@@ -18,19 +19,19 @@ class SubscriptionScreen extends GetView<SubscruptionController> {
   Widget build(BuildContext context) {
     return Obx(
       () => Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
-            onPressed: () => Get.back(),
-          ),
-          title: Text('subscription_plans'.tr),
-          titleTextStyle:
-              const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-        ),
+        // appBar: AppBar(
+        //   elevation: 0,
+        //   leading: IconButton(
+        //     icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
+        //     onPressed: () => Get.back(),
+        //   ),
+        //   title: Text('subscription_plans'.tr),
+        //   titleTextStyle:
+        //       const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+        // ),
         body: Container(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
+          height: 1.0.sh,
+          width: 1.0.sw,
           decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topRight,

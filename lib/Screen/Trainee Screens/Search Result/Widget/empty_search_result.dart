@@ -20,16 +20,7 @@ class EmptySearchResult extends GetWidget<SearchResultController> {
           style: const TextStyle(color: Color(0xFF565C63), fontSize: 14),
           textAlign: TextAlign.center,
         ),
-        CustomButton(
-          onTapFunction: () {
-            Get.find<MainHomeController>().navController.index = 0;
-            Get.back();
-            Get.back();
-          },
-          text: controller.selectedIndex == 0 ? 'Trainers' : 'WORKOUT_PLANS'.tr,
-          fontSize: 16,
-          textColor: Colors.white,
-        )
+
       ]),
     );
   }

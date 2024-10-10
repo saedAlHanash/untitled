@@ -117,7 +117,7 @@
 //   final Widget title;
 //
 //   /// The subtitle of the step that appears below the title and has a smaller
-//   /// font size. It typically gives more details that complement the title.
+//   /// fonts size. It typically gives more details that complement the title.
 //   ///
 //   /// If null, the subtitle is not shown.
 //   final Widget? subtitle;

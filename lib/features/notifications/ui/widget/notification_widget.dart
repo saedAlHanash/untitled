@@ -1,6 +1,7 @@
 import 'package:drawable_text/drawable_text.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
+import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_multi_type/image_multi_type.dart';
@@ -25,7 +26,7 @@ class NotificationWidget extends StatelessWidget {
             matchParent: true,
             text: item.body,
             color: Colors.black87,
-            fontFamily: FontManager.cairoBold.name,
+            fontFamily: FontManager.bold.name,
           ),
           leading: ImageMultiType(
             url: Icons.notifications,
@@ -40,7 +41,7 @@ class NotificationWidget extends StatelessWidget {
                   padding: const EdgeInsets.all(5.0).r,
                   child: DrawableText(
                     text: item.data!.date?.formatDateTime ?? '',
-                    fontFamily: FontManager.cairoBold.name,
+                    fontFamily: FontManager.bold.name,
                     textAlign: TextAlign.center,
                     size: 14.0.sp,
                     color: AppColorManager.mainColor,
@@ -49,7 +50,7 @@ class NotificationWidget extends StatelessWidget {
               : null,
           trailing: DrawableText(
             text: item.getCreatedAt,
-            fontFamily: FontManager.cairoBold.name,
+            fontFamily: FontManager.bold.name,
             color: Colors.grey,
             size: 11.0.sp,
           ),

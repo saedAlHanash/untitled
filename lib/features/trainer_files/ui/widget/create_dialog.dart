@@ -4,6 +4,7 @@ import 'package:drawable_text/drawable_text.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
+import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -66,7 +67,7 @@ class _CreateDialogState extends State<CreateDialog> {
             5.0.verticalSpace,
             DrawableText(
               text: S.of(context).sendNewFile,
-              fontFamily: FontManager.cairoBold.name,
+              fontFamily: FontManager.bold.name,
               size: 20.0.sp,
             ),
             5.0.verticalSpace,
@@ -95,7 +96,7 @@ class _CreateDialogState extends State<CreateDialog> {
                   child: DrawableText(
                     text: S.of(context).dismiss,
                     color: Colors.grey,
-                    fontFamily: FontManager.cairoBold.name,
+                    fontFamily: FontManager.bold.name,
                     size: 14.0.sp,
                   ),
                 ),
@@ -114,7 +115,7 @@ class _CreateDialogState extends State<CreateDialog> {
                         color: cubit.state.mRequest.file?.fileBytes == null
                             ? Colors.grey
                             : AppColorManager.mainColor,
-                        fontFamily: FontManager.cairoBold.name,
+                        fontFamily: FontManager.bold.name,
                         size: 14.0.sp,
                       ),
                     );

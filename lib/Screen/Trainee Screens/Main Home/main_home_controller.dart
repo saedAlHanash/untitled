@@ -5,7 +5,7 @@ import '../../../main.dart';
 
 
 class MainHomeController extends GetxController {
-  AppNavigationBarController navController = AppNavigationBarController();
+
 
   String? token;
 

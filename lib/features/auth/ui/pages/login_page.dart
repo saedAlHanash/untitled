@@ -179,7 +179,7 @@ class _LoginPageState extends State<LoginPage> {
                       drawableEnd: TextButton(
                         onPressed: () => startSignup(),
                         child: DrawableText(
-                          fontFamily: FontManager.cairoBold.name,
+                          fontFamily: FontManager.bold.name,
                           color: Colors.white,
                           text: '${S.of(context).signUp}.',
                         ),

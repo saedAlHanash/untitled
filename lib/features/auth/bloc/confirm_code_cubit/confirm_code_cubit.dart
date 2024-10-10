@@ -8,7 +8,6 @@ import '../../../../core/app/app_provider.dart';
 import '../../../../core/error/error_manager.dart';
 import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/pair_class.dart';
-import '../../../../core/util/shared_preferences.dart';
 import '../../../../generated/l10n.dart';
 import '../../data/request/login_request.dart';
 

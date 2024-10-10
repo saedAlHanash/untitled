@@ -1,4 +1,4 @@
-import 'package:awesome_icons/awesome_icons.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -17,7 +17,7 @@ class TrainerProfileOverviewBioCheck extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(right: Get.width / 37.5),
           child: const Icon(
-            FontAwesomeIcons.checkCircle,
+            Icons.check_circle_outline,
             color: Colors.white,
             size: 30,
           ),

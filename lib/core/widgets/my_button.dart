@@ -1,4 +1,5 @@
 import 'package:drawable_text/drawable_text.dart';
+import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -40,7 +41,7 @@ class MyButton extends StatelessWidget {
         DrawableText(
           text: toUpper ? text.toUpperCase() : text,
           color: textColor ?? AppColorManager.whit,
-          fontFamily: FontManager.cairoBold.name,
+          fontFamily: FontManager.bold.name,
           fontWeight: FontWeight.bold,
           size: 16.0.sp,
         );
@@ -104,7 +105,7 @@ class MyButtonOutLine extends StatelessWidget {
         DrawableText(
           text: toUpper ? text.toUpperCase() : text,
           color: textColor ?? AppColorManager.mainColor,
-          fontFamily: FontManager.cairoSemiBold.name,
+
           size: 14.0.sp,
         );
 
@@ -169,7 +170,7 @@ class MyButtonRound extends StatelessWidget {
         DrawableText(
           text: toUpper ? text.toUpperCase() : text,
           color: textColor ?? AppColorManager.whit,
-          fontFamily: FontManager.cairoSemiBold.name,
+         
         );
 
     return SizedBox(

@@ -362,9 +362,7 @@ void startHome() {
   sl<AnalyticService>().screenView(name: 'home');
 }
 
-void startSplash() {
-  Get.offAllNamed(AppRoutes.splash);
-}
+
 
 void startUpdateProfile() {
   final providers = [
@@ -431,21 +429,21 @@ void startBookMarked() {
 
   Get.to(() => page);
 }
-
-void startWelcomePage() {
-  final providers = [
-    BlocProvider(
-      create: (_) => sl<WelcomeMessagesCubit>()..getWelcomeMessages(),
-    ),
-  ];
-
-  final Widget page = MultiBlocProvider(
-    providers: providers,
-    child: const WelcomePage(),
-  );
-
-  Get.to(() => page);
-}
+//
+// void startWelcomePage() {
+//   final providers = [
+//     BlocProvider(
+//       create: (_) => sl<WelcomeMessagesCubit>()..getWelcomeMessages(),
+//     ),
+//   ];
+//
+//   final Widget page = MultiBlocProvider(
+//     providers: providers,
+//     child: const WelcomePage(),
+//   );
+//
+//   Get.to(() => page);
+// }
 
 void startNotificationsPage() {
   const Widget page = NotificationsPage();

@@ -77,8 +77,8 @@
 //                     ? Colors.grey
 //                     : Get.theme.colorScheme.secondary,
 //               ),
-//               child: Image.asset(
-//                 'asset/Images/chat3.png',
+//               child: Image.assets(
+//                 'assets/images/chat3.png',
 //               ),
 //             ),
 //           );
@@ -116,8 +116,8 @@
 //             child: Row(
 //               children: [
 //                 const SizedBox(width: 3),
-//                 Image.asset(
-//                   'asset/Images/video.png',
+//                 Image.assets(
+//                   'assets/images/video.png',
 //                 ),
 //                 const SizedBox(width: 5),
 //                 Text(

@@ -1,6 +1,6 @@
 import 'package:fitness_storm/Screen/Trainer%20Screens/Search%20Screen/search_screen_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:image_multi_type/image_multi_type.dart';import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 class TrainerSearchBarWidget extends GetWidget<TrainerSearchScreenController> {
@@ -30,8 +30,8 @@ class TrainerSearchBarWidget extends GetWidget<TrainerSearchScreenController> {
               decoration: BoxDecoration(
                   color: Get.theme.colorScheme.secondary,
                   borderRadius: const BorderRadius.all(Radius.circular(500))),
-              child: SvgPicture.asset(
-                'asset/Images/search_bar.svg',
+              child: ImageMultiType(url:
+                'assets/images/search_bar.svg',
                 color: Colors.white,
               ),
             ),

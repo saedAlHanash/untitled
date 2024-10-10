@@ -30,14 +30,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.2"
-  agora_rtc_engine:
-    dependency: "direct main"
-    description:
-      name: agora_rtc_engine
-      sha256: deefb5ea051c4d916552cbf76cfbdd652867aa9b554ff9afb3c732ec2e44652e
-      url: "https://pub.dev"
-    source: hosted
-    version: "6.3.2"
   analyzer:
     dependency: transitive
     description:
@@ -78,14 +70,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.2.1"
-  awesome_icons:
-    dependency: "direct main"
-    description:
-      name: awesome_icons
-      sha256: fa337ad92a737fae9af9652d6936f6f282b5847bb0fd61ccef00027468fff81b
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.1.0"
   bloc:
     dependency: "direct main"
     description:
@@ -111,7 +95,7 @@ packages:
     source: hosted
     version: "1.1.1"
   cached_network_image:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: cached_network_image
       sha256: "7c1183e361e5c8b0a0f21a28401eecdbde252441106a9816400dd4c2b2424916"
@@ -254,14 +238,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.6"
-  dart_style:
-    dependency: transitive
-    description:
-      name: dart_style
-      sha256: "7856d364b589d1f08986e140938578ed36ed948581fbc3bc9aef1805039ac5ab"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.3.7"
   day_night_time_picker:
     dependency: "direct main"
     description:
@@ -315,7 +291,7 @@ packages:
     description:
       path: "."
       ref: android
-      resolved-ref: "72e210a6adfeeeffc91cf07dc5888ea0a1d9f63b"
+      resolved-ref: a03542c2fdbe04bb10eb15d2707576554fd5d024
       url: "https://github.com/saedAlHanash/drawable_text"
     source: git
     version: "0.0.7"
@@ -868,7 +844,7 @@ packages:
     source: hosted
     version: "2.2.3"
   hive_flutter:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: hive_flutter
       sha256: dca1da446b1d808a51689fb5d0c6c9510c0a2ba01e22805d492c73b68e33eecc
@@ -1004,14 +980,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.7.4"
-  intl_utils:
-    dependency: "direct main"
-    description:
-      name: intl_utils
-      sha256: c2b1f5c72c25512cbeef5ab015c008fc50fe7e04813ba5541c25272300484bf4
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.8.7"
   io:
     dependency: transitive
     description:
@@ -1020,14 +988,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.4"
-  iris_method_channel:
-    dependency: transitive
-    description:
-      name: iris_method_channel
-      sha256: "131d0a40ba646ba8fd4bf76e24d4ebd4aa3174ee39aa5fe8240c3b827979052c"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.1.1"
   js:
     dependency: transitive
     description:
@@ -1092,14 +1052,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.3.2"
-  linkfy_text:
-    dependency: "direct main"
-    description:
-      name: linkfy_text
-      sha256: "20b513c722ea6d236d8831c37b7918c62ac1c59953306a6c160652aabeb8176a"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.1.6"
   linkify:
     dependency: transitive
     description:
@@ -1452,14 +1404,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.0"
-  recase:
-    dependency: transitive
-    description:
-      name: recase
-      sha256: e4eb4ec2dcdee52dcf99cb4ceabaffc631d7424ee55e56f280bc039737f89213
-      url: "https://pub.dev"
-    source: hosted
-    version: "4.1.0"
   rive:
     dependency: transitive
     description:
@@ -1569,14 +1513,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.99"
-  smooth_page_indicator:
-    dependency: "direct main"
-    description:
-      name: smooth_page_indicator
-      sha256: "3b28b0c545fa67ed9e5997d9f9720d486f54c0c607e056a1094544e36934dff3"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.2.0+3"
   source_span:
     dependency: transitive
     description:
@@ -1946,7 +1882,7 @@ packages:
     source: hosted
     version: "4.9.0"
   webview_flutter_android:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: webview_flutter_android
       sha256: "47a8da40d02befda5b151a26dba71f47df471cddd91dfdb7802d0a87c5442558"
@@ -2005,10 +1941,10 @@ packages:
     dependency: transitive
     description:
       name: youtube_explode_dart
-      sha256: "133a65907e6cf839ac7643d92dc5c56b37fcebe4f0a8f0e67716dffa500c0ef0"
+      sha256: "28dca07fefb4b6518beab95f0c1ef81031f921ed0fe87ebcd9c51378546edfee"
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.2"
+    version: "2.2.3"
 sdks:
   dart: ">=3.5.0 <4.0.0"
   flutter: ">=3.24.0"

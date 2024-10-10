@@ -1,6 +1,7 @@
 
 import 'package:drawable_text/drawable_text.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
+import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:fitness_storm/core/widgets/my_expansion/my_expansion_panal.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -43,7 +44,7 @@ class _MyExpansionWidgetState extends State<MyExpansionWidget> {
             if (e.headerText != null) {
               return DrawableText(
                 text: e.headerText!,
-                fontFamily: FontManager.cairoBold.name,
+                fontFamily: FontManager.bold.name,
                 color: Colors.black,
                 drawablePadding: 10.0.w,
               );

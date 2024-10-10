@@ -1,6 +1,7 @@
-import 'package:cached_network_image/cached_network_image.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_multi_type/circle_image_widget.dart';
 
 class TrainerProfileImageWidget extends StatelessWidget {
   final String imageUrl;
@@ -22,11 +23,8 @@ class TrainerProfileImageWidget extends StatelessWidget {
             offset: const Offset(0, 5), // changes position of shadow
           ),
         ],
-        image: DecorationImage(
-          image: CachedNetworkImageProvider(imageUrl),
-          fit: BoxFit.cover,
-        ),
       ),
+      child: CircleImageWidget(url: imageUrl),
     );
   }
 }

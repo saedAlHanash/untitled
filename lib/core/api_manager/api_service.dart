@@ -6,6 +6,7 @@ import 'package:fitness_storm/core/api_manager/api_url.dart';
 import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:intl/intl.dart';
 import 'package:logger/logger.dart';
 
@@ -46,7 +47,7 @@ class APIService {
 
   factory APIService() => _singleton;
 
-  final network = sl<NetworkInfo>();
+  final network = InternetConnectionChecker();
 
   Future<http.Response> callApi({
     required String url,
@@ -58,7 +59,7 @@ class APIService {
     String? additional,
     String? hostName,
   }) async {
-    if (!await network.isConnected) noInternet;
+    if (!await network.hasConnection) noInternet;
 
     final uri = getUri(
         additional: additional ?? additionalConst,

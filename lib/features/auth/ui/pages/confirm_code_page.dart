@@ -1,6 +1,7 @@
 import 'package:drawable_text/drawable_text.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
+import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:fitness_storm/core/util/snack_bar_message.dart';
 import 'package:fitness_storm/core/widgets/my_button.dart';
 import 'package:fitness_storm/router/app_router.dart';
@@ -104,7 +105,7 @@ class _ConfirmCodePageState extends State<ConfirmCodePage> {
                             return DrawableText(
                               color: Colors.white,
                               text: S.of(context).resendCode,
-                              fontFamily: FontManager.cairoBold.name,
+                              fontFamily: FontManager.bold.name,
                             );
                           },
                         ),

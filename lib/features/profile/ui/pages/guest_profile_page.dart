@@ -42,7 +42,7 @@ class GuestProfilePage extends StatelessWidget {
                   text:S.of(context).guestUser,
                   color: AppColorManager.mainColor,
                   size: 26.0.sp,
-                  fontFamily: FontManager.cairoBold.name,
+                  fontFamily: FontManager.bold.name,
                 ),
                 20.0.verticalSpace,
                   const ProfileCard(type: ProfileCardType.lang),

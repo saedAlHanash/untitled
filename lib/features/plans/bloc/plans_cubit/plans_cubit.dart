@@ -8,7 +8,6 @@ import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/pair_class.dart';
 import '../../../../core/util/shared_preferences.dart';
 
-
 part 'plans_state.dart';
 
 class PlansCubit extends MCubit<PlansInitial> {

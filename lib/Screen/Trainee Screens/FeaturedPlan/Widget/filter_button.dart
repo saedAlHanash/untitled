@@ -36,7 +36,7 @@
 //             SizedBox(
 //               width: Get.width / 27.7,
 //               height: Get.width / 27.7,
-//               child: SvgPicture.asset(
+//               child: SvgPicture.assets(
 //                 icon,
 //                 color: controller.selectedIndex == index
 //                     ? Colors.white

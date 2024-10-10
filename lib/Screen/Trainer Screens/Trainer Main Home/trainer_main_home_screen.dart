@@ -7,7 +7,7 @@ import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Wallet/trainer_
 import 'package:fitness_storm/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:image_multi_type/image_multi_type.dart';import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 
@@ -54,8 +54,8 @@ class TrainerMainHomeScreen extends GetView<TrainerMainHomeController> {
                     //       : EdgeInsets.only(right: Get.width / 20),
                     //   child: GestureDetector(
                     //     onTap: () => Get.toNamed(AppRoutes.subscriptionScreen),
-                    //     child: Image.asset(
-                    //       'asset/Images/logo_light.png',
+                    //     child: Image.assets(
+                    //       'assets/images/logo_light.png',
                     //       height: 5,
                     //     ),
                     //   ),
@@ -91,8 +91,8 @@ class TrainerMainHomeScreen extends GetView<TrainerMainHomeController> {
                           },
                           tooltip: MaterialLocalizations.of(context)
                               .openAppDrawerTooltip,
-                          icon: SvgPicture.asset(
-                            'asset/Images/notificationSVG.svg',
+                          icon: ImageMultiType(url:
+                            'assets/images/notificationSVG.svg',
                             color: Get.theme.scaffoldBackgroundColor,
                           ),
                         );

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:image_multi_type/image_multi_type.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:image_multi_type/image_multi_type.dart';
 
 class SuccessSubscribed extends StatelessWidget {
-  String nameUser;
+  const SuccessSubscribed({super.key, required this.nameUser});
 
-  SuccessSubscribed({super.key, required this.nameUser});
+  final String nameUser;
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +15,7 @@ class SuccessSubscribed extends StatelessWidget {
       SizedBox(
         width: Get.width / 11.1,
         height: Get.height / 11.7,
-        child: SvgPicture.asset("asset/Images/successfully.svg"),
+        child: ImageMultiType(url: "assets/images/successfully.svg"),
       ),
       SizedBox(height: Get.height / 16.24),
       Text(

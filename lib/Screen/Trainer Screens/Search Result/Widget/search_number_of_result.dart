@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:image_multi_type/image_multi_type.dart';import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 import '../search_result_controller.dart';
@@ -49,8 +49,8 @@ class TrainerSearchNumberOfResult
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    SvgPicture.asset(
-                      'asset/Images/sort.svg',
+                    ImageMultiType(url:
+                      'assets/images/sort.svg',
                       color: Colors.grey,
                     ),
                     Text(

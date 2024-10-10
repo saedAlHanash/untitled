@@ -5,9 +5,6 @@ import 'package:collection/collection.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 import 'package:m_cubit/abstraction.dart';
 
-import '../../../core/strings/enum_manager.dart';
-import '../../../core/util/abstraction.dart';
-
 part 'users_state.dart';
 
 class UsersCubit extends MCubit<UsersInitial> {

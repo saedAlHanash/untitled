@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:drawable_text/drawable_text.dart';
+import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -46,7 +47,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
               text: titleText ?? '',
               size: 24.0.spMin,
               color: Colors.white,
-              fontFamily: FontManager.cairoBold.name,
+              fontFamily: FontManager.bold.name,
             ),
         leading: leading ??
             (Navigator.canPop(context)

@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:image_multi_type/image_multi_type.dart';
 
 import 'trainer_navigation_bar_controller.dart';
 
@@ -24,24 +25,24 @@ class TrainerAppNavigationBar extends StatelessWidget {
         // fixedColor: Colors.white,
         items: [
           BottomNavigationBarItem(
-            icon: SvgPicture.asset('asset/Images/homeSVG.svg'),
+            icon: ImageMultiType(url:'assets/images/homeSVG.svg'),
             backgroundColor: Colors.white,
             label: 'home'.tr,
           ),
           BottomNavigationBarItem(
-              icon: SvgPicture.asset('asset/Images/wallet.svg'),
+              icon: ImageMultiType(url:'assets/images/wallet.svg'),
               backgroundColor: Colors.white,
               label: 'Wallet'.tr),
           BottomNavigationBarItem(
-              icon: SvgPicture.asset('asset/Images/searchSVG.svg'),
+              icon: ImageMultiType(url:'assets/images/searchSVG.svg'),
               backgroundColor: Colors.white,
               label: 'Search_small'.tr),
           BottomNavigationBarItem(
-              icon: SvgPicture.asset('asset/Images/calender.svg'),
+              icon: ImageMultiType(url:'assets/images/calender.svg'),
               backgroundColor: Colors.white,
               label: 'calender'.tr),
           BottomNavigationBarItem(
-            icon: SvgPicture.asset('asset/Images/drawerSVG.svg'),
+            icon: ImageMultiType(url:'assets/images/drawerSVG.svg'),
             backgroundColor: Colors.white,
             label: '',
             // activeIcon: Container(
@@ -50,7 +51,7 @@ class TrainerAppNavigationBar extends StatelessWidget {
             //     height: kBottomNavigationBarHeight,
             //     margin: EdgeInsets.zero,
             //     padding: const EdgeInsets.symmetric(vertical: 20),
-            //     child: SvgPicture.asset('asset/Images/cancel.svg')),
+            //     child: ImageMultiType(url:'asset/Images/cancel.svg')),
           ),
         ],
         currentIndex: controller.index,
