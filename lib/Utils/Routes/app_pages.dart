@@ -1,15 +1,8 @@
-import 'package:fitness_storm/Screen/Splash/splash_binding.dart';
-import 'package:fitness_storm/Screen/Splash/splash_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Main%20Home/main_home_binding.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/Main%20Home/main_home_screen.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/My%20Payment/my_payment_binding.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/My%20Payment/my_payment_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Search%20Result/search_result_bindings.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Search%20Result/search_result_screen.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Subscription/subscription_binding.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Subscription/subscription_screen.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/TrendingPlan/trending_plan_binding.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/TrendingPlan/trending_plan_screen.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Search%20Result/search_result_bindings.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Search%20Result/search_result_screen.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Main%20Home/trainer_main_home_binding.dart';
@@ -20,14 +13,16 @@ import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Plans/trainer_p
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Plans/trainer_plans_screen.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Wallet/trainer_wallet_binding.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Wallet/trainer_wallet_screen.dart';
-import 'package:fitness_storm/core/util/shared_preferences.dart';
+import 'package:fitness_storm/features/home/ui/pages/main_home_screen.dart';
+import 'package:fitness_storm/features/intro_and_splash/ui/pages/splash_page.dart';
+import 'package:fitness_storm/features/payments/ui/pages/my_payment_page.dart';
+import 'package:fitness_storm/features/plans/ui/trending_plan_screen.dart';
 import 'package:fitness_storm/features/profile/ui/pages/profile_trainer_page.dart';
 import 'package:get/get.dart';
 
 import '../../core/injection/injection_container.dart';
 import '../../core/util/firebase_analytics_service.dart';
 import '../../features/fire_chat/rooms_screen.dart';
-import '../../features/intro/ui/pages/intro_page.dart';
 
 part './app_routes.dart';
 
@@ -38,15 +33,14 @@ class AppPages {
         name: AppRoutes.splash,
         page: () {
           sl<AnalyticService>().screenView(name: 'splash');
-          return  Splash();
+          return SplashPage();
         },
-        binding: SplashBinding(),
       ),
       GetPage(
           name: AppRoutes.mainHome,
           page: () {
             sl<AnalyticService>().screenView(name: 'main_home');
-            return MainHomeScreen();
+            return HomePage();
           },
           binding: MainHomeBinding()),
       // GetPage(
@@ -58,12 +52,12 @@ class AppPages {
       //     binding: PlanOverviewBinding()),
 
       GetPage(
-          name: AppRoutes.trendingPlanScreen,
-          page: () {
-            sl<AnalyticService>().screenView(name: 'trending_plan');
-            return const TrendingPlansScreen();
-          },
-          binding: TrendingPlanBinding()),
+        name: AppRoutes.trendingPlanScreen,
+        page: () {
+          sl<AnalyticService>().screenView(name: 'trending_plan');
+          return const TrendingPlansScreen();
+        },
+      ),
       // GetPage(
       //     name: AppRoutes.featuredPlamScreen,
       //     page: () {
@@ -145,7 +139,7 @@ class AppPages {
             sl<AnalyticService>().screenView(name: 'my_payment');
             return const MyPaymentScreen();
           },
-          binding: MyPaymentBinding()),
+          ),
       GetPage(
         name: AppRoutes.chatScreen,
         page: () {

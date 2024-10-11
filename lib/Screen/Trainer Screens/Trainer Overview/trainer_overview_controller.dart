@@ -1,7 +1,5 @@
  
 
-import 'package:fitness_storm/Data/Api/api_result.dart';
-import 'package:fitness_storm/Data/Repositories/plan_repository.dart';
 import 'package:fitness_storm/Data/Repositories/trainer_repository.dart';
 import 'package:get/get.dart';
 
@@ -42,30 +40,7 @@ class TrainerTrainerOverviewController extends GetxController {
     super.onInit();
   }
 
-  addPlanToFavorite(int index) async {
-   // //log(index.toString());
-   //  final temp = _trainerPlans[index];
-   //  temp.isBookMark = !temp.isBookMark!;
-   //  _trainerPlans.removeAt(index);
-   //  _trainerPlans.refresh();
-   //  _trainerPlans.insert(index, temp);
-   //  _trainerPlans.refresh();
-   //  await addToBookmark(temp.id!, !temp.isBookMark!);
-  }
 
-  addToBookmark(String id, bool isBookMark) async {
-    PlanRepository planRepository = PlanRepository();
-    isBookMark = !isBookMark;
-    if (!isBookMark) {
-      ApiResult apiResult = await planRepository.removeFromBookmark(id);
-      if (apiResult.type == ApiResultType.success) {
-        // Utils.openSnackBar(message: 'Success');
-      }
-    } else {
-      ApiResult apiResult = await planRepository.addToBookmark(id);
-      if (apiResult.type == ApiResultType.success) {
-        // Utils.openSnackBar(message: 'Success');
-      }
-    }
-  }
+
+
 }

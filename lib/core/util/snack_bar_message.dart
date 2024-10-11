@@ -101,7 +101,7 @@ class NoteMessage {
                 DrawableText(
                   text: text,
                   size: 22.0.spMin,
-                  color: AppColorManager.mainColorDark,
+                  color: AppColorManager.mainColorLight,
                 ),
                 40.0.verticalSpace,
                 MyButton(

@@ -2,8 +2,8 @@ import 'package:fitness_storm/core/widgets/app_bar/app_bar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../Screen/Trainee Screens/HomeScreen/HomeSreenWidget/yourTainerWidget/your_trainer_widget.dart';
 import '../../../../generated/l10n.dart';
+import '../../../../router/app_router.dart';
 import '../../bloc/trainers_cubit/trainers_cubit.dart';
 import '../widget/trainer_widget.dart';
 

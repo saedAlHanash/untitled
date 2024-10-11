@@ -31,7 +31,7 @@ class AppSharedPreference {
 
   static bool get getIsLoginToChatApp => _prefs?.getBool(_isLoginToChatApp) ?? false;
 
-  static serCurrentPlanId(String b) async {
+  static setCurrentPlanId(String b) async {
     await _prefs?.setString(_currentPlan, b);
   }
 
@@ -59,6 +59,7 @@ class AppSharedPreference {
 
   static Future<void> logout() async {
     await _prefs?.clear();
+    await cashShowIntro();
   }
 
   static Future<void> cashMyId(int? id) async {

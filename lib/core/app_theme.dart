@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 const primaryColor = AppColorManager.black;
-const secondaryColor = AppColorManager.mainColorDark;
+const secondaryColor = AppColorManager.mainColorLight;
 
 final appTheme = ThemeData(
     appBarTheme: const AppBarTheme(

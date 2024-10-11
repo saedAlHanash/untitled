@@ -1,7 +1,6 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 
@@ -30,7 +29,7 @@ class TrainerAppNavigationBar extends StatelessWidget {
             label: 'home'.tr,
           ),
           BottomNavigationBarItem(
-              icon: ImageMultiType(url:'assets/images/wallet.svg'),
+              icon: ImageMultiType(url:'assets/images/payments_cubit.svg'),
               backgroundColor: Colors.white,
               label: 'Wallet'.tr),
           BottomNavigationBarItem(

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:image_multi_type/image_multi_type.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 

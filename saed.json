@@ -1,9 +1,11 @@
 {
-  "name":"",
-  "training_type":0,
-  "training_location_type": 0,
-  "total_weeks":0,
-  "training_level":0,
-  "sortBy":0,
-  "is_bookmark":""
+  "data": [
+    {
+      "id": "",
+      "duration": 0,
+      "price": 0,
+      "ends_at": "",
+      "type": ""
+    }
+  ]
 }

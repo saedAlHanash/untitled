@@ -1,7 +1,6 @@
 import 'package:fitness_storm/Screen/Trainee%20Screens/Search%20Screen/Widget/term_and_condition_widget.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Search%20Screen/search_screen_controller.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
-import 'package:fitness_storm/core/widgets/app_bar/app_bar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';

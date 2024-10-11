@@ -14,8 +14,7 @@ class Plans {
     return Plans(
       data: json["data"] == null
           ? []
-          : List<Plan>.from(
-              json["data"]!.map((x) => Plan.fromJson(x))),
+          : List<Plan>.from(json["data"]!.map((x) => Plan.fromJson(x))),
     );
   }
 
@@ -31,6 +30,7 @@ class Plan {
     required this.image,
     required this.trainingType,
     required this.level,
+    required this.days,
     required this.trainer,
     required this.trainingLocation,
     required this.totalWeeks,
@@ -39,6 +39,8 @@ class Plan {
     required this.introductionVideo,
     required this.description,
     required this.workoutFrequency,
+    required this.userProgress,
+    required this.currentActivatedPlan,
   });
 
   final int workoutFrequency;
@@ -54,6 +56,10 @@ class Plan {
   final bool isActive;
   final String introductionVideo;
   final String description;
+  final List<Days> days;
+
+  final num userProgress;
+  final bool currentActivatedPlan;
 
   bool get isCurrent => AppSharedPreference.getCurrentPlanId == '$id';
 
@@ -66,6 +72,9 @@ class Plan {
           ? []
           : List<TrainingType>.from(
               json["training_type"]!.map((x) => TrainingType.fromJson(x))),
+      days: json["days"] == null
+          ? []
+          : List<Days>.from(json["days"]!.map((x) => Days.fromJson(x))),
       level: json["level"] == null
           ? []
           : List<TrainingLevel>.from(
@@ -73,14 +82,16 @@ class Plan {
       trainer: TrainerModel.fromJson(json["trainer"] ?? {}),
       trainingLocation: json["training_location"] == null
           ? []
-          : List<TrainingLocation>.from(json["training_location"]!
-              .map((x) => TrainingLocation.fromJson(x))),
+          : List<TrainingLocation>.from(
+              json["training_location"]!.map((x) => TrainingLocation.fromJson(x))),
       totalWeeks: json["total_weeks"].toString().tryParseOrZeroInt,
       workoutFrequency: json["workout_frequency"].toString().tryParseOrZeroInt,
-      isBookmark: (json["is_bookmark"]).toString().getBool ,
-      isActive: (json["is_active"] ).toString().getBool,
+      isBookmark: (json["is_bookmark"]).toString().getBool,
+      isActive: (json["is_active"]).toString().getBool,
       introductionVideo: json["introduction_video"] ?? '',
       description: json["description"] ?? '',
+      userProgress: json["user_progress"] ?? 0,
+      currentActivatedPlan: json["current_activated_plan"] ?? false,
     );
   }
 
@@ -92,11 +103,14 @@ class Plan {
         "level": level.map((x) => x.toJson()).toList(),
         "trainer": trainer.toJson(),
         "training_location": trainingLocation.map((x) => x.toJson()).toList(),
+        "days": days.map((x) => x.toJson()).toList(),
         "total_weeks": totalWeeks,
         "is_bookmark": isBookmark,
         "is_active": isActive,
         "introduction_video": introductionVideo,
         "description": description,
+        "user_progress": userProgress,
+        "current_activated_plan": currentActivatedPlan,
       };
 }
 
@@ -163,9 +177,7 @@ class TrainingLocation {
     return TrainingLocation(
       id: json["id"].toString().tryParseOrZeroInt,
       type: json["type"] ?? "",
-      pivot: json["pivot"] == null
-          ? null
-          : TrainingLocationPivot.fromJson(json["pivot"]),
+      pivot: json["pivot"] == null ? null : TrainingLocationPivot.fromJson(json["pivot"]),
     );
   }
 
@@ -188,8 +200,7 @@ class TrainingLocationPivot {
   factory TrainingLocationPivot.fromJson(Map<String, dynamic> json) {
     return TrainingLocationPivot(
       planId: json["plan_id"].toString().tryParseOrZeroInt,
-      trainingLocationId:
-          json["training_location_id"].toString().tryParseOrZeroInt,
+      trainingLocationId: json["training_location_id"].toString().tryParseOrZeroInt,
     );
   }
 
@@ -214,9 +225,7 @@ class TrainingType {
     return TrainingType(
       id: json["id"].toString().tryParseOrZeroInt,
       type: json["type"] ?? "",
-      pivot: json["pivot"] == null
-          ? null
-          : TrainingTypePivot.fromJson(json["pivot"]),
+      pivot: json["pivot"] == null ? null : TrainingTypePivot.fromJson(json["pivot"]),
     );
   }
 
@@ -246,5 +255,31 @@ class TrainingTypePivot {
   Map<String, dynamic> toJson() => {
         "plan_id": planId,
         "training_type_id": trainingTypeId,
+      };
+}
+
+class Days {
+  final String id;
+  final int dayNumber;
+  final bool completed;
+
+  Days({
+    required this.id,
+    required this.dayNumber,
+    required this.completed,
+  });
+
+  factory Days.fromJson(Map<String, dynamic> json) {
+    return Days(
+      id: json['id'] ?? '',
+      dayNumber: json['day_number'] ?? 0,
+      completed: json['completed'] ?? false,
+    );
+  }
+
+  Map<String, dynamic> toJson() => {
+        "id": id,
+        "day_number": dayNumber,
+        "completed": completed,
       };
 }

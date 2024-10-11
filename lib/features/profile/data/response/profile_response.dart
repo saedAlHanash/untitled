@@ -1,9 +1,9 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 
-import '../../../../Model/specialties_model.dart';
 import '../../../../core/api_manager/api_service.dart';
 import '../../../../generated/assets.dart';
+import '../../../trainer/data/response/trainer.dart';
 
 
 class Profile {
@@ -75,7 +75,7 @@ class Profile {
           ? []
           : List<Specialty>.from(json["specialties"]!.map((x) => Specialty.fromJson(x))),
       privateSessionPrice: json["private_session_price"].toString().tryParseOrZero,
-      wallet: json["wallet"],
+      wallet: json["payments_cubit"],
     );
   }
 
@@ -96,7 +96,7 @@ class Profile {
     "number_of_subscribers": numberOfSubscribers,
     "specialties": specialties.map((x) => x.toJson()).toList(),
     "private_session_price": privateSessionPrice,
-    "wallet": wallet,
+    "payments_cubit": wallet,
   };
 
   Future<Map<String, dynamic>> toJsonChatApp() async => {
@@ -116,7 +116,7 @@ class Profile {
     "number_of_subscribers": numberOfSubscribers,
     "specialties": specialties.map((x) => x.toJson()).toList(),
     "private_session_price": privateSessionPrice,
-    "wallet": wallet,
+    "payments_cubit": wallet,
     'fcm': await FirebaseMessaging.instance.getToken(),
   };
 

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
-
-import '../../Screen/Trainee Screens/User Training/change_video_cubit/change_video_cubit.dart';
 import '../../features/appointments/bloc/add_time_cubit/add_time_cubit.dart';
 import '../../features/appointments/bloc/available_times_cubit/available_times_cubit.dart';
 import '../../features/appointments/bloc/booked_appointments_cubit/booked_appointments_cubit.dart';
@@ -24,6 +22,7 @@ import '../../features/auth/bloc/resend_code_cubit/resend_code_cubit.dart';
 import '../../features/auth/bloc/reset_password_cubit/reset_password_cubit.dart';
 import '../../features/auth/bloc/signup_cubit/signup_cubit.dart';
 import '../../features/auth/bloc/survey_cubit/survey_cubit.dart';
+import '../../features/bookmarked/bloc/add_favorite/add_favorite_cubit.dart';
 import '../../features/bookmarked/bloc/bookmarked_cubit/bookmarked_cubit.dart';
 import '../../features/coupon/coupon_cubit/coupon_cubit.dart';
 import '../../features/diets/bloc/create_diet_cubit/create_diet_cubit.dart';
@@ -35,16 +34,19 @@ import '../../features/fire_chat/open_room_cubit/open_room_cubit.dart';
 import '../../features/fire_chat/rooms_bloc/rooms_cubit.dart';
 import '../../features/fire_chat/userss_bloc/users_bloc.dart';
 import '../../features/notifications/bloc/notifications_cubit/notifications_cubit.dart';
-import '../../features/plans/bloc/add_favorite/add_favorite_cubit.dart';
+import '../../features/payments/bloc/payments_cubit/payments_cubit.dart';
+import '../../features/payments/bloc/wallet_cubit/wallet_cubit.dart';
+import '../../features/plans/bloc/active_plans_cubit/active_plans_cubit.dart';
 import '../../features/plans/bloc/plan_cubit/plan_cubit.dart';
 import '../../features/plans/bloc/plan_workout_cubit/plan_workout_cubit.dart';
 import '../../features/plans/bloc/plans_cubit/plans_cubit.dart';
 import '../../features/plans/bloc/subscribe_plan_cubit/subscribe_plan_cubit.dart';
-import '../../features/plans/bloc/trainer_plans_cubit/trainer_plans_cubit.dart';
+import '../../features/plans/bloc/trending_plans_cubit/trending_plans_cubit.dart';
 import '../../features/profile/bloc/profile_cubit/profile_cubit.dart';
 import '../../features/profile/bloc/update_profile_cubit/update_profile_cubit.dart';
 import '../../features/search/bloc/temp_cubit/search_cubit.dart';
 import '../../features/trainer/bloc/trainer_cubit/trainer_cubit.dart';
+import '../../features/trainer/bloc/trainer_plans_cubit/trainer_plans_cubit.dart';
 import '../../features/trainer/bloc/trainers_cubit/trainers_cubit.dart';
 import '../../features/trainer_files/bloc/create_trainer_file_cubit/create_trainer_file_cubit.dart';
 import '../../features/trainer_files/bloc/delete_trainer_file_cubit/delete_trainer_file_cubit.dart';
@@ -52,10 +54,8 @@ import '../../features/trainer_files/bloc/trainer_files_cubit/trainer_files_cubi
 import '../../features/training/bloc/exercise_cubit/exercise_cubit.dart';
 import '../../features/training/bloc/temp_cubit/training_cubit.dart';
 import '../../features/vimeo/bloc/vimeo_cubit/vimeo_cubit.dart';
-import '../../features/wallet/bloc/wallet_cubit/wallet_cubit.dart';
 import '../../features/welcome_message/bloc/welcome_message_cubit/welcome_message_cubit.dart';
 import '../../features/welcome_message/bloc/welcome_messages_cubit/welcome_messages_cubit.dart';
-import '../network/network_info.dart';
 import '../util/firebase_analytics_service.dart';
 
 final sl = GetIt.instance;
@@ -63,11 +63,9 @@ final sl = GetIt.instance;
 Future<void> init() async {
   //region Core
 
-
-
   sl.registerLazySingleton(() => GlobalKey<NavigatorState>());
   sl.registerLazySingleton(() => AnalyticService());
-  sl.registerLazySingleton(() => ChangeVideoCubit());
+
   sl.registerLazySingleton(() => RoomsCubit());
   sl.registerLazySingleton(() => UsersCubit());
   sl.registerLazySingleton(() => OpenRoomCubit());
@@ -108,8 +106,11 @@ Future<void> init() async {
 
   sl.registerFactory(() => TrainerCubit());
   sl.registerFactory(() => TrainersCubit());
-  sl.registerFactory(() => WalletCubit());
 
+  //endregion
+  //region payments
+  sl.registerFactory(() => WalletCubit());
+  sl.registerFactory(() => PaymentsCubit());
   //endregion
 
   //region plans
@@ -120,6 +121,8 @@ Future<void> init() async {
   sl.registerFactory(() => PlanWorkoutsCubit());
   sl.registerFactory(() => AddFavoriteCubit());
   sl.registerFactory(() => BookmarkedCubit());
+  sl.registerFactory(() => ActivePlansCubit());
+  sl.registerFactory(() => TrendingPlansCubit());
 
   //endregion
 
@@ -175,16 +178,16 @@ Future<void> init() async {
 
   //endregion
 
-    //region Diet
-      sl.registerFactory(() => DietCubit());
-      sl.registerFactory(() => DietsCubit());
-      sl.registerFactory(() => CreateDietCubit());
-      sl.registerFactory(() => DeleteDietCubit());
-      //endregion
+  //region Diet
+  sl.registerFactory(() => DietCubit());
+  sl.registerFactory(() => DietsCubit());
+  sl.registerFactory(() => CreateDietCubit());
+  sl.registerFactory(() => DeleteDietCubit());
+  //endregion
 
-    //region Search
-      sl.registerFactory(() => SearchCubit());
-      //endregion
+  //region Search
+  sl.registerFactory(() => SearchCubit());
+  //endregion
 
 //! External
 }

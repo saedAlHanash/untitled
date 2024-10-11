@@ -1,5 +1,4 @@
 import 'package:fitness_storm/Data/Repositories/Trainer%20Repository/trainer_repository.dart';
-import 'package:fitness_storm/Model/subscribed_plan.dart';
 import 'package:fitness_storm/features/trainer/data/response/trainer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -7,7 +6,7 @@ import 'package:get/get.dart';
 import '../../../core/models/plan_model.dart';
 
 class TrainerHomeScreenController extends GetxController {
-  final RxList<SubscribedPlan> continueTrainingPlans = <SubscribedPlan>[].obs;
+
   final RxList<Plan> trendingPlans = <Plan>[].obs;
   final RxList<Plan> featuredPlans = <Plan>[].obs;
   final RxList<TrainerModel> yourTrainer = <TrainerModel>[].obs;

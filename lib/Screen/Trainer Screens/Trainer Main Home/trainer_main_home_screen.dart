@@ -7,7 +7,6 @@ import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Wallet/trainer_
 import 'package:fitness_storm/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:image_multi_type/image_multi_type.dart';import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 

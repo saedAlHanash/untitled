@@ -1,15 +1,20 @@
 import 'dart:convert';
 
+import 'package:collection/collection.dart';
+import 'package:drawable_text/drawable_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 import 'package:m_cubit/abstraction.dart';
 
+import '../../generated/l10n.dart';
 import '../api_manager/api_service.dart';
 import '../api_manager/api_url.dart';
 import '../error/error_manager.dart';
 import '../models/booked_appointments.dart';
+import '../models/plan_model.dart';
 import '../strings/enum_manager.dart';
 import '../util/pair_class.dart';
 import '../widgets/spinner_widget.dart';
@@ -404,5 +409,40 @@ extension ReadOrNull on BuildContext? {
     } on ProviderNotFoundException catch (_) {
       return null;
     }
+  }
+}
+
+extension PlanH on Plan {
+  Widget get progressWidget {
+    return Container(
+      width: 0.2.sw,
+      padding: const EdgeInsets.all(5.0).r,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(7), color: Colors.black.withOpacity(0.6)),
+      alignment: Alignment.center,
+      child: DrawableText(
+        text: '${S().completed} ${((userProgress) * 100).round()}%',
+        size: 14.0.sp,
+        color: Colors.white,
+      ),
+    );
+  }
+
+  Widget get dayWidget {
+    return Container(
+      width: 0.2.sw,
+      padding: const EdgeInsets.all(5.0).r,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(7),
+        color: Colors.black.withOpacity(0.6),
+      ),
+      alignment: Alignment.center,
+      child: DrawableText(
+        text:
+            '${S().day} ${days.firstWhereIndexedOrNull((i, e) => !e.completed)?.dayNumber ?? 1}',
+        size: 14.0.sp,
+        color: Colors.white,
+      ),
+    );
   }
 }

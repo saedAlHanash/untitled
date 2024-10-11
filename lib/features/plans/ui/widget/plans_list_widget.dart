@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../Screen/Trainee Screens/HomeScreen/HomeSreenWidget/list_header.dart';
-import '../../../../Screen/Trainer Screens/Trainer HomeScreen/HomeSreenWidget/FeaturedPlanWidget/featured_plan_item.dart';
 import '../../../../core/util/my_style.dart';
 import '../../../../generated/l10n.dart';
 import '../../../../router/app_router.dart';
+import '../../../home/ui/widget/list_header.dart';
 import '../../bloc/plans_cubit/plans_cubit.dart';
+import 'featured_plan_item.dart';
 
 class PlansListWidget extends StatefulWidget {
   const PlansListWidget({super.key});

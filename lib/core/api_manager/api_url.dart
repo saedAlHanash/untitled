@@ -88,7 +88,7 @@ class GetUrl {
 
   static const bundles = 'bundles';
 
-  static const wallet = 'wallet';
+  static const wallet = 'payments_cubit';
 
   static const bookmarked = 'plans/bookmarked';
 
@@ -105,7 +105,13 @@ class GetUrl {
 
   static const diets = 'diets';
 
-  static var plans = 'plans/ourPlans';
+  static const plans = 'plans/ourPlans';
+
+  static const activePlans = 'userSubscribedPlans';
+
+  static const trendingPlans='plans/trending';
+
+  static const myPayments = 'myPayments';
 
 
   static String planWorkouts(int id ) => 'plans/$id/workouts';

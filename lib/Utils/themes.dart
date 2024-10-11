@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../core/strings/enum_manager.dart';
-
 
 MaterialColor primarySwatch = const MaterialColor(0xFF6340D6, {
   0: Color(0xFFFFFFFF),

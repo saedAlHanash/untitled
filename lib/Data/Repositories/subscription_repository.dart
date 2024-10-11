@@ -1,6 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:fitness_storm/Model/payment_private_session.dart';
-import 'package:fitness_storm/Model/trainee_next_payment.dart';
 
 import '../../Model/subscription_model.dart';
 import '../../Utils/utils.dart';
@@ -10,28 +8,6 @@ import '../Api/methods.dart';
 import '../Api/urls.dart';
 
 class SubscriptionRepository {
-  Future<List<dynamic>> getNextPayment() async {
-    Options option = Utils.getOptions(withToken: true, all: true);
-    try {
-      List<dynamic> traineeNextPayments = [];
-      ApiResult result =
-          await Methods.get(url: TRAINEEURLS.getMyPayment, options: option);
-      if (result.type == ApiResultType.success) {
-        result.data.forEach(
-            (payment) => traineeNextPayments.add(TraineeNextPayment.fromJson(payment)));
-      }
-      result =
-          await Methods.get(url: TRAINEEURLS.getMyPaymentPrivateSession, options: option);
-      if (result.type == ApiResultType.success) {
-        result.data.forEach((payment) =>
-            traineeNextPayments.add(PaymentPrivateSession.fromJson(payment)));
-      }
-      return traineeNextPayments;
-    } catch (e) {
-      //log(e.toString());
-    }
-    return [];
-  }
 
   Future<SubscriptionsModel> subscribePaymentPlan() async {
     Options option = Utils.getOptions(withToken: true, all: true);

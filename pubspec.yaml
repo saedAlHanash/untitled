@@ -29,7 +29,7 @@ dependencies:
   readmore: ^3.0.0
   wakelock_plus: ^1.2.8
   google_sign_in: ^6.2.1
-  agora_rtc_engine: ^6.3.2
+#  agora_rtc_engine: ^6.3.2
   permission_handler: ^11.3.1
 
   #### start Firebase #########

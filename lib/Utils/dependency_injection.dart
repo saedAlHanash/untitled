@@ -15,7 +15,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
 
-
 import '../core/api_manager/api_url.dart';
 import '../core/app/app_widget.dart';
 import '../core/injection/injection_container.dart';

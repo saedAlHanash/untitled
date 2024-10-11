@@ -10,8 +10,6 @@ import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:intl/intl.dart';
 import 'package:logger/logger.dart';
 
-import '../injection/injection_container.dart';
-import '../network/network_info.dart';
 import '../strings/enum_manager.dart';
 import 'helpers_api/helper_api_service.dart';
 import 'helpers_api/log_api.dart';
@@ -59,6 +57,9 @@ class APIService {
     String? additional,
     String? hostName,
   }) async {
+    if (url.contains('refreshToken')) {
+      loggerObject.w(header);
+    }
     if (!await network.hasConnection) noInternet;
 
     final uri = getUri(
@@ -80,26 +81,22 @@ class APIService {
           break;
         case ApiType.post:
           response = await http
-              .post(uri,
-                  body: jsonEncode(body), headers: (header ?? innerHeader))
+              .post(uri, body: jsonEncode(body), headers: (header ?? innerHeader))
               .timeout(connectionTimeOut, onTimeout: () => timeOut);
           break;
         case ApiType.put:
           response = await http
-              .put(uri,
-                  body: jsonEncode(body), headers: (header ?? innerHeader))
+              .put(uri, body: jsonEncode(body), headers: (header ?? innerHeader))
               .timeout(connectionTimeOut, onTimeout: () => timeOut);
           break;
         case ApiType.patch:
           response = await http
-              .patch(uri,
-                  body: jsonEncode(body), headers: (header ?? innerHeader))
+              .patch(uri, body: jsonEncode(body), headers: (header ?? innerHeader))
               .timeout(connectionTimeOut, onTimeout: () => timeOut);
           break;
         case ApiType.delete:
           response = await http
-              .delete(uri,
-                  body: jsonEncode(body), headers: (header ?? innerHeader))
+              .delete(uri, body: jsonEncode(body), headers: (header ?? innerHeader))
               .timeout(connectionTimeOut, onTimeout: () => timeOut);
           break;
       }
@@ -159,19 +156,16 @@ class APIService {
     return response;
   }
 
-
-
-  Future<DateTime> get getServerDateTime async{
-
+  Future<DateTime> get getServerDateTime async {
     final response = await http.get(Uri.https(baseUrl));
 
-    final dateString  = response.headers['date']??'';
+    final dateString = response.headers['date'] ?? '';
 
     // Define the format that matches the date string
-    final  format = DateFormat("EEE, dd MMM yyyy HH:mm:ss 'GMT'", 'en_US');
+    final format = DateFormat("EEE, dd MMM yyyy HH:mm:ss 'GMT'", 'en_US');
 
     // Parse the string to DateTime
-    final  parsedDate = format.parseUtc(dateString);
+    final parsedDate = format.parseUtc(dateString);
     return parsedDate;
   }
 }

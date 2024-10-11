@@ -14,8 +14,6 @@ import 'package:get/get.dart';
 import 'package:m_cubit/caching_service/caching_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'Screen/Trainee Screens/HomeScreen/refresh_home_plan_cubit/refresh_home_plan_cubit.dart';
-import 'Screen/Trainee Screens/User Training/change_video_cubit/change_video_cubit.dart';
 import 'Utils/dependency_injection.dart';
 import 'core/api_manager/api_service.dart';
 import 'core/app/app_provider.dart';
@@ -70,11 +68,10 @@ void main() async {
   runApp(
     MultiBlocProvider(
       providers: [
-        BlocProvider(create: (_) => RefreshHomePlanCubit()),
         BlocProvider(create: (_) => sl<UsersCubit>()..getChatUsers(), lazy: true),
         BlocProvider(create: (_) => sl<OpenRoomCubit>()),
         BlocProvider(create: (_) => sl<RoomsCubit>()..getChatRooms(false)),
-        BlocProvider(create: (context) => ChangeVideoCubit()),
+
       ],
       child: const MyApp(),
     ),
@@ -99,8 +96,10 @@ class MyHttpOverrides extends HttpOverrides {
 }
 
 Future<void> saveFCM() async {
-  if (AppProvider.token.isEmpty) return;
+  if (!AppProvider.isLogin) return;
+
   final token = await FirebaseMessaging.instance.getToken() ?? '';
+
   final response = await APIService().callApi(
     type: ApiType.post,
     url: PostUrl.insertFcmToken,
@@ -108,6 +107,6 @@ Future<void> saveFCM() async {
   );
   if (response.statusCode != 200) {
     loggerObject.e('error with fcm');
-    // ErrorManager.getApiError(response);
+
   }
 }

@@ -33,7 +33,7 @@ class NotFoundWidget extends StatelessWidget {
             DrawableText(
               text: text,
               fontFamily: FontManager.bold.name,
-              color: AppColorManager.mainColorDark,
+              color: AppColorManager.mainColorLight,
               size: 24.0.spMin,
             )
           ],

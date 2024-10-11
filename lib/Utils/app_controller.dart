@@ -10,7 +10,4 @@ class AppController extends GetxController {
   List<TrainingType> trainingTypes = [];
   PlanRepository planRepository = PlanRepository();
 
-  getAllTrainingTypes() async {
-    trainingTypes = await planRepository.getAllTrainingType();
-  }
 }

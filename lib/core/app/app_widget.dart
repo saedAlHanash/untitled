@@ -12,7 +12,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 
-import '../../Screen/Splash/splash_binding.dart';
 import '../../Utils/Routes/app_pages.dart';
 import '../../Utils/themes.dart';
 import '../../features/appointments/bloc/available_times_cubit/available_times_cubit.dart';
@@ -21,15 +20,19 @@ import '../../features/appointments/bloc/bundles_cubit/bundles_cubit.dart';
 import '../../features/auth/bloc/delete_account_cubit/delete_account_cubit.dart';
 import '../../features/auth/bloc/refresh_token_cubit/refresh_token_cubit.dart';
 import '../../features/auth/bloc/survey_cubit/survey_cubit.dart';
+import '../../features/bookmarked/bloc/add_favorite/add_favorite_cubit.dart';
 import '../../features/bookmarked/bloc/bookmarked_cubit/bookmarked_cubit.dart';
 import '../../features/coupon/coupon_cubit/coupon_cubit.dart';
 import '../../features/diets/bloc/diets_cubit/diets_cubit.dart';
 import '../../features/notifications/bloc/notifications_cubit/notifications_cubit.dart';
-import '../../features/plans/bloc/add_favorite/add_favorite_cubit.dart';
+import '../../features/payments/bloc/payments_cubit/payments_cubit.dart';
+import '../../features/payments/bloc/wallet_cubit/wallet_cubit.dart';
+import '../../features/plans/bloc/active_plans_cubit/active_plans_cubit.dart';
 import '../../features/plans/bloc/plans_cubit/plans_cubit.dart';
+import '../../features/plans/bloc/trending_plans_cubit/trending_plans_cubit.dart';
+import '../../features/trainer/bloc/trainers_cubit/trainers_cubit.dart';
 import '../../features/trainer_files/bloc/trainer_files_cubit/trainer_files_cubit.dart';
 import '../../features/training/bloc/exercise_cubit/exercise_cubit.dart';
-import '../../features/wallet/bloc/wallet_cubit/wallet_cubit.dart';
 import '../../features/welcome_message/bloc/welcome_messages_cubit/welcome_messages_cubit.dart';
 import '../../generated/l10n.dart';
 import '../../helper/lang_helper.dart';
@@ -83,7 +86,6 @@ class _MyAppState extends State<MyApp> {
         return GetMaterialApp(
           color: Colors.white,
           title: "Fitness Storm",
-          initialBinding: SplashBinding(),
           initialRoute: AppRoutes.splash,
           debugShowCheckedModeBanner: false,
           defaultTransition: Transition.fade,
@@ -112,10 +114,16 @@ class _MyAppState extends State<MyApp> {
                 b.BlocProvider(create: (_) => sl<PlansCubit>()..getPlans()),
                 b.BlocProvider(create: (_) => sl<DietsCubit>()..getDiets()),
                 b.BlocProvider(create: (_) => sl<BookedAppointmentsCubit>()),
+                b.BlocProvider(create: (_) => sl<PaymentsCubit>()..getPayments()),
                 b.BlocProvider(create: (_) => sl<WalletCubit>()..getWallet()),
+                b.BlocProvider(create: (_) => sl<TrainersCubit>()..getTrainers()),
+                b.BlocProvider(create: (_) => sl<ActivePlansCubit>()..getActivePlans()),
                 b.BlocProvider(create: (_) => sl<RefreshTokenCubit>()..refreshToken()),
                 b.BlocProvider(create: (_) => sl<BookmarkedCubit>()..getBookmarked()),
                 b.BlocProvider(create: (_) => sl<TrainerFilesCubit>()..getTrainerFiles()),
+                b.BlocProvider(
+                  create: (_) => sl<TrendingPlansCubit>()..getTrendingPlans(),
+                ),
                 b.BlocProvider(
                   create: (_) => sl<ProfileCubit>()..getProfile(),
                   lazy: AppProvider.isLogin && (!AppProvider.isGuest),

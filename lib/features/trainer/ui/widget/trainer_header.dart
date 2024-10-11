@@ -5,13 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 import 'package:image_multi_type/round_image_widget.dart';
 
 import '../../../../../core/strings/app_color_manager.dart';
 import '../../../../../core/widgets/my_button.dart';
-import '../../../../Utils/utils.dart';
 import '../../../../core/app/app_provider.dart';
 import '../../../../core/util/my_style.dart';
 import '../../../../generated/assets.dart';
@@ -171,11 +169,7 @@ class TrainerHeader extends StatelessWidget {
     );
   }
 
-  void bookSession(TrainerModel trainer) {
-    Utils.showAlertDialog(() {
-      startBookPrivetSession(trainer);
-    }, '''needBookPrivateSession'''.tr, textContinue: 'Book'.tr);
-  }
+
 }
 
 class BioCheckWidget extends StatelessWidget {

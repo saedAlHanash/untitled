@@ -1,6 +1,5 @@
-import 'package:fitness_storm/Data/Api/api_result.dart';
+
 import 'package:fitness_storm/Data/Repositories/Trainer%20Repository/trainer_repository.dart';
-import 'package:fitness_storm/Data/Repositories/plan_repository.dart';
 import 'package:get/state_manager.dart';
 
 import '../../../core/models/plan_model.dart';
@@ -26,27 +25,6 @@ class TrainerPlansController extends GetxController {
     await getTrainerPlans();
     isLoading = false;
   }
-
-  addPlanToFavorite(int index) async {
-    await addToBookmark();
-  }
-
-  addToBookmark() async {
-    PlanRepository planRepository = PlanRepository();
-
-    // if (!isBookMark) {
-    //   ApiResult apiResult = await planRepository.removeFromBookmark(id);
-    //   if (apiResult.type == ApiResultType.success) {
-    //     // Utils.openSnackBar(message: 'Success');
-    //   }
-    // } else {
-    ApiResult apiResult = await planRepository.getMyPlans();
-    if (apiResult.type == ApiResultType.success) {
-      return apiResult.data;
-      // Utils.openSnackBar(message: 'Success');
-    }
-  }
-
   //TODO add function to get trainer plans when api ready
   Future<List<Plan>> getTrainerPlans() async {
     List<Plan> plans = await _trainerRepository.getTrainerPlans();

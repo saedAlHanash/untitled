@@ -93,53 +93,7 @@ abstract class Methods {
     }
   }
 
-  static Future<ApiResult> put(
-      {required String url, required Options options, data}) async {
-    try {
-      var response = await _dio.put(url, options: options, data: data);
-      //   print('response ${url.split('').last}: ${response.data}');
-      if (response.statusCode == 200) {
-        return ApiResult.successFromJson(response.data);
-      } else {
-        return ApiResult.failureFromJson(response.data);
-      }
-    } catch (e) {
-      loggerObject.e(e);
 
-      return ApiResult.failure(NetworkExceptions.getErrorMessage(e));
-    }
-  }
 
-  static Future<ApiResult> delete(
-      {required String url, required Options options, data}) async {
-    try {
-      var response = await _dio.delete(url, options: options, data: data);
-      //   print('response ${url.split('').last}: ${response.data}');
-      if (response.statusCode == 200) {
-        return ApiResult.successFromJson(response.data);
-      } else {
-        return ApiResult.failureFromJson(response.data);
-      }
-    } catch (e) {
-      loggerObject.e(e);
 
-      return ApiResult.failure(NetworkExceptions.getErrorMessage(e));
-    }
-  }
-
-  static Future<void> download(
-      {required String url, required String dir}) async {
-    //   print(url);
-    //   print(dir);
-    // dir = dir[1];
-    try {
-      //   print('uuuuuuuuuuuuu $url');
-      //   print('ddddddddddddd $dir');
-      await _dio.download(url, dir, onReceiveProgress: (rec, total) {
-        //   print("Rec: $rec , Total: $total");
-      });
-    } catch (e) {
-      loggerObject.e(e);
-    }
-  }
 }

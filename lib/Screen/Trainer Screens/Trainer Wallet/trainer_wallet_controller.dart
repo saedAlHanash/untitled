@@ -40,7 +40,7 @@ class TrainerWalletController extends GetxController {
 
     Options options = Utils.getOptions(accept: true, withToken: true);
     final x =  await Methods.get(url: TRAINERURLS.trainerPorile, options: options);
-    balanced = x.data['wallet'];
+    balanced = x.data['payments_cubit'];
     isLoading = false;
   }
 

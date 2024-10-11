@@ -9,7 +9,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:m_cubit/abstraction.dart';
 
-import '../../../../Screen/Trainee Screens/HomeScreen/refresh_home_plan_cubit/refresh_home_plan_cubit.dart';
 import '../../../../core/api_manager/api_service.dart';
 import '../../../../core/app/app_provider.dart';
 import '../../../../core/app/app_widget.dart';
@@ -49,12 +48,12 @@ class SubscribePlanCubit extends Cubit<SubscribePlanInitial> {
       sl<AnalyticService>().subscribePlan(pair.first!);
       await createRoomWithTrainer();
 
-      await AppSharedPreference.serCurrentPlanId(planId.toString());
+      await AppSharedPreference.setCurrentPlanId(planId.toString());
 
       NoteMessage.showSnakeBar(
           message: 'successfully_subscribed'.tr, context: ctx!);
 
-      ctx?.read<RefreshHomePlanCubit>().refresh();
+
 
       emit(state.copyWith(statuses: CubitStatuses.done, result: pair.first));
     }

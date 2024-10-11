@@ -1,4 +1,3 @@
-import 'package:fitness_storm/Model/specialties_model.dart';
 import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 
@@ -94,4 +93,33 @@ class TrainerModel {
         "specialties": specialties.map((x) => x.toJson()).toList(),
         "private_session_price": privateSessionPrice,
       };
+}
+class Specialty {
+  Specialty({
+    required this.id,
+    required this.type,
+    required this.typeId,
+    required this.planId,
+  });
+
+  final int id;
+  final String type;
+  final int typeId;
+  final int planId;
+
+  factory Specialty.fromJson(Map<String, dynamic> json) {
+    return Specialty(
+      id: json["id"].toString().tryParseOrZeroInt,
+      type: json["type"] ?? "",
+      typeId: json["type_id"].toString().tryParseOrZeroInt,
+      planId: json["plan_id"].toString().tryParseOrZeroInt,
+    );
+  }
+
+  Map<String, dynamic> toJson() => {
+    "id": id,
+    "type": type,
+    "type_id": typeId,
+    "plan_id": planId,
+  };
 }

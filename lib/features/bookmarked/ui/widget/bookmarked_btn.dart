@@ -7,7 +7,7 @@ import 'package:image_multi_type/image_multi_type.dart';
 
 import '../../../../core/util/my_style.dart';
 import '../../../../generated/assets.dart';
-import '../../../plans/bloc/add_favorite/add_favorite_cubit.dart';
+import '../../../bookmarked/bloc/add_favorite/add_favorite_cubit.dart';
 import '../../bloc/bookmarked_cubit/bookmarked_cubit.dart';
 
 class BookMarkedBtn extends StatefulWidget {

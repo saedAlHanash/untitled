@@ -66,7 +66,7 @@ class Assets {
   static const String imagesUser = 'assets/images/user.png';
   static const String imagesVCall = 'assets/images/v_call.svg';
   static const String imagesVideo = 'assets/images/video.png';
-  static const String imagesWallet = 'assets/images/wallet.svg';
+  static const String imagesWallet = 'assets/images/payments_cubit.svg';
   static const String imagesWelcomeMessage = 'assets/images/welcome_message.svg';
   static const String imagesWhiteLogo = 'assets/images/white_logo.svg';
   static const String lottiesFitnessstormLogoAnimationColored = 'assets/lotties/fitnessstorm_logo_animation_colored.json';

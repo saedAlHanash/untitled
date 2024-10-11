@@ -64,14 +64,15 @@ import '../features/plans/data/response/plan_workout_response.dart';
 import '../features/plans/ui/pages/plans_page.dart';
 import '../features/profile/ui/pages/pdf_viewer_page.dart';
 import '../features/profile/ui/pages/update_profile_page.dart';
+import '../features/trainer/bloc/trainer_cubit/trainer_cubit.dart';
+import '../features/trainer/bloc/trainer_plans_cubit/trainer_plans_cubit.dart';
 import '../features/trainer/ui/pages/available_time_page.dart';
+import '../features/trainer/ui/pages/trainer_page.dart';
 import '../features/trainer/ui/pages/trainers_page.dart';
 import '../features/trainer_files/bloc/delete_trainer_file_cubit/delete_trainer_file_cubit.dart';
 import '../features/trainer_files/ui/pages/trainer_files_page.dart';
 import '../features/training/ui/pages/training_page.dart';
 import '../features/vimeo/bloc/vimeo_cubit/vimeo_cubit.dart';
-import '../features/welcome_message/bloc/welcome_messages_cubit/welcome_messages_cubit.dart';
-import '../features/welcome_message/ui/pages/welcome_page.dart';
 import '../services/chat_service/chat_service_core.dart';
 
 Route<dynamic> routes(RouteSettings settings) {
@@ -319,9 +320,11 @@ void startRestPass() {
     child: const ResetPasswordPage(),
   );
 
-  Navigator.pushReplacement(ctx!,MaterialPageRoute(builder: (context) {
-    return page;
-  },));
+  Navigator.pushReplacement(ctx!, MaterialPageRoute(
+    builder: (context) {
+      return page;
+    },
+  ));
   sl<AnalyticService>().screenView(name: 'rest_password');
   //endregion
 }
@@ -361,8 +364,6 @@ void startHome() {
   Get.offAllNamed(AppProvider.isTrainer ? AppRoutes.trainerHomePage : AppRoutes.mainHome);
   sl<AnalyticService>().screenView(name: 'home');
 }
-
-
 
 void startUpdateProfile() {
   final providers = [
@@ -474,7 +475,7 @@ void startCreateBundle(Bundle bundle) {
 
 void startTrainersPage() {
   final providers = [
-    BlocProvider(create: (_) => sl<TrainersCubit>()..getTrainers()),
+    BlocProvider(create: (_) => sl<LoginCubit>()),
   ];
 
   final Widget page = MultiBlocProvider(
@@ -595,4 +596,33 @@ void startPdf(String url, String name) {
     title: name,
   );
   Get.to(page);
+}
+
+
+void startTrainerPage(BuildContext context, int id) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (context) {
+        return MultiBlocProvider(
+          providers: [
+            BlocProvider(create: (_) => sl<TrainerCubit>()..getTrainer(id: id)),
+            BlocProvider(create: (_) => sl<TrainerPlansCubit>()..getPlans(id: id)),
+            BlocProvider(
+              create: (_) => sl<AvailableTimesCubit>()
+                ..getAvailableTimes(
+                  request: AvailableTimesRequest(),
+                  trainer: TrainerModel.fromJson({'id': id}),
+                ),
+            ),
+            BlocProvider(
+              create: (_) =>
+                  sl<BundlesCubit>()..getBundles(request: BundlesRequest(trainerId: id)),
+            ),
+          ],
+          child: const TrainerPage(),
+        );
+      },
+    ),
+  );
 }

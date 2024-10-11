@@ -7,7 +7,6 @@ import '../../../Data/Api/methods.dart';
 import '../../../Data/Api/urls.dart';
 import '../../../Data/Repositories/plan_repository.dart';
 import '../../../Data/Repositories/trainer_repository.dart';
-import '../../../Model/specialties_model.dart';
 import '../../../Utils/utils.dart';
 import '../../../core/models/plan_model.dart';
 import '../../../features/trainer/data/response/trainer.dart';
@@ -238,30 +237,6 @@ class SearchResultController extends GetxController {
     selectedIndex = 1;
   }
 
-  addPlanToFavorite(int index) async {
-    // //log(index.toString());
-    //  final temp = plans[index];
-    //  temp.isBookMark = !temp.isBookMark!;
-    //  _plans.removeAt(index);
-    //  _plans.refresh();
-    //  _plans.insert(index, temp);
-    //  _plans.refresh();
-    //  await addToBookmark(temp.id!, !temp.isBookMark!);
-  }
 
-  addToBookmark(String id, bool isBookMark) async {
-    PlanRepository planRepository = PlanRepository();
-    isBookMark = !isBookMark;
-    if (!isBookMark) {
-      ApiResult apiResult = await planRepository.removeFromBookmark(id);
-      if (apiResult.type == ApiResultType.success) {
-        // Utils.openSnackBar(message: 'Success');
-      }
-    } else {
-      ApiResult apiResult = await planRepository.addToBookmark(id);
-      if (apiResult.type == ApiResultType.success) {
-        // Utils.openSnackBar(message: 'Success');
-      }
-    }
-  }
+
 }

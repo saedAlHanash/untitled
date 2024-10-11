@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppColorManager {
   static const mainColor = Color(0xFF6340D6);
-  static const mainColorDark = Color(0xFFFF00D8);
+  static const mainColorLight = Color(0xFFFF00D8);
   static const threadColor = Color(0xFFF9582D);
 
   static const secondColor = Color(0xFF10D1BD);
