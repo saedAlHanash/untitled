@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-import '../../../../features/bookmarked/ui/widget/see_all_list_item.dart';
+import '../../../../features/plans/ui/widget/item_plan.dart';
 import '../search_result_controller.dart';
 import 'empty_search_result.dart';
 
@@ -48,7 +48,7 @@ class SearchPlanListView extends GetWidget<SearchResultController> {
                         itemCount: controller.plans.length,
                         itemBuilder: (context, index) {
                           final  plan = controller.plans[index];
-                          return SeeAllListItem(
+                          return ItemPlan(
                             plan: plan,
                           );
                         }),

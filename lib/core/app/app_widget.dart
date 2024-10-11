@@ -29,7 +29,7 @@ import '../../features/payments/bloc/payments_cubit/payments_cubit.dart';
 import '../../features/payments/bloc/wallet_cubit/wallet_cubit.dart';
 import '../../features/plans/bloc/active_plans_cubit/active_plans_cubit.dart';
 import '../../features/plans/bloc/plans_cubit/plans_cubit.dart';
-import '../../features/plans/bloc/trending_plans_cubit/trending_plans_cubit.dart';
+import '../../features/plans/bloc/free_plans_cubit/free_plans_cubit.dart';
 import '../../features/trainer/bloc/trainers_cubit/trainers_cubit.dart';
 import '../../features/trainer_files/bloc/trainer_files_cubit/trainer_files_cubit.dart';
 import '../../features/training/bloc/exercise_cubit/exercise_cubit.dart';
@@ -118,7 +118,7 @@ class _MyAppState extends State<MyApp> {
                 b.BlocProvider(create: (_) => sl<BookmarkedCubit>()..getBookmarked()),
                 b.BlocProvider(create: (_) => sl<TrainerFilesCubit>()..getTrainerFiles()),
                 b.BlocProvider(
-                  create: (_) => sl<TrendingPlansCubit>()..getTrendingPlans(),
+                  create: (_) => sl<FreePlansCubit>()..getTrendingPlans(),
                 ),
                 b.BlocProvider(
                   create: (_) => sl<ProfileCubit>()..getProfile(),

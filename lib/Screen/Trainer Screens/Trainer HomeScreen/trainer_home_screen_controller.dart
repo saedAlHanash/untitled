@@ -34,13 +34,7 @@ class TrainerHomeScreenController extends GetxController {
     isLoading.value = true;
 
     await getTrainerPlans();
-    // await _planRepository.gett();
-    // continueTrainingPlans.value = await _planRepository.getContinueTrainingPlan();
-    // trendingPlans.value = await _planRepository.getTrendingPlan({});
-    // featuredPlans.value = await _planRepository.getFeaturedgPlan(1);
-    // yourTrainer.value = await _trainerRepository.getYourTrainer(1);
-    // if (!Get.isRegistered<TrainerPlansController>())
-    //   Get.lazyPut(() => TrainerPlansController());
+
     isLoading.value = false;
     super.onInit();
   }

@@ -19,6 +19,9 @@ class TrainersCubit extends MCubit<TrainersInitial> {
   @override
   String get filter => state.filter;
 
+  @override
+  int get timeInterval => 300;
+
   Future<void> getTrainers({bool newData = false}) async {
     await getDataAbstract(
       fromJson: TrainerModel.fromJson,

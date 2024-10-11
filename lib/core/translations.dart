@@ -184,7 +184,7 @@ class LocaleString extends Translations {
           "sar/hour": "SAR/hour",
           "start_private_session": "Start private session",
           "sets": "sets",
-          "trending_plan": "Free plans",
+          "free_plan": "Free plans",
           "Did_you_finish_your_training":
           "Did you finish your training? press Done to save your progress to your records.",
           "i_ll_come_back_later": "I\"ll come back later",
@@ -689,7 +689,7 @@ The application Policies may be changed or updated occasionally to meet the requ
           "sar/hour": "ريال سعودي لكل ساعة",
           "start_private_session": "ابدأ تدريبك الخاص",
           "sets": "مجموعة",
-          "trending_plan": "البرامج المجانية",
+          "free_plan": "البرامج المجانية",
           "FITNESS LEVEL": "مستوى لياقتك",
           "Did_you_finish_your_training":
           "هل أنهيت تمارينك اليوم؟ اختر نعم ليتم حفظ تقدمك في السجل.",

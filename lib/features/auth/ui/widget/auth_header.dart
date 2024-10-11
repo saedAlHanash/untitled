@@ -8,40 +8,51 @@ import '../../../../Widgets/language_board_widget.dart';
 import '../../../../core/util/bottom_sheets.dart';
 import '../../../../generated/assets.dart';
 
-
 class AuthHeader extends StatelessWidget {
-  const AuthHeader({super.key, required this.name});
+  const AuthHeader({
+    super.key,
+    required this.name,
+    this.showLanguageButton = false,
+  });
 
   final String name;
+  final bool showLanguageButton;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        50.verticalSpace,
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            InkWell(
-              onTap: () {
-                BottomSheets.languageBottomSheet(
-                  const LanguageBoardWidget(fromAuthPage: true),
-                );
-              },
-              child: ImageMultiType(
-                url: Assets.imagesLanguage,
-                width: 35.0.r,
-                height: 35.0.r,
+        20.verticalSpace,
+        if (showLanguageButton)
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              InkWell(
+                onTap: () {
+                  BottomSheets.languageBottomSheet(
+                    const LanguageBoardWidget(fromAuthPage: true),
+                  );
+                },
+                child: ImageMultiType(
+                  url: Assets.imagesLanguage,
+                  width: 35.0.r,
+                  height: 35.0.r,
+                  color: Colors.white,
+                ),
               ),
-            ),
-            ImageMultiType(
-              url: Assets.imagesWhiteLogo,
-              width: 85.0.w,
-            ),
-            0.0.verticalSpace,
-          ],
-        ),
-        50.0.verticalSpace,
+              ImageMultiType(
+                url: Assets.imagesWhiteLogo,
+                width: 0.3.sw,
+              ),
+              55.0.horizontalSpace,
+            ],
+          )
+        else
+          ImageMultiType(
+            url: Assets.imagesWhiteLogo,
+            width: 0.3.sw,
+          ),
+        20.0.verticalSpace,
         DrawableText(
           text: name,
           size: 26.0.sp,
@@ -53,4 +64,3 @@ class AuthHeader extends StatelessWidget {
     );
   }
 }
-

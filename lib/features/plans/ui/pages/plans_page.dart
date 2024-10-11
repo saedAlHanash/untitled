@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../generated/l10n.dart';
-import '../../../bookmarked/ui/widget/see_all_list_item.dart';
+import '../widget/item_plan.dart';
 import '../../bloc/plans_cubit/plans_cubit.dart';
 
 class PlansPage extends StatefulWidget {
@@ -37,7 +37,7 @@ class _PlansPageState extends State<PlansPage> {
                         .r,
                     itemCount: state.result.length,
                     itemBuilder: (context, i) {
-                      return SeeAllListItem(
+                      return ItemPlan(
                         plan: state.result[i],
                       );
                     },

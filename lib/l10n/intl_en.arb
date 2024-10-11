@@ -328,7 +328,7 @@
     "sarHour": "SAR/hour",
     "startPrivateSession": "Start private session",
     "sets": "sets",
-    "trendingPlan": "Trending Plan",
+    "freePlan": "Trending Plan",
     "didYouFinishYourTraining": "Did you finish your training? press Done to save your progress to your records.",
     "iLlComeBackLater": "I\"ll come back later",
     "setX": "Set X",
@@ -412,7 +412,7 @@
     "sEARCH": "SEARCH",
     "searchSmall": "Search",
     "seeResult": "See Result",
-    "ourPlans": "Our Plans",
+    "ourPlans": "Paid Plans",
     "workout": "Workout",
     "progress": "Progress",
     "upgradePlan": "UPGRADE PLAN",
@@ -564,5 +564,7 @@
     "fitnessStorm": "Fitness Storm",
     "yourPersonalFitnessCompanion": "Your Personal Fitness Companion",
     "getUnlimitedAccessToAllFitnessnPrograms": "Get Unlimited Access To All Fitness\n Programs",
-    "getFitAnytimeAnywherentrackYourProgressEffortlesslynaccessPersonalizedWorkouts": "Get Fit Anytime, Anywhere\nTrack Your Progress Effortlessly\nAccess Personalized Workouts"
+    "getFitAnytimeAnywherentrackYourProgressEffortlesslynaccessPersonalizedWorkouts": "Get Fit Anytime, Anywhere\nTrack Your Progress Effortlessly\nAccess Personalized Workouts",
+    "freePlans": "Free Plans",
+  "paidPlans": "Paid Plans"
 }

@@ -16,7 +16,7 @@ import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Wallet/trainer_
 import 'package:fitness_storm/features/home/ui/pages/main_home_screen.dart';
 import 'package:fitness_storm/features/intro_and_splash/ui/pages/splash_page.dart';
 import 'package:fitness_storm/features/payments/ui/pages/my_payment_page.dart';
-import 'package:fitness_storm/features/plans/ui/trending_plan_screen.dart';
+import 'package:fitness_storm/features/plans/ui/pages/free_plans_page.dart';
 import 'package:fitness_storm/features/profile/ui/pages/profile_trainer_page.dart';
 import 'package:get/get.dart';
 
@@ -54,7 +54,7 @@ class AppPages {
       GetPage(
         name: AppRoutes.trendingPlanScreen,
         page: () {
-          sl<AnalyticService>().screenView(name: 'trending_plan');
+          sl<AnalyticService>().screenView(name: 'free_plan');
           return const TrendingPlansScreen();
         },
       ),

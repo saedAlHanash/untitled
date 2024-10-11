@@ -19,9 +19,8 @@ class FeaturedPlanItem extends GetWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () => startPlanPage(plan.id.toString()),
-      child: Container(
-        width: 1.0.sw,
-        padding: const EdgeInsets.all(15),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15.0).r,
         child: Stack(
           clipBehavior: Clip.hardEdge,
           children: [

@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 
+import '../../../../Widgets/language_board_widget.dart';
+import '../../../../core/util/bottom_sheets.dart';
 import '../../../../core/util/shared_preferences.dart';
 import '../../../../generated/assets.dart';
 import '../../../../generated/l10n.dart';
@@ -24,7 +26,6 @@ class _IntroPageState extends State<IntroPage> {
   @override
   void initState() {
     super.initState();
-    AppSharedPreference.cashShowIntro();
     _pageController = PageController();
   }
 
@@ -70,6 +71,7 @@ class _IntroPageState extends State<IntroPage> {
                   onTap: () {
                     if (pageIndex == 2) {
                       startLogin();
+                      AppSharedPreference.cashShowIntro();
                     } else {
                       _pageController.animateToPage(
                         (pageIndex + 1),
@@ -87,7 +89,10 @@ class _IntroPageState extends State<IntroPage> {
               10.0.verticalSpace,
               if (pageIndex != 2)
                 TextButton(
-                  onPressed: () => startLogin(),
+                  onPressed: () {
+                    AppSharedPreference.cashShowIntro();
+                    startLogin();
+                  },
                   child: DrawableText(
                     text: S.of(context).skip,
                     color: Colors.white,
@@ -130,6 +135,20 @@ class _P1 extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                20.0.verticalSpace,
+                InkWell(
+                  onTap: () {
+                    BottomSheets.languageBottomSheet(
+                      const LanguageBoardWidget(),
+                    );
+                  },
+                  child: ImageMultiType(
+                    url: Assets.imagesLanguage,
+                    color: Colors.white,
+                    width: 35.0.r,
+                    height: 35.0.r,
+                  ),
+                ),
                 0.5.sh.verticalSpace,
                 DrawableText(
                   matchParent: true,

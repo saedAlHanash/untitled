@@ -8,16 +8,19 @@ import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/pair_class.dart';
 import '../../../../core/util/shared_preferences.dart';
 
-part 'trending_plans_state.dart';
+part 'free_plans_state.dart';
 
-class TrendingPlansCubit extends MCubit<TrendingPlansInitial> {
-  TrendingPlansCubit() : super(TrendingPlansInitial.initial());
+class FreePlansCubit extends MCubit<FreePlansInitial> {
+  FreePlansCubit() : super(FreePlansInitial.initial());
 
   @override
-  String get nameCache => '${AppSharedPreference.getLocal}trendingPlans';
+  String get nameCache => '${AppSharedPreference.getLocal}freePlans';
 
   @override
   String get filter => state.filter;
+
+  @override
+  int get timeInterval => 300;
 
   Future<void> getTrendingPlans({bool newData = false}) async {
     await getDataAbstract(
@@ -31,7 +34,7 @@ class TrendingPlansCubit extends MCubit<TrendingPlansInitial> {
   Future<Pair<List<Plan>?, String?>> _getData() async {
     final response = await APIService().callApi(
       type: ApiType.get,
-      url: GetUrl.trendingPlans,
+      url: GetUrl.freePlans,
     );
 
     if (response.statusCode.success) {

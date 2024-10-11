@@ -40,13 +40,19 @@ class _ApplyPageState extends State<ApplyPage> {
     return Stack(
       children: [
         ImageMultiType(
-          url: Assets.imagesAuth1,
+          url: Assets.imagesIntro3,
           height: 1.0.sh,
+          width: 1.0.sw,
           fit: BoxFit.cover,
         ),
         Container(
-          height: 1.0.sh,
           color: Colors.black.withOpacity(0.6),
+        ),
+        ImageMultiType(
+          url: Assets.imagesIntro1Back,
+          height: 1.0.sh,
+          width: 1.0.sw,
+          fit: BoxFit.cover,
         ),
         MultiBlocListener(
           listeners: [

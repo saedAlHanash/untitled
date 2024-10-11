@@ -3,7 +3,7 @@ import 'package:fitness_storm/core/widgets/not_found_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../features/bookmarked/ui/widget/see_all_list_item.dart';
+import '../../../features/plans/ui/widget/item_plan.dart';
 import '../../../generated/l10n.dart';
 
 class TrainerHomeScreen extends GetView<TrainerHomeScreenController> {
@@ -21,7 +21,7 @@ class TrainerHomeScreen extends GetView<TrainerHomeScreenController> {
               : SingleChildScrollView(
                   child: Column(
                     children: controller.trainerPlans.map((plan) {
-                      return SeeAllListItem(
+                      return ItemPlan(
                         plan: plan,
                       );
                     }).toList(),

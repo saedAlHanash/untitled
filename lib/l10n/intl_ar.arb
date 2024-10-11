@@ -340,7 +340,7 @@
     "sarHour": "ر.س لكل ساعة",
     "startPrivateSession": "ابدأ تدريبك الخاص",
     "sets": "مجموعة",
-    "trendingPlan": "البرامج الأكثر رواجاً",
+    "freePlan": "البرامج الأكثر رواجاً",
     "fITNESSLEVEL": "مستوى لياقتك",
     "didYouFinishYourTraining": "هل أنهيت تمارينك اليوم؟ اختر نعم ليتم حفظ تقدمك في السجل.",
     "iLlComeBackLater": "سأنهيها لاحقاّ",
@@ -428,7 +428,7 @@
     "searchSmall": "بحث",
     "apply": "تطبيق",
     "seeResult": "رؤية النتائج",
-    "ourPlans": "برامجنا",
+    "ourPlans": "البرامج المدفوعة",
     "workout": "التدريب",
     "progress": "مستوى التقدّم",
     "upgradePlan": "ترقية البرنامج",
@@ -577,5 +577,7 @@
     "fitnessStorm": "فتنس ستورم",
     "yourPersonalFitnessCompanion": "رفيق اللياقة البدنية الشخصي الخاص بك",
     "getUnlimitedAccessToAllFitnessnPrograms": "احصل على وصول غير محدود إلى جميع برامج اللياقة\n البدنية",
-    "getFitAnytimeAnywherentrackYourProgressEffortlesslynaccessPersonalizedWorkouts": "احصل على لياقة بدنية في أي وقت وفي أي مكان\nتتبع تقدمك بسهولة\nالوصول إلى التدريبات المخصصة"
+    "getFitAnytimeAnywherentrackYourProgressEffortlesslynaccessPersonalizedWorkouts": "احصل على لياقة بدنية في أي وقت وفي أي مكان\nتتبع تقدمك بسهولة\nالوصول إلى التدريبات المخصصة",
+    "freePlans": "البرامج المجانية",
+  "paidPlans": "Paid Plans"
 }

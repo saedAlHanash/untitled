@@ -19,6 +19,9 @@ class ActivePlansCubit extends MCubit<ActivePlansInitial> {
   @override
   String get filter => state.filter;
 
+  @override
+  int get timeInterval => 300;
+
   Future<void> getActivePlans({bool newData = false}) async {
     await getDataAbstract(
       fromJson: Plan.fromJson,

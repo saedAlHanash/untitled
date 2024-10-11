@@ -1,3 +1,4 @@
+import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/util/shared_preferences.dart';
 import 'package:fitness_storm/router/app_router.dart';
@@ -9,7 +10,7 @@ import '../features/bookmarked/bloc/bookmarked_cubit/bookmarked_cubit.dart';
 import '../features/notifications/bloc/notifications_cubit/notifications_cubit.dart';
 import '../features/plans/bloc/active_plans_cubit/active_plans_cubit.dart';
 import '../features/plans/bloc/plans_cubit/plans_cubit.dart';
-import '../features/plans/bloc/trending_plans_cubit/trending_plans_cubit.dart';
+import '../features/plans/bloc/free_plans_cubit/free_plans_cubit.dart';
 import '../features/trainer/bloc/trainers_cubit/trainers_cubit.dart';
 
 class LanguagesController extends GetxController {
@@ -22,13 +23,10 @@ class LanguagesController extends GetxController {
     if (fromAuthPage) {
       startLogin();
     } else {
-      ctx?.readOrNull<BookmarkedCubit>()?.getBookmarked();
-      ctx?.readOrNull<TrainersCubit>()?.getTrainers(newData: true);
-      ctx?.readOrNull<PlansCubit>()?.getPlans(newData: true);
-      ctx?.readOrNull<ActivePlansCubit>()?.getActivePlans(newData: true);
-      ctx?.readOrNull<TrendingPlansCubit>()?.getTrendingPlans(newData: true);
-      ctx?.readOrNull<NotificationsCubit>()?.getNotifications();
-      startHome();
+      if (AppProvider.isLogin) {
+        ctx?.readOrNull<NotificationsCubit>()?.getNotifications(newData: true);
+        startHome(true);
+      }
     }
   }
 }

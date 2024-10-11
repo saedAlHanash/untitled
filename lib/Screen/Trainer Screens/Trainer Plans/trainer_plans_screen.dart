@@ -1,4 +1,4 @@
-import 'package:fitness_storm/features/bookmarked/ui/widget/see_all_list_item.dart';
+import 'package:fitness_storm/features/plans/ui/widget/item_plan.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -29,7 +29,7 @@ class TrainerPlansScreen extends GetView<TrainerHomeScreenController> {
                     shrinkWrap: true,
                     itemCount: controller.trainerPlans.length,
                     itemBuilder: (context, i) {
-                      return SeeAllListItem(
+                      return ItemPlan(
                         plan: controller.trainerPlans[i],
 
                       );

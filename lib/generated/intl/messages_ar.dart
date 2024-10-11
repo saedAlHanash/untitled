@@ -287,6 +287,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("نسيت كلمة السر؟"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("هل نسيت كلمة السر ؟"),
+        "freePlan":
+            MessageLookupByLibrary.simpleMessage("البرامج الأكثر رواجاً"),
+        "freePlans": MessageLookupByLibrary.simpleMessage("البرامج المجانية"),
         "fullName": MessageLookupByLibrary.simpleMessage("الاسم الكامل"),
         "fullyBooked":
             MessageLookupByLibrary.simpleMessage("هذا المدرب محجوز بالكامل!"),
@@ -456,12 +459,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "orContactOur": MessageLookupByLibrary.simpleMessage("أو تواصل مع  "),
         "orderSummary": MessageLookupByLibrary.simpleMessage("ملخص الطلب"),
         "other": MessageLookupByLibrary.simpleMessage("آخر"),
-        "ourPlans": MessageLookupByLibrary.simpleMessage("برامجنا"),
+        "ourPlans": MessageLookupByLibrary.simpleMessage("البرامج المدفوعة"),
         "ourTrainer": MessageLookupByLibrary.simpleMessage("مدربينا"),
         "ourWorkout":
             MessageLookupByLibrary.simpleMessage(" برامجنا التدريبية"),
         "pLANSBYME":
             MessageLookupByLibrary.simpleMessage("البرامج التي وضعتها"),
+        "paidPlans": MessageLookupByLibrary.simpleMessage("Paid Plans"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة السر"),
         "passwordChanged":
             MessageLookupByLibrary.simpleMessage("تم تغيير كلمة السر"),
@@ -715,8 +719,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "trainingLevelFieldIsRequire":
             MessageLookupByLibrary.simpleMessage("المستوى التدريبي مطلوب"),
         "trainingType": MessageLookupByLibrary.simpleMessage("نوع التدريب"),
-        "trendingPlan":
-            MessageLookupByLibrary.simpleMessage("البرامج الأكثر رواجاً"),
         "typeAnythingToSearchIt":
             MessageLookupByLibrary.simpleMessage("اكتب أي شيء للبحث عنه"),
         "unableToProcessThedata": MessageLookupByLibrary.simpleMessage(

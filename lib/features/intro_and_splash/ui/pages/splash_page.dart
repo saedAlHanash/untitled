@@ -63,7 +63,7 @@ class _SplashPageState extends State<SplashPage> {
         return;
       }
 
-      startHome();
+      startHome(false);
     });
     super.initState();
   }

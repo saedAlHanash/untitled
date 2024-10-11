@@ -22,6 +22,7 @@ class BookmarkedCubit extends MCubit<BookmarkedInitial> {
       fromJson: Plan.fromJson,
       state: state,
       getDataApi: _getDataApi,
+      newData: newData,
     );
   }
 
@@ -34,5 +35,19 @@ class BookmarkedCubit extends MCubit<BookmarkedInitial> {
     } else {
       return response.getPairError;
     }
+  }
+
+  Future<void> addBookmark(Plan item) async {
+    final listJson = await addOrUpdateDate([item]);
+    if (listJson == null) return;
+    final list = listJson.map((e) => Plan.fromJson(e)).toList();
+    emit(state.copyWith(result: list));
+  }
+
+  Future<void> deleteBookmarkFromCache(String id) async {
+    final listJson = await deleteDate([id]);
+    if (listJson == null) return;
+    final list = listJson.map((e) => Plan.fromJson(e)).toList();
+    emit(state.copyWith(result: list));
   }
 }

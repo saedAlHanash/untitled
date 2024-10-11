@@ -45,8 +45,8 @@ class _ConfirmCodePageState extends State<ConfirmCodePage> {
     return MultiBlocListener(
       listeners: [
         BlocListener<ConfirmCodeCubit, ConfirmCodeInitial>(
-          listenWhen: (p, current) => current.statuses == CubitStatuses.done,
-          listener: (context, state) => startHome(),
+          listenWhen: (p, current) => current.done,
+          listener: (context, state) => startHome(true),
         ),
         BlocListener<ResendCodeCubit, ResendCodeInitial>(
           listenWhen: (p, c) => c.statuses.done,
@@ -59,13 +59,19 @@ class _ConfirmCodePageState extends State<ConfirmCodePage> {
       child: Stack(
         children: [
           ImageMultiType(
-            url: Assets.imagesAuth1,
+            url: Assets.imagesIntro2,
             height: 1.0.sh,
+            width: 1.0.sw,
             fit: BoxFit.cover,
           ),
           Container(
-            height: 1.0.sh,
             color: Colors.black.withOpacity(0.6),
+          ),
+          ImageMultiType(
+            url: Assets.imagesIntro1Back,
+            height: 1.0.sh,
+            width: 1.0.sw,
+            fit: BoxFit.cover,
           ),
           SafeArea(
             child: Scaffold(

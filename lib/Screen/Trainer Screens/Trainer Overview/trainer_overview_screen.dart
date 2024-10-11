@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:readmore/readmore.dart';
 
-import '../../../features/bookmarked/ui/widget/see_all_list_item.dart';
+import '../../../features/plans/ui/widget/item_plan.dart';
 import 'Widget/ProfileHader/trainer_profile_header.dart';
 
 class TrainerTrainerOverviewScreen extends GetView<TrainerTrainerOverviewController> {
@@ -63,7 +63,7 @@ class TrainerTrainerOverviewScreen extends GetView<TrainerTrainerOverviewControl
                       shrinkWrap: true,
                       itemCount: controller.trainerPlans.length,
                       itemBuilder: (context, index) {
-                        return SeeAllListItem(
+                        return ItemPlan(
                           plan: controller.trainerPlans[index],
                         );
                       },

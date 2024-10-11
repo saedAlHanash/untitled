@@ -109,7 +109,7 @@ class GetUrl {
 
   static const activePlans = 'userSubscribedPlans';
 
-  static const trendingPlans='plans/trending';
+  static const freePlans='plans/trending';
 
   static const myPayments = 'myPayments';
 

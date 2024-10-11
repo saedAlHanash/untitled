@@ -1,6 +1,6 @@
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/widgets/app_bar/app_bar_widget.dart';
-import 'package:fitness_storm/features/bookmarked/ui/widget/see_all_list_item.dart';
+import 'package:fitness_storm/features/plans/ui/widget/item_plan.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -25,7 +25,7 @@ class BookmarkedPage extends StatelessWidget {
             shrinkWrap: true,
             itemCount: plans.length,
             itemBuilder: (context, i) {
-              return SeeAllListItem(plan: plans[i]);
+              return ItemPlan(plan: plans[i]);
             },
           );
         },

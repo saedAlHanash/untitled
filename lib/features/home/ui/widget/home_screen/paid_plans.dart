@@ -3,30 +3,29 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/util/my_style.dart';
-import '../../../../generated/l10n.dart';
-import '../../../../router/app_router.dart';
-import '../../../home/ui/widget/list_header.dart';
-import '../../bloc/plans_cubit/plans_cubit.dart';
-import 'featured_plan_item.dart';
+import '../../../../../core/util/my_style.dart';
+import '../../../../../generated/l10n.dart';
+import '../../../../../router/app_router.dart';
+import '../list_header.dart';
+import '../../../../plans/bloc/plans_cubit/plans_cubit.dart';
+import '../../../../plans/ui/widget/featured_plan_item.dart';
 
-class PlansListWidget extends StatefulWidget {
-  const PlansListWidget({super.key});
+class PaidPlans extends StatefulWidget {
+  const PaidPlans({super.key});
 
   @override
-  State<PlansListWidget> createState() => _PlansListWidgetState();
+  State<PaidPlans> createState() => _PaidPlansState();
 }
 
-class _PlansListWidgetState extends State<PlansListWidget> {
+class _PaidPlansState extends State<PaidPlans> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<PlansCubit, PlansInitial>(
       builder: (context, state) {
-        if (state.loading) return MyStyle.loadingWidget();
         return Column(
           children: [
             ListHeader(
-              headerTitle: S.of(context).ourPlans,
+              headerTitle: S.of(context).paidPlans,
               seeAllFunction: () => startPlansPage(),
             ),
             CardSlider(

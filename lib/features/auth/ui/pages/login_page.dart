@@ -58,7 +58,7 @@ class _LoginPageState extends State<LoginPage> {
               listenWhen: (p, c) => c.statuses.done,
               listener: (context, state) {
                 if (AppProvider.isConfirmed || AppProvider.isTrainer) {
-                  startHome();
+                  startHome(true);
                 } else {
                   startConfirmCodeAccount();
                 }
@@ -67,7 +67,7 @@ class _LoginPageState extends State<LoginPage> {
             BlocListener<LoginSocialCubit, LoginSocialInitial>(
               listenWhen: (p, c) => c.statuses.done,
               listener: (context, state) {
-                startHome();
+                startHome(true);
               },
             ),
           ],
@@ -80,7 +80,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    AuthHeader(name: S.of(context).login),
+                    AuthHeader(name: S.of(context).login, showLanguageButton: true),
                     AutofillGroup(
                       child: Column(
                         children: [
@@ -145,7 +145,6 @@ class _LoginPageState extends State<LoginPage> {
                       children: [
                         Expanded(
                           child: MyButton(
-
                             color: AppColorManager.mainColor,
                             text: S.of(context).guest,
                             onTap: () {
@@ -157,7 +156,6 @@ class _LoginPageState extends State<LoginPage> {
                         10.0.horizontalSpace,
                         Expanded(
                           child: MyButton(
-
                             color: AppColorManager.mainColor,
                             text: S.of(context).applyAsTrainer,
                             onTap: () => startApply(),

@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 import '../../../Data/Repositories/subscription_repository.dart';
-import '../../../Data/Repositories/trainee_repository.dart';
+
 import '../../../Model/subscription_model.dart';
 import '../../../Utils/utils.dart';
 import '../../../core/injection/injection_container.dart';
@@ -16,7 +16,7 @@ class SubscriptionController extends GetxController {
   final RxBool _isBuy = false.obs;
   final Rx<SubscriptionsModel> _subscriptionsModel =
       SubscriptionsModel.fromJson({}).obs;
-  final TraineeRepository _traineeRepository = TraineeRepository();
+
 
   late Rx<bool> _isSubscribe = false.obs;
   final RxString _nameUser = "".obs;

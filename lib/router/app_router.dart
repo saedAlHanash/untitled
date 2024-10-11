@@ -57,8 +57,11 @@ import '../features/diets/bloc/delete_diet_cubit/delete_diet_cubit.dart';
 import '../features/diets/ui/pages/diets_page.dart';
 import '../features/fire_chat/chat.dart';
 import '../features/fire_chat/messages_bloc/messages_cubit.dart';
+import '../features/plans/bloc/active_plans_cubit/active_plans_cubit.dart';
+import '../features/plans/bloc/free_plans_cubit/free_plans_cubit.dart';
 import '../features/plans/bloc/plan_cubit/plan_cubit.dart';
 import '../features/plans/bloc/plan_workout_cubit/plan_workout_cubit.dart';
+import '../features/plans/bloc/plans_cubit/plans_cubit.dart';
 import '../features/plans/bloc/subscribe_plan_cubit/subscribe_plan_cubit.dart';
 import '../features/plans/data/response/plan_workout_response.dart';
 import '../features/plans/ui/pages/plans_page.dart';
@@ -358,7 +361,14 @@ void startConfirmCodeAccount() {
   sl<AnalyticService>().screenView(name: 'confirm_code_account');
 }
 
-void startHome() {
+void startHome(bool fromLogin) {
+  if(fromLogin){
+    ctx?.read<TrainersCubit>().getTrainers(newData: true);
+    ctx?.read<ActivePlansCubit>().getActivePlans(newData: true);
+    ctx?.read<PlansCubit>().getPlans(newData: true);
+    ctx?.read<FreePlansCubit>().getTrendingPlans(newData: true);
+
+  }
   ChatServiceCore.initFirebaseChat();
 
   Get.offAllNamed(AppProvider.isTrainer ? AppRoutes.trainerHomePage : AppRoutes.mainHome);

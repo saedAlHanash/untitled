@@ -1,3 +1,4 @@
+import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/models/plan_model.dart';
 import 'package:flutter/material.dart';
@@ -22,14 +23,20 @@ class BookMarkedBtn extends StatefulWidget {
 class _BookMarkedBtnState extends State<BookMarkedBtn> {
   @override
   Widget build(BuildContext context) {
+    if (AppProvider.isGuest) return 0.0.verticalSpace;
     return SizedBox(
-      height: 50.0.r,
-      width: 50.0.r,
+      height: 40.0.r,
+      width: 40.0.r,
       child: BlocConsumer<AddFavoriteCubit, AddFavoriteInitial>(
-        listenWhen: (p, c) =>
-            (c.plan.id == widget.plan.id) && (c.statuses.done),
+        listenWhen: (p, c) => (c.plan.id == widget.plan.id) && (c.statuses.done),
         listener: (context, state) {
-          context.read<BookmarkedCubit>().getBookmarked(newData: true);
+          if (state.plan.isBookmark) {
+            context.read<BookmarkedCubit>().addBookmark(state.plan);
+          } else {
+            context.read<BookmarkedCubit>().deleteBookmarkFromCache(
+                  state.plan.id.toString(),
+                );
+          }
           setState(() => widget.plan.isBookmark = !widget.plan.isBookmark);
         },
         buildWhen: (p, c) => c.plan.id == widget.plan.id,
@@ -39,14 +46,11 @@ class _BookMarkedBtnState extends State<BookMarkedBtn> {
           }
           return IconButton(
             onPressed: () {
-              context
-                  .read<AddFavoriteCubit>()
-                  .changeFavorite(plan: widget.plan);
+              context.read<AddFavoriteCubit>().changeFavorite(plan: widget.plan);
             },
             icon: ImageMultiType(
-              url: state.plan.isBookmark
-                  ? Assets.imagesActiveFav
-                  : Assets.imagesBookmark,
+              url: state.plan.isBookmark ? Assets.imagesActiveFav : Assets.imagesBookmark,
+              color: state.plan.isBookmark ? null : Colors.grey[300],
               height: 30.0.r,
               width: 30.0.r,
             ),

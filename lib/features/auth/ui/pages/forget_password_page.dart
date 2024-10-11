@@ -4,6 +4,7 @@ import 'package:fitness_storm/core/strings/app_color_manager.dart';
 import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:fitness_storm/core/widgets/my_button.dart';
 import 'package:fitness_storm/core/widgets/my_text_form_widget.dart';
+import 'package:fitness_storm/features/auth/ui/widget/auth_header.dart';
 import 'package:fitness_storm/generated/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -43,18 +44,23 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
     return Stack(
       children: [
         ImageMultiType(
-          url: Assets.imagesAuth1,
+          url: Assets.imagesIntro1,
           height: 1.0.sh,
+          width: 1.0.sw,
           fit: BoxFit.cover,
         ),
         Container(
-          height: 1.0.sh,
           color: Colors.black.withOpacity(0.6),
+        ),
+        ImageMultiType(
+          url: Assets.imagesIntro1Back,
+          height: 1.0.sh,
+          width: 1.0.sw,
+          fit: BoxFit.cover,
         ),
         BlocListener<ForgetPasswordCubit, ForgetPasswordInitial>(
           listenWhen: (p, c) => c.statuses.done,
           listener: (context, state) {
-
             startRestPass();
           },
           child: SafeArea(
@@ -64,36 +70,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                 padding: MyStyle.pagePadding,
                 child: Column(
                   children: [
-                    50.verticalSpace,
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        InkWell(
-                          onTap: () {
-                            BottomSheets.languageBottomSheet(
-                              const LanguageBoardWidget(fromAuthPage: true),
-                            );
-                          },
-                          child: ImageMultiType(
-                            url: Assets.imagesLanguage,
-                            width: 25.0.r,
-                          ),
-                        ),
-                        ImageMultiType(
-                          url: Assets.imagesWhiteLogo,
-                          width: 85.0.w,
-                        ),
-                        0.0.verticalSpace,
-                      ],
-                    ),
-                    50.0.verticalSpace,
-                    DrawableText(
-                      text: S.of(context).forgetPassword,
-                      size: 26.0.sp,
-                      color: Colors.white,
-                      fontFamily: FontManager.bold.name,
-                    ),
-                    40.0.verticalSpace,
+                    AuthHeader(name: S.of(context).forgetPassword),
                     DrawableText(
                       text: S.of(context).plsEnterEmail,
                       size: 14.0.sp,

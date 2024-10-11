@@ -3341,10 +3341,10 @@ class S {
   }
 
   /// `Trending Plan`
-  String get trendingPlan {
+  String get freePlan {
     return Intl.message(
       'Trending Plan',
-      name: 'trendingPlan',
+      name: 'freePlan',
       desc: '',
       args: [],
     );
@@ -4180,10 +4180,10 @@ class S {
     );
   }
 
-  /// `Our Plans`
+  /// `Paid Plans`
   String get ourPlans {
     return Intl.message(
-      'Our Plans',
+      'Paid Plans',
       name: 'ourPlans',
       desc: '',
       args: [],
@@ -5707,6 +5707,26 @@ class S {
       'Get Fit Anytime, Anywhere\nTrack Your Progress Effortlessly\nAccess Personalized Workouts',
       name:
           'getFitAnytimeAnywherentrackYourProgressEffortlesslynaccessPersonalizedWorkouts',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Free Plans`
+  String get freePlans {
+    return Intl.message(
+      'Free Plans',
+      name: 'freePlans',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Paid Plans`
+  String get paidPlans {
+    return Intl.message(
+      'Paid Plans',
+      name: 'paidPlans',
       desc: '',
       args: [],
     );

@@ -8,17 +8,10 @@ import 'package:image_multi_type/image_multi_type.dart';
 
 import '../generated/assets.dart';
 
-class LanguageBoardWidget extends StatefulWidget {
+class LanguageBoardWidget extends StatelessWidget {
   const LanguageBoardWidget({super.key, this.fromAuthPage = false});
 
   final bool fromAuthPage;
-
-  @override
-  State<LanguageBoardWidget> createState() => _LanguageBoardWidgetState();
-}
-
-class _LanguageBoardWidgetState extends State<LanguageBoardWidget> {
-  LanguagesController languagesController = Get.find<LanguagesController>();
 
   @override
   Widget build(BuildContext context) {
@@ -32,18 +25,18 @@ class _LanguageBoardWidgetState extends State<LanguageBoardWidget> {
               child: LangWidget(
                 title: 'عربي',
                 isSelect: Get.locale?.languageCode == 'ar',
-                onTap: () async => await languagesController.setLanguage(
+                onTap: ()  =>   Get.find<LanguagesController>().setLanguage(
                   'ar',
-                  fromAuthPage: widget.fromAuthPage,
+                  fromAuthPage: fromAuthPage,
                 ),
               ),
             ),
             LangWidget(
               title: 'English',
               isSelect: Get.locale?.languageCode == 'en',
-              onTap: () async => await languagesController.setLanguage(
+              onTap: ()  =>   Get.find<LanguagesController>().setLanguage(
                 'en',
-                fromAuthPage: widget.fromAuthPage,
+                fromAuthPage: fromAuthPage,
               ),
             ),
           ],

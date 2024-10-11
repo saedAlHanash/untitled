@@ -290,6 +290,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Forgot Password?"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Forgot Password ?"),
+        "freePlan": MessageLookupByLibrary.simpleMessage("Trending Plan"),
+        "freePlans": MessageLookupByLibrary.simpleMessage("Free Plans"),
         "fullName": MessageLookupByLibrary.simpleMessage("Full Name"),
         "fullyBooked":
             MessageLookupByLibrary.simpleMessage("This Coach is Fully Booked!"),
@@ -457,10 +459,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("  or contact our"),
         "orderSummary": MessageLookupByLibrary.simpleMessage("Order summary"),
         "other": MessageLookupByLibrary.simpleMessage("Other"),
-        "ourPlans": MessageLookupByLibrary.simpleMessage("Our Plans"),
+        "ourPlans": MessageLookupByLibrary.simpleMessage("Paid Plans"),
         "ourTrainer": MessageLookupByLibrary.simpleMessage("Our Trainers"),
         "ourWorkout": MessageLookupByLibrary.simpleMessage("Our Workout"),
         "pLANSBYME": MessageLookupByLibrary.simpleMessage("PLANS BY ME"),
+        "paidPlans": MessageLookupByLibrary.simpleMessage("Paid Plans"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "passwordChanged":
             MessageLookupByLibrary.simpleMessage("Password changed"),
@@ -722,7 +725,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "trainingLevelFieldIsRequire": MessageLookupByLibrary.simpleMessage(
             "Training Level Field is Require"),
         "trainingType": MessageLookupByLibrary.simpleMessage("Training type"),
-        "trendingPlan": MessageLookupByLibrary.simpleMessage("Trending Plan"),
         "typeAnythingToSearchIt":
             MessageLookupByLibrary.simpleMessage("Type Anything To Search It"),
         "unableToProcessThedata":

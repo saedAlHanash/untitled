@@ -1,15 +1,15 @@
-part of 'trending_plans_cubit.dart';
+part of 'free_plans_cubit.dart';
 
-class TrendingPlansInitial extends AbstractState<List<Plan>> {
-  const TrendingPlansInitial({
+class FreePlansInitial extends AbstractState<List<Plan>> {
+  const FreePlansInitial({
     required super.result,
     super.error,
     super.request,
     super.statuses,
   }); //
 
-  factory TrendingPlansInitial.initial() {
-    return const TrendingPlansInitial(
+  factory FreePlansInitial.initial() {
+    return const FreePlansInitial(
       result: [],
       error: '',
       statuses: CubitStatuses.init,
@@ -24,13 +24,13 @@ class TrendingPlansInitial extends AbstractState<List<Plan>> {
         if (request != null) request,
       ];
 
-  TrendingPlansInitial copyWith({
+  FreePlansInitial copyWith({
     CubitStatuses? statuses,
     List<Plan>? result,
     String? error,
     dynamic request,
   }) {
-    return TrendingPlansInitial(
+    return FreePlansInitial(
       statuses: statuses ?? this.statuses,
       result: result ?? this.result,
       error: error ?? this.error,

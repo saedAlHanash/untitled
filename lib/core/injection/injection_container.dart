@@ -41,7 +41,7 @@ import '../../features/plans/bloc/plan_cubit/plan_cubit.dart';
 import '../../features/plans/bloc/plan_workout_cubit/plan_workout_cubit.dart';
 import '../../features/plans/bloc/plans_cubit/plans_cubit.dart';
 import '../../features/plans/bloc/subscribe_plan_cubit/subscribe_plan_cubit.dart';
-import '../../features/plans/bloc/trending_plans_cubit/trending_plans_cubit.dart';
+import '../../features/plans/bloc/free_plans_cubit/free_plans_cubit.dart';
 import '../../features/profile/bloc/profile_cubit/profile_cubit.dart';
 import '../../features/profile/bloc/update_profile_cubit/update_profile_cubit.dart';
 import '../../features/search/bloc/temp_cubit/search_cubit.dart';
@@ -122,7 +122,7 @@ Future<void> init() async {
   sl.registerFactory(() => AddFavoriteCubit());
   sl.registerFactory(() => BookmarkedCubit());
   sl.registerFactory(() => ActivePlansCubit());
-  sl.registerFactory(() => TrendingPlansCubit());
+  sl.registerFactory(() => FreePlansCubit());
 
   //endregion
 

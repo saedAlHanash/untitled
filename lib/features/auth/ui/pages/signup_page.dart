@@ -6,6 +6,7 @@ import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:fitness_storm/core/util/my_style.dart';
 import 'package:fitness_storm/core/widgets/my_button.dart';
 import 'package:fitness_storm/core/widgets/my_text_form_widget.dart';
+import 'package:fitness_storm/features/auth/ui/widget/auth_header.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -44,13 +45,19 @@ class _SignupPageState extends State<SignupPage> {
     return Stack(
       children: [
         ImageMultiType(
-          url: Assets.imagesAuth1,
+          url: Assets.imagesIntro1,
           height: 1.0.sh,
+          width: 1.0.sw,
           fit: BoxFit.cover,
         ),
         Container(
-          height: 1.0.sh,
           color: Colors.black.withOpacity(0.6),
+        ),
+        ImageMultiType(
+          url: Assets.imagesIntro1Back,
+          height: 1.0.sh,
+          width: 1.0.sw,
+          fit: BoxFit.cover,
         ),
         MultiBlocListener(
           listeners: [
@@ -58,7 +65,7 @@ class _SignupPageState extends State<SignupPage> {
               listenWhen: (p, c) => c.statuses.done,
               listener: (context, state) {
                 if (AppProvider.isConfirmed) {
-                  startHome();
+                  startHome(true);
                 } else {
                   startConfirmCodeAccount();
                 }
@@ -67,7 +74,7 @@ class _SignupPageState extends State<SignupPage> {
             BlocListener<LoginSocialCubit, LoginSocialInitial>(
               listenWhen: (p, c) => c.statuses.done,
               listener: (context, state) {
-                startHome();
+                startHome(true);
               },
             ),
           ],
@@ -80,36 +87,10 @@ class _SignupPageState extends State<SignupPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    30.verticalSpace,
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        InkWell(
-                          onTap: () {
-                            BottomSheets.languageBottomSheet(
-                              const LanguageBoardWidget(fromAuthPage: true),
-                            );
-                          },
-                          child: ImageMultiType(
-                            url: Assets.imagesLanguage,
-                            width: 25.0.r,
-                          ),
-                        ),
-                        ImageMultiType(
-                          url: Assets.imagesWhiteLogo,
-                          width: 85.0.w,
-                        ),
-                        0.0.verticalSpace,
-                      ],
-                    ),
-                    30.0.verticalSpace,
-                    DrawableText(
-                      text: S.of(context).signUp,
-                      size: 26.0.sp,
-                      color: Colors.white,
-                      fontFamily: FontManager.bold.name,
-                    ),
-                    15.0.verticalSpace,
+
+                    AuthHeader(name: S.of(context).signUp),
+
+
                     MyTextFormOutLineWidget(
                       validator: (p0) => signupCubit.validateName,
                       label: S.of(context).name,
