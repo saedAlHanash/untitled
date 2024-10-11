@@ -415,13 +415,12 @@ extension ReadOrNull on BuildContext? {
 extension PlanH on Plan {
   Widget get progressWidget {
     return Container(
-      width: 0.2.sw,
       padding: const EdgeInsets.all(5.0).r,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(7), color: Colors.black.withOpacity(0.6)),
       alignment: Alignment.center,
       child: DrawableText(
-        text: '${S().completed} ${((userProgress) * 100).round()}%',
+        text: '${S().completed}: ${((userProgress) * 100).round()}%',
         size: 14.0.sp,
         color: Colors.white,
       ),
@@ -439,7 +438,7 @@ extension PlanH on Plan {
       alignment: Alignment.center,
       child: DrawableText(
         text:
-            '${S().day} ${days.firstWhereIndexedOrNull((i, e) => !e.completed)?.dayNumber ?? 1}',
+            '${S().day}: ${days.firstWhereIndexedOrNull((i, e) => !e.completed)?.dayNumber ?? 1}',
         size: 14.0.sp,
         color: Colors.white,
       ),

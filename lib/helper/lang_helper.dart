@@ -7,6 +7,10 @@ import 'package:get/get.dart';
 import '../core/app/app_widget.dart';
 import '../features/bookmarked/bloc/bookmarked_cubit/bookmarked_cubit.dart';
 import '../features/notifications/bloc/notifications_cubit/notifications_cubit.dart';
+import '../features/plans/bloc/active_plans_cubit/active_plans_cubit.dart';
+import '../features/plans/bloc/plans_cubit/plans_cubit.dart';
+import '../features/plans/bloc/trending_plans_cubit/trending_plans_cubit.dart';
+import '../features/trainer/bloc/trainers_cubit/trainers_cubit.dart';
 
 class LanguagesController extends GetxController {
   String get selectedLanguage => AppSharedPreference.getLocal;
@@ -18,10 +22,11 @@ class LanguagesController extends GetxController {
     if (fromAuthPage) {
       startLogin();
     } else {
-      // ctx?.readOrNull<DietsCubit>()?.getDiets();
       ctx?.readOrNull<BookmarkedCubit>()?.getBookmarked();
-      // ctx?.readOrNull<TrainerFilesCubit>()?.getTrainerFiles();
-      // ctx?.readOrNull<WelcomeMessagesCubit>()?.getWelcomeMessages();
+      ctx?.readOrNull<TrainersCubit>()?.getTrainers(newData: true);
+      ctx?.readOrNull<PlansCubit>()?.getPlans(newData: true);
+      ctx?.readOrNull<ActivePlansCubit>()?.getActivePlans(newData: true);
+      ctx?.readOrNull<TrendingPlansCubit>()?.getTrendingPlans(newData: true);
       ctx?.readOrNull<NotificationsCubit>()?.getNotifications();
       startHome();
     }

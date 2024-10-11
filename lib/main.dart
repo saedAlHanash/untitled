@@ -38,7 +38,7 @@ void main() async {
     await CachingService.initial(
       onError: (state) => showErrorFromApi(state),
       version: 1,
-      timeInterval: 60,
+      timeInterval: 120,
     );
 
     Get.put(LanguagesController());

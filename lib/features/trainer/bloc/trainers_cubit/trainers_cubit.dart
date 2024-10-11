@@ -20,15 +20,12 @@ class TrainersCubit extends MCubit<TrainersInitial> {
   String get filter => state.filter;
 
   Future<void> getTrainers({bool newData = false}) async {
-
-
     await getDataAbstract(
       fromJson: TrainerModel.fromJson,
       state: state,
       getDataApi: _getTrainers,
       newData: newData,
     );
-
   }
 
   Future<Pair<List<TrainerModel>?, String?>> _getTrainers() async {
@@ -43,5 +40,4 @@ class TrainersCubit extends MCubit<TrainersInitial> {
       return response.getPairError;
     }
   }
-
 }

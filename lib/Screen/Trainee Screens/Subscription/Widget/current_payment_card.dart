@@ -62,11 +62,11 @@ class CurrentPaymentCardWidget extends StatelessWidget {
               onPressed: () {
                 Utils.showCancelSubscriptionAlertDialog(
                   (cancelReason) {
-                    Get.find<SubscruptionController>()
-                        .cancelSubscribtion(cancelReason: cancelReason);
-                    Get.find<SubscruptionController>().changeIsSubscrip();
-                    Get.find<SubscruptionController>()
-                        .getSubscribtionPaymentPlan();
+                    Get.find<SubscriptionController>()
+                        .cancelSubscription(cancelReason: cancelReason);
+                    Get.find<SubscriptionController>().changeIsSubscribe();
+                    Get.find<SubscriptionController>()
+                        .getSubscriptionPaymentPlan();
                   },
                   'why_cancel'.tr,
                 );

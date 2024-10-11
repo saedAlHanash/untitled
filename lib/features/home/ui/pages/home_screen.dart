@@ -15,6 +15,7 @@ import '../../../../../../generated/l10n.dart';
 import '../../../../Utils/Routes/app_pages.dart';
 import '../../../../core/strings/app_color_manager.dart';
 import '../../../plans/bloc/active_plans_cubit/active_plans_cubit.dart';
+import '../../../plans/bloc/plans_cubit/plans_cubit.dart';
 import '../../../plans/bloc/trending_plans_cubit/trending_plans_cubit.dart';
 import '../../../plans/ui/widget/plans_list_widget.dart';
 import '../../../plans/ui/widget/trending_plan_item.dart';
@@ -28,8 +29,13 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: appBarHome,
       body: RefreshWidget(
-        isLoading: false,
-        onRefresh: () async {},
+        isLoading: context.watch<ActivePlansCubit>().state.loading,
+        onRefresh: () async {
+          context.read<TrainersCubit>().getTrainers(newData: true);
+          context.read<ActivePlansCubit>().getActivePlans(newData: true);
+          context.read<PlansCubit>().getPlans(newData: true);
+          context.read<TrendingPlansCubit>().getTrendingPlans(newData: true);
+        },
         child: SingleChildScrollView(
           child: Column(
             children: [

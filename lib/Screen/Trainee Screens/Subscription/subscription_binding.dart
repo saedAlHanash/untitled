@@ -4,6 +4,6 @@ import 'package:get/instance_manager.dart';
 class SubscriptionBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut(() => SubscruptionController());
+    Get.lazyPut(() => SubscriptionController());
   }
 }

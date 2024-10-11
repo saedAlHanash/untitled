@@ -10,14 +10,14 @@ import '../../../Utils/utils.dart';
 import '../../../core/injection/injection_container.dart';
 import '../../../features/coupon/data/request/pay_request.dart';
 import '../../../features/profile/data/response/profile_response.dart';
-
-class SubscruptionController extends GetxController {
+//
+class SubscriptionController extends GetxController {
   final RxBool _isLoading = false.obs;
   final RxBool _isBuy = false.obs;
   final Rx<SubscriptionsModel> _subscriptionsModel =
       SubscriptionsModel.fromJson({}).obs;
   final TraineeRepository _traineeRepository = TraineeRepository();
-  late Profile userProfile;
+
   late Rx<bool> _isSubscribe = false.obs;
   final RxString _nameUser = "".obs;
 
@@ -39,13 +39,13 @@ class SubscruptionController extends GetxController {
 
   set isBuy(value) => _isBuy.value = value;
 
-  set nameUser(value) => _nameUser.value = value;
+
 
   final _subscriptionRepository = SubscriptionRepository();
   WebViewController? webViewControllerl;
   Map<String, dynamic>? paymentIntentData;
 
-  getSubscribtionPaymentPlan() async {
+  getSubscriptionPaymentPlan() async {
     isLoading = true;
     subscriptions = await _subscriptionRepository.subscribePaymentPlan();
 
@@ -56,29 +56,17 @@ class SubscruptionController extends GetxController {
       }
     }
 
-    getUserProfile();
     isLoading = false;
   }
 
   @override
   Future<void> onInit() async {
-    getSubscribtionPaymentPlan();
+    getSubscriptionPaymentPlan();
     super.onInit();
   }
 
-  getUserProfile() async {
-    isLoading = true;
-    ApiResult result = await _traineeRepository.getUserProfile();
-    if (result.type == ApiResultType.success) {
-      userProfile = Profile.fromJson(result.data);
-      nameUser = userProfile.name;
-    } else {
-      Utils.openSnackBar(title: 'Something_Went_Wrong'.tr);
-    }
-    isLoading = false;
-  }
 
-  changeIsSubscrip() {
+  changeIsSubscribe() {
     _isSubscribe = false.obs;
     update();
   }
@@ -110,7 +98,7 @@ class SubscruptionController extends GetxController {
     }
   }
 
-  cancelSubscribtion({required String? cancelReason}) async {
+  cancelSubscription({required String? cancelReason}) async {
     try {
       return await _subscriptionRepository
           .cancelSubscription(cancelReason ?? '');

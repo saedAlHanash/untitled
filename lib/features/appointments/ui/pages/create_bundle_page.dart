@@ -40,8 +40,8 @@ class _CreateBundlePageState extends State<CreateBundlePage> {
       listener: (context, state) {
         if (state.result.isEmpty) return;
 
-        if (!Get.isRegistered<SubscruptionController>()) {
-          Get.lazyPut(() => SubscruptionController());
+        if (!Get.isRegistered<SubscriptionController>()) {
+          Get.lazyPut(() => SubscriptionController());
         }
 
         Get.back();

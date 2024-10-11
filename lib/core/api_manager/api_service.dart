@@ -57,9 +57,6 @@ class APIService {
     String? additional,
     String? hostName,
   }) async {
-    if (url.contains('refreshToken')) {
-      loggerObject.w(header);
-    }
     if (!await network.hasConnection) noInternet;
 
     final uri = getUri(

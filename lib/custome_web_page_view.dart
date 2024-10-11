@@ -32,7 +32,7 @@ class _MyCustomWebPageState extends State<MyCustomWebPage> {
         leading: IconButton(
           onPressed: () async {
             Get.back();
-            // await Get.find<SubscruptionController>().getSubscribtionPaymentPlan();
+            // await Get.find<SubscruptionController>().getSubscriptionPaymentPlan();
           },
           icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
         ),

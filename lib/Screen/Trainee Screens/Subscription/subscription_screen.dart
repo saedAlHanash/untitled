@@ -12,7 +12,7 @@ import '../../../features/coupon/data/request/pay_request.dart';
 import '../../../features/coupon/ui/coupon_widget.dart';
 import 'Widget/current_payment_card.dart';
 
-class SubscriptionScreen extends GetView<SubscruptionController> {
+class SubscriptionScreen extends GetView<SubscriptionController> {
   const SubscriptionScreen({super.key});
 
   @override
@@ -131,7 +131,7 @@ class SubscriptionScreen extends GetView<SubscruptionController> {
             ),
           ),
         ).then((value) async {
-          await controller.getSubscribtionPaymentPlan();
+          await controller.getSubscriptionPaymentPlan();
         });
         // kholoud.elsayed@hotmail.com
       } else {

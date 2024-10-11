@@ -12,7 +12,7 @@ abstract class TRAINEEURLS {
   static String forgetPassword = '$userBaseUrl/auth/resetPassword';
   static String plans = '$userBaseUrl/plans?page=';
   static String getUserSubscribedPlans = '$userBaseUrl/userSubscribedPlans';
-  static String getTrendingPlns = '$userBaseUrl/plans/trending';
+
   static String getFeaturedPlans = '$userBaseUrl/plans/featured';
   static String getOurPlans = '$userBaseUrl/plans/ourPlans';
   static String getPlanById = '$userBaseUrl/plans/';
@@ -81,7 +81,7 @@ abstract class TRAINERURLS {
   static String logout = '$trainerBaseUrl/auth/logout';
   static String trainerPorile = '$trainerBaseUrl/profile';
   static String trainerAvailableTime = '$trainerBaseUrl/availableTimes';
-  static String getTrendingPlns = '$trainerBaseUrl/plans/trending';
+
 
 
   static String getConversation(String channelId) =>

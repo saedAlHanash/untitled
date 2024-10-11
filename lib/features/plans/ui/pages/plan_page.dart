@@ -22,8 +22,10 @@ import 'package:image_multi_type/circle_image_widget.dart';
 
 import '../../../../Widgets/Exercise/day_widget.dart';
 import '../../../../core/app/app_provider.dart';
+import '../../../../core/app/app_widget.dart';
 import '../../../../generated/l10n.dart';
 import '../../../vimeo/ui/pages/vimeo_player.dart';
+import '../../bloc/active_plans_cubit/active_plans_cubit.dart';
 import '../../bloc/plan_cubit/plan_cubit.dart';
 import '../../bloc/plan_workout_cubit/plan_workout_cubit.dart';
 import '../../bloc/subscribe_plan_cubit/subscribe_plan_cubit.dart';
@@ -47,6 +49,7 @@ class _PlanPageState extends State<PlanPage> {
         BlocListener<SubscribePlanCubit, SubscribePlanInitial>(
           listenWhen: (p, c) => c.statuses.done,
           listener: (context, state) {
+            ctx?.readOrNull<ActivePlansCubit>()?.getActivePlans(newData: true);
             setState(() {});
           },
         ),
