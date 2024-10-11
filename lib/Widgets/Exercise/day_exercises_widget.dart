@@ -1,4 +1,5 @@
 import 'package:adaptive_scrollbar/adaptive_scrollbar.dart';
+import 'package:drawable_text/drawable_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -28,14 +29,15 @@ class DayExercisesWidget extends StatelessWidget {
         controller: scrollController,
         shrinkWrap: true,
         itemCount: item.exercises.length > 3 ? 3 : item.exercises.length,
-        itemBuilder: (context, index) {
+        itemBuilder: (context, i) {
           return _buildExerciseInfo(
-            item.exercises[index].name,
-            item.exercises[index].setCount.toInt(),
-            item.exercises[index].repetitions,
-            item.exercises[index].secondBased,
-            item.exercises.length > 3 && index == 2,
+            item.exercises[i].name,
+            item.exercises[i].setCount.toInt(),
+            item.exercises[i].repetitions,
+            item.exercises[i].secondBased,
+            item.exercises.length > 3 && i == 2,
             item.type,
+            item,
           );
         },
       ),
@@ -49,8 +51,8 @@ class DayExercisesWidget extends StatelessWidget {
     bool secondsBased,
     bool hasSeeMore,
     String type,
+      PlanWorkout e,
   ) {
-    bool isEnglish = Get.locale!.languageCode == 'en';
     return Column(
       crossAxisAlignment: type == 'Zumba' || type == 'zumba'
           ? CrossAxisAlignment.center

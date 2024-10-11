@@ -33,14 +33,20 @@ class _Video1State extends State<Video1> {
   late RtcEngineEventHandler eventHandler;
 
   Timer? timer;
-  var showWarning = true;
+  var showWarning = false;
 
   var timeLift = 0;
 
   void calculateTimeLeft(bool firstTime) async {
-    final d = widget.appointment.endTime
-        .toUtc()
-        .difference(await APIService().getServerDateTime);
+    final serverTime = await APIService().getServerDateTime;
+    final d = widget.appointment.endTime.toUtc().difference(serverTime);
+
+    // loggerObject.f(widget.appointment.toJson());
+    // loggerObject.w('startTime : ${widget.appointment.startTime.toUtc()}');
+    // loggerObject.w('endTime : ${widget.appointment.endTime.toUtc()}');
+    // loggerObject.w('serverTime : ${serverTime}');
+    // loggerObject.w('divice android : ${DateTime.now()}');
+    // loggerObject.w(d.inMinutes);
 
     if (d.inMinutes <= 10) {
       setState(() {
