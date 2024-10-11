@@ -737,7 +737,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "videoInitialized":
             MessageLookupByLibrary.simpleMessage("تم استهلال الفيديو"),
         "voucher": MessageLookupByLibrary.simpleMessage("قيمة الخصم"),
-        "payments_cubit": MessageLookupByLibrary.simpleMessage("محفظة"),
+        "wallet": MessageLookupByLibrary.simpleMessage("محفظة"),
         "warning": MessageLookupByLibrary.simpleMessage("تحذير"),
         "warningDeleteAccount": MessageLookupByLibrary.simpleMessage(
             "حذف الحساب سيؤدي لحذف كامل بياناتك وتقدمك، وإلغاء أي اشتراك جاري."),
