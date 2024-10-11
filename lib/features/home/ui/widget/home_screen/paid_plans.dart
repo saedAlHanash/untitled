@@ -3,12 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../core/util/my_style.dart';
 import '../../../../../generated/l10n.dart';
 import '../../../../../router/app_router.dart';
-import '../list_header.dart';
 import '../../../../plans/bloc/plans_cubit/plans_cubit.dart';
 import '../../../../plans/ui/widget/featured_plan_item.dart';
+import '../list_header.dart';
 
 class PaidPlans extends StatefulWidget {
   const PaidPlans({super.key});

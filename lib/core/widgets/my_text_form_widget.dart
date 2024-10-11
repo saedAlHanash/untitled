@@ -2,6 +2,7 @@ import 'package:drawable_text/drawable_text.dart';
 import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 
 import '../strings/app_color_manager.dart';
@@ -146,7 +147,6 @@ class _MyTextFormWidgetState extends State<MyTextFormWidget> {
       hintTextDirection: widget.textDirection,
       hintStyle: TextStyle(
         locale: Locale(AppSharedPreference.getLocal),
-       
         color: widget.textColor ?? AppColorManager.grey,
       ),
       hintMaxLines: 1,
@@ -156,7 +156,6 @@ class _MyTextFormWidgetState extends State<MyTextFormWidget> {
     );
 
     final textStyle = TextStyle(
-     
       fontSize: 16.0.sp,
       color: widget.textColor ?? AppColorManager.black,
     );
@@ -262,7 +261,6 @@ class MyEditTextWidget extends StatelessWidget {
     final inputDecoration = InputDecoration(
       hintText: hint,
       hintStyle: TextStyle(
-       
         fontSize: 18.0.sp,
         color: color?.withOpacity(0.6) ?? AppColorManager.grey.withOpacity(0.6),
       ),
@@ -287,7 +285,7 @@ class MyEditTextWidget extends StatelessWidget {
         onChangeObscure = () => state(() {});
         return Container(
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: color ?? Colors.white,
             borderRadius: BorderRadius.circular(radios ?? 10.0.r),
           ),
           padding: innerPadding ?? const EdgeInsets.all(10.0).r,
@@ -546,7 +544,6 @@ class _MyTextFormOutLineWidgetState extends State<MyTextFormOutLineWidget> {
       counter: const SizedBox(),
       hintText: widget.hint,
       hintStyle: TextStyle(
-        
         fontSize: 12.0.sp,
         color: const Color(0xffA0A0A0),
       ),
@@ -558,7 +555,6 @@ class _MyTextFormOutLineWidgetState extends State<MyTextFormOutLineWidget> {
     );
 
     final textStyle = TextStyle(
-     
       fontSize: 16.0.sp,
       color: AppColorManager.whit,
     );
@@ -602,7 +598,7 @@ class _MyTextFormOutLineWidgetState extends State<MyTextFormOutLineWidget> {
 
 class MyTextFormWhiteWidget extends StatelessWidget {
   const MyTextFormWhiteWidget({
-        super.key,
+    super.key,
     this.label = '',
     this.hint = '',
     this.maxLines = 1,
@@ -619,7 +615,8 @@ class MyTextFormWhiteWidget extends StatelessWidget {
     this.labelColor,
     this.initialValue,
     this.textDirection,
-  }) ;
+  });
+
   final bool? enable;
   final String label;
   final String hint;
@@ -663,6 +660,7 @@ class MyTextFormWhiteWidget extends StatelessWidget {
             icon: Icon(obscureText ? Icons.visibility : Icons.visibility_off));
       });
     }
+
     final border = OutlineInputBorder(
         borderSide: BorderSide(
           color: color ?? Colors.white,
@@ -698,11 +696,12 @@ class MyTextFormWhiteWidget extends StatelessWidget {
           DrawableText(
             text: label,
             matchParent: true,
+            fontFamily: FontManager.bold.name,
             color: labelColor ?? Colors.white,
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
             size: 16.0,
           ),
-          const SizedBox(height: 3.0),
+          5.0.verticalSpace,
           TextFormField(
             decoration: inputDecoration,
             maxLines: maxLines,
@@ -716,7 +715,211 @@ class MyTextFormWhiteWidget extends StatelessWidget {
             controller: controller,
             keyboardType: keyBordType,
           ),
-          const SizedBox(height: 3.0),
+        ],
+      );
+    });
+  }
+}
+
+class MyTextFormOutLineWidget1 extends StatefulWidget {
+  const MyTextFormOutLineWidget1({
+    super.key,
+    this.label,
+    this.hint = '',
+    this.helperText = '',
+    this.maxLines = 1,
+    this.obscureText = false,
+    this.textAlign = TextAlign.start,
+    this.maxLength = 1000,
+    this.onChanged,
+    this.controller,
+    this.keyBordType,
+    this.innerPadding,
+    this.enable,
+    this.icon,
+    this.color = Colors.black,
+    this.lableColor = Colors.black,
+    this.initialValue,
+    this.textDirection,
+    this.validator,
+    this.iconWidget,
+    this.iconWidgetLift,
+    this.onChangedFocus,
+    this.onFieldSubmitted,
+    this.onTap,
+    this.isRequired = false,
+    this.autofillHints,
+    this.titleLabel,
+  });
+
+  final bool? enable;
+  final String? label;
+  final String? titleLabel;
+  final String hint;
+  final String? helperText;
+  final dynamic icon;
+  final Widget? iconWidget;
+  final Widget? iconWidgetLift;
+  final Color color;
+  final Color lableColor;
+  final int maxLines;
+  final int maxLength;
+  final bool obscureText;
+  final bool isRequired;
+  final TextAlign textAlign;
+  final Function(String)? onChanged;
+  final Function(String)? onFieldSubmitted;
+  final Function(bool)? onChangedFocus;
+  final Function()? onTap;
+
+  final List<String>? autofillHints;
+
+  final String? Function(String?)? validator;
+  final TextEditingController? controller;
+  final TextInputType? keyBordType;
+  final EdgeInsets? innerPadding;
+  final String? initialValue;
+  final TextDirection? textDirection;
+
+  @override
+  State<MyTextFormOutLineWidget1> createState() => _MyTextFormOutLineWidget1State();
+}
+
+class _MyTextFormOutLineWidget1State extends State<MyTextFormOutLineWidget1> {
+  FocusNode? focusNode;
+
+  @override
+  void initState() {
+    if (widget.onChangedFocus != null) {
+      focusNode = FocusNode()
+        ..addListener(() {
+          widget.onChangedFocus!.call(focusNode!.hasFocus);
+        });
+    }
+
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final padding = widget.innerPadding ??
+        const EdgeInsets.symmetric(horizontal: 20.0, vertical: 3.0).r;
+
+    bool obscureText = widget.obscureText;
+    Widget? suffixIcon;
+    Widget? eye;
+    VoidCallback? onChangeObscure;
+
+    if (widget.iconWidget != null) {
+      suffixIcon = widget.iconWidget!;
+    } else if (widget.icon != null) {
+      suffixIcon = Padding(
+        padding: const EdgeInsets.all(15.0).r,
+        child: ImageMultiType(
+          url: widget.icon!,
+          color: AppColorManager.secondColor,
+        ),
+      );
+    }
+
+    if (obscureText) {
+      eye = StatefulBuilder(builder: (context, state) {
+        return IconButton(
+          splashRadius: 0.01,
+          onPressed: () {
+            state(() => obscureText = !obscureText);
+            if (onChangeObscure != null) onChangeObscure!();
+          },
+          icon: Icon(
+            obscureText ? Icons.visibility : Icons.visibility_off,
+            color: AppColorManager.mainColor,
+          ),
+        );
+      });
+    }
+
+    final border = OutlineInputBorder(
+      borderSide: const BorderSide(color: AppColorManager.f6),
+      borderRadius: BorderRadius.circular(8.0.r),
+    );
+
+    final inputDecoration = InputDecoration(
+      contentPadding: padding,
+      errorBorder: border,
+      border: border,
+      focusedBorder: border,
+      focusedErrorBorder: border,
+      floatingLabelBehavior: FloatingLabelBehavior.always,
+      enabledBorder: border,
+      error: widget.validator == null ? 0.0.verticalSpace : null,
+      helperText: widget.helperText,
+      helperStyle: const TextStyle(color: Colors.grey),
+      fillColor: AppColorManager.whit,
+      label: widget.label == null
+          ? null
+          : DrawableText(
+              text: widget.label!,
+              color: Color(0xFF637381),
+              size: 14.0.spMin,
+              drawableEnd: widget.isRequired
+                  ? const DrawableText(text: ' *', color: Colors.red)
+                  : null,
+            ),
+      counter: 0.0.verticalSpace,
+      hintText: widget.hint,
+      filled: true,
+      hintStyle: TextStyle(
+        color: Colors.grey[400],
+        fontSize: 14.0.sp,
+        fontFamily: FontManager.bold.name,
+      ),
+      labelStyle: TextStyle(color: widget.color),
+      prefixIcon: widget.iconWidget ?? suffixIcon,
+      suffixIcon: widget.iconWidgetLift ?? eye,
+    );
+
+    final textStyle = TextStyle(
+      fontFamily: FontManager.semeBold.name,
+      fontSize: 15.0.spMin,
+      color: AppColorManager.mainColor,
+    );
+
+    return StatefulBuilder(builder: (_, state) {
+      onChangeObscure = () => state(() {});
+      return Column(
+        children: [
+          if (widget.titleLabel != null)
+            DrawableText(
+              text: (widget.titleLabel ?? '').capitalizeFirst ?? '',
+
+              fontWeight: FontWeight.bold,
+              color: widget.lableColor,
+              matchParent: true,
+              padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 3.0).r,
+              drawableEnd: widget.isRequired
+                  ? const DrawableText(text: ' *', color: Colors.red)
+                  : null,
+            ),
+          5.0.verticalSpace,
+          TextFormField(
+            autofillHints: widget.autofillHints,
+            onTap: () => widget.onTap?.call(),
+            validator: widget.validator,
+            decoration: inputDecoration,
+            maxLines: widget.maxLines,
+            readOnly: !(widget.enable ?? true),
+            initialValue: widget.initialValue,
+            obscureText: obscureText,
+            textAlign: widget.textAlign,
+            onChanged: widget.onChanged,
+            onFieldSubmitted: widget.onFieldSubmitted,
+            style: textStyle,
+            focusNode: focusNode,
+            textDirection: widget.textDirection,
+            maxLength: widget.maxLength,
+            controller: widget.controller,
+            keyboardType: widget.keyBordType,
+          ),
         ],
       );
     });

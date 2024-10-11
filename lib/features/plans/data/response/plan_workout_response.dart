@@ -14,8 +14,7 @@ class PlanWorkouts {
     return PlanWorkouts(
       data: json["data"] == null
           ? []
-          : List<PlanWorkout>.from(
-              json["data"]!.map((x) => PlanWorkout.fromJson(x))),
+          : List<PlanWorkout>.from(json["data"]!.map((x) => PlanWorkout.fromJson(x))),
     );
   }
 
@@ -36,6 +35,7 @@ class PlanWorkout {
     required this.type,
     required this.count,
     required this.workoutBreak,
+    required this.key,
   });
 
   final int id;
@@ -48,15 +48,15 @@ class PlanWorkout {
   final String type;
   final num count;
   final num workoutBreak;
+  final GlobalKey key;
 
   bool get isRestDay =>
-      (name.toLowerCase() == 'rest day') ||
-      (totalMinutes == 0 && exercises.isEmpty);
+      (name.toLowerCase() == 'rest day') || (totalMinutes == 0 && exercises.isEmpty);
 
-  GlobalKey key = GlobalKey();
 
   factory PlanWorkout.fromJson(Map<String, dynamic> json) {
     return PlanWorkout(
+      key: GlobalKey(),
       id: json["id"].toString().tryParseOrZeroInt,
       workoutId: json["workout_id"].toString().tryParseOrZeroInt,
       name: json["name"] ?? "",
@@ -65,8 +65,7 @@ class PlanWorkout {
       totalMinutes: json["total_minutes"] ?? 0,
       exercises: json["exercises"] == null
           ? []
-          : List<Exercise>.from(
-              json["exercises"]!.map((x) => Exercise.fromJson(x))),
+          : List<Exercise>.from(json["exercises"]!.map((x) => Exercise.fromJson(x))),
       type: json["type"] ?? "",
       count: json["count"] ?? 0,
       workoutBreak: json["break"] ?? 0,

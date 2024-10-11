@@ -1,5 +1,5 @@
-import 'package:fitness_storm/Screen/Trainee%20Screens/Search%20Screen/search_screen.dart';
 import 'package:fitness_storm/features/profile/ui/pages/guest_profile_page.dart';
+import 'package:fitness_storm/features/search/ui/pages/search_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

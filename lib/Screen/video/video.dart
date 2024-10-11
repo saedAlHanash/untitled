@@ -1,21 +1,20 @@
 import 'dart:async';
 
 import 'package:agora_rtc_engine/agora_rtc_engine.dart';
-import 'package:drawable_text/drawable_text.dart';import 'package:fitness_storm/core/strings/enum_manager.dart';
+import 'package:drawable_text/drawable_text.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
 import 'package:fitness_storm/core/util/firebase_analytics_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 
 import '../../Utils/protact_screen_service.dart';
 import '../../core/api_manager/api_service.dart';
+import '../../core/app/app_widget.dart';
 import '../../core/injection/injection_container.dart';
 import '../../core/models/booked_appointments.dart';
-import '../../core/strings/enum_manager.dart';
 import '../../generated/l10n.dart';
 
 class Video1 extends StatefulWidget {
@@ -34,15 +33,14 @@ class _Video1State extends State<Video1> {
   late RtcEngineEventHandler eventHandler;
 
   Timer? timer;
-  var showWarning = false;
+  var showWarning = true;
 
   var timeLift = 0;
 
   void calculateTimeLeft(bool firstTime) async {
-    final d = (widget.appointment.endTime
-            .toUtc()
-            .difference((await APIService().getServerDateTime)))
-        .abs();
+    final d = widget.appointment.endTime
+        .toUtc()
+        .difference(await APIService().getServerDateTime);
 
     if (d.inMinutes <= 10) {
       setState(() {
@@ -53,10 +51,10 @@ class _Video1State extends State<Video1> {
 
     if (d.inMinutes <= 0) {
       if (firstTime) {
-        Navigator.pop(context, false);
+        Navigator.pop(ctx!, false);
       } else {
         _engine.leaveChannel();
-        Navigator.pop(context, true);
+        Navigator.pop(ctx!, true);
       }
     }
   }
@@ -64,6 +62,7 @@ class _Video1State extends State<Video1> {
   @override
   void initState() {
     calculateTimeLeft(true);
+
     timer = Timer.periodic(const Duration(minutes: 1), (v) => calculateTimeLeft(false));
 
     WakelockPlus.enable();

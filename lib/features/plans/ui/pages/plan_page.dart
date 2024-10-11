@@ -1,9 +1,9 @@
 import 'dart:io';
 
 import 'package:drawable_text/drawable_text.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/PlanOverView/Widget/day_bar.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/PlanOverView/Widget/trainer_bio.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/PlanOverView/Widget/video_tail_widget.dart';
+import 'package:fitness_storm/features/plans/ui/widget/day_bar.dart';
+import 'package:fitness_storm/features/plans/ui/widget/trainer_bio.dart';
+import 'package:fitness_storm/features/plans/ui/widget/video_tail_widget.dart';
 import 'package:fitness_storm/Widgets/custom_button.dart';
 import 'package:fitness_storm/Widgets/read_more_text_widget.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';

@@ -30,13 +30,13 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   final List<Widget>? actions;
   final bool canPop;
 
-  final Function(bool)? onPopInvoked;
+  final Function(bool, dynamic result)? onPopInvoked;
 
   @override
   Widget build(BuildContext context) {
     return PopScope(
       canPop: canPop,
-      onPopInvoked: onPopInvoked,
+      onPopInvokedWithResult: onPopInvoked,
       child: AppBar(
         backgroundColor: color ?? AppColorManager.mainColor,
         surfaceTintColor: color ?? AppColorManager.mainColor,
@@ -52,6 +52,8 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
         leading: leading ??
             (Navigator.canPop(context)
                 ? BackBtnWidget(
+                    canPop: canPop,
+                    onPopInvoked: onPopInvoked,
                     appBarColor: color ?? AppColorManager.mainColor,
                   )
                 : null),
@@ -79,14 +81,14 @@ class BackBtnWidget extends StatelessWidget {
   final Color appBarColor;
   final bool canPop;
 
-  final Function(bool)? onPopInvoked;
+  final Function(bool, dynamic)? onPopInvoked;
 
   @override
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: () {
         if (!canPop) {
-          onPopInvoked?.call(canPop);
+          onPopInvoked?.call(false, null);
           return;
         }
         if (!Navigator.canPop(context)) return;

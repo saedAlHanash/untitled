@@ -21,14 +21,9 @@ class DayImage extends StatelessWidget {
         left: Get.width / 18,
         right: Get.width / 18,
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 13.0),
-            child: _buildExerciseImage(),
-          ),
-        ],
+      child: Padding(
+        padding: const EdgeInsets.only(top: 13.0),
+        child: _buildExerciseImage(),
       ),
     );
   }
@@ -48,45 +43,6 @@ class DayImage extends StatelessWidget {
             ),
           ),
         ),
-        // Container(
-        //   height: Get.height / 13,
-        //   width: Get.width / 3.125,
-        //   decoration: BoxDecoration(
-        //       borderRadius: BorderRadius.circular(5),
-        //       color: Colors.black12.withOpacity(0.3)),
-        // ),
-        // _buildDayInfo()
-      ],
-    );
-  }
-
-  Widget _buildDayInfo() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        DrawableText(
-          text: item.name,
-          maxLines: 3,
-          color: Colors.white,
-        ),
-        Padding(
-          padding: EdgeInsets.symmetric(vertical: Get.height / 80),
-          child: Row(
-            children: [
-              const Icon(
-                Icons.access_time_sharp,
-                color: Colors.white,
-                size: 14,
-              ),
-              10.0.horizontalSpace,
-              DrawableText(
-                text: formatTimePerMinutes(item.totalMinutes),
-                color: Colors.white,
-                fontWeight: FontWeight.w500,
-              )
-            ],
-          ),
-        )
       ],
     );
   }

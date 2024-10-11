@@ -28,8 +28,8 @@ import '../../features/notifications/bloc/notifications_cubit/notifications_cubi
 import '../../features/payments/bloc/payments_cubit/payments_cubit.dart';
 import '../../features/payments/bloc/wallet_cubit/wallet_cubit.dart';
 import '../../features/plans/bloc/active_plans_cubit/active_plans_cubit.dart';
-import '../../features/plans/bloc/plans_cubit/plans_cubit.dart';
 import '../../features/plans/bloc/free_plans_cubit/free_plans_cubit.dart';
+import '../../features/plans/bloc/plans_cubit/plans_cubit.dart';
 import '../../features/trainer/bloc/trainers_cubit/trainers_cubit.dart';
 import '../../features/trainer_files/bloc/trainer_files_cubit/trainer_files_cubit.dart';
 import '../../features/training/bloc/exercise_cubit/exercise_cubit.dart';

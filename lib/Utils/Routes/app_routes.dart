@@ -16,7 +16,7 @@ abstract class AppRoutes {
 
   static const subscriptionScreen = '/subscription_screen';
   // static const notificationScreen = '/notification_screen';
-  static const searchResultSceen = '/search_result_screen';
+  // static const searchResultSceen = '/search_result_screen';
 
   static const myPaymentScreen = '/My_Payment_Screen';
   static const chatScreen = '/chat_screen';

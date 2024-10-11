@@ -1,6 +1,4 @@
-import 'package:fitness_storm/Screen/Trainee%20Screens/Main%20Home/main_home_binding.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/Search%20Result/search_result_bindings.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/Search%20Result/search_result_screen.dart';
+
 import 'package:fitness_storm/Screen/Trainee%20Screens/Subscription/subscription_binding.dart';
 import 'package:fitness_storm/Screen/Trainee%20Screens/Subscription/subscription_screen.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Search%20Result/search_result_bindings.dart';
@@ -42,7 +40,7 @@ class AppPages {
             sl<AnalyticService>().screenView(name: 'main_home');
             return HomePage();
           },
-          binding: MainHomeBinding()),
+        ),
       // GetPage(
       //     name: AppRoutes.planOverview,
       //     page: () {
@@ -117,13 +115,13 @@ class AppPages {
             return const SubscriptionScreen();
           },
           binding: SubscriptionBinding()),
-      GetPage(
-          name: AppRoutes.searchResultSceen,
-          page: () {
-            sl<AnalyticService>().screenView(name: 'searchResult');
-            return const SearchResultScreen();
-          },
-          binding: SearchResultBinding()),
+      // GetPage(
+      //     name: AppRoutes.searchResultSceen,
+      //     page: () {
+      //       sl<AnalyticService>().screenView(name: 'searchResult');
+      //       return const SearchResultScreen();
+      //     },
+      //     binding: SearchResultBinding()),
       // GetPage(
       //   name: AppRoutes.traineeProfileInfo,
       //   page: () {

@@ -1,15 +1,12 @@
-import 'package:fitness_storm/Data/Api/api_result.dart';
 import 'package:fitness_storm/core/util/firebase_analytics_service.dart';
 import 'package:get/get.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 import '../../../Data/Repositories/subscription_repository.dart';
-
 import '../../../Model/subscription_model.dart';
 import '../../../Utils/utils.dart';
 import '../../../core/injection/injection_container.dart';
 import '../../../features/coupon/data/request/pay_request.dart';
-import '../../../features/profile/data/response/profile_response.dart';
 //
 class SubscriptionController extends GetxController {
   final RxBool _isLoading = false.obs;

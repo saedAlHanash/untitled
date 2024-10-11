@@ -6,12 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 import '../core/app/app_widget.dart';
-import '../features/bookmarked/bloc/bookmarked_cubit/bookmarked_cubit.dart';
 import '../features/notifications/bloc/notifications_cubit/notifications_cubit.dart';
-import '../features/plans/bloc/active_plans_cubit/active_plans_cubit.dart';
-import '../features/plans/bloc/plans_cubit/plans_cubit.dart';
-import '../features/plans/bloc/free_plans_cubit/free_plans_cubit.dart';
-import '../features/trainer/bloc/trainers_cubit/trainers_cubit.dart';
 
 class LanguagesController extends GetxController {
   String get selectedLanguage => AppSharedPreference.getLocal;

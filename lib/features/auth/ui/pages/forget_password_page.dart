@@ -1,7 +1,6 @@
 import 'package:drawable_text/drawable_text.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
-import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:fitness_storm/core/widgets/my_button.dart';
 import 'package:fitness_storm/core/widgets/my_text_form_widget.dart';
 import 'package:fitness_storm/features/auth/ui/widget/auth_header.dart';
@@ -12,8 +11,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 import 'package:m_cubit/abstraction.dart';
 
-import '../../../../Widgets/language_board_widget.dart';
-import '../../../../core/util/bottom_sheets.dart';
 import '../../../../core/util/my_style.dart';
 import '../../../../generated/l10n.dart';
 import '../../../../router/app_router.dart';

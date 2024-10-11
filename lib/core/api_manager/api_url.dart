@@ -97,7 +97,7 @@ class GetUrl {
 
   static const notification = 'notifications';
 
-  static const plan = 'plans';
+    static const plan = 'plans';
 
   static const temps = '';
 

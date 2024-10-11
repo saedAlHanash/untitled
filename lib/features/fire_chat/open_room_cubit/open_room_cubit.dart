@@ -19,7 +19,6 @@ class OpenRoomCubit extends Cubit<OpenRoomInitial> {
 
     final room = await FirebaseChatCore.instance.createRoom(chatUser);
     emit(state.copyWith(statuses: CubitStatuses.done, request: room));
-    // Get.context?.read<MessagesCubit>().state.stream?.cancel();
     startChatPage(room);
   }
 

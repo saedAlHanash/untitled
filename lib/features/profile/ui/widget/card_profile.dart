@@ -115,6 +115,7 @@ class _ProfileCardState extends State<ProfileCard> {
           children: [
             ImageMultiType(
               url: image,
+              color: Colors.grey[500],
               height: 25.0.r,
               width: 25.0.r,
             ),

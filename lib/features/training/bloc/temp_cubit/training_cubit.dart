@@ -64,8 +64,7 @@ class TrainingCubit extends Cubit<TrainingInitial> {
     emit(state.copyWith(statuses: CubitStatuses.done));
   }
 
-
-  Future<Pair<bool?, String?>> _completeDay() async {
+  Future<Pair<bool?, String?>> completeDay() async {
     final response = await APIService().callApi(
       type: ApiType.post,
       url: PostUrl.completeDay,
@@ -84,20 +83,7 @@ class TrainingCubit extends Cubit<TrainingInitial> {
 
   bool get canPop => complete || AppProvider.isTrainer;
 
-  void onPop(bool didPop) async {
-    if (didPop) return;
-    NoteMessage.showCheckDialog(
-      ctx!,
-      text: S.of(ctx!).didYouFinishYourTraining,
-      textButton: S.of(ctx!).done,
-      textCancelButton: S.of(ctx!).iLlComeBackLater,
-      image: '',
-      onConfirm: (b) {
-        if (b) _completeDay();
-        Future(() => Navigator.pop(ctx!));
-      },
-    );
-  }
+
 
   double getPercentage() {
     return totalTimeToSetOrBreak == 0
@@ -105,7 +91,7 @@ class TrainingCubit extends Cubit<TrainingInitial> {
         : (totalTimeToSetOrBreak - startTime) / totalTimeToSetOrBreak;
   }
 
-  void startRestTimer(bool isSecondBased,BuildContext context) async {
+  void startRestTimer(bool isSecondBased, BuildContext context) async {
     context.read<VimeoCubit>().state.controller?.pause();
     isRest = true;
     if (isSecondBased) {
@@ -121,7 +107,7 @@ class TrainingCubit extends Cubit<TrainingInitial> {
               countLoop++;
 
               if (isEnd()) {
-                await _completeDay();
+                await completeDay();
               } else {
                 isBreak = true;
                 currentSet++;
@@ -150,7 +136,7 @@ class TrainingCubit extends Cubit<TrainingInitial> {
             completedExercises[currentIndex] = true;
             countLoop++;
             if (isEnd()) {
-              await _completeDay();
+              await completeDay();
             } else {
               isBreak = true;
               currentSet++;
@@ -206,11 +192,11 @@ class TrainingCubit extends Cubit<TrainingInitial> {
 
   Future<void> startNextCircularExercise() async {
     if (isEnd()) {
-      await _completeDay();
+      await completeDay();
     } else {
       completedExercises[currentIndex] = true;
       if (isEnd()) {
-        await _completeDay();
+        await completeDay();
       }
       currentIndex++;
       if (currentIndex <= completedExercises.length - 1) {
@@ -232,12 +218,12 @@ class TrainingCubit extends Cubit<TrainingInitial> {
 
   Future<void> startNextDefaultExercise() async {
     if (completedExercises.indexWhere((element) => element == false) == -1) {
-      await _completeDay();
+      await completeDay();
     }
     if (currentSet == currentExercise.setCount) {
       completedExercises[currentIndex] = true;
       if (completedExercises.indexWhere((element) => element == false) == -1) {
-        await _completeDay();
+        await completeDay();
       }
       currentIndex++;
       if (currentIndex < completedExercises.length) {

@@ -5,8 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../generated/l10n.dart';
-import '../widget/item_plan.dart';
 import '../../bloc/plans_cubit/plans_cubit.dart';
+import '../widget/item_plan.dart';
 
 class PlansPage extends StatefulWidget {
   const PlansPage({super.key});

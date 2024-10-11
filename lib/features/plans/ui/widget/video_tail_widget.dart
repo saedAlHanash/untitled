@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
-import '../../../../features/plans/bloc/plan_cubit/plan_cubit.dart';
+import '../../bloc/plan_cubit/plan_cubit.dart';
 
 class VideoTailWidget extends StatelessWidget {
   const VideoTailWidget({super.key});
