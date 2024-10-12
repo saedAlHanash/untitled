@@ -184,9 +184,17 @@ extension ResponseHelper on http.Response {
     }
   }
 
-  // Pair<T?, String?> getPairError<T>() {
-  //   return Pair(null, ErrorManager.getApiError(this));
-  // }
+  DateTime get serverTime {
+    final dateString = headers['date'] ?? '';
+
+    // Define the format that matches the date string
+    final format = DateFormat("EEE, dd MMM yyyy HH:mm:ss 'GMT'", 'en_US');
+
+    // Parse the string to DateTime
+    final parsedDate = format.parseUtc(dateString);
+    return parsedDate;
+  }
+
   get getPairError {
     return Pair(null, ErrorManager.getApiError(this));
   }
@@ -240,12 +248,14 @@ extension DateUtcHelper on DateTime {
 
   String get formatDateTimeVertical => '$formatDate\n$formatTime';
 
-  DateTime addFromNow({int? year, int? month, int? day, int? hour}) {
+  DateTime addFromNow({int? year, int? month, int? day, int? hour, int? minute, int? second}) {
     return DateTime(
       this.year + (year ?? 0),
       this.month + (month ?? 0),
       this.day + (day ?? 0),
       this.hour + (hour ?? 0),
+      this.minute + (minute ?? 0),
+      this.second + (second ?? 0),
     );
   }
 
@@ -352,19 +362,21 @@ extension EnumsH on List {
 }
 
 extension AppointmentH on Appointment {
-  bool get isNow {
-    final dateTimeNow = DateTime.now().toUtc();
 
-    final b = dateTimeNow.isAfter(startTime.toUtc());
-    final a = dateTimeNow.isBefore(endTime.toUtc());
+  bool get isNow {
+
+    final dateTimeNow = APIService().serverTime;
+
+    final b = dateTimeNow.isAfter(startTime);
+    final a = dateTimeNow.isBefore(endTime);
 
     // loggerObject.e('$a $b');
     return a && b;
   }
 
   bool get isExpired {
-    final dateTimeNow = DateTime.now().toUtc();
-    final a = dateTimeNow.isAfter(endTime.toUtc());
+    final dateTimeNow = APIService().serverTime;
+    final a = dateTimeNow.isAfter(endTime);
     return a;
   }
 }

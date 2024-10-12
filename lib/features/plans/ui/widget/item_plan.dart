@@ -25,7 +25,7 @@ class ItemPlan extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        startPlanPage(plan.id.toString());
+        startPlanPage(plan);
       },
       child: MyCardWidget(
         cardColor: Colors.grey[100]!,

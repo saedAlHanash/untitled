@@ -4,6 +4,7 @@ import 'dart:typed_data';
 
 import 'package:fitness_storm/core/api_manager/api_url.dart';
 import 'package:fitness_storm/core/app/app_provider.dart';
+import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:internet_connection_checker/internet_connection_checker.dart';
@@ -41,9 +42,16 @@ Map<String, String> get innerHeader => {
 class APIService {
   static final APIService _singleton = APIService._internal();
 
-  APIService._internal();
+  APIService._internal() {
+    Timer.periodic(
+      Duration(seconds: 30),
+      (t) => serverTime = serverTime.addFromNow(second: 30),
+    );
+  }
 
   factory APIService() => _singleton;
+
+  DateTime serverTime = DateTime.now().toUtc();
 
   final network = InternetConnectionChecker();
 
@@ -99,6 +107,8 @@ class APIService {
       }
 
       logResponse(url: url, response: response, type: type);
+
+      serverTime = response.serverTime;
 
       return response;
     } catch (e) {

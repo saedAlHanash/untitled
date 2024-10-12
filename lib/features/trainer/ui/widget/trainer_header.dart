@@ -72,12 +72,12 @@ class TrainerHeader extends StatelessWidget {
                       return MyStyle.loadingWidget();
                     }
 
-                    final pair = state.getSession();
+                    final pair = state.activeSession;
 
-                    if (pair.second == PrivetSessionState.noEver &&
-                        !AppControl.isAppleAccount) {
+                    if (pair.second == PrivetSessionState.noEver && !AppControl.isAppleAccount) {
                       return 0.0.verticalSpace;
                     }
+
                     return Column(
                       children: [
                         Row(
@@ -154,7 +154,7 @@ class TrainerHeader extends StatelessWidget {
                             padding:
                                 const EdgeInsets.symmetric(vertical: 5.0).h,
                             text:
-                                '${S.of(context).nextSession}: ${pair.first?.startTime.formatDateTime}',
+                                '${S.of(context).nextSession}: ${pair.first?.startTimeFixed.formatDateTime}',
                             size: 12.0.sp,
                           ),
                       ],

@@ -19,16 +19,7 @@ class SubscriptionScreen extends GetView<SubscriptionController> {
   Widget build(BuildContext context) {
     return Obx(
       () => Scaffold(
-        // appBar: AppBar(
-        //   elevation: 0,
-        //   leading: IconButton(
-        //     icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
-        //     onPressed: () => Get.back(),
-        //   ),
-        //   title: Text('subscription_plans'.tr),
-        //   titleTextStyle:
-        //       const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-        // ),
+
         body: Container(
           height: 1.0.sh,
           width: 1.0.sw,
@@ -61,7 +52,7 @@ class SubscriptionScreen extends GetView<SubscriptionController> {
                             : WithoutSubscribed(
                                 isSubscirbe: controller.isSubscribe,
                               ),
-                        SizedBox(height: Get.height / 16.24),
+
                         GridView.builder(
                           physics: const NeverScrollableScrollPhysics(),
                           shrinkWrap: true,

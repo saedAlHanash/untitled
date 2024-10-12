@@ -3,16 +3,21 @@ import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/util/shared_preferences.dart';
 
 class BookedAppointments {
-  BookedAppointments({required this.data});
+  BookedAppointments({
+    required this.data,
+    required this.serverTime,
+  });
 
   final List<Appointment> data;
 
-  factory BookedAppointments.fromJson(Map<String, dynamic> json) {
+  final DateTime serverTime;
+
+  factory BookedAppointments.fromJson(Map<String, dynamic> json, DateTime serverTime) {
     return BookedAppointments(
+      serverTime: serverTime,
       data: json["data"] == null
           ? []
-          : List<Appointment>.from(
-              json["data"]!.map((x) => Appointment.fromJson(x))),
+          : List<Appointment>.from(json["data"]!.map((x) => Appointment.fromJson(x))),
     );
   }
 
@@ -35,6 +40,7 @@ class Appointment {
   });
 
   final int id;
+
   final DateTime startTime;
   final DateTime endTime;
   final String videoCallToken;
@@ -44,14 +50,17 @@ class Appointment {
   final String status;
   final User user;
 
+  DateTime get startTimeFixed => startTime.fixTimeZone;
+
+  DateTime get endTimeFixed => endTime.fixTimeZone;
+
   factory Appointment.fromJson(Map<String, dynamic> json) {
     return Appointment(
       id: json["id"].toString().tryParseOrZeroInt,
-      startTime: (DateTime.tryParse(json["startAt"] ?? json["start_time"] ?? "")
-              ?.fixTimeZone ??
-          DateTime(2030)),
-      endTime: (DateTime.tryParse(json["endAt"] ?? json["end_time"] ?? "")
-              ?.fixTimeZone ??
+      startTime:
+          (DateTime.tryParse(json["startAt"] ?? json["start_time"] ?? "")?.fixTimeZone ??
+              DateTime(2030)),
+      endTime: (DateTime.tryParse(json["endAt"] ?? json["end_time"] ?? "")?.fixTimeZone ??
           DateTime(2030)),
       videoCallToken: json["video_call_token"] ?? "",
       rate: json["rate"] == null ? null : Rate.fromJson(json["rate"]),

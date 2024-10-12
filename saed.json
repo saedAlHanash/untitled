@@ -67,7 +67,7 @@
         }
       }
     ],
-    "current_activated_plan": true,
+    "current_activated_plan": false,
     "image": null,
     "training_level": [
       {

@@ -353,7 +353,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "itsNotTimeForTheCallYet": MessageLookupByLibrary.simpleMessage(
             "It\"s not time for the call yet"),
         "joinFitnessStormForPersonalized": MessageLookupByLibrary.simpleMessage(
-            "11+ PLANS\n13+TRAINERS\nUNLIMITED ACCESS "),
+            "Join Fitness Storm today for unlimited access to all our fitness programs for men and women!\nWhether you\'re aiming for a healthier lifestyle, building muscles, or improving your fitness, we\'ve got the right program for you.\nStart now and reach your goals anytime, anywhere!"),
         "joinUsAsATrainer":
             MessageLookupByLibrary.simpleMessage("Join us as a Trainer"),
         "lEVEL": MessageLookupByLibrary.simpleMessage("LEVEL"),

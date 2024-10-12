@@ -27,9 +27,10 @@ class _TrainerPageState extends State<TrainerPage> {
   @override
   void initState() {
     trainerCubit = context.read<TrainerCubit>();
-    context.read<BookedAppointmentsCubit>().getBookedAppointments(
-          trainerId: trainerCubit.state.id,
-        );
+    context
+        .read<BookedAppointmentsCubit>()
+        .getBookedAppointments(trainerId: trainerCubit.state.id);
+
     super.initState();
   }
 

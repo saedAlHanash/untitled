@@ -52,17 +52,17 @@ class AvailableTimesCubit extends Cubit<AvailableTimesInitial> {
 
   Future<Pair<List<Appointment>?, String?>> _bookedAppointmentsApi() async {
     final response = await APIService().callApi(
-        type: ApiType.get,
-        url: GetUrl.availableTimes(state.trainer.id),
-        query: state.request.toJson(),
-        header: innerHeader..addAll({'lang': 'en'}));
+      type: ApiType.get,
+      url: GetUrl.availableTimes(state.trainer.id),
+      query: state.request.toJson(),
+      header: innerHeader..addAll({'lang': 'en'}),
+    );
 
     if (response.statusCode.success) {
-
       final model = AvailableTimesResponse.fromJson(response.jsonBody).getAllTimes;
 
       if (!AppProvider.isTrainer) {
-        model.removeWhere((e) => e.startTime.isBefore(DateTime.now()));
+        model.removeWhere((e) => e.startTime.isBefore(response.serverTime));
       }
 
       return Pair(model, null);
@@ -99,7 +99,7 @@ class AvailableTimesCubit extends Cubit<AvailableTimesInitial> {
       final model = AvailableTimesResponseList.fromJson(response.jsonBodyPure).data
         ..removeWhere(
           (e) {
-            return e.startTime.isBefore(DateTime.now());
+            return e.startTime.isBefore(response.serverTime);
           },
         );
       return Pair(model, null);

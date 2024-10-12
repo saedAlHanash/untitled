@@ -8,6 +8,9 @@ class PlanWorkoutsInitial extends AbstractState<List<PlanWorkout>> {
     super.statuses,
   }); //
 
+
+  Plan get mRequest => request;
+
   factory PlanWorkoutsInitial.initial() {
     return const PlanWorkoutsInitial(
       result: [],
@@ -22,7 +25,6 @@ class PlanWorkoutsInitial extends AbstractState<List<PlanWorkout>> {
         result,
         error,
         if (request != null) request,
-       
       ];
 
   PlanWorkoutsInitial copyWith({

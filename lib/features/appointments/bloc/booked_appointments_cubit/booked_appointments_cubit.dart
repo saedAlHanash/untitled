@@ -16,20 +16,22 @@ class BookedAppointmentsCubit extends Cubit<BookedAppointmentsInitial> {
 
   Future<void> getBookedAppointments({int? trainerId}) async {
     emit(state.copyWith(statuses: CubitStatuses.loading, trainerId: trainerId));
+
     final pair = await _bookedAppointmentsApi();
+
     if (pair.first == null) {
       emit(state.copyWith(statuses: CubitStatuses.error, error: pair.second));
       showErrorFromApi(state);
     } else {
+
       var list = pair.first!.data;
+      var serverTime = pair.first!.serverTime;
 
       final old = <Appointment>[];
       final next = <Appointment>[];
 
-      final dateTimeNow = DateTime.now().toUtc();
-
       for (var e in list) {
-        if (dateTimeNow.isAfter(e.endTime.toUtc())) {
+        if (serverTime.isAfter(e.endTime)) {
           old.add(e);
         } else {
           next.add(e);
@@ -42,13 +44,15 @@ class BookedAppointmentsCubit extends Cubit<BookedAppointmentsInitial> {
           result: pair.first?.data,
           next: next,
           old: old,
+          activeSession: _getSession(serverTime),
         ),
       );
     }
   }
 
   Future<Pair<BookedAppointments?, String?>> _bookedAppointmentsApi() async {
-    final response = await APIService().callApi(type: ApiType.get,
+    final response = await APIService().callApi(
+      type: ApiType.get,
       url: GetUrl.bookedAppointments,
       query: (state.trainerId != 0)
           ? {
@@ -58,9 +62,36 @@ class BookedAppointmentsCubit extends Cubit<BookedAppointmentsInitial> {
     );
 
     if (response.statusCode.success) {
-      return Pair(BookedAppointments.fromJson(response.jsonBodyPure), null);
+      return Pair(
+          BookedAppointments.fromJson(response.jsonBodyPure, response.serverTime), null);
     } else {
       return response.getPairError;
+    }
+  }
+
+ Pair<Appointment?, PrivetSessionState> _getSession(DateTime serverTime)  {
+    if (state.result.isEmpty) {
+      return Pair(null, PrivetSessionState.noEver);
+    } else {
+
+      var list = state.result;
+
+      list.sort((a, b) => a.startTime.compareTo(b.startTime));
+
+      for (var e in list) {
+        if (!e.isNow) continue;
+
+        return Pair(e, PrivetSessionState.active);
+      }
+
+      if (serverTime.isBefore(list.last.startTime)) {
+        return Pair(
+          list.firstWhere((e) => serverTime.isBefore(e.startTime)),
+          PrivetSessionState.waiting,
+        );
+      }
+
+      return Pair(null, PrivetSessionState.needBooking);
     }
   }
 }

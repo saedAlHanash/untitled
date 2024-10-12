@@ -27,10 +27,10 @@ class PlanCubit extends MCubit<PlanInitial> {
   String get nameCache => '${AppSharedPreference.getLocal}plan';
 
   @override
-  String get filter => state.filter;
+  String get filter => state.mRequest.id.toString();
 
-  Future<void> getPlan({bool newData = false, int? planId}) async {
-    emit(state.copyWith(request: planId));
+  Future<void> getPlan({bool newData = false, Plan? plan}) async {
+    emit(state.copyWith(request: plan));
     getDataAbstract(
       fromJson: Plan.fromJson,
       state: state,
@@ -43,7 +43,7 @@ class PlanCubit extends MCubit<PlanInitial> {
     final response = await APIService().callApi(
       type: ApiType.get,
       url: GetUrl.plan,
-      path: state.request.toString(),
+      path: state.mRequest.id.toString(),
     );
 
     if (response.statusCode.success) {

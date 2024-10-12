@@ -33,7 +33,7 @@ class ContinueTrainingWidget extends StatelessWidget {
                   final item = plans[i];
                   return InkWell(
                     onTap: () {
-                      startPlanPage(item.id.toString());
+                      startPlanPage(item);
                     },
                     child: SizedBox(
                       width: 1.0.sw,

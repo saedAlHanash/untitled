@@ -20,6 +20,7 @@ import '../Utils/Routes/app_pages.dart';
 import '../core/app/app_widget.dart';
 import '../core/injection/injection_container.dart';
 import '../core/models/booked_appointments.dart';
+import '../core/models/plan_model.dart';
 import '../core/util/firebase_analytics_service.dart';
 import '../features/appointments/bloc/add_time_cubit/add_time_cubit.dart';
 import '../features/appointments/bloc/available_times_cubit/available_times_cubit.dart';
@@ -387,30 +388,30 @@ void startUpdateProfile() {
   sl<AnalyticService>().screenView(name: 'update_profile');
 }
 
-void startBookPrivetSession(TrainerModel trainer) {
-  final providers = [
-    BlocProvider(create: (_) => sl<CreateSessionCubit>()),
-    BlocProvider(
-      create: (_) => sl<AvailableTimesCubit>()
-        ..getAvailableTimes(
-          request: AvailableTimesRequest(),
-          trainer: trainer,
-        ),
-    ),
-    BlocProvider(
-      create: (_) =>
-          sl<BundlesCubit>()..getBundles(request: BundlesRequest(trainerId: trainer.id)),
-    ),
-  ];
-
-  final Widget page = MultiBlocProvider(
-    providers: providers,
-    child: const BookPrivateSessionScreen(),
-  );
-
-  Get.to(() => page);
-  sl<AnalyticService>().screenView(name: 'book_privet_session');
-}
+// void startBookPrivetSession(TrainerModel trainer) {
+//   final providers = [
+//     BlocProvider(create: (_) => sl<CreateSessionCubit>()),
+//     BlocProvider(
+//       create: (_) => sl<AvailableTimesCubit>()
+//         ..getAvailableTimes(
+//           request: AvailableTimesRequest(),
+//           trainer: trainer,
+//         ),
+//     ),
+//     BlocProvider(
+//       create: (_) =>
+//           sl<BundlesCubit>()..getBundles(request: BundlesRequest(trainerId: trainer.id)),
+//     ),
+//   ];
+//
+//   final Widget page = MultiBlocProvider(
+//     providers: providers,
+//     child: const BookPrivateSessionScreen(),
+//   );
+//
+//   Get.to(() => page);
+//   sl<AnalyticService>().screenView(name: 'book_privet_session');
+// }
 
 void startAvailableTimePage() {
   final providers = [
@@ -524,15 +525,15 @@ void startChatPage(Room room) async {
   );
 }
 
-void startPlanPage(String id) async {
+void startPlanPage(Plan plan) async {
   final providers = [
     BlocProvider(create: (_) => sl<SubscribePlanCubit>()),
     BlocProvider(create: (_) => sl<VimeoCubit>()),
     BlocProvider(
-      create: (_) => sl<PlanCubit>()..getPlan(planId: int.parse(id)),
+      create: (_) => sl<PlanCubit>()..getPlan(plan: plan),
     ),
     BlocProvider(
-      create: (_) => sl<PlanWorkoutsCubit>()..getPlanWorkouts(id: int.parse(id)),
+      create: (_) => sl<PlanWorkoutsCubit>()..getPlanWorkouts(plan: plan),
     ),
   ];
 

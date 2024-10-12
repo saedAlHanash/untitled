@@ -353,7 +353,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "itsNotTimeForTheCallYet":
             MessageLookupByLibrary.simpleMessage("«لم يحن وقت المكالمة بعد»"),
         "joinFitnessStormForPersonalized": MessageLookupByLibrary.simpleMessage(
-            "أكثر من ١١ برنامج رياضى\nأكثر من ١٣ مدرب\n اشتراك غير محدود على جميع البرامج"),
+            "اشترك الآن في فتنس ستورم وتمتع بوصول لا محدود لجميع برامجنا الرياضية للرجال والنساء!\nسواء كان هدفك حياة صحية أفضل، بناء العضلات، أو تحسين لياقتك، لدينا البرنامج المناسب لك.\nابدأ الآن وحقق أهدافك في أي وقت ومن أي مكان!"),
         "joinUsAsATrainer":
             MessageLookupByLibrary.simpleMessage("انضم إلينا كمدرب"),
         "lEVEL": MessageLookupByLibrary.simpleMessage("المستوى"),

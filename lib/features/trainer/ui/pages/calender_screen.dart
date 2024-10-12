@@ -95,7 +95,7 @@ class _ItemAvailableTimeState extends State<_ItemAvailableTime> {
                           3.0.verticalSpace,
                           DrawableText(
                             matchParent: true,
-                            text: e.startTime.formatTime,
+                            text: e.startTimeFixed.formatDateTime,
                             drawablePadding: 10.0.w,
                             drawableStart: ImageMultiType(
                               url: Icons.timer_outlined,
@@ -106,7 +106,7 @@ class _ItemAvailableTimeState extends State<_ItemAvailableTime> {
                           3.0.verticalSpace,
                           DrawableText(
                             matchParent: true,
-                            text: e.endTime.formatTime,
+                            text: e.endTimeFixed.formatDateTime,
                             drawablePadding: 10.0.w,
                             drawableStart: ImageMultiType(
                               url: Icons.timer_off_outlined,

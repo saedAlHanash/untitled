@@ -24,7 +24,7 @@ class PlansList extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        startPlanPage(plan.id.toString());
+        startPlanPage(plan);
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,

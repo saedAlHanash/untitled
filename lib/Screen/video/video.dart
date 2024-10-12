@@ -39,7 +39,7 @@ class _Video1State extends State<Video1> {
 
   void calculateTimeLeft(bool firstTime) async {
     final serverTime = await APIService().getServerDateTime;
-    final d = widget.appointment.endTime.toUtc().difference(serverTime);
+    final d = widget.appointment.endTime.difference(serverTime);
 
     // loggerObject.f(widget.appointment.toJson());
     // loggerObject.w('startTime : ${widget.appointment.startTime.toUtc()}');

@@ -26,16 +26,13 @@ class DayBar extends StatelessWidget {
               itemBuilder: (context, i) {
                 return GestureDetector(
                   onTap: () {
-                    if (state.result[i].key.currentContext == null) {
-                      return;
-                    }
-
+                    if (state.result[i].key.currentContext == null) return;
                     Scrollable.ensureVisible(
                       (state.result[i].key.currentContext)!,
                       duration: const Duration(seconds: 1),
                     );
                   },
-                  child: DayBarWidget(i),
+                  child: DayBarWidget(i, isFinish: state.result[i].isFinish),
                 );
               }),
         );

@@ -34,11 +34,8 @@ class RatingPage extends StatelessWidget {
     return BlocListener<RatingCubit, RatingInitial>(
       listenWhen: (p, c) => c.statuses.done,
       listener: (context, state) {
-        NoteMessage.showSuccessSnackBar(
-            message: S.of(context).done, context: context);
-        context
-            .read<BookedAppointmentsCubit>()
-            .getBookedAppointments();
+        NoteMessage.showSuccessSnackBar(message: S.of(context).done, context: context);
+        context.read<BookedAppointmentsCubit>().getBookedAppointments();
         Navigator.pop(context, true);
       },
       child: Container(
@@ -77,7 +74,7 @@ class RatingPage extends StatelessWidget {
                       text: '${S.of(context).session} ${S.of(context).date}: ',
                       drawablePadding: 5.0.w,
                       drawableEnd: DrawableText(
-                        text: appointment.startTime.formatDateTime,
+                        text: appointment.startTimeFixed.formatDateTime,
                         fontWeight: FontWeight.bold,
                         color: AppColorManager.mainColor,
                       ),
@@ -145,8 +142,7 @@ class RatingBarWidget extends StatelessWidget {
     );
 
     return RatingBar(
-      ratingWidget:
-          RatingWidget(full: fullStar, half: fullStar, empty: emptyStar),
+      ratingWidget: RatingWidget(full: fullStar, half: fullStar, empty: emptyStar),
       onRatingUpdate: onRatingUpdate,
       glow: false,
       initialRating: 1.0,

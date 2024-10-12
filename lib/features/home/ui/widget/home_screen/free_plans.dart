@@ -36,7 +36,7 @@ class FreePlans extends StatelessWidget {
                 itemBuilder: (_, i) {
                   final plan = state.result[i];
                   return GestureDetector(
-                    onTap: () => startPlanPage(plan.id.toString()),
+                    onTap: () => startPlanPage(plan),
                     child: TrendingPlanItem(plan: state.result[i]),
                   );
                 },

@@ -1,7 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-
 import 'intl/messages_all.dart';
 
 // **************************************************************************
@@ -3161,10 +3160,10 @@ class S {
     );
   }
 
-  /// `11+ PLANS\n13+TRAINERS\nUNLIMITED ACCESS `
+  /// `Join Fitness Storm today for unlimited access to all our fitness programs for men and women!\nWhether you're aiming for a healthier lifestyle, building muscles, or improving your fitness, we've got the right program for you.\nStart now and reach your goals anytime, anywhere!`
   String get joinFitnessStormForPersonalized {
     return Intl.message(
-      '11+ PLANS\n13+TRAINERS\nUNLIMITED ACCESS ',
+      'Join Fitness Storm today for unlimited access to all our fitness programs for men and women!\nWhether you\'re aiming for a healthier lifestyle, building muscles, or improving your fitness, we\'ve got the right program for you.\nStart now and reach your goals anytime, anywhere!',
       name: 'joinFitnessStormForPersonalized',
       desc: '',
       args: [],

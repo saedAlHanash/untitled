@@ -51,6 +51,7 @@ class _AppointmentsPageState extends State<AppointmentsPage>
             if (state.statuses.loading) {
               return MyStyle.loadingWidget();
             }
+
             if (state.result.isEmpty) {
               return NotFoundWidget(text: S.of(context).noMoreData);
             }
@@ -143,12 +144,14 @@ class _ItemAppointment extends StatelessWidget {
         ListTile(
           //TODO: change this
           onTap: () {
-            startVideoCall(item);
             if (!item.isNow) return;
+
             if (item.videoCallToken.isEmpty) {
               context.read<BookedAppointmentsCubit>().getBookedAppointments();
               return;
             }
+
+            startVideoCall(item);
           },
           trailing: item.isNow
               ? Container(
@@ -186,7 +189,7 @@ class _ItemAppointment extends StatelessWidget {
           leading: CircleImageWidget(url: item.user.image, size: 50.0.r),
           title: DrawableText(text: item.user.name),
           subtitle: DrawableText(
-            text: item.startTime.formatDateTime,
+            text: item.startTimeFixed.formatDateTime,
             color: Colors.grey,
             size: 12.0.sp,
           ),

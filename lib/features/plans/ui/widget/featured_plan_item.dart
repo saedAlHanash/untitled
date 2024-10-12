@@ -18,7 +18,7 @@ class FeaturedPlanItem extends GetWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => startPlanPage(plan.id.toString()),
+      onTap: () => startPlanPage(plan),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15.0).r,
         child: Stack(

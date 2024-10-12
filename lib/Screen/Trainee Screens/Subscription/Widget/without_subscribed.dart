@@ -1,4 +1,6 @@
+import 'package:drawable_text/drawable_text.dart';
 import 'package:fitness_storm/core/strings/app_color_manager.dart';
+import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:fitness_storm/core/widgets/app_bar/app_bar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -6,6 +8,7 @@ import 'package:get/get.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 
 import '../../../../generated/assets.dart';
+import '../../../../generated/l10n.dart';
 
 class WithoutSubscribed extends StatelessWidget {
   const WithoutSubscribed({super.key, required this.isSubscirbe});
@@ -27,26 +30,23 @@ class WithoutSubscribed extends StatelessWidget {
             50.0.horizontalSpace,
           ],
         ),
-        Text(
-          isSubscirbe ? 'successfully_subscribed'.tr : 'why_to_subscribe'.tr,
-          textAlign: TextAlign.center,
-          style: const TextStyle(
-            color: Colors.white,
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
+        DrawableText(
+          text: isSubscirbe
+              ? S.of(context).successfullySubscribed
+              : S.of(context).whyToSubscribe,
+          color: Colors.white,
+          size: 20.0,
+          fontWeight: FontWeight.w700,
+          fontFamily: FontManager.bold.name,
         ),
-        SizedBox(height: Get.height / 40.6),
-        Text(
-          isSubscirbe
-              ? 'enjoy_your_fitness_storm.'.tr
-              : 'join_fitnessStorm_for_personalized'.tr,
-          textAlign: TextAlign.justify,
-          style: const TextStyle(
-            color: Colors.white,
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-          ),
+        20.0.verticalSpace,
+        DrawableText(
+          text: isSubscirbe
+              ? S.of(context).enjoyYourFitnessStorm
+              : S.of(context).joinFitnessStormForPersonalized,
+          color: Colors.white,
+          textAlign: TextAlign.center,
+
         ),
       ],
     );

@@ -31,7 +31,7 @@
 //   void calculateTimeLeft(bool firstTime) {
 //     final d = widget.appointment.endTime
 //         .toUtc()
-//         .difference(DateTime.now().toUtc());
+//         .difference(DateTime.now().toUtc()1);
 //
 //     if (d.inMinutes <= 10) {
 //       setState(() {

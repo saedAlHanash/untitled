@@ -1,16 +1,14 @@
 part of 'plan_cubit.dart';
 
 class PlanInitial extends AbstractState<Plan> {
-
-
   const PlanInitial({
     required super.result,
     super.error,
     required super.request,
-
-    // required this.tempParam,
     super.statuses,
   });
+
+  Plan get mRequest => request;
 
   factory PlanInitial.initial() {
     return PlanInitial(
@@ -24,18 +22,17 @@ class PlanInitial extends AbstractState<Plan> {
 
   @override
   List<Object> get props => [
-    statuses,
-    result,
-    error,
-    if (request != null) request,
-   
-  ];
+        statuses,
+        result,
+        error,
+        if (request != null) request,
+      ];
 
   PlanInitial copyWith({
     CubitStatuses? statuses,
     Plan? result,
     String? error,
-    int? request,
+    Plan? request,
     // bool? tempParam,
   }) {
     return PlanInitial(

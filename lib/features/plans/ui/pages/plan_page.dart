@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:drawable_text/drawable_text.dart';
+import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/features/plans/ui/widget/day_bar.dart';
 import 'package:fitness_storm/features/plans/ui/widget/trainer_bio.dart';
 import 'package:fitness_storm/features/plans/ui/widget/video_tail_widget.dart';
@@ -42,6 +43,20 @@ class _PlanPageState extends State<PlanPage> {
 
   var showIntro = true;
 
+  bool get isActive {
+    // loggerObject.w(cubit.state.result.isActive);
+    // loggerObject.w(AppSharedPreference.getCurrentPlanId);
+    // loggerObject.w(cubit.state.result.id.toString());
+    // loggerObject.w(context.read<ActivePlansCubit>().state.result.firstOrNull?.id);
+    // loggerObject.w(cubit.state.result.id);
+
+    return /*cubit.state.result.isActive ||
+      AppSharedPreference.getCurrentPlanId == cubit.state.result.id.toString() ||*/
+        AppProvider.isTrainer ||
+            context.read<ActivePlansCubit>().state.result.firstOrNull?.id ==
+                cubit.state.result.id;
+  }
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocListener(
@@ -49,8 +64,13 @@ class _PlanPageState extends State<PlanPage> {
         BlocListener<SubscribePlanCubit, SubscribePlanInitial>(
           listenWhen: (p, c) => c.statuses.done,
           listener: (context, state) {
-            ctx?.readOrNull<ActivePlansCubit>()?.getActivePlans(newData: true);
-            setState(() {});
+            AppSharedPreference.setCurrentPlanId(state.result.id.toString());
+            ctx?.readOrNull<ActivePlansCubit>()?.getActivePlans(newData: true).then(
+              (value) {
+                setState(() {});
+              },
+            );
+            context.read<PlanCubit>().getPlan(newData: true);
           },
         ),
         BlocListener<PlanCubit, PlanInitial>(
@@ -64,9 +84,7 @@ class _PlanPageState extends State<PlanPage> {
         appBar: AppBarWidget(
           title: BlocBuilder<PlanCubit, PlanInitial>(
             builder: (context, state) {
-              if (state.statuses.loading) {
-                return 0.0.verticalSpace;
-              }
+              if (state.statuses.loading) return 0.0.verticalSpace;
               return DrawableText(
                 text: state.result.name,
                 size: 24.0.spMin,
@@ -97,10 +115,7 @@ class _PlanPageState extends State<PlanPage> {
                     child: MyStyle.loadingWidget(color: AppColorManager.secondColor),
                   );
                 }
-                return (state.result.isActive ||
-                        AppSharedPreference.getCurrentPlanId ==
-                            state.result.id.toString() ||
-                        AppProvider.isTrainer)
+                return isActive
                     ? 0.0.verticalSpace
                     : CustomButton(
                         onTapFunction: () {
@@ -120,9 +135,8 @@ class _PlanPageState extends State<PlanPage> {
                         fontSize: 16.0.sp,
                         height: Get.height / 15,
                         width: Get.width,
-                        text: AppSharedPreference.getCurrentPlanId.isEmpty
-                            ? 'subscribe'.tr
-                            : 'start_within_plan'.tr);
+                        text: !isActive ? 'subscribe'.tr : 'start_within_plan'.tr,
+                      );
               },
             );
           },
@@ -177,7 +191,7 @@ class _PlanPageState extends State<PlanPage> {
                             onTap: () {
                               if (item.isRestDay) return;
 
-                              if (!cubit.state.result.isCurrent) {
+                              if (!isActive) {
                                 Fluttertoast.showToast(
                                   msg: S.of(context).needSubscribeToThisPlan,
                                   toastLength: Toast.LENGTH_SHORT,

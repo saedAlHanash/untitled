@@ -5,22 +5,26 @@ class BookedAppointmentsInitial extends AbstractState<List<Appointment>> {
   final List<Appointment> old;
   final List<Appointment> next;
 
+  final Pair<Appointment?, PrivetSessionState> activeSession;
+
   const BookedAppointmentsInitial({
     required super.result,
     super.error,
     required this.trainerId,
+    required this.activeSession,
     required this.old,
     required this.next,
     super.statuses,
   });
 
   factory BookedAppointmentsInitial.initial() {
-    return const BookedAppointmentsInitial(
+    return  BookedAppointmentsInitial(
       result: [],
       old: [],
       next: [],
       error: '',
       trainerId: 0,
+      activeSession: Pair(null,PrivetSessionState.noEver),
       statuses: CubitStatuses.init,
     );
   }
@@ -35,6 +39,7 @@ class BookedAppointmentsInitial extends AbstractState<List<Appointment>> {
     List<Appointment>? next,
     String? error,
     int? trainerId,
+    Pair<Appointment?, PrivetSessionState>? activeSession,
   }) {
     return BookedAppointmentsInitial(
       statuses: statuses ?? this.statuses,
@@ -43,33 +48,8 @@ class BookedAppointmentsInitial extends AbstractState<List<Appointment>> {
       next: next ?? this.next,
       error: error ?? this.error,
       trainerId: trainerId ?? this.trainerId,
+      activeSession: activeSession ?? this.activeSession,
     );
   }
 
-  Pair<Appointment?, PrivetSessionState> getSession() {
-    if (result.isEmpty) {
-      return Pair(null, PrivetSessionState.noEver);
-    } else {
-      var list = result;
-
-      list.sort((a, b) => a.startTime.compareTo(b.startTime));
-
-      final dateTimeNow = DateTime.now().toUtc();
-
-      for (var e in list) {
-        if (!e.isNow) continue;
-
-        return Pair(e, PrivetSessionState.active);
-      }
-
-      if (dateTimeNow.isBefore(list.last.startTime.toUtc())) {
-        return Pair(
-          list.firstWhere((e) => dateTimeNow.isBefore(e.startTime.toUtc())),
-          PrivetSessionState.waiting,
-        );
-      }
-
-      return Pair(null, PrivetSessionState.needBooking);
-    }
-  }
 }

@@ -3,6 +3,7 @@ import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:m_cubit/abstraction.dart';
 
 import '../../../../core/api_manager/api_service.dart';
+import '../../../../core/models/plan_model.dart';
 import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/pair_class.dart';
 import '../../../../core/util/shared_preferences.dart';
@@ -17,10 +18,10 @@ class PlanWorkoutsCubit extends MCubit<PlanWorkoutsInitial> {
   String get nameCache => '${AppSharedPreference.getLocal}plan_workouts';
 
   @override
-  String get filter => state.filter;
+  String get filter => state.mRequest.id.toString();
 
-  Future<void> getPlanWorkouts({bool newData = false, required int id}) async {
-    emit(state.copyWith(request: id));
+  Future<void> getPlanWorkouts({bool newData = false, required Plan plan}) async {
+    emit(state.copyWith(request: plan));
 
     getDataAbstract(
       fromJson: PlanWorkout.fromJson,
@@ -33,11 +34,18 @@ class PlanWorkoutsCubit extends MCubit<PlanWorkoutsInitial> {
   Future<Pair<List<PlanWorkout>?, String?>> _getPlanWorkouts() async {
     final response = await APIService().callApi(
       type: ApiType.get,
-      url: GetUrl.planWorkouts(state.request),
+      url: GetUrl.planWorkouts(state.mRequest.id),
     );
 
     if (response.statusCode.success) {
-      return Pair(PlanWorkouts.fromJson(response.jsonBodyPure).data, null);
+      final finishIds =
+          state.mRequest.days.where((e) => e.completed).map((e) => e.dayNumber);
+
+      final list = PlanWorkouts.fromJson(response.jsonBodyPure).data;
+      for (var e in list) {
+        e.isFinish = finishIds.contains(e.dayNumber);
+      }
+      return Pair(list, null);
     } else {
       return response.getPairError;
     }

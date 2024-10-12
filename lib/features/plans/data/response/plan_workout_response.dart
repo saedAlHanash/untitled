@@ -50,9 +50,10 @@ class PlanWorkout {
   final num workoutBreak;
   final GlobalKey key;
 
+  bool isFinish = false;
+
   bool get isRestDay =>
       (name.toLowerCase() == 'rest day') || (totalMinutes == 0 && exercises.isEmpty);
-
 
   factory PlanWorkout.fromJson(Map<String, dynamic> json) {
     return PlanWorkout(
