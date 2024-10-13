@@ -50,8 +50,6 @@ class TrainerSearchTrainerListView extends GetWidget<TrainerSearchResultControll
                       itemBuilder: (context, index) {
                         TrainerModel trainer = controller.trainers[index];
                         return GestureDetector(
-                          onTap: () => Get.toNamed(AppRoutes.trainerTrainerOverviewScreen,
-                              arguments: controller.trainers[index].id.toString()),
                           child: TrainerWidget(trainer: trainer),
                         );
                       },

@@ -1,5 +1,5 @@
 import 'package:fitness_storm/Screen/Trainer%20Screens/Search%20Result/search_result_controller.dart';
-import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Main%20Home/trainer_main_home_controller.dart';
+
 import 'package:fitness_storm/Widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -22,7 +22,7 @@ class TrainerEmptySearchResult
         ),
         CustomButton(
           onTapFunction: () {
-            Get.find<TrainerMainHomeController>().navController.index = 0;
+
             Get.back();
             Get.back();
           },

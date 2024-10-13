@@ -46,7 +46,7 @@ class AppProvider {
     return _loginData.accessToken;
   }
 
-  static bool get isLogin => token.isNotEmpty && isConfirmed;
+  static bool get isLogin => token.isNotEmpty && (isConfirmed || isTrainer);
 
   static String get refreshToken {
     return _loginData.refreshToken;
@@ -70,7 +70,7 @@ class AppProvider {
     await AppSharedPreference.cashMyId(data.id);
     await AppSharedPreference.cashLoginData(data);
     await AppSharedPreference.cashUserType(userType);
-    if (!refreshToken&&data.isConfirmed) {
+    if (!refreshToken && data.isConfirmed) {
       ctx!.read<ProfileCubit>().getProfile(newData: true);
     }
     _refreshLoginData();

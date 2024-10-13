@@ -46,7 +46,7 @@ abstract class TRAINERURLS {
   static String getMyPlans =
       '$trainerBaseUrl/plans/myPlans?training_level[0]=Beginner';
   static String getYourTrainer = '$trainerBaseUrl/trainers';
-  static String getTrainerPrivateSession = '$trainerBaseUrl/payments_cubit';
+  static String getTrainerPrivateSession = '$trainerBaseUrl/wallet';
   static String plans = '$trainerBaseUrl/plans/ourPlans';
 
   static String trainerPlans = '$trainerBaseUrl/plans/myPlans';

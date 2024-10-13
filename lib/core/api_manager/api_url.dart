@@ -113,6 +113,8 @@ class GetUrl {
 
   static const myPayments = 'myPayments';
 
+  static const trainerMyPlans = 'plans/myPlans';
+
 
   static String planWorkouts(int id ) => 'plans/$id/workouts';
 

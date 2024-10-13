@@ -24,8 +24,8 @@ abstract class AppRoutes {
   //Trainer Screen
   static const trainerHomePage = '/trainer_home_page';
   static const trainerProfileOverview = '/trainer_profile_overview';
-  static const trainerPlans = '/trainer_plans';
+
   static const trainerWallet = '/trainer_wallet';
   static const trainerSearchResultSceen = '/trainer_search_result_screen';
-  static const trainerTrainerOverviewScreen = '/trainer_trainer_overviewScreen';
+
 }

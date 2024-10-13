@@ -1,21 +1,21 @@
 import 'package:fitness_storm/core/api_manager/api_url.dart';
-import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:m_cubit/abstraction.dart';
 
 import '../../../../core/api_manager/api_service.dart';
+import '../../../../core/app/app_provider.dart';
 import '../../../../core/models/plan_model.dart';
 import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/pair_class.dart';
 import '../../../../core/util/shared_preferences.dart';
 
-part 'free_plans_state.dart';
+part 'trainer_my_plans_state.dart';
 
-class FreePlansCubit extends MCubit<FreePlansInitial> {
-  FreePlansCubit() : super(FreePlansInitial.initial());
+class TrainerMyPlansCubit extends MCubit<TrainerMyPlansInitial> {
+  TrainerMyPlansCubit() : super(TrainerMyPlansInitial.initial());
 
   @override
-  String get nameCache => '${AppSharedPreference.getLocal}freePlans';
+  String get nameCache => '${AppSharedPreference.getLocal}trainer_my_plans';
 
   @override
   String get filter => state.filter;
@@ -23,8 +23,7 @@ class FreePlansCubit extends MCubit<FreePlansInitial> {
   @override
   int get timeInterval => 300;
 
-  Future<void> getTrendingPlans({bool newData = false}) async {
-    if(AppProvider.isTrainer)return;
+  Future<void> getTrainerMyPlans({bool newData = false}) async {
     await getDataAbstract(
       fromJson: Plan.fromJson,
       state: state,
@@ -36,15 +35,11 @@ class FreePlansCubit extends MCubit<FreePlansInitial> {
   Future<Pair<List<Plan>?, String?>> _getData() async {
     final response = await APIService().callApi(
       type: ApiType.get,
-      url: GetUrl.freePlans,
+      url: GetUrl.trainerMyPlans,
     );
 
     if (response.statusCode.success) {
-      final list = Plans.fromJson(response.jsonBodyPure).data;
-      if (list.isNotEmpty) {
-        AppSharedPreference.setCurrentPlanId(list.first.id.toString());
-      }
-      return Pair(list, null);
+      return Pair(Plans.fromJson(response.jsonBodyPure).data, null);
     } else {
       return response.getPairError;
     }

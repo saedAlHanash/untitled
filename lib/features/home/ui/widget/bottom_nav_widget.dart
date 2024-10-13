@@ -11,11 +11,12 @@ class Navbar extends StatefulWidget {
     super.key,
     required this.onChange,
     required this.controller,
+    this.isTrainer = false,
   });
 
   final Function(int) onChange;
-
   final PageController controller;
+  final bool isTrainer;
 
   @override
   State<Navbar> createState() => _NavbarState();
@@ -50,6 +51,13 @@ class _NavbarState extends State<Navbar> {
         ),
         ImageMultiType(
           url: Assets.imagesSearch,
+          color: Colors.white,
+          height: 30.0.r,
+          width: 30.0.r,
+        ),
+        if(widget.isTrainer)
+        ImageMultiType(
+          url: Assets.imagesWallet,
           color: Colors.white,
           height: 30.0.r,
           width: 30.0.r,

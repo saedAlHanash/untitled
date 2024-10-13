@@ -39,13 +39,10 @@ class _ProfileTrainerScreenState extends State<ProfileTrainerScreen> {
           }
 
           return RefreshIndicator(
-            onRefresh: () async =>
-                context.read<ProfileCubit>().getProfile(newData: true),
+            onRefresh: () async => context.read<ProfileCubit>().getProfile(newData: true),
             child: SingleChildScrollView(
               physics: const AlwaysScrollableScrollPhysics(),
-              padding:
-                  const EdgeInsets.only(left: 30.0, right: 30.0, bottom: 30.0)
-                      .r,
+              padding: const EdgeInsets.only(left: 30.0, right: 30.0, bottom: 30.0).r,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -64,19 +61,18 @@ class _ProfileTrainerScreenState extends State<ProfileTrainerScreen> {
                   ),
                   20.0.verticalSpace,
                   const _ProfileCards(),
-                  20.0.verticalSpace,
-                  MyButton(
-                    onTap: () => Get.toNamed(AppRoutes.trainerPlans),
-                    child: DrawableText(
-                      text: S.of(context).myPlans,
-                      fontFamily: FontManager.bold.name,
-                      size: 15.0.sp,
-                      color: Colors.white,
-                      drawablePadding: 10.0.w,
-                      drawableStart:
-                          const ImageMultiType(url: Assets.imagesSubscription),
-                    ),
-                  ),
+                  // 20.0.verticalSpace,
+                  // MyButton(
+                  //   onTap: () => Get.toNamed(AppRoutes.trainerPlans),
+                  //   child: DrawableText(
+                  //     text: S.of(context).myPlans,
+                  //     fontFamily: FontManager.bold.name,
+                  //     size: 15.0.sp,
+                  //     color: Colors.white,
+                  //     drawablePadding: 10.0.w,
+                  //     drawableStart: const ImageMultiType(url: Assets.imagesSubscription),
+                  //   ),
+                  // ),
                   20.0.verticalSpace,
                   const UserProfileInfoButtons(),
                   20.0.verticalSpace,
@@ -91,8 +87,7 @@ class _ProfileTrainerScreenState extends State<ProfileTrainerScreen> {
                           text: S.of(context).logout,
                           color: Colors.grey,
                           drawablePadding: 10.0.w,
-                          drawableEnd:
-                              const ImageMultiType(url: Assets.imagesLogout),
+                          drawableEnd: const ImageMultiType(url: Assets.imagesLogout),
                         ),
                       );
                     },

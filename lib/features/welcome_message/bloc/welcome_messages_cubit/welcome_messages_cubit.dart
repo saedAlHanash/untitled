@@ -1,4 +1,5 @@
 import 'package:fitness_storm/core/api_manager/api_url.dart';
+import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:m_cubit/abstraction.dart';
 
@@ -17,7 +18,7 @@ class WelcomeMessagesCubit extends MCubit<WelcomeMessagesInitial> {
   String get nameCache => '${AppSharedPreference.getLocal}welcomeMessages';
 
   Future<void> getWelcomeMessages() async {
-
+    if (AppProvider.isTrainer) return;
     getDataAbstract(
       fromJson: WelcomeMessage.fromJson,
       state: state,

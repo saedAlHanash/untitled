@@ -1,4 +1,4 @@
-import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Profile%20Overview/Widget/trainer_profile_overview_bio.dart';
+
 import 'package:fitness_storm/features/trainer/data/response/trainer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -28,10 +28,7 @@ class _ProfileTrainerPageState extends State<ProfileTrainerPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            10.0.verticalSpace,
-            const TrainerProfileHeader(),
-            10.0.verticalSpace,
-            TrainerProfileOverviewBio(trainer: trainer),
+
           ],
         ),
       ),

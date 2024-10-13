@@ -3,6 +3,7 @@ import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:m_cubit/abstraction.dart';
 
 import '../../../../core/api_manager/api_service.dart';
+import '../../../../core/app/app_provider.dart';
 import '../../../../core/models/plan_model.dart';
 import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/pair_class.dart';
@@ -23,6 +24,7 @@ class ActivePlansCubit extends MCubit<ActivePlansInitial> {
   int get timeInterval => 300;
 
   Future<void> getActivePlans({bool newData = false}) async {
+    if(AppProvider.isTrainer)return;
     await getDataAbstract(
       fromJson: Plan.fromJson,
       state: state,

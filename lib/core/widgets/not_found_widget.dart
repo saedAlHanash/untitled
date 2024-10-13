@@ -10,11 +10,11 @@ import '../../generated/assets.dart';
 class NotFoundWidget extends StatelessWidget {
   const NotFoundWidget({
     super.key,
-    required this.text,
+     this.text,
     this.size,
   });
 
-  final String text;
+  final String? text;
   final double? size;
 
   @override

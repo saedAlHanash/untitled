@@ -30,6 +30,7 @@ import '../../features/payments/bloc/wallet_cubit/wallet_cubit.dart';
 import '../../features/plans/bloc/active_plans_cubit/active_plans_cubit.dart';
 import '../../features/plans/bloc/free_plans_cubit/free_plans_cubit.dart';
 import '../../features/plans/bloc/plans_cubit/plans_cubit.dart';
+import '../../features/plans/bloc/trainer_my_plans_cubit/trainer_my_plans_cubit.dart';
 import '../../features/trainer/bloc/trainers_cubit/trainers_cubit.dart';
 import '../../features/trainer_files/bloc/trainer_files_cubit/trainer_files_cubit.dart';
 import '../../features/training/bloc/exercise_cubit/exercise_cubit.dart';
@@ -46,7 +47,6 @@ class MyApp extends StatefulWidget {
 
   @override
   State<MyApp> createState() => _MyAppState();
-
 }
 
 class _MyAppState extends State<MyApp> {
@@ -119,6 +119,9 @@ class _MyAppState extends State<MyApp> {
                 b.BlocProvider(create: (_) => sl<TrainerFilesCubit>()..getTrainerFiles()),
                 b.BlocProvider(
                   create: (_) => sl<FreePlansCubit>()..getTrendingPlans(),
+                ),
+                b.BlocProvider(
+                  create: (_) => sl<TrainerMyPlansCubit>()..getTrainerMyPlans(),
                 ),
                 b.BlocProvider(
                   create: (_) => sl<ProfileCubit>()..getProfile(),

@@ -95,6 +95,11 @@ void logResponse({
 }) {
   var r = [];
   var res = '';
+  if (response.body.contains('"trace":')) {
+    loggerObject.t(
+        '${coloring(url, type)} [${response.statusCode}] \n error have "${coloring('trace', ApiType.delete)}"');
+    return;
+  }
   if (response.body.length > 800) {
     r = response.body.splitByLength1(800);
     for (var e in r) {
@@ -115,6 +120,7 @@ void logResponseDio({
   try {
     var r = [];
     var res = '';
+
     if (jsonEncode(response.data).length > 800) {
       r = jsonEncode(response.data).splitByLength1(800);
       for (var e in r) {

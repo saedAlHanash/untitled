@@ -4,9 +4,9 @@ class Assets {
 
   static const String assetsImagesDrawer = 'assets/images/drawer.svg';
   static const String assetsImagesFilter = 'assets/images/filter.svg';
+  static const String fontsAlmaraiBold = 'assets/fonts/Almarai-Bold.ttf';
   static const String fontsAlmaraiLight = 'assets/fonts/Almarai-Light.ttf';
   static const String fontsAlmaraiRegular = 'assets/fonts/Almarai-Regular.ttf';
-  static const String fontsAlmaraiBold = 'assets/fonts/Almarai-Bold.ttf';
   static const String imagesActiveFav = 'assets/images/active_fav.svg';
   static const String imagesAuth1 = 'assets/images/auth1.png';
   static const String imagesBookmark = 'assets/images/bookmark.svg';
@@ -66,7 +66,7 @@ class Assets {
   static const String imagesUser = 'assets/images/user.png';
   static const String imagesVCall = 'assets/images/v_call.svg';
   static const String imagesVideo = 'assets/images/video.png';
-  static const String imagesWallet = 'assets/images/payments_cubit.svg';
+  static const String imagesWallet = 'assets/images/wallet.svg';
   static const String imagesWelcomeMessage = 'assets/images/welcome_message.svg';
   static const String imagesWhiteLogo = 'assets/images/white_logo.svg';
   static const String lottiesFitnessstormLogoAnimationColored = 'assets/lotties/fitnessstorm_logo_animation_colored.json';
