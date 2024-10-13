@@ -28,6 +28,21 @@ class PlanWorkoutsCubit extends MCubit<PlanWorkoutsInitial> {
       state: state,
       getDataApi: _getPlanWorkouts,
       newData: newData,
+      onSuccess: (data, emitState) {
+        final finishIds =
+            state.mRequest.days.where((e) => e.completed).map((e) => e.dayNumber);
+
+        for (var e in (data as List<PlanWorkout>)) {
+          e.isFinish = finishIds.contains(e.dayNumber);
+        }
+
+        emit(
+          state.copyWith(
+            result: data,
+            statuses: emitState,
+          ),
+        );
+      },
     );
   }
 
@@ -38,13 +53,9 @@ class PlanWorkoutsCubit extends MCubit<PlanWorkoutsInitial> {
     );
 
     if (response.statusCode.success) {
-      final finishIds =
-          state.mRequest.days.where((e) => e.completed).map((e) => e.dayNumber);
 
       final list = PlanWorkouts.fromJson(response.jsonBodyPure).data;
-      for (var e in list) {
-        e.isFinish = finishIds.contains(e.dayNumber);
-      }
+
       return Pair(list, null);
     } else {
       return response.getPairError;

@@ -24,7 +24,9 @@ class _PaidPlansState extends State<PaidPlans> {
         return Column(
           children: [
             ListHeader(
-              headerTitle: S.of(context).paidPlans,
+              headerTitle: S
+                  .of(context)
+                  .paidPlans,
               seeAllFunction: () => startPlansPage(),
             ),
             CardSlider(

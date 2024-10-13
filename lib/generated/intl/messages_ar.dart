@@ -465,7 +465,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(" برامجنا التدريبية"),
         "pLANSBYME":
             MessageLookupByLibrary.simpleMessage("البرامج التي وضعتها"),
-        "paidPlans": MessageLookupByLibrary.simpleMessage("Paid Plans"),
+        "paidPlans": MessageLookupByLibrary.simpleMessage("البرامج المدفوعة"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة السر"),
         "passwordChanged":
             MessageLookupByLibrary.simpleMessage("تم تغيير كلمة السر"),

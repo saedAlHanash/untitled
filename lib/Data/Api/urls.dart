@@ -3,7 +3,7 @@ import '../../Utils/dependency_injection.dart';
 abstract class TRAINEEURLS {
 
   static String plans = '$userBaseUrl/plans?page=';
-  static String getYourTrainer = '$userBaseUrl/trainers';
+
   static String getTrainerById = '$userBaseUrl/trainers/';
   static String completeDay = '$userBaseUrl/completeDay';
   static String filter = '$userBaseUrl/plans';

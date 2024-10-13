@@ -187,7 +187,26 @@ class _ItemAppointment extends StatelessWidget {
                         )
                   : null,
           leading: CircleImageWidget(url: item.user.image, size: 50.0.r),
-          title: DrawableText(text: item.user.name),
+          title: DrawableText(
+            text: item.user.name,
+            matchParent: true,
+
+            drawableEnd: isOld
+                ? Container(
+                    margin: EdgeInsets.all(3.0).r,
+                    padding: EdgeInsets.all(3.0).r,
+                    decoration: BoxDecoration(
+                      color: AppColorManager.mainColor,
+                      borderRadius: BorderRadius.circular(12.0.r),
+                    ),
+                    child: DrawableText(
+                      text: S.of(context).finish,
+                      color: AppColorManager.whit,
+                      size: 8.0.sp,
+                    ),
+                  )
+                : null,
+          ),
           subtitle: DrawableText(
             text: item.startTimeFixed.formatDateTime,
             color: Colors.grey,

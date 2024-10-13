@@ -49,7 +49,7 @@ class DayWidget extends StatelessWidget {
           ),
           if (item.isFinish)
             Align(
-              alignment: Alignment.topLeft,
+              alignment: AlignmentDirectional.topEnd,
               child: Container(
                 margin: EdgeInsets.all(7.0).r,
                 padding: EdgeInsets.symmetric(vertical: 3.0, horizontal: 10.0).r,

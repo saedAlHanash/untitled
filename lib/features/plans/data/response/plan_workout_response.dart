@@ -18,7 +18,8 @@ class PlanWorkouts {
     );
   }
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson() =>
+      {
         "data": data.map((x) => x.toJson()).toList(),
       };
 }
@@ -58,10 +59,16 @@ class PlanWorkout {
   factory PlanWorkout.fromJson(Map<String, dynamic> json) {
     return PlanWorkout(
       key: GlobalKey(),
-      id: json["id"].toString().tryParseOrZeroInt,
-      workoutId: json["workout_id"].toString().tryParseOrZeroInt,
+      id: json["id"]
+          .toString()
+          .tryParseOrZeroInt,
+      workoutId: json["workout_id"]
+          .toString()
+          .tryParseOrZeroInt,
       name: json["name"] ?? "",
-      image: (json["image"] ?? "").toString().fixAvatarImage,
+      image: (json["image"] ?? "")
+          .toString()
+          .fixAvatarImage,
       dayNumber: json["day_number"] ?? 0,
       totalMinutes: json["total_minutes"] ?? 0,
       exercises: json["exercises"] == null
@@ -73,7 +80,8 @@ class PlanWorkout {
     );
   }
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson() =>
+      {
         "id": id,
         "workout_id": workoutId,
         "name": name,

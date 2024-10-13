@@ -30,12 +30,12 @@ class NotFoundWidget extends StatelessWidget {
               height: size ?? 200.0.spMin,
               width: size ?? 200.0.spMin,
             ),
-            DrawableText(
-              text: text,
-              fontFamily: FontManager.bold.name,
-              color: AppColorManager.mainColorLight,
-              size: 24.0.spMin,
-            )
+            // DrawableText(
+            //   text: text,
+            //   fontFamily: FontManager.bold.name,
+            //   color: AppColorManager.mainColorLight,
+            //   size: 24.0.spMin,
+            // )
           ],
         ),
       ),

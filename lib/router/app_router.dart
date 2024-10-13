@@ -369,6 +369,7 @@ void startHome(bool fromLogin) {
     ctx?.read<PlansCubit>().getPlans(newData: true);
     ctx?.read<FreePlansCubit>().getTrendingPlans(newData: true);
 
+
   }
   ChatServiceCore.initFirebaseChat();
 
