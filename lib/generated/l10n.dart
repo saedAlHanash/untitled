@@ -1,6 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+
 import 'intl/messages_all.dart';
 
 // **************************************************************************
@@ -5727,6 +5728,26 @@ class S {
     return Intl.message(
       'Paid Plans',
       name: 'paidPlans',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `optional`
+  String get optional {
+    return Intl.message(
+      'optional',
+      name: 'optional',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Yes,Cancel`
+  String get yescancel {
+    return Intl.message(
+      'Yes,Cancel',
+      name: 'yescancel',
       desc: '',
       args: [],
     );

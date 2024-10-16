@@ -256,7 +256,7 @@ class MyEditTextWidget extends StatelessWidget {
         borderSide: BorderSide(
           color: backgroundColor ?? AppColorManager.offWhit.withOpacity(0.27),
         ),
-        borderRadius: BorderRadius.circular(radios ?? 10.0.r));
+        borderRadius: BorderRadius.circular(radios ?? 8.0.r));
 
     final inputDecoration = InputDecoration(
       hintText: hint,
@@ -286,7 +286,7 @@ class MyEditTextWidget extends StatelessWidget {
         return Container(
           decoration: BoxDecoration(
             color: color ?? Colors.white,
-            borderRadius: BorderRadius.circular(radios ?? 10.0.r),
+            borderRadius: BorderRadius.circular(radios ?? 8.0.r),
           ),
           padding: innerPadding ?? const EdgeInsets.all(10.0).r,
           child: TextFormField(

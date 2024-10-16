@@ -91,4 +91,4 @@ class SubscriptionsPlans {
       };
 }
 
-enum SubscriptionType { daily, monthly, yearly }
+

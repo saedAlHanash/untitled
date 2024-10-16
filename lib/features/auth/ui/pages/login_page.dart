@@ -57,6 +57,7 @@ class _LoginPageState extends State<LoginPage> {
             BlocListener<LoginCubit, LoginInitial>(
               listenWhen: (p, c) => c.statuses.done,
               listener: (context, state) {
+                TextInput.finishAutofillContext();
                 if (AppProvider.isConfirmed || AppProvider.isTrainer) {
                   startHome(true);
                 } else {
@@ -82,6 +83,7 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     AuthHeader(name: S.of(context).login, showLanguageButton: true),
                     AutofillGroup(
+
                       child: Column(
                         children: [
                           MyTextFormOutLineWidget(
@@ -134,7 +136,6 @@ class _LoginPageState extends State<LoginPage> {
                           text: S.of(context).signIn,
                           onTap: () {
                             if (!_formKey.currentState!.validate()) return;
-                            TextInput.finishAutofillContext();
                             loginCubit.login();
                           },
                         );

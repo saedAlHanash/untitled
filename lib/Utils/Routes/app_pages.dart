@@ -1,23 +1,23 @@
 
-import 'package:fitness_storm/Screen/Trainee%20Screens/Subscription/subscription_binding.dart';
-import 'package:fitness_storm/Screen/Trainee%20Screens/Subscription/subscription_screen.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Search%20Result/search_result_bindings.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Search%20Result/search_result_screen.dart';
-
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Wallet/trainer_wallet_binding.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Wallet/trainer_wallet_screen.dart';
 import 'package:fitness_storm/features/home/ui/pages/home_page.dart';
 import 'package:fitness_storm/features/intro_and_splash/ui/pages/splash_page.dart';
 import 'package:fitness_storm/features/payments/ui/pages/my_payment_page.dart';
+import 'package:fitness_storm/features/payments/ui/pages/subscription_screen.dart';
 import 'package:fitness_storm/features/plans/ui/pages/free_plans_page.dart';
 import 'package:fitness_storm/features/profile/ui/pages/profile_trainer_page.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
-import '../../Screen/Trainer Screens/Trainer Wallet/trainer_wallet_controller.dart';
 import '../../core/injection/injection_container.dart';
 import '../../core/util/firebase_analytics_service.dart';
 import '../../features/fire_chat/rooms_screen.dart';
 import '../../features/home/ui/pages/trainer/trainer_home_page.dart';
+import '../../features/payments/bloc/cancel_subscription_cubit/cancel_subscription_cubit.dart';
+import '../../features/payments/bloc/create_subscription_cubit/create_subscription_cubit.dart';
 
 part './app_routes.dart';
 
@@ -32,12 +32,12 @@ class AppPages {
         },
       ),
       GetPage(
-          name: AppRoutes.mainHome,
-          page: () {
-            sl<AnalyticService>().screenView(name: 'main_home');
-            return HomePage();
-          },
-        ),
+        name: AppRoutes.mainHome,
+        page: () {
+          sl<AnalyticService>().screenView(name: 'main_home');
+          return HomePage();
+        },
+      ),
       // GetPage(
       //     name: AppRoutes.planOverview,
       //     page: () {
@@ -109,9 +109,19 @@ class AppPages {
           name: AppRoutes.subscriptionScreen,
           page: () {
             sl<AnalyticService>().screenView(name: 'subscription');
-            return const SubscriptionScreen();
+            return MultiBlocProvider(
+              providers: [
+                BlocProvider(
+                  create: (context) => sl<CreateSubscriptionCubit>(),
+                ),
+                BlocProvider(
+                  create: (context) => sl<CancelSubscriptionCubit>(),
+                ),
+              ],
+              child: SubscriptionScreen(),
+            );
           },
-          binding: SubscriptionBinding()),
+          ),
       // GetPage(
       //     name: AppRoutes.searchResultSceen,
       //     page: () {
@@ -129,12 +139,12 @@ class AppPages {
       // ),
 
       GetPage(
-          name: AppRoutes.myPaymentScreen,
-          page: () {
-            sl<AnalyticService>().screenView(name: 'my_payment');
-            return const MyPaymentScreen();
-          },
-          ),
+        name: AppRoutes.myPaymentScreen,
+        page: () {
+          sl<AnalyticService>().screenView(name: 'my_payment');
+          return const MyPaymentScreen();
+        },
+      ),
       GetPage(
         name: AppRoutes.chatScreen,
         page: () {
@@ -157,13 +167,7 @@ class AppPages {
         },
       ),
 
-      GetPage(
-          name: AppRoutes.trainerWallet,
-          page: () {
-            sl<AnalyticService>().screenView(name: 'trainer_wallet');
-            return const TrainerWalletScreen();
-          },
-          binding: TrainerWalletBinding()),
+
       GetPage(
           name: AppRoutes.trainerSearchResultSceen,
           page: () {
@@ -171,7 +175,6 @@ class AppPages {
             return const TrainerSearchResultScreen();
           },
           binding: TrainerSearchResultBinding()),
-
     ];
   }
 }

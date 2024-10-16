@@ -1,5 +1,4 @@
 import 'package:adaptive_scrollbar/adaptive_scrollbar.dart';
-import 'package:drawable_text/drawable_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

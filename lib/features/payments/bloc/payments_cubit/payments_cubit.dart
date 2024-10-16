@@ -5,7 +5,6 @@ import 'package:m_cubit/abstraction.dart';
 import '../../../../core/api_manager/api_service.dart';
 import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/pair_class.dart';
-import '../../../../core/util/shared_preferences.dart';
 import '../../data/response/payments.dart';
 
 part 'payments_state.dart';
@@ -14,7 +13,7 @@ class PaymentsCubit extends MCubit<PaymentsInitial> {
   PaymentsCubit() : super(PaymentsInitial.initial());
 
   @override
-  String get nameCache => '${AppSharedPreference.getLocal}payments';
+  String get nameCache => 'payments';
 
   @override
   String get filter => state.filter;

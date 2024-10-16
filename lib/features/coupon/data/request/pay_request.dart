@@ -1,5 +1,5 @@
-class PayRequest {
-  PayRequest({
+class CreateSubscriptionRequest {
+  CreateSubscriptionRequest({
     this.name,
     this.phone,
     this.email,
@@ -13,8 +13,8 @@ class PayRequest {
   String? code;
   String? subscriptionId;
 
-  factory PayRequest.fromJson(Map<String, dynamic> json) {
-    return PayRequest(
+  factory CreateSubscriptionRequest.fromJson(Map<String, dynamic> json) {
+    return CreateSubscriptionRequest(
       name: json["name"] ?? "",
       phone: json["phone"] ?? "",
       email: json["email"] ?? "",

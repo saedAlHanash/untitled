@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 
+import '../../../../core/util/my_style.dart';
 import '../../../../generated/assets.dart';
 import '../../../../generated/l10n.dart';
 import '../../../../router/app_router.dart';
@@ -30,16 +31,7 @@ class _SearchScreenState extends State<SearchScreen> {
     return Container(
       height: 1.0.sh,
       width: 1.0.sw,
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topRight,
-          end: Alignment.bottomLeft,
-          colors: [
-            AppColorManager.mainColor,
-            AppColorManager.secondColor,
-          ],
-        ),
-      ),
+      decoration: BoxDecoration(gradient: MyStyle.gradient),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

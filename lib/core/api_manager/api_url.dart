@@ -115,6 +115,8 @@ class GetUrl {
 
   static const trainerMyPlans = 'plans/myPlans';
 
+  static const subscriptions = 'subscriptions';
+
 
   static String planWorkouts(int id ) => 'plans/$id/workouts';
 
@@ -194,6 +196,10 @@ class PostUrl {
   static const addSupportMessage = 'messages/add';
   static const apply = 'api/application-request';
   static const insertFcmToken = 'notifications/storeFcmToken';
+
+  static const createSubscription = 'subscriptions/pay';
+
+  static var cancelSubscription = 'subscriptions/cancel';
 
   static String addMessage(int id) {
     return 'drivers/messages/$id/add';

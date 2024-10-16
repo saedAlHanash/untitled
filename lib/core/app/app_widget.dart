@@ -26,6 +26,7 @@ import '../../features/coupon/coupon_cubit/coupon_cubit.dart';
 import '../../features/diets/bloc/diets_cubit/diets_cubit.dart';
 import '../../features/notifications/bloc/notifications_cubit/notifications_cubit.dart';
 import '../../features/payments/bloc/payments_cubit/payments_cubit.dart';
+import '../../features/payments/bloc/subscriptions_cubit/subscriptions_cubit.dart';
 import '../../features/payments/bloc/wallet_cubit/wallet_cubit.dart';
 import '../../features/plans/bloc/active_plans_cubit/active_plans_cubit.dart';
 import '../../features/plans/bloc/free_plans_cubit/free_plans_cubit.dart';
@@ -117,6 +118,9 @@ class _MyAppState extends State<MyApp> {
                 b.BlocProvider(create: (_) => sl<RefreshTokenCubit>()..refreshToken()),
                 b.BlocProvider(create: (_) => sl<BookmarkedCubit>()..getBookmarked()),
                 b.BlocProvider(create: (_) => sl<TrainerFilesCubit>()..getTrainerFiles()),
+                b.BlocProvider(
+                  create: (_) => sl<SubscriptionsCubit>()..getSubscriptions(),
+                ),
                 b.BlocProvider(
                   create: (_) => sl<FreePlansCubit>()..getTrendingPlans(),
                 ),

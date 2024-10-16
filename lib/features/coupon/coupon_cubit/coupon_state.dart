@@ -1,14 +1,12 @@
 part of 'coupon_cubit.dart';
 
-class CouponInitial extends Equatable {
-  final CubitStatuses statuses;
-  final CheckCouponResult result;
-  final String error;
+class CouponInitial extends AbstractState<CheckCouponResult> {
+
 
   const CouponInitial({
-    required this.statuses,
-    required this.result,
-    required this.error,
+    required super.statuses,
+    required super.result,
+    required super.error,
   });
 
   factory CouponInitial.initial() {

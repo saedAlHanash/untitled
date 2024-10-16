@@ -8,7 +8,6 @@ import 'package:image_multi_type/image_multi_type.dart';
 import '../../features/plans/data/response/plan_workout_response.dart';
 import '../../generated/l10n.dart';
 import 'day_exercises_widget.dart';
-import 'day_image.dart';
 
 class DayWidget extends StatelessWidget {
   const DayWidget({

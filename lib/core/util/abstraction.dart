@@ -28,7 +28,7 @@
 // abstract class MCubit<AbstractState> extends Cubit<AbstractState> {
 //   MCubit(super.initialState);
 //
-//   String get nameCache => '${AppSharedPreference.getLocal}';
+//   String get nameCache => '';
 //
 //   String get filter => state.filter;
 //

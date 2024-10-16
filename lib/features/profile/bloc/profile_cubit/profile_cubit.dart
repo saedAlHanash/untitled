@@ -9,7 +9,6 @@ import '../../../../core/injection/injection_container.dart';
 import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/firebase_analytics_service.dart';
 import '../../../../core/util/pair_class.dart';
-import '../../../../core/util/shared_preferences.dart';
 
 part 'profile_state.dart';
 
@@ -17,7 +16,7 @@ class ProfileCubit extends MCubit<ProfileInitial> {
   ProfileCubit() : super(ProfileInitial.initial());
 
   @override
-  String get nameCache => '${AppSharedPreference.getLocal}Profile';
+  String get nameCache => 'Profile';
 
   Future<void> getProfile({bool? newData}) async {
 

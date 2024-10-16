@@ -1,6 +1,6 @@
 import 'package:drawable_text/drawable_text.dart';
-import 'package:fitness_storm/core/extensions/extensions.dart';
 import 'package:fitness_storm/core/strings/enum_manager.dart';
+import 'package:fitness_storm/core/widgets/my_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,11 +8,12 @@ import 'package:get/get.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 import 'package:m_cubit/abstraction.dart';
 
-import '../../../../Widgets/custom_button.dart';
 import '../../../core/strings/app_color_manager.dart';
+import '../../../core/util/my_style.dart';
 import '../../../core/widgets/app_bar/app_bar_widget.dart';
 import '../../../core/widgets/my_text_form_widget.dart';
 import '../../../generated/assets.dart';
+import '../../../generated/l10n.dart';
 import '../coupon_cubit/coupon_cubit.dart';
 import '../data/request/pay_request.dart';
 
@@ -27,23 +28,14 @@ class CouponWidget extends StatefulWidget {
 }
 
 class _CouponWidgetState extends State<CouponWidget> {
-  final request = PayRequest();
+  final request = CreateSubscriptionRequest();
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => CouponCubit(),
       child: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topRight,
-            end: Alignment.bottomLeft,
-            colors: [
-              Get.theme.primaryColor,
-              Get.theme.colorScheme.secondary,
-            ],
-          ),
-        ),
+        decoration: BoxDecoration(gradient: MyStyle.gradient),
         child: Scaffold(
           backgroundColor: Colors.transparent,
           bottomNavigationBar: Column(
@@ -57,22 +49,14 @@ class _CouponWidgetState extends State<CouponWidget> {
                       margin: const EdgeInsets.symmetric(horizontal: 20.0),
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(20.0),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 0.1,
-                            blurRadius: 8,
-                            offset: const Offset(0, 10), // changes position of shadow
-                          ),
-                        ],
+                        borderRadius: BorderRadius.circular(8.0.r),
                       ),
                       padding: const EdgeInsets.all(20.0),
                       child: Column(
                         children: [
                           if (state.result.percentage != 0)
                             DrawableText(
-                              text: 'voucher'.tr,
+                              text: S.of(context).voucher,
                               matchParent: true,
                               fontFamily: FontManager.bold.name,
                               drawableAlin: DrawableAlin.between,
@@ -82,7 +66,7 @@ class _CouponWidgetState extends State<CouponWidget> {
                               ),
                             ),
                           DrawableText(
-                            text: 'sup_total'.tr,
+                            text: S.of(context).supTotal,
                             matchParent: true,
                             fontFamily: FontManager.bold.name,
                             drawableAlin: DrawableAlin.between,
@@ -94,7 +78,7 @@ class _CouponWidgetState extends State<CouponWidget> {
                           if (state.result.percentage != 0) const Divider(),
                           if (state.result.percentage != 0)
                             DrawableText(
-                              text: 'net_total'.tr,
+                              text: S.of(context).netTotal,
                               matchParent: true,
                               fontFamily: FontManager.bold.name,
                               drawableAlin: DrawableAlin.between,
@@ -116,13 +100,12 @@ class _CouponWidgetState extends State<CouponWidget> {
                   },
                 ),
               ),
-              CustomButton(
-                onTapFunction: () => Navigator.pop(context, request),
-                textColor: Get.theme.colorScheme.primary,
-                buttonColor: Colors.white,
-                fontSize: 16,
-                text: 'continue'.tr,
-              )
+              MyButton(
+                text: S.of(context).continueTo,
+                color: AppColorManager.mainColor,
+                onTap: () => Navigator.pop(context, request),
+              ),
+              30.0.verticalSpace,
             ],
           ),
           body: Container(
@@ -132,90 +115,82 @@ class _CouponWidgetState extends State<CouponWidget> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  30.0.verticalSpace,
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      BackBtnWidget(appBarColor: AppColorManager.mainColor),
-                      ImageMultiType(
-                        url: Assets.imagesWhiteLogo,
-                        width: 0.5.sw,
-                      ),
-                      50.0.horizontalSpace,
-                    ],
+                  SafeArea(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        BackBtnWidget(appBarColor: AppColorManager.mainColor),
+                        ImageMultiType(
+                          url: Assets.imagesWhiteLogo,
+                          width: 0.5.sw,
+                        ),
+                        50.0.horizontalSpace,
+                      ],
+                    ),
                   ),
-                  30.0.verticalSpace,
                   MyTextFormWhiteWidget(
-                    label: 'email'.tr,
+                    label: S.of(context).email,
                     controller: TextEditingController(text: request.email),
                     onChanged: (val) => request.email = val,
                   ),
-                  const SizedBox(height: 10.0),
+                  10.0.verticalSpace,
                   MyTextFormWhiteWidget(
-                    label: 'name'.tr,
+                    label: S.of(context).name,
                     controller: TextEditingController(text: request.name),
                     onChanged: (val) => request.name = val,
                   ),
-                  const SizedBox(height: 10.0),
+                  10.0.verticalSpace,
                   MyTextFormWhiteWidget(
-                    label: 'phone'.tr,
+                    label: S.of(context).phone,
                     controller: TextEditingController(text: request.phone),
                     onChanged: (val) => request.phone = val,
                   ),
-                  const SizedBox(height: 10.0),
+                  10.0.verticalSpace,
                   BlocBuilder<CouponCubit, CouponInitial>(
                     builder: (context, state) {
-                      return Column(
+                      return Row(
+                        crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Expanded(
-                                child: MyTextFormWhiteWidget(
-                                  label: 'coupon'.tr,
-                                  color: (state.statuses == CubitStatuses.done &&
-                                          state.result.percentage == 0)
-                                      ? Colors.red
-                                      : (state.statuses == CubitStatuses.done &&
-                                              state.result.percentage != 0)
-                                          ? Colors.green
-                                          : null,
-                                  onChanged: (val) => request.code = val,
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                                child: Center(
-                                  child: Builder(
-                                    builder: (context) {
-                                      if (state.statuses.loading) {
-                                        return const CircularProgressIndicator.adaptive();
-                                      }
-                                      return Padding(
-                                        padding:
-                                            const EdgeInsets.only(top: 10.0, left: 10.0),
-                                        child: ElevatedButton(
-                                          onPressed: () {
-                                            context.read<CouponCubit>().checkCoupon(
-                                                  context,
-                                                  subscriptionId: widget.subscriptionId,
-                                                  couponCode: request.code,
-                                                );
-                                          },
-                                          child: Text('apply'.tr),
-                                        ),
-                                      );
-                                    },
-                                  ),
-                                ),
-                              ),
-                            ],
+                          Expanded(
+                            flex: 3,
+                            child: MyTextFormWhiteWidget(
+                              label:
+                                  '${S.of(context).coupon} (${S.of(context).optional})',
+                              color: (state.statuses == CubitStatuses.done &&
+                                      state.result.percentage == 0)
+                                  ? Colors.red
+                                  : (state.statuses == CubitStatuses.done &&
+                                          state.result.percentage != 0)
+                                      ? Colors.green
+                                      : null,
+                              onChanged: (val) => request.code = val,
+                            ),
+                          ),
+                          10.0.horizontalSpace,
+                          Expanded(
+                            child: BlocBuilder<CouponCubit, CouponInitial>(
+                              builder: (context, state) {
+                                return MyButton(
+                                  color: Colors.white,
+                                  textColor: AppColorManager.mainColor,
+                                  loading: state.loading,
+                                  onTap: () {
+                                    context.read<CouponCubit>().checkCoupon(
+                                          context,
+                                          subscriptionId: widget.subscriptionId,
+                                          couponCode: request.code,
+                                        );
+                                  },
+                                  text: S.of(context).apply,
+                                );
+                              },
+                            ),
                           ),
                         ],
                       );
                     },
                   ),
-                  const SizedBox(height: 10.0),
+                  10.0.verticalSpace,
                 ],
               ),
             ),

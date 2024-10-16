@@ -14,7 +14,7 @@ class TrainerFilesCubit extends MCubit<TrainerFilesInitial> {
   TrainerFilesCubit() : super(TrainerFilesInitial.initial());
 
   @override
-  String get nameCache => '${AppSharedPreference.getLocal}trainer_files';
+  String get nameCache => 'trainer_files';
 
   Future<void> getTrainerFiles({bool newData = false}) async {
     getDataAbstract(

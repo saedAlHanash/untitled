@@ -6,7 +6,6 @@ import 'package:m_cubit/abstraction.dart';
 import '../../../../core/api_manager/api_service.dart';
 import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/pair_class.dart';
-import '../../../../core/util/shared_preferences.dart';
 import '../../data/response/welcome_message_response.dart';
 
 part 'welcome_messages_state.dart';
@@ -15,7 +14,7 @@ class WelcomeMessagesCubit extends MCubit<WelcomeMessagesInitial> {
   WelcomeMessagesCubit() : super(WelcomeMessagesInitial.initial());
 
   @override
-  String get nameCache => '${AppSharedPreference.getLocal}welcomeMessages';
+  String get nameCache => 'welcomeMessages';
 
   Future<void> getWelcomeMessages() async {
     if (AppProvider.isTrainer) return;

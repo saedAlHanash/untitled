@@ -1137,7 +1137,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "3db84e6696b14b516461bb29b6e1b362da7129a7"
+      resolved-ref: "94f87a99ce45360e40f35a910f6fbc5e85ef8c43"
       url: "https://github.com/saedAlHanash/m_cubit"
     source: git
     version: "0.0.1"

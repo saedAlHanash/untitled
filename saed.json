@@ -1,69 +1,51 @@
 {
-  "data": [
-    {
-      "id": "292737",
-      "startAt": "2024-10-15 14:30:00",
-      "endAt": "2024-10-15 16:00:00",
-      "summary": "Available At",
-      "timeZoneStartAt": null,
-      "color": "blue",
-      "user": {
-        "id": "2012",
-        "name": "rawabi"
+  "data": {
+    "private_session_subscription": 300,
+    "subscriptions": [
+      {
+        "id": "16",
+        "duration": 1,
+        "price": 509,
+        "price_after_discount": 509,
+        "type": "year",
+        "is_active": 1,
+        "count_of_subscribers": 93,
+        "current_subscription": false,
+        "discount_percentage": 0
       },
-      "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IABbNNYXjtLCYzP65NNu77OIuYjupzGYEYpZM2+4J9qxdpZZ8dIAAAAAEAB9WQEA7M0PZwEAAQAAjg5n"
-    },
-    {
-      "id": "292738",
-      "startAt": "2024-10-15 16:00:00",
-      "endAt": "2024-10-15 18:00:00",
-      "summary": "Available At",
-      "timeZoneStartAt": null,
-      "color": "blue",
-      "user": {
-        "id": "2039",
-        "name": "hana"
+      {
+        "id": "15",
+        "duration": 6,
+        "price": 329,
+        "price_after_discount": 329,
+        "type": "month",
+        "is_active": 1,
+        "count_of_subscribers": 40,
+        "current_subscription": false,
+        "discount_percentage": 0
       },
-      "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IAB8cih\/AXnhhijpzimP2iNSuAWWC2rgeZqdJ8alvioMPpZZ8dIAAAAAEAAeAAAAA+MPZwEAAQAXow5n"
-    },
-    {
-      "id": "294367",
-      "startAt": "2024-10-16 08:00:00",
-      "endAt": "2024-10-16 09:00:00",
-      "summary": "Available At",
-      "timeZoneStartAt": null,
-      "color": "blue",
-      "user": {
-        "id": "384",
-        "name": "kholoud A"
+      {
+        "id": "14",
+        "duration": 3,
+        "price": 199,
+        "price_after_discount": 199,
+        "type": "month",
+        "is_active": 1,
+        "count_of_subscribers": 33,
+        "current_subscription": false,
+        "discount_percentage": 0
       },
-      "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IADds7mhCADvSSt5LFU71\/M3S7BCBJZnieQq6B2VrFPByJZZ8dIAAAAAEADrCAAABMQQZwEAAQAYhA9n"
-    },
-    {
-      "id": "265140",
-      "startAt": "2024-10-18 11:00:00",
-      "endAt": "2024-10-18 13:00:00",
-      "summary": "Available At",
-      "timeZoneStartAt": null,
-      "color": "blue",
-      "user": {
-        "id": "2039",
-        "name": "hana"
-      },
-      "video_call_token": null
-    },
-    {
-      "id": "225283",
-      "startAt": "2024-10-22 17:30:00",
-      "endAt": "2024-10-22 18:30:00",
-      "summary": "Available At",
-      "timeZoneStartAt": null,
-      "color": "blue",
-      "user": {
-        "id": "2039",
-        "name": "hana"
-      },
-      "video_call_token": null
-    }
-  ]
+      {
+        "id": "13",
+        "duration": 1,
+        "price": 150,
+        "price_after_discount": 150,
+        "type": "month",
+        "is_active": 1,
+        "count_of_subscribers": 136,
+        "current_subscription": false,
+        "discount_percentage": 0
+      }
+    ]
+  }
 }

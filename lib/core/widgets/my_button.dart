@@ -20,6 +20,7 @@ class MyButton extends StatelessWidget {
     this.toUpper = false,
     this.padding,
     this.radios,
+    this.loading = false,
   });
 
   final Widget? child;
@@ -34,6 +35,7 @@ class MyButton extends StatelessWidget {
   final EdgeInsets? padding;
   final Function()? onTap;
   final bool toUpper;
+  final bool loading;
 
   @override
   Widget build(BuildContext context) {
@@ -42,8 +44,22 @@ class MyButton extends StatelessWidget {
           text: toUpper ? text.toUpperCase() : text,
           color: textColor ?? AppColorManager.whit,
           fontFamily: FontManager.bold.name,
+          drawablePadding: 5.0,
+          drawableEnd: loading
+              ? SizedBox(
+                  height: 15.0.r,
+                  width: 15.0.r,
+                  child: CircularProgressIndicator.adaptive(
+                    backgroundColor: color != null
+                        ? color == Colors.white
+                            ? AppColorManager.mainColor
+                            : Colors.white
+                        : color,
+                    valueColor: const AlwaysStoppedAnimation<Color>(Colors.white),
+                  ),
+                )
+              : null,
           fontWeight: FontWeight.bold,
-          size: 16.0.sp,
         );
 
     return SizedBox(
@@ -66,7 +82,11 @@ class MyButton extends StatelessWidget {
               padding ?? const EdgeInsets.symmetric(vertical: 0.0).r),
           alignment: Alignment.center,
         ),
-        onPressed: !(enable ?? true) ? null : onTap,
+        onPressed: loading
+            ? null
+            : !(enable ?? true)
+                ? null
+                : onTap,
         child: child,
       ),
     );
@@ -105,7 +125,6 @@ class MyButtonOutLine extends StatelessWidget {
         DrawableText(
           text: toUpper ? text.toUpperCase() : text,
           color: textColor ?? AppColorManager.mainColor,
-
           size: 14.0.sp,
         );
 
@@ -170,7 +189,6 @@ class MyButtonRound extends StatelessWidget {
         DrawableText(
           text: toUpper ? text.toUpperCase() : text,
           color: textColor ?? AppColorManager.whit,
-         
         );
 
     return SizedBox(

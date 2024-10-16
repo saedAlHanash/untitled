@@ -5,7 +5,6 @@ import 'package:m_cubit/abstraction.dart';
 import '../../../../core/api_manager/api_service.dart';
 import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/pair_class.dart';
-import '../../../../core/util/shared_preferences.dart';
 import '../../../trainer/data/response/trainer.dart';
 import '../../data/request/trainers_filter.dart';
 
@@ -15,7 +14,7 @@ class SearchCubit extends MCubit<SearchInitial> {
   SearchCubit() : super(SearchInitial.initial());
 
   @override
-  String get nameCache => '${AppSharedPreference.getLocal}SearchCubit';
+  String get nameCache => 'SearchCubit';
 
   @override
   String get filter => state.filter;

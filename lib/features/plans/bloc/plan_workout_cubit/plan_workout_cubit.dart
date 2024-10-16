@@ -6,7 +6,6 @@ import '../../../../core/api_manager/api_service.dart';
 import '../../../../core/models/plan_model.dart';
 import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/pair_class.dart';
-import '../../../../core/util/shared_preferences.dart';
 import '../../data/response/plan_workout_response.dart';
 
 part 'plan_workout_state.dart';
@@ -15,7 +14,7 @@ class PlanWorkoutsCubit extends MCubit<PlanWorkoutsInitial> {
   PlanWorkoutsCubit() : super(PlanWorkoutsInitial.initial());
 
   @override
-  String get nameCache => '${AppSharedPreference.getLocal}plan_workouts';
+  String get nameCache => 'plan_workouts';
 
   @override
   String get filter => state.mRequest.id.toString();

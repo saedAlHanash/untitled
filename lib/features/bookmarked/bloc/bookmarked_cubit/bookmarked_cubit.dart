@@ -6,7 +6,6 @@ import '../../../../core/api_manager/api_service.dart';
 import '../../../../core/models/plan_model.dart';
 import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/pair_class.dart';
-import '../../../../core/util/shared_preferences.dart';
 import '../../data/response/bookmarked_response.dart';
 
 part 'bookmarked_state.dart';
@@ -15,7 +14,7 @@ class BookmarkedCubit extends MCubit<BookmarkedInitial> {
   BookmarkedCubit() : super(BookmarkedInitial.initial());
 
   @override
-  String get nameCache => '${AppSharedPreference.getLocal}bookmarked';
+  String get nameCache => 'bookmarked';
 
   Future<void> getBookmarked({bool newData = false}) async {
     getDataAbstract(

@@ -10,6 +10,7 @@ import 'package:image_multi_type/image_multi_type.dart';
 import 'package:m_cubit/abstraction.dart';
 
 import '../../../../Widgets/custom_button.dart';
+import '../../../core/util/my_style.dart';
 import '../../../core/widgets/app_bar/app_bar_widget.dart';
 import '../../../core/widgets/my_text_form_widget.dart';
 import '../../../generated/assets.dart';
@@ -30,23 +31,14 @@ class CouponBundleWidget extends StatefulWidget {
 }
 
 class _CouponBundleWidgetState extends State<CouponBundleWidget> {
-  final request = PayRequest();
+  final request = CreateSubscriptionRequest();
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => CouponCubit(),
       child: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topRight,
-            end: Alignment.bottomLeft,
-            colors: [
-              Get.theme.primaryColor,
-              Get.theme.colorScheme.secondary,
-            ],
-          ),
-        ),
+        decoration: BoxDecoration(gradient: MyStyle.gradient),
         child: Scaffold(
           backgroundColor: Colors.transparent,
           bottomNavigationBar: Column(

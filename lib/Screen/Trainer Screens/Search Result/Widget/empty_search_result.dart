@@ -1,5 +1,4 @@
 import 'package:fitness_storm/Screen/Trainer%20Screens/Search%20Result/search_result_controller.dart';
-
 import 'package:fitness_storm/Widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

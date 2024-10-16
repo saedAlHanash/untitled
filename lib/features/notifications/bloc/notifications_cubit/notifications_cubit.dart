@@ -14,7 +14,7 @@ class NotificationsCubit extends MCubit<NotificationsInitial> {
   NotificationsCubit() : super(NotificationsInitial.initial());
 
   @override
-  String get nameCache => '${AppSharedPreference.getLocal}notifications';
+  String get nameCache => 'notifications';
 
   Future<void> getNotifications({bool newData = false}) async {
     getDataAbstract(

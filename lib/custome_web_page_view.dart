@@ -40,26 +40,22 @@ class _MyCustomWebPageState extends State<MyCustomWebPage> {
           'subscription_payment'.tr,
         ),
       ),
-      body: Column(
-        children: [
-          InAppWebView(
-            initialUrlRequest: URLRequest(
-              url: WebUri.uri(Uri.parse(widget.urlWebPage ?? '')),
-            ),
-            onWebViewCreated: (controller) {
-              webView = controller;
-            },
-            onLoadStop: (controller1, url) {
-              if (url?.uriValue.toString() == 'https://fitnessstorm.org/success.html') {
-                Navigator.pop(context, true);
-              }
-            },
-            onReceivedServerTrustAuthRequest: (controller, challenge) async {
-              return ServerTrustAuthResponse(
-                  action: ServerTrustAuthResponseAction.PROCEED);
-            },
-          ),
-        ],
+      body: InAppWebView(
+        initialUrlRequest: URLRequest(
+          url: WebUri.uri(Uri.parse(widget.urlWebPage ?? '')),
+        ),
+        onWebViewCreated: (controller) {
+          webView = controller;
+        },
+        onLoadStop: (controller1, url) {
+          if (url?.uriValue.toString() == 'https://fitnessstorm.org/success.html') {
+            Navigator.pop(context, true);
+          }
+        },
+        onReceivedServerTrustAuthRequest: (controller, challenge) async {
+          return ServerTrustAuthResponse(
+              action: ServerTrustAuthResponseAction.PROCEED);
+        },
       ),
     );
   }

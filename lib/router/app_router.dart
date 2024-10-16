@@ -14,6 +14,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart';
 import 'package:get/get.dart';
+import 'package:m_cubit/caching_service/caching_service.dart';
 
 import '../Screen/video/video.dart';
 import '../Utils/Routes/app_pages.dart';
@@ -22,6 +23,7 @@ import '../core/injection/injection_container.dart';
 import '../core/models/booked_appointments.dart';
 import '../core/models/plan_model.dart';
 import '../core/util/firebase_analytics_service.dart';
+import '../core/util/shared_preferences.dart';
 import '../features/appointments/bloc/add_time_cubit/add_time_cubit.dart';
 import '../features/appointments/bloc/available_times_cubit/available_times_cubit.dart';
 import '../features/appointments/bloc/booked_appointments_cubit/booked_appointments_cubit.dart';
@@ -369,6 +371,7 @@ void startHome(bool fromLogin) {
     ctx?.read<FreePlansCubit>().getTrendingPlans(newData: true);
     ctx?.read<ProfileCubit>().getProfile(newData: true);
   }
+  CachingService.setSupperFilter('${AppProvider.myId}${AppSharedPreference.getLocal}');
   ChatServiceCore.initFirebaseChat();
 
   Get.offAllNamed(AppProvider.isTrainer ? AppRoutes.trainerHomePage : AppRoutes.mainHome);

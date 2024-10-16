@@ -5,7 +5,6 @@ import 'package:m_cubit/abstraction.dart';
 import '../../../../core/api_manager/api_service.dart';
 import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/pair_class.dart';
-import '../../../../core/util/shared_preferences.dart';
 import '../../data/response/diet_response.dart';
 
 part 'diet_state.dart';
@@ -14,7 +13,7 @@ class DietCubit extends MCubit<DietInitial> {
   DietCubit() : super(DietInitial.initial());
 
   @override
-  String get nameCache => '${AppSharedPreference.getLocal}diet';
+  String get nameCache => 'diet';
 
   @override
   String get filter => state.filter;

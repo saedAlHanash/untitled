@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/features/plans/bloc/plan_workout_cubit/plan_workout_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

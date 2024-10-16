@@ -34,7 +34,10 @@ import '../../features/fire_chat/open_room_cubit/open_room_cubit.dart';
 import '../../features/fire_chat/rooms_bloc/rooms_cubit.dart';
 import '../../features/fire_chat/userss_bloc/users_bloc.dart';
 import '../../features/notifications/bloc/notifications_cubit/notifications_cubit.dart';
+import '../../features/payments/bloc/cancel_subscription_cubit/cancel_subscription_cubit.dart';
+import '../../features/payments/bloc/create_subscription_cubit/create_subscription_cubit.dart';
 import '../../features/payments/bloc/payments_cubit/payments_cubit.dart';
+import '../../features/payments/bloc/subscriptions_cubit/subscriptions_cubit.dart';
 import '../../features/payments/bloc/wallet_cubit/wallet_cubit.dart';
 import '../../features/plans/bloc/active_plans_cubit/active_plans_cubit.dart';
 import '../../features/plans/bloc/free_plans_cubit/free_plans_cubit.dart';
@@ -113,6 +116,9 @@ Future<void> init() async {
   //region payments
   sl.registerFactory(() => WalletCubit());
   sl.registerFactory(() => PaymentsCubit());
+  sl.registerFactory(() => SubscriptionsCubit());
+  sl.registerFactory(() => CreateSubscriptionCubit());
+  sl.registerFactory(() => CancelSubscriptionCubit());
   //endregion
 
   //region plans

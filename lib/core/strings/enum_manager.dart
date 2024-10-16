@@ -20,7 +20,6 @@ enum DeviceStatus { pending, accepted, reject, notFound }
 
 enum StartPage { login, home, otp }
 
-
 enum ProfileCardType { profile, fav, payment, lang, appointment, files, diets }
 
 enum ProfileButtonType { about, privacy, faq, terms }
@@ -35,7 +34,7 @@ enum ThemeColor { dark, light }
 
 enum MediaType { pdf, image }
 
-enum FontManager { regular, semeBold,bold }
+enum FontManager { regular, semeBold, bold }
 
 enum TrainingTypeEnum {
   weightlifting,
@@ -195,4 +194,27 @@ enum ApiType {
   put,
   patch,
   delete,
+}
+
+enum SubscriptionType {
+  day,
+  month,
+  year;
+
+  String get getName {
+    switch (this) {
+      case SubscriptionType.day:
+        return S().days;
+      case SubscriptionType.month:
+        return S().months;
+      case SubscriptionType.year:
+        return S().years;
+    }
+  }
+
+  static SubscriptionType byName(String name) {
+    if (name == 'day') return SubscriptionType.day;
+    if (name == 'month') return SubscriptionType.day;
+    return SubscriptionType.year;
+  }
 }

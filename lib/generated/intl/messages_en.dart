@@ -455,6 +455,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "okay": MessageLookupByLibrary.simpleMessage("okay"),
         "oldSession": MessageLookupByLibrary.simpleMessage("Old Session"),
         "oops": MessageLookupByLibrary.simpleMessage("Oops!"),
+        "optional": MessageLookupByLibrary.simpleMessage("optional"),
         "orContactOur":
             MessageLookupByLibrary.simpleMessage("  or contact our"),
         "orderSummary": MessageLookupByLibrary.simpleMessage("Order summary"),
@@ -810,6 +811,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "yesSureThereIs7DaysFreeTrial": MessageLookupByLibrary.simpleMessage(
             "Yes, sure there is 7 days free trial"),
         "yesTheyCan": MessageLookupByLibrary.simpleMessage("Yes, they can."),
+        "yescancel": MessageLookupByLibrary.simpleMessage("Yes,Cancel"),
         "youCanDoItThisSet":
             MessageLookupByLibrary.simpleMessage("You can do it!"),
         "youCanSubscribeAndPay": MessageLookupByLibrary.simpleMessage(

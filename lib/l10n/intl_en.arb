@@ -566,5 +566,7 @@
     "getUnlimitedAccessToAllFitnessnPrograms": "Get Unlimited Access To All Fitness\n Programs",
     "getFitAnytimeAnywherentrackYourProgressEffortlesslynaccessPersonalizedWorkouts": "Get Fit Anytime, Anywhere\nTrack Your Progress Effortlessly\nAccess Personalized Workouts",
     "freePlans": "Free Plans",
-  "paidPlans": "Paid Plans"
+  "paidPlans": "Paid Plans",
+    "optional": "optional",
+    "yescancel": "Yes,Cancel"
 }

@@ -5,7 +5,6 @@ import 'package:fitness_storm/Utils/utils.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/state_manager.dart';
-
 // import 'package:image_downloader/image_downloader.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 

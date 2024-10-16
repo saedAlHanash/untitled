@@ -579,5 +579,7 @@
     "getUnlimitedAccessToAllFitnessnPrograms": "احصل على وصول غير محدود إلى جميع برامج اللياقة\n البدنية",
     "getFitAnytimeAnywherentrackYourProgressEffortlesslynaccessPersonalizedWorkouts": "احصل على لياقة بدنية في أي وقت وفي أي مكان\nتتبع تقدمك بسهولة\nالوصول إلى التدريبات المخصصة",
     "freePlans": "البرامج المجانية",
-  "paidPlans": "البرامج المدفوعة"
+  "paidPlans": "البرامج المدفوعة",
+    "optional": "اختياري",
+    "yescancel": "نعم,إلغاء"
 }

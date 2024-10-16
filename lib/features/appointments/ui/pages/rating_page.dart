@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:image_multi_type/circle_image_widget.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 
@@ -39,16 +38,7 @@ class RatingPage extends StatelessWidget {
         Navigator.pop(context, true);
       },
       child: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topRight,
-            end: Alignment.bottomLeft,
-            colors: [
-              Get.theme.primaryColor,
-              Get.theme.colorScheme.secondary,
-            ],
-          ),
-        ),
+        decoration: BoxDecoration(gradient: MyStyle.gradient),
         child: Scaffold(
           backgroundColor: Colors.transparent,
           appBar: AppBarWidget(

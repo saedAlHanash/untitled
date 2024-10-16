@@ -52,6 +52,7 @@ class Assets {
   static const String imagesPdfUploadsvg = 'assets/images/pdf_uploadsvg.svg';
   static const String imagesProfileInfo = 'assets/images/profile_info.svg';
   static const String imagesRight = 'assets/images/right.svg';
+  static const String imagesSad = 'assets/images/sad.svg';
   static const String imagesScoreSVG = 'assets/images/scoreSVG.svg';
   static const String imagesSearch = 'assets/images/search.svg';
   static const String imagesSearchBar = 'assets/images/search_bar.svg';

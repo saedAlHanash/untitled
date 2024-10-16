@@ -39,6 +39,7 @@ void main() async {
       onError: (state) => showErrorFromApi(state),
       version: 1,
       timeInterval: 120,
+      supperFilter: '${AppProvider.myId}${AppSharedPreference.getLocal}',
     );
 
     Get.put(LanguagesController());
@@ -71,7 +72,6 @@ void main() async {
         BlocProvider(create: (_) => sl<UsersCubit>()..getChatUsers(), lazy: true),
         BlocProvider(create: (_) => sl<OpenRoomCubit>()),
         BlocProvider(create: (_) => sl<RoomsCubit>()..getChatRooms(false)),
-
       ],
       child: const MyApp(),
     ),
@@ -107,6 +107,5 @@ Future<void> saveFCM() async {
   );
   if (response.statusCode != 200) {
     loggerObject.e('error with fcm');
-
   }
 }

@@ -15,7 +15,7 @@ class FreePlansCubit extends MCubit<FreePlansInitial> {
   FreePlansCubit() : super(FreePlansInitial.initial());
 
   @override
-  String get nameCache => '${AppSharedPreference.getLocal}freePlans';
+  String get nameCache => 'freePlans';
 
   @override
   String get filter => state.filter;

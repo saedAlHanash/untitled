@@ -1,6 +1,3 @@
-import 'package:dart_jsonwebtoken/dart_jsonwebtoken.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,7 +18,7 @@ PreferredSizeWidget get appBarHome {
       padding: const EdgeInsets.symmetric(horizontal: 10).r,
       child: GestureDetector(
         onTap: () {
-          if (AppControl.isAppleAccount) return;
+          if (AppControl.isAppleAccount || AppProvider.isTrainer) return;
           Get.toNamed(AppRoutes.subscriptionScreen);
         },
         child: ImageMultiType(url: Assets.imagesLogoLight),

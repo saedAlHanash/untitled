@@ -211,7 +211,7 @@ class AnalyticService {
     // });
   }
 
-  Future<void> startCheckout({required PayRequest request}) async {
+  Future<void> startCheckout({required CreateSubscriptionRequest request}) async {
     // appsflyer.setCurrencyCode('SAR');
     // appsflyer.setAdditionalData({'Start_Checkout': request.toJson()});
   }

@@ -6,7 +6,6 @@ import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:fitness_storm/features/auth/data/response/login_response.dart';
 import 'package:fitness_storm/services/chat_service/chat_service_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get/get.dart';
 
 import '../../Utils/utils.dart';
 import '../../features/profile/bloc/profile_cubit/profile_cubit.dart';
@@ -34,7 +33,6 @@ class AppProvider {
 
   static bool get isTestMode => baseUrl == test;
 
-  static bool isAr = Get.locale?.languageCode == 'ar';
 
   static String get myId {
     if (_myId == 0) _myId = _loginData.id;

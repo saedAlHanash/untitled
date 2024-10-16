@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 
+import '../../../core/util/my_style.dart';
 import '../../../generated/assets.dart';
 import 'Widget/search_bar_widget.dart';
 
@@ -15,16 +16,7 @@ class TrainerSearchScreen extends GetView<TrainerSearchScreenController> {
     return Container(
       height: MediaQuery.of(context).size.height / 1.2,
       width: MediaQuery.of(context).size.width,
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topRight,
-          end: Alignment.bottomLeft,
-          colors: [
-            Get.theme.primaryColor,
-            Get.theme.colorScheme.secondary,
-          ],
-        ),
-      ),
+      decoration: BoxDecoration(gradient: MyStyle.gradient),
       child: SingleChildScrollView(
         child: SizedBox(
           height: Get.height / 1.2,

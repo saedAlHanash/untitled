@@ -89,7 +89,7 @@ class _CreateBundlePageState extends State<CreateBundlePage> {
                           ),
                         );
 
-                        if (result is PayRequest && context.mounted) {
+                        if (result is CreateSubscriptionRequest && context.mounted) {
                           context.read<CreateBundleCubit>()
                             ..setCoupon((result).code)
                             ..createBundle();

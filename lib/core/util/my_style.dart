@@ -18,7 +18,7 @@ class MyStyle {
 //endregion
 
   static const underLineStyle =
-      TextStyle(fontStyle: FontStyle.italic, decoration: TextDecoration.underline);
+  TextStyle(fontStyle: FontStyle.italic, decoration: TextDecoration.underline);
 
   static var drawerShape = ShapeDecoration(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
@@ -112,5 +112,19 @@ class MyStyle {
 
   static final productGridDelegate = SliverGridDelegateWithFixedCrossAxisCount(
       crossAxisCount: 2, mainAxisExtent: 250.0.h);
+
+  static LinearGradient get
+
+  gradient {
+    return LinearGradient(
+      begin: Alignment.topRight,
+      end: Alignment.bottomLeft,
+      colors: [
+        AppColorManager.mainColor,
+        AppColorManager.secondColor,
+      ],
+    );
+  }
+
 }
 

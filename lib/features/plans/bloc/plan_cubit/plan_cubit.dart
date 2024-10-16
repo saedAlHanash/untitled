@@ -15,7 +15,6 @@ import '../../../../core/app/app_widget.dart';
 import '../../../../core/models/plan_model.dart';
 import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/pair_class.dart';
-import '../../../../core/util/shared_preferences.dart';
 import '../../data/response/plan_workout_response.dart';
 
 part 'plan_state.dart';
@@ -24,7 +23,7 @@ class PlanCubit extends MCubit<PlanInitial> {
   PlanCubit() : super(PlanInitial.initial());
 
   @override
-  String get nameCache => '${AppSharedPreference.getLocal}plan';
+  String get nameCache => 'plan';
 
   @override
   String get filter => state.mRequest.id.toString();

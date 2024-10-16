@@ -1,10 +1,6 @@
 import 'dart:io';
 
 import 'package:drawable_text/drawable_text.dart';
-import 'package:fitness_storm/core/api_manager/api_service.dart';
-import 'package:fitness_storm/features/plans/ui/widget/day_bar.dart';
-import 'package:fitness_storm/features/plans/ui/widget/trainer_bio.dart';
-import 'package:fitness_storm/features/plans/ui/widget/video_tail_widget.dart';
 import 'package:fitness_storm/Widgets/custom_button.dart';
 import 'package:fitness_storm/Widgets/read_more_text_widget.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
@@ -13,6 +9,9 @@ import 'package:fitness_storm/core/strings/enum_manager.dart';
 import 'package:fitness_storm/core/util/my_style.dart';
 import 'package:fitness_storm/core/util/shared_preferences.dart';
 import 'package:fitness_storm/core/widgets/app_bar/app_bar_widget.dart';
+import 'package:fitness_storm/features/plans/ui/widget/day_bar.dart';
+import 'package:fitness_storm/features/plans/ui/widget/trainer_bio.dart';
+import 'package:fitness_storm/features/plans/ui/widget/video_tail_widget.dart';
 import 'package:fitness_storm/features/vimeo/bloc/vimeo_cubit/vimeo_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

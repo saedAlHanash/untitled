@@ -5,7 +5,6 @@ import 'package:m_cubit/abstraction.dart';
 import '../../../../core/api_manager/api_service.dart';
 import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/pair_class.dart';
-import '../../../../core/util/shared_preferences.dart';
 import '../../data/response/temp_response.dart';
 
 part 'temp_state.dart';
@@ -14,7 +13,7 @@ class TempCubit extends MCubit<TempInitial> {
   TempCubit() : super(TempInitial.initial());
 
   @override
-  String get nameCache => '${AppSharedPreference.getLocal}temp';
+  String get nameCache => 'temp';
 
   @override
   String get filter => state.filter;

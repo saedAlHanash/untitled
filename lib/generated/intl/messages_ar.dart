@@ -456,6 +456,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "okay": MessageLookupByLibrary.simpleMessage("حسناّ"),
         "oldSession": MessageLookupByLibrary.simpleMessage("الجلسات السابقة"),
         "oops": MessageLookupByLibrary.simpleMessage("عفوًا!"),
+        "optional": MessageLookupByLibrary.simpleMessage("اختياري"),
         "orContactOur": MessageLookupByLibrary.simpleMessage("أو تواصل مع  "),
         "orderSummary": MessageLookupByLibrary.simpleMessage("ملخص الطلب"),
         "other": MessageLookupByLibrary.simpleMessage("آخر"),
@@ -802,6 +803,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "yesSureThereIs7DaysFreeTrial": MessageLookupByLibrary.simpleMessage(
             "نعم، بالتأكيد هناك 7 أيام تجريبية مجانية"),
         "yesTheyCan": MessageLookupByLibrary.simpleMessage("نعم، يمكنهم ذلك."),
+        "yescancel": MessageLookupByLibrary.simpleMessage("نعم,إلغاء"),
         "youCanDoItThisSet":
             MessageLookupByLibrary.simpleMessage("انطلق لأنك تستطيع"),
         "youCanSubscribeAndPay": MessageLookupByLibrary.simpleMessage(

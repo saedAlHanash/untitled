@@ -8,6 +8,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../Utils/utils.dart';
 import '../../../../core/app/app_provider.dart';
+import '../../../../core/util/my_style.dart';
 import '../../../../core/util/shared_preferences.dart';
 import '../../../../generated/assets.dart';
 import '../../../../router/app_router.dart';
@@ -74,16 +75,7 @@ class _SplashPageState extends State<SplashPage> {
       body: Container(
         height: 1.0.sh,
         width: 1.0.sw,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topRight,
-            end: Alignment.bottomLeft,
-            colors: [
-              Get.theme.primaryColor,
-              Get.theme.colorScheme.secondary,
-            ],
-          ),
-        ),
+        decoration: BoxDecoration(gradient: MyStyle.gradient),
         child: GestureDetector(
           onDoubleTap: () {
             canRecording = true;

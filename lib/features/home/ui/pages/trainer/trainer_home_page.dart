@@ -1,12 +1,9 @@
 import 'package:fitness_storm/features/home/ui/pages/trainer/trainer_home_screen.dart';
-import 'package:fitness_storm/features/profile/ui/pages/guest_profile_page.dart';
 import 'package:fitness_storm/features/search/ui/pages/search_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../Screen/Trainer Screens/Trainer Wallet/trainer_wallet_screen.dart';
-import '../../../../../core/app/app_provider.dart';
-import '../../../../profile/ui/pages/profile_page.dart';
 import '../../../../profile/ui/pages/profile_trainer_screen.dart';
 import '../../../../trainer/ui/pages/calender_screen.dart';
 import '../../../../welcome_message/bloc/welcome_messages_cubit/welcome_messages_cubit.dart';

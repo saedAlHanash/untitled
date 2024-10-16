@@ -5,7 +5,6 @@ import 'package:m_cubit/abstraction.dart';
 import '../../../../core/api_manager/api_service.dart';
 import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/util/pair_class.dart';
-import '../../../../core/util/shared_preferences.dart';
 import '../../data/response/exercises_response.dart';
 
 part 'exercise_state.dart';
@@ -14,7 +13,7 @@ class ExercisesCubit extends MCubit<ExercisesInitial> {
   ExercisesCubit() : super(ExercisesInitial.initial());
 
   @override
-  String get nameCache => '${AppSharedPreference.getLocal}exercises';
+  String get nameCache => 'exercises';
 
   @override
   String get filter => state.filter;
