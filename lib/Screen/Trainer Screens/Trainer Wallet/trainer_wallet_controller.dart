@@ -1,5 +1,3 @@
- 
-
 import 'package:dio/dio.dart';
 import 'package:fitness_storm/Data/Repositories/Trainer%20Repository/trainer_repository.dart';
 import 'package:fitness_storm/Model/private_session.dart';
@@ -7,6 +5,7 @@ import 'package:fitness_storm/Utils/utils.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/state_manager.dart';
+
 // import 'package:image_downloader/image_downloader.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
@@ -39,20 +38,20 @@ class TrainerWalletController extends GetxController {
     sessions.addAll(inReverse);
 
     Options options = Utils.getOptions(accept: true, withToken: true);
-    final x =  await Methods.get(url: TRAINERURLS.trainerPorile, options: options);
-    balanced = x.data['payments_cubit'];
+    final x = await Methods.get(url: TRAINERURLS.trainerPorile, options: options);
+    balanced = double.parse('${x.data['wallet'] ?? 0.0}');
     isLoading = false;
   }
 
   downloadFile(String path) async {
     Dio dio = Dio();
-    await dio.download( path, '');
+    await dio.download(path, '');
   }
 
   downlaodImage(String path) async {
     try {
       // Saved with this method.
-      var imageId =  Image.network(path);
+      var imageId = Image.network(path);
 
       // Below is a method of obtaining saved image information.
       // var fileName = await ImageDownloader.findName(imageId);
@@ -60,14 +59,11 @@ class TrainerWalletController extends GetxController {
       Utils.openSnackBar(title: 'The image has been downloaded');
       // var size = await ImageDownloader.findByteSize(imageId);
       // var mimeType = await ImageDownloader.findMimeType(imageId);
-    } on PlatformException {
-      
-    }
+    } on PlatformException {}
   }
 
   onLoading() async {
-    final result =
-        await _trainerRepository.getTrainerPrivateSession(currentPage);
+    final result = await _trainerRepository.getTrainerPrivateSession(currentPage);
     if (result.isEmpty) {
       refreshController.value.loadNoData();
     } else {

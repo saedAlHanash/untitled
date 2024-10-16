@@ -8,6 +8,7 @@ import '../../../../../Screen/Trainer Screens/Trainer Wallet/trainer_wallet_scre
 import '../../../../../core/app/app_provider.dart';
 import '../../../../profile/ui/pages/profile_page.dart';
 import '../../../../profile/ui/pages/profile_trainer_screen.dart';
+import '../../../../trainer/ui/pages/calender_screen.dart';
 import '../../../../welcome_message/bloc/welcome_messages_cubit/welcome_messages_cubit.dart';
 import '../../widget/bottom_nav_widget.dart';
 
@@ -49,6 +50,7 @@ class _TrainerHomePageState extends State<TrainerHomePage> {
                 const TrainerHomeScreen(),
                 const SearchScreen(),
                 const TrainerWalletScreen(),
+                const CalenderScreen(),
                 const ProfileTrainerScreen(),
               ],
             ),

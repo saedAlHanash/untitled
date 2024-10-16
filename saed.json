@@ -1,101 +1,69 @@
 {
-  "data": {
-    "id": "80",
-    "name": "\u062a\u0645\u0627\u0631\u064a\u0646 \u0644\u0628\u0637\u0646 \u0645\u0634\u062f\u0648\u062f",
-    "total_weeks": 4,
-    "workout_frequency": 4,
-    "introduction_video": "735711961",
-    "description": "\u062a\u0645\u0627\u0631\u064a\u0646 \u0645\u062a\u0646\u0648\u0639\u0629 \u062a\u0633\u062a\u0647\u062f\u0641 \u0639\u0636\u0644\u0627\u062a \u0627\u0644\u0628\u0637\u0646 \u0645\u0646 \u062c\u0645\u064a\u0639 \u0627\u0644\u0632\u0648\u0627\u064a\u0627",
-    "level": [
-      {
-        "id": "1",
-        "type": "Beginner",
-        "pivot": {
-          "plan_id": 80,
-          "training_level_id": 1
-        }
+  "data": [
+    {
+      "id": "292737",
+      "startAt": "2024-10-15 14:30:00",
+      "endAt": "2024-10-15 16:00:00",
+      "summary": "Available At",
+      "timeZoneStartAt": null,
+      "color": "blue",
+      "user": {
+        "id": "2012",
+        "name": "rawabi"
       },
-      {
-        "id": "2",
-        "type": "Intermediate",
-        "pivot": {
-          "plan_id": 80,
-          "training_level_id": 2
-        }
-      },
-      {
-        "id": "3",
-        "type": "Advanced",
-        "pivot": {
-          "plan_id": 80,
-          "training_level_id": 3
-        }
-      }
-    ],
-    "trainer": {
-      "id": "29",
-      "name": "\u0636\u062d\u0649 \u0636\u0631\u063a\u0627\u0645",
-      "image": "storage\/app\/public\/trainersImagesAr\/uzK9dM25TZPmVrdepetMqmii1HdAR9JiRDnVPUmD.png",
-      "bio": "\u0643\u0648\u062a\u0634 \u0636\u062d\u0649 \u0636\u0631\u063a\u0627\u0645 \u062e\u0628\u0631\u0629 6 \u0633\u0646\u0648\u0627\u062a \u0641\u064a: \u062a\u0635\u0645\u064a\u0645 \u0628\u0631\u0627\u0645\u062c \u062a\u062f\u0631\u064a\u0628\u064a\u0629 \u0645\u0646\u0632\u0644\u064a\u0629 \u062a\u0646\u0627\u0633\u0628 \u062c\u0645\u064a\u0639 \u0645\u0633\u062a\u0648\u064a\u0627\u062a \u0627\u0644\u0644\u064a\u0627\u0642\u0629 \u0627\u0644\u0628\u062f\u0646\u064a\u0629, \u062a\u0642\u062f\u064a\u0645 \u0646\u0635\u0627\u0626\u062d \u063a\u0630\u0627\u0626\u064a\u0629 \u0635\u062d\u064a\u0629 \u0644\u062a\u062d\u0633\u064a\u0646 \u0627\u0644\u0623\u062f\u0627\u0621, \u0645\u062a\u0627\u0628\u0639\u0629 \u062a\u0642\u062f\u0645\u0643 \u0648\u062a\u0642\u062f\u064a\u0645 \u0627\u0644\u062f\u0639\u0645 \u0648\u0627\u0644\u062a\u062d\u0641\u064a\u0632",
-      "rating": 4
+      "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IABbNNYXjtLCYzP65NNu77OIuYjupzGYEYpZM2+4J9qxdpZZ8dIAAAAAEAB9WQEA7M0PZwEAAQAAjg5n"
     },
-    "training_type": [
-      {
-        "id": "3",
-        "type": "Body weight",
-        "pivot": {
-          "plan_id": 80,
-          "training_type_id": 3
-        }
-      }
-    ],
-    "training_location": [
-      {
-        "id": "1",
-        "type": "home",
-        "pivot": {
-          "plan_id": 80,
-          "training_location_id": 1
-        }
+    {
+      "id": "292738",
+      "startAt": "2024-10-15 16:00:00",
+      "endAt": "2024-10-15 18:00:00",
+      "summary": "Available At",
+      "timeZoneStartAt": null,
+      "color": "blue",
+      "user": {
+        "id": "2039",
+        "name": "hana"
       },
-      {
-        "id": "2",
-        "type": "gym",
-        "pivot": {
-          "plan_id": 80,
-          "training_location_id": 2
-        }
-      }
-    ],
-    "current_activated_plan": false,
-    "image": null,
-    "training_level": [
-      {
-        "id": "1",
-        "type": "Beginner",
-        "pivot": {
-          "plan_id": 80,
-          "training_level_id": 1
-        }
+      "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IAB8cih\/AXnhhijpzimP2iNSuAWWC2rgeZqdJ8alvioMPpZZ8dIAAAAAEAAeAAAAA+MPZwEAAQAXow5n"
+    },
+    {
+      "id": "294367",
+      "startAt": "2024-10-16 08:00:00",
+      "endAt": "2024-10-16 09:00:00",
+      "summary": "Available At",
+      "timeZoneStartAt": null,
+      "color": "blue",
+      "user": {
+        "id": "384",
+        "name": "kholoud A"
       },
-      {
-        "id": "2",
-        "type": "Intermediate",
-        "pivot": {
-          "plan_id": 80,
-          "training_level_id": 2
-        }
+      "video_call_token": "006d3e3ad9bf2a846beb551b003979a2142IADds7mhCADvSSt5LFU71\/M3S7BCBJZnieQq6B2VrFPByJZZ8dIAAAAAEADrCAAABMQQZwEAAQAYhA9n"
+    },
+    {
+      "id": "265140",
+      "startAt": "2024-10-18 11:00:00",
+      "endAt": "2024-10-18 13:00:00",
+      "summary": "Available At",
+      "timeZoneStartAt": null,
+      "color": "blue",
+      "user": {
+        "id": "2039",
+        "name": "hana"
       },
-      {
-        "id": "3",
-        "type": "Advanced",
-        "pivot": {
-          "plan_id": 80,
-          "training_level_id": 3
-        }
-      }
-    ],
-    "is_bookmark": false,
-    "is_active": false
-  }
+      "video_call_token": null
+    },
+    {
+      "id": "225283",
+      "startAt": "2024-10-22 17:30:00",
+      "endAt": "2024-10-22 18:30:00",
+      "summary": "Available At",
+      "timeZoneStartAt": null,
+      "color": "blue",
+      "user": {
+        "id": "2039",
+        "name": "hana"
+      },
+      "video_call_token": null
+    }
+  ]
 }

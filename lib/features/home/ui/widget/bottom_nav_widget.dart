@@ -62,6 +62,13 @@ class _NavbarState extends State<Navbar> {
           height: 30.0.r,
           width: 30.0.r,
         ),
+        if(widget.isTrainer)
+        ImageMultiType(
+          url: Assets.imagesCalender,
+          color: Colors.white,
+          height: 30.0.r,
+          width: 30.0.r,
+        ),
         ImageMultiType(
           url: Assets.imagesMenu,
           color: Colors.white,

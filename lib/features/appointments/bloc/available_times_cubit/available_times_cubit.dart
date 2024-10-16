@@ -96,12 +96,12 @@ class AvailableTimesCubit extends Cubit<AvailableTimesInitial> {
     );
 
     if (response.statusCode.success) {
-      final model = AvailableTimesResponseList.fromJson(response.jsonBodyPure).data
-        ..removeWhere(
-          (e) {
-            return e.startTime.isBefore(response.serverTime);
-          },
-        );
+      final model = AvailableTimesResponseList.fromJson(response.jsonBodyPure).data;
+        // ..removeWhere(
+        //   (e) {
+        //     return e.startTime.isBefore(response.serverTime);
+        //   },
+        // );
       return Pair(model, null);
     } else {
       return response.getPairError;

@@ -27,13 +27,11 @@ import '../features/appointments/bloc/available_times_cubit/available_times_cubi
 import '../features/appointments/bloc/booked_appointments_cubit/booked_appointments_cubit.dart';
 import '../features/appointments/bloc/bundles_cubit/bundles_cubit.dart';
 import '../features/appointments/bloc/create_bundle_cubit/create_bundle_cubit.dart';
-import '../features/appointments/bloc/create_session_cubit/create_session_cubit.dart';
 import '../features/appointments/bloc/remove_time_cubit/remove_time_cubit.dart';
 import '../features/appointments/data/request/available_times_request.dart';
 import '../features/appointments/data/request/bundles_request.dart';
 import '../features/appointments/data/response/bundles_response.dart';
 import '../features/appointments/ui/pages/appointments_page.dart';
-import '../features/appointments/ui/pages/book_session_page.dart';
 import '../features/appointments/ui/pages/create_bundle_page.dart';
 import '../features/appointments/ui/pages/rating_page.dart';
 import '../features/auth/bloc/apply_cubit/apply_cubit.dart';
@@ -66,6 +64,7 @@ import '../features/plans/bloc/plans_cubit/plans_cubit.dart';
 import '../features/plans/bloc/subscribe_plan_cubit/subscribe_plan_cubit.dart';
 import '../features/plans/data/response/plan_workout_response.dart';
 import '../features/plans/ui/pages/plans_page.dart';
+import '../features/profile/bloc/profile_cubit/profile_cubit.dart';
 import '../features/profile/ui/pages/pdf_viewer_page.dart';
 import '../features/profile/ui/pages/update_profile_page.dart';
 import '../features/trainer/bloc/trainer_cubit/trainer_cubit.dart';
@@ -363,13 +362,12 @@ void startConfirmCodeAccount() {
 }
 
 void startHome(bool fromLogin) {
-  if(fromLogin){
+  if (fromLogin) {
     ctx?.read<TrainersCubit>().getTrainers(newData: true);
     ctx?.read<ActivePlansCubit>().getActivePlans(newData: true);
     ctx?.read<PlansCubit>().getPlans(newData: true);
     ctx?.read<FreePlansCubit>().getTrendingPlans(newData: true);
-
-
+    ctx?.read<ProfileCubit>().getProfile(newData: true);
   }
   ChatServiceCore.initFirebaseChat();
 
@@ -596,7 +594,7 @@ Future<bool> startRating(Appointment appointment) async {
 Future<void> startVideoCall(Appointment appointment) async {
   final Widget page = Video1(appointment: appointment);
   Get.to(page)?.then((value) {
-    if (value == true) {
+    if (value == true && !AppProvider.isTrainer) {
       startRating(appointment);
     }
   });
@@ -609,7 +607,6 @@ void startPdf(String url, String name) {
   );
   Get.to(page);
 }
-
 
 void startTrainerPage(BuildContext context, int id) {
   Navigator.push(

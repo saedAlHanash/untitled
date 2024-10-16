@@ -19,7 +19,6 @@ class SubscriptionScreen extends GetView<SubscriptionController> {
   Widget build(BuildContext context) {
     return Obx(
       () => Scaffold(
-
         body: Container(
           height: 1.0.sh,
           width: 1.0.sw,
@@ -40,8 +39,7 @@ class SubscriptionScreen extends GetView<SubscriptionController> {
               : SingleChildScrollView(
                   child: Container(
                     padding: EdgeInsets.symmetric(
-                        horizontal: Get.width / 18.75,
-                        vertical: Get.height / 20.3),
+                        horizontal: Get.width / 18.75, vertical: Get.height / 20.3),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
@@ -52,22 +50,19 @@ class SubscriptionScreen extends GetView<SubscriptionController> {
                             : WithoutSubscribed(
                                 isSubscirbe: controller.isSubscribe,
                               ),
-
                         GridView.builder(
                           physics: const NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
-                          itemCount:
-                              controller.subscriptions.subscriptions.length,
-                          gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
+                          itemCount: controller.subscriptions.subscriptions.length,
+                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
                             crossAxisSpacing: Get.width / 19.7,
                             childAspectRatio: 2 / 2.2,
                             mainAxisSpacing: Get.height / 40.6,
                           ),
                           itemBuilder: (_, i) {
-                            if (controller.subscriptions.subscriptions[i]
-                                .currentSubscription) {
+                            if (controller
+                                .subscriptions.subscriptions[i].currentSubscription) {
                               return CurrentPaymentCardWidget(
                                 plan: controller.subscriptions.subscriptions[i],
                               );

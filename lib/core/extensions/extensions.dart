@@ -185,14 +185,15 @@ extension ResponseHelper on http.Response {
   }
 
   DateTime get serverTime {
-    final dateString = headers['date'] ?? '';
+    final dateString = (headers['date'] ?? '');
 
     // Define the format that matches the date string
     final format = DateFormat("EEE, dd MMM yyyy HH:mm:ss 'GMT'", 'en_US');
 
     // Parse the string to DateTime
     final parsedDate = format.parseUtc(dateString);
-    return parsedDate;
+
+    return DateTime.parse(parsedDate.toIso8601String().replaceAll(RegExp(r'[Zz]'), ''));
   }
 
   get getPairError {
@@ -248,7 +249,8 @@ extension DateUtcHelper on DateTime {
 
   String get formatDateTimeVertical => '$formatDate\n$formatTime';
 
-  DateTime addFromNow({int? year, int? month, int? day, int? hour, int? minute, int? second}) {
+  DateTime addFromNow(
+      {int? year, int? month, int? day, int? hour, int? minute, int? second}) {
     return DateTime(
       this.year + (year ?? 0),
       this.month + (month ?? 0),
@@ -362,9 +364,7 @@ extension EnumsH on List {
 }
 
 extension AppointmentH on Appointment {
-
   bool get isNow {
-
     final dateTimeNow = APIService().serverTime;
 
     final b = dateTimeNow.isAfter(startTime);
@@ -377,6 +377,7 @@ extension AppointmentH on Appointment {
   bool get isExpired {
     final dateTimeNow = APIService().serverTime;
     final a = dateTimeNow.isAfter(endTime);
+    loggerObject.f('$dateTimeNow\n$endTime\n $a');
     return a;
   }
 }

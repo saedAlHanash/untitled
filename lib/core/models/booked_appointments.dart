@@ -58,9 +58,9 @@ class Appointment {
     return Appointment(
       id: json["id"].toString().tryParseOrZeroInt,
       startTime:
-          (DateTime.tryParse(json["startAt"] ?? json["start_time"] ?? "")?.fixTimeZone ??
+          (DateTime.tryParse(json["startAt"] ?? json["start_time"] ?? "") ??
               DateTime(2030)),
-      endTime: (DateTime.tryParse(json["endAt"] ?? json["end_time"] ?? "")?.fixTimeZone ??
+      endTime: (DateTime.tryParse(json["endAt"] ?? json["end_time"] ?? "") ??
           DateTime(2030)),
       videoCallToken: json["video_call_token"] ?? "",
       rate: json["rate"] == null ? null : Rate.fromJson(json["rate"]),

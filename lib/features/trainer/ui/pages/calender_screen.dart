@@ -1,5 +1,6 @@
 import 'package:drawable_text/drawable_text.dart';
 import 'package:fitness_storm/core/extensions/extensions.dart';
+import 'package:fitness_storm/core/widgets/app_bar/app_bar_widget.dart';
 import 'package:fitness_storm/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,12 +21,27 @@ class CalenderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => startAvailableTimePage(),
-        shape: const CircleBorder(),
-        tooltip: S.of(context).settings,
-        child: const ImageMultiType(
-          url: Icons.settings,
+      appBar: AppBarWidget(
+        titleText: S.of(context).privateSessions,
+        leading: IconButton(
+          onPressed: () {
+            context.read<AvailableTimesCubit>().getTrainerAvailableTimes();
+          },
+          icon: ImageMultiType(
+            url: Icons.refresh,
+            color: Colors.white,
+          ),
+        ),
+      ),
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(bottom: 60.0).h,
+        child: FloatingActionButton(
+          onPressed: () => startAvailableTimePage(),
+          shape: const CircleBorder(),
+          tooltip: S.of(context).settings,
+          child: const ImageMultiType(
+            url: Icons.settings,
+          ),
         ),
       ),
       body: RefreshIndicator(
@@ -95,7 +111,7 @@ class _ItemAvailableTimeState extends State<_ItemAvailableTime> {
                           3.0.verticalSpace,
                           DrawableText(
                             matchParent: true,
-                            text: e.startTimeFixed.formatDateTime,
+                            text: e.startTimeFixed.formatTime,
                             drawablePadding: 10.0.w,
                             drawableStart: ImageMultiType(
                               url: Icons.timer_outlined,
@@ -106,7 +122,7 @@ class _ItemAvailableTimeState extends State<_ItemAvailableTime> {
                           3.0.verticalSpace,
                           DrawableText(
                             matchParent: true,
-                            text: e.endTimeFixed.formatDateTime,
+                            text: e.endTimeFixed.formatTime,
                             drawablePadding: 10.0.w,
                             drawableStart: ImageMultiType(
                               url: Icons.timer_off_outlined,
@@ -133,8 +149,7 @@ class _ItemAvailableTimeState extends State<_ItemAvailableTime> {
                           padding: const EdgeInsets.all(10.0).r,
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
-                              color:
-                                  AppColorManager.mainColor.withOpacity(0.15),
+                              color: AppColorManager.mainColor.withOpacity(0.15),
                               borderRadius: BorderRadius.circular(10.0.r)),
                           height: 60.0.r,
                           width: 60.0.r,
@@ -149,8 +164,7 @@ class _ItemAvailableTimeState extends State<_ItemAvailableTime> {
                                 height: 5.0.r,
                                 width: 5.0.r,
                                 decoration: const BoxDecoration(
-                                    color: Colors.green,
-                                    shape: BoxShape.circle),
+                                    color: Colors.green, shape: BoxShape.circle),
                               )
                             ],
                           ),

@@ -1,3 +1,6 @@
+import 'package:dart_jsonwebtoken/dart_jsonwebtoken.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:fitness_storm/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,8 +15,7 @@ import '../../../../features/fire_chat/rooms_bloc/rooms_cubit.dart';
 import '../../../../features/notifications/bloc/notifications_cubit/notifications_cubit.dart';
 import '../../../../generated/assets.dart';
 
-
-PreferredSizeWidget  get appBarHome{
+PreferredSizeWidget get appBarHome {
   return AppBarWidget(
     leading: Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10).r,
@@ -28,34 +30,34 @@ PreferredSizeWidget  get appBarHome{
     actions: [
       if (!AppProvider.isGuest)
         IconButton(
-            onPressed: () => Get.toNamed(AppRoutes.chatScreen),
-            icon: BlocBuilder<RoomsCubit, RoomsInitial>(
-              builder: (context, state) {
-                return Stack(
-                  children: [
-                    ImageMultiType(
-                      url: Assets.imagesChatSVG,
-                      color: Get.theme.scaffoldBackgroundColor,
+          onPressed: () => Get.toNamed(AppRoutes.chatScreen),
+          icon: BlocBuilder<RoomsCubit, RoomsInitial>(
+            builder: (context, state) {
+              return Stack(
+                children: [
+                  ImageMultiType(
+                    url: Assets.imagesChatSVG,
+                    color: Get.theme.scaffoldBackgroundColor,
+                  ),
+                  if (state.notRead)
+                    Container(
+                      height: 7.0,
+                      width: 7.0,
+                      decoration: const BoxDecoration(
+                        color: Colors.red,
+                        shape: BoxShape.circle,
+                      ),
                     ),
-                    if (state.notRead)
-                      Container(
-                        height: 7.0,
-                        width: 7.0,
-                        decoration: const BoxDecoration(
-                          color: Colors.red,
-                          shape: BoxShape.circle,
-                        ),
-                      )
-                  ],
-                );
-              },
-            )),
+                ],
+              );
+            },
+          ),
+        ),
       BlocBuilder<NotificationsCubit, NotificationsInitial>(
         builder: (context, state) {
           return Stack(
-            alignment: Get.locale?.languageCode == 'en'
-                ? Alignment.topRight
-                : Alignment.topLeft,
+            alignment:
+                Get.locale?.languageCode == 'en' ? Alignment.topRight : Alignment.topLeft,
             children: [
               IconButton(
                   onPressed: () {
@@ -67,27 +69,26 @@ PreferredSizeWidget  get appBarHome{
                   )),
               (state.result.numberOfResults - state.numOfRead) != 0
                   ? Container(
-                padding: const EdgeInsets.all(2),
-                decoration: BoxDecoration(
-                  color: Colors.red,
-                  borderRadius: BorderRadius.circular(6),
-                ),
-                constraints: const BoxConstraints(
-                  minWidth: 15,
-                  minHeight: 15,
-                ),
-                child: Text(
-                  (state.result.numberOfResults - state.numOfRead) > 9
-                      ? "+9"
-                      : (state.result.numberOfResults - state.numOfRead)
-                      .toString(),
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 8,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              )
+                      padding: const EdgeInsets.all(2),
+                      decoration: BoxDecoration(
+                        color: Colors.red,
+                        borderRadius: BorderRadius.circular(6),
+                      ),
+                      constraints: const BoxConstraints(
+                        minWidth: 15,
+                        minHeight: 15,
+                      ),
+                      child: Text(
+                        (state.result.numberOfResults - state.numOfRead) > 9
+                            ? "+9"
+                            : (state.result.numberOfResults - state.numOfRead).toString(),
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 8,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    )
                   : const SizedBox.shrink()
             ],
           );

@@ -1,3 +1,5 @@
+import 'package:fitness_storm/core/extensions/extensions.dart';
+
 class AvailableTimesRequest {
   DateTime? from;
   DateTime? to;
@@ -10,28 +12,11 @@ class AvailableTimesRequest {
   });
 
   Map<String, dynamic> toJson() {
-    final now = DateTime.now();
+    final now = DateTime.now()
+        .copyWith(hour: 0, minute: 0, second: 0, millisecond: 0, microsecond: 0);
     return {
-      'from': (from ?? now)
-          .toLocal()
-          .copyWith(
-            hour: 0,
-            minute: 0,
-            second: 0,
-            millisecond: 0,
-            microsecond: 0,
-          )
-          .toIso8601String(),
-      'to': (to ?? now.copyWith(year: now.year + 1))
-          .toLocal()
-          .copyWith(
-            hour: 0,
-            minute: 0,
-            second: 0,
-            millisecond: 0,
-            microsecond: 0,
-          )
-          .toIso8601String(),
+      'from': (to ?? now.addFromNow(day: -1)).toIso8601String(),
+      'to': (from ?? now.addFromNow(year: 1)).toIso8601String(),
       'is_booked': isBooked,
     };
   }

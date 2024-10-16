@@ -173,7 +173,7 @@ class APIService {
 
     // Parse the string to DateTime
     final parsedDate = format.parseUtc(dateString);
-    return parsedDate;
+    return DateTime.parse(parsedDate.toIso8601String().replaceAll(RegExp(r'[Zz]'), ''));
   }
 }
 

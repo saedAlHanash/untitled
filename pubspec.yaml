@@ -3,7 +3,7 @@ description: A new Flutter project.
 
 publish_to: 'none'
 
-version: 1.1.40+70
+version: 1.1.41+71
 
 environment:
   sdk: '>=3.3.1 <4.0.0'
@@ -40,7 +40,7 @@ dependencies:
   firebase_storage: ^12.3.3
   cloud_firestore: ^5.4.4
   #### end Firebase #########
-
+  dart_jsonwebtoken: ^2.14.1
   get: ^4.6.6
   logger: ^2.4.0
   pull_to_refresh: ^2.0.0
