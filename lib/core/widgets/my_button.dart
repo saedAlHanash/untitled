@@ -84,7 +84,7 @@ class MyButton extends StatelessWidget {
         ),
         onPressed: loading
             ? null
-            : !(enable ?? true)
+            : !(enable)
                 ? null
                 : onTap,
         child: child,

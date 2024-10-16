@@ -6,7 +6,6 @@ import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:fitness_storm/Data/Repositories/plan_repository.dart';
 import 'package:fitness_storm/core/app/app_provider.dart';
 import 'package:fitness_storm/core/util/firebase_analytics_service.dart';
 import 'package:fitness_storm/features/notifications/bloc/notifications_cubit/notifications_cubit.dart';
@@ -18,9 +17,7 @@ import 'package:get/get.dart';
 import '../core/api_manager/api_url.dart';
 import '../core/app/app_widget.dart';
 import '../core/injection/injection_container.dart';
-import '../core/strings/enum_manager.dart';
 import '../firebase_options.dart';
-import 'app_controller.dart';
 
 class DependencyInjection {
   static Future<void> init() async {
@@ -29,11 +26,6 @@ class DependencyInjection {
 
     await initDio();
 
-    Get.put(AppController(), permanent: true);
-
-    initRepositories();
-
-    await initGetStorage();
 
     await initFirebaseMessaging();
 
@@ -44,24 +36,7 @@ class DependencyInjection {
 String userBaseUrl = 'https://$baseUrl/mobile/user';
 String trainerBaseUrl = 'https://$baseUrl/mobile/trainer';
 
-initRepositories() {
-  Get.put(PlanRepository(), permanent: true);
-  // Get.put(GetRepository(), permanent: true);
-  // Get.put(VideoControllerRepository(), permanent: true);
-}
 
-Future<void> initGetStorage() async {
-  //log('init GetStore');
-  //log(storage.user);
-  //log("lang");
-  //log(storage.langCode);
-  AppController appController = Get.find<AppController>();
-  appController.theme = (ThemeColor.light).obs;
-  //log('======================================================');
-  //log(storage.notification);
-
-  return;
-}
 
 Future<void> initDio() async {
   //log('init Dio');

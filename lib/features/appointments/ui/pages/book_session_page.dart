@@ -10,7 +10,6 @@ import 'package:get/get.dart';
 import 'package:image_multi_type/circle_image_widget.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 
-import '../../../../Screen/Trainee Screens/Subscription/subscription_controller.dart';
 import '../../../../core/models/booked_appointments.dart';
 import '../../../../core/strings/app_color_manager.dart';
 import '../../../../core/util/my_style.dart';
@@ -35,10 +34,6 @@ class _BookPrivateSessionScreenState extends State<BookPrivateSessionScreen> {
       listenWhen: (p, c) => c.statuses.done,
       listener: (context, state) {
         if (state.result.isEmpty) return;
-
-        if (!Get.isRegistered<SubscriptionController>()) {
-          Get.lazyPut(() => SubscriptionController());
-        }
 
         Get.back();
         Navigator.push(
