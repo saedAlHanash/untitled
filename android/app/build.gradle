@@ -4,7 +4,6 @@ plugins {
     id 'com.google.gms.google-services'
     // END: FlutterFire Configuration
     id "kotlin-android"
-    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id "dev.flutter.flutter-gradle-plugin"
 }
 
@@ -34,37 +33,40 @@ if (flutterVersionName == null) {
 
 android {
     namespace "com.chi.fitnessStorm"
-    compileSdk 34
+    compileSdk flutter.compileSdkVersion
     ndkVersion "25.1.8937393"
 
     compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
 
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
-        coreLibraryDesugaringEnabled true
-    }
-    dependencies {
-        // For AGP 7.4+
-        coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.2")
-        // For AGP 7.3
-        // coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:1.2.3")
-        // For AGP 4.0 to 7.2
-        // coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:1.1.9")
-    }
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_17
+        jvmTarget = '17'
+    }
+    lintOptions {
+        disable 'InvalidPackage'
+    }
+
+//    java {
+//        toolchain {
+//            languageVersion = JavaLanguageVersion.of(17)
+//        }
+//    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
     }
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.chi.fitnessStorm"
         // You can update the following values to match your application needs.
-        // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = 23
-        targetSdk = flutter.targetSdkVersion
-        versionCode = flutter.versionCode
-        versionName = flutter.versionName
-        multiDexEnabled true
+        // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
+        minSdkVersion 23
+        targetSdkVersion flutter.targetSdkVersion
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
     }
 
     signingConfigs {
@@ -82,9 +84,12 @@ android {
             signingConfig signingConfigs.release
         }
     }
-}
+    buildToolsVersion '34.0.0 rc1'
 
+}
 
 flutter {
-    source = "../.."
+    source '../..'
 }
+
+dependencies {}
