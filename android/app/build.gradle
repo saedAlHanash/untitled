@@ -80,6 +80,9 @@ android {
         release {
 //            signingConfig = signingConfigs.debug
             signingConfig signingConfigs.release
+            // Enables code shrinking, obfuscation, and optimization for release builds.
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 }
