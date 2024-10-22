@@ -13,13 +13,13 @@ class VimeoCubit extends Cubit<VimeoInitial> {
   Future<void> initial({required String vimeoId}) async {
     // return;
     if (state.result == vimeoId || AppProvider.systemParams.isWebViewPlayer) {
+      // loggerObject.f('${state.result}  $vimeoId');
       return;
     }
 
     emit(state.copyWith(result: vimeoId, statuses: CubitStatuses.loading));
 
     if (state.controller != null) {
-      loggerObject.f('change');
       state.controller!
           .changeVideo(
         playerConfig: const PodPlayerConfig(

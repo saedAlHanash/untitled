@@ -9,7 +9,7 @@
         "price_after_discount": 509,
         "type": "year",
         "is_active": 1,
-        "count_of_subscribers": 93,
+        "count_of_subscribers": 94,
         "current_subscription": false,
         "discount_percentage": 0
       },
@@ -20,7 +20,7 @@
         "price_after_discount": 329,
         "type": "month",
         "is_active": 1,
-        "count_of_subscribers": 40,
+        "count_of_subscribers": 41,
         "current_subscription": false,
         "discount_percentage": 0
       },
@@ -31,7 +31,7 @@
         "price_after_discount": 199,
         "type": "month",
         "is_active": 1,
-        "count_of_subscribers": 33,
+        "count_of_subscribers": 34,
         "current_subscription": false,
         "discount_percentage": 0
       },
@@ -42,7 +42,7 @@
         "price_after_discount": 150,
         "type": "month",
         "is_active": 1,
-        "count_of_subscribers": 136,
+        "count_of_subscribers": 138,
         "current_subscription": false,
         "discount_percentage": 0
       }

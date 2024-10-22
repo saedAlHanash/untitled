@@ -24,7 +24,7 @@ class FreePlansCubit extends MCubit<FreePlansInitial> {
   int get timeInterval => 300;
 
   Future<void> getTrendingPlans({bool newData = false}) async {
-    if(AppProvider.isTrainer)return;
+    if (AppProvider.isTrainer) return;
     await getDataAbstract(
       fromJson: Plan.fromJson,
       state: state,
@@ -42,7 +42,7 @@ class FreePlansCubit extends MCubit<FreePlansInitial> {
     if (response.statusCode.success) {
       final list = Plans.fromJson(response.jsonBodyPure).data;
       if (list.isNotEmpty) {
-        AppSharedPreference.setCurrentPlanId(list.first.id.toString());
+        await AppSharedPreference.setCurrentPlanId(list.first.id.toString());
       }
       return Pair(list, null);
     } else {
