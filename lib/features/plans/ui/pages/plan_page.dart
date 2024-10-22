@@ -52,7 +52,7 @@ class _PlanPageState extends State<PlanPage> {
     return /*cubit.state.result.isActive ||
       AppSharedPreference.getCurrentPlanId == cubit.state.result.id.toString() ||*/
         AppProvider.isTrainer ||
-            context.read<ActivePlansCubit>().state.result.firstOrNull?.id ==
+            context.watch<ActivePlansCubit>().state.result.firstOrNull?.id ==
                 cubit.state.result.id;
   }
 
