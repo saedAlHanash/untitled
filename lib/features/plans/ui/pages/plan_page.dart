@@ -62,20 +62,21 @@ class _PlanPageState extends State<PlanPage> {
       listeners: [
         BlocListener<SubscribePlanCubit, SubscribePlanInitial>(
           listenWhen: (p, c) => c.statuses.done,
-          listener: (context, state) {
-            AppSharedPreference.setCurrentPlanId(state.result.id.toString());
-            ctx?.readOrNull<ActivePlansCubit>()?.getActivePlans(newData: true).then(
-              (value) {
-                setState(() {});
-              },
-            );
-            context.read<PlanCubit>().getPlan(newData: true);
+          listener: (context, state) async {
+            await AppSharedPreference.setCurrentPlanId(state.result.id.toString());
+            ctx?.read<PlanCubit>().getPlan(newData: true);
           },
         ),
         BlocListener<PlanCubit, PlanInitial>(
           listenWhen: (p, c) => c.statuses.done,
           listener: (context, state) {
             context.read<VimeoCubit>().initial(vimeoId: state.result.introductionVideo);
+          },
+        ),
+        BlocListener<ActivePlansCubit, ActivePlansInitial>(
+          listenWhen: (p, c) => c.statuses.done,
+          listener: (context, state) {
+            setState(() {});
           },
         ),
       ],
@@ -187,7 +188,7 @@ class _PlanPageState extends State<PlanPage> {
                         itemBuilder: (_, i) {
                           final item = state.result[i];
                           return GestureDetector(
-                            onTap: () {
+                            onTap: () async {
                               if (item.isRestDay) return;
 
                               if (!isActive) {
@@ -203,9 +204,10 @@ class _PlanPageState extends State<PlanPage> {
                                 return;
                               }
 
+                              // context.read<VimeoCubit>().state.controller?.dispose();
+                              await context.read<VimeoCubit>().close();
                               setState(() {
                                 showIntro = false;
-                                context.read<VimeoCubit>().state.controller?.dispose();
                               });
 
                               cubit.startTraining(state.result[i], i);

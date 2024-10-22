@@ -214,7 +214,7 @@ enum SubscriptionType {
 
   static SubscriptionType byName(String name) {
     if (name == 'day') return SubscriptionType.day;
-    if (name == 'month') return SubscriptionType.day;
+    if (name == 'month') return SubscriptionType.month;
     return SubscriptionType.year;
   }
 }
