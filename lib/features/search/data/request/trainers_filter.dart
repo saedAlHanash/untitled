@@ -20,7 +20,6 @@ class TrainerFilter {
   }
 
   String get getKey {
-
     return jsonEncode(this).getKey;
   }
 
@@ -33,4 +32,9 @@ class TrainerFilter {
             ? null
             : [trainingType?.nameRequest].map((x) => x).toList(),
       };
+
+  @override
+  String toString() {
+    return '$name$fitnessLevel$trainingType';
+  }
 }
