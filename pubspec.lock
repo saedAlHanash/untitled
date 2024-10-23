@@ -1392,9 +1392,10 @@ packages:
   pod_player:
     dependency: "direct main"
     description:
-      path: pod_player
-      relative: true
-    source: path
+      name: pod_player
+      sha256: "38564f2e0d9b06fa9e4ad5023be2f6fa4cd9f95f70ace2f517a6d899b166a502"
+      url: "https://pub.dev"
+    source: hosted
     version: "0.2.2"
   pointycastle:
     dependency: transitive

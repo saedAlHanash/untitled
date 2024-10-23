@@ -80,7 +80,7 @@ class SubscribePlanCubit extends Cubit<SubscribePlanInitial> {
     if (response.statusCode.success) {
       ctx?.readOrNull<ActivePlansCubit>()?.getActivePlans(newData: true);
 
-      await AppSharedPreference.setCurrentPlanId(state.request);
+      await AppSharedPreference.setCurrentPlanId(state.request.toString());
 
       return Pair(Plan.fromJson(response.jsonBody), null);
     } else {
