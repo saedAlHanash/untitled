@@ -41,84 +41,7 @@ class _CouponBundleWidgetState extends State<CouponBundleWidget> {
         decoration: BoxDecoration(gradient: MyStyle.gradient),
         child: Scaffold(
           backgroundColor: Colors.transparent,
-          bottomNavigationBar: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Transform.translate(
-                offset: const Offset(0, -20.0),
-                child: BlocBuilder<CouponCubit, CouponInitial>(
-                  builder: (context, state) {
-                    return Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 20.0),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(20.0),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 0.1,
-                            blurRadius: 8,
-                            offset: const Offset(0, 10), // changes position of shadow
-                          ),
-                        ],
-                      ),
-                      padding: const EdgeInsets.all(20.0),
-                      child: Column(
-                        children: [
-                          if (state.result.percentage != 0)
-                            DrawableText(
-                              text: 'voucher'.tr,
-                              matchParent: true,
-                              fontFamily: FontManager.bold.name,
-                              drawableAlin: DrawableAlin.between,
-                              padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                              drawableEnd: DrawableText(
-                                text: '${state.result.percentage}%',
-                              ),
-                            ),
-                          DrawableText(
-                            text: 'sup_total'.tr,
-                            matchParent: true,
-                            fontFamily: FontManager.bold.name,
-                            drawableAlin: DrawableAlin.between,
-                            padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                            drawableEnd: DrawableText(
-                              text: (widget.bundle.price.formatPrice),
-                            ),
-                          ),
-                          if (state.result.percentage != 0) const Divider(),
-                          if (state.result.percentage != 0)
-                            DrawableText(
-                              text: 'net_total'.tr,
-                              matchParent: true,
-                              fontFamily: FontManager.bold.name,
-                              drawableAlin: DrawableAlin.between,
-                              color: Get.theme.primaryColor,
-                              padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                              drawableEnd: DrawableText(
-                                fontFamily: FontManager.bold.name,
-                                text: (widget.bundle.price -
-                                        ((widget.bundle.price * state.result.percentage) /
-                                            100))
-                                    .toString(),
-                                color: Get.theme.primaryColor,
-                              ),
-                            ),
-                        ],
-                      ),
-                    );
-                  },
-                ),
-              ),
-              CustomButton(
-                onTapFunction: () => Navigator.pop(context, request),
-                textColor: Get.theme.colorScheme.primary,
-                buttonColor: Colors.white,
-                fontSize: 16,
-                text: 'continue'.tr,
-              )
-            ],
-          ),
+          bottomNavigationBar: _FinalCard(request: widget.request, bundle: widget.bundle),
           body: Container(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
@@ -156,7 +79,7 @@ class _CouponBundleWidgetState extends State<CouponBundleWidget> {
                             children: [
                               Expanded(
                                 child: MyTextFormWhiteWidget(
-                                  label: 'coupon'.tr,
+                                  label: S.of(context).coupon,
                                   color: (state.statuses == CubitStatuses.done &&
                                           state.result.percentage == 0)
                                       ? Colors.red
@@ -237,6 +160,94 @@ class _ItemCard extends StatelessWidget {
           fontWeight: FontWeight.bold,
         ),
       ),
+    );
+  }
+}
+
+class _FinalCard extends StatelessWidget {
+  const _FinalCard({super.key, required this.bundle, required this.request});
+
+  final Bundle bundle;
+  final CreateBundleRequest request;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Transform.translate(
+          offset: const Offset(0, -20.0),
+          child: BlocBuilder<CouponCubit, CouponInitial>(
+            builder: (context, state) {
+              return Container(
+                margin: const EdgeInsets.symmetric(horizontal: 20.0),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 0.1,
+                      blurRadius: 8,
+                      offset: const Offset(0, 10), // changes position of shadow
+                    ),
+                  ],
+                ),
+                padding: const EdgeInsets.all(20.0),
+                child: Column(
+                  children: [
+                    if (state.result.percentage != 0)
+                      DrawableText(
+                        text: 'voucher'.tr,
+                        matchParent: true,
+                        fontFamily: FontManager.bold.name,
+                        drawableAlin: DrawableAlin.between,
+                        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                        drawableEnd: DrawableText(
+                          text: '${state.result.percentage}%',
+                        ),
+                      ),
+                    DrawableText(
+                      text: 'sup_total'.tr,
+                      matchParent: true,
+                      fontFamily: FontManager.bold.name,
+                      drawableAlin: DrawableAlin.between,
+                      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                      drawableEnd: DrawableText(
+                        text: (bundle.price.formatPrice),
+                      ),
+                    ),
+                    if (state.result.percentage != 0) const Divider(),
+                    if (state.result.percentage != 0)
+                      DrawableText(
+                        text: 'net_total'.tr,
+                        matchParent: true,
+                        fontFamily: FontManager.bold.name,
+                        drawableAlin: DrawableAlin.between,
+                        color: Get.theme.primaryColor,
+                        padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                        drawableEnd: DrawableText(
+                          fontFamily: FontManager.bold.name,
+                          text: (bundle.price -
+                                  ((bundle.price * state.result.percentage) / 100))
+                              .toString(),
+                          color: Get.theme.primaryColor,
+                        ),
+                      ),
+                  ],
+                ),
+              );
+            },
+          ),
+        ),
+        CustomButton(
+          onTapFunction: () => Navigator.pop(context, request),
+          textColor: Get.theme.colorScheme.primary,
+          buttonColor: Colors.white,
+          fontSize: 16,
+          text: 'continue'.tr,
+        )
+      ],
     );
   }
 }

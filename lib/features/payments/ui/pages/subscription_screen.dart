@@ -8,7 +8,9 @@ import 'package:get/get.dart';
 
 import '../../../../core/app/app_provider.dart';
 import '../../../../core/app/app_widget.dart';
+import '../../../../core/injection/injection_container.dart';
 import '../../../../custome_web_page_view.dart';
+import '../../../coupon/coupon_cubit/coupon_cubit.dart';
 import '../../../coupon/data/request/pay_request.dart';
 import '../../../coupon/ui/coupon_widget.dart';
 import '../../bloc/cancel_subscription_cubit/cancel_subscription_cubit.dart';
@@ -29,23 +31,6 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
   Widget build(BuildContext context) {
     return MultiBlocListener(
       listeners: [
-        BlocListener<CreateSubscriptionCubit, CreateSubscriptionInitial>(
-          listenWhen: (p, c) => c.done,
-          listener: (context, state) {
-            if (state.result.isEmpty) return;
-            {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => MyCustomWebPage(urlWebPage: state.result),
-                ),
-              ).then((value) async {
-                ctx!.read<SubscriptionsCubit>().getSubscriptions(newData: true);
-              });
-              // kholoud.elsayed@hotmail.com
-            }
-          },
-        ),
         BlocListener<CancelSubscriptionCubit, CancelSubscriptionInitial>(
           listenWhen: (p, c) => c.done,
           listener: (context, state) {
@@ -112,26 +97,26 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
       return;
     }
 
-    final result = await Navigator.push(
+    Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) {
-          return CouponWidget(
-            subscriptionId: item.id,
-            total: item.price.toString(),
+          return MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => sl<CouponCubit>(),
+              ),
+              BlocProvider(
+                create: (context) => sl<CreateSubscriptionCubit>(),
+              ),
+            ],
+            child: CouponWidget(
+              subscriptionId: item.id,
+              total: item.price.toString(),
+            ),
           );
         },
       ),
     );
-
-    if (result == null) return;
-
-    var request = result as CreateSubscriptionRequest;
-
-    request.subscriptionId = item.id;
-
-    if (mounted) {
-      context.read<CreateSubscriptionCubit>().createSubscription(request: request);
-    }
   }
 }

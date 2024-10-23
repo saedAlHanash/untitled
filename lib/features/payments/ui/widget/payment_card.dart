@@ -54,17 +54,11 @@ class _PaymentCardWidgetState extends State<PaymentCardWidget> {
               text:
                   '${S.of(context).renewalPrice}:${widget.subscription.price} ${S.of(context).sar}',
             ),
-          BlocBuilder<CreateSubscriptionCubit, CreateSubscriptionInitial>(
-            buildWhen: (p, c) => c.mRequest.subscriptionId == widget.subscription.id,
-            builder: (context, state) {
-              return MyButton(
-                loading: state.loading,
-                color: AppColorManager.secondColor,
-                radios: 0,
-                onTap: widget.onTapFunction,
-                text: S.of(context).subscribe,
-              );
-            },
+          MyButton(
+            color: AppColorManager.secondColor,
+            radios: 0,
+            onTap: widget.onTapFunction,
+            text: S.of(context).subscribe,
           ),
         ],
       ),

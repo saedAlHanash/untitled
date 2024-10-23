@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:fitness_storm/core/api_manager/api_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:get/get.dart';
@@ -21,7 +22,7 @@ class _MyCustomWebPageState extends State<MyCustomWebPage> {
   @override
   void initState() {
     super.initState();
-
+    loggerObject.w(widget.urlWebPage);
     controller = Completer<WebViewController>();
   }
 
@@ -53,8 +54,7 @@ class _MyCustomWebPageState extends State<MyCustomWebPage> {
           }
         },
         onReceivedServerTrustAuthRequest: (controller, challenge) async {
-          return ServerTrustAuthResponse(
-              action: ServerTrustAuthResponseAction.PROCEED);
+          return ServerTrustAuthResponse(action: ServerTrustAuthResponseAction.PROCEED);
         },
       ),
     );

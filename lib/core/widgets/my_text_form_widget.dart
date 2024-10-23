@@ -615,6 +615,7 @@ class MyTextFormWhiteWidget extends StatelessWidget {
     this.labelColor,
     this.initialValue,
     this.textDirection,
+    this.validator,
   });
 
   final bool? enable;
@@ -633,6 +634,7 @@ class MyTextFormWhiteWidget extends StatelessWidget {
   final EdgeInsets? innerPadding;
   final String? initialValue;
   final TextDirection? textDirection;
+  final String? Function(String?)? validator;
 
   @override
   Widget build(BuildContext context) {
@@ -662,15 +664,17 @@ class MyTextFormWhiteWidget extends StatelessWidget {
     }
 
     final border = OutlineInputBorder(
-        borderSide: BorderSide(
-          color: color ?? Colors.white,
-        ),
-        borderRadius: BorderRadius.circular(10.0));
+      borderSide: BorderSide(
+        color: color ?? Colors.white,
+      ),
+      borderRadius: BorderRadius.circular(10.0),
+    );
 
     final inputDecoration = InputDecoration(
       contentPadding: padding,
-      errorBorder: InputBorder.none,
+      // errorBorder: InputBorder.none,
       border: border,
+      error: validator == null ? 0.0.verticalSpace : null,
       focusedErrorBorder: border,
       focusedBorder: border,
       enabledBorder: border,
@@ -703,6 +707,7 @@ class MyTextFormWhiteWidget extends StatelessWidget {
           ),
           5.0.verticalSpace,
           TextFormField(
+            validator: validator,
             decoration: inputDecoration,
             maxLines: maxLines,
             initialValue: initialValue,
@@ -891,7 +896,6 @@ class _MyTextFormOutLineWidget1State extends State<MyTextFormOutLineWidget1> {
           if (widget.titleLabel != null)
             DrawableText(
               text: (widget.titleLabel ?? '').capitalizeFirst ?? '',
-
               fontWeight: FontWeight.bold,
               color: widget.lableColor,
               matchParent: true,

@@ -1,4 +1,3 @@
-
 import 'package:fitness_storm/Screen/Trainer%20Screens/Search%20Result/search_result_bindings.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Search%20Result/search_result_screen.dart';
 import 'package:fitness_storm/Screen/Trainer%20Screens/Trainer%20Wallet/trainer_wallet_binding.dart';
@@ -106,22 +105,19 @@ class AppPages {
       //     },
       //     binding: FilterPageBinding()),
       GetPage(
-          name: AppRoutes.subscriptionScreen,
-          page: () {
-            sl<AnalyticService>().screenView(name: 'subscription');
-            return MultiBlocProvider(
-              providers: [
-                BlocProvider(
-                  create: (context) => sl<CreateSubscriptionCubit>(),
-                ),
-                BlocProvider(
-                  create: (context) => sl<CancelSubscriptionCubit>(),
-                ),
-              ],
-              child: SubscriptionScreen(),
-            );
-          },
-          ),
+        name: AppRoutes.subscriptionScreen,
+        page: () {
+          sl<AnalyticService>().screenView(name: 'subscription');
+          return MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => sl<CancelSubscriptionCubit>(),
+              ),
+            ],
+            child: SubscriptionScreen(),
+          );
+        },
+      ),
       // GetPage(
       //     name: AppRoutes.searchResultSceen,
       //     page: () {
@@ -166,7 +162,6 @@ class AppPages {
           return const ProfileTrainerPage();
         },
       ),
-
 
       GetPage(
           name: AppRoutes.trainerSearchResultSceen,
